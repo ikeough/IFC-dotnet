@@ -1,10 +1,9 @@
 # IFC-dotnet
 
-This is the [Industry Foundation Classes](http://www.buildingsmart-tech.org/specifications/ifc-overview/ifc-overview-summary) (IFC) library for dotnet.
+This is the [Industry Foundation Classes](http://www.buildingsmart-tech.org/specifications/ifc-overview/ifc-overview-summary) (IFC) library for .NET Core.
 
-# THIS PROJECT WILL BE MOVED TO A SEPARATE REPOSITORY SHORTLY.
-
-# Design Considerations:
+# Design Considerations
+Most of the code in this repository is generated automatically using [IFC-gen](https://github.com/ikeough/IFC-gen/blob/master/README.md). The templates for code generation and certain base classes have been designed to generate an idiomatic C# library.
 
 - All EXPRESS `TYPE` have a corresponding class derived from `IfcType`, which is a wrapper class whose `Value` property holds the actual value.
 - All EXPRESS `ENUM` have a corresponding enum.
