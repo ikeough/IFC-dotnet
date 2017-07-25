@@ -13,5 +13,15 @@ namespace IFC4
 		{
 			Value = value;
 		}
+
+		public override string ToString()
+		{
+			var settings = new JsonSerializerSettings()
+			{
+				Formatting = Formatting.Indented,
+				TypeNameHandling = TypeNameHandling.Objects
+			};
+			return JsonConvert.SerializeObject(this,settings);
+		}
 	}
 }

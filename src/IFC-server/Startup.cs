@@ -1,6 +1,4 @@
-﻿using IFC4;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,26 +11,33 @@ namespace IFC_server
 {
 	public class Startup
 	{
-		public Startup(IConfiguration configuration)
-		{
-			Configuration = configuration;
-		}
-
 		public IConfiguration Configuration { get; }
+
+		public Startup(IHostingEnvironment env)
+		{
+			// Set up configuration sources.
+			var builder = new ConfigurationBuilder()
+				.SetBasePath(env.ContentRootPath)
+				.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+
+        	Configuration = builder.Build();
+		}
 
 		// This method gets called by the runtime. Use this method to add services to the container.
 		public void ConfigureServices(IServiceCollection services)
 		{
+			// Adds services required for using options.
+        	services.AddOptions();
+
+        	// Register the IConfiguration instance which DbOptions binds against.
+        	services.Configure<DbOptions>(Configuration.GetSection("Database"));
+
 			services.AddMvc();
-			services.AddDbContext<IfcDbContext>(opt => opt.UseInMemoryDatabase("IFC"));
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
 		public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 		{
-			var context = app.ApplicationServices.GetService<IfcDbContext>();
-			AddTestData(context);
-
 			if (env.IsDevelopment())
 			{
 				app.UseDeveloperExceptionPage();
@@ -50,17 +55,6 @@ namespace IFC_server
 					name: "default",
 					template: "{controller=Home}/{action=Index}/{id?}");
 			});
-		}
-
-		private static void AddTestData(IfcDbContext context)
-		{
-			var testProject = new IfcProject();
-			testProject.Name = new IfcLabel("Test Project");
-			testProject.Description = new IfcText("A project to test IFC-dotnet-server.");
-
-			context.Projects.Add(testProject);
-
-			context.SaveChanges();
 		}
 	}
 }
