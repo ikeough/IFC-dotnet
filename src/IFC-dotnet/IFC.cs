@@ -3114,6 +3114,7 @@ namespace IFC4
 					)
 		{
 			OuterBoundary = outerBoundary;
+			InnerBoundaries = new List<IfcCurve>();
 
 		}
 	}
@@ -3178,6 +3179,7 @@ namespace IFC4
 				)
 		{
 			HasExternalReference = hasExternalReference;
+			Components = new List<IfcAppliedValue>();
 
 		}
 	}
@@ -4728,6 +4730,7 @@ namespace IFC4
 		{
 			Name = name;
 			HasReferences = hasReferences;
+			ReferenceTokens = new List<IfcIdentifier>();
 
 		}
 	}
@@ -4982,6 +4985,7 @@ namespace IFC4
 					,partOfPsetTemplate
 					)
 		{
+			HasPropertyTemplates = new List<IfcPropertyTemplate>();
 
 		}
 	}
@@ -5432,6 +5436,7 @@ namespace IFC4
 
 		public IfcConstructionResource() : base()
 		{
+			BaseCosts = new List<IfcAppliedValue>();
 
 		}
 	}
@@ -5448,6 +5453,7 @@ namespace IFC4
 
 		public IfcConstructionResourceType() : base()
 		{
+			BaseCosts = new List<IfcAppliedValue>();
 
 		}
 	}
@@ -5474,6 +5480,7 @@ namespace IFC4
 
 		public IfcContext() : base()
 		{
+			RepresentationContexts = new List<IfcRepresentationContext>();
 
 		}
 	}
@@ -5718,6 +5725,8 @@ namespace IFC4
 
 		public IfcCostItem() : base()
 		{
+			CostValues = new List<IfcCostValue>();
+			CostQuantities = new List<IfcPhysicalQuantity>();
 
 		}
 	}
@@ -6496,6 +6505,7 @@ namespace IFC4
 			HasDocumentReferences = hasDocumentReferences;
 			IsPointedTo = isPointedTo;
 			IsPointer = isPointer;
+			Editors = new List<IfcActorSelect>();
 
 		}
 	}
@@ -8568,6 +8578,7 @@ namespace IFC4
 		{
 			UAxes = uAxes;
 			VAxes = vAxes;
+			WAxes = new List<IfcGridAxis>();
 
 		}
 	}
@@ -8858,6 +8869,7 @@ namespace IFC4
 					,maps
 					)
 		{
+			TexCoordIndex = new List<List<System.Int32>>();
 
 		}
 	}
@@ -8912,6 +8924,7 @@ namespace IFC4
 
 		public IfcInventory() : base()
 		{
+			ResponsiblePersons = new List<IfcPerson>();
 
 		}
 	}
@@ -9668,6 +9681,7 @@ namespace IFC4
 					,hasProperties
 					)
 		{
+			MaterialConstituents = new List<IfcMaterialConstituent>();
 
 		}
 	}
@@ -10370,6 +10384,7 @@ namespace IFC4
 					)
 		{
 			ObjectiveQualifier = objectiveQualifier;
+			BenchmarkValues = new List<IfcConstraint>();
 
 		}
 	}
@@ -10528,6 +10543,8 @@ namespace IFC4
 			IsRelatedBy = isRelatedBy;
 			Relates = relates;
 			Engages = engages;
+			Roles = new List<IfcActorRole>();
+			Addresses = new List<IfcAddress>();
 
 		}
 	}
@@ -10820,6 +10837,11 @@ namespace IFC4
 				)
 		{
 			EngagedIn = engagedIn;
+			MiddleNames = new List<IfcLabel>();
+			PrefixTitles = new List<IfcLabel>();
+			SuffixTitles = new List<IfcLabel>();
+			Roles = new List<IfcActorRole>();
+			Addresses = new List<IfcAddress>();
 
 		}
 	}
@@ -10842,6 +10864,7 @@ namespace IFC4
 		{
 			ThePerson = thePerson;
 			TheOrganization = theOrganization;
+			Roles = new List<IfcActorRole>();
 
 		}
 	}
@@ -11358,6 +11381,7 @@ namespace IFC4
 					,ofOrganization
 					)
 		{
+			AddressLines = new List<IfcLabel>();
 
 		}
 	}
@@ -11926,6 +11950,7 @@ namespace IFC4
 					,hasExternalReferences
 					)
 		{
+			EnumerationValues = new List<IfcValue>();
 
 		}
 	}
@@ -11978,6 +12003,7 @@ namespace IFC4
 					,hasExternalReferences
 					)
 		{
+			ListValues = new List<IfcValue>();
 
 		}
 	}
@@ -12130,6 +12156,8 @@ namespace IFC4
 					,hasExternalReferences
 					)
 		{
+			DefiningValues = new List<IfcValue>();
+			DefinedValues = new List<IfcValue>();
 
 		}
 	}
@@ -12758,6 +12786,10 @@ namespace IFC4
 				)
 		{
 			RecurrenceType = recurrenceType;
+			DayComponent = new List<IfcDayInMonthNumber>();
+			WeekdayComponent = new List<IfcDayInWeekNumber>();
+			MonthComponent = new List<IfcMonthInYearNumber>();
+			TimePeriods = new List<IfcTimePeriod>();
 
 		}
 	}
@@ -12780,6 +12812,7 @@ namespace IFC4
 
 		public IfcReference()
 		{
+			ListPositions = new List<System.Int32>();
 
 		}
 	}
@@ -12912,6 +12945,7 @@ namespace IFC4
 				) : base()
 		{
 			PredefinedType = predefinedType;
+			BendingParameters = new List<IfcBendingParameterSelect>();
 
 		}
 	}
@@ -13004,6 +13038,7 @@ namespace IFC4
 				) : base()
 		{
 			PredefinedType = predefinedType;
+			BendingParameters = new List<IfcBendingParameterSelect>();
 
 		}
 	}
@@ -14368,7 +14403,7 @@ namespace IFC4
 
 		public IfcRoot()
 		{
-			GlobalId = new IfcGloballyUniqueId("8d068242-add2-403f-baaf-cfc261085e52");
+			GlobalId = new IfcGloballyUniqueId("675866c8-5e2a-4d87-8001-696600557796");
 
 		}
 	}
@@ -15249,6 +15284,8 @@ namespace IFC4
 				) : base()
 		{
 			PredefinedType = predefinedType;
+			LoadedBy = new List<IfcStructuralLoadGroup>();
+			HasResults = new List<IfcStructuralResultGroup>();
 
 		}
 	}
@@ -15443,6 +15480,7 @@ namespace IFC4
 					,loadGroupFor
 					)
 		{
+			SelfWeightCoefficients = new List<IfcRatioMeasure>();
 
 		}
 	}
@@ -15461,6 +15499,7 @@ namespace IFC4
 				) : base()
 		{
 			Values = values;
+			Locations = new List<List<IfcLengthMeasure>>();
 
 		}
 	}
@@ -16111,6 +16150,8 @@ namespace IFC4
 
 		public IfcSurfaceReinforcementArea() : base()
 		{
+			SurfaceReinforcement1 = new List<IfcLengthMeasure>();
+			SurfaceReinforcement2 = new List<IfcLengthMeasure>();
 
 		}
 	}
@@ -16273,6 +16314,7 @@ namespace IFC4
 			RepeatT = repeatT;
 			IsMappedBy = isMappedBy;
 			UsedInStyles = usedInStyles;
+			Parameter = new List<IfcIdentifier>();
 
 		}
 	}
@@ -16503,6 +16545,8 @@ namespace IFC4
 
 		public IfcTable()
 		{
+			Rows = new List<IfcTableRow>();
+			Columns = new List<IfcTableColumn>();
 
 		}
 	}
@@ -16545,6 +16589,7 @@ namespace IFC4
 				)
 		{
 			OfTable = ofTable;
+			RowCells = new List<IfcValue>();
 
 		}
 	}
@@ -16709,6 +16754,10 @@ namespace IFC4
 					,ofOrganization
 					)
 		{
+			TelephoneNumbers = new List<IfcLabel>();
+			FacsimileNumbers = new List<IfcLabel>();
+			ElectronicMailAddresses = new List<IfcLabel>();
+			MessagingIDs = new List<IfcURIReference>();
 
 		}
 	}
@@ -16821,6 +16870,7 @@ namespace IFC4
 			Coordinates = coordinates;
 			HasColours = hasColours;
 			HasTextures = hasTextures;
+			Normals = new List<List<IfcParameterValue>>();
 
 		}
 	}
@@ -17025,6 +17075,7 @@ namespace IFC4
 					)
 		{
 			Mode = mode;
+			Parameter = new List<IfcReal>();
 
 		}
 	}
@@ -17319,6 +17370,7 @@ namespace IFC4
 					)
 		{
 			CoordIndex = coordIndex;
+			NormalIndex = new List<List<System.Int32>>();
 
 		}
 	}
@@ -17403,6 +17455,7 @@ namespace IFC4
 
 		public IfcTypeObject() : base()
 		{
+			HasPropertySets = new List<IfcPropertySetDefinition>();
 
 		}
 	}
@@ -17441,6 +17494,7 @@ namespace IFC4
 
 		public IfcTypeProduct() : base()
 		{
+			RepresentationMaps = new List<IfcRepresentationMap>();
 
 		}
 	}
@@ -18017,6 +18071,8 @@ namespace IFC4
 
 		public IfcWorkCalendar() : base()
 		{
+			WorkingTimes = new List<IfcWorkTime>();
+			ExceptionTimes = new List<IfcWorkTime>();
 
 		}
 	}
@@ -18047,6 +18103,7 @@ namespace IFC4
 		{
 			CreationDate = creationDate;
 			StartTime = startTime;
+			Creators = new List<IfcPerson>();
 
 		}
 	}
