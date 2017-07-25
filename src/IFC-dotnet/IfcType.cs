@@ -8,7 +8,7 @@ namespace IFC4
 	public class IfcType<T>
 	{
 		[JsonProperty("value")]
-		T Value{get;set;}
+		public T Value{get;set;}
 		public IfcType(T value)
 		{
 			Value = value;
