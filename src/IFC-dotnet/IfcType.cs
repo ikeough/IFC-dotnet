@@ -1,3 +1,5 @@
+using Newtonsoft.Json;
+
 namespace IFC4
 {
 	/// <summary>
@@ -5,6 +7,7 @@ namespace IFC4
 	/// </summary>
 	public class IfcType<T>
 	{
+		[JsonProperty("value")]
 		T Value{get;set;}
 		public IfcType(T value)
 		{
