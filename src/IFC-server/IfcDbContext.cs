@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace IFC4
 {
 	using Microsoft.EntityFrameworkCore;
@@ -6,10 +8,9 @@ namespace IFC4
 	{
 		public IfcDbContext(DbContextOptions<IfcDbContext> options): base(options)
 		{
-		
 		}
  
-		public DbSet<IfcProduct> Products { get; set; }
+		public DbSet<IfcProject> Projects { get; set; }
  
 	}
 
