@@ -41,10 +41,14 @@ namespace IFC_server.Controllers
 			var queryOptions = new FeedOptions { MaxItemCount = -1 };
 
 			// Query to get all the projects.
-			// Here we find the Andersen family via its LastName
         	var projectQuery = this.client.CreateDocumentQuery<IfcProject>(
                 UriFactory.CreateDocumentCollectionUri(dbOptions.Name, dbOptions.Collection), queryOptions)
                 .Where(p=> p.Name.Value == "Test Project");
+
+			foreach(var p in projectQuery)
+			{
+				Console.WriteLine("Found project: {0}", p.Name);
+			}
 
 
 			return View();
