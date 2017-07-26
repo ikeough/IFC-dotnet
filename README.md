@@ -2,6 +2,9 @@
 
 This is the [Industry Foundation Classes](http://www.buildingsmart-tech.org/specifications/ifc-overview/ifc-overview-summary) (IFC) library for .NET Core.
 
+# Pre-requisites
+- [.NET Core](https://www.microsoft.com/net/core)
+
 # To Build
 ```
 cd src
