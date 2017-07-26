@@ -1,0 +1,8 @@
+language: csharp
+solution: ./src/IFC-dotnet.sln
+mono: none
+dotnet: 2.0.0-preview1-005977
+dist: trusty
+script:
+ - dotnet restore
+ - dotnet build
