@@ -1,6 +1,9 @@
 # IFC-dotnet
 
-This is the [Industry Foundation Classes](http://www.buildingsmart-tech.org/specifications/ifc-overview/ifc-overview-summary) (IFC) library for .NET Core.
+An [Industry Foundation Classes](http://www.buildingsmart-tech.org/specifications/ifc-overview/ifc-overview-summary) (IFC) library for .NET Core.
+
+# WARNING
+This library is under heavy development and is not recommended for use in production applications.
 
 # Pre-requisites
 - [.NET Core](https://www.microsoft.com/net/core)
