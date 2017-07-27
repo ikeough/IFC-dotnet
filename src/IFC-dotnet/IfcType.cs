@@ -14,7 +14,12 @@ namespace IFC4
 			Value = value;
 		}
 
-		public override string ToString()
+		public static implicit operator IfcType<T>(T value)
+		{
+			return new IfcType<T>(value);
+		}
+
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
