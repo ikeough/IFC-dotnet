@@ -12,7 +12,7 @@ namespace IFC4
 		[JsonProperty("value")]
 		public dynamic Value {get;protected set;}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{

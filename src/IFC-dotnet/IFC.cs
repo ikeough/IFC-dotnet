@@ -2799,15 +2799,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -2827,15 +2818,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -2861,7 +2843,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -2870,6 +2852,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -2885,15 +2868,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -2911,15 +2885,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -2947,7 +2912,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -2956,6 +2921,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -2975,15 +2941,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3007,15 +2964,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3041,15 +2989,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3065,15 +3004,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3089,15 +3019,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3115,15 +3036,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3141,15 +3053,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3165,15 +3068,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3191,15 +3085,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3215,15 +3100,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3241,15 +3117,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3265,15 +3132,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3298,15 +3156,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3336,7 +3185,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -3345,6 +3194,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -3383,7 +3233,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -3392,6 +3242,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -3441,7 +3292,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -3450,6 +3301,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -3471,15 +3323,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3503,15 +3346,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3535,15 +3369,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3569,15 +3394,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3609,15 +3425,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3671,15 +3478,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3695,15 +3493,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3721,15 +3510,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3751,15 +3531,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3781,15 +3552,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3813,15 +3575,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3859,15 +3612,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3907,15 +3651,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -3961,15 +3696,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4021,15 +3747,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4045,15 +3762,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4067,15 +3775,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4093,15 +3792,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4131,15 +3821,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4171,15 +3852,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4195,15 +3867,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4221,15 +3884,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4253,15 +3907,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4291,15 +3936,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4315,7 +3951,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -4324,6 +3960,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -4345,15 +3982,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4379,15 +4007,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4407,15 +4026,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4441,15 +4051,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4465,15 +4066,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4491,15 +4083,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4517,15 +4100,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4559,15 +4133,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4593,15 +4158,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4621,15 +4177,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4645,15 +4192,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4669,15 +4207,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4695,15 +4224,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4719,15 +4239,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4745,15 +4256,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4767,15 +4269,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4791,15 +4284,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4815,15 +4299,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4839,15 +4314,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4865,15 +4331,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4911,15 +4368,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4935,15 +4383,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4961,15 +4400,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -4985,15 +4415,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5011,15 +4432,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5035,15 +4447,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5061,15 +4464,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5085,15 +4479,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5111,15 +4496,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5141,15 +4517,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5167,15 +4534,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5197,15 +4555,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5233,15 +4582,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5261,15 +4601,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5291,15 +4622,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5321,15 +4643,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5353,15 +4666,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5387,15 +4691,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5411,15 +4706,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5437,15 +4723,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5461,15 +4738,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5487,15 +4755,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5519,15 +4778,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5553,15 +4803,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5585,15 +4826,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5607,15 +4839,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5629,15 +4852,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5674,15 +4888,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5710,15 +4915,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5738,15 +4934,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5762,15 +4949,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5788,15 +4966,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5822,15 +4991,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5848,15 +5008,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5872,15 +5023,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5896,15 +5038,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5918,15 +5051,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5944,15 +5068,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5968,15 +5083,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -5994,15 +5100,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6036,15 +5133,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6069,15 +5157,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6103,15 +5182,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6133,15 +5203,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6175,15 +5236,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6209,15 +5261,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6233,15 +5276,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6259,15 +5293,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6283,15 +5308,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6309,15 +5325,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6339,15 +5346,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6369,15 +5367,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6397,15 +5386,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6419,7 +5399,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -6428,6 +5408,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -6449,15 +5430,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6477,15 +5449,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6505,15 +5468,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6533,15 +5487,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6581,7 +5526,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -6590,6 +5535,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -6605,15 +5551,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6631,15 +5568,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6655,15 +5583,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6681,15 +5600,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6705,15 +5615,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6731,15 +5632,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6760,15 +5652,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6787,15 +5670,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6824,15 +5698,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6858,15 +5723,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6884,15 +5740,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6908,15 +5755,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6934,15 +5772,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -6972,15 +5801,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7008,15 +5828,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7032,15 +5843,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7058,15 +5860,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7082,15 +5875,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7108,15 +5892,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7138,7 +5913,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -7147,6 +5922,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -7170,7 +5946,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -7179,6 +5955,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -7200,15 +5977,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7230,15 +5998,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7254,15 +6013,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7282,15 +6032,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7308,15 +6049,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7332,15 +6064,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7358,15 +6081,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7388,15 +6102,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7418,15 +6123,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7456,15 +6152,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7480,15 +6167,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7506,15 +6184,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7532,15 +6201,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7570,15 +6230,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7608,15 +6259,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7638,15 +6280,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7666,15 +6299,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7698,15 +6322,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7728,15 +6343,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7760,15 +6366,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7784,15 +6381,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7810,15 +6398,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7848,15 +6427,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -7880,7 +6450,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -7889,6 +6459,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -7910,7 +6481,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -7919,6 +6490,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -7960,7 +6532,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -7969,6 +6541,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -7990,15 +6563,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8014,15 +6578,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8040,15 +6595,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8064,15 +6610,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8090,15 +6627,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8112,15 +6640,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8136,15 +6655,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8158,15 +6668,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8182,15 +6683,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8204,15 +6696,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8228,15 +6711,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8250,15 +6724,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8278,15 +6743,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8304,15 +6760,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8379,15 +6826,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8411,15 +6849,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8441,15 +6870,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8473,15 +6893,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8523,15 +6934,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8561,15 +6963,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8583,15 +6976,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8621,15 +7005,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8655,15 +7030,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8679,15 +7045,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8703,15 +7060,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8727,15 +7075,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8753,15 +7092,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8777,15 +7107,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8803,15 +7124,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8827,15 +7139,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8853,15 +7156,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8887,15 +7181,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8925,15 +7210,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8955,15 +7231,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -8979,15 +7246,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9005,15 +7263,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9029,15 +7278,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9055,15 +7295,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9079,15 +7310,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9105,15 +7327,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9129,15 +7342,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9155,15 +7359,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9179,15 +7374,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9205,15 +7391,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9229,15 +7406,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9255,15 +7423,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9301,15 +7460,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9327,15 +7477,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9353,15 +7494,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9375,15 +7507,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9397,15 +7520,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9427,15 +7541,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9451,15 +7556,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9481,15 +7577,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9517,15 +7604,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9553,15 +7631,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9575,15 +7644,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9597,15 +7657,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9621,15 +7672,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9647,15 +7689,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9671,15 +7704,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9697,15 +7721,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9721,15 +7736,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9747,15 +7753,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9777,15 +7774,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9807,15 +7795,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9839,15 +7818,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9871,15 +7841,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9893,7 +7854,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -9902,6 +7863,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -9925,7 +7887,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -9934,6 +7896,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -9955,15 +7918,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -9981,15 +7935,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10003,15 +7948,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10027,15 +7963,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10051,15 +7978,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10075,15 +7993,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10111,15 +8020,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10147,15 +8047,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10181,15 +8072,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10211,15 +8093,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10245,15 +8118,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10275,15 +8139,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10313,15 +8168,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10341,15 +8187,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10373,15 +8210,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10407,15 +8235,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10431,15 +8250,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10457,15 +8267,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10481,15 +8282,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10507,15 +8299,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10529,15 +8312,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10553,15 +8327,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10577,15 +8342,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10605,15 +8361,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10647,15 +8394,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10685,15 +8423,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10709,15 +8438,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10735,15 +8455,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10759,15 +8470,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10785,15 +8487,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10825,15 +8518,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10847,15 +8531,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10869,15 +8544,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10891,15 +8557,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10913,15 +8570,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10937,15 +8585,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10963,15 +8602,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -10987,15 +8617,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11013,15 +8634,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11035,15 +8647,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11057,15 +8660,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11079,15 +8673,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11101,15 +8686,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11123,15 +8699,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11145,15 +8712,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11167,15 +8725,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11189,15 +8738,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11211,15 +8751,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11233,15 +8764,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11257,15 +8779,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11283,15 +8796,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11305,15 +8809,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11327,15 +8822,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11351,15 +8837,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11379,15 +8856,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11403,15 +8871,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11429,15 +8888,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11457,15 +8907,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11497,15 +8938,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11523,15 +8955,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11565,15 +8988,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11595,15 +9009,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11632,15 +9037,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11680,7 +9076,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -11689,6 +9085,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -11712,15 +9109,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11736,15 +9124,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11770,15 +9149,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11794,15 +9164,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11820,15 +9181,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11844,15 +9196,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11870,15 +9213,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11920,15 +9254,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11954,15 +9279,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -11990,15 +9306,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12022,15 +9329,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12053,15 +9351,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12077,15 +9366,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12103,15 +9383,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12138,15 +9409,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12176,15 +9438,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12206,7 +9459,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -12215,6 +9468,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -12230,15 +9484,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12256,15 +9501,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12300,15 +9536,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12324,15 +9551,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12350,15 +9568,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12380,15 +9589,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12404,15 +9604,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12430,15 +9621,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12472,15 +9654,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12504,15 +9677,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12538,7 +9702,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -12547,6 +9711,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -12562,15 +9727,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12588,15 +9744,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12618,7 +9765,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -12627,6 +9774,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -12654,15 +9802,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12682,15 +9821,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12714,15 +9844,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12764,15 +9885,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12812,15 +9924,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12864,15 +9967,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12898,15 +9992,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12930,15 +10015,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12956,15 +10032,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -12986,15 +10053,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13030,15 +10088,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13064,15 +10113,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13110,15 +10150,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13140,7 +10171,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -13149,6 +10180,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -13182,15 +10214,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13215,15 +10238,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13247,7 +10261,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -13256,6 +10270,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -13275,15 +10290,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13321,15 +10327,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13355,15 +10352,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13395,15 +10383,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13433,15 +10412,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13459,7 +10429,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -13468,6 +10438,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -13503,15 +10474,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13539,15 +10501,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13569,15 +10522,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13599,15 +10543,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13633,15 +10568,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13663,15 +10589,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13695,15 +10612,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13719,7 +10627,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -13728,6 +10636,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -13749,7 +10658,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -13758,6 +10667,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -13777,15 +10687,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13807,15 +10708,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13831,15 +10723,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13857,15 +10740,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13881,15 +10755,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13903,15 +10768,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13929,15 +10785,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -13971,15 +10818,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14003,15 +10841,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14029,7 +10858,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -14038,6 +10867,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -14053,15 +10883,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14079,15 +10900,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14109,7 +10921,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -14118,6 +10930,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -14141,15 +10954,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14177,15 +10981,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14207,7 +11002,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -14216,6 +11011,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -14248,15 +11044,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14274,15 +11061,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14312,15 +11090,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14354,15 +11123,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14382,15 +11142,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14408,15 +11159,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14430,15 +11172,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14478,7 +11211,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -14487,6 +11220,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -14508,15 +11242,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14546,15 +11271,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14576,15 +11292,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14600,15 +11307,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14626,15 +11324,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14670,7 +11359,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -14679,6 +11368,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -14700,15 +11390,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14730,15 +11411,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14764,15 +11436,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14792,15 +11455,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14830,15 +11484,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14858,15 +11503,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -14905,7 +11541,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -14914,6 +11550,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -14938,7 +11575,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -14947,6 +11584,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -14978,15 +11616,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15014,7 +11643,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -15023,6 +11652,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -15044,15 +11674,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15070,15 +11691,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15096,15 +11708,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15120,15 +11723,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15146,15 +11740,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15170,15 +11755,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15196,15 +11772,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15242,15 +11809,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15272,15 +11830,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15306,15 +11855,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15340,15 +11880,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15368,15 +11899,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15392,15 +11914,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15414,15 +11927,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15440,15 +11944,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15466,15 +11961,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15500,15 +11986,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15538,15 +12015,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15568,15 +12036,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15606,15 +12065,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15636,15 +12086,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15664,15 +12105,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15705,15 +12137,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15729,15 +12152,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15753,15 +12167,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15779,15 +12184,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15803,15 +12199,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15827,15 +12214,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15851,15 +12229,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15873,7 +12242,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -15882,6 +12251,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -15907,7 +12277,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -15916,6 +12286,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -15949,15 +12320,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -15973,7 +12335,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -15982,6 +12344,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -15999,7 +12362,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -16008,6 +12371,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -16023,15 +12387,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16049,15 +12404,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16081,15 +12427,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16109,15 +12446,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16141,15 +12469,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16171,7 +12490,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -16180,6 +12499,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -16207,7 +12527,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -16216,6 +12536,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -16237,15 +12558,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16259,15 +12571,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16281,15 +12584,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16309,15 +12603,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16339,15 +12624,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16363,15 +12639,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16409,15 +12676,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16435,7 +12693,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -16444,6 +12702,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -16477,15 +12736,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16503,15 +12753,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16535,15 +12776,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16574,15 +12806,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16608,15 +12831,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16647,15 +12861,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16685,15 +12890,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16713,15 +12909,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16743,15 +12930,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16775,15 +12953,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16813,15 +12982,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16861,15 +13021,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16891,15 +13042,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16913,15 +13055,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16937,15 +13070,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16961,15 +13085,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -16987,15 +13102,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17013,15 +13119,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17041,15 +13138,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17065,15 +13153,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17091,15 +13170,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17125,15 +13195,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17159,15 +13220,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17193,15 +13245,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17217,15 +13260,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17251,15 +13285,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17285,15 +13310,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17319,15 +13335,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17343,15 +13350,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17369,15 +13367,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17393,15 +13382,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17417,15 +13397,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17443,15 +13414,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17469,15 +13431,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17515,15 +13468,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17569,15 +13513,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17609,15 +13544,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17645,15 +13571,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17685,15 +13602,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17739,15 +13647,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17783,7 +13682,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -17792,6 +13691,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -17816,7 +13716,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -17825,6 +13725,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -17858,15 +13759,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17898,15 +13790,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17928,15 +13811,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17960,15 +13834,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -17999,15 +13864,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18023,15 +13879,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18045,15 +13892,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18085,15 +13923,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18132,15 +13961,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18162,15 +13982,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18190,15 +14001,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18220,15 +14022,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18248,15 +14041,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18276,15 +14060,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18306,15 +14081,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18336,15 +14102,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18364,15 +14121,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18392,15 +14140,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18418,15 +14157,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18446,15 +14176,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18474,15 +14195,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18504,15 +14216,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18532,15 +14235,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18560,15 +14254,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18588,15 +14273,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18610,15 +14286,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18642,15 +14309,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18684,15 +14342,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18714,15 +14363,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18746,15 +14386,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18776,15 +14407,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18814,15 +14436,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18844,15 +14457,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18876,15 +14480,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18906,15 +14501,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18936,15 +14522,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18966,15 +14543,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -18996,15 +14564,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19018,15 +14577,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19040,15 +14590,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19070,15 +14611,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19100,15 +14632,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19130,15 +14653,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19160,15 +14674,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19190,15 +14695,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19220,15 +14716,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19258,15 +14745,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19288,15 +14766,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19318,15 +14787,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19348,15 +14808,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19384,15 +14835,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19414,15 +14856,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19454,15 +14887,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19488,15 +14912,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19522,15 +14937,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19552,15 +14958,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19574,15 +14971,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19612,15 +15000,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19658,7 +15037,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -19667,6 +15046,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -19688,7 +15068,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -19697,6 +15077,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -19718,7 +15099,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -19727,6 +15108,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -19756,7 +15138,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -19765,6 +15147,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -19784,15 +15167,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19814,15 +15188,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19844,15 +15209,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19870,7 +15226,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -19879,6 +15235,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -19922,15 +15279,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19958,15 +15306,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -19994,15 +15333,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20030,15 +15360,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20066,15 +15387,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20090,15 +15402,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20116,15 +15419,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20147,7 +15441,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -20156,6 +15450,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -20183,15 +15478,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20215,15 +15501,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20239,15 +15516,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20265,15 +15533,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20293,7 +15552,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -20302,6 +15561,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -20327,15 +15587,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20373,15 +15624,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20411,15 +15653,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20435,15 +15668,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20461,15 +15685,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20485,15 +15700,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20511,15 +15717,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20547,7 +15744,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -20556,6 +15753,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -20583,15 +15781,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20617,15 +15806,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20647,15 +15827,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20681,15 +15852,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20723,15 +15885,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20755,15 +15908,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20779,15 +15923,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20801,15 +15936,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20823,15 +15949,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20849,15 +15966,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20877,15 +15985,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20901,15 +16000,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20927,15 +16017,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20953,15 +16034,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -20983,15 +16055,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21007,15 +16070,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21033,15 +16087,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21061,15 +16106,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21091,15 +16127,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21115,15 +16142,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21139,15 +16157,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21161,15 +16170,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21185,15 +16185,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21213,15 +16204,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21245,15 +16227,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21269,15 +16242,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21295,15 +16259,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21319,15 +16274,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21351,15 +16297,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21377,15 +16314,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21403,15 +16331,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21431,15 +16350,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21463,15 +16373,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21499,15 +16400,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21525,15 +16417,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21549,7 +16432,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -21558,6 +16441,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -21581,15 +16465,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21607,15 +16482,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21637,15 +16503,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21663,15 +16520,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21693,15 +16541,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21717,15 +16556,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21745,15 +16575,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21769,7 +16590,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -21778,6 +16599,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -21804,15 +16626,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21833,15 +16646,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21879,15 +16683,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21913,15 +16708,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21935,15 +16721,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21963,15 +16740,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -21997,15 +16765,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22021,15 +16780,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22055,15 +16805,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22079,15 +16820,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22101,15 +16833,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22129,15 +16852,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22153,15 +16867,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22181,15 +16886,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22207,15 +16903,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22231,15 +16918,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22257,15 +16935,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22283,15 +16952,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22319,15 +16979,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22351,15 +17002,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22373,15 +17015,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22401,15 +17034,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22425,15 +17049,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22455,15 +17070,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22487,15 +17093,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22521,15 +17118,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22553,15 +17141,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22577,15 +17156,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22603,15 +17173,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22637,15 +17198,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22663,15 +17215,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22703,15 +17246,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22727,15 +17261,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22763,15 +17288,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22795,15 +17311,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22825,15 +17332,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22855,15 +17353,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22893,15 +17382,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22919,15 +17399,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22961,15 +17432,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -22987,15 +17449,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23013,15 +17466,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23058,15 +17502,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23090,15 +17525,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23130,15 +17556,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23162,15 +17579,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23194,15 +17602,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23218,15 +17617,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23244,15 +17634,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23268,15 +17649,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23292,15 +17664,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23316,15 +17679,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23370,15 +17724,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23400,7 +17745,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -23409,6 +17754,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -23432,7 +17778,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -23441,6 +17787,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -23463,7 +17810,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -23472,6 +17819,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -23487,15 +17835,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23513,15 +17852,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23549,15 +17879,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23605,15 +17926,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23631,15 +17943,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23659,15 +17962,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23701,15 +17995,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23739,15 +18024,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23763,15 +18039,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23789,15 +18056,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23821,15 +18079,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23864,15 +18113,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23890,15 +18130,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23928,15 +18159,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -23968,15 +18190,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24000,15 +18213,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24038,15 +18242,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24066,15 +18261,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24102,15 +18288,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24128,15 +18305,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24159,15 +18327,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24191,15 +18350,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24217,15 +18367,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24243,15 +18384,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24273,7 +18405,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -24282,6 +18414,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -24325,7 +18458,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -24334,6 +18467,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -24351,7 +18485,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -24360,6 +18494,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -24377,15 +18512,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24411,15 +18537,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24435,15 +18552,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24461,15 +18569,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24485,15 +18584,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24511,15 +18601,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24555,15 +18636,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24594,15 +18666,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24640,15 +18703,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24664,15 +18718,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24690,15 +18735,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24719,15 +18755,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24749,15 +18776,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24778,15 +18796,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24808,15 +18817,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24858,15 +18858,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24884,7 +18875,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -24893,6 +18884,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -24908,15 +18900,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24934,15 +18917,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24958,15 +18932,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -24984,15 +18949,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25008,15 +18964,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25034,15 +18981,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25068,15 +19006,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25094,15 +19023,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25124,15 +19044,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25154,15 +19065,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25178,15 +19080,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25204,15 +19097,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25226,15 +19110,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25256,7 +19131,7 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
+		public string ToJSON()
 		{
 			var settings = new JsonSerializerSettings()
 			{
@@ -25265,6 +19140,7 @@ namespace IFC4
 			};
 			return JsonConvert.SerializeObject(this);
 		}
+
 	}
 
 	/// <summary>
@@ -25280,15 +19156,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25304,15 +19171,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25326,15 +19184,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25348,15 +19197,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25374,15 +19214,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25398,15 +19229,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25424,15 +19246,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25456,15 +19269,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25504,15 +19308,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25542,15 +19337,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25564,15 +19350,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25602,15 +19379,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25636,15 +19404,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25666,15 +19425,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25707,15 +19457,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25735,15 +19476,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25763,15 +19495,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25791,15 +19514,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25839,15 +19553,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 	/// <summary>
@@ -25863,15 +19568,6 @@ namespace IFC4
 
 		}
 
-		public override string ToString()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
 	}
 
 }
