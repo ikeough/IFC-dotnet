@@ -19,8 +19,6 @@ namespace test
 			var p2 = JsonConvert.DeserializeObject<IfcProject>(p1.ToString());
 			Assert.Equal(p1.Name.Value, p2.Name.Value);
 			Assert.Equal(p1.Description.Value, p2.Description.Value);
-
-
 		}
 	}
 }

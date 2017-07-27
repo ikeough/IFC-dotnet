@@ -4058,7 +4058,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -4077,13 +4076,12 @@ namespace IFC4
 			TheActor = theActor;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcactorrole.htm"/>
 	/// </summary>
-	public  partial class IfcActorRole
+	public  partial class IfcActorRole : IfcBase
 	{
 		[JsonProperty("role")]
 		public IfcRoleEnum Role {get;set;} 
@@ -4102,17 +4100,6 @@ namespace IFC4
 			HasExternalReference = hasExternalReference;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -4127,7 +4114,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -4144,13 +4130,12 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcaddress.htm"/>
 	/// </summary>
-	public abstract partial class IfcAddress
+	public abstract partial class IfcAddress : IfcBase
 	{
 		[JsonProperty("purpose")]
 		public IfcAddressTypeEnum Purpose {get;set;} // optional
@@ -4171,17 +4156,6 @@ namespace IFC4
 			OfOrganization = ofOrganization;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -4200,7 +4174,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -4223,7 +4196,6 @@ namespace IFC4
 			Voids = voids;
 
 		}
-
 	}
 
 	/// <summary>
@@ -4248,7 +4220,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -4263,7 +4234,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -4278,7 +4248,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -4295,7 +4264,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -4312,7 +4280,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -4327,7 +4294,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -4344,7 +4310,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -4359,7 +4324,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -4376,7 +4340,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -4391,7 +4354,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -4415,13 +4377,12 @@ namespace IFC4
 			InnerBoundaries = new List<IfcCurve>();
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcapplication.htm"/>
 	/// </summary>
-	public  partial class IfcApplication
+	public  partial class IfcApplication : IfcBase
 	{
 		[JsonProperty("applicationDeveloper")]
 		public IfcOrganization ApplicationDeveloper {get;set;} 
@@ -4444,23 +4405,12 @@ namespace IFC4
 			ApplicationIdentifier = applicationIdentifier;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcappliedvalue.htm"/>
 	/// </summary>
-	public  partial class IfcAppliedValue
+	public  partial class IfcAppliedValue : IfcBase
 	{
 		[JsonProperty("name")]
 		public IfcLabel Name {get;set;} // optional
@@ -4492,23 +4442,12 @@ namespace IFC4
 			Components = new List<IfcAppliedValue>();
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcapproval.htm"/>
 	/// </summary>
-	public  partial class IfcApproval
+	public  partial class IfcApproval : IfcBase
 	{
 		[JsonProperty("identifier")]
 		public IfcIdentifier Identifier {get;set;} // optional
@@ -4551,17 +4490,6 @@ namespace IFC4
 			Relates = relates;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -4582,7 +4510,6 @@ namespace IFC4
 			RelatedApprovals = relatedApprovals;
 
 		}
-
 	}
 
 	/// <summary>
@@ -4605,7 +4532,6 @@ namespace IFC4
 			OuterCurve = outerCurve;
 
 		}
-
 	}
 
 	/// <summary>
@@ -4628,7 +4554,6 @@ namespace IFC4
 			Curve = curve;
 
 		}
-
 	}
 
 	/// <summary>
@@ -4653,7 +4578,6 @@ namespace IFC4
 			InnerCurves = innerCurves;
 
 		}
-
 	}
 
 	/// <summary>
@@ -4684,7 +4608,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -4737,7 +4660,6 @@ namespace IFC4
 			TopFlangeWidth = topFlangeWidth;
 
 		}
-
 	}
 
 	/// <summary>
@@ -4752,7 +4674,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -4769,7 +4690,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -4790,7 +4710,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -4811,7 +4730,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -4834,7 +4752,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -4871,7 +4788,6 @@ namespace IFC4
 			SelfIntersect = selfIntersect;
 
 		}
-
 	}
 
 	/// <summary>
@@ -4910,7 +4826,6 @@ namespace IFC4
 			KnotSpec = knotSpec;
 
 		}
-
 	}
 
 	/// <summary>
@@ -4955,7 +4870,6 @@ namespace IFC4
 			SelfIntersect = selfIntersect;
 
 		}
-
 	}
 
 	/// <summary>
@@ -5006,7 +4920,6 @@ namespace IFC4
 			KnotSpec = knotSpec;
 
 		}
-
 	}
 
 	/// <summary>
@@ -5021,7 +4934,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5034,7 +4946,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5051,7 +4962,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -5080,7 +4990,6 @@ namespace IFC4
 			RasterCode = rasterCode;
 
 		}
-
 	}
 
 	/// <summary>
@@ -5111,7 +5020,6 @@ namespace IFC4
 			ZLength = zLength;
 
 		}
-
 	}
 
 	/// <summary>
@@ -5126,7 +5034,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5143,7 +5050,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -5166,7 +5072,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5195,13 +5100,12 @@ namespace IFC4
 			SecondOperand = secondOperand;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcboundarycondition.htm"/>
 	/// </summary>
-	public abstract partial class IfcBoundaryCondition
+	public abstract partial class IfcBoundaryCondition : IfcBase
 	{
 		[JsonProperty("name")]
 		public IfcLabel Name {get;set;} // optional
@@ -5210,17 +5114,6 @@ namespace IFC4
 		{
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -5241,7 +5134,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5266,7 +5158,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5285,7 +5176,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5310,7 +5200,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5325,7 +5214,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5342,7 +5230,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5359,7 +5246,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5392,7 +5278,6 @@ namespace IFC4
 			ZDim = zDim;
 
 		}
-
 	}
 
 	/// <summary>
@@ -5417,7 +5302,6 @@ namespace IFC4
 			Enclosure = enclosure;
 
 		}
-
 	}
 
 	/// <summary>
@@ -5436,7 +5320,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5451,7 +5334,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5466,7 +5348,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5483,7 +5364,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -5498,7 +5378,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5515,7 +5394,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -5528,7 +5406,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5543,7 +5420,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5558,7 +5434,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5573,7 +5448,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5590,7 +5464,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -5627,7 +5500,6 @@ namespace IFC4
 			Girth = girth;
 
 		}
-
 	}
 
 	/// <summary>
@@ -5642,7 +5514,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5659,7 +5530,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -5674,7 +5544,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5691,7 +5560,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -5706,7 +5574,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5723,7 +5590,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -5738,7 +5604,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5755,7 +5620,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -5776,7 +5640,6 @@ namespace IFC4
 			Coordinates = coordinates;
 
 		}
-
 	}
 
 	/// <summary>
@@ -5793,7 +5656,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5814,7 +5676,6 @@ namespace IFC4
 			CoordList = coordList;
 
 		}
-
 	}
 
 	/// <summary>
@@ -5841,7 +5702,6 @@ namespace IFC4
 			LocalOrigin = localOrigin;
 
 		}
-
 	}
 
 	/// <summary>
@@ -5860,7 +5720,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5881,7 +5740,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5902,7 +5760,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5925,7 +5782,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5950,7 +5806,6 @@ namespace IFC4
 			Thickness = thickness;
 
 		}
-
 	}
 
 	/// <summary>
@@ -5965,7 +5820,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -5982,7 +5836,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -5997,7 +5850,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -6014,7 +5866,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6037,7 +5888,6 @@ namespace IFC4
 			Radius = radius;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6062,7 +5912,6 @@ namespace IFC4
 			WallThickness = wallThickness;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6085,7 +5934,6 @@ namespace IFC4
 			Radius = radius;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6098,7 +5946,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -6111,7 +5958,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -6147,7 +5993,6 @@ namespace IFC4
 			ReferenceTokens = new List<IfcIdentifier>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -6174,7 +6019,6 @@ namespace IFC4
 			HasReferences = hasReferences;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6193,7 +6037,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -6208,7 +6051,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -6225,7 +6067,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6250,7 +6091,6 @@ namespace IFC4
 			Blue = blue;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6267,7 +6107,6 @@ namespace IFC4
 			ColourList = colourList;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6282,7 +6121,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -6297,7 +6135,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -6310,7 +6147,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -6327,7 +6163,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6342,7 +6177,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -6359,7 +6193,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6392,7 +6225,6 @@ namespace IFC4
 			HasProperties = hasProperties;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6416,7 +6248,6 @@ namespace IFC4
 			HasPropertyTemplates = new List<IfcPropertyTemplate>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -6441,7 +6272,6 @@ namespace IFC4
 			SelfIntersect = selfIntersect;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6462,7 +6292,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -6495,7 +6324,6 @@ namespace IFC4
 			UsingCurves = usingCurves;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6520,7 +6348,6 @@ namespace IFC4
 			Profiles = profiles;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6535,7 +6362,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -6552,7 +6378,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6567,7 +6392,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -6584,7 +6408,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6605,7 +6428,6 @@ namespace IFC4
 			Position = position;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6626,7 +6448,6 @@ namespace IFC4
 			CfsFaces = cfsFaces;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6645,30 +6466,18 @@ namespace IFC4
 			CurveOnRelatingElement = curveOnRelatingElement;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcconnectiongeometry.htm"/>
 	/// </summary>
-	public abstract partial class IfcConnectionGeometry
+	public abstract partial class IfcConnectionGeometry : IfcBase
 	{
 
 		public IfcConnectionGeometry()
 		{
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -6689,7 +6498,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -6708,7 +6516,6 @@ namespace IFC4
 			PointOnRelatingElement = pointOnRelatingElement;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6727,7 +6534,6 @@ namespace IFC4
 			SurfaceOnRelatingElement = surfaceOnRelatingElement;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6746,13 +6552,12 @@ namespace IFC4
 			VolumeOnRelatingElement = volumeOnRelatingElement;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcconstraint.htm"/>
 	/// </summary>
-	public abstract partial class IfcConstraint
+	public abstract partial class IfcConstraint : IfcBase
 	{
 		[JsonProperty("name")]
 		public IfcLabel Name {get;set;} 
@@ -6785,17 +6590,6 @@ namespace IFC4
 			PropertiesForConstraint = propertiesForConstraint;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -6810,7 +6604,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -6827,7 +6620,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6842,7 +6634,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -6859,7 +6650,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6874,7 +6664,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -6891,7 +6680,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6911,7 +6699,6 @@ namespace IFC4
 			BaseCosts = new List<IfcAppliedValue>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -6929,7 +6716,6 @@ namespace IFC4
 			BaseCosts = new List<IfcAppliedValue>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -6957,7 +6743,6 @@ namespace IFC4
 			RepresentationContexts = new List<IfcRepresentationContext>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -6982,7 +6767,6 @@ namespace IFC4
 			HasExternalReference = hasExternalReference;
 
 		}
-
 	}
 
 	/// <summary>
@@ -6999,7 +6783,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -7014,7 +6797,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -7031,7 +6813,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -7060,7 +6841,6 @@ namespace IFC4
 			HasExternalReference = hasExternalReference;
 
 		}
-
 	}
 
 	/// <summary>
@@ -7087,7 +6867,6 @@ namespace IFC4
 			ConversionOffset = conversionOffset;
 
 		}
-
 	}
 
 	/// <summary>
@@ -7102,7 +6881,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -7119,7 +6897,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -7134,7 +6911,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -7151,13 +6927,12 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccoordinateoperation.htm"/>
 	/// </summary>
-	public abstract partial class IfcCoordinateOperation
+	public abstract partial class IfcCoordinateOperation : IfcBase
 	{
 		[JsonProperty("sourceCRS")]
 		public IfcCoordinateReferenceSystemSelect SourceCRS {get;set;} 
@@ -7172,23 +6947,12 @@ namespace IFC4
 			TargetCRS = targetCRS;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccoordinatereferencesystem.htm"/>
 	/// </summary>
-	public abstract partial class IfcCoordinateReferenceSystem
+	public abstract partial class IfcCoordinateReferenceSystem : IfcBase
 	{
 		[JsonProperty("name")]
 		public IfcLabel Name {get;set;} // optional
@@ -7205,17 +6969,6 @@ namespace IFC4
 			GeodeticDatum = geodeticDatum;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -7236,7 +6989,6 @@ namespace IFC4
 			CostQuantities = new List<IfcPhysicalQuantity>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -7257,7 +7009,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -7272,7 +7023,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -7291,7 +7041,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -7308,7 +7057,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -7323,7 +7071,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -7340,7 +7087,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -7361,7 +7107,6 @@ namespace IFC4
 			Position = position;
 
 		}
-
 	}
 
 	/// <summary>
@@ -7382,7 +7127,6 @@ namespace IFC4
 			TreeRootExpression = treeRootExpression;
 
 		}
-
 	}
 
 	/// <summary>
@@ -7411,7 +7155,6 @@ namespace IFC4
 			ExchangeRate = exchangeRate;
 
 		}
-
 	}
 
 	/// <summary>
@@ -7426,7 +7169,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -7443,7 +7185,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -7460,7 +7201,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -7489,7 +7229,6 @@ namespace IFC4
 			InnerBoundaries = innerBoundaries;
 
 		}
-
 	}
 
 	/// <summary>
@@ -7518,7 +7257,6 @@ namespace IFC4
 			ImplicitOuter = implicitOuter;
 
 		}
-
 	}
 
 	/// <summary>
@@ -7539,7 +7277,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -7558,7 +7295,6 @@ namespace IFC4
 			PatternList = patternList;
 
 		}
-
 	}
 
 	/// <summary>
@@ -7581,7 +7317,6 @@ namespace IFC4
 			CurveFontScaling = curveFontScaling;
 
 		}
-
 	}
 
 	/// <summary>
@@ -7602,7 +7337,6 @@ namespace IFC4
 			InvisibleSegmentLength = invisibleSegmentLength;
 
 		}
-
 	}
 
 	/// <summary>
@@ -7625,7 +7359,6 @@ namespace IFC4
 			Radius = radius;
 
 		}
-
 	}
 
 	/// <summary>
@@ -7640,7 +7373,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -7657,7 +7389,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -7686,13 +7417,12 @@ namespace IFC4
 			Operator = op;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcderivedunit.htm"/>
 	/// </summary>
-	public  partial class IfcDerivedUnit
+	public  partial class IfcDerivedUnit : IfcBase
 	{
 		[JsonProperty("elements")]
 		public List<IfcDerivedUnitElement> Elements {get;set;} 
@@ -7709,23 +7439,12 @@ namespace IFC4
 			UnitType = unitType;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcderivedunitelement.htm"/>
 	/// </summary>
-	public  partial class IfcDerivedUnitElement
+	public  partial class IfcDerivedUnitElement : IfcBase
 	{
 		[JsonProperty("unit")]
 		public IfcNamedUnit Unit {get;set;} 
@@ -7740,23 +7459,12 @@ namespace IFC4
 			Exponent = exponent;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdimensionalexponents.htm"/>
 	/// </summary>
-	public  partial class IfcDimensionalExponents
+	public  partial class IfcDimensionalExponents : IfcBase
 	{
 		[JsonProperty("lengthExponent")]
 		public System.Int32 LengthExponent {get;set;} 
@@ -7791,17 +7499,6 @@ namespace IFC4
 			LuminousIntensityExponent = luminousIntensityExponent;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -7822,7 +7519,6 @@ namespace IFC4
 			DirectionRatios = directionRatios;
 
 		}
-
 	}
 
 	/// <summary>
@@ -7837,7 +7533,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -7854,7 +7549,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -7869,7 +7563,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -7886,7 +7579,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -7899,7 +7591,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -7914,7 +7605,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -7927,7 +7617,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -7942,7 +7631,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -7955,7 +7643,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -7970,7 +7657,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -7983,7 +7669,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8002,7 +7687,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8019,7 +7703,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8085,7 +7768,6 @@ namespace IFC4
 			Editors = new List<IfcActorSelect>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -8108,7 +7790,6 @@ namespace IFC4
 			RelatedDocuments = relatedDocuments;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8129,7 +7810,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8152,7 +7832,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8193,7 +7872,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8222,7 +7900,6 @@ namespace IFC4
 			PanelPosition = panelPosition;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8235,7 +7912,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8264,7 +7940,6 @@ namespace IFC4
 			Sizeable = sizeable;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8289,7 +7964,6 @@ namespace IFC4
 			OperationType = operationType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8304,7 +7978,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8319,7 +7992,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8334,7 +8006,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8351,7 +8022,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8366,7 +8036,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8383,7 +8052,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8398,7 +8066,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8415,7 +8082,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8440,7 +8106,6 @@ namespace IFC4
 			EdgeEnd = edgeEnd;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8469,7 +8134,6 @@ namespace IFC4
 			SameSense = sameSense;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8490,7 +8154,6 @@ namespace IFC4
 			EdgeList = edgeList;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8505,7 +8168,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8522,7 +8184,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8537,7 +8198,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8554,7 +8214,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8569,7 +8228,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8586,7 +8244,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8601,7 +8258,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8618,7 +8274,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8633,7 +8288,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8650,7 +8304,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8665,7 +8318,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8682,7 +8334,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8719,7 +8370,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8736,7 +8386,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8753,7 +8402,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8766,7 +8414,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8779,7 +8426,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8800,7 +8446,6 @@ namespace IFC4
 			Quantities = quantities;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8815,7 +8460,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8836,7 +8480,6 @@ namespace IFC4
 			Position = position;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8863,7 +8506,6 @@ namespace IFC4
 			SemiAxis2 = semiAxis2;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8890,7 +8532,6 @@ namespace IFC4
 			SemiAxis2 = semiAxis2;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8903,7 +8544,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8916,7 +8556,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8931,7 +8570,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8948,7 +8586,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8963,7 +8600,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -8980,7 +8616,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -8995,7 +8630,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9012,7 +8646,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -9033,7 +8666,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9054,7 +8686,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9077,7 +8708,6 @@ namespace IFC4
 			EventTriggerType = eventTriggerType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -9100,36 +8730,24 @@ namespace IFC4
 			Properties = properties;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcexternalinformation.htm"/>
 	/// </summary>
-	public abstract partial class IfcExternalInformation
+	public abstract partial class IfcExternalInformation : IfcBase
 	{
 
 		public IfcExternalInformation()
 		{
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcexternalreference.htm"/>
 	/// </summary>
-	public abstract partial class IfcExternalReference
+	public abstract partial class IfcExternalReference : IfcBase
 	{
 		[JsonProperty("location")]
 		public IfcURIReference Location {get;set;} // optional
@@ -9146,17 +8764,6 @@ namespace IFC4
 			ExternalReferenceForResources = externalReferenceForResources;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -9177,7 +8784,6 @@ namespace IFC4
 			RelatedResourceObjects = relatedResourceObjects;
 
 		}
-
 	}
 
 	/// <summary>
@@ -9194,7 +8800,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9207,7 +8812,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9222,7 +8826,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9237,7 +8840,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9252,7 +8854,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9279,7 +8880,6 @@ namespace IFC4
 			Depth = depth;
 
 		}
-
 	}
 
 	/// <summary>
@@ -9306,7 +8906,6 @@ namespace IFC4
 			EndSweptArea = endSweptArea;
 
 		}
-
 	}
 
 	/// <summary>
@@ -9331,7 +8930,6 @@ namespace IFC4
 			HasTextureMaps = hasTextureMaps;
 
 		}
-
 	}
 
 	/// <summary>
@@ -9352,7 +8950,6 @@ namespace IFC4
 			FbsmFaces = fbsmFaces;
 
 		}
-
 	}
 
 	/// <summary>
@@ -9377,7 +8974,6 @@ namespace IFC4
 			Orientation = orientation;
 
 		}
-
 	}
 
 	/// <summary>
@@ -9398,7 +8994,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9427,7 +9022,6 @@ namespace IFC4
 			SameSense = sameSense;
 
 		}
-
 	}
 
 	/// <summary>
@@ -9446,7 +9040,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9469,7 +9062,6 @@ namespace IFC4
 			Voids = voids;
 
 		}
-
 	}
 
 	/// <summary>
@@ -9494,7 +9086,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9509,7 +9100,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9526,7 +9116,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -9541,7 +9130,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9558,7 +9146,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -9571,7 +9158,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9586,7 +9172,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9601,7 +9186,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9620,7 +9204,6 @@ namespace IFC4
 			FillStyles = fillStyles;
 
 		}
-
 	}
 
 	/// <summary>
@@ -9653,7 +9236,6 @@ namespace IFC4
 			HatchLineAngle = hatchLineAngle;
 
 		}
-
 	}
 
 	/// <summary>
@@ -9682,7 +9264,6 @@ namespace IFC4
 			TilingScale = tilingScale;
 
 		}
-
 	}
 
 	/// <summary>
@@ -9697,7 +9278,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9714,7 +9294,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -9729,7 +9308,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9746,7 +9324,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -9777,7 +9354,6 @@ namespace IFC4
 			FixedReference = fixedReference;
 
 		}
-
 	}
 
 	/// <summary>
@@ -9790,7 +9366,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9803,7 +9378,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9816,7 +9390,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9829,7 +9402,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9844,7 +9416,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9861,7 +9432,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -9876,7 +9446,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9893,7 +9462,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -9906,7 +9474,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9919,7 +9486,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9932,7 +9498,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9945,7 +9510,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9958,7 +9522,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9971,7 +9534,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9984,7 +9546,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -9997,7 +9558,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -10010,7 +9570,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -10023,7 +9582,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -10038,7 +9596,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -10055,7 +9612,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -10068,7 +9624,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -10081,7 +9636,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -10096,7 +9650,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -10115,7 +9668,6 @@ namespace IFC4
 			AssemblyPlace = assemblyPlace;
 
 		}
-
 	}
 
 	/// <summary>
@@ -10130,7 +9682,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -10147,7 +9698,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -10166,7 +9716,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -10197,7 +9746,6 @@ namespace IFC4
 			HasSubContexts = hasSubContexts;
 
 		}
-
 	}
 
 	/// <summary>
@@ -10214,7 +9762,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -10247,7 +9794,6 @@ namespace IFC4
 			TargetView = targetView;
 
 		}
-
 	}
 
 	/// <summary>
@@ -10268,7 +9814,6 @@ namespace IFC4
 			Elements = elements;
 
 		}
-
 	}
 
 	/// <summary>
@@ -10296,13 +9841,12 @@ namespace IFC4
 			WAxes = new List<IfcGridAxis>();
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcgridaxis.htm"/>
 	/// </summary>
-	public  partial class IfcGridAxis
+	public  partial class IfcGridAxis : IfcBase
 	{
 		[JsonProperty("axisTag")]
 		public IfcLabel AxisTag {get;set;} // optional
@@ -10335,17 +9879,6 @@ namespace IFC4
 			HasIntersections = hasIntersections;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -10368,7 +9901,6 @@ namespace IFC4
 			PlacementLocation = placementLocation;
 
 		}
-
 	}
 
 	/// <summary>
@@ -10383,7 +9915,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -10408,7 +9939,6 @@ namespace IFC4
 			AgreementFlag = agreementFlag;
 
 		}
-
 	}
 
 	/// <summary>
@@ -10423,7 +9953,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -10440,7 +9969,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -10455,7 +9983,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -10472,7 +9999,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -10513,7 +10039,6 @@ namespace IFC4
 			FlangeThickness = flangeThickness;
 
 		}
-
 	}
 
 	/// <summary>
@@ -10538,7 +10063,6 @@ namespace IFC4
 			URLReference = uRLReference;
 
 		}
-
 	}
 
 	/// <summary>
@@ -10565,7 +10089,6 @@ namespace IFC4
 			ColourIndex = colourIndex;
 
 		}
-
 	}
 
 	/// <summary>
@@ -10588,7 +10111,6 @@ namespace IFC4
 			TexCoords = texCoords;
 
 		}
-
 	}
 
 	/// <summary>
@@ -10610,7 +10132,6 @@ namespace IFC4
 			TexCoordIndex = new List<List<System.Int32>>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -10625,7 +10146,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -10642,7 +10162,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -10668,7 +10187,6 @@ namespace IFC4
 			ResponsiblePersons = new List<IfcPerson>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -10697,13 +10215,12 @@ namespace IFC4
 			Values = values;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcirregulartimeseriesvalue.htm"/>
 	/// </summary>
-	public  partial class IfcIrregularTimeSeriesValue
+	public  partial class IfcIrregularTimeSeriesValue : IfcBase
 	{
 		[JsonProperty("timeStamp")]
 		public IfcDateTime TimeStamp {get;set;} 
@@ -10718,17 +10235,6 @@ namespace IFC4
 			ListValues = listValues;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -10743,7 +10249,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -10760,7 +10265,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -10795,7 +10299,6 @@ namespace IFC4
 			Thickness = thickness;
 
 		}
-
 	}
 
 	/// <summary>
@@ -10810,7 +10313,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -10827,7 +10329,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -10848,7 +10349,6 @@ namespace IFC4
 			DurationType = durationType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -10863,7 +10363,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -10880,7 +10379,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -10913,7 +10411,6 @@ namespace IFC4
 			HasLibraryReferences = hasLibraryReferences;
 
 		}
-
 	}
 
 	/// <summary>
@@ -10936,13 +10433,12 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclightdistributiondata.htm"/>
 	/// </summary>
-	public  partial class IfcLightDistributionData
+	public  partial class IfcLightDistributionData : IfcBase
 	{
 		[JsonProperty("mainPlaneAngle")]
 		public IfcPlaneAngleMeasure MainPlaneAngle {get;set;} 
@@ -10961,17 +10457,6 @@ namespace IFC4
 			LuminousIntensity = luminousIntensity;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -10986,7 +10471,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -11003,13 +10487,12 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclightintensitydistribution.htm"/>
 	/// </summary>
-	public  partial class IfcLightIntensityDistribution
+	public  partial class IfcLightIntensityDistribution : IfcBase
 	{
 		[JsonProperty("lightDistributionCurve")]
 		public IfcLightDistributionCurveEnum LightDistributionCurve {get;set;} 
@@ -11024,17 +10507,6 @@ namespace IFC4
 			DistributionData = distributionData;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -11061,7 +10533,6 @@ namespace IFC4
 			LightColour = lightColour;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11080,7 +10551,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -11103,7 +10573,6 @@ namespace IFC4
 			Orientation = orientation;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11144,7 +10613,6 @@ namespace IFC4
 			LightDistributionDataSource = lightDistributionDataSource;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11183,7 +10651,6 @@ namespace IFC4
 			QuadricAttenuation = quadricAttenuation;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11226,7 +10693,6 @@ namespace IFC4
 			BeamWidthAngle = beamWidthAngle;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11251,7 +10717,6 @@ namespace IFC4
 			Dir = dir;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11274,7 +10739,6 @@ namespace IFC4
 			RelativePlacement = relativePlacement;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11291,7 +10755,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -11312,7 +10775,6 @@ namespace IFC4
 			Outer = outer;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11347,7 +10809,6 @@ namespace IFC4
 			OrthogonalHeight = orthogonalHeight;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11372,7 +10833,6 @@ namespace IFC4
 			MappingTarget = mappingTarget;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11409,13 +10869,12 @@ namespace IFC4
 			RelatesTo = relatesTo;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmaterialclassificationrelationship.htm"/>
 	/// </summary>
-	public  partial class IfcMaterialClassificationRelationship
+	public  partial class IfcMaterialClassificationRelationship : IfcBase
 	{
 		[JsonProperty("materialClassifications")]
 		public List<IfcClassificationSelect> MaterialClassifications {get;set;} 
@@ -11430,17 +10889,6 @@ namespace IFC4
 			ClassifiedMaterial = classifiedMaterial;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -11473,7 +10921,6 @@ namespace IFC4
 			ToMaterialConstituentSet = toMaterialConstituentSet;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11497,13 +10944,12 @@ namespace IFC4
 			MaterialConstituents = new List<IfcMaterialConstituent>();
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmaterialdefinition.htm"/>
 	/// </summary>
-	public abstract partial class IfcMaterialDefinition
+	public abstract partial class IfcMaterialDefinition : IfcBase
 	{
 		[JsonProperty("associatedTo")]
 		public List<IfcRelAssociatesMaterial> AssociatedTo {get;set;} 
@@ -11520,17 +10966,6 @@ namespace IFC4
 			HasProperties = hasProperties;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -11549,7 +10984,6 @@ namespace IFC4
 			RepresentedMaterial = representedMaterial;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11586,7 +11020,6 @@ namespace IFC4
 			ToMaterialLayerSet = toMaterialLayerSet;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11611,7 +11044,6 @@ namespace IFC4
 			MaterialLayers = materialLayers;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11642,7 +11074,6 @@ namespace IFC4
 			OffsetFromReferenceLine = offsetFromReferenceLine;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11671,13 +11102,12 @@ namespace IFC4
 			OffsetValues = offsetValues;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmateriallist.htm"/>
 	/// </summary>
-	public  partial class IfcMaterialList
+	public  partial class IfcMaterialList : IfcBase
 	{
 		[JsonProperty("materials")]
 		public List<IfcMaterial> Materials {get;set;} 
@@ -11688,17 +11118,6 @@ namespace IFC4
 			Materials = materials;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -11733,7 +11152,6 @@ namespace IFC4
 			ToMaterialProfileSet = toMaterialProfileSet;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11760,7 +11178,6 @@ namespace IFC4
 			MaterialProfiles = materialProfiles;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11781,7 +11198,6 @@ namespace IFC4
 			ForProfileSet = forProfileSet;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11802,7 +11218,6 @@ namespace IFC4
 			ForProfileEndSet = forProfileEndSet;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11827,7 +11242,6 @@ namespace IFC4
 			OffsetValues = offsetValues;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11848,7 +11262,6 @@ namespace IFC4
 			Material = material;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11871,13 +11284,12 @@ namespace IFC4
 			RelatedMaterials = relatedMaterials;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmaterialusagedefinition.htm"/>
 	/// </summary>
-	public abstract partial class IfcMaterialUsageDefinition
+	public abstract partial class IfcMaterialUsageDefinition : IfcBase
 	{
 		[JsonProperty("associatedTo")]
 		public List<IfcRelAssociatesMaterial> AssociatedTo {get;set;} 
@@ -11886,23 +11298,12 @@ namespace IFC4
 		{
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmeasurewithunit.htm"/>
 	/// </summary>
-	public  partial class IfcMeasureWithUnit
+	public  partial class IfcMeasureWithUnit : IfcBase
 	{
 		[JsonProperty("valueComponent")]
 		public IfcValue ValueComponent {get;set;} 
@@ -11917,17 +11318,6 @@ namespace IFC4
 			UnitComponent = unitComponent;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -11946,7 +11336,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -11967,7 +11356,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -11982,7 +11370,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -11999,7 +11386,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -12014,7 +11400,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -12027,7 +11412,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -12044,7 +11428,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -12077,7 +11460,6 @@ namespace IFC4
 			DataValue = dataValue;
 
 		}
-
 	}
 
 	/// <summary>
@@ -12100,13 +11482,12 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmonetaryunit.htm"/>
 	/// </summary>
-	public  partial class IfcMonetaryUnit
+	public  partial class IfcMonetaryUnit : IfcBase
 	{
 		[JsonProperty("currency")]
 		public IfcLabel Currency {get;set;} 
@@ -12117,17 +11498,6 @@ namespace IFC4
 			Currency = currency;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -12142,7 +11512,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -12159,13 +11528,12 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcnamedunit.htm"/>
 	/// </summary>
-	public abstract partial class IfcNamedUnit
+	public abstract partial class IfcNamedUnit : IfcBase
 	{
 		[JsonProperty("dimensions")]
 		public IfcDimensionalExponents Dimensions {get;set;} 
@@ -12180,17 +11548,6 @@ namespace IFC4
 			UnitType = unitType;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -12213,7 +11570,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -12240,13 +11596,12 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcobjectplacement.htm"/>
 	/// </summary>
-	public abstract partial class IfcObjectPlacement
+	public abstract partial class IfcObjectPlacement : IfcBase
 	{
 		[JsonProperty("placesObject")]
 		public List<IfcProduct> PlacesObject {get;set;} 
@@ -12261,17 +11616,6 @@ namespace IFC4
 			ReferencedByPlacements = referencedByPlacements;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -12303,7 +11647,6 @@ namespace IFC4
 			BenchmarkValues = new List<IfcConstraint>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -12320,7 +11663,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -12349,7 +11691,6 @@ namespace IFC4
 			SelfIntersect = selfIntersect;
 
 		}
-
 	}
 
 	/// <summary>
@@ -12382,7 +11723,6 @@ namespace IFC4
 			RefDirection = refDirection;
 
 		}
-
 	}
 
 	/// <summary>
@@ -12401,7 +11741,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -12418,7 +11757,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -12431,13 +11769,12 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcorganization.htm"/>
 	/// </summary>
-	public  partial class IfcOrganization
+	public  partial class IfcOrganization : IfcBase
 	{
 		[JsonProperty("identification")]
 		public IfcIdentifier Identification {get;set;} // optional
@@ -12470,17 +11807,6 @@ namespace IFC4
 			Addresses = new List<IfcAddress>();
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -12501,7 +11827,6 @@ namespace IFC4
 			RelatedOrganizations = relatedOrganizations;
 
 		}
-
 	}
 
 	/// <summary>
@@ -12530,7 +11855,6 @@ namespace IFC4
 			Orientation = orientation;
 
 		}
-
 	}
 
 	/// <summary>
@@ -12551,7 +11875,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -12566,7 +11889,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -12583,13 +11905,12 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcownerhistory.htm"/>
 	/// </summary>
-	public  partial class IfcOwnerHistory
+	public  partial class IfcOwnerHistory : IfcBase
 	{
 		[JsonProperty("owningUser")]
 		public IfcPersonAndOrganization OwningUser {get;set;} 
@@ -12618,17 +11939,6 @@ namespace IFC4
 			CreationDate = creationDate;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -12649,7 +11959,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -12670,7 +11979,6 @@ namespace IFC4
 			EdgeList = edgeList;
 
 		}
-
 	}
 
 	/// <summary>
@@ -12695,7 +12003,6 @@ namespace IFC4
 			ReferenceCurve = referenceCurve;
 
 		}
-
 	}
 
 	/// <summary>
@@ -12714,7 +12021,6 @@ namespace IFC4
 			LifeCyclePhase = lifeCyclePhase;
 
 		}
-
 	}
 
 	/// <summary>
@@ -12743,7 +12049,6 @@ namespace IFC4
 			PanelPosition = panelPosition;
 
 		}
-
 	}
 
 	/// <summary>
@@ -12762,13 +12067,12 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcperson.htm"/>
 	/// </summary>
-	public  partial class IfcPerson
+	public  partial class IfcPerson : IfcBase
 	{
 		[JsonProperty("identification")]
 		public IfcIdentifier Identification {get;set;} // optional
@@ -12800,23 +12104,12 @@ namespace IFC4
 			Addresses = new List<IfcAddress>();
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpersonandorganization.htm"/>
 	/// </summary>
-	public  partial class IfcPersonAndOrganization
+	public  partial class IfcPersonAndOrganization : IfcBase
 	{
 		[JsonProperty("thePerson")]
 		public IfcPerson ThePerson {get;set;} 
@@ -12834,17 +12127,6 @@ namespace IFC4
 			Roles = new List<IfcActorRole>();
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -12875,13 +12157,12 @@ namespace IFC4
 			Discrimination = discrimination;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcphysicalquantity.htm"/>
 	/// </summary>
-	public abstract partial class IfcPhysicalQuantity
+	public abstract partial class IfcPhysicalQuantity : IfcBase
 	{
 		[JsonProperty("name")]
 		public IfcLabel Name {get;set;} 
@@ -12902,17 +12183,6 @@ namespace IFC4
 			PartOfComplex = partOfComplex;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -12933,7 +12203,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -12950,7 +12219,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -12967,7 +12235,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -12982,7 +12249,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -12999,7 +12265,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -13014,7 +12279,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -13031,7 +12295,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -13068,7 +12331,6 @@ namespace IFC4
 			Pixel = pixel;
 
 		}
-
 	}
 
 	/// <summary>
@@ -13089,7 +12351,6 @@ namespace IFC4
 			Location = location;
 
 		}
-
 	}
 
 	/// <summary>
@@ -13114,7 +12375,6 @@ namespace IFC4
 			Placement = placement;
 
 		}
-
 	}
 
 	/// <summary>
@@ -13139,7 +12399,6 @@ namespace IFC4
 			SizeInY = sizeInY;
 
 		}
-
 	}
 
 	/// <summary>
@@ -13158,7 +12417,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -13173,7 +12431,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -13186,7 +12443,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -13203,7 +12459,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -13220,7 +12475,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -13245,7 +12499,6 @@ namespace IFC4
 			PointParameter = pointParameter;
 
 		}
-
 	}
 
 	/// <summary>
@@ -13274,7 +12527,6 @@ namespace IFC4
 			PointParameterV = pointParameterV;
 
 		}
-
 	}
 
 	/// <summary>
@@ -13295,7 +12547,6 @@ namespace IFC4
 			Polygon = polygon;
 
 		}
-
 	}
 
 	/// <summary>
@@ -13324,7 +12575,6 @@ namespace IFC4
 			PolygonalBoundary = polygonalBoundary;
 
 		}
-
 	}
 
 	/// <summary>
@@ -13345,7 +12595,6 @@ namespace IFC4
 			Points = points;
 
 		}
-
 	}
 
 	/// <summary>
@@ -13364,7 +12613,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -13396,7 +12644,6 @@ namespace IFC4
 			AddressLines = new List<IfcLabel>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -13411,7 +12658,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -13426,7 +12672,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -13443,7 +12688,6 @@ namespace IFC4
 			Name = name;
 
 		}
-
 	}
 
 	/// <summary>
@@ -13458,7 +12702,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -13473,7 +12716,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -13488,36 +12730,24 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpresentationitem.htm"/>
 	/// </summary>
-	public abstract partial class IfcPresentationItem
+	public abstract partial class IfcPresentationItem : IfcBase
 	{
 
 		public IfcPresentationItem()
 		{
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpresentationlayerassignment.htm"/>
 	/// </summary>
-	public  partial class IfcPresentationLayerAssignment
+	public  partial class IfcPresentationLayerAssignment : IfcBase
 	{
 		[JsonProperty("name")]
 		public IfcLabel Name {get;set;} 
@@ -13536,17 +12766,6 @@ namespace IFC4
 			AssignedItems = assignedItems;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -13579,13 +12798,12 @@ namespace IFC4
 			LayerStyles = layerStyles;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpresentationstyle.htm"/>
 	/// </summary>
-	public abstract partial class IfcPresentationStyle
+	public abstract partial class IfcPresentationStyle : IfcBase
 	{
 		[JsonProperty("name")]
 		public IfcLabel Name {get;set;} // optional
@@ -13594,23 +12812,12 @@ namespace IFC4
 		{
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpresentationstyleassignment.htm"/>
 	/// </summary>
-	public  partial class IfcPresentationStyleAssignment
+	public  partial class IfcPresentationStyleAssignment : IfcBase
 	{
 		[JsonProperty("styles")]
 		public List<IfcPresentationStyleSelect> Styles {get;set;} 
@@ -13621,17 +12828,6 @@ namespace IFC4
 			Styles = styles;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -13646,7 +12842,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -13663,7 +12858,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -13686,7 +12880,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -13705,7 +12898,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -13728,13 +12920,12 @@ namespace IFC4
 			HasShapeAspects = hasShapeAspects;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcproductrepresentation.htm"/>
 	/// </summary>
-	public abstract partial class IfcProductRepresentation
+	public abstract partial class IfcProductRepresentation : IfcBase
 	{
 		[JsonProperty("name")]
 		public IfcLabel Name {get;set;} // optional
@@ -13749,23 +12940,12 @@ namespace IFC4
 			Representations = representations;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprofiledef.htm"/>
 	/// </summary>
-	public  partial class IfcProfileDef
+	public  partial class IfcProfileDef : IfcBase
 	{
 		[JsonProperty("profileType")]
 		public IfcProfileTypeEnum ProfileType {get;set;} 
@@ -13786,17 +12966,6 @@ namespace IFC4
 			HasProperties = hasProperties;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -13817,7 +12986,6 @@ namespace IFC4
 			ProfileDefinition = profileDefinition;
 
 		}
-
 	}
 
 	/// <summary>
@@ -13830,7 +12998,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -13843,7 +13010,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -13862,7 +13028,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -13883,7 +13048,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -13898,7 +13062,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -13935,13 +13098,12 @@ namespace IFC4
 			PartOfComplex = partOfComplex;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpropertyabstraction.htm"/>
 	/// </summary>
-	public abstract partial class IfcPropertyAbstraction
+	public abstract partial class IfcPropertyAbstraction : IfcBase
 	{
 		[JsonProperty("hasExternalReferences")]
 		public List<IfcExternalReferenceRelationship> HasExternalReferences {get;set;} 
@@ -13952,17 +13114,6 @@ namespace IFC4
 			HasExternalReferences = hasExternalReferences;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -13995,7 +13146,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -14012,7 +13162,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -14035,7 +13184,6 @@ namespace IFC4
 			DependantProperty = dependantProperty;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14065,7 +13213,6 @@ namespace IFC4
 			EnumerationValues = new List<IfcValue>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -14090,7 +13237,6 @@ namespace IFC4
 			EnumerationValues = enumerationValues;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14120,7 +13266,6 @@ namespace IFC4
 			ListValues = new List<IfcValue>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -14149,7 +13294,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -14168,7 +13312,6 @@ namespace IFC4
 			HasProperties = hasProperties;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14189,7 +13332,6 @@ namespace IFC4
 			DefinesType = definesType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14212,7 +13354,6 @@ namespace IFC4
 			HasPropertyTemplates = hasPropertyTemplates;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14241,7 +13382,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -14280,7 +13420,6 @@ namespace IFC4
 			DefinedValues = new List<IfcValue>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -14301,7 +13440,6 @@ namespace IFC4
 			PartOfPsetTemplate = partOfPsetTemplate;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14314,7 +13452,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -14329,7 +13466,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -14344,7 +13480,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -14361,7 +13496,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14378,7 +13512,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14397,7 +13530,6 @@ namespace IFC4
 			ProxyType = proxyType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14412,7 +13544,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -14429,7 +13560,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14454,7 +13584,6 @@ namespace IFC4
 			AreaValue = areaValue;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14479,7 +13608,6 @@ namespace IFC4
 			CountValue = countValue;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14504,7 +13632,6 @@ namespace IFC4
 			LengthValue = lengthValue;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14519,7 +13646,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -14544,7 +13670,6 @@ namespace IFC4
 			TimeValue = timeValue;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14569,7 +13694,6 @@ namespace IFC4
 			VolumeValue = volumeValue;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14594,7 +13718,6 @@ namespace IFC4
 			WeightValue = weightValue;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14609,7 +13732,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -14626,7 +13748,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14641,7 +13762,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -14656,7 +13776,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -14673,7 +13792,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14690,7 +13808,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14727,7 +13844,6 @@ namespace IFC4
 			WeightsData = weightsData;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14772,7 +13888,6 @@ namespace IFC4
 			WeightsData = weightsData;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14803,7 +13918,6 @@ namespace IFC4
 			WallThickness = wallThickness;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14830,7 +13944,6 @@ namespace IFC4
 			YDim = yDim;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14861,7 +13974,6 @@ namespace IFC4
 			Height = height;
 
 		}
-
 	}
 
 	/// <summary>
@@ -14906,13 +14018,12 @@ namespace IFC4
 			Vsense = vsense;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrecurrencepattern.htm"/>
 	/// </summary>
-	public  partial class IfcRecurrencePattern
+	public  partial class IfcRecurrencePattern : IfcBase
 	{
 		[JsonProperty("recurrenceType")]
 		public IfcRecurrenceTypeEnum RecurrenceType {get;set;} 
@@ -14941,23 +14052,12 @@ namespace IFC4
 			TimePeriods = new List<IfcTimePeriod>();
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreference.htm"/>
 	/// </summary>
-	public  partial class IfcReference
+	public  partial class IfcReference : IfcBase
 	{
 		[JsonProperty("typeIdentifier")]
 		public IfcIdentifier TypeIdentifier {get;set;} // optional
@@ -14975,17 +14075,6 @@ namespace IFC4
 			ListPositions = new List<System.Int32>();
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -15018,7 +14107,6 @@ namespace IFC4
 			Values = values;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15049,7 +14137,6 @@ namespace IFC4
 			SteelGrade = steelGrade;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15070,7 +14157,6 @@ namespace IFC4
 			ReinforcementSectionDefinitions = reinforcementSectionDefinitions;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15093,7 +14179,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -15123,7 +14208,6 @@ namespace IFC4
 			BendingParameters = new List<IfcBendingParameterSelect>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -15138,7 +14222,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -15151,7 +14234,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -15182,7 +14264,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -15220,7 +14301,6 @@ namespace IFC4
 			BendingParameters = new List<IfcBendingParameterSelect>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -15241,7 +14321,6 @@ namespace IFC4
 			RelatedObjects = relatedObjects;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15260,7 +14339,6 @@ namespace IFC4
 			RelatedObjects = relatedObjects;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15281,7 +14359,6 @@ namespace IFC4
 			RelatingActor = relatingActor;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15300,7 +14377,6 @@ namespace IFC4
 			RelatingControl = relatingControl;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15319,7 +14395,6 @@ namespace IFC4
 			RelatingGroup = relatingGroup;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15340,7 +14415,6 @@ namespace IFC4
 			Factor = factor;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15361,7 +14435,6 @@ namespace IFC4
 			RelatingProcess = relatingProcess;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15380,7 +14453,6 @@ namespace IFC4
 			RelatingProduct = relatingProduct;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15399,7 +14471,6 @@ namespace IFC4
 			RelatingResource = relatingResource;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15416,7 +14487,6 @@ namespace IFC4
 			RelatedObjects = relatedObjects;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15435,7 +14505,6 @@ namespace IFC4
 			RelatingApproval = relatingApproval;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15454,7 +14523,6 @@ namespace IFC4
 			RelatingClassification = relatingClassification;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15475,7 +14543,6 @@ namespace IFC4
 			RelatingConstraint = relatingConstraint;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15494,7 +14561,6 @@ namespace IFC4
 			RelatingDocument = relatingDocument;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15513,7 +14579,6 @@ namespace IFC4
 			RelatingLibrary = relatingLibrary;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15532,7 +14597,6 @@ namespace IFC4
 			RelatingMaterial = relatingMaterial;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15545,7 +14609,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -15568,7 +14631,6 @@ namespace IFC4
 			RelatedElement = relatedElement;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15601,7 +14663,6 @@ namespace IFC4
 			RelatingConnectionType = relatingConnectionType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15622,7 +14683,6 @@ namespace IFC4
 			RelatedElement = relatedElement;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15645,7 +14705,6 @@ namespace IFC4
 			RelatedPort = relatedPort;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15666,7 +14725,6 @@ namespace IFC4
 			RelatedStructuralActivity = relatedStructuralActivity;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15695,7 +14753,6 @@ namespace IFC4
 			RelatedStructuralConnection = relatedStructuralConnection;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15716,7 +14773,6 @@ namespace IFC4
 			ConnectionConstraint = connectionConstraint;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15739,7 +14795,6 @@ namespace IFC4
 			RealizingElements = realizingElements;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15760,7 +14815,6 @@ namespace IFC4
 			RelatingStructure = relatingStructure;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15781,7 +14835,6 @@ namespace IFC4
 			RelatedCoverings = relatedCoverings;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15802,7 +14855,6 @@ namespace IFC4
 			RelatedCoverings = relatedCoverings;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15823,7 +14875,6 @@ namespace IFC4
 			RelatedDefinitions = relatedDefinitions;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15836,7 +14887,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -15849,7 +14899,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -15870,7 +14919,6 @@ namespace IFC4
 			RelatingObject = relatingObject;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15891,7 +14939,6 @@ namespace IFC4
 			RelatingPropertyDefinition = relatingPropertyDefinition;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15912,7 +14959,6 @@ namespace IFC4
 			RelatingTemplate = relatingTemplate;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15933,7 +14979,6 @@ namespace IFC4
 			RelatingType = relatingType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15954,7 +14999,6 @@ namespace IFC4
 			RelatedBuildingElement = relatedBuildingElement;
 
 		}
-
 	}
 
 	/// <summary>
@@ -15975,7 +15019,6 @@ namespace IFC4
 			RelatingFlowElement = relatingFlowElement;
 
 		}
-
 	}
 
 	/// <summary>
@@ -16004,7 +15047,6 @@ namespace IFC4
 			ImpliedOrder = impliedOrder;
 
 		}
-
 	}
 
 	/// <summary>
@@ -16025,7 +15067,6 @@ namespace IFC4
 			RelatedObjects = relatedObjects;
 
 		}
-
 	}
 
 	/// <summary>
@@ -16046,7 +15087,6 @@ namespace IFC4
 			RelatedFeatureElement = relatedFeatureElement;
 
 		}
-
 	}
 
 	/// <summary>
@@ -16067,7 +15107,6 @@ namespace IFC4
 			RelatingStructure = relatingStructure;
 
 		}
-
 	}
 
 	/// <summary>
@@ -16094,7 +15133,6 @@ namespace IFC4
 			RelatedProcess = relatedProcess;
 
 		}
-
 	}
 
 	/// <summary>
@@ -16115,7 +15153,6 @@ namespace IFC4
 			RelatedBuildings = relatedBuildings;
 
 		}
-
 	}
 
 	/// <summary>
@@ -16146,7 +15183,6 @@ namespace IFC4
 			InternalOrExternalBoundary = internalOrExternalBoundary;
 
 		}
-
 	}
 
 	/// <summary>
@@ -16171,7 +15207,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -16196,7 +15231,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -16217,7 +15251,6 @@ namespace IFC4
 			RelatedOpeningElement = relatedOpeningElement;
 
 		}
-
 	}
 
 	/// <summary>
@@ -16230,7 +15263,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -16259,13 +15291,12 @@ namespace IFC4
 			ParamLength = paramLength;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrepresentation.htm"/>
 	/// </summary>
-	public abstract partial class IfcRepresentation
+	public abstract partial class IfcRepresentation : IfcBase
 	{
 		[JsonProperty("contextOfItems")]
 		public IfcRepresentationContext ContextOfItems {get;set;} 
@@ -16296,23 +15327,12 @@ namespace IFC4
 			OfProductRepresentation = ofProductRepresentation;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrepresentationcontext.htm"/>
 	/// </summary>
-	public abstract partial class IfcRepresentationContext
+	public abstract partial class IfcRepresentationContext : IfcBase
 	{
 		[JsonProperty("contextIdentifier")]
 		public IfcLabel ContextIdentifier {get;set;} // optional
@@ -16327,23 +15347,12 @@ namespace IFC4
 			RepresentationsInContext = representationsInContext;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrepresentationitem.htm"/>
 	/// </summary>
-	public abstract partial class IfcRepresentationItem
+	public abstract partial class IfcRepresentationItem : IfcBase
 	{
 		[JsonProperty("layerAssignment")]
 		public List<IfcPresentationLayerAssignment> LayerAssignment {get;set;} 
@@ -16358,23 +15367,12 @@ namespace IFC4
 			StyledByItem = styledByItem;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrepresentationmap.htm"/>
 	/// </summary>
-	public  partial class IfcRepresentationMap
+	public  partial class IfcRepresentationMap : IfcBase
 	{
 		[JsonProperty("mappingOrigin")]
 		public IfcAxis2Placement MappingOrigin {get;set;} 
@@ -16397,17 +15395,6 @@ namespace IFC4
 			MapUsage = mapUsage;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -16426,7 +15413,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -16447,7 +15433,6 @@ namespace IFC4
 			RelatingApproval = relatingApproval;
 
 		}
-
 	}
 
 	/// <summary>
@@ -16468,13 +15453,12 @@ namespace IFC4
 			RelatedResourceObjects = relatedResourceObjects;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcresourcelevelrelationship.htm"/>
 	/// </summary>
-	public abstract partial class IfcResourceLevelRelationship
+	public abstract partial class IfcResourceLevelRelationship : IfcBase
 	{
 		[JsonProperty("name")]
 		public IfcLabel Name {get;set;} // optional
@@ -16485,17 +15469,6 @@ namespace IFC4
 		{
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -16538,7 +15511,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -16565,7 +15537,6 @@ namespace IFC4
 			Angle = angle;
 
 		}
-
 	}
 
 	/// <summary>
@@ -16592,7 +15563,6 @@ namespace IFC4
 			EndSweptArea = endSweptArea;
 
 		}
-
 	}
 
 	/// <summary>
@@ -16619,7 +15589,6 @@ namespace IFC4
 			BottomRadius = bottomRadius;
 
 		}
-
 	}
 
 	/// <summary>
@@ -16646,7 +15615,6 @@ namespace IFC4
 			Radius = radius;
 
 		}
-
 	}
 
 	/// <summary>
@@ -16661,7 +15629,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -16678,13 +15645,12 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcroot.htm"/>
 	/// </summary>
-	public abstract partial class IfcRoot
+	public abstract partial class IfcRoot : IfcBase
 	{
 		[JsonProperty("globalId")]
 		public IfcGloballyUniqueId GlobalId {get;set;} 
@@ -16700,17 +15666,6 @@ namespace IFC4
 			GlobalId = new IfcGloballyUniqueId(Guid.NewGuid().ToString());
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -16737,7 +15692,6 @@ namespace IFC4
 			RoundingRadius = roundingRadius;
 
 		}
-
 	}
 
 	/// <summary>
@@ -16760,7 +15714,6 @@ namespace IFC4
 			Name = name;
 
 		}
-
 	}
 
 	/// <summary>
@@ -16775,7 +15728,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -16792,13 +15744,12 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcschedulingtime.htm"/>
 	/// </summary>
-	public abstract partial class IfcSchedulingTime
+	public abstract partial class IfcSchedulingTime : IfcBase
 	{
 		[JsonProperty("name")]
 		public IfcLabel Name {get;set;} // optional
@@ -16811,17 +15762,6 @@ namespace IFC4
 		{
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -16846,7 +15786,6 @@ namespace IFC4
 			StartProfile = startProfile;
 
 		}
-
 	}
 
 	/// <summary>
@@ -16883,7 +15822,6 @@ namespace IFC4
 			CrossSectionReinforcementDefinitions = crossSectionReinforcementDefinitions;
 
 		}
-
 	}
 
 	/// <summary>
@@ -16912,7 +15850,6 @@ namespace IFC4
 			CrossSectionPositions = crossSectionPositions;
 
 		}
-
 	}
 
 	/// <summary>
@@ -16927,7 +15864,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -16944,7 +15880,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -16959,7 +15894,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -16976,13 +15910,12 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcshapeaspect.htm"/>
 	/// </summary>
-	public  partial class IfcShapeAspect
+	public  partial class IfcShapeAspect : IfcBase
 	{
 		[JsonProperty("shapeRepresentations")]
 		public List<IfcShapeModel> ShapeRepresentations {get;set;} 
@@ -17003,17 +15936,6 @@ namespace IFC4
 			ProductDefinitional = productDefinitional;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -17040,7 +15962,6 @@ namespace IFC4
 			OfShapeAspect = ofShapeAspect;
 
 		}
-
 	}
 
 	/// <summary>
@@ -17065,7 +15986,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17086,7 +16006,6 @@ namespace IFC4
 			SbsmBoundary = sbsmBoundary;
 
 		}
-
 	}
 
 	/// <summary>
@@ -17111,7 +16030,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17144,7 +16062,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17167,7 +16084,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17182,7 +16098,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17195,7 +16110,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17208,7 +16122,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17225,7 +16138,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -17244,7 +16156,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17259,7 +16170,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17276,7 +16186,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -17293,7 +16202,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17314,7 +16222,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17329,7 +16236,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17346,7 +16252,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -17365,7 +16270,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -17386,7 +16290,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17401,7 +16304,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17416,7 +16318,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17429,7 +16330,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17444,7 +16344,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17463,7 +16362,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -17486,7 +16384,6 @@ namespace IFC4
 			Radius = radius;
 
 		}
-
 	}
 
 	/// <summary>
@@ -17501,7 +16398,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17518,7 +16414,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -17533,7 +16428,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17556,7 +16450,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17573,7 +16466,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -17590,7 +16482,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -17609,7 +16500,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17632,7 +16522,6 @@ namespace IFC4
 			GlobalOrLocal = globalOrLocal;
 
 		}
-
 	}
 
 	/// <summary>
@@ -17659,7 +16548,6 @@ namespace IFC4
 			HasResults = new List<IfcStructuralResultGroup>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -17676,13 +16564,12 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralconnectioncondition.htm"/>
 	/// </summary>
-	public abstract partial class IfcStructuralConnectionCondition
+	public abstract partial class IfcStructuralConnectionCondition : IfcBase
 	{
 		[JsonProperty("name")]
 		public IfcLabel Name {get;set;} // optional
@@ -17691,17 +16578,6 @@ namespace IFC4
 		{
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -17724,7 +16600,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -17741,7 +16616,6 @@ namespace IFC4
 			Axis = axis;
 
 		}
-
 	}
 
 	/// <summary>
@@ -17762,7 +16636,6 @@ namespace IFC4
 			Axis = axis;
 
 		}
-
 	}
 
 	/// <summary>
@@ -17779,7 +16652,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17800,7 +16672,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -17815,7 +16686,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17834,13 +16704,12 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralload.htm"/>
 	/// </summary>
-	public abstract partial class IfcStructuralLoad
+	public abstract partial class IfcStructuralLoad : IfcBase
 	{
 		[JsonProperty("name")]
 		public IfcLabel Name {get;set;} // optional
@@ -17849,17 +16718,6 @@ namespace IFC4
 		{
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -17885,7 +16743,6 @@ namespace IFC4
 			SelfWeightCoefficients = new List<IfcRatioMeasure>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -17905,7 +16762,6 @@ namespace IFC4
 			Locations = new List<List<IfcLengthMeasure>>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -17942,7 +16798,6 @@ namespace IFC4
 			LoadGroupFor = loadGroupFor;
 
 		}
-
 	}
 
 	/// <summary>
@@ -17967,7 +16822,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17980,7 +16834,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -17999,7 +16852,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18024,7 +16876,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18039,7 +16890,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18064,7 +16914,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18079,7 +16928,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18092,7 +16940,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18111,7 +16958,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18126,7 +16972,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18145,7 +16990,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18162,7 +17006,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18177,7 +17020,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18194,7 +17036,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18211,7 +17052,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18238,7 +17078,6 @@ namespace IFC4
 			ResultGroupFor = resultGroupFor;
 
 		}
-
 	}
 
 	/// <summary>
@@ -18261,7 +17100,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -18274,7 +17112,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18293,7 +17130,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -18308,7 +17144,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18329,7 +17164,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -18352,7 +17186,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18377,7 +17210,6 @@ namespace IFC4
 			Styles = styles;
 
 		}
-
 	}
 
 	/// <summary>
@@ -18400,7 +17232,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18415,7 +17246,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18432,7 +17262,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -18457,7 +17286,6 @@ namespace IFC4
 			ParentEdge = parentEdge;
 
 		}
-
 	}
 
 	/// <summary>
@@ -18474,7 +17302,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18505,7 +17332,6 @@ namespace IFC4
 			ReferenceSurface = referenceSurface;
 
 		}
-
 	}
 
 	/// <summary>
@@ -18520,7 +17346,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18547,7 +17372,6 @@ namespace IFC4
 			Depth = depth;
 
 		}
-
 	}
 
 	/// <summary>
@@ -18570,7 +17394,6 @@ namespace IFC4
 			AxisPosition = axisPosition;
 
 		}
-
 	}
 
 	/// <summary>
@@ -18591,7 +17414,6 @@ namespace IFC4
 			SurfaceReinforcement2 = new List<IfcLengthMeasure>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -18612,7 +17434,6 @@ namespace IFC4
 			Styles = styles;
 
 		}
-
 	}
 
 	/// <summary>
@@ -18641,7 +17462,6 @@ namespace IFC4
 			ReflectanceColour = reflectanceColour;
 
 		}
-
 	}
 
 	/// <summary>
@@ -18658,7 +17478,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18691,7 +17510,6 @@ namespace IFC4
 			ReflectanceMethod = reflectanceMethod;
 
 		}
-
 	}
 
 	/// <summary>
@@ -18708,7 +17526,6 @@ namespace IFC4
 			SurfaceColour = surfaceColour;
 
 		}
-
 	}
 
 	/// <summary>
@@ -18725,7 +17542,6 @@ namespace IFC4
 			Textures = textures;
 
 		}
-
 	}
 
 	/// <summary>
@@ -18761,7 +17577,6 @@ namespace IFC4
 			Parameter = new List<IfcIdentifier>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -18784,7 +17599,6 @@ namespace IFC4
 			SweptArea = sweptArea;
 
 		}
-
 	}
 
 	/// <summary>
@@ -18815,7 +17629,6 @@ namespace IFC4
 			Radius = radius;
 
 		}
-
 	}
 
 	/// <summary>
@@ -18838,7 +17651,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18861,7 +17673,6 @@ namespace IFC4
 			SweptCurve = sweptCurve;
 
 		}
-
 	}
 
 	/// <summary>
@@ -18876,7 +17687,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18893,7 +17703,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -18908,7 +17717,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18923,7 +17731,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18938,7 +17745,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -18983,13 +17789,12 @@ namespace IFC4
 			FlangeThickness = flangeThickness;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctable.htm"/>
 	/// </summary>
-	public  partial class IfcTable
+	public  partial class IfcTable : IfcBase
 	{
 		[JsonProperty("name")]
 		public IfcLabel Name {get;set;} // optional
@@ -19004,23 +17809,12 @@ namespace IFC4
 			Columns = new List<IfcTableColumn>();
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctablecolumn.htm"/>
 	/// </summary>
-	public  partial class IfcTableColumn
+	public  partial class IfcTableColumn : IfcBase
 	{
 		[JsonProperty("identifier")]
 		public IfcIdentifier Identifier {get;set;} // optional
@@ -19037,23 +17831,12 @@ namespace IFC4
 		{
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctablerow.htm"/>
 	/// </summary>
-	public  partial class IfcTableRow
+	public  partial class IfcTableRow : IfcBase
 	{
 		[JsonProperty("rowCells")]
 		public List<IfcValue> RowCells {get;set;} // optional
@@ -19069,17 +17852,6 @@ namespace IFC4
 			RowCells = new List<IfcValue>();
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -19094,7 +17866,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -19111,7 +17882,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -19138,7 +17908,6 @@ namespace IFC4
 			IsMilestone = isMilestone;
 
 		}
-
 	}
 
 	/// <summary>
@@ -19185,7 +17954,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -19202,7 +17970,6 @@ namespace IFC4
 			Recurrance = recurrance;
 
 		}
-
 	}
 
 	/// <summary>
@@ -19221,7 +17988,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -19254,7 +18020,6 @@ namespace IFC4
 			MessagingIDs = new List<IfcURIReference>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -19283,7 +18048,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -19298,7 +18062,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -19315,7 +18078,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -19338,7 +18100,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -19372,7 +18133,6 @@ namespace IFC4
 			Normals = new List<List<IfcParameterValue>>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -19389,7 +18149,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -19418,7 +18177,6 @@ namespace IFC4
 			Path = path;
 
 		}
-
 	}
 
 	/// <summary>
@@ -19449,7 +18207,6 @@ namespace IFC4
 			BoxAlignment = boxAlignment;
 
 		}
-
 	}
 
 	/// <summary>
@@ -19472,7 +18229,6 @@ namespace IFC4
 			TextFontStyle = textFontStyle;
 
 		}
-
 	}
 
 	/// <summary>
@@ -19501,7 +18257,6 @@ namespace IFC4
 			FontSize = fontSize;
 
 		}
-
 	}
 
 	/// <summary>
@@ -19520,7 +18275,6 @@ namespace IFC4
 			Colour = colour;
 
 		}
-
 	}
 
 	/// <summary>
@@ -19547,7 +18301,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -19564,7 +18317,6 @@ namespace IFC4
 			Maps = maps;
 
 		}
-
 	}
 
 	/// <summary>
@@ -19586,7 +18338,6 @@ namespace IFC4
 			Parameter = new List<IfcReal>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -19609,7 +18360,6 @@ namespace IFC4
 			MappedTo = mappedTo;
 
 		}
-
 	}
 
 	/// <summary>
@@ -19626,7 +18376,6 @@ namespace IFC4
 			Coordinates = coordinates;
 
 		}
-
 	}
 
 	/// <summary>
@@ -19643,13 +18392,12 @@ namespace IFC4
 			TexCoordsList = texCoordsList;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctimeperiod.htm"/>
 	/// </summary>
-	public  partial class IfcTimePeriod
+	public  partial class IfcTimePeriod : IfcBase
 	{
 		[JsonProperty("startTime")]
 		public IfcTime StartTime {get;set;} 
@@ -19664,23 +18412,12 @@ namespace IFC4
 			EndTime = endTime;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctimeseries.htm"/>
 	/// </summary>
-	public abstract partial class IfcTimeSeries
+	public abstract partial class IfcTimeSeries : IfcBase
 	{
 		[JsonProperty("name")]
 		public IfcLabel Name {get;set;} 
@@ -19717,23 +18454,12 @@ namespace IFC4
 			HasExternalReference = hasExternalReference;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctimeseriesvalue.htm"/>
 	/// </summary>
-	public  partial class IfcTimeSeriesValue
+	public  partial class IfcTimeSeriesValue : IfcBase
 	{
 		[JsonProperty("listValues")]
 		public List<IfcValue> ListValues {get;set;} 
@@ -19744,17 +18470,6 @@ namespace IFC4
 			ListValues = listValues;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -19771,7 +18486,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -19796,7 +18510,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -19811,7 +18524,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -19828,7 +18540,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -19843,7 +18554,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -19860,7 +18570,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -19895,7 +18604,6 @@ namespace IFC4
 			TopXOffset = topXOffset;
 
 		}
-
 	}
 
 	/// <summary>
@@ -19925,7 +18633,6 @@ namespace IFC4
 			NormalIndex = new List<List<System.Int32>>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -19962,7 +18669,6 @@ namespace IFC4
 			MasterRepresentation = masterRepresentation;
 
 		}
-
 	}
 
 	/// <summary>
@@ -19977,7 +18683,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -19994,7 +18699,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -20014,7 +18718,6 @@ namespace IFC4
 			HasPropertySets = new List<IfcPropertySetDefinition>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -20035,7 +18738,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -20055,7 +18757,6 @@ namespace IFC4
 			RepresentationMaps = new List<IfcRepresentationMap>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -20076,7 +18777,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -20117,13 +18817,12 @@ namespace IFC4
 			FlangeThickness = flangeThickness;
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcunitassignment.htm"/>
 	/// </summary>
-	public  partial class IfcUnitAssignment
+	public  partial class IfcUnitAssignment : IfcBase
 	{
 		[JsonProperty("units")]
 		public List<IfcUnit> Units {get;set;} 
@@ -20134,17 +18833,6 @@ namespace IFC4
 			Units = units;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -20159,7 +18847,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -20176,7 +18863,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -20191,7 +18877,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -20208,7 +18893,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -20223,7 +18907,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -20240,7 +18923,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -20265,7 +18947,6 @@ namespace IFC4
 			Magnitude = magnitude;
 
 		}
-
 	}
 
 	/// <summary>
@@ -20282,7 +18963,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -20303,7 +18983,6 @@ namespace IFC4
 			LoopVertex = loopVertex;
 
 		}
-
 	}
 
 	/// <summary>
@@ -20324,7 +19003,6 @@ namespace IFC4
 			VertexGeometry = vertexGeometry;
 
 		}
-
 	}
 
 	/// <summary>
@@ -20339,7 +19017,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -20356,7 +19033,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -20369,13 +19045,12 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvirtualgridintersection.htm"/>
 	/// </summary>
-	public  partial class IfcVirtualGridIntersection
+	public  partial class IfcVirtualGridIntersection : IfcBase
 	{
 		[JsonProperty("intersectingAxes")]
 		public List<IfcGridAxis> IntersectingAxes {get;set;} 
@@ -20390,17 +19065,6 @@ namespace IFC4
 			OffsetDistances = offsetDistances;
 
 		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this);
-		}
-
 	}
 
 	/// <summary>
@@ -20415,7 +19079,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -20430,7 +19093,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -20443,7 +19105,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -20456,7 +19117,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -20473,7 +19133,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -20488,7 +19147,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -20505,7 +19163,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -20528,7 +19185,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -20567,7 +19223,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -20596,7 +19251,6 @@ namespace IFC4
 			PanelPosition = panelPosition;
 
 		}
-
 	}
 
 	/// <summary>
@@ -20609,7 +19263,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -20638,7 +19291,6 @@ namespace IFC4
 			Sizeable = sizeable;
 
 		}
-
 	}
 
 	/// <summary>
@@ -20663,7 +19315,6 @@ namespace IFC4
 			PartitioningType = partitioningType;
 
 		}
-
 	}
 
 	/// <summary>
@@ -20684,7 +19335,6 @@ namespace IFC4
 			ExceptionTimes = new List<IfcWorkTime>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -20716,7 +19366,6 @@ namespace IFC4
 			Creators = new List<IfcPerson>();
 
 		}
-
 	}
 
 	/// <summary>
@@ -20735,7 +19384,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -20754,7 +19402,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -20773,7 +19420,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 	/// <summary>
@@ -20812,7 +19458,6 @@ namespace IFC4
 			FlangeThickness = flangeThickness;
 
 		}
-
 	}
 
 	/// <summary>
@@ -20827,7 +19472,6 @@ namespace IFC4
 		{
 
 		}
-
 	}
 
 }

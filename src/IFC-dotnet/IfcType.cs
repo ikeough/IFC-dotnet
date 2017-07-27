@@ -5,7 +5,7 @@ namespace IFC4
 	/// <summary>
 	/// A type wrapper for IFC.
 	/// </summary>
-	public class IfcType<T>
+	public class IfcType<T> : IfcBase
 	{
 		[JsonProperty("value")]
 		public T Value{get;set;}
@@ -17,16 +17,6 @@ namespace IFC4
 		public static implicit operator IfcType<T>(T value)
 		{
 			return new IfcType<T>(value);
-		}
-
-		public string ToJSON()
-		{
-			var settings = new JsonSerializerSettings()
-			{
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			return JsonConvert.SerializeObject(this,settings);
 		}
 	}
 }
