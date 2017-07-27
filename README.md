@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/ikeough/IFC-dotnet.svg?branch=master)](https://travis-ci.org/ikeough/IFC-dotnet)
+
 # IFC-dotnet
 
 An [Industry Foundation Classes](http://www.buildingsmart-tech.org/specifications/ifc-overview/ifc-overview-summary) (IFC) library for .NET Core.
