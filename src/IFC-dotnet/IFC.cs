@@ -23,6 +23,16 @@ namespace IFC4
 		{
 			return new IfcAbsorbedDoseMeasure(v);
 		}	
+
+		public static IfcAbsorbedDoseMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAbsorbedDoseMeasure>(json);
+		}
+
+		public static IfcAbsorbedDoseMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -41,6 +51,16 @@ namespace IFC4
 		{
 			return new IfcAccelerationMeasure(v);
 		}	
+
+		public static IfcAccelerationMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAccelerationMeasure>(json);
+		}
+
+		public static IfcAccelerationMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -59,6 +79,16 @@ namespace IFC4
 		{
 			return new IfcAmountOfSubstanceMeasure(v);
 		}	
+
+		public static IfcAmountOfSubstanceMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAmountOfSubstanceMeasure>(json);
+		}
+
+		public static IfcAmountOfSubstanceMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -77,6 +107,16 @@ namespace IFC4
 		{
 			return new IfcAngularVelocityMeasure(v);
 		}	
+
+		public static IfcAngularVelocityMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAngularVelocityMeasure>(json);
+		}
+
+		public static IfcAngularVelocityMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -95,6 +135,16 @@ namespace IFC4
 		{
 			return new IfcAreaDensityMeasure(v);
 		}	
+
+		public static IfcAreaDensityMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAreaDensityMeasure>(json);
+		}
+
+		public static IfcAreaDensityMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -113,6 +163,16 @@ namespace IFC4
 		{
 			return new IfcAreaMeasure(v);
 		}	
+
+		public static IfcAreaMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAreaMeasure>(json);
+		}
+
+		public static IfcAreaMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -131,6 +191,16 @@ namespace IFC4
 		{
 			return new IfcBoolean(v);
 		}	
+
+		public static IfcBoolean FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBoolean>(json);
+		}
+
+		public static IfcBoolean FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -149,6 +219,16 @@ namespace IFC4
 		{
 			return new IfcBoxAlignment(v);
 		}	
+
+		public static IfcBoxAlignment FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBoxAlignment>(json);
+		}
+
+		public static IfcBoxAlignment FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -167,6 +247,16 @@ namespace IFC4
 		{
 			return new IfcCardinalPointReference(v);
 		}	
+
+		public static IfcCardinalPointReference FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCardinalPointReference>(json);
+		}
+
+		public static IfcCardinalPointReference FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -185,6 +275,16 @@ namespace IFC4
 		{
 			return new IfcComplexNumber(v);
 		}	
+
+		public static IfcComplexNumber FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcComplexNumber>(json);
+		}
+
+		public static IfcComplexNumber FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -203,6 +303,16 @@ namespace IFC4
 		{
 			return new IfcCompoundPlaneAngleMeasure(v);
 		}	
+
+		public static IfcCompoundPlaneAngleMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCompoundPlaneAngleMeasure>(json);
+		}
+
+		public static IfcCompoundPlaneAngleMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -221,6 +331,16 @@ namespace IFC4
 		{
 			return new IfcContextDependentMeasure(v);
 		}	
+
+		public static IfcContextDependentMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcContextDependentMeasure>(json);
+		}
+
+		public static IfcContextDependentMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -239,6 +359,16 @@ namespace IFC4
 		{
 			return new IfcCountMeasure(v);
 		}	
+
+		public static IfcCountMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCountMeasure>(json);
+		}
+
+		public static IfcCountMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -257,6 +387,16 @@ namespace IFC4
 		{
 			return new IfcCurvatureMeasure(v);
 		}	
+
+		public static IfcCurvatureMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCurvatureMeasure>(json);
+		}
+
+		public static IfcCurvatureMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -275,6 +415,16 @@ namespace IFC4
 		{
 			return new IfcDate(v);
 		}	
+
+		public static IfcDate FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDate>(json);
+		}
+
+		public static IfcDate FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -293,6 +443,16 @@ namespace IFC4
 		{
 			return new IfcDateTime(v);
 		}	
+
+		public static IfcDateTime FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDateTime>(json);
+		}
+
+		public static IfcDateTime FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -311,6 +471,16 @@ namespace IFC4
 		{
 			return new IfcDayInMonthNumber(v);
 		}	
+
+		public static IfcDayInMonthNumber FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDayInMonthNumber>(json);
+		}
+
+		public static IfcDayInMonthNumber FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -329,6 +499,16 @@ namespace IFC4
 		{
 			return new IfcDayInWeekNumber(v);
 		}	
+
+		public static IfcDayInWeekNumber FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDayInWeekNumber>(json);
+		}
+
+		public static IfcDayInWeekNumber FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -347,6 +527,16 @@ namespace IFC4
 		{
 			return new IfcDescriptiveMeasure(v);
 		}	
+
+		public static IfcDescriptiveMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDescriptiveMeasure>(json);
+		}
+
+		public static IfcDescriptiveMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -365,6 +555,16 @@ namespace IFC4
 		{
 			return new IfcDimensionCount(v);
 		}	
+
+		public static IfcDimensionCount FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDimensionCount>(json);
+		}
+
+		public static IfcDimensionCount FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -383,6 +583,16 @@ namespace IFC4
 		{
 			return new IfcDoseEquivalentMeasure(v);
 		}	
+
+		public static IfcDoseEquivalentMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDoseEquivalentMeasure>(json);
+		}
+
+		public static IfcDoseEquivalentMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -401,6 +611,16 @@ namespace IFC4
 		{
 			return new IfcDuration(v);
 		}	
+
+		public static IfcDuration FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDuration>(json);
+		}
+
+		public static IfcDuration FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -419,6 +639,16 @@ namespace IFC4
 		{
 			return new IfcDynamicViscosityMeasure(v);
 		}	
+
+		public static IfcDynamicViscosityMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDynamicViscosityMeasure>(json);
+		}
+
+		public static IfcDynamicViscosityMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -437,6 +667,16 @@ namespace IFC4
 		{
 			return new IfcElectricCapacitanceMeasure(v);
 		}	
+
+		public static IfcElectricCapacitanceMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElectricCapacitanceMeasure>(json);
+		}
+
+		public static IfcElectricCapacitanceMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -455,6 +695,16 @@ namespace IFC4
 		{
 			return new IfcElectricChargeMeasure(v);
 		}	
+
+		public static IfcElectricChargeMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElectricChargeMeasure>(json);
+		}
+
+		public static IfcElectricChargeMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -473,6 +723,16 @@ namespace IFC4
 		{
 			return new IfcElectricConductanceMeasure(v);
 		}	
+
+		public static IfcElectricConductanceMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElectricConductanceMeasure>(json);
+		}
+
+		public static IfcElectricConductanceMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -491,6 +751,16 @@ namespace IFC4
 		{
 			return new IfcElectricCurrentMeasure(v);
 		}	
+
+		public static IfcElectricCurrentMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElectricCurrentMeasure>(json);
+		}
+
+		public static IfcElectricCurrentMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -509,6 +779,16 @@ namespace IFC4
 		{
 			return new IfcElectricResistanceMeasure(v);
 		}	
+
+		public static IfcElectricResistanceMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElectricResistanceMeasure>(json);
+		}
+
+		public static IfcElectricResistanceMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -527,6 +807,16 @@ namespace IFC4
 		{
 			return new IfcElectricVoltageMeasure(v);
 		}	
+
+		public static IfcElectricVoltageMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElectricVoltageMeasure>(json);
+		}
+
+		public static IfcElectricVoltageMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -545,6 +835,16 @@ namespace IFC4
 		{
 			return new IfcEnergyMeasure(v);
 		}	
+
+		public static IfcEnergyMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcEnergyMeasure>(json);
+		}
+
+		public static IfcEnergyMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -563,6 +863,16 @@ namespace IFC4
 		{
 			return new IfcFontStyle(v);
 		}	
+
+		public static IfcFontStyle FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFontStyle>(json);
+		}
+
+		public static IfcFontStyle FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -581,6 +891,16 @@ namespace IFC4
 		{
 			return new IfcFontVariant(v);
 		}	
+
+		public static IfcFontVariant FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFontVariant>(json);
+		}
+
+		public static IfcFontVariant FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -599,6 +919,16 @@ namespace IFC4
 		{
 			return new IfcFontWeight(v);
 		}	
+
+		public static IfcFontWeight FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFontWeight>(json);
+		}
+
+		public static IfcFontWeight FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -617,6 +947,16 @@ namespace IFC4
 		{
 			return new IfcForceMeasure(v);
 		}	
+
+		public static IfcForceMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcForceMeasure>(json);
+		}
+
+		public static IfcForceMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -635,6 +975,16 @@ namespace IFC4
 		{
 			return new IfcFrequencyMeasure(v);
 		}	
+
+		public static IfcFrequencyMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFrequencyMeasure>(json);
+		}
+
+		public static IfcFrequencyMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -653,6 +1003,16 @@ namespace IFC4
 		{
 			return new IfcGloballyUniqueId(v);
 		}	
+
+		public static IfcGloballyUniqueId FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcGloballyUniqueId>(json);
+		}
+
+		public static IfcGloballyUniqueId FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -671,6 +1031,16 @@ namespace IFC4
 		{
 			return new IfcHeatFluxDensityMeasure(v);
 		}	
+
+		public static IfcHeatFluxDensityMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcHeatFluxDensityMeasure>(json);
+		}
+
+		public static IfcHeatFluxDensityMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -689,6 +1059,16 @@ namespace IFC4
 		{
 			return new IfcHeatingValueMeasure(v);
 		}	
+
+		public static IfcHeatingValueMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcHeatingValueMeasure>(json);
+		}
+
+		public static IfcHeatingValueMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -707,6 +1087,16 @@ namespace IFC4
 		{
 			return new IfcIdentifier(v);
 		}	
+
+		public static IfcIdentifier FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcIdentifier>(json);
+		}
+
+		public static IfcIdentifier FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -725,6 +1115,16 @@ namespace IFC4
 		{
 			return new IfcIlluminanceMeasure(v);
 		}	
+
+		public static IfcIlluminanceMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcIlluminanceMeasure>(json);
+		}
+
+		public static IfcIlluminanceMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -743,6 +1143,16 @@ namespace IFC4
 		{
 			return new IfcInductanceMeasure(v);
 		}	
+
+		public static IfcInductanceMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcInductanceMeasure>(json);
+		}
+
+		public static IfcInductanceMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -761,6 +1171,16 @@ namespace IFC4
 		{
 			return new IfcInteger(v);
 		}	
+
+		public static IfcInteger FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcInteger>(json);
+		}
+
+		public static IfcInteger FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -779,6 +1199,16 @@ namespace IFC4
 		{
 			return new IfcIntegerCountRateMeasure(v);
 		}	
+
+		public static IfcIntegerCountRateMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcIntegerCountRateMeasure>(json);
+		}
+
+		public static IfcIntegerCountRateMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -797,6 +1227,16 @@ namespace IFC4
 		{
 			return new IfcIonConcentrationMeasure(v);
 		}	
+
+		public static IfcIonConcentrationMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcIonConcentrationMeasure>(json);
+		}
+
+		public static IfcIonConcentrationMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -815,6 +1255,16 @@ namespace IFC4
 		{
 			return new IfcIsothermalMoistureCapacityMeasure(v);
 		}	
+
+		public static IfcIsothermalMoistureCapacityMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcIsothermalMoistureCapacityMeasure>(json);
+		}
+
+		public static IfcIsothermalMoistureCapacityMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -833,6 +1283,16 @@ namespace IFC4
 		{
 			return new IfcKinematicViscosityMeasure(v);
 		}	
+
+		public static IfcKinematicViscosityMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcKinematicViscosityMeasure>(json);
+		}
+
+		public static IfcKinematicViscosityMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -851,6 +1311,16 @@ namespace IFC4
 		{
 			return new IfcLabel(v);
 		}	
+
+		public static IfcLabel FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLabel>(json);
+		}
+
+		public static IfcLabel FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -869,6 +1339,16 @@ namespace IFC4
 		{
 			return new IfcLanguageId(v);
 		}	
+
+		public static IfcLanguageId FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLanguageId>(json);
+		}
+
+		public static IfcLanguageId FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -887,6 +1367,16 @@ namespace IFC4
 		{
 			return new IfcLengthMeasure(v);
 		}	
+
+		public static IfcLengthMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLengthMeasure>(json);
+		}
+
+		public static IfcLengthMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -905,6 +1395,16 @@ namespace IFC4
 		{
 			return new IfcLinearForceMeasure(v);
 		}	
+
+		public static IfcLinearForceMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLinearForceMeasure>(json);
+		}
+
+		public static IfcLinearForceMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -923,6 +1423,16 @@ namespace IFC4
 		{
 			return new IfcLinearMomentMeasure(v);
 		}	
+
+		public static IfcLinearMomentMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLinearMomentMeasure>(json);
+		}
+
+		public static IfcLinearMomentMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -941,6 +1451,16 @@ namespace IFC4
 		{
 			return new IfcLinearStiffnessMeasure(v);
 		}	
+
+		public static IfcLinearStiffnessMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLinearStiffnessMeasure>(json);
+		}
+
+		public static IfcLinearStiffnessMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -959,6 +1479,16 @@ namespace IFC4
 		{
 			return new IfcLinearVelocityMeasure(v);
 		}	
+
+		public static IfcLinearVelocityMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLinearVelocityMeasure>(json);
+		}
+
+		public static IfcLinearVelocityMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -977,6 +1507,16 @@ namespace IFC4
 		{
 			return new IfcLogical(v);
 		}	
+
+		public static IfcLogical FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLogical>(json);
+		}
+
+		public static IfcLogical FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -995,6 +1535,16 @@ namespace IFC4
 		{
 			return new IfcLuminousFluxMeasure(v);
 		}	
+
+		public static IfcLuminousFluxMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLuminousFluxMeasure>(json);
+		}
+
+		public static IfcLuminousFluxMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1013,6 +1563,16 @@ namespace IFC4
 		{
 			return new IfcLuminousIntensityDistributionMeasure(v);
 		}	
+
+		public static IfcLuminousIntensityDistributionMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLuminousIntensityDistributionMeasure>(json);
+		}
+
+		public static IfcLuminousIntensityDistributionMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1031,6 +1591,16 @@ namespace IFC4
 		{
 			return new IfcLuminousIntensityMeasure(v);
 		}	
+
+		public static IfcLuminousIntensityMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLuminousIntensityMeasure>(json);
+		}
+
+		public static IfcLuminousIntensityMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1049,6 +1619,16 @@ namespace IFC4
 		{
 			return new IfcMagneticFluxDensityMeasure(v);
 		}	
+
+		public static IfcMagneticFluxDensityMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMagneticFluxDensityMeasure>(json);
+		}
+
+		public static IfcMagneticFluxDensityMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1067,6 +1647,16 @@ namespace IFC4
 		{
 			return new IfcMagneticFluxMeasure(v);
 		}	
+
+		public static IfcMagneticFluxMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMagneticFluxMeasure>(json);
+		}
+
+		public static IfcMagneticFluxMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1085,6 +1675,16 @@ namespace IFC4
 		{
 			return new IfcMassDensityMeasure(v);
 		}	
+
+		public static IfcMassDensityMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMassDensityMeasure>(json);
+		}
+
+		public static IfcMassDensityMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1103,6 +1703,16 @@ namespace IFC4
 		{
 			return new IfcMassFlowRateMeasure(v);
 		}	
+
+		public static IfcMassFlowRateMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMassFlowRateMeasure>(json);
+		}
+
+		public static IfcMassFlowRateMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1121,6 +1731,16 @@ namespace IFC4
 		{
 			return new IfcMassMeasure(v);
 		}	
+
+		public static IfcMassMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMassMeasure>(json);
+		}
+
+		public static IfcMassMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1139,6 +1759,16 @@ namespace IFC4
 		{
 			return new IfcMassPerLengthMeasure(v);
 		}	
+
+		public static IfcMassPerLengthMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMassPerLengthMeasure>(json);
+		}
+
+		public static IfcMassPerLengthMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1157,6 +1787,16 @@ namespace IFC4
 		{
 			return new IfcModulusOfElasticityMeasure(v);
 		}	
+
+		public static IfcModulusOfElasticityMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcModulusOfElasticityMeasure>(json);
+		}
+
+		public static IfcModulusOfElasticityMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1175,6 +1815,16 @@ namespace IFC4
 		{
 			return new IfcModulusOfLinearSubgradeReactionMeasure(v);
 		}	
+
+		public static IfcModulusOfLinearSubgradeReactionMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcModulusOfLinearSubgradeReactionMeasure>(json);
+		}
+
+		public static IfcModulusOfLinearSubgradeReactionMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1193,6 +1843,16 @@ namespace IFC4
 		{
 			return new IfcModulusOfRotationalSubgradeReactionMeasure(v);
 		}	
+
+		public static IfcModulusOfRotationalSubgradeReactionMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcModulusOfRotationalSubgradeReactionMeasure>(json);
+		}
+
+		public static IfcModulusOfRotationalSubgradeReactionMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1211,6 +1871,16 @@ namespace IFC4
 		{
 			return new IfcModulusOfSubgradeReactionMeasure(v);
 		}	
+
+		public static IfcModulusOfSubgradeReactionMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcModulusOfSubgradeReactionMeasure>(json);
+		}
+
+		public static IfcModulusOfSubgradeReactionMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1229,6 +1899,16 @@ namespace IFC4
 		{
 			return new IfcMoistureDiffusivityMeasure(v);
 		}	
+
+		public static IfcMoistureDiffusivityMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMoistureDiffusivityMeasure>(json);
+		}
+
+		public static IfcMoistureDiffusivityMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1247,6 +1927,16 @@ namespace IFC4
 		{
 			return new IfcMolecularWeightMeasure(v);
 		}	
+
+		public static IfcMolecularWeightMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMolecularWeightMeasure>(json);
+		}
+
+		public static IfcMolecularWeightMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1265,6 +1955,16 @@ namespace IFC4
 		{
 			return new IfcMomentOfInertiaMeasure(v);
 		}	
+
+		public static IfcMomentOfInertiaMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMomentOfInertiaMeasure>(json);
+		}
+
+		public static IfcMomentOfInertiaMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1283,6 +1983,16 @@ namespace IFC4
 		{
 			return new IfcMonetaryMeasure(v);
 		}	
+
+		public static IfcMonetaryMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMonetaryMeasure>(json);
+		}
+
+		public static IfcMonetaryMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1301,6 +2011,16 @@ namespace IFC4
 		{
 			return new IfcMonthInYearNumber(v);
 		}	
+
+		public static IfcMonthInYearNumber FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMonthInYearNumber>(json);
+		}
+
+		public static IfcMonthInYearNumber FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1319,6 +2039,16 @@ namespace IFC4
 		{
 			return new IfcNonNegativeLengthMeasure(v);
 		}	
+
+		public static IfcNonNegativeLengthMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcNonNegativeLengthMeasure>(json);
+		}
+
+		public static IfcNonNegativeLengthMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1337,6 +2067,16 @@ namespace IFC4
 		{
 			return new IfcNormalisedRatioMeasure(v);
 		}	
+
+		public static IfcNormalisedRatioMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcNormalisedRatioMeasure>(json);
+		}
+
+		public static IfcNormalisedRatioMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1355,6 +2095,16 @@ namespace IFC4
 		{
 			return new IfcNumericMeasure(v);
 		}	
+
+		public static IfcNumericMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcNumericMeasure>(json);
+		}
+
+		public static IfcNumericMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1373,6 +2123,16 @@ namespace IFC4
 		{
 			return new IfcPHMeasure(v);
 		}	
+
+		public static IfcPHMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPHMeasure>(json);
+		}
+
+		public static IfcPHMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1391,6 +2151,16 @@ namespace IFC4
 		{
 			return new IfcParameterValue(v);
 		}	
+
+		public static IfcParameterValue FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcParameterValue>(json);
+		}
+
+		public static IfcParameterValue FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1409,6 +2179,16 @@ namespace IFC4
 		{
 			return new IfcPlanarForceMeasure(v);
 		}	
+
+		public static IfcPlanarForceMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPlanarForceMeasure>(json);
+		}
+
+		public static IfcPlanarForceMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1427,6 +2207,16 @@ namespace IFC4
 		{
 			return new IfcPlaneAngleMeasure(v);
 		}	
+
+		public static IfcPlaneAngleMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPlaneAngleMeasure>(json);
+		}
+
+		public static IfcPlaneAngleMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1445,6 +2235,16 @@ namespace IFC4
 		{
 			return new IfcPositiveLengthMeasure(v);
 		}	
+
+		public static IfcPositiveLengthMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPositiveLengthMeasure>(json);
+		}
+
+		public static IfcPositiveLengthMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1463,6 +2263,16 @@ namespace IFC4
 		{
 			return new IfcPositivePlaneAngleMeasure(v);
 		}	
+
+		public static IfcPositivePlaneAngleMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPositivePlaneAngleMeasure>(json);
+		}
+
+		public static IfcPositivePlaneAngleMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1481,6 +2291,16 @@ namespace IFC4
 		{
 			return new IfcPositiveRatioMeasure(v);
 		}	
+
+		public static IfcPositiveRatioMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPositiveRatioMeasure>(json);
+		}
+
+		public static IfcPositiveRatioMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1499,6 +2319,16 @@ namespace IFC4
 		{
 			return new IfcPowerMeasure(v);
 		}	
+
+		public static IfcPowerMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPowerMeasure>(json);
+		}
+
+		public static IfcPowerMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1517,6 +2347,16 @@ namespace IFC4
 		{
 			return new IfcPresentableText(v);
 		}	
+
+		public static IfcPresentableText FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPresentableText>(json);
+		}
+
+		public static IfcPresentableText FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1535,6 +2375,16 @@ namespace IFC4
 		{
 			return new IfcPressureMeasure(v);
 		}	
+
+		public static IfcPressureMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPressureMeasure>(json);
+		}
+
+		public static IfcPressureMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1553,6 +2403,16 @@ namespace IFC4
 		{
 			return new IfcPropertySetDefinitionSet(v);
 		}	
+
+		public static IfcPropertySetDefinitionSet FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPropertySetDefinitionSet>(json);
+		}
+
+		public static IfcPropertySetDefinitionSet FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1571,6 +2431,16 @@ namespace IFC4
 		{
 			return new IfcRadioActivityMeasure(v);
 		}	
+
+		public static IfcRadioActivityMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRadioActivityMeasure>(json);
+		}
+
+		public static IfcRadioActivityMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1589,6 +2459,16 @@ namespace IFC4
 		{
 			return new IfcRatioMeasure(v);
 		}	
+
+		public static IfcRatioMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRatioMeasure>(json);
+		}
+
+		public static IfcRatioMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1607,6 +2487,16 @@ namespace IFC4
 		{
 			return new IfcReal(v);
 		}	
+
+		public static IfcReal FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcReal>(json);
+		}
+
+		public static IfcReal FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1625,6 +2515,16 @@ namespace IFC4
 		{
 			return new IfcRotationalFrequencyMeasure(v);
 		}	
+
+		public static IfcRotationalFrequencyMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRotationalFrequencyMeasure>(json);
+		}
+
+		public static IfcRotationalFrequencyMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1643,6 +2543,16 @@ namespace IFC4
 		{
 			return new IfcRotationalMassMeasure(v);
 		}	
+
+		public static IfcRotationalMassMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRotationalMassMeasure>(json);
+		}
+
+		public static IfcRotationalMassMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1661,6 +2571,16 @@ namespace IFC4
 		{
 			return new IfcRotationalStiffnessMeasure(v);
 		}	
+
+		public static IfcRotationalStiffnessMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRotationalStiffnessMeasure>(json);
+		}
+
+		public static IfcRotationalStiffnessMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1679,6 +2599,16 @@ namespace IFC4
 		{
 			return new IfcSectionModulusMeasure(v);
 		}	
+
+		public static IfcSectionModulusMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSectionModulusMeasure>(json);
+		}
+
+		public static IfcSectionModulusMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1697,6 +2627,16 @@ namespace IFC4
 		{
 			return new IfcSectionalAreaIntegralMeasure(v);
 		}	
+
+		public static IfcSectionalAreaIntegralMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSectionalAreaIntegralMeasure>(json);
+		}
+
+		public static IfcSectionalAreaIntegralMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1715,6 +2655,16 @@ namespace IFC4
 		{
 			return new IfcShearModulusMeasure(v);
 		}	
+
+		public static IfcShearModulusMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcShearModulusMeasure>(json);
+		}
+
+		public static IfcShearModulusMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1733,6 +2683,16 @@ namespace IFC4
 		{
 			return new IfcSolidAngleMeasure(v);
 		}	
+
+		public static IfcSolidAngleMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSolidAngleMeasure>(json);
+		}
+
+		public static IfcSolidAngleMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1751,6 +2711,16 @@ namespace IFC4
 		{
 			return new IfcSoundPowerLevelMeasure(v);
 		}	
+
+		public static IfcSoundPowerLevelMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSoundPowerLevelMeasure>(json);
+		}
+
+		public static IfcSoundPowerLevelMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1769,6 +2739,16 @@ namespace IFC4
 		{
 			return new IfcSoundPowerMeasure(v);
 		}	
+
+		public static IfcSoundPowerMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSoundPowerMeasure>(json);
+		}
+
+		public static IfcSoundPowerMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1787,6 +2767,16 @@ namespace IFC4
 		{
 			return new IfcSoundPressureLevelMeasure(v);
 		}	
+
+		public static IfcSoundPressureLevelMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSoundPressureLevelMeasure>(json);
+		}
+
+		public static IfcSoundPressureLevelMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1805,6 +2795,16 @@ namespace IFC4
 		{
 			return new IfcSoundPressureMeasure(v);
 		}	
+
+		public static IfcSoundPressureMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSoundPressureMeasure>(json);
+		}
+
+		public static IfcSoundPressureMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1823,6 +2823,16 @@ namespace IFC4
 		{
 			return new IfcSpecificHeatCapacityMeasure(v);
 		}	
+
+		public static IfcSpecificHeatCapacityMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSpecificHeatCapacityMeasure>(json);
+		}
+
+		public static IfcSpecificHeatCapacityMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1841,6 +2851,16 @@ namespace IFC4
 		{
 			return new IfcSpecularExponent(v);
 		}	
+
+		public static IfcSpecularExponent FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSpecularExponent>(json);
+		}
+
+		public static IfcSpecularExponent FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1859,6 +2879,16 @@ namespace IFC4
 		{
 			return new IfcSpecularRoughness(v);
 		}	
+
+		public static IfcSpecularRoughness FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSpecularRoughness>(json);
+		}
+
+		public static IfcSpecularRoughness FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1877,6 +2907,16 @@ namespace IFC4
 		{
 			return new IfcTemperatureGradientMeasure(v);
 		}	
+
+		public static IfcTemperatureGradientMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTemperatureGradientMeasure>(json);
+		}
+
+		public static IfcTemperatureGradientMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1895,6 +2935,16 @@ namespace IFC4
 		{
 			return new IfcTemperatureRateOfChangeMeasure(v);
 		}	
+
+		public static IfcTemperatureRateOfChangeMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTemperatureRateOfChangeMeasure>(json);
+		}
+
+		public static IfcTemperatureRateOfChangeMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1913,6 +2963,16 @@ namespace IFC4
 		{
 			return new IfcText(v);
 		}	
+
+		public static IfcText FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcText>(json);
+		}
+
+		public static IfcText FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1931,6 +2991,16 @@ namespace IFC4
 		{
 			return new IfcTextAlignment(v);
 		}	
+
+		public static IfcTextAlignment FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextAlignment>(json);
+		}
+
+		public static IfcTextAlignment FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1949,6 +3019,16 @@ namespace IFC4
 		{
 			return new IfcTextDecoration(v);
 		}	
+
+		public static IfcTextDecoration FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextDecoration>(json);
+		}
+
+		public static IfcTextDecoration FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1967,6 +3047,16 @@ namespace IFC4
 		{
 			return new IfcTextFontName(v);
 		}	
+
+		public static IfcTextFontName FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextFontName>(json);
+		}
+
+		public static IfcTextFontName FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -1985,6 +3075,16 @@ namespace IFC4
 		{
 			return new IfcTextTransformation(v);
 		}	
+
+		public static IfcTextTransformation FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextTransformation>(json);
+		}
+
+		public static IfcTextTransformation FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -2003,6 +3103,16 @@ namespace IFC4
 		{
 			return new IfcThermalAdmittanceMeasure(v);
 		}	
+
+		public static IfcThermalAdmittanceMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcThermalAdmittanceMeasure>(json);
+		}
+
+		public static IfcThermalAdmittanceMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -2021,6 +3131,16 @@ namespace IFC4
 		{
 			return new IfcThermalConductivityMeasure(v);
 		}	
+
+		public static IfcThermalConductivityMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcThermalConductivityMeasure>(json);
+		}
+
+		public static IfcThermalConductivityMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -2039,6 +3159,16 @@ namespace IFC4
 		{
 			return new IfcThermalExpansionCoefficientMeasure(v);
 		}	
+
+		public static IfcThermalExpansionCoefficientMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcThermalExpansionCoefficientMeasure>(json);
+		}
+
+		public static IfcThermalExpansionCoefficientMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -2057,6 +3187,16 @@ namespace IFC4
 		{
 			return new IfcThermalResistanceMeasure(v);
 		}	
+
+		public static IfcThermalResistanceMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcThermalResistanceMeasure>(json);
+		}
+
+		public static IfcThermalResistanceMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -2075,6 +3215,16 @@ namespace IFC4
 		{
 			return new IfcThermalTransmittanceMeasure(v);
 		}	
+
+		public static IfcThermalTransmittanceMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcThermalTransmittanceMeasure>(json);
+		}
+
+		public static IfcThermalTransmittanceMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -2093,6 +3243,16 @@ namespace IFC4
 		{
 			return new IfcThermodynamicTemperatureMeasure(v);
 		}	
+
+		public static IfcThermodynamicTemperatureMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcThermodynamicTemperatureMeasure>(json);
+		}
+
+		public static IfcThermodynamicTemperatureMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -2111,6 +3271,16 @@ namespace IFC4
 		{
 			return new IfcTime(v);
 		}	
+
+		public static IfcTime FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTime>(json);
+		}
+
+		public static IfcTime FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -2129,6 +3299,16 @@ namespace IFC4
 		{
 			return new IfcTimeMeasure(v);
 		}	
+
+		public static IfcTimeMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTimeMeasure>(json);
+		}
+
+		public static IfcTimeMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -2147,6 +3327,16 @@ namespace IFC4
 		{
 			return new IfcTimeStamp(v);
 		}	
+
+		public static IfcTimeStamp FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTimeStamp>(json);
+		}
+
+		public static IfcTimeStamp FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -2165,6 +3355,16 @@ namespace IFC4
 		{
 			return new IfcTorqueMeasure(v);
 		}	
+
+		public static IfcTorqueMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTorqueMeasure>(json);
+		}
+
+		public static IfcTorqueMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -2183,6 +3383,16 @@ namespace IFC4
 		{
 			return new IfcURIReference(v);
 		}	
+
+		public static IfcURIReference FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcURIReference>(json);
+		}
+
+		public static IfcURIReference FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -2201,6 +3411,16 @@ namespace IFC4
 		{
 			return new IfcVaporPermeabilityMeasure(v);
 		}	
+
+		public static IfcVaporPermeabilityMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcVaporPermeabilityMeasure>(json);
+		}
+
+		public static IfcVaporPermeabilityMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -2219,6 +3439,16 @@ namespace IFC4
 		{
 			return new IfcVolumeMeasure(v);
 		}	
+
+		public static IfcVolumeMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcVolumeMeasure>(json);
+		}
+
+		public static IfcVolumeMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -2237,6 +3467,16 @@ namespace IFC4
 		{
 			return new IfcVolumetricFlowRateMeasure(v);
 		}	
+
+		public static IfcVolumetricFlowRateMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcVolumetricFlowRateMeasure>(json);
+		}
+
+		public static IfcVolumetricFlowRateMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -2255,6 +3495,16 @@ namespace IFC4
 		{
 			return new IfcWarpingConstantMeasure(v);
 		}	
+
+		public static IfcWarpingConstantMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWarpingConstantMeasure>(json);
+		}
+
+		public static IfcWarpingConstantMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -2273,6 +3523,16 @@ namespace IFC4
 		{
 			return new IfcWarpingMomentMeasure(v);
 		}	
+
+		public static IfcWarpingMomentMeasure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWarpingMomentMeasure>(json);
+		}
+
+		public static IfcWarpingMomentMeasure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3314,6 +4574,15 @@ namespace IFC4
 		public IfcActorSelect(IfcPerson value):base(value){}
 		public IfcActorSelect(IfcPersonAndOrganization value):base(value){}
 
+		public static IfcActorSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcActorSelect>(json);
+		}
+
+		public static IfcActorSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3325,6 +4594,15 @@ namespace IFC4
 		public IfcAppliedValueSelect(IfcReference value):base(value){}
 		public IfcAppliedValueSelect(IfcValue value):base(value){}
 
+		public static IfcAppliedValueSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAppliedValueSelect>(json);
+		}
+
+		public static IfcAppliedValueSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3335,6 +4613,15 @@ namespace IFC4
 		public IfcAxis2Placement(IfcAxis2Placement2D value):base(value){}
 		public IfcAxis2Placement(IfcAxis2Placement3D value):base(value){}
 
+		public static IfcAxis2Placement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAxis2Placement>(json);
+		}
+
+		public static IfcAxis2Placement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3345,6 +4632,15 @@ namespace IFC4
 		public IfcBendingParameterSelect(IfcLengthMeasure value):base(value){}
 		public IfcBendingParameterSelect(IfcPlaneAngleMeasure value):base(value){}
 
+		public static IfcBendingParameterSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBendingParameterSelect>(json);
+		}
+
+		public static IfcBendingParameterSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3357,6 +4653,15 @@ namespace IFC4
 		public IfcBooleanOperand(IfcHalfSpaceSolid value):base(value){}
 		public IfcBooleanOperand(IfcSolidModel value):base(value){}
 
+		public static IfcBooleanOperand FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBooleanOperand>(json);
+		}
+
+		public static IfcBooleanOperand FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3367,6 +4672,15 @@ namespace IFC4
 		public IfcClassificationReferenceSelect(IfcClassification value):base(value){}
 		public IfcClassificationReferenceSelect(IfcClassificationReference value):base(value){}
 
+		public static IfcClassificationReferenceSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcClassificationReferenceSelect>(json);
+		}
+
+		public static IfcClassificationReferenceSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3377,6 +4691,15 @@ namespace IFC4
 		public IfcClassificationSelect(IfcClassification value):base(value){}
 		public IfcClassificationSelect(IfcClassificationReference value):base(value){}
 
+		public static IfcClassificationSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcClassificationSelect>(json);
+		}
+
+		public static IfcClassificationSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3387,6 +4710,15 @@ namespace IFC4
 		public IfcColour(IfcColourSpecification value):base(value){}
 		public IfcColour(IfcPreDefinedColour value):base(value){}
 
+		public static IfcColour FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcColour>(json);
+		}
+
+		public static IfcColour FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3397,6 +4729,15 @@ namespace IFC4
 		public IfcColourOrFactor(IfcColourRgb value):base(value){}
 		public IfcColourOrFactor(IfcNormalisedRatioMeasure value):base(value){}
 
+		public static IfcColourOrFactor FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcColourOrFactor>(json);
+		}
+
+		public static IfcColourOrFactor FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3407,6 +4748,15 @@ namespace IFC4
 		public IfcCoordinateReferenceSystemSelect(IfcCoordinateReferenceSystem value):base(value){}
 		public IfcCoordinateReferenceSystemSelect(IfcGeometricRepresentationContext value):base(value){}
 
+		public static IfcCoordinateReferenceSystemSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCoordinateReferenceSystemSelect>(json);
+		}
+
+		public static IfcCoordinateReferenceSystemSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3417,6 +4767,15 @@ namespace IFC4
 		public IfcCsgSelect(IfcBooleanResult value):base(value){}
 		public IfcCsgSelect(IfcCsgPrimitive3D value):base(value){}
 
+		public static IfcCsgSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCsgSelect>(json);
+		}
+
+		public static IfcCsgSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3427,6 +4786,15 @@ namespace IFC4
 		public IfcCurveFontOrScaledCurveFontSelect(IfcCurveStyleFontAndScaling value):base(value){}
 		public IfcCurveFontOrScaledCurveFontSelect(IfcCurveStyleFontSelect value):base(value){}
 
+		public static IfcCurveFontOrScaledCurveFontSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCurveFontOrScaledCurveFontSelect>(json);
+		}
+
+		public static IfcCurveFontOrScaledCurveFontSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3437,6 +4805,15 @@ namespace IFC4
 		public IfcCurveOnSurface(IfcCompositeCurveOnSurface value):base(value){}
 		public IfcCurveOnSurface(IfcPcurve value):base(value){}
 
+		public static IfcCurveOnSurface FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCurveOnSurface>(json);
+		}
+
+		public static IfcCurveOnSurface FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3447,6 +4824,15 @@ namespace IFC4
 		public IfcCurveOrEdgeCurve(IfcBoundedCurve value):base(value){}
 		public IfcCurveOrEdgeCurve(IfcEdgeCurve value):base(value){}
 
+		public static IfcCurveOrEdgeCurve FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCurveOrEdgeCurve>(json);
+		}
+
+		public static IfcCurveOrEdgeCurve FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3457,6 +4843,15 @@ namespace IFC4
 		public IfcCurveStyleFontSelect(IfcCurveStyleFont value):base(value){}
 		public IfcCurveStyleFontSelect(IfcPreDefinedCurveFont value):base(value){}
 
+		public static IfcCurveStyleFontSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCurveStyleFontSelect>(json);
+		}
+
+		public static IfcCurveStyleFontSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3467,6 +4862,15 @@ namespace IFC4
 		public IfcDefinitionSelect(IfcObjectDefinition value):base(value){}
 		public IfcDefinitionSelect(IfcPropertyDefinition value):base(value){}
 
+		public static IfcDefinitionSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDefinitionSelect>(json);
+		}
+
+		public static IfcDefinitionSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3546,6 +4950,15 @@ namespace IFC4
 		public IfcDerivedMeasureValue(IfcWarpingConstantMeasure value):base(value){}
 		public IfcDerivedMeasureValue(IfcWarpingMomentMeasure value):base(value){}
 
+		public static IfcDerivedMeasureValue FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDerivedMeasureValue>(json);
+		}
+
+		public static IfcDerivedMeasureValue FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3556,6 +4969,15 @@ namespace IFC4
 		public IfcDocumentSelect(IfcDocumentInformation value):base(value){}
 		public IfcDocumentSelect(IfcDocumentReference value):base(value){}
 
+		public static IfcDocumentSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDocumentSelect>(json);
+		}
+
+		public static IfcDocumentSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3568,6 +4990,15 @@ namespace IFC4
 		public IfcFillStyleSelect(IfcFillAreaStyleHatching value):base(value){}
 		public IfcFillStyleSelect(IfcFillAreaStyleTiles value):base(value){}
 
+		public static IfcFillStyleSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFillStyleSelect>(json);
+		}
+
+		public static IfcFillStyleSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3579,6 +5010,15 @@ namespace IFC4
 		public IfcGeometricSetSelect(IfcPoint value):base(value){}
 		public IfcGeometricSetSelect(IfcSurface value):base(value){}
 
+		public static IfcGeometricSetSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcGeometricSetSelect>(json);
+		}
+
+		public static IfcGeometricSetSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3589,6 +5029,15 @@ namespace IFC4
 		public IfcGridPlacementDirectionSelect(IfcDirection value):base(value){}
 		public IfcGridPlacementDirectionSelect(IfcVirtualGridIntersection value):base(value){}
 
+		public static IfcGridPlacementDirectionSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcGridPlacementDirectionSelect>(json);
+		}
+
+		public static IfcGridPlacementDirectionSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3599,6 +5048,15 @@ namespace IFC4
 		public IfcHatchLineDistanceSelect(IfcPositiveLengthMeasure value):base(value){}
 		public IfcHatchLineDistanceSelect(IfcVector value):base(value){}
 
+		public static IfcHatchLineDistanceSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcHatchLineDistanceSelect>(json);
+		}
+
+		public static IfcHatchLineDistanceSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3609,6 +5067,15 @@ namespace IFC4
 		public IfcLayeredItem(IfcRepresentation value):base(value){}
 		public IfcLayeredItem(IfcRepresentationItem value):base(value){}
 
+		public static IfcLayeredItem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLayeredItem>(json);
+		}
+
+		public static IfcLayeredItem FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3619,6 +5086,15 @@ namespace IFC4
 		public IfcLibrarySelect(IfcLibraryInformation value):base(value){}
 		public IfcLibrarySelect(IfcLibraryReference value):base(value){}
 
+		public static IfcLibrarySelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLibrarySelect>(json);
+		}
+
+		public static IfcLibrarySelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3629,6 +5105,15 @@ namespace IFC4
 		public IfcLightDistributionDataSourceSelect(IfcExternalReference value):base(value){}
 		public IfcLightDistributionDataSourceSelect(IfcLightIntensityDistribution value):base(value){}
 
+		public static IfcLightDistributionDataSourceSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLightDistributionDataSourceSelect>(json);
+		}
+
+		public static IfcLightDistributionDataSourceSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3640,6 +5125,15 @@ namespace IFC4
 		public IfcMaterialSelect(IfcMaterialList value):base(value){}
 		public IfcMaterialSelect(IfcMaterialUsageDefinition value):base(value){}
 
+		public static IfcMaterialSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialSelect>(json);
+		}
+
+		public static IfcMaterialSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3671,6 +5165,15 @@ namespace IFC4
 		public IfcMeasureValue(IfcTimeMeasure value):base(value){}
 		public IfcMeasureValue(IfcVolumeMeasure value):base(value){}
 
+		public static IfcMeasureValue FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMeasureValue>(json);
+		}
+
+		public static IfcMeasureValue FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3685,6 +5188,15 @@ namespace IFC4
 		public IfcMetricValueSelect(IfcTimeSeries value):base(value){}
 		public IfcMetricValueSelect(IfcValue value):base(value){}
 
+		public static IfcMetricValueSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMetricValueSelect>(json);
+		}
+
+		public static IfcMetricValueSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3695,6 +5207,15 @@ namespace IFC4
 		public IfcModulusOfRotationalSubgradeReactionSelect(IfcBoolean value):base(value){}
 		public IfcModulusOfRotationalSubgradeReactionSelect(IfcModulusOfRotationalSubgradeReactionMeasure value):base(value){}
 
+		public static IfcModulusOfRotationalSubgradeReactionSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcModulusOfRotationalSubgradeReactionSelect>(json);
+		}
+
+		public static IfcModulusOfRotationalSubgradeReactionSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3705,6 +5226,15 @@ namespace IFC4
 		public IfcModulusOfSubgradeReactionSelect(IfcBoolean value):base(value){}
 		public IfcModulusOfSubgradeReactionSelect(IfcModulusOfSubgradeReactionMeasure value):base(value){}
 
+		public static IfcModulusOfSubgradeReactionSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcModulusOfSubgradeReactionSelect>(json);
+		}
+
+		public static IfcModulusOfSubgradeReactionSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3715,6 +5245,15 @@ namespace IFC4
 		public IfcModulusOfTranslationalSubgradeReactionSelect(IfcBoolean value):base(value){}
 		public IfcModulusOfTranslationalSubgradeReactionSelect(IfcModulusOfLinearSubgradeReactionMeasure value):base(value){}
 
+		public static IfcModulusOfTranslationalSubgradeReactionSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcModulusOfTranslationalSubgradeReactionSelect>(json);
+		}
+
+		public static IfcModulusOfTranslationalSubgradeReactionSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3732,6 +5271,15 @@ namespace IFC4
 		public IfcObjectReferenceSelect(IfcTable value):base(value){}
 		public IfcObjectReferenceSelect(IfcTimeSeries value):base(value){}
 
+		public static IfcObjectReferenceSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcObjectReferenceSelect>(json);
+		}
+
+		public static IfcObjectReferenceSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3742,6 +5290,15 @@ namespace IFC4
 		public IfcPointOrVertexPoint(IfcPoint value):base(value){}
 		public IfcPointOrVertexPoint(IfcVertexPoint value):base(value){}
 
+		public static IfcPointOrVertexPoint FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPointOrVertexPoint>(json);
+		}
+
+		public static IfcPointOrVertexPoint FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3755,6 +5312,15 @@ namespace IFC4
 		public IfcPresentationStyleSelect(IfcSurfaceStyle value):base(value){}
 		public IfcPresentationStyleSelect(IfcTextStyle value):base(value){}
 
+		public static IfcPresentationStyleSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPresentationStyleSelect>(json);
+		}
+
+		public static IfcPresentationStyleSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3765,6 +5331,15 @@ namespace IFC4
 		public IfcProcessSelect(IfcProcess value):base(value){}
 		public IfcProcessSelect(IfcTypeProcess value):base(value){}
 
+		public static IfcProcessSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProcessSelect>(json);
+		}
+
+		public static IfcProcessSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3775,6 +5350,15 @@ namespace IFC4
 		public IfcProductRepresentationSelect(IfcProductDefinitionShape value):base(value){}
 		public IfcProductRepresentationSelect(IfcRepresentationMap value):base(value){}
 
+		public static IfcProductRepresentationSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProductRepresentationSelect>(json);
+		}
+
+		public static IfcProductRepresentationSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3785,6 +5369,15 @@ namespace IFC4
 		public IfcProductSelect(IfcProduct value):base(value){}
 		public IfcProductSelect(IfcTypeProduct value):base(value){}
 
+		public static IfcProductSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProductSelect>(json);
+		}
+
+		public static IfcProductSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3795,6 +5388,15 @@ namespace IFC4
 		public IfcPropertySetDefinitionSelect(IfcPropertySetDefinition value):base(value){}
 		public IfcPropertySetDefinitionSelect(IfcPropertySetDefinitionSet value):base(value){}
 
+		public static IfcPropertySetDefinitionSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPropertySetDefinitionSelect>(json);
+		}
+
+		public static IfcPropertySetDefinitionSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3819,6 +5421,15 @@ namespace IFC4
 		public IfcResourceObjectSelect(IfcPropertyAbstraction value):base(value){}
 		public IfcResourceObjectSelect(IfcTimeSeries value):base(value){}
 
+		public static IfcResourceObjectSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcResourceObjectSelect>(json);
+		}
+
+		public static IfcResourceObjectSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3829,6 +5440,15 @@ namespace IFC4
 		public IfcResourceSelect(IfcResource value):base(value){}
 		public IfcResourceSelect(IfcTypeResource value):base(value){}
 
+		public static IfcResourceSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcResourceSelect>(json);
+		}
+
+		public static IfcResourceSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3839,6 +5459,15 @@ namespace IFC4
 		public IfcRotationalStiffnessSelect(IfcBoolean value):base(value){}
 		public IfcRotationalStiffnessSelect(IfcRotationalStiffnessMeasure value):base(value){}
 
+		public static IfcRotationalStiffnessSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRotationalStiffnessSelect>(json);
+		}
+
+		public static IfcRotationalStiffnessSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3849,6 +5478,15 @@ namespace IFC4
 		public IfcShell(IfcClosedShell value):base(value){}
 		public IfcShell(IfcOpenShell value):base(value){}
 
+		public static IfcShell FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcShell>(json);
+		}
+
+		public static IfcShell FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3869,6 +5507,15 @@ namespace IFC4
 		public IfcSimpleValue(IfcTime value):base(value){}
 		public IfcSimpleValue(IfcTimeStamp value):base(value){}
 
+		public static IfcSimpleValue FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSimpleValue>(json);
+		}
+
+		public static IfcSimpleValue FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3883,6 +5530,15 @@ namespace IFC4
 		public IfcSizeSelect(IfcPositiveRatioMeasure value):base(value){}
 		public IfcSizeSelect(IfcRatioMeasure value):base(value){}
 
+		public static IfcSizeSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSizeSelect>(json);
+		}
+
+		public static IfcSizeSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3893,6 +5549,15 @@ namespace IFC4
 		public IfcSolidOrShell(IfcClosedShell value):base(value){}
 		public IfcSolidOrShell(IfcSolidModel value):base(value){}
 
+		public static IfcSolidOrShell FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSolidOrShell>(json);
+		}
+
+		public static IfcSolidOrShell FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3903,6 +5568,15 @@ namespace IFC4
 		public IfcSpaceBoundarySelect(IfcExternalSpatialElement value):base(value){}
 		public IfcSpaceBoundarySelect(IfcSpace value):base(value){}
 
+		public static IfcSpaceBoundarySelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSpaceBoundarySelect>(json);
+		}
+
+		public static IfcSpaceBoundarySelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3913,6 +5587,15 @@ namespace IFC4
 		public IfcSpecularHighlightSelect(IfcSpecularExponent value):base(value){}
 		public IfcSpecularHighlightSelect(IfcSpecularRoughness value):base(value){}
 
+		public static IfcSpecularHighlightSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSpecularHighlightSelect>(json);
+		}
+
+		public static IfcSpecularHighlightSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3923,6 +5606,15 @@ namespace IFC4
 		public IfcStructuralActivityAssignmentSelect(IfcElement value):base(value){}
 		public IfcStructuralActivityAssignmentSelect(IfcStructuralItem value):base(value){}
 
+		public static IfcStructuralActivityAssignmentSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralActivityAssignmentSelect>(json);
+		}
+
+		public static IfcStructuralActivityAssignmentSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3933,6 +5625,15 @@ namespace IFC4
 		public IfcStyleAssignmentSelect(IfcPresentationStyle value):base(value){}
 		public IfcStyleAssignmentSelect(IfcPresentationStyleAssignment value):base(value){}
 
+		public static IfcStyleAssignmentSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStyleAssignmentSelect>(json);
+		}
+
+		public static IfcStyleAssignmentSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3944,6 +5645,15 @@ namespace IFC4
 		public IfcSurfaceOrFaceSurface(IfcFaceSurface value):base(value){}
 		public IfcSurfaceOrFaceSurface(IfcSurface value):base(value){}
 
+		public static IfcSurfaceOrFaceSurface FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurfaceOrFaceSurface>(json);
+		}
+
+		public static IfcSurfaceOrFaceSurface FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3957,6 +5667,15 @@ namespace IFC4
 		public IfcSurfaceStyleElementSelect(IfcSurfaceStyleShading value):base(value){}
 		public IfcSurfaceStyleElementSelect(IfcSurfaceStyleWithTextures value):base(value){}
 
+		public static IfcSurfaceStyleElementSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurfaceStyleElementSelect>(json);
+		}
+
+		public static IfcSurfaceStyleElementSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3967,6 +5686,15 @@ namespace IFC4
 		public IfcTextFontSelect(IfcExternallyDefinedTextFont value):base(value){}
 		public IfcTextFontSelect(IfcPreDefinedTextFont value):base(value){}
 
+		public static IfcTextFontSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextFontSelect>(json);
+		}
+
+		public static IfcTextFontSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3977,6 +5705,15 @@ namespace IFC4
 		public IfcTimeOrRatioSelect(IfcDuration value):base(value){}
 		public IfcTimeOrRatioSelect(IfcRatioMeasure value):base(value){}
 
+		public static IfcTimeOrRatioSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTimeOrRatioSelect>(json);
+		}
+
+		public static IfcTimeOrRatioSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3987,6 +5724,15 @@ namespace IFC4
 		public IfcTranslationalStiffnessSelect(IfcBoolean value):base(value){}
 		public IfcTranslationalStiffnessSelect(IfcLinearStiffnessMeasure value):base(value){}
 
+		public static IfcTranslationalStiffnessSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTranslationalStiffnessSelect>(json);
+		}
+
+		public static IfcTranslationalStiffnessSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -3997,6 +5743,15 @@ namespace IFC4
 		public IfcTrimmingSelect(IfcCartesianPoint value):base(value){}
 		public IfcTrimmingSelect(IfcParameterValue value):base(value){}
 
+		public static IfcTrimmingSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTrimmingSelect>(json);
+		}
+
+		public static IfcTrimmingSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -4008,6 +5763,15 @@ namespace IFC4
 		public IfcUnit(IfcMonetaryUnit value):base(value){}
 		public IfcUnit(IfcNamedUnit value):base(value){}
 
+		public static IfcUnit FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcUnit>(json);
+		}
+
+		public static IfcUnit FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -4019,6 +5783,15 @@ namespace IFC4
 		public IfcValue(IfcMeasureValue value):base(value){}
 		public IfcValue(IfcSimpleValue value):base(value){}
 
+		public static IfcValue FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcValue>(json);
+		}
+
+		public static IfcValue FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -4029,6 +5802,15 @@ namespace IFC4
 		public IfcVectorOrDirection(IfcDirection value):base(value){}
 		public IfcVectorOrDirection(IfcVector value):base(value){}
 
+		public static IfcVectorOrDirection FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcVectorOrDirection>(json);
+		}
+
+		public static IfcVectorOrDirection FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -4039,6 +5821,15 @@ namespace IFC4
 		public IfcWarpingStiffnessSelect(IfcBoolean value):base(value){}
 		public IfcWarpingStiffnessSelect(IfcWarpingMomentMeasure value):base(value){}
 
+		public static IfcWarpingStiffnessSelect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWarpingStiffnessSelect>(json);
+		}
+
+		public static IfcWarpingStiffnessSelect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 
@@ -4058,6 +5849,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcActionRequest FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcActionRequest>(json);
+		}
+
+		public static new IfcActionRequest FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -4075,6 +5876,16 @@ namespace IFC4
 		{
 			TheActor = theActor;
 
+		}
+
+		public static new IfcActor FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcActor>(json);
+		}
+
+		public static new IfcActor FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4100,6 +5911,16 @@ namespace IFC4
 			HasExternalReference = hasExternalReference;
 
 		}
+
+		public static  IfcActorRole FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcActorRole>(json);
+		}
+
+		public static  IfcActorRole FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -4113,6 +5934,16 @@ namespace IFC4
 		public IfcActuator() : base()
 		{
 
+		}
+
+		public static new IfcActuator FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcActuator>(json);
+		}
+
+		public static new IfcActuator FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4129,6 +5960,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcActuatorType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcActuatorType>(json);
+		}
+
+		public static new IfcActuatorType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4156,6 +5997,16 @@ namespace IFC4
 			OfOrganization = ofOrganization;
 
 		}
+
+		public static  IfcAddress FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAddress>(json);
+		}
+
+		public static  IfcAddress FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -4173,6 +6024,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcAdvancedBrep FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAdvancedBrep>(json);
+		}
+
+		public static new IfcAdvancedBrep FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4195,6 +6056,16 @@ namespace IFC4
 		{
 			Voids = voids;
 
+		}
+
+		public static new IfcAdvancedBrepWithVoids FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAdvancedBrepWithVoids>(json);
+		}
+
+		public static new IfcAdvancedBrepWithVoids FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4220,6 +6091,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcAdvancedFace FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAdvancedFace>(json);
+		}
+
+		public static new IfcAdvancedFace FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -4234,6 +6115,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcAirTerminal FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAirTerminal>(json);
+		}
+
+		public static new IfcAirTerminal FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -4247,6 +6138,16 @@ namespace IFC4
 		public IfcAirTerminalBox() : base()
 		{
 
+		}
+
+		public static new IfcAirTerminalBox FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAirTerminalBox>(json);
+		}
+
+		public static new IfcAirTerminalBox FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4264,6 +6165,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcAirTerminalBoxType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAirTerminalBoxType>(json);
+		}
+
+		public static new IfcAirTerminalBoxType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -4280,6 +6191,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcAirTerminalType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAirTerminalType>(json);
+		}
+
+		public static new IfcAirTerminalType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -4293,6 +6214,16 @@ namespace IFC4
 		public IfcAirToAirHeatRecovery() : base()
 		{
 
+		}
+
+		public static new IfcAirToAirHeatRecovery FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAirToAirHeatRecovery>(json);
+		}
+
+		public static new IfcAirToAirHeatRecovery FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4310,6 +6241,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcAirToAirHeatRecoveryType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAirToAirHeatRecoveryType>(json);
+		}
+
+		public static new IfcAirToAirHeatRecoveryType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -4323,6 +6264,16 @@ namespace IFC4
 		public IfcAlarm() : base()
 		{
 
+		}
+
+		public static new IfcAlarm FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAlarm>(json);
+		}
+
+		public static new IfcAlarm FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4340,6 +6291,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcAlarmType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAlarmType>(json);
+		}
+
+		public static new IfcAlarmType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -4353,6 +6314,16 @@ namespace IFC4
 		public IfcAnnotation() : base()
 		{
 
+		}
+
+		public static new IfcAnnotation FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAnnotation>(json);
+		}
+
+		public static new IfcAnnotation FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4376,6 +6347,16 @@ namespace IFC4
 			OuterBoundary = outerBoundary;
 			InnerBoundaries = new List<IfcCurve>();
 
+		}
+
+		public static new IfcAnnotationFillArea FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAnnotationFillArea>(json);
+		}
+
+		public static new IfcAnnotationFillArea FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4404,6 +6385,16 @@ namespace IFC4
 			ApplicationFullName = applicationFullName;
 			ApplicationIdentifier = applicationIdentifier;
 
+		}
+
+		public static  IfcApplication FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcApplication>(json);
+		}
+
+		public static  IfcApplication FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4441,6 +6432,16 @@ namespace IFC4
 			HasExternalReference = hasExternalReference;
 			Components = new List<IfcAppliedValue>();
 
+		}
+
+		public static  IfcAppliedValue FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAppliedValue>(json);
+		}
+
+		public static  IfcAppliedValue FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4490,6 +6491,16 @@ namespace IFC4
 			Relates = relates;
 
 		}
+
+		public static  IfcApproval FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcApproval>(json);
+		}
+
+		public static  IfcApproval FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -4509,6 +6520,16 @@ namespace IFC4
 			RelatingApproval = relatingApproval;
 			RelatedApprovals = relatedApprovals;
 
+		}
+
+		public static new IfcApprovalRelationship FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcApprovalRelationship>(json);
+		}
+
+		public static new IfcApprovalRelationship FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4532,6 +6553,16 @@ namespace IFC4
 			OuterCurve = outerCurve;
 
 		}
+
+		public static new IfcArbitraryClosedProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcArbitraryClosedProfileDef>(json);
+		}
+
+		public static new IfcArbitraryClosedProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -4553,6 +6584,16 @@ namespace IFC4
 		{
 			Curve = curve;
 
+		}
+
+		public static new IfcArbitraryOpenProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcArbitraryOpenProfileDef>(json);
+		}
+
+		public static new IfcArbitraryOpenProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4577,6 +6618,16 @@ namespace IFC4
 		{
 			InnerCurves = innerCurves;
 
+		}
+
+		public static new IfcArbitraryProfileDefWithVoids FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcArbitraryProfileDefWithVoids>(json);
+		}
+
+		public static new IfcArbitraryProfileDefWithVoids FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4607,6 +6658,16 @@ namespace IFC4
 		public IfcAsset() : base()
 		{
 
+		}
+
+		public static new IfcAsset FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAsset>(json);
+		}
+
+		public static new IfcAsset FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4660,6 +6721,16 @@ namespace IFC4
 			TopFlangeWidth = topFlangeWidth;
 
 		}
+
+		public static new IfcAsymmetricIShapeProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAsymmetricIShapeProfileDef>(json);
+		}
+
+		public static new IfcAsymmetricIShapeProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -4673,6 +6744,16 @@ namespace IFC4
 		public IfcAudioVisualAppliance() : base()
 		{
 
+		}
+
+		public static new IfcAudioVisualAppliance FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAudioVisualAppliance>(json);
+		}
+
+		public static new IfcAudioVisualAppliance FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4689,6 +6770,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcAudioVisualApplianceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAudioVisualApplianceType>(json);
+		}
+
+		public static new IfcAudioVisualApplianceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4710,6 +6801,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcAxis1Placement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAxis1Placement>(json);
+		}
+
+		public static new IfcAxis1Placement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -4729,6 +6830,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcAxis2Placement2D FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAxis2Placement2D>(json);
+		}
+
+		public static new IfcAxis2Placement2D FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4751,6 +6862,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcAxis2Placement3D FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcAxis2Placement3D>(json);
+		}
+
+		public static new IfcAxis2Placement3D FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4787,6 +6908,16 @@ namespace IFC4
 			ClosedCurve = closedCurve;
 			SelfIntersect = selfIntersect;
 
+		}
+
+		public static new IfcBSplineCurve FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBSplineCurve>(json);
+		}
+
+		public static new IfcBSplineCurve FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4825,6 +6956,16 @@ namespace IFC4
 			Knots = knots;
 			KnotSpec = knotSpec;
 
+		}
+
+		public static new IfcBSplineCurveWithKnots FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBSplineCurveWithKnots>(json);
+		}
+
+		public static new IfcBSplineCurveWithKnots FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4869,6 +7010,16 @@ namespace IFC4
 			VClosed = vClosed;
 			SelfIntersect = selfIntersect;
 
+		}
+
+		public static new IfcBSplineSurface FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBSplineSurface>(json);
+		}
+
+		public static new IfcBSplineSurface FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4920,6 +7071,16 @@ namespace IFC4
 			KnotSpec = knotSpec;
 
 		}
+
+		public static new IfcBSplineSurfaceWithKnots FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBSplineSurfaceWithKnots>(json);
+		}
+
+		public static new IfcBSplineSurfaceWithKnots FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -4934,6 +7095,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcBeam FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBeam>(json);
+		}
+
+		public static new IfcBeam FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -4945,6 +7116,16 @@ namespace IFC4
 		public IfcBeamStandardCase() : base()
 		{
 
+		}
+
+		public static new IfcBeamStandardCase FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBeamStandardCase>(json);
+		}
+
+		public static new IfcBeamStandardCase FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4961,6 +7142,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcBeamType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBeamType>(json);
+		}
+
+		public static new IfcBeamType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -4989,6 +7180,16 @@ namespace IFC4
 			RasterFormat = rasterFormat;
 			RasterCode = rasterCode;
 
+		}
+
+		public static new IfcBlobTexture FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBlobTexture>(json);
+		}
+
+		public static new IfcBlobTexture FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5020,6 +7221,16 @@ namespace IFC4
 			ZLength = zLength;
 
 		}
+
+		public static new IfcBlock FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBlock>(json);
+		}
+
+		public static new IfcBlock FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5033,6 +7244,16 @@ namespace IFC4
 		public IfcBoiler() : base()
 		{
 
+		}
+
+		public static new IfcBoiler FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBoiler>(json);
+		}
+
+		public static new IfcBoiler FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5049,6 +7270,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcBoilerType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBoilerType>(json);
+		}
+
+		public static new IfcBoilerType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5071,6 +7302,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcBooleanClippingResult FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBooleanClippingResult>(json);
+		}
+
+		public static new IfcBooleanClippingResult FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5100,6 +7341,16 @@ namespace IFC4
 			SecondOperand = secondOperand;
 
 		}
+
+		public static new IfcBooleanResult FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBooleanResult>(json);
+		}
+
+		public static new IfcBooleanResult FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5113,6 +7364,16 @@ namespace IFC4
 		public IfcBoundaryCondition()
 		{
 
+		}
+
+		public static  IfcBoundaryCondition FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBoundaryCondition>(json);
+		}
+
+		public static  IfcBoundaryCondition FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5133,6 +7394,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcBoundaryCurve FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBoundaryCurve>(json);
+		}
+
+		public static new IfcBoundaryCurve FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5158,6 +7429,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcBoundaryEdgeCondition FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBoundaryEdgeCondition>(json);
+		}
+
+		public static new IfcBoundaryEdgeCondition FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5175,6 +7456,16 @@ namespace IFC4
 		public IfcBoundaryFaceCondition() : base()
 		{
 
+		}
+
+		public static new IfcBoundaryFaceCondition FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBoundaryFaceCondition>(json);
+		}
+
+		public static new IfcBoundaryFaceCondition FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5200,6 +7491,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcBoundaryNodeCondition FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBoundaryNodeCondition>(json);
+		}
+
+		public static new IfcBoundaryNodeCondition FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5213,6 +7514,16 @@ namespace IFC4
 		public IfcBoundaryNodeConditionWarping() : base()
 		{
 
+		}
+
+		public static new IfcBoundaryNodeConditionWarping FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBoundaryNodeConditionWarping>(json);
+		}
+
+		public static new IfcBoundaryNodeConditionWarping FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5230,6 +7541,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcBoundedCurve FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBoundedCurve>(json);
+		}
+
+		public static new IfcBoundedCurve FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5245,6 +7566,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcBoundedSurface FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBoundedSurface>(json);
+		}
+
+		public static new IfcBoundedSurface FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5278,6 +7609,16 @@ namespace IFC4
 			ZDim = zDim;
 
 		}
+
+		public static new IfcBoundingBox FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBoundingBox>(json);
+		}
+
+		public static new IfcBoundingBox FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5302,6 +7643,16 @@ namespace IFC4
 			Enclosure = enclosure;
 
 		}
+
+		public static new IfcBoxedHalfSpace FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBoxedHalfSpace>(json);
+		}
+
+		public static new IfcBoxedHalfSpace FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5320,6 +7671,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcBuilding FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBuilding>(json);
+		}
+
+		public static new IfcBuilding FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5334,6 +7695,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcBuildingElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBuildingElement>(json);
+		}
+
+		public static new IfcBuildingElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5347,6 +7718,16 @@ namespace IFC4
 		public IfcBuildingElementPart() : base()
 		{
 
+		}
+
+		public static new IfcBuildingElementPart FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBuildingElementPart>(json);
+		}
+
+		public static new IfcBuildingElementPart FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5364,6 +7745,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcBuildingElementPartType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBuildingElementPartType>(json);
+		}
+
+		public static new IfcBuildingElementPartType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5377,6 +7768,16 @@ namespace IFC4
 		public IfcBuildingElementProxy() : base()
 		{
 
+		}
+
+		public static new IfcBuildingElementProxy FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBuildingElementProxy>(json);
+		}
+
+		public static new IfcBuildingElementProxy FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5394,6 +7795,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcBuildingElementProxyType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBuildingElementProxyType>(json);
+		}
+
+		public static new IfcBuildingElementProxyType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5405,6 +7816,16 @@ namespace IFC4
 		public IfcBuildingElementType() : base()
 		{
 
+		}
+
+		public static new IfcBuildingElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBuildingElementType>(json);
+		}
+
+		public static new IfcBuildingElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5420,6 +7841,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcBuildingStorey FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBuildingStorey>(json);
+		}
+
+		public static new IfcBuildingStorey FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5434,6 +7865,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcBuildingSystem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBuildingSystem>(json);
+		}
+
+		public static new IfcBuildingSystem FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5447,6 +7888,16 @@ namespace IFC4
 		public IfcBurner() : base()
 		{
 
+		}
+
+		public static new IfcBurner FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBurner>(json);
+		}
+
+		public static new IfcBurner FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5463,6 +7914,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcBurnerType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBurnerType>(json);
+		}
+
+		public static new IfcBurnerType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5500,6 +7961,16 @@ namespace IFC4
 			Girth = girth;
 
 		}
+
+		public static new IfcCShapeProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCShapeProfileDef>(json);
+		}
+
+		public static new IfcCShapeProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5513,6 +7984,16 @@ namespace IFC4
 		public IfcCableCarrierFitting() : base()
 		{
 
+		}
+
+		public static new IfcCableCarrierFitting FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCableCarrierFitting>(json);
+		}
+
+		public static new IfcCableCarrierFitting FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5530,6 +8011,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcCableCarrierFittingType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCableCarrierFittingType>(json);
+		}
+
+		public static new IfcCableCarrierFittingType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5543,6 +8034,16 @@ namespace IFC4
 		public IfcCableCarrierSegment() : base()
 		{
 
+		}
+
+		public static new IfcCableCarrierSegment FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCableCarrierSegment>(json);
+		}
+
+		public static new IfcCableCarrierSegment FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5560,6 +8061,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcCableCarrierSegmentType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCableCarrierSegmentType>(json);
+		}
+
+		public static new IfcCableCarrierSegmentType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5573,6 +8084,16 @@ namespace IFC4
 		public IfcCableFitting() : base()
 		{
 
+		}
+
+		public static new IfcCableFitting FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCableFitting>(json);
+		}
+
+		public static new IfcCableFitting FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5590,6 +8111,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcCableFittingType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCableFittingType>(json);
+		}
+
+		public static new IfcCableFittingType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5603,6 +8134,16 @@ namespace IFC4
 		public IfcCableSegment() : base()
 		{
 
+		}
+
+		public static new IfcCableSegment FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCableSegment>(json);
+		}
+
+		public static new IfcCableSegment FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5619,6 +8160,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcCableSegmentType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCableSegmentType>(json);
+		}
+
+		public static new IfcCableSegmentType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5640,6 +8191,16 @@ namespace IFC4
 			Coordinates = coordinates;
 
 		}
+
+		public static new IfcCartesianPoint FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCartesianPoint>(json);
+		}
+
+		public static new IfcCartesianPoint FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5655,6 +8216,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcCartesianPointList FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCartesianPointList>(json);
+		}
+
+		public static new IfcCartesianPointList FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5675,6 +8246,16 @@ namespace IFC4
 		{
 			CoordList = coordList;
 
+		}
+
+		public static new IfcCartesianPointList3D FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCartesianPointList3D>(json);
+		}
+
+		public static new IfcCartesianPointList3D FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5702,6 +8283,16 @@ namespace IFC4
 			LocalOrigin = localOrigin;
 
 		}
+
+		public static new IfcCartesianTransformationOperator FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCartesianTransformationOperator>(json);
+		}
+
+		public static new IfcCartesianTransformationOperator FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5719,6 +8310,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcCartesianTransformationOperator2D FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCartesianTransformationOperator2D>(json);
+		}
+
+		public static new IfcCartesianTransformationOperator2D FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5740,6 +8341,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcCartesianTransformationOperator2DnonUniform FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCartesianTransformationOperator2DnonUniform>(json);
+		}
+
+		public static new IfcCartesianTransformationOperator2DnonUniform FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5759,6 +8370,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcCartesianTransformationOperator3D FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCartesianTransformationOperator3D>(json);
+		}
+
+		public static new IfcCartesianTransformationOperator3D FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5781,6 +8402,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcCartesianTransformationOperator3DnonUniform FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCartesianTransformationOperator3DnonUniform>(json);
+		}
+
+		public static new IfcCartesianTransformationOperator3DnonUniform FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5806,6 +8437,16 @@ namespace IFC4
 			Thickness = thickness;
 
 		}
+
+		public static new IfcCenterLineProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCenterLineProfileDef>(json);
+		}
+
+		public static new IfcCenterLineProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5819,6 +8460,16 @@ namespace IFC4
 		public IfcChiller() : base()
 		{
 
+		}
+
+		public static new IfcChiller FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcChiller>(json);
+		}
+
+		public static new IfcChiller FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5836,6 +8487,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcChillerType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcChillerType>(json);
+		}
+
+		public static new IfcChillerType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5849,6 +8510,16 @@ namespace IFC4
 		public IfcChimney() : base()
 		{
 
+		}
+
+		public static new IfcChimney FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcChimney>(json);
+		}
+
+		public static new IfcChimney FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5865,6 +8536,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcChimneyType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcChimneyType>(json);
+		}
+
+		public static new IfcChimneyType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5887,6 +8568,16 @@ namespace IFC4
 		{
 			Radius = radius;
 
+		}
+
+		public static new IfcCircle FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCircle>(json);
+		}
+
+		public static new IfcCircle FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5912,6 +8603,16 @@ namespace IFC4
 			WallThickness = wallThickness;
 
 		}
+
+		public static new IfcCircleHollowProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCircleHollowProfileDef>(json);
+		}
+
+		public static new IfcCircleHollowProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5934,6 +8635,16 @@ namespace IFC4
 			Radius = radius;
 
 		}
+
+		public static new IfcCircleProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCircleProfileDef>(json);
+		}
+
+		public static new IfcCircleProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5946,6 +8657,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcCivilElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCivilElement>(json);
+		}
+
+		public static new IfcCivilElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -5957,6 +8678,16 @@ namespace IFC4
 		public IfcCivilElementType() : base()
 		{
 
+		}
+
+		public static new IfcCivilElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCivilElementType>(json);
+		}
+
+		public static new IfcCivilElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -5993,6 +8724,16 @@ namespace IFC4
 			ReferenceTokens = new List<IfcIdentifier>();
 
 		}
+
+		public static new IfcClassification FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcClassification>(json);
+		}
+
+		public static new IfcClassification FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6019,6 +8760,16 @@ namespace IFC4
 			HasReferences = hasReferences;
 
 		}
+
+		public static new IfcClassificationReference FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcClassificationReference>(json);
+		}
+
+		public static new IfcClassificationReference FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6037,6 +8788,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcClosedShell FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcClosedShell>(json);
+		}
+
+		public static new IfcClosedShell FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6050,6 +8811,16 @@ namespace IFC4
 		public IfcCoil() : base()
 		{
 
+		}
+
+		public static new IfcCoil FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCoil>(json);
+		}
+
+		public static new IfcCoil FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6066,6 +8837,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcCoilType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCoilType>(json);
+		}
+
+		public static new IfcCoilType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6091,6 +8872,16 @@ namespace IFC4
 			Blue = blue;
 
 		}
+
+		public static new IfcColourRgb FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcColourRgb>(json);
+		}
+
+		public static new IfcColourRgb FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6107,6 +8898,16 @@ namespace IFC4
 			ColourList = colourList;
 
 		}
+
+		public static new IfcColourRgbList FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcColourRgbList>(json);
+		}
+
+		public static new IfcColourRgbList FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6120,6 +8921,16 @@ namespace IFC4
 		public IfcColourSpecification() : base()
 		{
 
+		}
+
+		public static new IfcColourSpecification FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcColourSpecification>(json);
+		}
+
+		public static new IfcColourSpecification FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6135,6 +8946,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcColumn FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcColumn>(json);
+		}
+
+		public static new IfcColumn FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6146,6 +8967,16 @@ namespace IFC4
 		public IfcColumnStandardCase() : base()
 		{
 
+		}
+
+		public static new IfcColumnStandardCase FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcColumnStandardCase>(json);
+		}
+
+		public static new IfcColumnStandardCase FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6163,6 +8994,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcColumnType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcColumnType>(json);
+		}
+
+		public static new IfcColumnType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6176,6 +9017,16 @@ namespace IFC4
 		public IfcCommunicationsAppliance() : base()
 		{
 
+		}
+
+		public static new IfcCommunicationsAppliance FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCommunicationsAppliance>(json);
+		}
+
+		public static new IfcCommunicationsAppliance FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6192,6 +9043,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcCommunicationsApplianceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCommunicationsApplianceType>(json);
+		}
+
+		public static new IfcCommunicationsApplianceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6225,6 +9086,16 @@ namespace IFC4
 			HasProperties = hasProperties;
 
 		}
+
+		public static new IfcComplexProperty FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcComplexProperty>(json);
+		}
+
+		public static new IfcComplexProperty FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6247,6 +9118,16 @@ namespace IFC4
 		{
 			HasPropertyTemplates = new List<IfcPropertyTemplate>();
 
+		}
+
+		public static new IfcComplexPropertyTemplate FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcComplexPropertyTemplate>(json);
+		}
+
+		public static new IfcComplexPropertyTemplate FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6272,6 +9153,16 @@ namespace IFC4
 			SelfIntersect = selfIntersect;
 
 		}
+
+		public static new IfcCompositeCurve FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCompositeCurve>(json);
+		}
+
+		public static new IfcCompositeCurve FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6291,6 +9182,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcCompositeCurveOnSurface FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCompositeCurveOnSurface>(json);
+		}
+
+		public static new IfcCompositeCurveOnSurface FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6324,6 +9225,16 @@ namespace IFC4
 			UsingCurves = usingCurves;
 
 		}
+
+		public static new IfcCompositeCurveSegment FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCompositeCurveSegment>(json);
+		}
+
+		public static new IfcCompositeCurveSegment FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6348,6 +9259,16 @@ namespace IFC4
 			Profiles = profiles;
 
 		}
+
+		public static new IfcCompositeProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCompositeProfileDef>(json);
+		}
+
+		public static new IfcCompositeProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6361,6 +9282,16 @@ namespace IFC4
 		public IfcCompressor() : base()
 		{
 
+		}
+
+		public static new IfcCompressor FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCompressor>(json);
+		}
+
+		public static new IfcCompressor FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6378,6 +9309,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcCompressorType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCompressorType>(json);
+		}
+
+		public static new IfcCompressorType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6391,6 +9332,16 @@ namespace IFC4
 		public IfcCondenser() : base()
 		{
 
+		}
+
+		public static new IfcCondenser FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCondenser>(json);
+		}
+
+		public static new IfcCondenser FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6407,6 +9358,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcCondenserType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCondenserType>(json);
+		}
+
+		public static new IfcCondenserType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6428,6 +9389,16 @@ namespace IFC4
 			Position = position;
 
 		}
+
+		public static new IfcConic FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConic>(json);
+		}
+
+		public static new IfcConic FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6448,6 +9419,16 @@ namespace IFC4
 			CfsFaces = cfsFaces;
 
 		}
+
+		public static new IfcConnectedFaceSet FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConnectedFaceSet>(json);
+		}
+
+		public static new IfcConnectedFaceSet FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6466,6 +9447,16 @@ namespace IFC4
 			CurveOnRelatingElement = curveOnRelatingElement;
 
 		}
+
+		public static new IfcConnectionCurveGeometry FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConnectionCurveGeometry>(json);
+		}
+
+		public static new IfcConnectionCurveGeometry FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6477,6 +9468,16 @@ namespace IFC4
 		public IfcConnectionGeometry()
 		{
 
+		}
+
+		public static  IfcConnectionGeometry FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConnectionGeometry>(json);
+		}
+
+		public static  IfcConnectionGeometry FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6498,6 +9499,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcConnectionPointEccentricity FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConnectionPointEccentricity>(json);
+		}
+
+		public static new IfcConnectionPointEccentricity FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6515,6 +9526,16 @@ namespace IFC4
 		{
 			PointOnRelatingElement = pointOnRelatingElement;
 
+		}
+
+		public static new IfcConnectionPointGeometry FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConnectionPointGeometry>(json);
+		}
+
+		public static new IfcConnectionPointGeometry FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6534,6 +9555,16 @@ namespace IFC4
 			SurfaceOnRelatingElement = surfaceOnRelatingElement;
 
 		}
+
+		public static new IfcConnectionSurfaceGeometry FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConnectionSurfaceGeometry>(json);
+		}
+
+		public static new IfcConnectionSurfaceGeometry FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6551,6 +9582,16 @@ namespace IFC4
 		{
 			VolumeOnRelatingElement = volumeOnRelatingElement;
 
+		}
+
+		public static new IfcConnectionVolumeGeometry FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConnectionVolumeGeometry>(json);
+		}
+
+		public static new IfcConnectionVolumeGeometry FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6590,6 +9631,16 @@ namespace IFC4
 			PropertiesForConstraint = propertiesForConstraint;
 
 		}
+
+		public static  IfcConstraint FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConstraint>(json);
+		}
+
+		public static  IfcConstraint FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6603,6 +9654,16 @@ namespace IFC4
 		public IfcConstructionEquipmentResource() : base()
 		{
 
+		}
+
+		public static new IfcConstructionEquipmentResource FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConstructionEquipmentResource>(json);
+		}
+
+		public static new IfcConstructionEquipmentResource FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6620,6 +9681,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcConstructionEquipmentResourceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConstructionEquipmentResourceType>(json);
+		}
+
+		public static new IfcConstructionEquipmentResourceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6633,6 +9704,16 @@ namespace IFC4
 		public IfcConstructionMaterialResource() : base()
 		{
 
+		}
+
+		public static new IfcConstructionMaterialResource FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConstructionMaterialResource>(json);
+		}
+
+		public static new IfcConstructionMaterialResource FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6650,6 +9731,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcConstructionMaterialResourceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConstructionMaterialResourceType>(json);
+		}
+
+		public static new IfcConstructionMaterialResourceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6663,6 +9754,16 @@ namespace IFC4
 		public IfcConstructionProductResource() : base()
 		{
 
+		}
+
+		public static new IfcConstructionProductResource FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConstructionProductResource>(json);
+		}
+
+		public static new IfcConstructionProductResource FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6679,6 +9780,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcConstructionProductResourceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConstructionProductResourceType>(json);
+		}
+
+		public static new IfcConstructionProductResourceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6699,6 +9810,16 @@ namespace IFC4
 			BaseCosts = new List<IfcAppliedValue>();
 
 		}
+
+		public static new IfcConstructionResource FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConstructionResource>(json);
+		}
+
+		public static new IfcConstructionResource FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6715,6 +9836,16 @@ namespace IFC4
 		{
 			BaseCosts = new List<IfcAppliedValue>();
 
+		}
+
+		public static new IfcConstructionResourceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConstructionResourceType>(json);
+		}
+
+		public static new IfcConstructionResourceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6743,6 +9874,16 @@ namespace IFC4
 			RepresentationContexts = new List<IfcRepresentationContext>();
 
 		}
+
+		public static new IfcContext FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcContext>(json);
+		}
+
+		public static new IfcContext FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6767,6 +9908,16 @@ namespace IFC4
 			HasExternalReference = hasExternalReference;
 
 		}
+
+		public static new IfcContextDependentUnit FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcContextDependentUnit>(json);
+		}
+
+		public static new IfcContextDependentUnit FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6783,6 +9934,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcControl FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcControl>(json);
+		}
+
+		public static new IfcControl FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6796,6 +9957,16 @@ namespace IFC4
 		public IfcController() : base()
 		{
 
+		}
+
+		public static new IfcController FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcController>(json);
+		}
+
+		public static new IfcController FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6812,6 +9983,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcControllerType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcControllerType>(json);
+		}
+
+		public static new IfcControllerType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6841,6 +10022,16 @@ namespace IFC4
 			HasExternalReference = hasExternalReference;
 
 		}
+
+		public static new IfcConversionBasedUnit FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConversionBasedUnit>(json);
+		}
+
+		public static new IfcConversionBasedUnit FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6867,6 +10058,16 @@ namespace IFC4
 			ConversionOffset = conversionOffset;
 
 		}
+
+		public static new IfcConversionBasedUnitWithOffset FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConversionBasedUnitWithOffset>(json);
+		}
+
+		public static new IfcConversionBasedUnitWithOffset FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6880,6 +10081,16 @@ namespace IFC4
 		public IfcCooledBeam() : base()
 		{
 
+		}
+
+		public static new IfcCooledBeam FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCooledBeam>(json);
+		}
+
+		public static new IfcCooledBeam FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6897,6 +10108,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcCooledBeamType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCooledBeamType>(json);
+		}
+
+		public static new IfcCooledBeamType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6910,6 +10131,16 @@ namespace IFC4
 		public IfcCoolingTower() : base()
 		{
 
+		}
+
+		public static new IfcCoolingTower FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCoolingTower>(json);
+		}
+
+		public static new IfcCoolingTower FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6926,6 +10157,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcCoolingTowerType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCoolingTowerType>(json);
+		}
+
+		public static new IfcCoolingTowerType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6946,6 +10187,16 @@ namespace IFC4
 			SourceCRS = sourceCRS;
 			TargetCRS = targetCRS;
 
+		}
+
+		public static  IfcCoordinateOperation FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCoordinateOperation>(json);
+		}
+
+		public static  IfcCoordinateOperation FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -6969,6 +10220,16 @@ namespace IFC4
 			GeodeticDatum = geodeticDatum;
 
 		}
+
+		public static  IfcCoordinateReferenceSystem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCoordinateReferenceSystem>(json);
+		}
+
+		public static  IfcCoordinateReferenceSystem FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -6988,6 +10249,16 @@ namespace IFC4
 			CostValues = new List<IfcCostValue>();
 			CostQuantities = new List<IfcPhysicalQuantity>();
 
+		}
+
+		public static new IfcCostItem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCostItem>(json);
+		}
+
+		public static new IfcCostItem FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7009,6 +10280,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcCostSchedule FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCostSchedule>(json);
+		}
+
+		public static new IfcCostSchedule FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7022,6 +10303,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcCostValue FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCostValue>(json);
+		}
+
+		public static new IfcCostValue FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7041,6 +10332,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcCovering FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCovering>(json);
+		}
+
+		public static new IfcCovering FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7057,6 +10358,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcCoveringType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCoveringType>(json);
+		}
+
+		public static new IfcCoveringType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7070,6 +10381,16 @@ namespace IFC4
 		public IfcCrewResource() : base()
 		{
 
+		}
+
+		public static new IfcCrewResource FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCrewResource>(json);
+		}
+
+		public static new IfcCrewResource FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7086,6 +10407,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcCrewResourceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCrewResourceType>(json);
+		}
+
+		public static new IfcCrewResourceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7107,6 +10438,16 @@ namespace IFC4
 			Position = position;
 
 		}
+
+		public static new IfcCsgPrimitive3D FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCsgPrimitive3D>(json);
+		}
+
+		public static new IfcCsgPrimitive3D FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7126,6 +10467,16 @@ namespace IFC4
 		{
 			TreeRootExpression = treeRootExpression;
 
+		}
+
+		public static new IfcCsgSolid FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCsgSolid>(json);
+		}
+
+		public static new IfcCsgSolid FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7155,6 +10506,16 @@ namespace IFC4
 			ExchangeRate = exchangeRate;
 
 		}
+
+		public static new IfcCurrencyRelationship FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCurrencyRelationship>(json);
+		}
+
+		public static new IfcCurrencyRelationship FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7168,6 +10529,16 @@ namespace IFC4
 		public IfcCurtainWall() : base()
 		{
 
+		}
+
+		public static new IfcCurtainWall FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCurtainWall>(json);
+		}
+
+		public static new IfcCurtainWall FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7185,6 +10556,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcCurtainWallType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCurtainWallType>(json);
+		}
+
+		public static new IfcCurtainWallType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7200,6 +10581,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcCurve FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCurve>(json);
+		}
+
+		public static new IfcCurve FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7229,6 +10620,16 @@ namespace IFC4
 			InnerBoundaries = innerBoundaries;
 
 		}
+
+		public static new IfcCurveBoundedPlane FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCurveBoundedPlane>(json);
+		}
+
+		public static new IfcCurveBoundedPlane FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7257,6 +10658,16 @@ namespace IFC4
 			ImplicitOuter = implicitOuter;
 
 		}
+
+		public static new IfcCurveBoundedSurface FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCurveBoundedSurface>(json);
+		}
+
+		public static new IfcCurveBoundedSurface FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7277,6 +10688,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcCurveStyle FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCurveStyle>(json);
+		}
+
+		public static new IfcCurveStyle FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7294,6 +10715,16 @@ namespace IFC4
 		{
 			PatternList = patternList;
 
+		}
+
+		public static new IfcCurveStyleFont FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCurveStyleFont>(json);
+		}
+
+		public static new IfcCurveStyleFont FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7317,6 +10748,16 @@ namespace IFC4
 			CurveFontScaling = curveFontScaling;
 
 		}
+
+		public static new IfcCurveStyleFontAndScaling FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCurveStyleFontAndScaling>(json);
+		}
+
+		public static new IfcCurveStyleFontAndScaling FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7336,6 +10777,16 @@ namespace IFC4
 			VisibleSegmentLength = visibleSegmentLength;
 			InvisibleSegmentLength = invisibleSegmentLength;
 
+		}
+
+		public static new IfcCurveStyleFontPattern FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCurveStyleFontPattern>(json);
+		}
+
+		public static new IfcCurveStyleFontPattern FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7359,6 +10810,16 @@ namespace IFC4
 			Radius = radius;
 
 		}
+
+		public static new IfcCylindricalSurface FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCylindricalSurface>(json);
+		}
+
+		public static new IfcCylindricalSurface FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7372,6 +10833,16 @@ namespace IFC4
 		public IfcDamper() : base()
 		{
 
+		}
+
+		public static new IfcDamper FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDamper>(json);
+		}
+
+		public static new IfcDamper FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7388,6 +10859,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcDamperType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDamperType>(json);
+		}
+
+		public static new IfcDamperType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7417,6 +10898,16 @@ namespace IFC4
 			Operator = op;
 
 		}
+
+		public static new IfcDerivedProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDerivedProfileDef>(json);
+		}
+
+		public static new IfcDerivedProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7439,6 +10930,16 @@ namespace IFC4
 			UnitType = unitType;
 
 		}
+
+		public static  IfcDerivedUnit FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDerivedUnit>(json);
+		}
+
+		public static  IfcDerivedUnit FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7458,6 +10959,16 @@ namespace IFC4
 			Unit = unit;
 			Exponent = exponent;
 
+		}
+
+		public static  IfcDerivedUnitElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDerivedUnitElement>(json);
+		}
+
+		public static  IfcDerivedUnitElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7499,6 +11010,16 @@ namespace IFC4
 			LuminousIntensityExponent = luminousIntensityExponent;
 
 		}
+
+		public static  IfcDimensionalExponents FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDimensionalExponents>(json);
+		}
+
+		public static  IfcDimensionalExponents FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7519,6 +11040,16 @@ namespace IFC4
 			DirectionRatios = directionRatios;
 
 		}
+
+		public static new IfcDirection FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDirection>(json);
+		}
+
+		public static new IfcDirection FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7532,6 +11063,16 @@ namespace IFC4
 		public IfcDiscreteAccessory() : base()
 		{
 
+		}
+
+		public static new IfcDiscreteAccessory FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDiscreteAccessory>(json);
+		}
+
+		public static new IfcDiscreteAccessory FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7549,6 +11090,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcDiscreteAccessoryType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDiscreteAccessoryType>(json);
+		}
+
+		public static new IfcDiscreteAccessoryType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7562,6 +11113,16 @@ namespace IFC4
 		public IfcDistributionChamberElement() : base()
 		{
 
+		}
+
+		public static new IfcDistributionChamberElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDistributionChamberElement>(json);
+		}
+
+		public static new IfcDistributionChamberElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7579,6 +11140,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcDistributionChamberElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDistributionChamberElementType>(json);
+		}
+
+		public static new IfcDistributionChamberElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7590,6 +11161,16 @@ namespace IFC4
 		public IfcDistributionCircuit() : base()
 		{
 
+		}
+
+		public static new IfcDistributionCircuit FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDistributionCircuit>(json);
+		}
+
+		public static new IfcDistributionCircuit FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7605,6 +11186,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcDistributionControlElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDistributionControlElement>(json);
+		}
+
+		public static new IfcDistributionControlElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7616,6 +11207,16 @@ namespace IFC4
 		public IfcDistributionControlElementType() : base()
 		{
 
+		}
+
+		public static new IfcDistributionControlElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDistributionControlElementType>(json);
+		}
+
+		public static new IfcDistributionControlElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7631,6 +11232,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcDistributionElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDistributionElement>(json);
+		}
+
+		public static new IfcDistributionElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7642,6 +11253,16 @@ namespace IFC4
 		public IfcDistributionElementType() : base()
 		{
 
+		}
+
+		public static new IfcDistributionElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDistributionElementType>(json);
+		}
+
+		public static new IfcDistributionElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7657,6 +11278,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcDistributionFlowElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDistributionFlowElement>(json);
+		}
+
+		public static new IfcDistributionFlowElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7668,6 +11299,16 @@ namespace IFC4
 		public IfcDistributionFlowElementType() : base()
 		{
 
+		}
+
+		public static new IfcDistributionFlowElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDistributionFlowElementType>(json);
+		}
+
+		public static new IfcDistributionFlowElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7687,6 +11328,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcDistributionPort FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDistributionPort>(json);
+		}
+
+		public static new IfcDistributionPort FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7702,6 +11353,16 @@ namespace IFC4
 		public IfcDistributionSystem() : base()
 		{
 
+		}
+
+		public static new IfcDistributionSystem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDistributionSystem>(json);
+		}
+
+		public static new IfcDistributionSystem FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7768,6 +11429,16 @@ namespace IFC4
 			Editors = new List<IfcActorSelect>();
 
 		}
+
+		public static new IfcDocumentInformation FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDocumentInformation>(json);
+		}
+
+		public static new IfcDocumentInformation FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7790,6 +11461,16 @@ namespace IFC4
 			RelatedDocuments = relatedDocuments;
 
 		}
+
+		public static new IfcDocumentInformationRelationship FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDocumentInformationRelationship>(json);
+		}
+
+		public static new IfcDocumentInformationRelationship FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7809,6 +11490,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcDocumentReference FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDocumentReference>(json);
+		}
+
+		public static new IfcDocumentReference FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7831,6 +11522,16 @@ namespace IFC4
 		public IfcDoor() : base()
 		{
 
+		}
+
+		public static new IfcDoor FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDoor>(json);
+		}
+
+		public static new IfcDoor FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7872,6 +11573,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcDoorLiningProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDoorLiningProperties>(json);
+		}
+
+		public static new IfcDoorLiningProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7900,6 +11611,16 @@ namespace IFC4
 			PanelPosition = panelPosition;
 
 		}
+
+		public static new IfcDoorPanelProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDoorPanelProperties>(json);
+		}
+
+		public static new IfcDoorPanelProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7911,6 +11632,16 @@ namespace IFC4
 		public IfcDoorStandardCase() : base()
 		{
 
+		}
+
+		public static new IfcDoorStandardCase FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDoorStandardCase>(json);
+		}
+
+		public static new IfcDoorStandardCase FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7940,6 +11671,16 @@ namespace IFC4
 			Sizeable = sizeable;
 
 		}
+
+		public static new IfcDoorStyle FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDoorStyle>(json);
+		}
+
+		public static new IfcDoorStyle FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7964,6 +11705,16 @@ namespace IFC4
 			OperationType = operationType;
 
 		}
+
+		public static new IfcDoorType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDoorType>(json);
+		}
+
+		public static new IfcDoorType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -7977,6 +11728,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcDraughtingPreDefinedColour FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDraughtingPreDefinedColour>(json);
+		}
+
+		public static new IfcDraughtingPreDefinedColour FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -7992,6 +11753,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcDraughtingPreDefinedCurveFont FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDraughtingPreDefinedCurveFont>(json);
+		}
+
+		public static new IfcDraughtingPreDefinedCurveFont FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8005,6 +11776,16 @@ namespace IFC4
 		public IfcDuctFitting() : base()
 		{
 
+		}
+
+		public static new IfcDuctFitting FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDuctFitting>(json);
+		}
+
+		public static new IfcDuctFitting FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8022,6 +11803,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcDuctFittingType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDuctFittingType>(json);
+		}
+
+		public static new IfcDuctFittingType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8035,6 +11826,16 @@ namespace IFC4
 		public IfcDuctSegment() : base()
 		{
 
+		}
+
+		public static new IfcDuctSegment FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDuctSegment>(json);
+		}
+
+		public static new IfcDuctSegment FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8052,6 +11853,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcDuctSegmentType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDuctSegmentType>(json);
+		}
+
+		public static new IfcDuctSegmentType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8065,6 +11876,16 @@ namespace IFC4
 		public IfcDuctSilencer() : base()
 		{
 
+		}
+
+		public static new IfcDuctSilencer FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDuctSilencer>(json);
+		}
+
+		public static new IfcDuctSilencer FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8081,6 +11902,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcDuctSilencerType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDuctSilencerType>(json);
+		}
+
+		public static new IfcDuctSilencerType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8105,6 +11936,16 @@ namespace IFC4
 			EdgeStart = edgeStart;
 			EdgeEnd = edgeEnd;
 
+		}
+
+		public static new IfcEdge FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcEdge>(json);
+		}
+
+		public static new IfcEdge FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8134,6 +11975,16 @@ namespace IFC4
 			SameSense = sameSense;
 
 		}
+
+		public static new IfcEdgeCurve FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcEdgeCurve>(json);
+		}
+
+		public static new IfcEdgeCurve FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8154,6 +12005,16 @@ namespace IFC4
 			EdgeList = edgeList;
 
 		}
+
+		public static new IfcEdgeLoop FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcEdgeLoop>(json);
+		}
+
+		public static new IfcEdgeLoop FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8167,6 +12028,16 @@ namespace IFC4
 		public IfcElectricAppliance() : base()
 		{
 
+		}
+
+		public static new IfcElectricAppliance FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElectricAppliance>(json);
+		}
+
+		public static new IfcElectricAppliance FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8184,6 +12055,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcElectricApplianceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElectricApplianceType>(json);
+		}
+
+		public static new IfcElectricApplianceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8197,6 +12078,16 @@ namespace IFC4
 		public IfcElectricDistributionBoard() : base()
 		{
 
+		}
+
+		public static new IfcElectricDistributionBoard FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElectricDistributionBoard>(json);
+		}
+
+		public static new IfcElectricDistributionBoard FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8214,6 +12105,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcElectricDistributionBoardType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElectricDistributionBoardType>(json);
+		}
+
+		public static new IfcElectricDistributionBoardType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8227,6 +12128,16 @@ namespace IFC4
 		public IfcElectricFlowStorageDevice() : base()
 		{
 
+		}
+
+		public static new IfcElectricFlowStorageDevice FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElectricFlowStorageDevice>(json);
+		}
+
+		public static new IfcElectricFlowStorageDevice FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8244,6 +12155,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcElectricFlowStorageDeviceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElectricFlowStorageDeviceType>(json);
+		}
+
+		public static new IfcElectricFlowStorageDeviceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8257,6 +12178,16 @@ namespace IFC4
 		public IfcElectricGenerator() : base()
 		{
 
+		}
+
+		public static new IfcElectricGenerator FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElectricGenerator>(json);
+		}
+
+		public static new IfcElectricGenerator FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8274,6 +12205,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcElectricGeneratorType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElectricGeneratorType>(json);
+		}
+
+		public static new IfcElectricGeneratorType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8287,6 +12228,16 @@ namespace IFC4
 		public IfcElectricMotor() : base()
 		{
 
+		}
+
+		public static new IfcElectricMotor FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElectricMotor>(json);
+		}
+
+		public static new IfcElectricMotor FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8304,6 +12255,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcElectricMotorType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElectricMotorType>(json);
+		}
+
+		public static new IfcElectricMotorType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8317,6 +12278,16 @@ namespace IFC4
 		public IfcElectricTimeControl() : base()
 		{
 
+		}
+
+		public static new IfcElectricTimeControl FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElectricTimeControl>(json);
+		}
+
+		public static new IfcElectricTimeControl FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8333,6 +12304,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcElectricTimeControlType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElectricTimeControlType>(json);
+		}
+
+		public static new IfcElectricTimeControlType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8370,6 +12351,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElement>(json);
+		}
+
+		public static new IfcElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8385,6 +12376,16 @@ namespace IFC4
 		public IfcElementAssembly() : base()
 		{
 
+		}
+
+		public static new IfcElementAssembly FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElementAssembly>(json);
+		}
+
+		public static new IfcElementAssembly FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8402,6 +12403,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcElementAssemblyType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElementAssemblyType>(json);
+		}
+
+		public static new IfcElementAssemblyType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8414,6 +12425,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcElementComponent FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElementComponent>(json);
+		}
+
+		public static new IfcElementComponent FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8425,6 +12446,16 @@ namespace IFC4
 		public IfcElementComponentType() : base()
 		{
 
+		}
+
+		public static new IfcElementComponentType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElementComponentType>(json);
+		}
+
+		public static new IfcElementComponentType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8446,6 +12477,16 @@ namespace IFC4
 			Quantities = quantities;
 
 		}
+
+		public static new IfcElementQuantity FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElementQuantity>(json);
+		}
+
+		public static new IfcElementQuantity FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8459,6 +12500,16 @@ namespace IFC4
 		public IfcElementType() : base()
 		{
 
+		}
+
+		public static new IfcElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElementType>(json);
+		}
+
+		public static new IfcElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8479,6 +12530,16 @@ namespace IFC4
 		{
 			Position = position;
 
+		}
+
+		public static new IfcElementarySurface FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElementarySurface>(json);
+		}
+
+		public static new IfcElementarySurface FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8506,6 +12567,16 @@ namespace IFC4
 			SemiAxis2 = semiAxis2;
 
 		}
+
+		public static new IfcEllipse FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcEllipse>(json);
+		}
+
+		public static new IfcEllipse FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8532,6 +12603,16 @@ namespace IFC4
 			SemiAxis2 = semiAxis2;
 
 		}
+
+		public static new IfcEllipseProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcEllipseProfileDef>(json);
+		}
+
+		public static new IfcEllipseProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8544,6 +12625,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcEnergyConversionDevice FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcEnergyConversionDevice>(json);
+		}
+
+		public static new IfcEnergyConversionDevice FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8555,6 +12646,16 @@ namespace IFC4
 		public IfcEnergyConversionDeviceType() : base()
 		{
 
+		}
+
+		public static new IfcEnergyConversionDeviceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcEnergyConversionDeviceType>(json);
+		}
+
+		public static new IfcEnergyConversionDeviceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8569,6 +12670,16 @@ namespace IFC4
 		public IfcEngine() : base()
 		{
 
+		}
+
+		public static new IfcEngine FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcEngine>(json);
+		}
+
+		public static new IfcEngine FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8586,6 +12697,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcEngineType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcEngineType>(json);
+		}
+
+		public static new IfcEngineType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8599,6 +12720,16 @@ namespace IFC4
 		public IfcEvaporativeCooler() : base()
 		{
 
+		}
+
+		public static new IfcEvaporativeCooler FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcEvaporativeCooler>(json);
+		}
+
+		public static new IfcEvaporativeCooler FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8616,6 +12747,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcEvaporativeCoolerType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcEvaporativeCoolerType>(json);
+		}
+
+		public static new IfcEvaporativeCoolerType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8629,6 +12770,16 @@ namespace IFC4
 		public IfcEvaporator() : base()
 		{
 
+		}
+
+		public static new IfcEvaporator FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcEvaporator>(json);
+		}
+
+		public static new IfcEvaporator FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8645,6 +12796,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcEvaporatorType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcEvaporatorType>(json);
+		}
+
+		public static new IfcEvaporatorType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8666,6 +12827,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcEvent FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcEvent>(json);
+		}
+
+		public static new IfcEvent FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8685,6 +12856,16 @@ namespace IFC4
 		public IfcEventTime() : base()
 		{
 
+		}
+
+		public static new IfcEventTime FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcEventTime>(json);
+		}
+
+		public static new IfcEventTime FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8708,6 +12889,16 @@ namespace IFC4
 			EventTriggerType = eventTriggerType;
 
 		}
+
+		public static new IfcEventType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcEventType>(json);
+		}
+
+		public static new IfcEventType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8730,6 +12921,16 @@ namespace IFC4
 			Properties = properties;
 
 		}
+
+		public static new IfcExtendedProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcExtendedProperties>(json);
+		}
+
+		public static new IfcExtendedProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8741,6 +12942,16 @@ namespace IFC4
 		public IfcExternalInformation()
 		{
 
+		}
+
+		public static  IfcExternalInformation FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcExternalInformation>(json);
+		}
+
+		public static  IfcExternalInformation FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8764,6 +12975,16 @@ namespace IFC4
 			ExternalReferenceForResources = externalReferenceForResources;
 
 		}
+
+		public static  IfcExternalReference FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcExternalReference>(json);
+		}
+
+		public static  IfcExternalReference FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8784,6 +13005,16 @@ namespace IFC4
 			RelatedResourceObjects = relatedResourceObjects;
 
 		}
+
+		public static new IfcExternalReferenceRelationship FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcExternalReferenceRelationship>(json);
+		}
+
+		public static new IfcExternalReferenceRelationship FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8800,6 +13031,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcExternalSpatialElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcExternalSpatialElement>(json);
+		}
+
+		public static new IfcExternalSpatialElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8811,6 +13052,16 @@ namespace IFC4
 		public IfcExternalSpatialStructureElement() : base()
 		{
 
+		}
+
+		public static new IfcExternalSpatialStructureElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcExternalSpatialStructureElement>(json);
+		}
+
+		public static new IfcExternalSpatialStructureElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8826,6 +13077,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcExternallyDefinedHatchStyle FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcExternallyDefinedHatchStyle>(json);
+		}
+
+		public static new IfcExternallyDefinedHatchStyle FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8840,6 +13101,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcExternallyDefinedSurfaceStyle FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcExternallyDefinedSurfaceStyle>(json);
+		}
+
+		public static new IfcExternallyDefinedSurfaceStyle FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8853,6 +13124,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcExternallyDefinedTextFont FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcExternallyDefinedTextFont>(json);
+		}
+
+		public static new IfcExternallyDefinedTextFont FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8880,6 +13161,16 @@ namespace IFC4
 			Depth = depth;
 
 		}
+
+		public static new IfcExtrudedAreaSolid FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcExtrudedAreaSolid>(json);
+		}
+
+		public static new IfcExtrudedAreaSolid FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8906,6 +13197,16 @@ namespace IFC4
 			EndSweptArea = endSweptArea;
 
 		}
+
+		public static new IfcExtrudedAreaSolidTapered FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcExtrudedAreaSolidTapered>(json);
+		}
+
+		public static new IfcExtrudedAreaSolidTapered FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8930,6 +13231,16 @@ namespace IFC4
 			HasTextureMaps = hasTextureMaps;
 
 		}
+
+		public static new IfcFace FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFace>(json);
+		}
+
+		public static new IfcFace FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8949,6 +13260,16 @@ namespace IFC4
 		{
 			FbsmFaces = fbsmFaces;
 
+		}
+
+		public static new IfcFaceBasedSurfaceModel FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFaceBasedSurfaceModel>(json);
+		}
+
+		public static new IfcFaceBasedSurfaceModel FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -8974,6 +13295,16 @@ namespace IFC4
 			Orientation = orientation;
 
 		}
+
+		public static new IfcFaceBound FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFaceBound>(json);
+		}
+
+		public static new IfcFaceBound FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -8993,6 +13324,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcFaceOuterBound FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFaceOuterBound>(json);
+		}
+
+		public static new IfcFaceOuterBound FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9022,6 +13363,16 @@ namespace IFC4
 			SameSense = sameSense;
 
 		}
+
+		public static new IfcFaceSurface FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFaceSurface>(json);
+		}
+
+		public static new IfcFaceSurface FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9039,6 +13390,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcFacetedBrep FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFacetedBrep>(json);
+		}
+
+		public static new IfcFacetedBrep FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9061,6 +13422,16 @@ namespace IFC4
 		{
 			Voids = voids;
 
+		}
+
+		public static new IfcFacetedBrepWithVoids FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFacetedBrepWithVoids>(json);
+		}
+
+		public static new IfcFacetedBrepWithVoids FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9086,6 +13457,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcFailureConnectionCondition FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFailureConnectionCondition>(json);
+		}
+
+		public static new IfcFailureConnectionCondition FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9099,6 +13480,16 @@ namespace IFC4
 		public IfcFan() : base()
 		{
 
+		}
+
+		public static new IfcFan FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFan>(json);
+		}
+
+		public static new IfcFan FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9116,6 +13507,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcFanType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFanType>(json);
+		}
+
+		public static new IfcFanType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9129,6 +13530,16 @@ namespace IFC4
 		public IfcFastener() : base()
 		{
 
+		}
+
+		public static new IfcFastener FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFastener>(json);
+		}
+
+		public static new IfcFastener FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9146,6 +13557,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcFastenerType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFastenerType>(json);
+		}
+
+		public static new IfcFastenerType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9157,6 +13578,16 @@ namespace IFC4
 		public IfcFeatureElement() : base()
 		{
 
+		}
+
+		public static new IfcFeatureElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFeatureElement>(json);
+		}
+
+		public static new IfcFeatureElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9172,6 +13603,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcFeatureElementAddition FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFeatureElementAddition>(json);
+		}
+
+		public static new IfcFeatureElementAddition FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9185,6 +13626,16 @@ namespace IFC4
 		public IfcFeatureElementSubtraction() : base()
 		{
 
+		}
+
+		public static new IfcFeatureElementSubtraction FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFeatureElementSubtraction>(json);
+		}
+
+		public static new IfcFeatureElementSubtraction FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9203,6 +13654,16 @@ namespace IFC4
 		{
 			FillStyles = fillStyles;
 
+		}
+
+		public static new IfcFillAreaStyle FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFillAreaStyle>(json);
+		}
+
+		public static new IfcFillAreaStyle FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9236,6 +13697,16 @@ namespace IFC4
 			HatchLineAngle = hatchLineAngle;
 
 		}
+
+		public static new IfcFillAreaStyleHatching FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFillAreaStyleHatching>(json);
+		}
+
+		public static new IfcFillAreaStyleHatching FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9264,6 +13735,16 @@ namespace IFC4
 			TilingScale = tilingScale;
 
 		}
+
+		public static new IfcFillAreaStyleTiles FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFillAreaStyleTiles>(json);
+		}
+
+		public static new IfcFillAreaStyleTiles FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9277,6 +13758,16 @@ namespace IFC4
 		public IfcFilter() : base()
 		{
 
+		}
+
+		public static new IfcFilter FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFilter>(json);
+		}
+
+		public static new IfcFilter FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9294,6 +13785,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcFilterType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFilterType>(json);
+		}
+
+		public static new IfcFilterType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9307,6 +13808,16 @@ namespace IFC4
 		public IfcFireSuppressionTerminal() : base()
 		{
 
+		}
+
+		public static new IfcFireSuppressionTerminal FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFireSuppressionTerminal>(json);
+		}
+
+		public static new IfcFireSuppressionTerminal FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9323,6 +13834,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcFireSuppressionTerminalType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFireSuppressionTerminalType>(json);
+		}
+
+		public static new IfcFireSuppressionTerminalType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9354,6 +13875,16 @@ namespace IFC4
 			FixedReference = fixedReference;
 
 		}
+
+		public static new IfcFixedReferenceSweptAreaSolid FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFixedReferenceSweptAreaSolid>(json);
+		}
+
+		public static new IfcFixedReferenceSweptAreaSolid FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9365,6 +13896,16 @@ namespace IFC4
 		public IfcFlowController() : base()
 		{
 
+		}
+
+		public static new IfcFlowController FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowController>(json);
+		}
+
+		public static new IfcFlowController FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9378,6 +13919,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcFlowControllerType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowControllerType>(json);
+		}
+
+		public static new IfcFlowControllerType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9390,6 +13941,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcFlowFitting FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowFitting>(json);
+		}
+
+		public static new IfcFlowFitting FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9401,6 +13962,16 @@ namespace IFC4
 		public IfcFlowFittingType() : base()
 		{
 
+		}
+
+		public static new IfcFlowFittingType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowFittingType>(json);
+		}
+
+		public static new IfcFlowFittingType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9415,6 +13986,16 @@ namespace IFC4
 		public IfcFlowInstrument() : base()
 		{
 
+		}
+
+		public static new IfcFlowInstrument FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowInstrument>(json);
+		}
+
+		public static new IfcFlowInstrument FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9432,6 +14013,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcFlowInstrumentType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowInstrumentType>(json);
+		}
+
+		public static new IfcFlowInstrumentType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9445,6 +14036,16 @@ namespace IFC4
 		public IfcFlowMeter() : base()
 		{
 
+		}
+
+		public static new IfcFlowMeter FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowMeter>(json);
+		}
+
+		public static new IfcFlowMeter FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9462,6 +14063,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcFlowMeterType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowMeterType>(json);
+		}
+
+		public static new IfcFlowMeterType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9473,6 +14084,16 @@ namespace IFC4
 		public IfcFlowMovingDevice() : base()
 		{
 
+		}
+
+		public static new IfcFlowMovingDevice FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowMovingDevice>(json);
+		}
+
+		public static new IfcFlowMovingDevice FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9486,6 +14107,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcFlowMovingDeviceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowMovingDeviceType>(json);
+		}
+
+		public static new IfcFlowMovingDeviceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9497,6 +14128,16 @@ namespace IFC4
 		public IfcFlowSegment() : base()
 		{
 
+		}
+
+		public static new IfcFlowSegment FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowSegment>(json);
+		}
+
+		public static new IfcFlowSegment FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9510,6 +14151,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcFlowSegmentType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowSegmentType>(json);
+		}
+
+		public static new IfcFlowSegmentType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9521,6 +14172,16 @@ namespace IFC4
 		public IfcFlowStorageDevice() : base()
 		{
 
+		}
+
+		public static new IfcFlowStorageDevice FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowStorageDevice>(json);
+		}
+
+		public static new IfcFlowStorageDevice FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9534,6 +14195,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcFlowStorageDeviceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowStorageDeviceType>(json);
+		}
+
+		public static new IfcFlowStorageDeviceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9545,6 +14216,16 @@ namespace IFC4
 		public IfcFlowTerminal() : base()
 		{
 
+		}
+
+		public static new IfcFlowTerminal FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowTerminal>(json);
+		}
+
+		public static new IfcFlowTerminal FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9558,6 +14239,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcFlowTerminalType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowTerminalType>(json);
+		}
+
+		public static new IfcFlowTerminalType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9570,6 +14261,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcFlowTreatmentDevice FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowTreatmentDevice>(json);
+		}
+
+		public static new IfcFlowTreatmentDevice FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9581,6 +14282,16 @@ namespace IFC4
 		public IfcFlowTreatmentDeviceType() : base()
 		{
 
+		}
+
+		public static new IfcFlowTreatmentDeviceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowTreatmentDeviceType>(json);
+		}
+
+		public static new IfcFlowTreatmentDeviceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9595,6 +14306,16 @@ namespace IFC4
 		public IfcFooting() : base()
 		{
 
+		}
+
+		public static new IfcFooting FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFooting>(json);
+		}
+
+		public static new IfcFooting FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9612,6 +14333,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcFootingType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFootingType>(json);
+		}
+
+		public static new IfcFootingType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9624,6 +14355,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcFurnishingElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFurnishingElement>(json);
+		}
+
+		public static new IfcFurnishingElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9635,6 +14376,16 @@ namespace IFC4
 		public IfcFurnishingElementType() : base()
 		{
 
+		}
+
+		public static new IfcFurnishingElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFurnishingElementType>(json);
+		}
+
+		public static new IfcFurnishingElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9649,6 +14400,16 @@ namespace IFC4
 		public IfcFurniture() : base()
 		{
 
+		}
+
+		public static new IfcFurniture FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFurniture>(json);
+		}
+
+		public static new IfcFurniture FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9668,6 +14429,16 @@ namespace IFC4
 			AssemblyPlace = assemblyPlace;
 
 		}
+
+		public static new IfcFurnitureType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFurnitureType>(json);
+		}
+
+		public static new IfcFurnitureType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9681,6 +14452,16 @@ namespace IFC4
 		public IfcGeographicElement() : base()
 		{
 
+		}
+
+		public static new IfcGeographicElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcGeographicElement>(json);
+		}
+
+		public static new IfcGeographicElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9697,6 +14478,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcGeographicElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcGeographicElementType>(json);
+		}
+
+		public static new IfcGeographicElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9715,6 +14506,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcGeometricCurveSet FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcGeometricCurveSet>(json);
+		}
+
+		public static new IfcGeometricCurveSet FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9746,6 +14547,16 @@ namespace IFC4
 			HasSubContexts = hasSubContexts;
 
 		}
+
+		public static new IfcGeometricRepresentationContext FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcGeometricRepresentationContext>(json);
+		}
+
+		public static new IfcGeometricRepresentationContext FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9761,6 +14572,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcGeometricRepresentationItem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcGeometricRepresentationItem>(json);
+		}
+
+		public static new IfcGeometricRepresentationItem FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9794,6 +14615,16 @@ namespace IFC4
 			TargetView = targetView;
 
 		}
+
+		public static new IfcGeometricRepresentationSubContext FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcGeometricRepresentationSubContext>(json);
+		}
+
+		public static new IfcGeometricRepresentationSubContext FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9813,6 +14644,16 @@ namespace IFC4
 		{
 			Elements = elements;
 
+		}
+
+		public static new IfcGeometricSet FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcGeometricSet>(json);
+		}
+
+		public static new IfcGeometricSet FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9840,6 +14681,16 @@ namespace IFC4
 			VAxes = vAxes;
 			WAxes = new List<IfcGridAxis>();
 
+		}
+
+		public static new IfcGrid FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcGrid>(json);
+		}
+
+		public static new IfcGrid FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9879,6 +14730,16 @@ namespace IFC4
 			HasIntersections = hasIntersections;
 
 		}
+
+		public static  IfcGridAxis FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcGridAxis>(json);
+		}
+
+		public static  IfcGridAxis FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9901,6 +14762,16 @@ namespace IFC4
 			PlacementLocation = placementLocation;
 
 		}
+
+		public static new IfcGridPlacement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcGridPlacement>(json);
+		}
+
+		public static new IfcGridPlacement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9914,6 +14785,16 @@ namespace IFC4
 		public IfcGroup() : base()
 		{
 
+		}
+
+		public static new IfcGroup FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcGroup>(json);
+		}
+
+		public static new IfcGroup FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9939,6 +14820,16 @@ namespace IFC4
 			AgreementFlag = agreementFlag;
 
 		}
+
+		public static new IfcHalfSpaceSolid FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcHalfSpaceSolid>(json);
+		}
+
+		public static new IfcHalfSpaceSolid FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9952,6 +14843,16 @@ namespace IFC4
 		public IfcHeatExchanger() : base()
 		{
 
+		}
+
+		public static new IfcHeatExchanger FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcHeatExchanger>(json);
+		}
+
+		public static new IfcHeatExchanger FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9969,6 +14870,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcHeatExchangerType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcHeatExchangerType>(json);
+		}
+
+		public static new IfcHeatExchangerType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -9982,6 +14893,16 @@ namespace IFC4
 		public IfcHumidifier() : base()
 		{
 
+		}
+
+		public static new IfcHumidifier FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcHumidifier>(json);
+		}
+
+		public static new IfcHumidifier FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -9998,6 +14919,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcHumidifierType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcHumidifierType>(json);
+		}
+
+		public static new IfcHumidifierType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10039,6 +14970,16 @@ namespace IFC4
 			FlangeThickness = flangeThickness;
 
 		}
+
+		public static new IfcIShapeProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcIShapeProfileDef>(json);
+		}
+
+		public static new IfcIShapeProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -10062,6 +15003,16 @@ namespace IFC4
 		{
 			URLReference = uRLReference;
 
+		}
+
+		public static new IfcImageTexture FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcImageTexture>(json);
+		}
+
+		public static new IfcImageTexture FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10089,6 +15040,16 @@ namespace IFC4
 			ColourIndex = colourIndex;
 
 		}
+
+		public static new IfcIndexedColourMap FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcIndexedColourMap>(json);
+		}
+
+		public static new IfcIndexedColourMap FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -10111,6 +15072,16 @@ namespace IFC4
 			TexCoords = texCoords;
 
 		}
+
+		public static new IfcIndexedTextureMap FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcIndexedTextureMap>(json);
+		}
+
+		public static new IfcIndexedTextureMap FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -10132,6 +15103,16 @@ namespace IFC4
 			TexCoordIndex = new List<List<System.Int32>>();
 
 		}
+
+		public static new IfcIndexedTriangleTextureMap FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcIndexedTriangleTextureMap>(json);
+		}
+
+		public static new IfcIndexedTriangleTextureMap FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -10145,6 +15126,16 @@ namespace IFC4
 		public IfcInterceptor() : base()
 		{
 
+		}
+
+		public static new IfcInterceptor FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcInterceptor>(json);
+		}
+
+		public static new IfcInterceptor FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10161,6 +15152,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcInterceptorType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcInterceptorType>(json);
+		}
+
+		public static new IfcInterceptorType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10186,6 +15187,16 @@ namespace IFC4
 		{
 			ResponsiblePersons = new List<IfcPerson>();
 
+		}
+
+		public static new IfcInventory FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcInventory>(json);
+		}
+
+		public static new IfcInventory FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10215,6 +15226,16 @@ namespace IFC4
 			Values = values;
 
 		}
+
+		public static new IfcIrregularTimeSeries FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcIrregularTimeSeries>(json);
+		}
+
+		public static new IfcIrregularTimeSeries FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -10235,6 +15256,16 @@ namespace IFC4
 			ListValues = listValues;
 
 		}
+
+		public static  IfcIrregularTimeSeriesValue FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcIrregularTimeSeriesValue>(json);
+		}
+
+		public static  IfcIrregularTimeSeriesValue FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -10248,6 +15279,16 @@ namespace IFC4
 		public IfcJunctionBox() : base()
 		{
 
+		}
+
+		public static new IfcJunctionBox FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcJunctionBox>(json);
+		}
+
+		public static new IfcJunctionBox FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10264,6 +15305,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcJunctionBoxType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcJunctionBoxType>(json);
+		}
+
+		public static new IfcJunctionBoxType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10299,6 +15350,16 @@ namespace IFC4
 			Thickness = thickness;
 
 		}
+
+		public static new IfcLShapeProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLShapeProfileDef>(json);
+		}
+
+		public static new IfcLShapeProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -10312,6 +15373,16 @@ namespace IFC4
 		public IfcLaborResource() : base()
 		{
 
+		}
+
+		public static new IfcLaborResource FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLaborResource>(json);
+		}
+
+		public static new IfcLaborResource FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10328,6 +15399,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcLaborResourceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLaborResourceType>(json);
+		}
+
+		public static new IfcLaborResourceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10349,6 +15430,16 @@ namespace IFC4
 			DurationType = durationType;
 
 		}
+
+		public static new IfcLagTime FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLagTime>(json);
+		}
+
+		public static new IfcLagTime FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -10362,6 +15453,16 @@ namespace IFC4
 		public IfcLamp() : base()
 		{
 
+		}
+
+		public static new IfcLamp FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLamp>(json);
+		}
+
+		public static new IfcLamp FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10378,6 +15479,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcLampType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLampType>(json);
+		}
+
+		public static new IfcLampType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10411,6 +15522,16 @@ namespace IFC4
 			HasLibraryReferences = hasLibraryReferences;
 
 		}
+
+		public static new IfcLibraryInformation FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLibraryInformation>(json);
+		}
+
+		public static new IfcLibraryInformation FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -10432,6 +15553,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcLibraryReference FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLibraryReference>(json);
+		}
+
+		public static new IfcLibraryReference FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10457,6 +15588,16 @@ namespace IFC4
 			LuminousIntensity = luminousIntensity;
 
 		}
+
+		public static  IfcLightDistributionData FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLightDistributionData>(json);
+		}
+
+		public static  IfcLightDistributionData FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -10470,6 +15611,16 @@ namespace IFC4
 		public IfcLightFixture() : base()
 		{
 
+		}
+
+		public static new IfcLightFixture FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLightFixture>(json);
+		}
+
+		public static new IfcLightFixture FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10486,6 +15637,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcLightFixtureType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLightFixtureType>(json);
+		}
+
+		public static new IfcLightFixtureType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10506,6 +15667,16 @@ namespace IFC4
 			LightDistributionCurve = lightDistributionCurve;
 			DistributionData = distributionData;
 
+		}
+
+		public static  IfcLightIntensityDistribution FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLightIntensityDistribution>(json);
+		}
+
+		public static  IfcLightIntensityDistribution FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10533,6 +15704,16 @@ namespace IFC4
 			LightColour = lightColour;
 
 		}
+
+		public static new IfcLightSource FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLightSource>(json);
+		}
+
+		public static new IfcLightSource FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -10550,6 +15731,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcLightSourceAmbient FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLightSourceAmbient>(json);
+		}
+
+		public static new IfcLightSourceAmbient FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10572,6 +15763,16 @@ namespace IFC4
 		{
 			Orientation = orientation;
 
+		}
+
+		public static new IfcLightSourceDirectional FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLightSourceDirectional>(json);
+		}
+
+		public static new IfcLightSourceDirectional FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10613,6 +15814,16 @@ namespace IFC4
 			LightDistributionDataSource = lightDistributionDataSource;
 
 		}
+
+		public static new IfcLightSourceGoniometric FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLightSourceGoniometric>(json);
+		}
+
+		public static new IfcLightSourceGoniometric FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -10650,6 +15861,16 @@ namespace IFC4
 			DistanceAttenuation = distanceAttenuation;
 			QuadricAttenuation = quadricAttenuation;
 
+		}
+
+		public static new IfcLightSourcePositional FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLightSourcePositional>(json);
+		}
+
+		public static new IfcLightSourcePositional FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10693,6 +15914,16 @@ namespace IFC4
 			BeamWidthAngle = beamWidthAngle;
 
 		}
+
+		public static new IfcLightSourceSpot FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLightSourceSpot>(json);
+		}
+
+		public static new IfcLightSourceSpot FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -10717,6 +15948,16 @@ namespace IFC4
 			Dir = dir;
 
 		}
+
+		public static new IfcLine FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLine>(json);
+		}
+
+		public static new IfcLine FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -10739,6 +15980,16 @@ namespace IFC4
 			RelativePlacement = relativePlacement;
 
 		}
+
+		public static new IfcLocalPlacement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLocalPlacement>(json);
+		}
+
+		public static new IfcLocalPlacement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -10754,6 +16005,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcLoop FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLoop>(json);
+		}
+
+		public static new IfcLoop FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10774,6 +16035,16 @@ namespace IFC4
 		{
 			Outer = outer;
 
+		}
+
+		public static new IfcManifoldSolidBrep FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcManifoldSolidBrep>(json);
+		}
+
+		public static new IfcManifoldSolidBrep FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10809,6 +16080,16 @@ namespace IFC4
 			OrthogonalHeight = orthogonalHeight;
 
 		}
+
+		public static new IfcMapConversion FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMapConversion>(json);
+		}
+
+		public static new IfcMapConversion FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -10832,6 +16113,16 @@ namespace IFC4
 			MappingSource = mappingSource;
 			MappingTarget = mappingTarget;
 
+		}
+
+		public static new IfcMappedItem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMappedItem>(json);
+		}
+
+		public static new IfcMappedItem FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10869,6 +16160,16 @@ namespace IFC4
 			RelatesTo = relatesTo;
 
 		}
+
+		public static new IfcMaterial FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterial>(json);
+		}
+
+		public static new IfcMaterial FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -10888,6 +16189,16 @@ namespace IFC4
 			MaterialClassifications = materialClassifications;
 			ClassifiedMaterial = classifiedMaterial;
 
+		}
+
+		public static  IfcMaterialClassificationRelationship FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialClassificationRelationship>(json);
+		}
+
+		public static  IfcMaterialClassificationRelationship FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -10921,6 +16232,16 @@ namespace IFC4
 			ToMaterialConstituentSet = toMaterialConstituentSet;
 
 		}
+
+		public static new IfcMaterialConstituent FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialConstituent>(json);
+		}
+
+		public static new IfcMaterialConstituent FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -10944,6 +16265,16 @@ namespace IFC4
 			MaterialConstituents = new List<IfcMaterialConstituent>();
 
 		}
+
+		public static new IfcMaterialConstituentSet FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialConstituentSet>(json);
+		}
+
+		public static new IfcMaterialConstituentSet FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -10966,6 +16297,16 @@ namespace IFC4
 			HasProperties = hasProperties;
 
 		}
+
+		public static  IfcMaterialDefinition FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialDefinition>(json);
+		}
+
+		public static  IfcMaterialDefinition FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -10983,6 +16324,16 @@ namespace IFC4
 		{
 			RepresentedMaterial = representedMaterial;
 
+		}
+
+		public static new IfcMaterialDefinitionRepresentation FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialDefinitionRepresentation>(json);
+		}
+
+		public static new IfcMaterialDefinitionRepresentation FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -11020,6 +16371,16 @@ namespace IFC4
 			ToMaterialLayerSet = toMaterialLayerSet;
 
 		}
+
+		public static new IfcMaterialLayer FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialLayer>(json);
+		}
+
+		public static new IfcMaterialLayer FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11043,6 +16404,16 @@ namespace IFC4
 		{
 			MaterialLayers = materialLayers;
 
+		}
+
+		public static new IfcMaterialLayerSet FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialLayerSet>(json);
+		}
+
+		public static new IfcMaterialLayerSet FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -11074,6 +16445,16 @@ namespace IFC4
 			OffsetFromReferenceLine = offsetFromReferenceLine;
 
 		}
+
+		public static new IfcMaterialLayerSetUsage FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialLayerSetUsage>(json);
+		}
+
+		public static new IfcMaterialLayerSetUsage FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11102,6 +16483,16 @@ namespace IFC4
 			OffsetValues = offsetValues;
 
 		}
+
+		public static new IfcMaterialLayerWithOffsets FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialLayerWithOffsets>(json);
+		}
+
+		public static new IfcMaterialLayerWithOffsets FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11117,6 +16508,16 @@ namespace IFC4
 		{
 			Materials = materials;
 
+		}
+
+		public static  IfcMaterialList FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialList>(json);
+		}
+
+		public static  IfcMaterialList FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -11152,6 +16553,16 @@ namespace IFC4
 			ToMaterialProfileSet = toMaterialProfileSet;
 
 		}
+
+		public static new IfcMaterialProfile FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialProfile>(json);
+		}
+
+		public static new IfcMaterialProfile FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11178,6 +16589,16 @@ namespace IFC4
 			MaterialProfiles = materialProfiles;
 
 		}
+
+		public static new IfcMaterialProfileSet FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialProfileSet>(json);
+		}
+
+		public static new IfcMaterialProfileSet FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11198,6 +16619,16 @@ namespace IFC4
 			ForProfileSet = forProfileSet;
 
 		}
+
+		public static new IfcMaterialProfileSetUsage FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialProfileSetUsage>(json);
+		}
+
+		public static new IfcMaterialProfileSetUsage FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11217,6 +16648,16 @@ namespace IFC4
 		{
 			ForProfileEndSet = forProfileEndSet;
 
+		}
+
+		public static new IfcMaterialProfileSetUsageTapering FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialProfileSetUsageTapering>(json);
+		}
+
+		public static new IfcMaterialProfileSetUsageTapering FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -11242,6 +16683,16 @@ namespace IFC4
 			OffsetValues = offsetValues;
 
 		}
+
+		public static new IfcMaterialProfileWithOffsets FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialProfileWithOffsets>(json);
+		}
+
+		public static new IfcMaterialProfileWithOffsets FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11261,6 +16712,16 @@ namespace IFC4
 		{
 			Material = material;
 
+		}
+
+		public static new IfcMaterialProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialProperties>(json);
+		}
+
+		public static new IfcMaterialProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -11284,6 +16745,16 @@ namespace IFC4
 			RelatedMaterials = relatedMaterials;
 
 		}
+
+		public static new IfcMaterialRelationship FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialRelationship>(json);
+		}
+
+		public static new IfcMaterialRelationship FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11297,6 +16768,16 @@ namespace IFC4
 		public IfcMaterialUsageDefinition()
 		{
 
+		}
+
+		public static  IfcMaterialUsageDefinition FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialUsageDefinition>(json);
+		}
+
+		public static  IfcMaterialUsageDefinition FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -11318,6 +16799,16 @@ namespace IFC4
 			UnitComponent = unitComponent;
 
 		}
+
+		public static  IfcMeasureWithUnit FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMeasureWithUnit>(json);
+		}
+
+		public static  IfcMeasureWithUnit FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11335,6 +16826,16 @@ namespace IFC4
 		public IfcMechanicalFastener() : base()
 		{
 
+		}
+
+		public static new IfcMechanicalFastener FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMechanicalFastener>(json);
+		}
+
+		public static new IfcMechanicalFastener FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -11356,6 +16857,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcMechanicalFastenerType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMechanicalFastenerType>(json);
+		}
+
+		public static new IfcMechanicalFastenerType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11369,6 +16880,16 @@ namespace IFC4
 		public IfcMedicalDevice() : base()
 		{
 
+		}
+
+		public static new IfcMedicalDevice FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMedicalDevice>(json);
+		}
+
+		public static new IfcMedicalDevice FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -11386,6 +16907,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcMedicalDeviceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMedicalDeviceType>(json);
+		}
+
+		public static new IfcMedicalDeviceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11400,6 +16931,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcMember FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMember>(json);
+		}
+
+		public static new IfcMember FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11411,6 +16952,16 @@ namespace IFC4
 		public IfcMemberStandardCase() : base()
 		{
 
+		}
+
+		public static new IfcMemberStandardCase FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMemberStandardCase>(json);
+		}
+
+		public static new IfcMemberStandardCase FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -11427,6 +16978,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcMemberType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMemberType>(json);
+		}
+
+		public static new IfcMemberType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -11460,6 +17021,16 @@ namespace IFC4
 			DataValue = dataValue;
 
 		}
+
+		public static new IfcMetric FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMetric>(json);
+		}
+
+		public static new IfcMetric FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11482,6 +17053,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcMirroredProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMirroredProfileDef>(json);
+		}
+
+		public static new IfcMirroredProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11498,6 +17079,16 @@ namespace IFC4
 			Currency = currency;
 
 		}
+
+		public static  IfcMonetaryUnit FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMonetaryUnit>(json);
+		}
+
+		public static  IfcMonetaryUnit FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11511,6 +17102,16 @@ namespace IFC4
 		public IfcMotorConnection() : base()
 		{
 
+		}
+
+		public static new IfcMotorConnection FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMotorConnection>(json);
+		}
+
+		public static new IfcMotorConnection FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -11527,6 +17128,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcMotorConnectionType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMotorConnectionType>(json);
+		}
+
+		public static new IfcMotorConnectionType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -11547,6 +17158,16 @@ namespace IFC4
 			Dimensions = dimensions;
 			UnitType = unitType;
 
+		}
+
+		public static  IfcNamedUnit FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcNamedUnit>(json);
+		}
+
+		public static  IfcNamedUnit FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -11569,6 +17190,16 @@ namespace IFC4
 		public IfcObject() : base()
 		{
 
+		}
+
+		public static new IfcObject FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcObject>(json);
+		}
+
+		public static new IfcObject FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -11596,6 +17227,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcObjectDefinition FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcObjectDefinition>(json);
+		}
+
+		public static new IfcObjectDefinition FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11615,6 +17256,16 @@ namespace IFC4
 			PlacesObject = placesObject;
 			ReferencedByPlacements = referencedByPlacements;
 
+		}
+
+		public static  IfcObjectPlacement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcObjectPlacement>(json);
+		}
+
+		public static  IfcObjectPlacement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -11647,6 +17298,16 @@ namespace IFC4
 			BenchmarkValues = new List<IfcConstraint>();
 
 		}
+
+		public static new IfcObjective FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcObjective>(json);
+		}
+
+		public static new IfcObjective FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11662,6 +17323,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcOccupant FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcOccupant>(json);
+		}
+
+		public static new IfcOccupant FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -11690,6 +17361,16 @@ namespace IFC4
 			Distance = distance;
 			SelfIntersect = selfIntersect;
 
+		}
+
+		public static new IfcOffsetCurve2D FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcOffsetCurve2D>(json);
+		}
+
+		public static new IfcOffsetCurve2D FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -11723,6 +17404,16 @@ namespace IFC4
 			RefDirection = refDirection;
 
 		}
+
+		public static new IfcOffsetCurve3D FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcOffsetCurve3D>(json);
+		}
+
+		public static new IfcOffsetCurve3D FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11741,6 +17432,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcOpenShell FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcOpenShell>(json);
+		}
+
+		public static new IfcOpenShell FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11757,6 +17458,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcOpeningElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcOpeningElement>(json);
+		}
+
+		public static new IfcOpeningElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11768,6 +17479,16 @@ namespace IFC4
 		public IfcOpeningStandardCase() : base()
 		{
 
+		}
+
+		public static new IfcOpeningStandardCase FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcOpeningStandardCase>(json);
+		}
+
+		public static new IfcOpeningStandardCase FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -11807,6 +17528,16 @@ namespace IFC4
 			Addresses = new List<IfcAddress>();
 
 		}
+
+		public static  IfcOrganization FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcOrganization>(json);
+		}
+
+		public static  IfcOrganization FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11826,6 +17557,16 @@ namespace IFC4
 			RelatingOrganization = relatingOrganization;
 			RelatedOrganizations = relatedOrganizations;
 
+		}
+
+		public static new IfcOrganizationRelationship FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcOrganizationRelationship>(json);
+		}
+
+		public static new IfcOrganizationRelationship FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -11855,6 +17596,16 @@ namespace IFC4
 			Orientation = orientation;
 
 		}
+
+		public static new IfcOrientedEdge FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcOrientedEdge>(json);
+		}
+
+		public static new IfcOrientedEdge FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11875,6 +17626,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcOuterBoundaryCurve FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcOuterBoundaryCurve>(json);
+		}
+
+		public static new IfcOuterBoundaryCurve FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11888,6 +17649,16 @@ namespace IFC4
 		public IfcOutlet() : base()
 		{
 
+		}
+
+		public static new IfcOutlet FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcOutlet>(json);
+		}
+
+		public static new IfcOutlet FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -11904,6 +17675,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcOutletType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcOutletType>(json);
+		}
+
+		public static new IfcOutletType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -11939,6 +17720,16 @@ namespace IFC4
 			CreationDate = creationDate;
 
 		}
+
+		public static  IfcOwnerHistory FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcOwnerHistory>(json);
+		}
+
+		public static  IfcOwnerHistory FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11959,6 +17750,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcParameterizedProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcParameterizedProfileDef>(json);
+		}
+
+		public static new IfcParameterizedProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -11978,6 +17779,16 @@ namespace IFC4
 		{
 			EdgeList = edgeList;
 
+		}
+
+		public static new IfcPath FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPath>(json);
+		}
+
+		public static new IfcPath FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12003,6 +17814,16 @@ namespace IFC4
 			ReferenceCurve = referenceCurve;
 
 		}
+
+		public static new IfcPcurve FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPcurve>(json);
+		}
+
+		public static new IfcPcurve FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12020,6 +17841,16 @@ namespace IFC4
 		{
 			LifeCyclePhase = lifeCyclePhase;
 
+		}
+
+		public static new IfcPerformanceHistory FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPerformanceHistory>(json);
+		}
+
+		public static new IfcPerformanceHistory FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12049,6 +17880,16 @@ namespace IFC4
 			PanelPosition = panelPosition;
 
 		}
+
+		public static new IfcPermeableCoveringProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPermeableCoveringProperties>(json);
+		}
+
+		public static new IfcPermeableCoveringProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12066,6 +17907,16 @@ namespace IFC4
 		public IfcPermit() : base()
 		{
 
+		}
+
+		public static new IfcPermit FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPermit>(json);
+		}
+
+		public static new IfcPermit FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12104,6 +17955,16 @@ namespace IFC4
 			Addresses = new List<IfcAddress>();
 
 		}
+
+		public static  IfcPerson FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPerson>(json);
+		}
+
+		public static  IfcPerson FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12126,6 +17987,16 @@ namespace IFC4
 			TheOrganization = theOrganization;
 			Roles = new List<IfcActorRole>();
 
+		}
+
+		public static  IfcPersonAndOrganization FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPersonAndOrganization>(json);
+		}
+
+		public static  IfcPersonAndOrganization FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12157,6 +18028,16 @@ namespace IFC4
 			Discrimination = discrimination;
 
 		}
+
+		public static new IfcPhysicalComplexQuantity FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPhysicalComplexQuantity>(json);
+		}
+
+		public static new IfcPhysicalComplexQuantity FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12183,6 +18064,16 @@ namespace IFC4
 			PartOfComplex = partOfComplex;
 
 		}
+
+		public static  IfcPhysicalQuantity FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPhysicalQuantity>(json);
+		}
+
+		public static  IfcPhysicalQuantity FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12203,6 +18094,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcPhysicalSimpleQuantity FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPhysicalSimpleQuantity>(json);
+		}
+
+		public static new IfcPhysicalSimpleQuantity FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12218,6 +18119,16 @@ namespace IFC4
 		public IfcPile() : base()
 		{
 
+		}
+
+		public static new IfcPile FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPile>(json);
+		}
+
+		public static new IfcPile FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12235,6 +18146,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcPileType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPileType>(json);
+		}
+
+		public static new IfcPileType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12248,6 +18169,16 @@ namespace IFC4
 		public IfcPipeFitting() : base()
 		{
 
+		}
+
+		public static new IfcPipeFitting FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPipeFitting>(json);
+		}
+
+		public static new IfcPipeFitting FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12265,6 +18196,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcPipeFittingType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPipeFittingType>(json);
+		}
+
+		public static new IfcPipeFittingType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12278,6 +18219,16 @@ namespace IFC4
 		public IfcPipeSegment() : base()
 		{
 
+		}
+
+		public static new IfcPipeSegment FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPipeSegment>(json);
+		}
+
+		public static new IfcPipeSegment FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12294,6 +18245,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcPipeSegmentType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPipeSegmentType>(json);
+		}
+
+		public static new IfcPipeSegmentType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12331,6 +18292,16 @@ namespace IFC4
 			Pixel = pixel;
 
 		}
+
+		public static new IfcPixelTexture FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPixelTexture>(json);
+		}
+
+		public static new IfcPixelTexture FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12350,6 +18321,16 @@ namespace IFC4
 		{
 			Location = location;
 
+		}
+
+		public static new IfcPlacement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPlacement>(json);
+		}
+
+		public static new IfcPlacement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12375,6 +18356,16 @@ namespace IFC4
 			Placement = placement;
 
 		}
+
+		public static new IfcPlanarBox FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPlanarBox>(json);
+		}
+
+		public static new IfcPlanarBox FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12399,6 +18390,16 @@ namespace IFC4
 			SizeInY = sizeInY;
 
 		}
+
+		public static new IfcPlanarExtent FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPlanarExtent>(json);
+		}
+
+		public static new IfcPlanarExtent FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12417,6 +18418,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcPlane FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPlane>(json);
+		}
+
+		public static new IfcPlane FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12431,6 +18442,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcPlate FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPlate>(json);
+		}
+
+		public static new IfcPlate FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12442,6 +18463,16 @@ namespace IFC4
 		public IfcPlateStandardCase() : base()
 		{
 
+		}
+
+		public static new IfcPlateStandardCase FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPlateStandardCase>(json);
+		}
+
+		public static new IfcPlateStandardCase FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12459,6 +18490,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcPlateType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPlateType>(json);
+		}
+
+		public static new IfcPlateType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12474,6 +18515,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcPoint FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPoint>(json);
+		}
+
+		public static new IfcPoint FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12498,6 +18549,16 @@ namespace IFC4
 			BasisCurve = basisCurve;
 			PointParameter = pointParameter;
 
+		}
+
+		public static new IfcPointOnCurve FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPointOnCurve>(json);
+		}
+
+		public static new IfcPointOnCurve FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12527,6 +18588,16 @@ namespace IFC4
 			PointParameterV = pointParameterV;
 
 		}
+
+		public static new IfcPointOnSurface FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPointOnSurface>(json);
+		}
+
+		public static new IfcPointOnSurface FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12546,6 +18617,16 @@ namespace IFC4
 		{
 			Polygon = polygon;
 
+		}
+
+		public static new IfcPolyLoop FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPolyLoop>(json);
+		}
+
+		public static new IfcPolyLoop FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12575,6 +18656,16 @@ namespace IFC4
 			PolygonalBoundary = polygonalBoundary;
 
 		}
+
+		public static new IfcPolygonalBoundedHalfSpace FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPolygonalBoundedHalfSpace>(json);
+		}
+
+		public static new IfcPolygonalBoundedHalfSpace FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12595,6 +18686,16 @@ namespace IFC4
 			Points = points;
 
 		}
+
+		public static new IfcPolyline FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPolyline>(json);
+		}
+
+		public static new IfcPolyline FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12612,6 +18713,16 @@ namespace IFC4
 		public IfcPort() : base()
 		{
 
+		}
+
+		public static new IfcPort FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPort>(json);
+		}
+
+		public static new IfcPort FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12644,6 +18755,16 @@ namespace IFC4
 			AddressLines = new List<IfcLabel>();
 
 		}
+
+		public static new IfcPostalAddress FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPostalAddress>(json);
+		}
+
+		public static new IfcPostalAddress FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12658,6 +18779,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcPreDefinedColour FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPreDefinedColour>(json);
+		}
+
+		public static new IfcPreDefinedColour FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12671,6 +18802,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcPreDefinedCurveFont FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPreDefinedCurveFont>(json);
+		}
+
+		public static new IfcPreDefinedCurveFont FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12688,6 +18829,16 @@ namespace IFC4
 			Name = name;
 
 		}
+
+		public static new IfcPreDefinedItem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPreDefinedItem>(json);
+		}
+
+		public static new IfcPreDefinedItem FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12701,6 +18852,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcPreDefinedProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPreDefinedProperties>(json);
+		}
+
+		public static new IfcPreDefinedProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12716,6 +18877,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcPreDefinedPropertySet FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPreDefinedPropertySet>(json);
+		}
+
+		public static new IfcPreDefinedPropertySet FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12730,6 +18901,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcPreDefinedTextFont FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPreDefinedTextFont>(json);
+		}
+
+		public static new IfcPreDefinedTextFont FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12741,6 +18922,16 @@ namespace IFC4
 		public IfcPresentationItem()
 		{
 
+		}
+
+		public static  IfcPresentationItem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPresentationItem>(json);
+		}
+
+		public static  IfcPresentationItem FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12765,6 +18956,16 @@ namespace IFC4
 			Name = name;
 			AssignedItems = assignedItems;
 
+		}
+
+		public static  IfcPresentationLayerAssignment FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPresentationLayerAssignment>(json);
+		}
+
+		public static  IfcPresentationLayerAssignment FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12798,6 +18999,16 @@ namespace IFC4
 			LayerStyles = layerStyles;
 
 		}
+
+		public static new IfcPresentationLayerWithStyle FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPresentationLayerWithStyle>(json);
+		}
+
+		public static new IfcPresentationLayerWithStyle FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12811,6 +19022,16 @@ namespace IFC4
 		public IfcPresentationStyle()
 		{
 
+		}
+
+		public static  IfcPresentationStyle FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPresentationStyle>(json);
+		}
+
+		public static  IfcPresentationStyle FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12828,6 +19049,16 @@ namespace IFC4
 			Styles = styles;
 
 		}
+
+		public static  IfcPresentationStyleAssignment FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPresentationStyleAssignment>(json);
+		}
+
+		public static  IfcPresentationStyleAssignment FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12841,6 +19072,16 @@ namespace IFC4
 		public IfcProcedure() : base()
 		{
 
+		}
+
+		public static new IfcProcedure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProcedure>(json);
+		}
+
+		public static new IfcProcedure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12857,6 +19098,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcProcedureType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProcedureType>(json);
+		}
+
+		public static new IfcProcedureType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12880,6 +19131,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcProcess FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProcess>(json);
+		}
+
+		public static new IfcProcess FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12897,6 +19158,16 @@ namespace IFC4
 		public IfcProduct() : base()
 		{
 
+		}
+
+		public static new IfcProduct FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProduct>(json);
+		}
+
+		public static new IfcProduct FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12920,6 +19191,16 @@ namespace IFC4
 			HasShapeAspects = hasShapeAspects;
 
 		}
+
+		public static new IfcProductDefinitionShape FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProductDefinitionShape>(json);
+		}
+
+		public static new IfcProductDefinitionShape FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12939,6 +19220,16 @@ namespace IFC4
 		{
 			Representations = representations;
 
+		}
+
+		public static  IfcProductRepresentation FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProductRepresentation>(json);
+		}
+
+		public static  IfcProductRepresentation FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -12966,6 +19257,16 @@ namespace IFC4
 			HasProperties = hasProperties;
 
 		}
+
+		public static  IfcProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProfileDef>(json);
+		}
+
+		public static  IfcProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12986,6 +19287,16 @@ namespace IFC4
 			ProfileDefinition = profileDefinition;
 
 		}
+
+		public static new IfcProfileProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProfileProperties>(json);
+		}
+
+		public static new IfcProfileProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -12998,6 +19309,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcProject FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProject>(json);
+		}
+
+		public static new IfcProject FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -13009,6 +19330,16 @@ namespace IFC4
 		public IfcProjectLibrary() : base()
 		{
 
+		}
+
+		public static new IfcProjectLibrary FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProjectLibrary>(json);
+		}
+
+		public static new IfcProjectLibrary FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13027,6 +19358,16 @@ namespace IFC4
 		public IfcProjectOrder() : base()
 		{
 
+		}
+
+		public static new IfcProjectOrder FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProjectOrder>(json);
+		}
+
+		public static new IfcProjectOrder FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13048,6 +19389,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcProjectedCRS FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProjectedCRS>(json);
+		}
+
+		public static new IfcProjectedCRS FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -13061,6 +19412,16 @@ namespace IFC4
 		public IfcProjectionElement() : base()
 		{
 
+		}
+
+		public static new IfcProjectionElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProjectionElement>(json);
+		}
+
+		public static new IfcProjectionElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13098,6 +19459,16 @@ namespace IFC4
 			PartOfComplex = partOfComplex;
 
 		}
+
+		public static new IfcProperty FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProperty>(json);
+		}
+
+		public static new IfcProperty FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -13113,6 +19484,16 @@ namespace IFC4
 		{
 			HasExternalReferences = hasExternalReferences;
 
+		}
+
+		public static  IfcPropertyAbstraction FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPropertyAbstraction>(json);
+		}
+
+		public static  IfcPropertyAbstraction FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13146,6 +19527,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcPropertyBoundedValue FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPropertyBoundedValue>(json);
+		}
+
+		public static new IfcPropertyBoundedValue FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -13161,6 +19552,16 @@ namespace IFC4
 		public IfcPropertyDefinition() : base()
 		{
 
+		}
+
+		public static new IfcPropertyDefinition FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPropertyDefinition>(json);
+		}
+
+		public static new IfcPropertyDefinition FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13183,6 +19584,16 @@ namespace IFC4
 			DependingProperty = dependingProperty;
 			DependantProperty = dependantProperty;
 
+		}
+
+		public static new IfcPropertyDependencyRelationship FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPropertyDependencyRelationship>(json);
+		}
+
+		public static new IfcPropertyDependencyRelationship FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13213,6 +19624,16 @@ namespace IFC4
 			EnumerationValues = new List<IfcValue>();
 
 		}
+
+		public static new IfcPropertyEnumeratedValue FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPropertyEnumeratedValue>(json);
+		}
+
+		public static new IfcPropertyEnumeratedValue FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -13236,6 +19657,16 @@ namespace IFC4
 			Name = name;
 			EnumerationValues = enumerationValues;
 
+		}
+
+		public static new IfcPropertyEnumeration FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPropertyEnumeration>(json);
+		}
+
+		public static new IfcPropertyEnumeration FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13266,6 +19697,16 @@ namespace IFC4
 			ListValues = new List<IfcValue>();
 
 		}
+
+		public static new IfcPropertyListValue FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPropertyListValue>(json);
+		}
+
+		public static new IfcPropertyListValue FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -13294,6 +19735,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcPropertyReferenceValue FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPropertyReferenceValue>(json);
+		}
+
+		public static new IfcPropertyReferenceValue FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -13311,6 +19762,16 @@ namespace IFC4
 		{
 			HasProperties = hasProperties;
 
+		}
+
+		public static new IfcPropertySet FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPropertySet>(json);
+		}
+
+		public static new IfcPropertySet FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13331,6 +19792,16 @@ namespace IFC4
 		{
 			DefinesType = definesType;
 
+		}
+
+		public static new IfcPropertySetDefinition FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPropertySetDefinition>(json);
+		}
+
+		public static new IfcPropertySetDefinition FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13353,6 +19824,16 @@ namespace IFC4
 		{
 			HasPropertyTemplates = hasPropertyTemplates;
 
+		}
+
+		public static new IfcPropertySetTemplate FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPropertySetTemplate>(json);
+		}
+
+		public static new IfcPropertySetTemplate FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13381,6 +19862,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcPropertySingleValue FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPropertySingleValue>(json);
+		}
+
+		public static new IfcPropertySingleValue FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13420,6 +19911,16 @@ namespace IFC4
 			DefinedValues = new List<IfcValue>();
 
 		}
+
+		public static new IfcPropertyTableValue FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPropertyTableValue>(json);
+		}
+
+		public static new IfcPropertyTableValue FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -13440,6 +19941,16 @@ namespace IFC4
 			PartOfPsetTemplate = partOfPsetTemplate;
 
 		}
+
+		public static new IfcPropertyTemplate FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPropertyTemplate>(json);
+		}
+
+		public static new IfcPropertyTemplate FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -13451,6 +19962,16 @@ namespace IFC4
 		public IfcPropertyTemplateDefinition() : base()
 		{
 
+		}
+
+		public static new IfcPropertyTemplateDefinition FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPropertyTemplateDefinition>(json);
+		}
+
+		public static new IfcPropertyTemplateDefinition FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13466,6 +19987,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcProtectiveDevice FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProtectiveDevice>(json);
+		}
+
+		public static new IfcProtectiveDevice FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -13479,6 +20010,16 @@ namespace IFC4
 		public IfcProtectiveDeviceTrippingUnit() : base()
 		{
 
+		}
+
+		public static new IfcProtectiveDeviceTrippingUnit FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProtectiveDeviceTrippingUnit>(json);
+		}
+
+		public static new IfcProtectiveDeviceTrippingUnit FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13496,6 +20037,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcProtectiveDeviceTrippingUnitType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProtectiveDeviceTrippingUnitType>(json);
+		}
+
+		public static new IfcProtectiveDeviceTrippingUnitType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -13511,6 +20062,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcProtectiveDeviceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProtectiveDeviceType>(json);
+		}
+
+		public static new IfcProtectiveDeviceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13530,6 +20091,16 @@ namespace IFC4
 			ProxyType = proxyType;
 
 		}
+
+		public static new IfcProxy FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProxy>(json);
+		}
+
+		public static new IfcProxy FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -13543,6 +20114,16 @@ namespace IFC4
 		public IfcPump() : base()
 		{
 
+		}
+
+		public static new IfcPump FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPump>(json);
+		}
+
+		public static new IfcPump FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13559,6 +20140,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcPumpType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPumpType>(json);
+		}
+
+		public static new IfcPumpType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13584,6 +20175,16 @@ namespace IFC4
 			AreaValue = areaValue;
 
 		}
+
+		public static new IfcQuantityArea FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcQuantityArea>(json);
+		}
+
+		public static new IfcQuantityArea FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -13607,6 +20208,16 @@ namespace IFC4
 		{
 			CountValue = countValue;
 
+		}
+
+		public static new IfcQuantityCount FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcQuantityCount>(json);
+		}
+
+		public static new IfcQuantityCount FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13632,6 +20243,16 @@ namespace IFC4
 			LengthValue = lengthValue;
 
 		}
+
+		public static new IfcQuantityLength FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcQuantityLength>(json);
+		}
+
+		public static new IfcQuantityLength FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -13645,6 +20266,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcQuantitySet FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcQuantitySet>(json);
+		}
+
+		public static new IfcQuantitySet FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13670,6 +20301,16 @@ namespace IFC4
 			TimeValue = timeValue;
 
 		}
+
+		public static new IfcQuantityTime FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcQuantityTime>(json);
+		}
+
+		public static new IfcQuantityTime FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -13693,6 +20334,16 @@ namespace IFC4
 		{
 			VolumeValue = volumeValue;
 
+		}
+
+		public static new IfcQuantityVolume FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcQuantityVolume>(json);
+		}
+
+		public static new IfcQuantityVolume FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13718,6 +20369,16 @@ namespace IFC4
 			WeightValue = weightValue;
 
 		}
+
+		public static new IfcQuantityWeight FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcQuantityWeight>(json);
+		}
+
+		public static new IfcQuantityWeight FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -13731,6 +20392,16 @@ namespace IFC4
 		public IfcRailing() : base()
 		{
 
+		}
+
+		public static new IfcRailing FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRailing>(json);
+		}
+
+		public static new IfcRailing FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13748,6 +20419,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcRailingType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRailingType>(json);
+		}
+
+		public static new IfcRailingType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -13762,6 +20443,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcRamp FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRamp>(json);
+		}
+
+		public static new IfcRamp FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -13775,6 +20466,16 @@ namespace IFC4
 		public IfcRampFlight() : base()
 		{
 
+		}
+
+		public static new IfcRampFlight FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRampFlight>(json);
+		}
+
+		public static new IfcRampFlight FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13792,6 +20493,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcRampFlightType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRampFlightType>(json);
+		}
+
+		public static new IfcRampFlightType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -13807,6 +20518,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcRampType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRampType>(json);
+		}
+
+		public static new IfcRampType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13843,6 +20564,16 @@ namespace IFC4
 		{
 			WeightsData = weightsData;
 
+		}
+
+		public static new IfcRationalBSplineCurveWithKnots FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRationalBSplineCurveWithKnots>(json);
+		}
+
+		public static new IfcRationalBSplineCurveWithKnots FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13888,6 +20619,16 @@ namespace IFC4
 			WeightsData = weightsData;
 
 		}
+
+		public static new IfcRationalBSplineSurfaceWithKnots FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRationalBSplineSurfaceWithKnots>(json);
+		}
+
+		public static new IfcRationalBSplineSurfaceWithKnots FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -13918,6 +20659,16 @@ namespace IFC4
 			WallThickness = wallThickness;
 
 		}
+
+		public static new IfcRectangleHollowProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRectangleHollowProfileDef>(json);
+		}
+
+		public static new IfcRectangleHollowProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -13943,6 +20694,16 @@ namespace IFC4
 			XDim = xDim;
 			YDim = yDim;
 
+		}
+
+		public static new IfcRectangleProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRectangleProfileDef>(json);
+		}
+
+		public static new IfcRectangleProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -13973,6 +20734,16 @@ namespace IFC4
 			YLength = yLength;
 			Height = height;
 
+		}
+
+		public static new IfcRectangularPyramid FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRectangularPyramid>(json);
+		}
+
+		public static new IfcRectangularPyramid FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14018,6 +20789,16 @@ namespace IFC4
 			Vsense = vsense;
 
 		}
+
+		public static new IfcRectangularTrimmedSurface FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRectangularTrimmedSurface>(json);
+		}
+
+		public static new IfcRectangularTrimmedSurface FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14052,6 +20833,16 @@ namespace IFC4
 			TimePeriods = new List<IfcTimePeriod>();
 
 		}
+
+		public static  IfcRecurrencePattern FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRecurrencePattern>(json);
+		}
+
+		public static  IfcRecurrencePattern FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14074,6 +20865,16 @@ namespace IFC4
 		{
 			ListPositions = new List<System.Int32>();
 
+		}
+
+		public static  IfcReference FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcReference>(json);
+		}
+
+		public static  IfcReference FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14107,6 +20908,16 @@ namespace IFC4
 			Values = values;
 
 		}
+
+		public static new IfcRegularTimeSeries FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRegularTimeSeries>(json);
+		}
+
+		public static new IfcRegularTimeSeries FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14137,6 +20948,16 @@ namespace IFC4
 			SteelGrade = steelGrade;
 
 		}
+
+		public static new IfcReinforcementBarProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcReinforcementBarProperties>(json);
+		}
+
+		public static new IfcReinforcementBarProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14156,6 +20977,16 @@ namespace IFC4
 		{
 			ReinforcementSectionDefinitions = reinforcementSectionDefinitions;
 
+		}
+
+		public static new IfcReinforcementDefinitionProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcReinforcementDefinitionProperties>(json);
+		}
+
+		public static new IfcReinforcementDefinitionProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14178,6 +21009,16 @@ namespace IFC4
 		public IfcReinforcingBar() : base()
 		{
 
+		}
+
+		public static new IfcReinforcingBar FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcReinforcingBar>(json);
+		}
+
+		public static new IfcReinforcingBar FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14208,6 +21049,16 @@ namespace IFC4
 			BendingParameters = new List<IfcBendingParameterSelect>();
 
 		}
+
+		public static new IfcReinforcingBarType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcReinforcingBarType>(json);
+		}
+
+		public static new IfcReinforcingBarType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14222,6 +21073,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcReinforcingElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcReinforcingElement>(json);
+		}
+
+		public static new IfcReinforcingElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14233,6 +21094,16 @@ namespace IFC4
 		public IfcReinforcingElementType() : base()
 		{
 
+		}
+
+		public static new IfcReinforcingElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcReinforcingElementType>(json);
+		}
+
+		public static new IfcReinforcingElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14263,6 +21134,16 @@ namespace IFC4
 		public IfcReinforcingMesh() : base()
 		{
 
+		}
+
+		public static new IfcReinforcingMesh FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcReinforcingMesh>(json);
+		}
+
+		public static new IfcReinforcingMesh FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14301,6 +21182,16 @@ namespace IFC4
 			BendingParameters = new List<IfcBendingParameterSelect>();
 
 		}
+
+		public static new IfcReinforcingMeshType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcReinforcingMeshType>(json);
+		}
+
+		public static new IfcReinforcingMeshType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14321,6 +21212,16 @@ namespace IFC4
 			RelatedObjects = relatedObjects;
 
 		}
+
+		public static new IfcRelAggregates FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelAggregates>(json);
+		}
+
+		public static new IfcRelAggregates FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14338,6 +21239,16 @@ namespace IFC4
 		{
 			RelatedObjects = relatedObjects;
 
+		}
+
+		public static new IfcRelAssigns FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelAssigns>(json);
+		}
+
+		public static new IfcRelAssigns FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14359,6 +21270,16 @@ namespace IFC4
 			RelatingActor = relatingActor;
 
 		}
+
+		public static new IfcRelAssignsToActor FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelAssignsToActor>(json);
+		}
+
+		public static new IfcRelAssignsToActor FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14377,6 +21298,16 @@ namespace IFC4
 			RelatingControl = relatingControl;
 
 		}
+
+		public static new IfcRelAssignsToControl FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelAssignsToControl>(json);
+		}
+
+		public static new IfcRelAssignsToControl FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14394,6 +21325,16 @@ namespace IFC4
 		{
 			RelatingGroup = relatingGroup;
 
+		}
+
+		public static new IfcRelAssignsToGroup FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelAssignsToGroup>(json);
+		}
+
+		public static new IfcRelAssignsToGroup FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14415,6 +21356,16 @@ namespace IFC4
 			Factor = factor;
 
 		}
+
+		public static new IfcRelAssignsToGroupByFactor FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelAssignsToGroupByFactor>(json);
+		}
+
+		public static new IfcRelAssignsToGroupByFactor FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14435,6 +21386,16 @@ namespace IFC4
 			RelatingProcess = relatingProcess;
 
 		}
+
+		public static new IfcRelAssignsToProcess FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelAssignsToProcess>(json);
+		}
+
+		public static new IfcRelAssignsToProcess FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14452,6 +21413,16 @@ namespace IFC4
 		{
 			RelatingProduct = relatingProduct;
 
+		}
+
+		public static new IfcRelAssignsToProduct FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelAssignsToProduct>(json);
+		}
+
+		public static new IfcRelAssignsToProduct FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14471,6 +21442,16 @@ namespace IFC4
 			RelatingResource = relatingResource;
 
 		}
+
+		public static new IfcRelAssignsToResource FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelAssignsToResource>(json);
+		}
+
+		public static new IfcRelAssignsToResource FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14486,6 +21467,16 @@ namespace IFC4
 		{
 			RelatedObjects = relatedObjects;
 
+		}
+
+		public static new IfcRelAssociates FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelAssociates>(json);
+		}
+
+		public static new IfcRelAssociates FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14505,6 +21496,16 @@ namespace IFC4
 			RelatingApproval = relatingApproval;
 
 		}
+
+		public static new IfcRelAssociatesApproval FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelAssociatesApproval>(json);
+		}
+
+		public static new IfcRelAssociatesApproval FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14522,6 +21523,16 @@ namespace IFC4
 		{
 			RelatingClassification = relatingClassification;
 
+		}
+
+		public static new IfcRelAssociatesClassification FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelAssociatesClassification>(json);
+		}
+
+		public static new IfcRelAssociatesClassification FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14543,6 +21554,16 @@ namespace IFC4
 			RelatingConstraint = relatingConstraint;
 
 		}
+
+		public static new IfcRelAssociatesConstraint FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelAssociatesConstraint>(json);
+		}
+
+		public static new IfcRelAssociatesConstraint FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14560,6 +21581,16 @@ namespace IFC4
 		{
 			RelatingDocument = relatingDocument;
 
+		}
+
+		public static new IfcRelAssociatesDocument FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelAssociatesDocument>(json);
+		}
+
+		public static new IfcRelAssociatesDocument FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14579,6 +21610,16 @@ namespace IFC4
 			RelatingLibrary = relatingLibrary;
 
 		}
+
+		public static new IfcRelAssociatesLibrary FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelAssociatesLibrary>(json);
+		}
+
+		public static new IfcRelAssociatesLibrary FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14597,6 +21638,16 @@ namespace IFC4
 			RelatingMaterial = relatingMaterial;
 
 		}
+
+		public static new IfcRelAssociatesMaterial FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelAssociatesMaterial>(json);
+		}
+
+		public static new IfcRelAssociatesMaterial FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14608,6 +21659,16 @@ namespace IFC4
 		public IfcRelConnects() : base()
 		{
 
+		}
+
+		public static new IfcRelConnects FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelConnects>(json);
+		}
+
+		public static new IfcRelConnects FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14630,6 +21691,16 @@ namespace IFC4
 			RelatingElement = relatingElement;
 			RelatedElement = relatedElement;
 
+		}
+
+		public static new IfcRelConnectsElements FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelConnectsElements>(json);
+		}
+
+		public static new IfcRelConnectsElements FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14663,6 +21734,16 @@ namespace IFC4
 			RelatingConnectionType = relatingConnectionType;
 
 		}
+
+		public static new IfcRelConnectsPathElements FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelConnectsPathElements>(json);
+		}
+
+		public static new IfcRelConnectsPathElements FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14682,6 +21763,16 @@ namespace IFC4
 			RelatingPort = relatingPort;
 			RelatedElement = relatedElement;
 
+		}
+
+		public static new IfcRelConnectsPortToElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelConnectsPortToElement>(json);
+		}
+
+		public static new IfcRelConnectsPortToElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14705,6 +21796,16 @@ namespace IFC4
 			RelatedPort = relatedPort;
 
 		}
+
+		public static new IfcRelConnectsPorts FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelConnectsPorts>(json);
+		}
+
+		public static new IfcRelConnectsPorts FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14724,6 +21825,16 @@ namespace IFC4
 			RelatingElement = relatingElement;
 			RelatedStructuralActivity = relatedStructuralActivity;
 
+		}
+
+		public static new IfcRelConnectsStructuralActivity FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelConnectsStructuralActivity>(json);
+		}
+
+		public static new IfcRelConnectsStructuralActivity FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14753,6 +21864,16 @@ namespace IFC4
 			RelatedStructuralConnection = relatedStructuralConnection;
 
 		}
+
+		public static new IfcRelConnectsStructuralMember FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelConnectsStructuralMember>(json);
+		}
+
+		public static new IfcRelConnectsStructuralMember FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14772,6 +21893,16 @@ namespace IFC4
 		{
 			ConnectionConstraint = connectionConstraint;
 
+		}
+
+		public static new IfcRelConnectsWithEccentricity FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelConnectsWithEccentricity>(json);
+		}
+
+		public static new IfcRelConnectsWithEccentricity FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14795,6 +21926,16 @@ namespace IFC4
 			RealizingElements = realizingElements;
 
 		}
+
+		public static new IfcRelConnectsWithRealizingElements FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelConnectsWithRealizingElements>(json);
+		}
+
+		public static new IfcRelConnectsWithRealizingElements FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14814,6 +21955,16 @@ namespace IFC4
 			RelatedElements = relatedElements;
 			RelatingStructure = relatingStructure;
 
+		}
+
+		public static new IfcRelContainedInSpatialStructure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelContainedInSpatialStructure>(json);
+		}
+
+		public static new IfcRelContainedInSpatialStructure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14835,6 +21986,16 @@ namespace IFC4
 			RelatedCoverings = relatedCoverings;
 
 		}
+
+		public static new IfcRelCoversBldgElements FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelCoversBldgElements>(json);
+		}
+
+		public static new IfcRelCoversBldgElements FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14854,6 +22015,16 @@ namespace IFC4
 			RelatingSpace = relatingSpace;
 			RelatedCoverings = relatedCoverings;
 
+		}
+
+		public static new IfcRelCoversSpaces FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelCoversSpaces>(json);
+		}
+
+		public static new IfcRelCoversSpaces FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14875,6 +22046,16 @@ namespace IFC4
 			RelatedDefinitions = relatedDefinitions;
 
 		}
+
+		public static new IfcRelDeclares FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelDeclares>(json);
+		}
+
+		public static new IfcRelDeclares FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14887,6 +22068,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcRelDecomposes FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelDecomposes>(json);
+		}
+
+		public static new IfcRelDecomposes FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14898,6 +22089,16 @@ namespace IFC4
 		public IfcRelDefines() : base()
 		{
 
+		}
+
+		public static new IfcRelDefines FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelDefines>(json);
+		}
+
+		public static new IfcRelDefines FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14919,6 +22120,16 @@ namespace IFC4
 			RelatingObject = relatingObject;
 
 		}
+
+		public static new IfcRelDefinesByObject FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelDefinesByObject>(json);
+		}
+
+		public static new IfcRelDefinesByObject FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14938,6 +22149,16 @@ namespace IFC4
 			RelatedObjects = relatedObjects;
 			RelatingPropertyDefinition = relatingPropertyDefinition;
 
+		}
+
+		public static new IfcRelDefinesByProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelDefinesByProperties>(json);
+		}
+
+		public static new IfcRelDefinesByProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14959,6 +22180,16 @@ namespace IFC4
 			RelatingTemplate = relatingTemplate;
 
 		}
+
+		public static new IfcRelDefinesByTemplate FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelDefinesByTemplate>(json);
+		}
+
+		public static new IfcRelDefinesByTemplate FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -14978,6 +22209,16 @@ namespace IFC4
 			RelatedObjects = relatedObjects;
 			RelatingType = relatingType;
 
+		}
+
+		public static new IfcRelDefinesByType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelDefinesByType>(json);
+		}
+
+		public static new IfcRelDefinesByType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -14999,6 +22240,16 @@ namespace IFC4
 			RelatedBuildingElement = relatedBuildingElement;
 
 		}
+
+		public static new IfcRelFillsElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelFillsElement>(json);
+		}
+
+		public static new IfcRelFillsElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15018,6 +22269,16 @@ namespace IFC4
 			RelatedControlElements = relatedControlElements;
 			RelatingFlowElement = relatingFlowElement;
 
+		}
+
+		public static new IfcRelFlowControlElements FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelFlowControlElements>(json);
+		}
+
+		public static new IfcRelFlowControlElements FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15047,6 +22308,16 @@ namespace IFC4
 			ImpliedOrder = impliedOrder;
 
 		}
+
+		public static new IfcRelInterferesElements FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelInterferesElements>(json);
+		}
+
+		public static new IfcRelInterferesElements FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15066,6 +22337,16 @@ namespace IFC4
 			RelatingObject = relatingObject;
 			RelatedObjects = relatedObjects;
 
+		}
+
+		public static new IfcRelNests FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelNests>(json);
+		}
+
+		public static new IfcRelNests FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15087,6 +22368,16 @@ namespace IFC4
 			RelatedFeatureElement = relatedFeatureElement;
 
 		}
+
+		public static new IfcRelProjectsElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelProjectsElement>(json);
+		}
+
+		public static new IfcRelProjectsElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15106,6 +22397,16 @@ namespace IFC4
 			RelatedElements = relatedElements;
 			RelatingStructure = relatingStructure;
 
+		}
+
+		public static new IfcRelReferencedInSpatialStructure FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelReferencedInSpatialStructure>(json);
+		}
+
+		public static new IfcRelReferencedInSpatialStructure FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15133,6 +22434,16 @@ namespace IFC4
 			RelatedProcess = relatedProcess;
 
 		}
+
+		public static new IfcRelSequence FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelSequence>(json);
+		}
+
+		public static new IfcRelSequence FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15152,6 +22463,16 @@ namespace IFC4
 			RelatingSystem = relatingSystem;
 			RelatedBuildings = relatedBuildings;
 
+		}
+
+		public static new IfcRelServicesBuildings FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelServicesBuildings>(json);
+		}
+
+		public static new IfcRelServicesBuildings FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15183,6 +22504,16 @@ namespace IFC4
 			InternalOrExternalBoundary = internalOrExternalBoundary;
 
 		}
+
+		public static new IfcRelSpaceBoundary FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelSpaceBoundary>(json);
+		}
+
+		public static new IfcRelSpaceBoundary FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15206,6 +22537,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcRelSpaceBoundary1stLevel FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelSpaceBoundary1stLevel>(json);
+		}
+
+		public static new IfcRelSpaceBoundary1stLevel FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15231,6 +22572,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcRelSpaceBoundary2ndLevel FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelSpaceBoundary2ndLevel>(json);
+		}
+
+		public static new IfcRelSpaceBoundary2ndLevel FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15251,6 +22602,16 @@ namespace IFC4
 			RelatedOpeningElement = relatedOpeningElement;
 
 		}
+
+		public static new IfcRelVoidsElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelVoidsElement>(json);
+		}
+
+		public static new IfcRelVoidsElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15262,6 +22623,16 @@ namespace IFC4
 		public IfcRelationship() : base()
 		{
 
+		}
+
+		public static new IfcRelationship FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelationship>(json);
+		}
+
+		public static new IfcRelationship FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15290,6 +22661,16 @@ namespace IFC4
 		{
 			ParamLength = paramLength;
 
+		}
+
+		public static new IfcReparametrisedCompositeCurveSegment FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcReparametrisedCompositeCurveSegment>(json);
+		}
+
+		public static new IfcReparametrisedCompositeCurveSegment FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15327,6 +22708,16 @@ namespace IFC4
 			OfProductRepresentation = ofProductRepresentation;
 
 		}
+
+		public static  IfcRepresentation FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRepresentation>(json);
+		}
+
+		public static  IfcRepresentation FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15347,6 +22738,16 @@ namespace IFC4
 			RepresentationsInContext = representationsInContext;
 
 		}
+
+		public static  IfcRepresentationContext FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRepresentationContext>(json);
+		}
+
+		public static  IfcRepresentationContext FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15366,6 +22767,16 @@ namespace IFC4
 			LayerAssignment = layerAssignment;
 			StyledByItem = styledByItem;
 
+		}
+
+		public static  IfcRepresentationItem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRepresentationItem>(json);
+		}
+
+		public static  IfcRepresentationItem FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15395,6 +22806,16 @@ namespace IFC4
 			MapUsage = mapUsage;
 
 		}
+
+		public static  IfcRepresentationMap FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRepresentationMap>(json);
+		}
+
+		public static  IfcRepresentationMap FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15412,6 +22833,16 @@ namespace IFC4
 		public IfcResource() : base()
 		{
 
+		}
+
+		public static new IfcResource FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcResource>(json);
+		}
+
+		public static new IfcResource FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15433,6 +22864,16 @@ namespace IFC4
 			RelatingApproval = relatingApproval;
 
 		}
+
+		public static new IfcResourceApprovalRelationship FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcResourceApprovalRelationship>(json);
+		}
+
+		public static new IfcResourceApprovalRelationship FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15453,6 +22894,16 @@ namespace IFC4
 			RelatedResourceObjects = relatedResourceObjects;
 
 		}
+
+		public static new IfcResourceConstraintRelationship FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcResourceConstraintRelationship>(json);
+		}
+
+		public static new IfcResourceConstraintRelationship FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15468,6 +22919,16 @@ namespace IFC4
 		public IfcResourceLevelRelationship()
 		{
 
+		}
+
+		public static  IfcResourceLevelRelationship FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcResourceLevelRelationship>(json);
+		}
+
+		public static  IfcResourceLevelRelationship FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15511,6 +22972,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcResourceTime FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcResourceTime>(json);
+		}
+
+		public static new IfcResourceTime FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15536,6 +23007,16 @@ namespace IFC4
 			Axis = axis;
 			Angle = angle;
 
+		}
+
+		public static new IfcRevolvedAreaSolid FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRevolvedAreaSolid>(json);
+		}
+
+		public static new IfcRevolvedAreaSolid FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15563,6 +23044,16 @@ namespace IFC4
 			EndSweptArea = endSweptArea;
 
 		}
+
+		public static new IfcRevolvedAreaSolidTapered FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRevolvedAreaSolidTapered>(json);
+		}
+
+		public static new IfcRevolvedAreaSolidTapered FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15588,6 +23079,16 @@ namespace IFC4
 			Height = height;
 			BottomRadius = bottomRadius;
 
+		}
+
+		public static new IfcRightCircularCone FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRightCircularCone>(json);
+		}
+
+		public static new IfcRightCircularCone FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15615,6 +23116,16 @@ namespace IFC4
 			Radius = radius;
 
 		}
+
+		public static new IfcRightCircularCylinder FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRightCircularCylinder>(json);
+		}
+
+		public static new IfcRightCircularCylinder FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15628,6 +23139,16 @@ namespace IFC4
 		public IfcRoof() : base()
 		{
 
+		}
+
+		public static new IfcRoof FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRoof>(json);
+		}
+
+		public static new IfcRoof FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15644,6 +23165,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcRoofType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRoofType>(json);
+		}
+
+		public static new IfcRoofType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15665,6 +23196,16 @@ namespace IFC4
 		{
 			GlobalId = new IfcGloballyUniqueId(Guid.NewGuid().ToString());
 
+		}
+
+		public static  IfcRoot FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRoot>(json);
+		}
+
+		public static  IfcRoot FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15692,6 +23233,16 @@ namespace IFC4
 			RoundingRadius = roundingRadius;
 
 		}
+
+		public static new IfcRoundedRectangleProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRoundedRectangleProfileDef>(json);
+		}
+
+		public static new IfcRoundedRectangleProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15714,6 +23265,16 @@ namespace IFC4
 			Name = name;
 
 		}
+
+		public static new IfcSIUnit FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSIUnit>(json);
+		}
+
+		public static new IfcSIUnit FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15727,6 +23288,16 @@ namespace IFC4
 		public IfcSanitaryTerminal() : base()
 		{
 
+		}
+
+		public static new IfcSanitaryTerminal FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSanitaryTerminal>(json);
+		}
+
+		public static new IfcSanitaryTerminal FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15743,6 +23314,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcSanitaryTerminalType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSanitaryTerminalType>(json);
+		}
+
+		public static new IfcSanitaryTerminalType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15761,6 +23342,16 @@ namespace IFC4
 		public IfcSchedulingTime()
 		{
 
+		}
+
+		public static  IfcSchedulingTime FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSchedulingTime>(json);
+		}
+
+		public static  IfcSchedulingTime FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15785,6 +23376,16 @@ namespace IFC4
 			SectionType = sectionType;
 			StartProfile = startProfile;
 
+		}
+
+		public static new IfcSectionProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSectionProperties>(json);
+		}
+
+		public static new IfcSectionProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15822,6 +23423,16 @@ namespace IFC4
 			CrossSectionReinforcementDefinitions = crossSectionReinforcementDefinitions;
 
 		}
+
+		public static new IfcSectionReinforcementProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSectionReinforcementProperties>(json);
+		}
+
+		public static new IfcSectionReinforcementProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15850,6 +23461,16 @@ namespace IFC4
 			CrossSectionPositions = crossSectionPositions;
 
 		}
+
+		public static new IfcSectionedSpine FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSectionedSpine>(json);
+		}
+
+		public static new IfcSectionedSpine FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15863,6 +23484,16 @@ namespace IFC4
 		public IfcSensor() : base()
 		{
 
+		}
+
+		public static new IfcSensor FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSensor>(json);
+		}
+
+		public static new IfcSensor FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15880,6 +23511,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcSensorType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSensorType>(json);
+		}
+
+		public static new IfcSensorType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15893,6 +23534,16 @@ namespace IFC4
 		public IfcShadingDevice() : base()
 		{
 
+		}
+
+		public static new IfcShadingDevice FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcShadingDevice>(json);
+		}
+
+		public static new IfcShadingDevice FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15909,6 +23560,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcShadingDeviceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcShadingDeviceType>(json);
+		}
+
+		public static new IfcShadingDeviceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -15936,6 +23597,16 @@ namespace IFC4
 			ProductDefinitional = productDefinitional;
 
 		}
+
+		public static  IfcShapeAspect FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcShapeAspect>(json);
+		}
+
+		public static  IfcShapeAspect FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15962,6 +23633,16 @@ namespace IFC4
 			OfShapeAspect = ofShapeAspect;
 
 		}
+
+		public static new IfcShapeModel FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcShapeModel>(json);
+		}
+
+		public static new IfcShapeModel FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -15986,6 +23667,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcShapeRepresentation FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcShapeRepresentation>(json);
+		}
+
+		public static new IfcShapeRepresentation FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16005,6 +23696,16 @@ namespace IFC4
 		{
 			SbsmBoundary = sbsmBoundary;
 
+		}
+
+		public static new IfcShellBasedSurfaceModel FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcShellBasedSurfaceModel>(json);
+		}
+
+		public static new IfcShellBasedSurfaceModel FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16029,6 +23730,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcSimpleProperty FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSimpleProperty>(json);
+		}
+
+		public static new IfcSimpleProperty FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16062,6 +23773,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcSimplePropertyTemplate FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSimplePropertyTemplate>(json);
+		}
+
+		public static new IfcSimplePropertyTemplate FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16084,6 +23805,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcSite FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSite>(json);
+		}
+
+		public static new IfcSite FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16098,6 +23829,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcSlab FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSlab>(json);
+		}
+
+		public static new IfcSlab FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16110,6 +23851,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcSlabElementedCase FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSlabElementedCase>(json);
+		}
+
+		public static new IfcSlabElementedCase FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16121,6 +23872,16 @@ namespace IFC4
 		public IfcSlabStandardCase() : base()
 		{
 
+		}
+
+		public static new IfcSlabStandardCase FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSlabStandardCase>(json);
+		}
+
+		public static new IfcSlabStandardCase FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16137,6 +23898,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcSlabType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSlabType>(json);
+		}
+
+		public static new IfcSlabType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16156,6 +23927,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcSlippageConnectionCondition FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSlippageConnectionCondition>(json);
+		}
+
+		public static new IfcSlippageConnectionCondition FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16169,6 +23950,16 @@ namespace IFC4
 		public IfcSolarDevice() : base()
 		{
 
+		}
+
+		public static new IfcSolarDevice FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSolarDevice>(json);
+		}
+
+		public static new IfcSolarDevice FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16186,6 +23977,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcSolarDeviceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSolarDeviceType>(json);
+		}
+
+		public static new IfcSolarDeviceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16201,6 +24002,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcSolidModel FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSolidModel>(json);
+		}
+
+		public static new IfcSolidModel FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16222,6 +24033,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcSpace FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSpace>(json);
+		}
+
+		public static new IfcSpace FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16235,6 +24056,16 @@ namespace IFC4
 		public IfcSpaceHeater() : base()
 		{
 
+		}
+
+		public static new IfcSpaceHeater FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSpaceHeater>(json);
+		}
+
+		public static new IfcSpaceHeater FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16251,6 +24082,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcSpaceHeaterType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSpaceHeaterType>(json);
+		}
+
+		public static new IfcSpaceHeaterType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16269,6 +24110,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcSpaceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSpaceType>(json);
+		}
+
+		public static new IfcSpaceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16290,6 +24141,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcSpatialElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSpatialElement>(json);
+		}
+
+		public static new IfcSpatialElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16303,6 +24164,16 @@ namespace IFC4
 		public IfcSpatialElementType() : base()
 		{
 
+		}
+
+		public static new IfcSpatialElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSpatialElementType>(json);
+		}
+
+		public static new IfcSpatialElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16318,6 +24189,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcSpatialStructureElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSpatialStructureElement>(json);
+		}
+
+		public static new IfcSpatialStructureElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16329,6 +24210,16 @@ namespace IFC4
 		public IfcSpatialStructureElementType() : base()
 		{
 
+		}
+
+		public static new IfcSpatialStructureElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSpatialStructureElementType>(json);
+		}
+
+		public static new IfcSpatialStructureElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16343,6 +24234,16 @@ namespace IFC4
 		public IfcSpatialZone() : base()
 		{
 
+		}
+
+		public static new IfcSpatialZone FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSpatialZone>(json);
+		}
+
+		public static new IfcSpatialZone FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16361,6 +24262,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcSpatialZoneType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSpatialZoneType>(json);
+		}
+
+		public static new IfcSpatialZoneType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16384,6 +24295,16 @@ namespace IFC4
 			Radius = radius;
 
 		}
+
+		public static new IfcSphere FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSphere>(json);
+		}
+
+		public static new IfcSphere FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16397,6 +24318,16 @@ namespace IFC4
 		public IfcStackTerminal() : base()
 		{
 
+		}
+
+		public static new IfcStackTerminal FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStackTerminal>(json);
+		}
+
+		public static new IfcStackTerminal FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16414,6 +24345,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcStackTerminalType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStackTerminalType>(json);
+		}
+
+		public static new IfcStackTerminalType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16427,6 +24368,16 @@ namespace IFC4
 		public IfcStair() : base()
 		{
 
+		}
+
+		public static new IfcStair FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStair>(json);
+		}
+
+		public static new IfcStair FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16450,6 +24401,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcStairFlight FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStairFlight>(json);
+		}
+
+		public static new IfcStairFlight FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16466,6 +24427,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcStairFlightType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStairFlightType>(json);
+		}
+
+		public static new IfcStairFlightType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16481,6 +24452,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcStairType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStairType>(json);
+		}
+
+		public static new IfcStairType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16499,6 +24480,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcStructuralAction FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralAction>(json);
+		}
+
+		public static new IfcStructuralAction FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16521,6 +24512,16 @@ namespace IFC4
 			AppliedLoad = appliedLoad;
 			GlobalOrLocal = globalOrLocal;
 
+		}
+
+		public static new IfcStructuralActivity FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralActivity>(json);
+		}
+
+		public static new IfcStructuralActivity FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16548,6 +24549,16 @@ namespace IFC4
 			HasResults = new List<IfcStructuralResultGroup>();
 
 		}
+
+		public static new IfcStructuralAnalysisModel FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralAnalysisModel>(json);
+		}
+
+		public static new IfcStructuralAnalysisModel FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16564,6 +24575,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcStructuralConnection FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralConnection>(json);
+		}
+
+		public static new IfcStructuralConnection FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16577,6 +24598,16 @@ namespace IFC4
 		public IfcStructuralConnectionCondition()
 		{
 
+		}
+
+		public static  IfcStructuralConnectionCondition FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralConnectionCondition>(json);
+		}
+
+		public static  IfcStructuralConnectionCondition FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16600,6 +24631,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcStructuralCurveAction FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralCurveAction>(json);
+		}
+
+		public static new IfcStructuralCurveAction FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16615,6 +24656,16 @@ namespace IFC4
 		{
 			Axis = axis;
 
+		}
+
+		public static new IfcStructuralCurveConnection FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralCurveConnection>(json);
+		}
+
+		public static new IfcStructuralCurveConnection FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16636,6 +24687,16 @@ namespace IFC4
 			Axis = axis;
 
 		}
+
+		public static new IfcStructuralCurveMember FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralCurveMember>(json);
+		}
+
+		public static new IfcStructuralCurveMember FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16651,6 +24712,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcStructuralCurveMemberVarying FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralCurveMemberVarying>(json);
+		}
+
+		public static new IfcStructuralCurveMemberVarying FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16672,6 +24743,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcStructuralCurveReaction FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralCurveReaction>(json);
+		}
+
+		public static new IfcStructuralCurveReaction FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16685,6 +24766,16 @@ namespace IFC4
 		public IfcStructuralItem() : base()
 		{
 
+		}
+
+		public static new IfcStructuralItem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralItem>(json);
+		}
+
+		public static new IfcStructuralItem FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16704,6 +24795,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcStructuralLinearAction FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralLinearAction>(json);
+		}
+
+		public static new IfcStructuralLinearAction FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16717,6 +24818,16 @@ namespace IFC4
 		public IfcStructuralLoad()
 		{
 
+		}
+
+		public static  IfcStructuralLoad FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralLoad>(json);
+		}
+
+		public static  IfcStructuralLoad FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16743,6 +24854,16 @@ namespace IFC4
 			SelfWeightCoefficients = new List<IfcRatioMeasure>();
 
 		}
+
+		public static new IfcStructuralLoadCase FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralLoadCase>(json);
+		}
+
+		public static new IfcStructuralLoadCase FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16761,6 +24882,16 @@ namespace IFC4
 			Values = values;
 			Locations = new List<List<IfcLengthMeasure>>();
 
+		}
+
+		public static new IfcStructuralLoadConfiguration FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralLoadConfiguration>(json);
+		}
+
+		public static new IfcStructuralLoadConfiguration FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16798,6 +24929,16 @@ namespace IFC4
 			LoadGroupFor = loadGroupFor;
 
 		}
+
+		public static new IfcStructuralLoadGroup FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralLoadGroup>(json);
+		}
+
+		public static new IfcStructuralLoadGroup FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16822,6 +24963,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcStructuralLoadLinearForce FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralLoadLinearForce>(json);
+		}
+
+		public static new IfcStructuralLoadLinearForce FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16833,6 +24984,16 @@ namespace IFC4
 		public IfcStructuralLoadOrResult() : base()
 		{
 
+		}
+
+		public static new IfcStructuralLoadOrResult FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralLoadOrResult>(json);
+		}
+
+		public static new IfcStructuralLoadOrResult FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16851,6 +25012,16 @@ namespace IFC4
 		public IfcStructuralLoadPlanarForce() : base()
 		{
 
+		}
+
+		public static new IfcStructuralLoadPlanarForce FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralLoadPlanarForce>(json);
+		}
+
+		public static new IfcStructuralLoadPlanarForce FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16876,6 +25047,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcStructuralLoadSingleDisplacement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralLoadSingleDisplacement>(json);
+		}
+
+		public static new IfcStructuralLoadSingleDisplacement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16889,6 +25070,16 @@ namespace IFC4
 		public IfcStructuralLoadSingleDisplacementDistortion() : base()
 		{
 
+		}
+
+		public static new IfcStructuralLoadSingleDisplacementDistortion FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralLoadSingleDisplacementDistortion>(json);
+		}
+
+		public static new IfcStructuralLoadSingleDisplacementDistortion FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16914,6 +25105,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcStructuralLoadSingleForce FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralLoadSingleForce>(json);
+		}
+
+		public static new IfcStructuralLoadSingleForce FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16928,6 +25129,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcStructuralLoadSingleForceWarping FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralLoadSingleForceWarping>(json);
+		}
+
+		public static new IfcStructuralLoadSingleForceWarping FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16939,6 +25150,16 @@ namespace IFC4
 		public IfcStructuralLoadStatic() : base()
 		{
 
+		}
+
+		public static new IfcStructuralLoadStatic FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralLoadStatic>(json);
+		}
+
+		public static new IfcStructuralLoadStatic FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16958,6 +25179,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcStructuralLoadTemperature FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralLoadTemperature>(json);
+		}
+
+		public static new IfcStructuralLoadTemperature FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -16971,6 +25202,16 @@ namespace IFC4
 		public IfcStructuralMember() : base()
 		{
 
+		}
+
+		public static new IfcStructuralMember FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralMember>(json);
+		}
+
+		public static new IfcStructuralMember FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -16990,6 +25231,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcStructuralPlanarAction FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralPlanarAction>(json);
+		}
+
+		public static new IfcStructuralPlanarAction FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17006,6 +25257,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcStructuralPointAction FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralPointAction>(json);
+		}
+
+		public static new IfcStructuralPointAction FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17019,6 +25280,16 @@ namespace IFC4
 		public IfcStructuralPointConnection() : base()
 		{
 
+		}
+
+		public static new IfcStructuralPointConnection FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralPointConnection>(json);
+		}
+
+		public static new IfcStructuralPointConnection FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17036,6 +25307,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcStructuralPointReaction FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralPointReaction>(json);
+		}
+
+		public static new IfcStructuralPointReaction FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17051,6 +25332,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcStructuralReaction FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralReaction>(json);
+		}
+
+		public static new IfcStructuralReaction FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17078,6 +25369,16 @@ namespace IFC4
 			ResultGroupFor = resultGroupFor;
 
 		}
+
+		public static new IfcStructuralResultGroup FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralResultGroup>(json);
+		}
+
+		public static new IfcStructuralResultGroup FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17100,6 +25401,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcStructuralSurfaceAction FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralSurfaceAction>(json);
+		}
+
+		public static new IfcStructuralSurfaceAction FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17111,6 +25422,16 @@ namespace IFC4
 		public IfcStructuralSurfaceConnection() : base()
 		{
 
+		}
+
+		public static new IfcStructuralSurfaceConnection FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralSurfaceConnection>(json);
+		}
+
+		public static new IfcStructuralSurfaceConnection FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17130,6 +25451,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcStructuralSurfaceMember FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralSurfaceMember>(json);
+		}
+
+		public static new IfcStructuralSurfaceMember FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17143,6 +25474,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcStructuralSurfaceMemberVarying FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralSurfaceMemberVarying>(json);
+		}
+
+		public static new IfcStructuralSurfaceMemberVarying FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17163,6 +25504,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcStructuralSurfaceReaction FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralSurfaceReaction>(json);
+		}
+
+		public static new IfcStructuralSurfaceReaction FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17185,6 +25536,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcStyleModel FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStyleModel>(json);
+		}
+
+		public static new IfcStyleModel FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17210,6 +25571,16 @@ namespace IFC4
 			Styles = styles;
 
 		}
+
+		public static new IfcStyledItem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStyledItem>(json);
+		}
+
+		public static new IfcStyledItem FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17232,6 +25603,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcStyledRepresentation FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStyledRepresentation>(json);
+		}
+
+		public static new IfcStyledRepresentation FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17245,6 +25626,16 @@ namespace IFC4
 		public IfcSubContractResource() : base()
 		{
 
+		}
+
+		public static new IfcSubContractResource FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSubContractResource>(json);
+		}
+
+		public static new IfcSubContractResource FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17261,6 +25652,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcSubContractResourceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSubContractResourceType>(json);
+		}
+
+		public static new IfcSubContractResourceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17286,6 +25687,16 @@ namespace IFC4
 			ParentEdge = parentEdge;
 
 		}
+
+		public static new IfcSubedge FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSubedge>(json);
+		}
+
+		public static new IfcSubedge FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17301,6 +25712,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcSurface FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurface>(json);
+		}
+
+		public static new IfcSurface FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17332,6 +25753,16 @@ namespace IFC4
 			ReferenceSurface = referenceSurface;
 
 		}
+
+		public static new IfcSurfaceCurveSweptAreaSolid FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurfaceCurveSweptAreaSolid>(json);
+		}
+
+		public static new IfcSurfaceCurveSweptAreaSolid FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17345,6 +25776,16 @@ namespace IFC4
 		public IfcSurfaceFeature() : base()
 		{
 
+		}
+
+		public static new IfcSurfaceFeature FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurfaceFeature>(json);
+		}
+
+		public static new IfcSurfaceFeature FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17372,6 +25813,16 @@ namespace IFC4
 			Depth = depth;
 
 		}
+
+		public static new IfcSurfaceOfLinearExtrusion FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurfaceOfLinearExtrusion>(json);
+		}
+
+		public static new IfcSurfaceOfLinearExtrusion FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17394,6 +25845,16 @@ namespace IFC4
 			AxisPosition = axisPosition;
 
 		}
+
+		public static new IfcSurfaceOfRevolution FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurfaceOfRevolution>(json);
+		}
+
+		public static new IfcSurfaceOfRevolution FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17414,6 +25875,16 @@ namespace IFC4
 			SurfaceReinforcement2 = new List<IfcLengthMeasure>();
 
 		}
+
+		public static new IfcSurfaceReinforcementArea FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurfaceReinforcementArea>(json);
+		}
+
+		public static new IfcSurfaceReinforcementArea FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17433,6 +25904,16 @@ namespace IFC4
 			Side = side;
 			Styles = styles;
 
+		}
+
+		public static new IfcSurfaceStyle FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurfaceStyle>(json);
+		}
+
+		public static new IfcSurfaceStyle FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17462,6 +25943,16 @@ namespace IFC4
 			ReflectanceColour = reflectanceColour;
 
 		}
+
+		public static new IfcSurfaceStyleLighting FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurfaceStyleLighting>(json);
+		}
+
+		public static new IfcSurfaceStyleLighting FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17477,6 +25968,16 @@ namespace IFC4
 		public IfcSurfaceStyleRefraction() : base()
 		{
 
+		}
+
+		public static new IfcSurfaceStyleRefraction FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurfaceStyleRefraction>(json);
+		}
+
+		public static new IfcSurfaceStyleRefraction FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17510,6 +26011,16 @@ namespace IFC4
 			ReflectanceMethod = reflectanceMethod;
 
 		}
+
+		public static new IfcSurfaceStyleRendering FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurfaceStyleRendering>(json);
+		}
+
+		public static new IfcSurfaceStyleRendering FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17526,6 +26037,16 @@ namespace IFC4
 			SurfaceColour = surfaceColour;
 
 		}
+
+		public static new IfcSurfaceStyleShading FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurfaceStyleShading>(json);
+		}
+
+		public static new IfcSurfaceStyleShading FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17541,6 +26062,16 @@ namespace IFC4
 		{
 			Textures = textures;
 
+		}
+
+		public static new IfcSurfaceStyleWithTextures FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurfaceStyleWithTextures>(json);
+		}
+
+		public static new IfcSurfaceStyleWithTextures FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17577,6 +26108,16 @@ namespace IFC4
 			Parameter = new List<IfcIdentifier>();
 
 		}
+
+		public static new IfcSurfaceTexture FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurfaceTexture>(json);
+		}
+
+		public static new IfcSurfaceTexture FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17598,6 +26139,16 @@ namespace IFC4
 		{
 			SweptArea = sweptArea;
 
+		}
+
+		public static new IfcSweptAreaSolid FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSweptAreaSolid>(json);
+		}
+
+		public static new IfcSweptAreaSolid FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17629,6 +26180,16 @@ namespace IFC4
 			Radius = radius;
 
 		}
+
+		public static new IfcSweptDiskSolid FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSweptDiskSolid>(json);
+		}
+
+		public static new IfcSweptDiskSolid FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17650,6 +26211,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcSweptDiskSolidPolygonal FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSweptDiskSolidPolygonal>(json);
+		}
+
+		public static new IfcSweptDiskSolidPolygonal FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17673,6 +26244,16 @@ namespace IFC4
 			SweptCurve = sweptCurve;
 
 		}
+
+		public static new IfcSweptSurface FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSweptSurface>(json);
+		}
+
+		public static new IfcSweptSurface FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17686,6 +26267,16 @@ namespace IFC4
 		public IfcSwitchingDevice() : base()
 		{
 
+		}
+
+		public static new IfcSwitchingDevice FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSwitchingDevice>(json);
+		}
+
+		public static new IfcSwitchingDevice FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17703,6 +26294,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcSwitchingDeviceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSwitchingDeviceType>(json);
+		}
+
+		public static new IfcSwitchingDeviceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17716,6 +26317,16 @@ namespace IFC4
 		public IfcSystem() : base()
 		{
 
+		}
+
+		public static new IfcSystem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSystem>(json);
+		}
+
+		public static new IfcSystem FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17731,6 +26342,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcSystemFurnitureElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSystemFurnitureElement>(json);
+		}
+
+		public static new IfcSystemFurnitureElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17744,6 +26365,16 @@ namespace IFC4
 		public IfcSystemFurnitureElementType() : base()
 		{
 
+		}
+
+		public static new IfcSystemFurnitureElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSystemFurnitureElementType>(json);
+		}
+
+		public static new IfcSystemFurnitureElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17789,6 +26420,16 @@ namespace IFC4
 			FlangeThickness = flangeThickness;
 
 		}
+
+		public static new IfcTShapeProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTShapeProfileDef>(json);
+		}
+
+		public static new IfcTShapeProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17808,6 +26449,16 @@ namespace IFC4
 			Rows = new List<IfcTableRow>();
 			Columns = new List<IfcTableColumn>();
 
+		}
+
+		public static  IfcTable FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTable>(json);
+		}
+
+		public static  IfcTable FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17831,6 +26482,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static  IfcTableColumn FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTableColumn>(json);
+		}
+
+		public static  IfcTableColumn FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17852,6 +26513,16 @@ namespace IFC4
 			RowCells = new List<IfcValue>();
 
 		}
+
+		public static  IfcTableRow FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTableRow>(json);
+		}
+
+		public static  IfcTableRow FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17865,6 +26536,16 @@ namespace IFC4
 		public IfcTank() : base()
 		{
 
+		}
+
+		public static new IfcTank FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTank>(json);
+		}
+
+		public static new IfcTank FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17881,6 +26562,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcTankType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTankType>(json);
+		}
+
+		public static new IfcTankType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17907,6 +26598,16 @@ namespace IFC4
 		{
 			IsMilestone = isMilestone;
 
+		}
+
+		public static new IfcTask FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTask>(json);
+		}
+
+		public static new IfcTask FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17954,6 +26655,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcTaskTime FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTaskTime>(json);
+		}
+
+		public static new IfcTaskTime FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -17969,6 +26680,16 @@ namespace IFC4
 		{
 			Recurrance = recurrance;
 
+		}
+
+		public static new IfcTaskTimeRecurring FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTaskTimeRecurring>(json);
+		}
+
+		public static new IfcTaskTimeRecurring FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -17987,6 +26708,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcTaskType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTaskType>(json);
+		}
+
+		public static new IfcTaskType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18020,6 +26751,16 @@ namespace IFC4
 			MessagingIDs = new List<IfcURIReference>();
 
 		}
+
+		public static new IfcTelecomAddress FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTelecomAddress>(json);
+		}
+
+		public static new IfcTelecomAddress FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -18048,6 +26789,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcTendon FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTendon>(json);
+		}
+
+		public static new IfcTendon FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -18061,6 +26812,16 @@ namespace IFC4
 		public IfcTendonAnchor() : base()
 		{
 
+		}
+
+		public static new IfcTendonAnchor FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTendonAnchor>(json);
+		}
+
+		public static new IfcTendonAnchor FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18077,6 +26838,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcTendonAnchorType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTendonAnchorType>(json);
+		}
+
+		public static new IfcTendonAnchorType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18099,6 +26870,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcTendonType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTendonType>(json);
+		}
+
+		public static new IfcTendonType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18133,6 +26914,16 @@ namespace IFC4
 			Normals = new List<List<IfcParameterValue>>();
 
 		}
+
+		public static new IfcTessellatedFaceSet FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTessellatedFaceSet>(json);
+		}
+
+		public static new IfcTessellatedFaceSet FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -18148,6 +26939,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcTessellatedItem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTessellatedItem>(json);
+		}
+
+		public static new IfcTessellatedItem FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18176,6 +26977,16 @@ namespace IFC4
 			Placement = placement;
 			Path = path;
 
+		}
+
+		public static new IfcTextLiteral FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextLiteral>(json);
+		}
+
+		public static new IfcTextLiteral FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18207,6 +27018,16 @@ namespace IFC4
 			BoxAlignment = boxAlignment;
 
 		}
+
+		public static new IfcTextLiteralWithExtent FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextLiteralWithExtent>(json);
+		}
+
+		public static new IfcTextLiteralWithExtent FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -18228,6 +27049,16 @@ namespace IFC4
 		{
 			TextFontStyle = textFontStyle;
 
+		}
+
+		public static new IfcTextStyle FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextStyle>(json);
+		}
+
+		public static new IfcTextStyle FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18257,6 +27088,16 @@ namespace IFC4
 			FontSize = fontSize;
 
 		}
+
+		public static new IfcTextStyleFontModel FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextStyleFontModel>(json);
+		}
+
+		public static new IfcTextStyleFontModel FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -18274,6 +27115,16 @@ namespace IFC4
 		{
 			Colour = colour;
 
+		}
+
+		public static new IfcTextStyleForDefinedFont FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextStyleForDefinedFont>(json);
+		}
+
+		public static new IfcTextStyleForDefinedFont FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18301,6 +27152,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcTextStyleTextModel FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextStyleTextModel>(json);
+		}
+
+		public static new IfcTextStyleTextModel FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -18316,6 +27177,16 @@ namespace IFC4
 		{
 			Maps = maps;
 
+		}
+
+		public static new IfcTextureCoordinate FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextureCoordinate>(json);
+		}
+
+		public static new IfcTextureCoordinate FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18337,6 +27208,16 @@ namespace IFC4
 			Mode = mode;
 			Parameter = new List<IfcReal>();
 
+		}
+
+		public static new IfcTextureCoordinateGenerator FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextureCoordinateGenerator>(json);
+		}
+
+		public static new IfcTextureCoordinateGenerator FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18360,6 +27241,16 @@ namespace IFC4
 			MappedTo = mappedTo;
 
 		}
+
+		public static new IfcTextureMap FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextureMap>(json);
+		}
+
+		public static new IfcTextureMap FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -18376,6 +27267,16 @@ namespace IFC4
 			Coordinates = coordinates;
 
 		}
+
+		public static new IfcTextureVertex FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextureVertex>(json);
+		}
+
+		public static new IfcTextureVertex FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -18391,6 +27292,16 @@ namespace IFC4
 		{
 			TexCoordsList = texCoordsList;
 
+		}
+
+		public static new IfcTextureVertexList FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextureVertexList>(json);
+		}
+
+		public static new IfcTextureVertexList FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18411,6 +27322,16 @@ namespace IFC4
 			StartTime = startTime;
 			EndTime = endTime;
 
+		}
+
+		public static  IfcTimePeriod FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTimePeriod>(json);
+		}
+
+		public static  IfcTimePeriod FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18454,6 +27375,16 @@ namespace IFC4
 			HasExternalReference = hasExternalReference;
 
 		}
+
+		public static  IfcTimeSeries FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTimeSeries>(json);
+		}
+
+		public static  IfcTimeSeries FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -18470,6 +27401,16 @@ namespace IFC4
 			ListValues = listValues;
 
 		}
+
+		public static  IfcTimeSeriesValue FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTimeSeriesValue>(json);
+		}
+
+		public static  IfcTimeSeriesValue FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -18485,6 +27426,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcTopologicalRepresentationItem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTopologicalRepresentationItem>(json);
+		}
+
+		public static new IfcTopologicalRepresentationItem FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18510,6 +27461,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcTopologyRepresentation FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTopologyRepresentation>(json);
+		}
+
+		public static new IfcTopologyRepresentation FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -18523,6 +27484,16 @@ namespace IFC4
 		public IfcTransformer() : base()
 		{
 
+		}
+
+		public static new IfcTransformer FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTransformer>(json);
+		}
+
+		public static new IfcTransformer FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18540,6 +27511,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcTransformerType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTransformerType>(json);
+		}
+
+		public static new IfcTransformerType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -18553,6 +27534,16 @@ namespace IFC4
 		public IfcTransportElement() : base()
 		{
 
+		}
+
+		public static new IfcTransportElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTransportElement>(json);
+		}
+
+		public static new IfcTransportElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18569,6 +27560,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcTransportElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTransportElementType>(json);
+		}
+
+		public static new IfcTransportElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18604,6 +27605,16 @@ namespace IFC4
 			TopXOffset = topXOffset;
 
 		}
+
+		public static new IfcTrapeziumProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTrapeziumProfileDef>(json);
+		}
+
+		public static new IfcTrapeziumProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -18632,6 +27643,16 @@ namespace IFC4
 			CoordIndex = coordIndex;
 			NormalIndex = new List<List<System.Int32>>();
 
+		}
+
+		public static new IfcTriangulatedFaceSet FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTriangulatedFaceSet>(json);
+		}
+
+		public static new IfcTriangulatedFaceSet FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18669,6 +27690,16 @@ namespace IFC4
 			MasterRepresentation = masterRepresentation;
 
 		}
+
+		public static new IfcTrimmedCurve FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTrimmedCurve>(json);
+		}
+
+		public static new IfcTrimmedCurve FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -18682,6 +27713,16 @@ namespace IFC4
 		public IfcTubeBundle() : base()
 		{
 
+		}
+
+		public static new IfcTubeBundle FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTubeBundle>(json);
+		}
+
+		public static new IfcTubeBundle FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18698,6 +27739,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcTubeBundleType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTubeBundleType>(json);
+		}
+
+		public static new IfcTubeBundleType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18717,6 +27768,16 @@ namespace IFC4
 		{
 			HasPropertySets = new List<IfcPropertySetDefinition>();
 
+		}
+
+		public static new IfcTypeObject FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTypeObject>(json);
+		}
+
+		public static new IfcTypeObject FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18738,6 +27799,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcTypeProcess FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTypeProcess>(json);
+		}
+
+		public static new IfcTypeProcess FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -18756,6 +27827,16 @@ namespace IFC4
 		{
 			RepresentationMaps = new List<IfcRepresentationMap>();
 
+		}
+
+		public static new IfcTypeProduct FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTypeProduct>(json);
+		}
+
+		public static new IfcTypeProduct FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18776,6 +27857,16 @@ namespace IFC4
 		public IfcTypeResource() : base()
 		{
 
+		}
+
+		public static new IfcTypeResource FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTypeResource>(json);
+		}
+
+		public static new IfcTypeResource FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18817,6 +27908,16 @@ namespace IFC4
 			FlangeThickness = flangeThickness;
 
 		}
+
+		public static new IfcUShapeProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcUShapeProfileDef>(json);
+		}
+
+		public static new IfcUShapeProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -18833,6 +27934,16 @@ namespace IFC4
 			Units = units;
 
 		}
+
+		public static  IfcUnitAssignment FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcUnitAssignment>(json);
+		}
+
+		public static  IfcUnitAssignment FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -18846,6 +27957,16 @@ namespace IFC4
 		public IfcUnitaryControlElement() : base()
 		{
 
+		}
+
+		public static new IfcUnitaryControlElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcUnitaryControlElement>(json);
+		}
+
+		public static new IfcUnitaryControlElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18863,6 +27984,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcUnitaryControlElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcUnitaryControlElementType>(json);
+		}
+
+		public static new IfcUnitaryControlElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -18876,6 +28007,16 @@ namespace IFC4
 		public IfcUnitaryEquipment() : base()
 		{
 
+		}
+
+		public static new IfcUnitaryEquipment FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcUnitaryEquipment>(json);
+		}
+
+		public static new IfcUnitaryEquipment FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18893,6 +28034,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcUnitaryEquipmentType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcUnitaryEquipmentType>(json);
+		}
+
+		public static new IfcUnitaryEquipmentType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -18906,6 +28057,16 @@ namespace IFC4
 		public IfcValve() : base()
 		{
 
+		}
+
+		public static new IfcValve FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcValve>(json);
+		}
+
+		public static new IfcValve FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18922,6 +28083,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcValveType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcValveType>(json);
+		}
+
+		public static new IfcValveType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18947,6 +28118,16 @@ namespace IFC4
 			Magnitude = magnitude;
 
 		}
+
+		public static new IfcVector FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcVector>(json);
+		}
+
+		public static new IfcVector FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -18962,6 +28143,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcVertex FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcVertex>(json);
+		}
+
+		public static new IfcVertex FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -18983,6 +28174,16 @@ namespace IFC4
 			LoopVertex = loopVertex;
 
 		}
+
+		public static new IfcVertexLoop FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcVertexLoop>(json);
+		}
+
+		public static new IfcVertexLoop FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -19003,6 +28204,16 @@ namespace IFC4
 			VertexGeometry = vertexGeometry;
 
 		}
+
+		public static new IfcVertexPoint FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcVertexPoint>(json);
+		}
+
+		public static new IfcVertexPoint FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -19016,6 +28227,16 @@ namespace IFC4
 		public IfcVibrationIsolator() : base()
 		{
 
+		}
+
+		public static new IfcVibrationIsolator FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcVibrationIsolator>(json);
+		}
+
+		public static new IfcVibrationIsolator FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -19033,6 +28254,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcVibrationIsolatorType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcVibrationIsolatorType>(json);
+		}
+
+		public static new IfcVibrationIsolatorType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -19044,6 +28275,16 @@ namespace IFC4
 		public IfcVirtualElement() : base()
 		{
 
+		}
+
+		public static new IfcVirtualElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcVirtualElement>(json);
+		}
+
+		public static new IfcVirtualElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -19065,6 +28306,16 @@ namespace IFC4
 			OffsetDistances = offsetDistances;
 
 		}
+
+		public static  IfcVirtualGridIntersection FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcVirtualGridIntersection>(json);
+		}
+
+		public static  IfcVirtualGridIntersection FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -19078,6 +28329,16 @@ namespace IFC4
 		public IfcVoidingFeature() : base()
 		{
 
+		}
+
+		public static new IfcVoidingFeature FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcVoidingFeature>(json);
+		}
+
+		public static new IfcVoidingFeature FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -19093,6 +28354,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcWall FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWall>(json);
+		}
+
+		public static new IfcWall FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -19105,6 +28376,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcWallElementedCase FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWallElementedCase>(json);
+		}
+
+		public static new IfcWallElementedCase FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -19116,6 +28397,16 @@ namespace IFC4
 		public IfcWallStandardCase() : base()
 		{
 
+		}
+
+		public static new IfcWallStandardCase FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWallStandardCase>(json);
+		}
+
+		public static new IfcWallStandardCase FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -19133,6 +28424,16 @@ namespace IFC4
 			PredefinedType = predefinedType;
 
 		}
+
+		public static new IfcWallType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWallType>(json);
+		}
+
+		public static new IfcWallType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -19146,6 +28447,16 @@ namespace IFC4
 		public IfcWasteTerminal() : base()
 		{
 
+		}
+
+		public static new IfcWasteTerminal FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWasteTerminal>(json);
+		}
+
+		public static new IfcWasteTerminal FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -19162,6 +28473,16 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 
+		}
+
+		public static new IfcWasteTerminalType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWasteTerminalType>(json);
+		}
+
+		public static new IfcWasteTerminalType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -19184,6 +28505,16 @@ namespace IFC4
 		public IfcWindow() : base()
 		{
 
+		}
+
+		public static new IfcWindow FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWindow>(json);
+		}
+
+		public static new IfcWindow FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -19223,6 +28554,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcWindowLiningProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWindowLiningProperties>(json);
+		}
+
+		public static new IfcWindowLiningProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -19251,6 +28592,16 @@ namespace IFC4
 			PanelPosition = panelPosition;
 
 		}
+
+		public static new IfcWindowPanelProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWindowPanelProperties>(json);
+		}
+
+		public static new IfcWindowPanelProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -19262,6 +28613,16 @@ namespace IFC4
 		public IfcWindowStandardCase() : base()
 		{
 
+		}
+
+		public static new IfcWindowStandardCase FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWindowStandardCase>(json);
+		}
+
+		public static new IfcWindowStandardCase FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -19291,6 +28652,16 @@ namespace IFC4
 			Sizeable = sizeable;
 
 		}
+
+		public static new IfcWindowStyle FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWindowStyle>(json);
+		}
+
+		public static new IfcWindowStyle FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -19315,6 +28686,16 @@ namespace IFC4
 			PartitioningType = partitioningType;
 
 		}
+
+		public static new IfcWindowType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWindowType>(json);
+		}
+
+		public static new IfcWindowType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -19334,6 +28715,16 @@ namespace IFC4
 			WorkingTimes = new List<IfcWorkTime>();
 			ExceptionTimes = new List<IfcWorkTime>();
 
+		}
+
+		public static new IfcWorkCalendar FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWorkCalendar>(json);
+		}
+
+		public static new IfcWorkCalendar FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -19366,6 +28757,16 @@ namespace IFC4
 			Creators = new List<IfcPerson>();
 
 		}
+
+		public static new IfcWorkControl FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWorkControl>(json);
+		}
+
+		public static new IfcWorkControl FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -19383,6 +28784,16 @@ namespace IFC4
 					)
 		{
 
+		}
+
+		public static new IfcWorkPlan FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWorkPlan>(json);
+		}
+
+		public static new IfcWorkPlan FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -19402,6 +28813,16 @@ namespace IFC4
 		{
 
 		}
+
+		public static new IfcWorkSchedule FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWorkSchedule>(json);
+		}
+
+		public static new IfcWorkSchedule FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -19419,6 +28840,16 @@ namespace IFC4
 		public IfcWorkTime() : base()
 		{
 
+		}
+
+		public static new IfcWorkTime FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWorkTime>(json);
+		}
+
+		public static new IfcWorkTime FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
@@ -19458,6 +28889,16 @@ namespace IFC4
 			FlangeThickness = flangeThickness;
 
 		}
+
+		public static new IfcZShapeProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcZShapeProfileDef>(json);
+		}
+
+		public static new IfcZShapeProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
 	}
 
 	/// <summary>
@@ -19471,6 +28912,16 @@ namespace IFC4
 		public IfcZone() : base()
 		{
 
+		}
+
+		public static new IfcZone FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcZone>(json);
+		}
+
+		public static new IfcZone FromSTEP(string step)
+		{
+			throw new NotImplementedException();
 		}
 	}
 
