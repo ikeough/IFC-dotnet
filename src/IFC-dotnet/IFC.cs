@@ -10,16 +10,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcabsorbeddosemeasure.htm
 	/// </summary>
-	public class IfcAbsorbedDoseMeasure : IfcType<System.Double>
+	public class IfcAbsorbedDoseMeasure : IfcType<double>
 	{
-		public IfcAbsorbedDoseMeasure(System.Double value):base(value){}	
+		public IfcAbsorbedDoseMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcAbsorbedDoseMeasure v)
+		public static implicit operator double(IfcAbsorbedDoseMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcAbsorbedDoseMeasure(System.Double v)
+		public static implicit operator IfcAbsorbedDoseMeasure(double v)
 		{
 			return new IfcAbsorbedDoseMeasure(v);
 		}	
@@ -38,16 +38,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcaccelerationmeasure.htm
 	/// </summary>
-	public class IfcAccelerationMeasure : IfcType<System.Double>
+	public class IfcAccelerationMeasure : IfcType<double>
 	{
-		public IfcAccelerationMeasure(System.Double value):base(value){}	
+		public IfcAccelerationMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcAccelerationMeasure v)
+		public static implicit operator double(IfcAccelerationMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcAccelerationMeasure(System.Double v)
+		public static implicit operator IfcAccelerationMeasure(double v)
 		{
 			return new IfcAccelerationMeasure(v);
 		}	
@@ -66,16 +66,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcamountofsubstancemeasure.htm
 	/// </summary>
-	public class IfcAmountOfSubstanceMeasure : IfcType<System.Double>
+	public class IfcAmountOfSubstanceMeasure : IfcType<double>
 	{
-		public IfcAmountOfSubstanceMeasure(System.Double value):base(value){}	
+		public IfcAmountOfSubstanceMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcAmountOfSubstanceMeasure v)
+		public static implicit operator double(IfcAmountOfSubstanceMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcAmountOfSubstanceMeasure(System.Double v)
+		public static implicit operator IfcAmountOfSubstanceMeasure(double v)
 		{
 			return new IfcAmountOfSubstanceMeasure(v);
 		}	
@@ -94,16 +94,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcangularvelocitymeasure.htm
 	/// </summary>
-	public class IfcAngularVelocityMeasure : IfcType<System.Double>
+	public class IfcAngularVelocityMeasure : IfcType<double>
 	{
-		public IfcAngularVelocityMeasure(System.Double value):base(value){}	
+		public IfcAngularVelocityMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcAngularVelocityMeasure v)
+		public static implicit operator double(IfcAngularVelocityMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcAngularVelocityMeasure(System.Double v)
+		public static implicit operator IfcAngularVelocityMeasure(double v)
 		{
 			return new IfcAngularVelocityMeasure(v);
 		}	
@@ -122,16 +122,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcareadensitymeasure.htm
 	/// </summary>
-	public class IfcAreaDensityMeasure : IfcType<System.Double>
+	public class IfcAreaDensityMeasure : IfcType<double>
 	{
-		public IfcAreaDensityMeasure(System.Double value):base(value){}	
+		public IfcAreaDensityMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcAreaDensityMeasure v)
+		public static implicit operator double(IfcAreaDensityMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcAreaDensityMeasure(System.Double v)
+		public static implicit operator IfcAreaDensityMeasure(double v)
 		{
 			return new IfcAreaDensityMeasure(v);
 		}	
@@ -150,16 +150,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcareameasure.htm
 	/// </summary>
-	public class IfcAreaMeasure : IfcType<System.Double>
+	public class IfcAreaMeasure : IfcType<double>
 	{
-		public IfcAreaMeasure(System.Double value):base(value){}	
+		public IfcAreaMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcAreaMeasure v)
+		public static implicit operator double(IfcAreaMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcAreaMeasure(System.Double v)
+		public static implicit operator IfcAreaMeasure(double v)
 		{
 			return new IfcAreaMeasure(v);
 		}	
@@ -178,16 +178,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcboolean.htm
 	/// </summary>
-	public class IfcBoolean : IfcType<System.Boolean>
+	public class IfcBoolean : IfcType<bool>
 	{
-		public IfcBoolean(System.Boolean value):base(value){}	
+		public IfcBoolean(bool value):base(value){}	
 
-		public static implicit operator System.Boolean(IfcBoolean v)
+		public static implicit operator bool(IfcBoolean v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcBoolean(System.Boolean v)
+		public static implicit operator IfcBoolean(bool v)
 		{
 			return new IfcBoolean(v);
 		}	
@@ -234,16 +234,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccardinalpointreference.htm
 	/// </summary>
-	public class IfcCardinalPointReference : IfcType<System.Int32>
+	public class IfcCardinalPointReference : IfcType<int>
 	{
-		public IfcCardinalPointReference(System.Int32 value):base(value){}	
+		public IfcCardinalPointReference(int value):base(value){}	
 
-		public static implicit operator System.Int32(IfcCardinalPointReference v)
+		public static implicit operator int(IfcCardinalPointReference v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcCardinalPointReference(System.Int32 v)
+		public static implicit operator IfcCardinalPointReference(int v)
 		{
 			return new IfcCardinalPointReference(v);
 		}	
@@ -262,16 +262,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccomplexnumber.htm
 	/// </summary>
-	public class IfcComplexNumber : IfcType<List<System.Double>>
+	public class IfcComplexNumber : IfcType<List<double>>
 	{
-		public IfcComplexNumber(List<System.Double> value):base(value){}	
+		public IfcComplexNumber(List<double> value):base(value){}	
 
-		public static implicit operator List<System.Double>(IfcComplexNumber v)
+		public static implicit operator List<double>(IfcComplexNumber v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcComplexNumber(List<System.Double> v)
+		public static implicit operator IfcComplexNumber(List<double> v)
 		{
 			return new IfcComplexNumber(v);
 		}	
@@ -290,16 +290,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccompoundplaneanglemeasure.htm
 	/// </summary>
-	public class IfcCompoundPlaneAngleMeasure : IfcType<List<System.Int32>>
+	public class IfcCompoundPlaneAngleMeasure : IfcType<List<int>>
 	{
-		public IfcCompoundPlaneAngleMeasure(List<System.Int32> value):base(value){}	
+		public IfcCompoundPlaneAngleMeasure(List<int> value):base(value){}	
 
-		public static implicit operator List<System.Int32>(IfcCompoundPlaneAngleMeasure v)
+		public static implicit operator List<int>(IfcCompoundPlaneAngleMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcCompoundPlaneAngleMeasure(List<System.Int32> v)
+		public static implicit operator IfcCompoundPlaneAngleMeasure(List<int> v)
 		{
 			return new IfcCompoundPlaneAngleMeasure(v);
 		}	
@@ -318,16 +318,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccontextdependentmeasure.htm
 	/// </summary>
-	public class IfcContextDependentMeasure : IfcType<System.Double>
+	public class IfcContextDependentMeasure : IfcType<double>
 	{
-		public IfcContextDependentMeasure(System.Double value):base(value){}	
+		public IfcContextDependentMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcContextDependentMeasure v)
+		public static implicit operator double(IfcContextDependentMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcContextDependentMeasure(System.Double v)
+		public static implicit operator IfcContextDependentMeasure(double v)
 		{
 			return new IfcContextDependentMeasure(v);
 		}	
@@ -346,16 +346,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccountmeasure.htm
 	/// </summary>
-	public class IfcCountMeasure : IfcType<System.Double>
+	public class IfcCountMeasure : IfcType<double>
 	{
-		public IfcCountMeasure(System.Double value):base(value){}	
+		public IfcCountMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcCountMeasure v)
+		public static implicit operator double(IfcCountMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcCountMeasure(System.Double v)
+		public static implicit operator IfcCountMeasure(double v)
 		{
 			return new IfcCountMeasure(v);
 		}	
@@ -374,16 +374,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccurvaturemeasure.htm
 	/// </summary>
-	public class IfcCurvatureMeasure : IfcType<System.Double>
+	public class IfcCurvatureMeasure : IfcType<double>
 	{
-		public IfcCurvatureMeasure(System.Double value):base(value){}	
+		public IfcCurvatureMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcCurvatureMeasure v)
+		public static implicit operator double(IfcCurvatureMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcCurvatureMeasure(System.Double v)
+		public static implicit operator IfcCurvatureMeasure(double v)
 		{
 			return new IfcCurvatureMeasure(v);
 		}	
@@ -402,16 +402,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdate.htm
 	/// </summary>
-	public class IfcDate : IfcType<System.String>
+	public class IfcDate : IfcType<string>
 	{
-		public IfcDate(System.String value):base(value){}	
+		public IfcDate(string value):base(value){}	
 
-		public static implicit operator System.String(IfcDate v)
+		public static implicit operator string(IfcDate v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcDate(System.String v)
+		public static implicit operator IfcDate(string v)
 		{
 			return new IfcDate(v);
 		}	
@@ -430,16 +430,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdatetime.htm
 	/// </summary>
-	public class IfcDateTime : IfcType<System.String>
+	public class IfcDateTime : IfcType<string>
 	{
-		public IfcDateTime(System.String value):base(value){}	
+		public IfcDateTime(string value):base(value){}	
 
-		public static implicit operator System.String(IfcDateTime v)
+		public static implicit operator string(IfcDateTime v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcDateTime(System.String v)
+		public static implicit operator IfcDateTime(string v)
 		{
 			return new IfcDateTime(v);
 		}	
@@ -458,16 +458,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdayinmonthnumber.htm
 	/// </summary>
-	public class IfcDayInMonthNumber : IfcType<System.Int32>
+	public class IfcDayInMonthNumber : IfcType<int>
 	{
-		public IfcDayInMonthNumber(System.Int32 value):base(value){}	
+		public IfcDayInMonthNumber(int value):base(value){}	
 
-		public static implicit operator System.Int32(IfcDayInMonthNumber v)
+		public static implicit operator int(IfcDayInMonthNumber v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcDayInMonthNumber(System.Int32 v)
+		public static implicit operator IfcDayInMonthNumber(int v)
 		{
 			return new IfcDayInMonthNumber(v);
 		}	
@@ -486,16 +486,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdayinweeknumber.htm
 	/// </summary>
-	public class IfcDayInWeekNumber : IfcType<System.Int32>
+	public class IfcDayInWeekNumber : IfcType<int>
 	{
-		public IfcDayInWeekNumber(System.Int32 value):base(value){}	
+		public IfcDayInWeekNumber(int value):base(value){}	
 
-		public static implicit operator System.Int32(IfcDayInWeekNumber v)
+		public static implicit operator int(IfcDayInWeekNumber v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcDayInWeekNumber(System.Int32 v)
+		public static implicit operator IfcDayInWeekNumber(int v)
 		{
 			return new IfcDayInWeekNumber(v);
 		}	
@@ -514,16 +514,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdescriptivemeasure.htm
 	/// </summary>
-	public class IfcDescriptiveMeasure : IfcType<System.String>
+	public class IfcDescriptiveMeasure : IfcType<string>
 	{
-		public IfcDescriptiveMeasure(System.String value):base(value){}	
+		public IfcDescriptiveMeasure(string value):base(value){}	
 
-		public static implicit operator System.String(IfcDescriptiveMeasure v)
+		public static implicit operator string(IfcDescriptiveMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcDescriptiveMeasure(System.String v)
+		public static implicit operator IfcDescriptiveMeasure(string v)
 		{
 			return new IfcDescriptiveMeasure(v);
 		}	
@@ -542,16 +542,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdimensioncount.htm
 	/// </summary>
-	public class IfcDimensionCount : IfcType<System.Int32>
+	public class IfcDimensionCount : IfcType<int>
 	{
-		public IfcDimensionCount(System.Int32 value):base(value){}	
+		public IfcDimensionCount(int value):base(value){}	
 
-		public static implicit operator System.Int32(IfcDimensionCount v)
+		public static implicit operator int(IfcDimensionCount v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcDimensionCount(System.Int32 v)
+		public static implicit operator IfcDimensionCount(int v)
 		{
 			return new IfcDimensionCount(v);
 		}	
@@ -570,16 +570,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdoseequivalentmeasure.htm
 	/// </summary>
-	public class IfcDoseEquivalentMeasure : IfcType<System.Double>
+	public class IfcDoseEquivalentMeasure : IfcType<double>
 	{
-		public IfcDoseEquivalentMeasure(System.Double value):base(value){}	
+		public IfcDoseEquivalentMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcDoseEquivalentMeasure v)
+		public static implicit operator double(IfcDoseEquivalentMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcDoseEquivalentMeasure(System.Double v)
+		public static implicit operator IfcDoseEquivalentMeasure(double v)
 		{
 			return new IfcDoseEquivalentMeasure(v);
 		}	
@@ -598,16 +598,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcduration.htm
 	/// </summary>
-	public class IfcDuration : IfcType<System.String>
+	public class IfcDuration : IfcType<string>
 	{
-		public IfcDuration(System.String value):base(value){}	
+		public IfcDuration(string value):base(value){}	
 
-		public static implicit operator System.String(IfcDuration v)
+		public static implicit operator string(IfcDuration v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcDuration(System.String v)
+		public static implicit operator IfcDuration(string v)
 		{
 			return new IfcDuration(v);
 		}	
@@ -626,16 +626,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdynamicviscositymeasure.htm
 	/// </summary>
-	public class IfcDynamicViscosityMeasure : IfcType<System.Double>
+	public class IfcDynamicViscosityMeasure : IfcType<double>
 	{
-		public IfcDynamicViscosityMeasure(System.Double value):base(value){}	
+		public IfcDynamicViscosityMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcDynamicViscosityMeasure v)
+		public static implicit operator double(IfcDynamicViscosityMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcDynamicViscosityMeasure(System.Double v)
+		public static implicit operator IfcDynamicViscosityMeasure(double v)
 		{
 			return new IfcDynamicViscosityMeasure(v);
 		}	
@@ -654,16 +654,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcelectriccapacitancemeasure.htm
 	/// </summary>
-	public class IfcElectricCapacitanceMeasure : IfcType<System.Double>
+	public class IfcElectricCapacitanceMeasure : IfcType<double>
 	{
-		public IfcElectricCapacitanceMeasure(System.Double value):base(value){}	
+		public IfcElectricCapacitanceMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcElectricCapacitanceMeasure v)
+		public static implicit operator double(IfcElectricCapacitanceMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcElectricCapacitanceMeasure(System.Double v)
+		public static implicit operator IfcElectricCapacitanceMeasure(double v)
 		{
 			return new IfcElectricCapacitanceMeasure(v);
 		}	
@@ -682,16 +682,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcelectricchargemeasure.htm
 	/// </summary>
-	public class IfcElectricChargeMeasure : IfcType<System.Double>
+	public class IfcElectricChargeMeasure : IfcType<double>
 	{
-		public IfcElectricChargeMeasure(System.Double value):base(value){}	
+		public IfcElectricChargeMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcElectricChargeMeasure v)
+		public static implicit operator double(IfcElectricChargeMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcElectricChargeMeasure(System.Double v)
+		public static implicit operator IfcElectricChargeMeasure(double v)
 		{
 			return new IfcElectricChargeMeasure(v);
 		}	
@@ -710,16 +710,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcelectricconductancemeasure.htm
 	/// </summary>
-	public class IfcElectricConductanceMeasure : IfcType<System.Double>
+	public class IfcElectricConductanceMeasure : IfcType<double>
 	{
-		public IfcElectricConductanceMeasure(System.Double value):base(value){}	
+		public IfcElectricConductanceMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcElectricConductanceMeasure v)
+		public static implicit operator double(IfcElectricConductanceMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcElectricConductanceMeasure(System.Double v)
+		public static implicit operator IfcElectricConductanceMeasure(double v)
 		{
 			return new IfcElectricConductanceMeasure(v);
 		}	
@@ -738,16 +738,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcelectriccurrentmeasure.htm
 	/// </summary>
-	public class IfcElectricCurrentMeasure : IfcType<System.Double>
+	public class IfcElectricCurrentMeasure : IfcType<double>
 	{
-		public IfcElectricCurrentMeasure(System.Double value):base(value){}	
+		public IfcElectricCurrentMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcElectricCurrentMeasure v)
+		public static implicit operator double(IfcElectricCurrentMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcElectricCurrentMeasure(System.Double v)
+		public static implicit operator IfcElectricCurrentMeasure(double v)
 		{
 			return new IfcElectricCurrentMeasure(v);
 		}	
@@ -766,16 +766,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcelectricresistancemeasure.htm
 	/// </summary>
-	public class IfcElectricResistanceMeasure : IfcType<System.Double>
+	public class IfcElectricResistanceMeasure : IfcType<double>
 	{
-		public IfcElectricResistanceMeasure(System.Double value):base(value){}	
+		public IfcElectricResistanceMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcElectricResistanceMeasure v)
+		public static implicit operator double(IfcElectricResistanceMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcElectricResistanceMeasure(System.Double v)
+		public static implicit operator IfcElectricResistanceMeasure(double v)
 		{
 			return new IfcElectricResistanceMeasure(v);
 		}	
@@ -794,16 +794,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcelectricvoltagemeasure.htm
 	/// </summary>
-	public class IfcElectricVoltageMeasure : IfcType<System.Double>
+	public class IfcElectricVoltageMeasure : IfcType<double>
 	{
-		public IfcElectricVoltageMeasure(System.Double value):base(value){}	
+		public IfcElectricVoltageMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcElectricVoltageMeasure v)
+		public static implicit operator double(IfcElectricVoltageMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcElectricVoltageMeasure(System.Double v)
+		public static implicit operator IfcElectricVoltageMeasure(double v)
 		{
 			return new IfcElectricVoltageMeasure(v);
 		}	
@@ -822,16 +822,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcenergymeasure.htm
 	/// </summary>
-	public class IfcEnergyMeasure : IfcType<System.Double>
+	public class IfcEnergyMeasure : IfcType<double>
 	{
-		public IfcEnergyMeasure(System.Double value):base(value){}	
+		public IfcEnergyMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcEnergyMeasure v)
+		public static implicit operator double(IfcEnergyMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcEnergyMeasure(System.Double v)
+		public static implicit operator IfcEnergyMeasure(double v)
 		{
 			return new IfcEnergyMeasure(v);
 		}	
@@ -850,16 +850,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfontstyle.htm
 	/// </summary>
-	public class IfcFontStyle : IfcType<System.String>
+	public class IfcFontStyle : IfcType<string>
 	{
-		public IfcFontStyle(System.String value):base(value){}	
+		public IfcFontStyle(string value):base(value){}	
 
-		public static implicit operator System.String(IfcFontStyle v)
+		public static implicit operator string(IfcFontStyle v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcFontStyle(System.String v)
+		public static implicit operator IfcFontStyle(string v)
 		{
 			return new IfcFontStyle(v);
 		}	
@@ -878,16 +878,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfontvariant.htm
 	/// </summary>
-	public class IfcFontVariant : IfcType<System.String>
+	public class IfcFontVariant : IfcType<string>
 	{
-		public IfcFontVariant(System.String value):base(value){}	
+		public IfcFontVariant(string value):base(value){}	
 
-		public static implicit operator System.String(IfcFontVariant v)
+		public static implicit operator string(IfcFontVariant v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcFontVariant(System.String v)
+		public static implicit operator IfcFontVariant(string v)
 		{
 			return new IfcFontVariant(v);
 		}	
@@ -906,16 +906,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfontweight.htm
 	/// </summary>
-	public class IfcFontWeight : IfcType<System.String>
+	public class IfcFontWeight : IfcType<string>
 	{
-		public IfcFontWeight(System.String value):base(value){}	
+		public IfcFontWeight(string value):base(value){}	
 
-		public static implicit operator System.String(IfcFontWeight v)
+		public static implicit operator string(IfcFontWeight v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcFontWeight(System.String v)
+		public static implicit operator IfcFontWeight(string v)
 		{
 			return new IfcFontWeight(v);
 		}	
@@ -934,16 +934,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcforcemeasure.htm
 	/// </summary>
-	public class IfcForceMeasure : IfcType<System.Double>
+	public class IfcForceMeasure : IfcType<double>
 	{
-		public IfcForceMeasure(System.Double value):base(value){}	
+		public IfcForceMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcForceMeasure v)
+		public static implicit operator double(IfcForceMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcForceMeasure(System.Double v)
+		public static implicit operator IfcForceMeasure(double v)
 		{
 			return new IfcForceMeasure(v);
 		}	
@@ -962,16 +962,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfrequencymeasure.htm
 	/// </summary>
-	public class IfcFrequencyMeasure : IfcType<System.Double>
+	public class IfcFrequencyMeasure : IfcType<double>
 	{
-		public IfcFrequencyMeasure(System.Double value):base(value){}	
+		public IfcFrequencyMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcFrequencyMeasure v)
+		public static implicit operator double(IfcFrequencyMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcFrequencyMeasure(System.Double v)
+		public static implicit operator IfcFrequencyMeasure(double v)
 		{
 			return new IfcFrequencyMeasure(v);
 		}	
@@ -990,16 +990,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcgloballyuniqueid.htm
 	/// </summary>
-	public class IfcGloballyUniqueId : IfcType<System.String>
+	public class IfcGloballyUniqueId : IfcType<string>
 	{
-		public IfcGloballyUniqueId(System.String value):base(value){}	
+		public IfcGloballyUniqueId(string value):base(value){}	
 
-		public static implicit operator System.String(IfcGloballyUniqueId v)
+		public static implicit operator string(IfcGloballyUniqueId v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcGloballyUniqueId(System.String v)
+		public static implicit operator IfcGloballyUniqueId(string v)
 		{
 			return new IfcGloballyUniqueId(v);
 		}	
@@ -1018,16 +1018,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcheatfluxdensitymeasure.htm
 	/// </summary>
-	public class IfcHeatFluxDensityMeasure : IfcType<System.Double>
+	public class IfcHeatFluxDensityMeasure : IfcType<double>
 	{
-		public IfcHeatFluxDensityMeasure(System.Double value):base(value){}	
+		public IfcHeatFluxDensityMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcHeatFluxDensityMeasure v)
+		public static implicit operator double(IfcHeatFluxDensityMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcHeatFluxDensityMeasure(System.Double v)
+		public static implicit operator IfcHeatFluxDensityMeasure(double v)
 		{
 			return new IfcHeatFluxDensityMeasure(v);
 		}	
@@ -1046,16 +1046,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcheatingvaluemeasure.htm
 	/// </summary>
-	public class IfcHeatingValueMeasure : IfcType<System.Double>
+	public class IfcHeatingValueMeasure : IfcType<double>
 	{
-		public IfcHeatingValueMeasure(System.Double value):base(value){}	
+		public IfcHeatingValueMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcHeatingValueMeasure v)
+		public static implicit operator double(IfcHeatingValueMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcHeatingValueMeasure(System.Double v)
+		public static implicit operator IfcHeatingValueMeasure(double v)
 		{
 			return new IfcHeatingValueMeasure(v);
 		}	
@@ -1074,16 +1074,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcidentifier.htm
 	/// </summary>
-	public class IfcIdentifier : IfcType<System.String>
+	public class IfcIdentifier : IfcType<string>
 	{
-		public IfcIdentifier(System.String value):base(value){}	
+		public IfcIdentifier(string value):base(value){}	
 
-		public static implicit operator System.String(IfcIdentifier v)
+		public static implicit operator string(IfcIdentifier v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcIdentifier(System.String v)
+		public static implicit operator IfcIdentifier(string v)
 		{
 			return new IfcIdentifier(v);
 		}	
@@ -1102,16 +1102,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcilluminancemeasure.htm
 	/// </summary>
-	public class IfcIlluminanceMeasure : IfcType<System.Double>
+	public class IfcIlluminanceMeasure : IfcType<double>
 	{
-		public IfcIlluminanceMeasure(System.Double value):base(value){}	
+		public IfcIlluminanceMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcIlluminanceMeasure v)
+		public static implicit operator double(IfcIlluminanceMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcIlluminanceMeasure(System.Double v)
+		public static implicit operator IfcIlluminanceMeasure(double v)
 		{
 			return new IfcIlluminanceMeasure(v);
 		}	
@@ -1130,16 +1130,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcinductancemeasure.htm
 	/// </summary>
-	public class IfcInductanceMeasure : IfcType<System.Double>
+	public class IfcInductanceMeasure : IfcType<double>
 	{
-		public IfcInductanceMeasure(System.Double value):base(value){}	
+		public IfcInductanceMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcInductanceMeasure v)
+		public static implicit operator double(IfcInductanceMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcInductanceMeasure(System.Double v)
+		public static implicit operator IfcInductanceMeasure(double v)
 		{
 			return new IfcInductanceMeasure(v);
 		}	
@@ -1158,16 +1158,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcinteger.htm
 	/// </summary>
-	public class IfcInteger : IfcType<System.Int32>
+	public class IfcInteger : IfcType<int>
 	{
-		public IfcInteger(System.Int32 value):base(value){}	
+		public IfcInteger(int value):base(value){}	
 
-		public static implicit operator System.Int32(IfcInteger v)
+		public static implicit operator int(IfcInteger v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcInteger(System.Int32 v)
+		public static implicit operator IfcInteger(int v)
 		{
 			return new IfcInteger(v);
 		}	
@@ -1186,16 +1186,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcintegercountratemeasure.htm
 	/// </summary>
-	public class IfcIntegerCountRateMeasure : IfcType<System.Int32>
+	public class IfcIntegerCountRateMeasure : IfcType<int>
 	{
-		public IfcIntegerCountRateMeasure(System.Int32 value):base(value){}	
+		public IfcIntegerCountRateMeasure(int value):base(value){}	
 
-		public static implicit operator System.Int32(IfcIntegerCountRateMeasure v)
+		public static implicit operator int(IfcIntegerCountRateMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcIntegerCountRateMeasure(System.Int32 v)
+		public static implicit operator IfcIntegerCountRateMeasure(int v)
 		{
 			return new IfcIntegerCountRateMeasure(v);
 		}	
@@ -1214,16 +1214,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcionconcentrationmeasure.htm
 	/// </summary>
-	public class IfcIonConcentrationMeasure : IfcType<System.Double>
+	public class IfcIonConcentrationMeasure : IfcType<double>
 	{
-		public IfcIonConcentrationMeasure(System.Double value):base(value){}	
+		public IfcIonConcentrationMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcIonConcentrationMeasure v)
+		public static implicit operator double(IfcIonConcentrationMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcIonConcentrationMeasure(System.Double v)
+		public static implicit operator IfcIonConcentrationMeasure(double v)
 		{
 			return new IfcIonConcentrationMeasure(v);
 		}	
@@ -1242,16 +1242,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcisothermalmoisturecapacitymeasure.htm
 	/// </summary>
-	public class IfcIsothermalMoistureCapacityMeasure : IfcType<System.Double>
+	public class IfcIsothermalMoistureCapacityMeasure : IfcType<double>
 	{
-		public IfcIsothermalMoistureCapacityMeasure(System.Double value):base(value){}	
+		public IfcIsothermalMoistureCapacityMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcIsothermalMoistureCapacityMeasure v)
+		public static implicit operator double(IfcIsothermalMoistureCapacityMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcIsothermalMoistureCapacityMeasure(System.Double v)
+		public static implicit operator IfcIsothermalMoistureCapacityMeasure(double v)
 		{
 			return new IfcIsothermalMoistureCapacityMeasure(v);
 		}	
@@ -1270,16 +1270,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifckinematicviscositymeasure.htm
 	/// </summary>
-	public class IfcKinematicViscosityMeasure : IfcType<System.Double>
+	public class IfcKinematicViscosityMeasure : IfcType<double>
 	{
-		public IfcKinematicViscosityMeasure(System.Double value):base(value){}	
+		public IfcKinematicViscosityMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcKinematicViscosityMeasure v)
+		public static implicit operator double(IfcKinematicViscosityMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcKinematicViscosityMeasure(System.Double v)
+		public static implicit operator IfcKinematicViscosityMeasure(double v)
 		{
 			return new IfcKinematicViscosityMeasure(v);
 		}	
@@ -1298,16 +1298,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclabel.htm
 	/// </summary>
-	public class IfcLabel : IfcType<System.String>
+	public class IfcLabel : IfcType<string>
 	{
-		public IfcLabel(System.String value):base(value){}	
+		public IfcLabel(string value):base(value){}	
 
-		public static implicit operator System.String(IfcLabel v)
+		public static implicit operator string(IfcLabel v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcLabel(System.String v)
+		public static implicit operator IfcLabel(string v)
 		{
 			return new IfcLabel(v);
 		}	
@@ -1354,16 +1354,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclengthmeasure.htm
 	/// </summary>
-	public class IfcLengthMeasure : IfcType<System.Double>
+	public class IfcLengthMeasure : IfcType<double>
 	{
-		public IfcLengthMeasure(System.Double value):base(value){}	
+		public IfcLengthMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcLengthMeasure v)
+		public static implicit operator double(IfcLengthMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcLengthMeasure(System.Double v)
+		public static implicit operator IfcLengthMeasure(double v)
 		{
 			return new IfcLengthMeasure(v);
 		}	
@@ -1382,16 +1382,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclinearforcemeasure.htm
 	/// </summary>
-	public class IfcLinearForceMeasure : IfcType<System.Double>
+	public class IfcLinearForceMeasure : IfcType<double>
 	{
-		public IfcLinearForceMeasure(System.Double value):base(value){}	
+		public IfcLinearForceMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcLinearForceMeasure v)
+		public static implicit operator double(IfcLinearForceMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcLinearForceMeasure(System.Double v)
+		public static implicit operator IfcLinearForceMeasure(double v)
 		{
 			return new IfcLinearForceMeasure(v);
 		}	
@@ -1410,16 +1410,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclinearmomentmeasure.htm
 	/// </summary>
-	public class IfcLinearMomentMeasure : IfcType<System.Double>
+	public class IfcLinearMomentMeasure : IfcType<double>
 	{
-		public IfcLinearMomentMeasure(System.Double value):base(value){}	
+		public IfcLinearMomentMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcLinearMomentMeasure v)
+		public static implicit operator double(IfcLinearMomentMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcLinearMomentMeasure(System.Double v)
+		public static implicit operator IfcLinearMomentMeasure(double v)
 		{
 			return new IfcLinearMomentMeasure(v);
 		}	
@@ -1438,16 +1438,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclinearstiffnessmeasure.htm
 	/// </summary>
-	public class IfcLinearStiffnessMeasure : IfcType<System.Double>
+	public class IfcLinearStiffnessMeasure : IfcType<double>
 	{
-		public IfcLinearStiffnessMeasure(System.Double value):base(value){}	
+		public IfcLinearStiffnessMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcLinearStiffnessMeasure v)
+		public static implicit operator double(IfcLinearStiffnessMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcLinearStiffnessMeasure(System.Double v)
+		public static implicit operator IfcLinearStiffnessMeasure(double v)
 		{
 			return new IfcLinearStiffnessMeasure(v);
 		}	
@@ -1466,16 +1466,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclinearvelocitymeasure.htm
 	/// </summary>
-	public class IfcLinearVelocityMeasure : IfcType<System.Double>
+	public class IfcLinearVelocityMeasure : IfcType<double>
 	{
-		public IfcLinearVelocityMeasure(System.Double value):base(value){}	
+		public IfcLinearVelocityMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcLinearVelocityMeasure v)
+		public static implicit operator double(IfcLinearVelocityMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcLinearVelocityMeasure(System.Double v)
+		public static implicit operator IfcLinearVelocityMeasure(double v)
 		{
 			return new IfcLinearVelocityMeasure(v);
 		}	
@@ -1494,16 +1494,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclogical.htm
 	/// </summary>
-	public class IfcLogical : IfcType<System.Boolean>
+	public class IfcLogical : IfcType<bool?>
 	{
-		public IfcLogical(System.Boolean value):base(value){}	
+		public IfcLogical(bool? value):base(value){}	
 
-		public static implicit operator System.Boolean(IfcLogical v)
+		public static implicit operator bool?(IfcLogical v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcLogical(System.Boolean v)
+		public static implicit operator IfcLogical(bool? v)
 		{
 			return new IfcLogical(v);
 		}	
@@ -1522,16 +1522,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcluminousfluxmeasure.htm
 	/// </summary>
-	public class IfcLuminousFluxMeasure : IfcType<System.Double>
+	public class IfcLuminousFluxMeasure : IfcType<double>
 	{
-		public IfcLuminousFluxMeasure(System.Double value):base(value){}	
+		public IfcLuminousFluxMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcLuminousFluxMeasure v)
+		public static implicit operator double(IfcLuminousFluxMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcLuminousFluxMeasure(System.Double v)
+		public static implicit operator IfcLuminousFluxMeasure(double v)
 		{
 			return new IfcLuminousFluxMeasure(v);
 		}	
@@ -1550,16 +1550,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcluminousintensitydistributionmeasure.htm
 	/// </summary>
-	public class IfcLuminousIntensityDistributionMeasure : IfcType<System.Double>
+	public class IfcLuminousIntensityDistributionMeasure : IfcType<double>
 	{
-		public IfcLuminousIntensityDistributionMeasure(System.Double value):base(value){}	
+		public IfcLuminousIntensityDistributionMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcLuminousIntensityDistributionMeasure v)
+		public static implicit operator double(IfcLuminousIntensityDistributionMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcLuminousIntensityDistributionMeasure(System.Double v)
+		public static implicit operator IfcLuminousIntensityDistributionMeasure(double v)
 		{
 			return new IfcLuminousIntensityDistributionMeasure(v);
 		}	
@@ -1578,16 +1578,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcluminousintensitymeasure.htm
 	/// </summary>
-	public class IfcLuminousIntensityMeasure : IfcType<System.Double>
+	public class IfcLuminousIntensityMeasure : IfcType<double>
 	{
-		public IfcLuminousIntensityMeasure(System.Double value):base(value){}	
+		public IfcLuminousIntensityMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcLuminousIntensityMeasure v)
+		public static implicit operator double(IfcLuminousIntensityMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcLuminousIntensityMeasure(System.Double v)
+		public static implicit operator IfcLuminousIntensityMeasure(double v)
 		{
 			return new IfcLuminousIntensityMeasure(v);
 		}	
@@ -1606,16 +1606,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmagneticfluxdensitymeasure.htm
 	/// </summary>
-	public class IfcMagneticFluxDensityMeasure : IfcType<System.Double>
+	public class IfcMagneticFluxDensityMeasure : IfcType<double>
 	{
-		public IfcMagneticFluxDensityMeasure(System.Double value):base(value){}	
+		public IfcMagneticFluxDensityMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcMagneticFluxDensityMeasure v)
+		public static implicit operator double(IfcMagneticFluxDensityMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcMagneticFluxDensityMeasure(System.Double v)
+		public static implicit operator IfcMagneticFluxDensityMeasure(double v)
 		{
 			return new IfcMagneticFluxDensityMeasure(v);
 		}	
@@ -1634,16 +1634,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmagneticfluxmeasure.htm
 	/// </summary>
-	public class IfcMagneticFluxMeasure : IfcType<System.Double>
+	public class IfcMagneticFluxMeasure : IfcType<double>
 	{
-		public IfcMagneticFluxMeasure(System.Double value):base(value){}	
+		public IfcMagneticFluxMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcMagneticFluxMeasure v)
+		public static implicit operator double(IfcMagneticFluxMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcMagneticFluxMeasure(System.Double v)
+		public static implicit operator IfcMagneticFluxMeasure(double v)
 		{
 			return new IfcMagneticFluxMeasure(v);
 		}	
@@ -1662,16 +1662,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmassdensitymeasure.htm
 	/// </summary>
-	public class IfcMassDensityMeasure : IfcType<System.Double>
+	public class IfcMassDensityMeasure : IfcType<double>
 	{
-		public IfcMassDensityMeasure(System.Double value):base(value){}	
+		public IfcMassDensityMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcMassDensityMeasure v)
+		public static implicit operator double(IfcMassDensityMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcMassDensityMeasure(System.Double v)
+		public static implicit operator IfcMassDensityMeasure(double v)
 		{
 			return new IfcMassDensityMeasure(v);
 		}	
@@ -1690,16 +1690,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmassflowratemeasure.htm
 	/// </summary>
-	public class IfcMassFlowRateMeasure : IfcType<System.Double>
+	public class IfcMassFlowRateMeasure : IfcType<double>
 	{
-		public IfcMassFlowRateMeasure(System.Double value):base(value){}	
+		public IfcMassFlowRateMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcMassFlowRateMeasure v)
+		public static implicit operator double(IfcMassFlowRateMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcMassFlowRateMeasure(System.Double v)
+		public static implicit operator IfcMassFlowRateMeasure(double v)
 		{
 			return new IfcMassFlowRateMeasure(v);
 		}	
@@ -1718,16 +1718,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmassmeasure.htm
 	/// </summary>
-	public class IfcMassMeasure : IfcType<System.Double>
+	public class IfcMassMeasure : IfcType<double>
 	{
-		public IfcMassMeasure(System.Double value):base(value){}	
+		public IfcMassMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcMassMeasure v)
+		public static implicit operator double(IfcMassMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcMassMeasure(System.Double v)
+		public static implicit operator IfcMassMeasure(double v)
 		{
 			return new IfcMassMeasure(v);
 		}	
@@ -1746,16 +1746,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmassperlengthmeasure.htm
 	/// </summary>
-	public class IfcMassPerLengthMeasure : IfcType<System.Double>
+	public class IfcMassPerLengthMeasure : IfcType<double>
 	{
-		public IfcMassPerLengthMeasure(System.Double value):base(value){}	
+		public IfcMassPerLengthMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcMassPerLengthMeasure v)
+		public static implicit operator double(IfcMassPerLengthMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcMassPerLengthMeasure(System.Double v)
+		public static implicit operator IfcMassPerLengthMeasure(double v)
 		{
 			return new IfcMassPerLengthMeasure(v);
 		}	
@@ -1774,16 +1774,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmodulusofelasticitymeasure.htm
 	/// </summary>
-	public class IfcModulusOfElasticityMeasure : IfcType<System.Double>
+	public class IfcModulusOfElasticityMeasure : IfcType<double>
 	{
-		public IfcModulusOfElasticityMeasure(System.Double value):base(value){}	
+		public IfcModulusOfElasticityMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcModulusOfElasticityMeasure v)
+		public static implicit operator double(IfcModulusOfElasticityMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcModulusOfElasticityMeasure(System.Double v)
+		public static implicit operator IfcModulusOfElasticityMeasure(double v)
 		{
 			return new IfcModulusOfElasticityMeasure(v);
 		}	
@@ -1802,16 +1802,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmodulusoflinearsubgradereactionmeasure.htm
 	/// </summary>
-	public class IfcModulusOfLinearSubgradeReactionMeasure : IfcType<System.Double>
+	public class IfcModulusOfLinearSubgradeReactionMeasure : IfcType<double>
 	{
-		public IfcModulusOfLinearSubgradeReactionMeasure(System.Double value):base(value){}	
+		public IfcModulusOfLinearSubgradeReactionMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcModulusOfLinearSubgradeReactionMeasure v)
+		public static implicit operator double(IfcModulusOfLinearSubgradeReactionMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcModulusOfLinearSubgradeReactionMeasure(System.Double v)
+		public static implicit operator IfcModulusOfLinearSubgradeReactionMeasure(double v)
 		{
 			return new IfcModulusOfLinearSubgradeReactionMeasure(v);
 		}	
@@ -1830,16 +1830,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmodulusofrotationalsubgradereactionmeasure.htm
 	/// </summary>
-	public class IfcModulusOfRotationalSubgradeReactionMeasure : IfcType<System.Double>
+	public class IfcModulusOfRotationalSubgradeReactionMeasure : IfcType<double>
 	{
-		public IfcModulusOfRotationalSubgradeReactionMeasure(System.Double value):base(value){}	
+		public IfcModulusOfRotationalSubgradeReactionMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcModulusOfRotationalSubgradeReactionMeasure v)
+		public static implicit operator double(IfcModulusOfRotationalSubgradeReactionMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcModulusOfRotationalSubgradeReactionMeasure(System.Double v)
+		public static implicit operator IfcModulusOfRotationalSubgradeReactionMeasure(double v)
 		{
 			return new IfcModulusOfRotationalSubgradeReactionMeasure(v);
 		}	
@@ -1858,16 +1858,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmodulusofsubgradereactionmeasure.htm
 	/// </summary>
-	public class IfcModulusOfSubgradeReactionMeasure : IfcType<System.Double>
+	public class IfcModulusOfSubgradeReactionMeasure : IfcType<double>
 	{
-		public IfcModulusOfSubgradeReactionMeasure(System.Double value):base(value){}	
+		public IfcModulusOfSubgradeReactionMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcModulusOfSubgradeReactionMeasure v)
+		public static implicit operator double(IfcModulusOfSubgradeReactionMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcModulusOfSubgradeReactionMeasure(System.Double v)
+		public static implicit operator IfcModulusOfSubgradeReactionMeasure(double v)
 		{
 			return new IfcModulusOfSubgradeReactionMeasure(v);
 		}	
@@ -1886,16 +1886,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmoisturediffusivitymeasure.htm
 	/// </summary>
-	public class IfcMoistureDiffusivityMeasure : IfcType<System.Double>
+	public class IfcMoistureDiffusivityMeasure : IfcType<double>
 	{
-		public IfcMoistureDiffusivityMeasure(System.Double value):base(value){}	
+		public IfcMoistureDiffusivityMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcMoistureDiffusivityMeasure v)
+		public static implicit operator double(IfcMoistureDiffusivityMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcMoistureDiffusivityMeasure(System.Double v)
+		public static implicit operator IfcMoistureDiffusivityMeasure(double v)
 		{
 			return new IfcMoistureDiffusivityMeasure(v);
 		}	
@@ -1914,16 +1914,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmolecularweightmeasure.htm
 	/// </summary>
-	public class IfcMolecularWeightMeasure : IfcType<System.Double>
+	public class IfcMolecularWeightMeasure : IfcType<double>
 	{
-		public IfcMolecularWeightMeasure(System.Double value):base(value){}	
+		public IfcMolecularWeightMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcMolecularWeightMeasure v)
+		public static implicit operator double(IfcMolecularWeightMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcMolecularWeightMeasure(System.Double v)
+		public static implicit operator IfcMolecularWeightMeasure(double v)
 		{
 			return new IfcMolecularWeightMeasure(v);
 		}	
@@ -1942,16 +1942,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmomentofinertiameasure.htm
 	/// </summary>
-	public class IfcMomentOfInertiaMeasure : IfcType<System.Double>
+	public class IfcMomentOfInertiaMeasure : IfcType<double>
 	{
-		public IfcMomentOfInertiaMeasure(System.Double value):base(value){}	
+		public IfcMomentOfInertiaMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcMomentOfInertiaMeasure v)
+		public static implicit operator double(IfcMomentOfInertiaMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcMomentOfInertiaMeasure(System.Double v)
+		public static implicit operator IfcMomentOfInertiaMeasure(double v)
 		{
 			return new IfcMomentOfInertiaMeasure(v);
 		}	
@@ -1970,16 +1970,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmonetarymeasure.htm
 	/// </summary>
-	public class IfcMonetaryMeasure : IfcType<System.Double>
+	public class IfcMonetaryMeasure : IfcType<double>
 	{
-		public IfcMonetaryMeasure(System.Double value):base(value){}	
+		public IfcMonetaryMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcMonetaryMeasure v)
+		public static implicit operator double(IfcMonetaryMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcMonetaryMeasure(System.Double v)
+		public static implicit operator IfcMonetaryMeasure(double v)
 		{
 			return new IfcMonetaryMeasure(v);
 		}	
@@ -1998,16 +1998,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmonthinyearnumber.htm
 	/// </summary>
-	public class IfcMonthInYearNumber : IfcType<System.Int32>
+	public class IfcMonthInYearNumber : IfcType<int>
 	{
-		public IfcMonthInYearNumber(System.Int32 value):base(value){}	
+		public IfcMonthInYearNumber(int value):base(value){}	
 
-		public static implicit operator System.Int32(IfcMonthInYearNumber v)
+		public static implicit operator int(IfcMonthInYearNumber v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcMonthInYearNumber(System.Int32 v)
+		public static implicit operator IfcMonthInYearNumber(int v)
 		{
 			return new IfcMonthInYearNumber(v);
 		}	
@@ -2082,16 +2082,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcnumericmeasure.htm
 	/// </summary>
-	public class IfcNumericMeasure : IfcType<System.Double>
+	public class IfcNumericMeasure : IfcType<double>
 	{
-		public IfcNumericMeasure(System.Double value):base(value){}	
+		public IfcNumericMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcNumericMeasure v)
+		public static implicit operator double(IfcNumericMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcNumericMeasure(System.Double v)
+		public static implicit operator IfcNumericMeasure(double v)
 		{
 			return new IfcNumericMeasure(v);
 		}	
@@ -2110,16 +2110,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcphmeasure.htm
 	/// </summary>
-	public class IfcPHMeasure : IfcType<System.Double>
+	public class IfcPHMeasure : IfcType<double>
 	{
-		public IfcPHMeasure(System.Double value):base(value){}	
+		public IfcPHMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcPHMeasure v)
+		public static implicit operator double(IfcPHMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcPHMeasure(System.Double v)
+		public static implicit operator IfcPHMeasure(double v)
 		{
 			return new IfcPHMeasure(v);
 		}	
@@ -2138,16 +2138,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcparametervalue.htm
 	/// </summary>
-	public class IfcParameterValue : IfcType<System.Double>
+	public class IfcParameterValue : IfcType<double>
 	{
-		public IfcParameterValue(System.Double value):base(value){}	
+		public IfcParameterValue(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcParameterValue v)
+		public static implicit operator double(IfcParameterValue v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcParameterValue(System.Double v)
+		public static implicit operator IfcParameterValue(double v)
 		{
 			return new IfcParameterValue(v);
 		}	
@@ -2166,16 +2166,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcplanarforcemeasure.htm
 	/// </summary>
-	public class IfcPlanarForceMeasure : IfcType<System.Double>
+	public class IfcPlanarForceMeasure : IfcType<double>
 	{
-		public IfcPlanarForceMeasure(System.Double value):base(value){}	
+		public IfcPlanarForceMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcPlanarForceMeasure v)
+		public static implicit operator double(IfcPlanarForceMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcPlanarForceMeasure(System.Double v)
+		public static implicit operator IfcPlanarForceMeasure(double v)
 		{
 			return new IfcPlanarForceMeasure(v);
 		}	
@@ -2194,16 +2194,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcplaneanglemeasure.htm
 	/// </summary>
-	public class IfcPlaneAngleMeasure : IfcType<System.Double>
+	public class IfcPlaneAngleMeasure : IfcType<double>
 	{
-		public IfcPlaneAngleMeasure(System.Double value):base(value){}	
+		public IfcPlaneAngleMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcPlaneAngleMeasure v)
+		public static implicit operator double(IfcPlaneAngleMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcPlaneAngleMeasure(System.Double v)
+		public static implicit operator IfcPlaneAngleMeasure(double v)
 		{
 			return new IfcPlaneAngleMeasure(v);
 		}	
@@ -2306,16 +2306,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpowermeasure.htm
 	/// </summary>
-	public class IfcPowerMeasure : IfcType<System.Double>
+	public class IfcPowerMeasure : IfcType<double>
 	{
-		public IfcPowerMeasure(System.Double value):base(value){}	
+		public IfcPowerMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcPowerMeasure v)
+		public static implicit operator double(IfcPowerMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcPowerMeasure(System.Double v)
+		public static implicit operator IfcPowerMeasure(double v)
 		{
 			return new IfcPowerMeasure(v);
 		}	
@@ -2334,16 +2334,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpresentabletext.htm
 	/// </summary>
-	public class IfcPresentableText : IfcType<System.String>
+	public class IfcPresentableText : IfcType<string>
 	{
-		public IfcPresentableText(System.String value):base(value){}	
+		public IfcPresentableText(string value):base(value){}	
 
-		public static implicit operator System.String(IfcPresentableText v)
+		public static implicit operator string(IfcPresentableText v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcPresentableText(System.String v)
+		public static implicit operator IfcPresentableText(string v)
 		{
 			return new IfcPresentableText(v);
 		}	
@@ -2362,16 +2362,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpressuremeasure.htm
 	/// </summary>
-	public class IfcPressureMeasure : IfcType<System.Double>
+	public class IfcPressureMeasure : IfcType<double>
 	{
-		public IfcPressureMeasure(System.Double value):base(value){}	
+		public IfcPressureMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcPressureMeasure v)
+		public static implicit operator double(IfcPressureMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcPressureMeasure(System.Double v)
+		public static implicit operator IfcPressureMeasure(double v)
 		{
 			return new IfcPressureMeasure(v);
 		}	
@@ -2418,16 +2418,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcradioactivitymeasure.htm
 	/// </summary>
-	public class IfcRadioActivityMeasure : IfcType<System.Double>
+	public class IfcRadioActivityMeasure : IfcType<double>
 	{
-		public IfcRadioActivityMeasure(System.Double value):base(value){}	
+		public IfcRadioActivityMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcRadioActivityMeasure v)
+		public static implicit operator double(IfcRadioActivityMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcRadioActivityMeasure(System.Double v)
+		public static implicit operator IfcRadioActivityMeasure(double v)
 		{
 			return new IfcRadioActivityMeasure(v);
 		}	
@@ -2446,16 +2446,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcratiomeasure.htm
 	/// </summary>
-	public class IfcRatioMeasure : IfcType<System.Double>
+	public class IfcRatioMeasure : IfcType<double>
 	{
-		public IfcRatioMeasure(System.Double value):base(value){}	
+		public IfcRatioMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcRatioMeasure v)
+		public static implicit operator double(IfcRatioMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcRatioMeasure(System.Double v)
+		public static implicit operator IfcRatioMeasure(double v)
 		{
 			return new IfcRatioMeasure(v);
 		}	
@@ -2474,16 +2474,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreal.htm
 	/// </summary>
-	public class IfcReal : IfcType<System.Double>
+	public class IfcReal : IfcType<double>
 	{
-		public IfcReal(System.Double value):base(value){}	
+		public IfcReal(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcReal v)
+		public static implicit operator double(IfcReal v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcReal(System.Double v)
+		public static implicit operator IfcReal(double v)
 		{
 			return new IfcReal(v);
 		}	
@@ -2502,16 +2502,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrotationalfrequencymeasure.htm
 	/// </summary>
-	public class IfcRotationalFrequencyMeasure : IfcType<System.Double>
+	public class IfcRotationalFrequencyMeasure : IfcType<double>
 	{
-		public IfcRotationalFrequencyMeasure(System.Double value):base(value){}	
+		public IfcRotationalFrequencyMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcRotationalFrequencyMeasure v)
+		public static implicit operator double(IfcRotationalFrequencyMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcRotationalFrequencyMeasure(System.Double v)
+		public static implicit operator IfcRotationalFrequencyMeasure(double v)
 		{
 			return new IfcRotationalFrequencyMeasure(v);
 		}	
@@ -2530,16 +2530,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrotationalmassmeasure.htm
 	/// </summary>
-	public class IfcRotationalMassMeasure : IfcType<System.Double>
+	public class IfcRotationalMassMeasure : IfcType<double>
 	{
-		public IfcRotationalMassMeasure(System.Double value):base(value){}	
+		public IfcRotationalMassMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcRotationalMassMeasure v)
+		public static implicit operator double(IfcRotationalMassMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcRotationalMassMeasure(System.Double v)
+		public static implicit operator IfcRotationalMassMeasure(double v)
 		{
 			return new IfcRotationalMassMeasure(v);
 		}	
@@ -2558,16 +2558,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrotationalstiffnessmeasure.htm
 	/// </summary>
-	public class IfcRotationalStiffnessMeasure : IfcType<System.Double>
+	public class IfcRotationalStiffnessMeasure : IfcType<double>
 	{
-		public IfcRotationalStiffnessMeasure(System.Double value):base(value){}	
+		public IfcRotationalStiffnessMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcRotationalStiffnessMeasure v)
+		public static implicit operator double(IfcRotationalStiffnessMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcRotationalStiffnessMeasure(System.Double v)
+		public static implicit operator IfcRotationalStiffnessMeasure(double v)
 		{
 			return new IfcRotationalStiffnessMeasure(v);
 		}	
@@ -2586,16 +2586,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsectionmodulusmeasure.htm
 	/// </summary>
-	public class IfcSectionModulusMeasure : IfcType<System.Double>
+	public class IfcSectionModulusMeasure : IfcType<double>
 	{
-		public IfcSectionModulusMeasure(System.Double value):base(value){}	
+		public IfcSectionModulusMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcSectionModulusMeasure v)
+		public static implicit operator double(IfcSectionModulusMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcSectionModulusMeasure(System.Double v)
+		public static implicit operator IfcSectionModulusMeasure(double v)
 		{
 			return new IfcSectionModulusMeasure(v);
 		}	
@@ -2614,16 +2614,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsectionalareaintegralmeasure.htm
 	/// </summary>
-	public class IfcSectionalAreaIntegralMeasure : IfcType<System.Double>
+	public class IfcSectionalAreaIntegralMeasure : IfcType<double>
 	{
-		public IfcSectionalAreaIntegralMeasure(System.Double value):base(value){}	
+		public IfcSectionalAreaIntegralMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcSectionalAreaIntegralMeasure v)
+		public static implicit operator double(IfcSectionalAreaIntegralMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcSectionalAreaIntegralMeasure(System.Double v)
+		public static implicit operator IfcSectionalAreaIntegralMeasure(double v)
 		{
 			return new IfcSectionalAreaIntegralMeasure(v);
 		}	
@@ -2642,16 +2642,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcshearmodulusmeasure.htm
 	/// </summary>
-	public class IfcShearModulusMeasure : IfcType<System.Double>
+	public class IfcShearModulusMeasure : IfcType<double>
 	{
-		public IfcShearModulusMeasure(System.Double value):base(value){}	
+		public IfcShearModulusMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcShearModulusMeasure v)
+		public static implicit operator double(IfcShearModulusMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcShearModulusMeasure(System.Double v)
+		public static implicit operator IfcShearModulusMeasure(double v)
 		{
 			return new IfcShearModulusMeasure(v);
 		}	
@@ -2670,16 +2670,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsolidanglemeasure.htm
 	/// </summary>
-	public class IfcSolidAngleMeasure : IfcType<System.Double>
+	public class IfcSolidAngleMeasure : IfcType<double>
 	{
-		public IfcSolidAngleMeasure(System.Double value):base(value){}	
+		public IfcSolidAngleMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcSolidAngleMeasure v)
+		public static implicit operator double(IfcSolidAngleMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcSolidAngleMeasure(System.Double v)
+		public static implicit operator IfcSolidAngleMeasure(double v)
 		{
 			return new IfcSolidAngleMeasure(v);
 		}	
@@ -2698,16 +2698,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsoundpowerlevelmeasure.htm
 	/// </summary>
-	public class IfcSoundPowerLevelMeasure : IfcType<System.Double>
+	public class IfcSoundPowerLevelMeasure : IfcType<double>
 	{
-		public IfcSoundPowerLevelMeasure(System.Double value):base(value){}	
+		public IfcSoundPowerLevelMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcSoundPowerLevelMeasure v)
+		public static implicit operator double(IfcSoundPowerLevelMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcSoundPowerLevelMeasure(System.Double v)
+		public static implicit operator IfcSoundPowerLevelMeasure(double v)
 		{
 			return new IfcSoundPowerLevelMeasure(v);
 		}	
@@ -2726,16 +2726,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsoundpowermeasure.htm
 	/// </summary>
-	public class IfcSoundPowerMeasure : IfcType<System.Double>
+	public class IfcSoundPowerMeasure : IfcType<double>
 	{
-		public IfcSoundPowerMeasure(System.Double value):base(value){}	
+		public IfcSoundPowerMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcSoundPowerMeasure v)
+		public static implicit operator double(IfcSoundPowerMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcSoundPowerMeasure(System.Double v)
+		public static implicit operator IfcSoundPowerMeasure(double v)
 		{
 			return new IfcSoundPowerMeasure(v);
 		}	
@@ -2754,16 +2754,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsoundpressurelevelmeasure.htm
 	/// </summary>
-	public class IfcSoundPressureLevelMeasure : IfcType<System.Double>
+	public class IfcSoundPressureLevelMeasure : IfcType<double>
 	{
-		public IfcSoundPressureLevelMeasure(System.Double value):base(value){}	
+		public IfcSoundPressureLevelMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcSoundPressureLevelMeasure v)
+		public static implicit operator double(IfcSoundPressureLevelMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcSoundPressureLevelMeasure(System.Double v)
+		public static implicit operator IfcSoundPressureLevelMeasure(double v)
 		{
 			return new IfcSoundPressureLevelMeasure(v);
 		}	
@@ -2782,16 +2782,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsoundpressuremeasure.htm
 	/// </summary>
-	public class IfcSoundPressureMeasure : IfcType<System.Double>
+	public class IfcSoundPressureMeasure : IfcType<double>
 	{
-		public IfcSoundPressureMeasure(System.Double value):base(value){}	
+		public IfcSoundPressureMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcSoundPressureMeasure v)
+		public static implicit operator double(IfcSoundPressureMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcSoundPressureMeasure(System.Double v)
+		public static implicit operator IfcSoundPressureMeasure(double v)
 		{
 			return new IfcSoundPressureMeasure(v);
 		}	
@@ -2810,16 +2810,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcspecificheatcapacitymeasure.htm
 	/// </summary>
-	public class IfcSpecificHeatCapacityMeasure : IfcType<System.Double>
+	public class IfcSpecificHeatCapacityMeasure : IfcType<double>
 	{
-		public IfcSpecificHeatCapacityMeasure(System.Double value):base(value){}	
+		public IfcSpecificHeatCapacityMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcSpecificHeatCapacityMeasure v)
+		public static implicit operator double(IfcSpecificHeatCapacityMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcSpecificHeatCapacityMeasure(System.Double v)
+		public static implicit operator IfcSpecificHeatCapacityMeasure(double v)
 		{
 			return new IfcSpecificHeatCapacityMeasure(v);
 		}	
@@ -2838,16 +2838,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcspecularexponent.htm
 	/// </summary>
-	public class IfcSpecularExponent : IfcType<System.Double>
+	public class IfcSpecularExponent : IfcType<double>
 	{
-		public IfcSpecularExponent(System.Double value):base(value){}	
+		public IfcSpecularExponent(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcSpecularExponent v)
+		public static implicit operator double(IfcSpecularExponent v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcSpecularExponent(System.Double v)
+		public static implicit operator IfcSpecularExponent(double v)
 		{
 			return new IfcSpecularExponent(v);
 		}	
@@ -2866,16 +2866,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcspecularroughness.htm
 	/// </summary>
-	public class IfcSpecularRoughness : IfcType<System.Double>
+	public class IfcSpecularRoughness : IfcType<double>
 	{
-		public IfcSpecularRoughness(System.Double value):base(value){}	
+		public IfcSpecularRoughness(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcSpecularRoughness v)
+		public static implicit operator double(IfcSpecularRoughness v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcSpecularRoughness(System.Double v)
+		public static implicit operator IfcSpecularRoughness(double v)
 		{
 			return new IfcSpecularRoughness(v);
 		}	
@@ -2894,16 +2894,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctemperaturegradientmeasure.htm
 	/// </summary>
-	public class IfcTemperatureGradientMeasure : IfcType<System.Double>
+	public class IfcTemperatureGradientMeasure : IfcType<double>
 	{
-		public IfcTemperatureGradientMeasure(System.Double value):base(value){}	
+		public IfcTemperatureGradientMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcTemperatureGradientMeasure v)
+		public static implicit operator double(IfcTemperatureGradientMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcTemperatureGradientMeasure(System.Double v)
+		public static implicit operator IfcTemperatureGradientMeasure(double v)
 		{
 			return new IfcTemperatureGradientMeasure(v);
 		}	
@@ -2922,16 +2922,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctemperaturerateofchangemeasure.htm
 	/// </summary>
-	public class IfcTemperatureRateOfChangeMeasure : IfcType<System.Double>
+	public class IfcTemperatureRateOfChangeMeasure : IfcType<double>
 	{
-		public IfcTemperatureRateOfChangeMeasure(System.Double value):base(value){}	
+		public IfcTemperatureRateOfChangeMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcTemperatureRateOfChangeMeasure v)
+		public static implicit operator double(IfcTemperatureRateOfChangeMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcTemperatureRateOfChangeMeasure(System.Double v)
+		public static implicit operator IfcTemperatureRateOfChangeMeasure(double v)
 		{
 			return new IfcTemperatureRateOfChangeMeasure(v);
 		}	
@@ -2950,16 +2950,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctext.htm
 	/// </summary>
-	public class IfcText : IfcType<System.String>
+	public class IfcText : IfcType<string>
 	{
-		public IfcText(System.String value):base(value){}	
+		public IfcText(string value):base(value){}	
 
-		public static implicit operator System.String(IfcText v)
+		public static implicit operator string(IfcText v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcText(System.String v)
+		public static implicit operator IfcText(string v)
 		{
 			return new IfcText(v);
 		}	
@@ -2978,16 +2978,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctextalignment.htm
 	/// </summary>
-	public class IfcTextAlignment : IfcType<System.String>
+	public class IfcTextAlignment : IfcType<string>
 	{
-		public IfcTextAlignment(System.String value):base(value){}	
+		public IfcTextAlignment(string value):base(value){}	
 
-		public static implicit operator System.String(IfcTextAlignment v)
+		public static implicit operator string(IfcTextAlignment v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcTextAlignment(System.String v)
+		public static implicit operator IfcTextAlignment(string v)
 		{
 			return new IfcTextAlignment(v);
 		}	
@@ -3006,16 +3006,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctextdecoration.htm
 	/// </summary>
-	public class IfcTextDecoration : IfcType<System.String>
+	public class IfcTextDecoration : IfcType<string>
 	{
-		public IfcTextDecoration(System.String value):base(value){}	
+		public IfcTextDecoration(string value):base(value){}	
 
-		public static implicit operator System.String(IfcTextDecoration v)
+		public static implicit operator string(IfcTextDecoration v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcTextDecoration(System.String v)
+		public static implicit operator IfcTextDecoration(string v)
 		{
 			return new IfcTextDecoration(v);
 		}	
@@ -3034,16 +3034,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctextfontname.htm
 	/// </summary>
-	public class IfcTextFontName : IfcType<System.String>
+	public class IfcTextFontName : IfcType<string>
 	{
-		public IfcTextFontName(System.String value):base(value){}	
+		public IfcTextFontName(string value):base(value){}	
 
-		public static implicit operator System.String(IfcTextFontName v)
+		public static implicit operator string(IfcTextFontName v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcTextFontName(System.String v)
+		public static implicit operator IfcTextFontName(string v)
 		{
 			return new IfcTextFontName(v);
 		}	
@@ -3062,16 +3062,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctexttransformation.htm
 	/// </summary>
-	public class IfcTextTransformation : IfcType<System.String>
+	public class IfcTextTransformation : IfcType<string>
 	{
-		public IfcTextTransformation(System.String value):base(value){}	
+		public IfcTextTransformation(string value):base(value){}	
 
-		public static implicit operator System.String(IfcTextTransformation v)
+		public static implicit operator string(IfcTextTransformation v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcTextTransformation(System.String v)
+		public static implicit operator IfcTextTransformation(string v)
 		{
 			return new IfcTextTransformation(v);
 		}	
@@ -3090,16 +3090,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcthermaladmittancemeasure.htm
 	/// </summary>
-	public class IfcThermalAdmittanceMeasure : IfcType<System.Double>
+	public class IfcThermalAdmittanceMeasure : IfcType<double>
 	{
-		public IfcThermalAdmittanceMeasure(System.Double value):base(value){}	
+		public IfcThermalAdmittanceMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcThermalAdmittanceMeasure v)
+		public static implicit operator double(IfcThermalAdmittanceMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcThermalAdmittanceMeasure(System.Double v)
+		public static implicit operator IfcThermalAdmittanceMeasure(double v)
 		{
 			return new IfcThermalAdmittanceMeasure(v);
 		}	
@@ -3118,16 +3118,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcthermalconductivitymeasure.htm
 	/// </summary>
-	public class IfcThermalConductivityMeasure : IfcType<System.Double>
+	public class IfcThermalConductivityMeasure : IfcType<double>
 	{
-		public IfcThermalConductivityMeasure(System.Double value):base(value){}	
+		public IfcThermalConductivityMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcThermalConductivityMeasure v)
+		public static implicit operator double(IfcThermalConductivityMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcThermalConductivityMeasure(System.Double v)
+		public static implicit operator IfcThermalConductivityMeasure(double v)
 		{
 			return new IfcThermalConductivityMeasure(v);
 		}	
@@ -3146,16 +3146,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcthermalexpansioncoefficientmeasure.htm
 	/// </summary>
-	public class IfcThermalExpansionCoefficientMeasure : IfcType<System.Double>
+	public class IfcThermalExpansionCoefficientMeasure : IfcType<double>
 	{
-		public IfcThermalExpansionCoefficientMeasure(System.Double value):base(value){}	
+		public IfcThermalExpansionCoefficientMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcThermalExpansionCoefficientMeasure v)
+		public static implicit operator double(IfcThermalExpansionCoefficientMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcThermalExpansionCoefficientMeasure(System.Double v)
+		public static implicit operator IfcThermalExpansionCoefficientMeasure(double v)
 		{
 			return new IfcThermalExpansionCoefficientMeasure(v);
 		}	
@@ -3174,16 +3174,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcthermalresistancemeasure.htm
 	/// </summary>
-	public class IfcThermalResistanceMeasure : IfcType<System.Double>
+	public class IfcThermalResistanceMeasure : IfcType<double>
 	{
-		public IfcThermalResistanceMeasure(System.Double value):base(value){}	
+		public IfcThermalResistanceMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcThermalResistanceMeasure v)
+		public static implicit operator double(IfcThermalResistanceMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcThermalResistanceMeasure(System.Double v)
+		public static implicit operator IfcThermalResistanceMeasure(double v)
 		{
 			return new IfcThermalResistanceMeasure(v);
 		}	
@@ -3202,16 +3202,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcthermaltransmittancemeasure.htm
 	/// </summary>
-	public class IfcThermalTransmittanceMeasure : IfcType<System.Double>
+	public class IfcThermalTransmittanceMeasure : IfcType<double>
 	{
-		public IfcThermalTransmittanceMeasure(System.Double value):base(value){}	
+		public IfcThermalTransmittanceMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcThermalTransmittanceMeasure v)
+		public static implicit operator double(IfcThermalTransmittanceMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcThermalTransmittanceMeasure(System.Double v)
+		public static implicit operator IfcThermalTransmittanceMeasure(double v)
 		{
 			return new IfcThermalTransmittanceMeasure(v);
 		}	
@@ -3230,16 +3230,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcthermodynamictemperaturemeasure.htm
 	/// </summary>
-	public class IfcThermodynamicTemperatureMeasure : IfcType<System.Double>
+	public class IfcThermodynamicTemperatureMeasure : IfcType<double>
 	{
-		public IfcThermodynamicTemperatureMeasure(System.Double value):base(value){}	
+		public IfcThermodynamicTemperatureMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcThermodynamicTemperatureMeasure v)
+		public static implicit operator double(IfcThermodynamicTemperatureMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcThermodynamicTemperatureMeasure(System.Double v)
+		public static implicit operator IfcThermodynamicTemperatureMeasure(double v)
 		{
 			return new IfcThermodynamicTemperatureMeasure(v);
 		}	
@@ -3258,16 +3258,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctime.htm
 	/// </summary>
-	public class IfcTime : IfcType<System.String>
+	public class IfcTime : IfcType<string>
 	{
-		public IfcTime(System.String value):base(value){}	
+		public IfcTime(string value):base(value){}	
 
-		public static implicit operator System.String(IfcTime v)
+		public static implicit operator string(IfcTime v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcTime(System.String v)
+		public static implicit operator IfcTime(string v)
 		{
 			return new IfcTime(v);
 		}	
@@ -3286,16 +3286,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctimemeasure.htm
 	/// </summary>
-	public class IfcTimeMeasure : IfcType<System.Double>
+	public class IfcTimeMeasure : IfcType<double>
 	{
-		public IfcTimeMeasure(System.Double value):base(value){}	
+		public IfcTimeMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcTimeMeasure v)
+		public static implicit operator double(IfcTimeMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcTimeMeasure(System.Double v)
+		public static implicit operator IfcTimeMeasure(double v)
 		{
 			return new IfcTimeMeasure(v);
 		}	
@@ -3314,16 +3314,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctimestamp.htm
 	/// </summary>
-	public class IfcTimeStamp : IfcType<System.Int32>
+	public class IfcTimeStamp : IfcType<int>
 	{
-		public IfcTimeStamp(System.Int32 value):base(value){}	
+		public IfcTimeStamp(int value):base(value){}	
 
-		public static implicit operator System.Int32(IfcTimeStamp v)
+		public static implicit operator int(IfcTimeStamp v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcTimeStamp(System.Int32 v)
+		public static implicit operator IfcTimeStamp(int v)
 		{
 			return new IfcTimeStamp(v);
 		}	
@@ -3342,16 +3342,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctorquemeasure.htm
 	/// </summary>
-	public class IfcTorqueMeasure : IfcType<System.Double>
+	public class IfcTorqueMeasure : IfcType<double>
 	{
-		public IfcTorqueMeasure(System.Double value):base(value){}	
+		public IfcTorqueMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcTorqueMeasure v)
+		public static implicit operator double(IfcTorqueMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcTorqueMeasure(System.Double v)
+		public static implicit operator IfcTorqueMeasure(double v)
 		{
 			return new IfcTorqueMeasure(v);
 		}	
@@ -3370,16 +3370,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcurireference.htm
 	/// </summary>
-	public class IfcURIReference : IfcType<System.String>
+	public class IfcURIReference : IfcType<string>
 	{
-		public IfcURIReference(System.String value):base(value){}	
+		public IfcURIReference(string value):base(value){}	
 
-		public static implicit operator System.String(IfcURIReference v)
+		public static implicit operator string(IfcURIReference v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcURIReference(System.String v)
+		public static implicit operator IfcURIReference(string v)
 		{
 			return new IfcURIReference(v);
 		}	
@@ -3398,16 +3398,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvaporpermeabilitymeasure.htm
 	/// </summary>
-	public class IfcVaporPermeabilityMeasure : IfcType<System.Double>
+	public class IfcVaporPermeabilityMeasure : IfcType<double>
 	{
-		public IfcVaporPermeabilityMeasure(System.Double value):base(value){}	
+		public IfcVaporPermeabilityMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcVaporPermeabilityMeasure v)
+		public static implicit operator double(IfcVaporPermeabilityMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcVaporPermeabilityMeasure(System.Double v)
+		public static implicit operator IfcVaporPermeabilityMeasure(double v)
 		{
 			return new IfcVaporPermeabilityMeasure(v);
 		}	
@@ -3426,16 +3426,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvolumemeasure.htm
 	/// </summary>
-	public class IfcVolumeMeasure : IfcType<System.Double>
+	public class IfcVolumeMeasure : IfcType<double>
 	{
-		public IfcVolumeMeasure(System.Double value):base(value){}	
+		public IfcVolumeMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcVolumeMeasure v)
+		public static implicit operator double(IfcVolumeMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcVolumeMeasure(System.Double v)
+		public static implicit operator IfcVolumeMeasure(double v)
 		{
 			return new IfcVolumeMeasure(v);
 		}	
@@ -3454,16 +3454,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvolumetricflowratemeasure.htm
 	/// </summary>
-	public class IfcVolumetricFlowRateMeasure : IfcType<System.Double>
+	public class IfcVolumetricFlowRateMeasure : IfcType<double>
 	{
-		public IfcVolumetricFlowRateMeasure(System.Double value):base(value){}	
+		public IfcVolumetricFlowRateMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcVolumetricFlowRateMeasure v)
+		public static implicit operator double(IfcVolumetricFlowRateMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcVolumetricFlowRateMeasure(System.Double v)
+		public static implicit operator IfcVolumetricFlowRateMeasure(double v)
 		{
 			return new IfcVolumetricFlowRateMeasure(v);
 		}	
@@ -3482,16 +3482,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwarpingconstantmeasure.htm
 	/// </summary>
-	public class IfcWarpingConstantMeasure : IfcType<System.Double>
+	public class IfcWarpingConstantMeasure : IfcType<double>
 	{
-		public IfcWarpingConstantMeasure(System.Double value):base(value){}	
+		public IfcWarpingConstantMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcWarpingConstantMeasure v)
+		public static implicit operator double(IfcWarpingConstantMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcWarpingConstantMeasure(System.Double v)
+		public static implicit operator IfcWarpingConstantMeasure(double v)
 		{
 			return new IfcWarpingConstantMeasure(v);
 		}	
@@ -3510,16 +3510,16 @@ namespace IFC4
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwarpingmomentmeasure.htm
 	/// </summary>
-	public class IfcWarpingMomentMeasure : IfcType<System.Double>
+	public class IfcWarpingMomentMeasure : IfcType<double>
 	{
-		public IfcWarpingMomentMeasure(System.Double value):base(value){}	
+		public IfcWarpingMomentMeasure(double value):base(value){}	
 
-		public static implicit operator System.Double(IfcWarpingMomentMeasure v)
+		public static implicit operator double(IfcWarpingMomentMeasure v)
 		{
 			return v.Value;
 		}
 
-		public static implicit operator IfcWarpingMomentMeasure(System.Double v)
+		public static implicit operator IfcWarpingMomentMeasure(double v)
 		{
 			return new IfcWarpingMomentMeasure(v);
 		}	
@@ -6076,7 +6076,7 @@ namespace IFC4
 	{
 
 		public IfcAdvancedFace(IfcSurface faceSurface
-				,System.Boolean sameSense
+				,bool sameSense
 				,List<IfcFaceBound> bounds
 				,List<IfcTextureMap> hasTextureMaps
 				,List<IfcPresentationLayerAssignment> layerAssignment
@@ -6881,21 +6881,21 @@ namespace IFC4
 	public abstract partial class IfcBSplineCurve : IfcBoundedCurve
 	{
 		[JsonProperty("degree")]
-		public System.Int32 Degree {get;set;} 
+		public int Degree {get;set;} 
 		[JsonProperty("controlPointsList")]
 		public List<IfcCartesianPoint> ControlPointsList {get;set;} 
 		[JsonProperty("curveForm")]
 		public IfcBSplineCurveForm CurveForm {get;set;} 
 		[JsonProperty("closedCurve")]
-		public System.Boolean ClosedCurve {get;set;} 
+		public bool? ClosedCurve {get;set;} 
 		[JsonProperty("selfIntersect")]
-		public System.Boolean SelfIntersect {get;set;} 
+		public bool? SelfIntersect {get;set;} 
 
-		public IfcBSplineCurve(System.Int32 degree
+		public IfcBSplineCurve(int degree
 				,List<IfcCartesianPoint> controlPointsList
 				,IfcBSplineCurveForm curveForm
-				,System.Boolean closedCurve
-				,System.Boolean selfIntersect
+				,bool? closedCurve
+				,bool? selfIntersect
 				,List<IfcPresentationLayerAssignment> layerAssignment
 				,List<IfcStyledItem> styledByItem
 				) : base(layerAssignment
@@ -6927,20 +6927,20 @@ namespace IFC4
 	public  partial class IfcBSplineCurveWithKnots : IfcBSplineCurve
 	{
 		[JsonProperty("knotMultiplicities")]
-		public List<System.Int32> KnotMultiplicities {get;set;} 
+		public List<int> KnotMultiplicities {get;set;} 
 		[JsonProperty("knots")]
 		public List<IfcParameterValue> Knots {get;set;} 
 		[JsonProperty("knotSpec")]
 		public IfcKnotType KnotSpec {get;set;} 
 
-		public IfcBSplineCurveWithKnots(List<System.Int32> knotMultiplicities
+		public IfcBSplineCurveWithKnots(List<int> knotMultiplicities
 				,List<IfcParameterValue> knots
 				,IfcKnotType knotSpec
-				,System.Int32 degree
+				,int degree
 				,List<IfcCartesianPoint> controlPointsList
 				,IfcBSplineCurveForm curveForm
-				,System.Boolean closedCurve
-				,System.Boolean selfIntersect
+				,bool? closedCurve
+				,bool? selfIntersect
 				,List<IfcPresentationLayerAssignment> layerAssignment
 				,List<IfcStyledItem> styledByItem
 				) : base(degree
@@ -6975,27 +6975,27 @@ namespace IFC4
 	public abstract partial class IfcBSplineSurface : IfcBoundedSurface
 	{
 		[JsonProperty("uDegree")]
-		public System.Int32 UDegree {get;set;} 
+		public int UDegree {get;set;} 
 		[JsonProperty("vDegree")]
-		public System.Int32 VDegree {get;set;} 
+		public int VDegree {get;set;} 
 		[JsonProperty("controlPointsList")]
 		public List<List<IfcCartesianPoint>> ControlPointsList {get;set;} 
 		[JsonProperty("surfaceForm")]
 		public IfcBSplineSurfaceForm SurfaceForm {get;set;} 
 		[JsonProperty("uClosed")]
-		public System.Boolean UClosed {get;set;} 
+		public bool? UClosed {get;set;} 
 		[JsonProperty("vClosed")]
-		public System.Boolean VClosed {get;set;} 
+		public bool? VClosed {get;set;} 
 		[JsonProperty("selfIntersect")]
-		public System.Boolean SelfIntersect {get;set;} 
+		public bool? SelfIntersect {get;set;} 
 
-		public IfcBSplineSurface(System.Int32 uDegree
-				,System.Int32 vDegree
+		public IfcBSplineSurface(int uDegree
+				,int vDegree
 				,List<List<IfcCartesianPoint>> controlPointsList
 				,IfcBSplineSurfaceForm surfaceForm
-				,System.Boolean uClosed
-				,System.Boolean vClosed
-				,System.Boolean selfIntersect
+				,bool? uClosed
+				,bool? vClosed
+				,bool? selfIntersect
 				,List<IfcPresentationLayerAssignment> layerAssignment
 				,List<IfcStyledItem> styledByItem
 				) : base(layerAssignment
@@ -7029,9 +7029,9 @@ namespace IFC4
 	public  partial class IfcBSplineSurfaceWithKnots : IfcBSplineSurface
 	{
 		[JsonProperty("uMultiplicities")]
-		public List<System.Int32> UMultiplicities {get;set;} 
+		public List<int> UMultiplicities {get;set;} 
 		[JsonProperty("vMultiplicities")]
-		public List<System.Int32> VMultiplicities {get;set;} 
+		public List<int> VMultiplicities {get;set;} 
 		[JsonProperty("uKnots")]
 		public List<IfcParameterValue> UKnots {get;set;} 
 		[JsonProperty("vKnots")]
@@ -7039,18 +7039,18 @@ namespace IFC4
 		[JsonProperty("knotSpec")]
 		public IfcKnotType KnotSpec {get;set;} 
 
-		public IfcBSplineSurfaceWithKnots(List<System.Int32> uMultiplicities
-				,List<System.Int32> vMultiplicities
+		public IfcBSplineSurfaceWithKnots(List<int> uMultiplicities
+				,List<int> vMultiplicities
 				,List<IfcParameterValue> uKnots
 				,List<IfcParameterValue> vKnots
 				,IfcKnotType knotSpec
-				,System.Int32 uDegree
-				,System.Int32 vDegree
+				,int uDegree
+				,int vDegree
 				,List<List<IfcCartesianPoint>> controlPointsList
 				,IfcBSplineSurfaceForm surfaceForm
-				,System.Boolean uClosed
-				,System.Boolean vClosed
-				,System.Boolean selfIntersect
+				,bool? uClosed
+				,bool? vClosed
+				,bool? selfIntersect
 				,List<IfcPresentationLayerAssignment> layerAssignment
 				,List<IfcStyledItem> styledByItem
 				) : base(uDegree
@@ -7167,8 +7167,8 @@ namespace IFC4
 
 		public IfcBlobTexture(IfcIdentifier rasterFormat
 				,System.Byte[] rasterCode
-				,System.Boolean repeatS
-				,System.Boolean repeatT
+				,bool repeatS
+				,bool repeatT
 				,List<IfcTextureCoordinate> isMappedBy
 				,List<IfcSurfaceStyleWithTextures> usedInStyles
 				) : base(repeatS
@@ -7384,7 +7384,7 @@ namespace IFC4
 	{
 
 		public IfcBoundaryCurve(List<IfcCompositeCurveSegment> segments
-				,System.Boolean selfIntersect
+				,bool? selfIntersect
 				,List<IfcPresentationLayerAssignment> layerAssignment
 				,List<IfcStyledItem> styledByItem
 				) : base(segments
@@ -7631,7 +7631,7 @@ namespace IFC4
 
 		public IfcBoxedHalfSpace(IfcBoundingBox enclosure
 				,IfcSurface baseSurface
-				,System.Boolean agreementFlag
+				,bool agreementFlag
 				,List<IfcPresentationLayerAssignment> layerAssignment
 				,List<IfcStyledItem> styledByItem
 				) : base(baseSurface
@@ -8271,7 +8271,7 @@ namespace IFC4
 		[JsonProperty("localOrigin")]
 		public IfcCartesianPoint LocalOrigin {get;set;} 
 		[JsonProperty("scale")]
-		public System.Double Scale {get;set;} // optional
+		public double Scale {get;set;} // optional
 
 		public IfcCartesianTransformationOperator(IfcCartesianPoint localOrigin
 				,List<IfcPresentationLayerAssignment> layerAssignment
@@ -8329,7 +8329,7 @@ namespace IFC4
 	public  partial class IfcCartesianTransformationOperator2DnonUniform : IfcCartesianTransformationOperator2D
 	{
 		[JsonProperty("scale2")]
-		public System.Double Scale2 {get;set;} // optional
+		public double Scale2 {get;set;} // optional
 
 		public IfcCartesianTransformationOperator2DnonUniform(IfcCartesianPoint localOrigin
 				,List<IfcPresentationLayerAssignment> layerAssignment
@@ -8389,9 +8389,9 @@ namespace IFC4
 	public  partial class IfcCartesianTransformationOperator3DnonUniform : IfcCartesianTransformationOperator3D
 	{
 		[JsonProperty("scale2")]
-		public System.Double Scale2 {get;set;} // optional
+		public double Scale2 {get;set;} // optional
 		[JsonProperty("scale3")]
-		public System.Double Scale3 {get;set;} // optional
+		public double Scale3 {get;set;} // optional
 
 		public IfcCartesianTransformationOperator3DnonUniform(IfcCartesianPoint localOrigin
 				,List<IfcPresentationLayerAssignment> layerAssignment
@@ -9139,10 +9139,10 @@ namespace IFC4
 		[JsonProperty("segments")]
 		public List<IfcCompositeCurveSegment> Segments {get;set;} 
 		[JsonProperty("selfIntersect")]
-		public System.Boolean SelfIntersect {get;set;} 
+		public bool? SelfIntersect {get;set;} 
 
 		public IfcCompositeCurve(List<IfcCompositeCurveSegment> segments
-				,System.Boolean selfIntersect
+				,bool? selfIntersect
 				,List<IfcPresentationLayerAssignment> layerAssignment
 				,List<IfcStyledItem> styledByItem
 				) : base(layerAssignment
@@ -9172,7 +9172,7 @@ namespace IFC4
 	{
 
 		public IfcCompositeCurveOnSurface(List<IfcCompositeCurveSegment> segments
-				,System.Boolean selfIntersect
+				,bool? selfIntersect
 				,List<IfcPresentationLayerAssignment> layerAssignment
 				,List<IfcStyledItem> styledByItem
 				) : base(segments
@@ -9203,14 +9203,14 @@ namespace IFC4
 		[JsonProperty("transition")]
 		public IfcTransitionCode Transition {get;set;} 
 		[JsonProperty("sameSense")]
-		public System.Boolean SameSense {get;set;} 
+		public bool SameSense {get;set;} 
 		[JsonProperty("parentCurve")]
 		public IfcCurve ParentCurve {get;set;} 
 		[JsonProperty("usingCurves")]
 		public List<IfcCompositeCurve> UsingCurves {get;set;} 
 
 		public IfcCompositeCurveSegment(IfcTransitionCode transition
-				,System.Boolean sameSense
+				,bool sameSense
 				,IfcCurve parentCurve
 				,List<IfcCompositeCurve> usingCurves
 				,List<IfcPresentationLayerAssignment> layerAssignment
@@ -10642,11 +10642,11 @@ namespace IFC4
 		[JsonProperty("boundaries")]
 		public List<IfcBoundaryCurve> Boundaries {get;set;} 
 		[JsonProperty("implicitOuter")]
-		public System.Boolean ImplicitOuter {get;set;} 
+		public bool ImplicitOuter {get;set;} 
 
 		public IfcCurveBoundedSurface(IfcSurface basisSurface
 				,List<IfcBoundaryCurve> boundaries
-				,System.Boolean implicitOuter
+				,bool implicitOuter
 				,List<IfcPresentationLayerAssignment> layerAssignment
 				,List<IfcStyledItem> styledByItem
 				) : base(layerAssignment
@@ -10682,7 +10682,7 @@ namespace IFC4
 		[JsonProperty("curveColour")]
 		public IfcColour CurveColour {get;set;} // optional
 		[JsonProperty("modelOrDraughting")]
-		public System.Boolean ModelOrDraughting {get;set;} // optional
+		public bool ModelOrDraughting {get;set;} // optional
 
 		public IfcCurveStyle() : base()
 		{
@@ -10950,10 +10950,10 @@ namespace IFC4
 		[JsonProperty("unit")]
 		public IfcNamedUnit Unit {get;set;} 
 		[JsonProperty("exponent")]
-		public System.Int32 Exponent {get;set;} 
+		public int Exponent {get;set;} 
 
 		public IfcDerivedUnitElement(IfcNamedUnit unit
-				,System.Int32 exponent
+				,int exponent
 				)
 		{
 			Unit = unit;
@@ -10978,27 +10978,27 @@ namespace IFC4
 	public  partial class IfcDimensionalExponents : IfcBase
 	{
 		[JsonProperty("lengthExponent")]
-		public System.Int32 LengthExponent {get;set;} 
+		public int LengthExponent {get;set;} 
 		[JsonProperty("massExponent")]
-		public System.Int32 MassExponent {get;set;} 
+		public int MassExponent {get;set;} 
 		[JsonProperty("timeExponent")]
-		public System.Int32 TimeExponent {get;set;} 
+		public int TimeExponent {get;set;} 
 		[JsonProperty("electricCurrentExponent")]
-		public System.Int32 ElectricCurrentExponent {get;set;} 
+		public int ElectricCurrentExponent {get;set;} 
 		[JsonProperty("thermodynamicTemperatureExponent")]
-		public System.Int32 ThermodynamicTemperatureExponent {get;set;} 
+		public int ThermodynamicTemperatureExponent {get;set;} 
 		[JsonProperty("amountOfSubstanceExponent")]
-		public System.Int32 AmountOfSubstanceExponent {get;set;} 
+		public int AmountOfSubstanceExponent {get;set;} 
 		[JsonProperty("luminousIntensityExponent")]
-		public System.Int32 LuminousIntensityExponent {get;set;} 
+		public int LuminousIntensityExponent {get;set;} 
 
-		public IfcDimensionalExponents(System.Int32 lengthExponent
-				,System.Int32 massExponent
-				,System.Int32 timeExponent
-				,System.Int32 electricCurrentExponent
-				,System.Int32 thermodynamicTemperatureExponent
-				,System.Int32 amountOfSubstanceExponent
-				,System.Int32 luminousIntensityExponent
+		public IfcDimensionalExponents(int lengthExponent
+				,int massExponent
+				,int timeExponent
+				,int electricCurrentExponent
+				,int thermodynamicTemperatureExponent
+				,int amountOfSubstanceExponent
+				,int luminousIntensityExponent
 				)
 		{
 			LengthExponent = lengthExponent;
@@ -11028,9 +11028,9 @@ namespace IFC4
 	public  partial class IfcDirection : IfcGeometricRepresentationItem
 	{
 		[JsonProperty("directionRatios")]
-		public List<System.Double> DirectionRatios {get;set;} 
+		public List<double> DirectionRatios {get;set;} 
 
-		public IfcDirection(List<System.Double> directionRatios
+		public IfcDirection(List<double> directionRatios
 				,List<IfcPresentationLayerAssignment> layerAssignment
 				,List<IfcStyledItem> styledByItem
 				) : base(layerAssignment
@@ -11655,14 +11655,14 @@ namespace IFC4
 		[JsonProperty("constructionType")]
 		public IfcDoorStyleConstructionEnum ConstructionType {get;set;} 
 		[JsonProperty("parameterTakesPrecedence")]
-		public System.Boolean ParameterTakesPrecedence {get;set;} 
+		public bool ParameterTakesPrecedence {get;set;} 
 		[JsonProperty("sizeable")]
-		public System.Boolean Sizeable {get;set;} 
+		public bool Sizeable {get;set;} 
 
 		public IfcDoorStyle(IfcDoorStyleOperationEnum operationType
 				,IfcDoorStyleConstructionEnum constructionType
-				,System.Boolean parameterTakesPrecedence
-				,System.Boolean sizeable
+				,bool parameterTakesPrecedence
+				,bool sizeable
 				) : base()
 		{
 			OperationType = operationType;
@@ -11693,7 +11693,7 @@ namespace IFC4
 		[JsonProperty("operationType")]
 		public IfcDoorTypeOperationEnum OperationType {get;set;} 
 		[JsonProperty("parameterTakesPrecedence")]
-		public System.Boolean ParameterTakesPrecedence {get;set;} // optional
+		public bool ParameterTakesPrecedence {get;set;} // optional
 		[JsonProperty("userDefinedOperationType")]
 		public IfcLabel UserDefinedOperationType {get;set;} // optional
 
@@ -11957,10 +11957,10 @@ namespace IFC4
 		[JsonProperty("edgeGeometry")]
 		public IfcCurve EdgeGeometry {get;set;} 
 		[JsonProperty("sameSense")]
-		public System.Boolean SameSense {get;set;} 
+		public bool SameSense {get;set;} 
 
 		public IfcEdgeCurve(IfcCurve edgeGeometry
-				,System.Boolean sameSense
+				,bool sameSense
 				,IfcVertex edgeStart
 				,IfcVertex edgeEnd
 				,List<IfcPresentationLayerAssignment> layerAssignment
@@ -13281,10 +13281,10 @@ namespace IFC4
 		[JsonProperty("bound")]
 		public IfcLoop Bound {get;set;} 
 		[JsonProperty("orientation")]
-		public System.Boolean Orientation {get;set;} 
+		public bool Orientation {get;set;} 
 
 		public IfcFaceBound(IfcLoop bound
-				,System.Boolean orientation
+				,bool orientation
 				,List<IfcPresentationLayerAssignment> layerAssignment
 				,List<IfcStyledItem> styledByItem
 				) : base(layerAssignment
@@ -13314,7 +13314,7 @@ namespace IFC4
 	{
 
 		public IfcFaceOuterBound(IfcLoop bound
-				,System.Boolean orientation
+				,bool orientation
 				,List<IfcPresentationLayerAssignment> layerAssignment
 				,List<IfcStyledItem> styledByItem
 				) : base(bound
@@ -13345,10 +13345,10 @@ namespace IFC4
 		[JsonProperty("faceSurface")]
 		public IfcSurface FaceSurface {get;set;} 
 		[JsonProperty("sameSense")]
-		public System.Boolean SameSense {get;set;} 
+		public bool SameSense {get;set;} 
 
 		public IfcFaceSurface(IfcSurface faceSurface
-				,System.Boolean sameSense
+				,bool sameSense
 				,List<IfcFaceBound> bounds
 				,List<IfcTextureMap> hasTextureMaps
 				,List<IfcPresentationLayerAssignment> layerAssignment
@@ -13647,7 +13647,7 @@ namespace IFC4
 		[JsonProperty("fillStyles")]
 		public List<IfcFillStyleSelect> FillStyles {get;set;} 
 		[JsonProperty("modelorDraughting")]
-		public System.Boolean ModelorDraughting {get;set;} // optional
+		public bool ModelorDraughting {get;set;} // optional
 
 		public IfcFillAreaStyle(List<IfcFillStyleSelect> fillStyles
 				) : base()
@@ -14527,7 +14527,7 @@ namespace IFC4
 		[JsonProperty("coordinateSpaceDimension")]
 		public IfcDimensionCount CoordinateSpaceDimension {get;set;} 
 		[JsonProperty("precision")]
-		public System.Double Precision {get;set;} // optional
+		public double Precision {get;set;} // optional
 		[JsonProperty("worldCoordinateSystem")]
 		public IfcAxis2Placement WorldCoordinateSystem {get;set;} 
 		[JsonProperty("trueNorth")]
@@ -14806,10 +14806,10 @@ namespace IFC4
 		[JsonProperty("baseSurface")]
 		public IfcSurface BaseSurface {get;set;} 
 		[JsonProperty("agreementFlag")]
-		public System.Boolean AgreementFlag {get;set;} 
+		public bool AgreementFlag {get;set;} 
 
 		public IfcHalfSpaceSolid(IfcSurface baseSurface
-				,System.Boolean agreementFlag
+				,bool agreementFlag
 				,List<IfcPresentationLayerAssignment> layerAssignment
 				,List<IfcStyledItem> styledByItem
 				) : base(layerAssignment
@@ -14991,8 +14991,8 @@ namespace IFC4
 		public IfcURIReference URLReference {get;set;} 
 
 		public IfcImageTexture(IfcURIReference uRLReference
-				,System.Boolean repeatS
-				,System.Boolean repeatT
+				,bool repeatS
+				,bool repeatT
 				,List<IfcTextureCoordinate> isMappedBy
 				,List<IfcSurfaceStyleWithTextures> usedInStyles
 				) : base(repeatS
@@ -15028,11 +15028,11 @@ namespace IFC4
 		[JsonProperty("colours")]
 		public IfcColourRgbList Colours {get;set;} 
 		[JsonProperty("colourIndex")]
-		public List<System.Int32> ColourIndex {get;set;} 
+		public List<int> ColourIndex {get;set;} 
 
 		public IfcIndexedColourMap(IfcTessellatedFaceSet mappedTo
 				,IfcColourRgbList colours
-				,List<System.Int32> colourIndex
+				,List<int> colourIndex
 				) : base()
 		{
 			MappedTo = mappedTo;
@@ -15090,7 +15090,7 @@ namespace IFC4
 	public  partial class IfcIndexedTriangleTextureMap : IfcIndexedTextureMap
 	{
 		[JsonProperty("texCoordIndex")]
-		public List<List<System.Int32>> TexCoordIndex {get;set;} // optional
+		public List<List<int>> TexCoordIndex {get;set;} // optional
 
 		public IfcIndexedTriangleTextureMap(IfcTessellatedFaceSet mappedTo
 				,IfcTextureVertexList texCoords
@@ -15100,7 +15100,7 @@ namespace IFC4
 					,maps
 					)
 		{
-			TexCoordIndex = new List<List<System.Int32>>();
+			TexCoordIndex = new List<List<int>>();
 
 		}
 
@@ -17346,11 +17346,11 @@ namespace IFC4
 		[JsonProperty("distance")]
 		public IfcLengthMeasure Distance {get;set;} 
 		[JsonProperty("selfIntersect")]
-		public System.Boolean SelfIntersect {get;set;} 
+		public bool? SelfIntersect {get;set;} 
 
 		public IfcOffsetCurve2D(IfcCurve basisCurve
 				,IfcLengthMeasure distance
-				,System.Boolean selfIntersect
+				,bool? selfIntersect
 				,List<IfcPresentationLayerAssignment> layerAssignment
 				,List<IfcStyledItem> styledByItem
 				) : base(layerAssignment
@@ -17384,13 +17384,13 @@ namespace IFC4
 		[JsonProperty("distance")]
 		public IfcLengthMeasure Distance {get;set;} 
 		[JsonProperty("selfIntersect")]
-		public System.Boolean SelfIntersect {get;set;} 
+		public bool? SelfIntersect {get;set;} 
 		[JsonProperty("refDirection")]
 		public IfcDirection RefDirection {get;set;} 
 
 		public IfcOffsetCurve3D(IfcCurve basisCurve
 				,IfcLengthMeasure distance
-				,System.Boolean selfIntersect
+				,bool? selfIntersect
 				,IfcDirection refDirection
 				,List<IfcPresentationLayerAssignment> layerAssignment
 				,List<IfcStyledItem> styledByItem
@@ -17578,10 +17578,10 @@ namespace IFC4
 		[JsonProperty("edgeElement")]
 		public IfcEdge EdgeElement {get;set;} 
 		[JsonProperty("orientation")]
-		public System.Boolean Orientation {get;set;} 
+		public bool Orientation {get;set;} 
 
 		public IfcOrientedEdge(IfcEdge edgeElement
-				,System.Boolean orientation
+				,bool orientation
 				,IfcVertex edgeStart
 				,IfcVertex edgeEnd
 				,List<IfcPresentationLayerAssignment> layerAssignment
@@ -17615,7 +17615,7 @@ namespace IFC4
 	{
 
 		public IfcOuterBoundaryCurve(List<IfcCompositeCurveSegment> segments
-				,System.Boolean selfIntersect
+				,bool? selfIntersect
 				,List<IfcPresentationLayerAssignment> layerAssignment
 				,List<IfcStyledItem> styledByItem
 				) : base(segments
@@ -18276,8 +18276,8 @@ namespace IFC4
 				,IfcInteger height
 				,IfcInteger colourComponents
 				,List<System.Byte[]> pixel
-				,System.Boolean repeatS
-				,System.Boolean repeatT
+				,bool repeatS
+				,bool repeatT
 				,List<IfcTextureCoordinate> isMappedBy
 				,List<IfcSurfaceStyleWithTextures> usedInStyles
 				) : base(repeatS
@@ -18643,7 +18643,7 @@ namespace IFC4
 		public IfcPolygonalBoundedHalfSpace(IfcAxis2Placement3D position
 				,IfcBoundedCurve polygonalBoundary
 				,IfcSurface baseSurface
-				,System.Boolean agreementFlag
+				,bool agreementFlag
 				,List<IfcPresentationLayerAssignment> layerAssignment
 				,List<IfcStyledItem> styledByItem
 				) : base(baseSurface
@@ -18975,17 +18975,17 @@ namespace IFC4
 	public  partial class IfcPresentationLayerWithStyle : IfcPresentationLayerAssignment
 	{
 		[JsonProperty("layerOn")]
-		public System.Boolean LayerOn {get;set;} 
+		public bool? LayerOn {get;set;} 
 		[JsonProperty("layerFrozen")]
-		public System.Boolean LayerFrozen {get;set;} 
+		public bool? LayerFrozen {get;set;} 
 		[JsonProperty("layerBlocked")]
-		public System.Boolean LayerBlocked {get;set;} 
+		public bool? LayerBlocked {get;set;} 
 		[JsonProperty("layerStyles")]
 		public List<IfcPresentationStyle> LayerStyles {get;set;} 
 
-		public IfcPresentationLayerWithStyle(System.Boolean layerOn
-				,System.Boolean layerFrozen
-				,System.Boolean layerBlocked
+		public IfcPresentationLayerWithStyle(bool? layerOn
+				,bool? layerFrozen
+				,bool? layerBlocked
 				,List<IfcPresentationStyle> layerStyles
 				,IfcLabel name
 				,List<IfcLayeredItem> assignedItems
@@ -20537,17 +20537,17 @@ namespace IFC4
 	public  partial class IfcRationalBSplineCurveWithKnots : IfcBSplineCurveWithKnots
 	{
 		[JsonProperty("weightsData")]
-		public List<System.Double> WeightsData {get;set;} 
+		public List<double> WeightsData {get;set;} 
 
-		public IfcRationalBSplineCurveWithKnots(List<System.Double> weightsData
-				,List<System.Int32> knotMultiplicities
+		public IfcRationalBSplineCurveWithKnots(List<double> weightsData
+				,List<int> knotMultiplicities
 				,List<IfcParameterValue> knots
 				,IfcKnotType knotSpec
-				,System.Int32 degree
+				,int degree
 				,List<IfcCartesianPoint> controlPointsList
 				,IfcBSplineCurveForm curveForm
-				,System.Boolean closedCurve
-				,System.Boolean selfIntersect
+				,bool? closedCurve
+				,bool? selfIntersect
 				,List<IfcPresentationLayerAssignment> layerAssignment
 				,List<IfcStyledItem> styledByItem
 				) : base(knotMultiplicities
@@ -20583,21 +20583,21 @@ namespace IFC4
 	public  partial class IfcRationalBSplineSurfaceWithKnots : IfcBSplineSurfaceWithKnots
 	{
 		[JsonProperty("weightsData")]
-		public List<List<System.Double>> WeightsData {get;set;} 
+		public List<List<double>> WeightsData {get;set;} 
 
-		public IfcRationalBSplineSurfaceWithKnots(List<List<System.Double>> weightsData
-				,List<System.Int32> uMultiplicities
-				,List<System.Int32> vMultiplicities
+		public IfcRationalBSplineSurfaceWithKnots(List<List<double>> weightsData
+				,List<int> uMultiplicities
+				,List<int> vMultiplicities
 				,List<IfcParameterValue> uKnots
 				,List<IfcParameterValue> vKnots
 				,IfcKnotType knotSpec
-				,System.Int32 uDegree
-				,System.Int32 vDegree
+				,int uDegree
+				,int vDegree
 				,List<List<IfcCartesianPoint>> controlPointsList
 				,IfcBSplineSurfaceForm surfaceForm
-				,System.Boolean uClosed
-				,System.Boolean vClosed
-				,System.Boolean selfIntersect
+				,bool? uClosed
+				,bool? vClosed
+				,bool? selfIntersect
 				,List<IfcPresentationLayerAssignment> layerAssignment
 				,List<IfcStyledItem> styledByItem
 				) : base(uMultiplicities
@@ -20763,17 +20763,17 @@ namespace IFC4
 		[JsonProperty("v2")]
 		public IfcParameterValue V2 {get;set;} 
 		[JsonProperty("usense")]
-		public System.Boolean Usense {get;set;} 
+		public bool Usense {get;set;} 
 		[JsonProperty("vsense")]
-		public System.Boolean Vsense {get;set;} 
+		public bool Vsense {get;set;} 
 
 		public IfcRectangularTrimmedSurface(IfcSurface basisSurface
 				,IfcParameterValue u1
 				,IfcParameterValue v1
 				,IfcParameterValue u2
 				,IfcParameterValue v2
-				,System.Boolean usense
-				,System.Boolean vsense
+				,bool usense
+				,bool vsense
 				,List<IfcPresentationLayerAssignment> layerAssignment
 				,List<IfcStyledItem> styledByItem
 				) : base(layerAssignment
@@ -20857,13 +20857,13 @@ namespace IFC4
 		[JsonProperty("instanceName")]
 		public IfcLabel InstanceName {get;set;} // optional
 		[JsonProperty("listPositions")]
-		public List<System.Int32> ListPositions {get;set;} // optional
+		public List<int> ListPositions {get;set;} // optional
 		[JsonProperty("innerReference")]
 		public IfcReference InnerReference {get;set;} // optional
 
 		public IfcReference()
 		{
-			ListPositions = new List<System.Int32>();
+			ListPositions = new List<int>();
 
 		}
 
@@ -21710,16 +21710,16 @@ namespace IFC4
 	public  partial class IfcRelConnectsPathElements : IfcRelConnectsElements
 	{
 		[JsonProperty("relatingPriorities")]
-		public List<System.Double> RelatingPriorities {get;set;} 
+		public List<double> RelatingPriorities {get;set;} 
 		[JsonProperty("relatedPriorities")]
-		public List<System.Double> RelatedPriorities {get;set;} 
+		public List<double> RelatedPriorities {get;set;} 
 		[JsonProperty("relatedConnectionType")]
 		public IfcConnectionTypeEnum RelatedConnectionType {get;set;} 
 		[JsonProperty("relatingConnectionType")]
 		public IfcConnectionTypeEnum RelatingConnectionType {get;set;} 
 
-		public IfcRelConnectsPathElements(List<System.Double> relatingPriorities
-				,List<System.Double> relatedPriorities
+		public IfcRelConnectsPathElements(List<double> relatingPriorities
+				,List<double> relatedPriorities
 				,IfcConnectionTypeEnum relatedConnectionType
 				,IfcConnectionTypeEnum relatingConnectionType
 				,IfcElement relatingElement
@@ -22296,11 +22296,11 @@ namespace IFC4
 		[JsonProperty("interferenceType")]
 		public IfcIdentifier InterferenceType {get;set;} // optional
 		[JsonProperty("impliedOrder")]
-		public System.Boolean ImpliedOrder {get;set;} 
+		public bool? ImpliedOrder {get;set;} 
 
 		public IfcRelInterferesElements(IfcElement relatingElement
 				,IfcElement relatedElement
-				,System.Boolean impliedOrder
+				,bool? impliedOrder
 				) : base()
 		{
 			RelatingElement = relatingElement;
@@ -22646,7 +22646,7 @@ namespace IFC4
 
 		public IfcReparametrisedCompositeCurveSegment(IfcParameterValue paramLength
 				,IfcTransitionCode transition
-				,System.Boolean sameSense
+				,bool sameSense
 				,IfcCurve parentCurve
 				,List<IfcCompositeCurve> usingCurves
 				,List<IfcPresentationLayerAssignment> layerAssignment
@@ -22950,7 +22950,7 @@ namespace IFC4
 		[JsonProperty("levelingDelay")]
 		public IfcDuration LevelingDelay {get;set;} // optional
 		[JsonProperty("isOverAllocated")]
-		public System.Boolean IsOverAllocated {get;set;} // optional
+		public bool IsOverAllocated {get;set;} // optional
 		[JsonProperty("statusTime")]
 		public IfcDateTime StatusTime {get;set;} // optional
 		[JsonProperty("actualWork")]
@@ -23585,12 +23585,12 @@ namespace IFC4
 		[JsonProperty("description")]
 		public IfcText Description {get;set;} // optional
 		[JsonProperty("productDefinitional")]
-		public System.Boolean ProductDefinitional {get;set;} 
+		public bool? ProductDefinitional {get;set;} 
 		[JsonProperty("partOfProductDefinitionShape")]
 		public IfcProductRepresentationSelect PartOfProductDefinitionShape {get;set;} // optional
 
 		public IfcShapeAspect(List<IfcShapeModel> shapeRepresentations
-				,System.Boolean productDefinitional
+				,bool? productDefinitional
 				)
 		{
 			ShapeRepresentations = shapeRepresentations;
@@ -24387,9 +24387,9 @@ namespace IFC4
 	public  partial class IfcStairFlight : IfcBuildingElement
 	{
 		[JsonProperty("numberOfRiser")]
-		public System.Int32 NumberOfRiser {get;set;} // optional
+		public int NumberOfRiser {get;set;} // optional
 		[JsonProperty("numberOfTreads")]
-		public System.Int32 NumberOfTreads {get;set;} // optional
+		public int NumberOfTreads {get;set;} // optional
 		[JsonProperty("riserHeight")]
 		public IfcPositiveLengthMeasure RiserHeight {get;set;} // optional
 		[JsonProperty("treadLength")]
@@ -24471,7 +24471,7 @@ namespace IFC4
 	public abstract partial class IfcStructuralAction : IfcStructuralActivity
 	{
 		[JsonProperty("destabilizingLoad")]
-		public System.Boolean DestabilizingLoad {get;set;} // optional
+		public bool DestabilizingLoad {get;set;} // optional
 
 		public IfcStructuralAction(IfcStructuralLoad appliedLoad
 				,IfcGlobalOrLocalEnum globalOrLocal
@@ -25355,12 +25355,12 @@ namespace IFC4
 		[JsonProperty("resultForLoadGroup")]
 		public IfcStructuralLoadGroup ResultForLoadGroup {get;set;} // optional
 		[JsonProperty("isLinear")]
-		public System.Boolean IsLinear {get;set;} 
+		public bool IsLinear {get;set;} 
 		[JsonProperty("resultGroupFor")]
 		public List<IfcStructuralAnalysisModel> ResultGroupFor {get;set;} 
 
 		public IfcStructuralResultGroup(IfcAnalysisTheoryTypeEnum theoryType
-				,System.Boolean isLinear
+				,bool isLinear
 				,List<IfcStructuralAnalysisModel> resultGroupFor
 				) : base()
 		{
@@ -26081,9 +26081,9 @@ namespace IFC4
 	public abstract partial class IfcSurfaceTexture : IfcPresentationItem
 	{
 		[JsonProperty("repeatS")]
-		public System.Boolean RepeatS {get;set;} 
+		public bool RepeatS {get;set;} 
 		[JsonProperty("repeatT")]
-		public System.Boolean RepeatT {get;set;} 
+		public bool RepeatT {get;set;} 
 		[JsonProperty("mode")]
 		public IfcIdentifier Mode {get;set;} // optional
 		[JsonProperty("textureTransform")]
@@ -26095,8 +26095,8 @@ namespace IFC4
 		[JsonProperty("usedInStyles")]
 		public List<IfcSurfaceStyleWithTextures> UsedInStyles {get;set;} 
 
-		public IfcSurfaceTexture(System.Boolean repeatS
-				,System.Boolean repeatT
+		public IfcSurfaceTexture(bool repeatS
+				,bool repeatT
 				,List<IfcTextureCoordinate> isMappedBy
 				,List<IfcSurfaceStyleWithTextures> usedInStyles
 				) : base()
@@ -26502,7 +26502,7 @@ namespace IFC4
 		[JsonProperty("rowCells")]
 		public List<IfcValue> RowCells {get;set;} // optional
 		[JsonProperty("isHeading")]
-		public System.Boolean IsHeading {get;set;} // optional
+		public bool IsHeading {get;set;} // optional
 		[JsonProperty("ofTable")]
 		public IfcTable OfTable {get;set;} 
 
@@ -26585,15 +26585,15 @@ namespace IFC4
 		[JsonProperty("workMethod")]
 		public IfcLabel WorkMethod {get;set;} // optional
 		[JsonProperty("isMilestone")]
-		public System.Boolean IsMilestone {get;set;} 
+		public bool IsMilestone {get;set;} 
 		[JsonProperty("priority")]
-		public System.Int32 Priority {get;set;} // optional
+		public int Priority {get;set;} // optional
 		[JsonProperty("taskTime")]
 		public IfcTaskTime TaskTime {get;set;} // optional
 		[JsonProperty("predefinedType")]
 		public IfcTaskTypeEnum PredefinedType {get;set;} // optional
 
-		public IfcTask(System.Boolean isMilestone
+		public IfcTask(bool isMilestone
 				) : base()
 		{
 			IsMilestone = isMilestone;
@@ -26637,7 +26637,7 @@ namespace IFC4
 		[JsonProperty("totalFloat")]
 		public IfcDuration TotalFloat {get;set;} // optional
 		[JsonProperty("isCritical")]
-		public System.Boolean IsCritical {get;set;} // optional
+		public bool IsCritical {get;set;} // optional
 		[JsonProperty("statusTime")]
 		public IfcDateTime StatusTime {get;set;} // optional
 		[JsonProperty("actualDuration")]
@@ -26893,7 +26893,7 @@ namespace IFC4
 		[JsonProperty("normals")]
 		public List<List<IfcParameterValue>> Normals {get;set;} // optional
 		[JsonProperty("closed")]
-		public System.Boolean Closed {get;set;} // optional
+		public bool Closed {get;set;} // optional
 		[JsonProperty("hasColours")]
 		public List<IfcIndexedColourMap> HasColours {get;set;} 
 		[JsonProperty("hasTextures")]
@@ -27042,7 +27042,7 @@ namespace IFC4
 		[JsonProperty("textFontStyle")]
 		public IfcTextFontSelect TextFontStyle {get;set;} 
 		[JsonProperty("modelOrDraughting")]
-		public System.Boolean ModelOrDraughting {get;set;} // optional
+		public bool ModelOrDraughting {get;set;} // optional
 
 		public IfcTextStyle(IfcTextFontSelect textFontStyle
 				) : base()
@@ -27623,11 +27623,11 @@ namespace IFC4
 	public  partial class IfcTriangulatedFaceSet : IfcTessellatedFaceSet
 	{
 		[JsonProperty("coordIndex")]
-		public List<List<System.Int32>> CoordIndex {get;set;} 
+		public List<List<int>> CoordIndex {get;set;} 
 		[JsonProperty("normalIndex")]
-		public List<List<System.Int32>> NormalIndex {get;set;} // optional
+		public List<List<int>> NormalIndex {get;set;} // optional
 
-		public IfcTriangulatedFaceSet(List<List<System.Int32>> coordIndex
+		public IfcTriangulatedFaceSet(List<List<int>> coordIndex
 				,IfcCartesianPointList3D coordinates
 				,List<IfcIndexedColourMap> hasColours
 				,List<IfcIndexedTextureMap> hasTextures
@@ -27641,7 +27641,7 @@ namespace IFC4
 					)
 		{
 			CoordIndex = coordIndex;
-			NormalIndex = new List<List<System.Int32>>();
+			NormalIndex = new List<List<int>>();
 
 		}
 
@@ -27668,14 +27668,14 @@ namespace IFC4
 		[JsonProperty("trim2")]
 		public List<IfcTrimmingSelect> Trim2 {get;set;} 
 		[JsonProperty("senseAgreement")]
-		public System.Boolean SenseAgreement {get;set;} 
+		public bool SenseAgreement {get;set;} 
 		[JsonProperty("masterRepresentation")]
 		public IfcTrimmingPreference MasterRepresentation {get;set;} 
 
 		public IfcTrimmedCurve(IfcCurve basisCurve
 				,List<IfcTrimmingSelect> trim1
 				,List<IfcTrimmingSelect> trim2
-				,System.Boolean senseAgreement
+				,bool senseAgreement
 				,IfcTrimmingPreference masterRepresentation
 				,List<IfcPresentationLayerAssignment> layerAssignment
 				,List<IfcStyledItem> styledByItem
@@ -28636,14 +28636,14 @@ namespace IFC4
 		[JsonProperty("operationType")]
 		public IfcWindowStyleOperationEnum OperationType {get;set;} 
 		[JsonProperty("parameterTakesPrecedence")]
-		public System.Boolean ParameterTakesPrecedence {get;set;} 
+		public bool ParameterTakesPrecedence {get;set;} 
 		[JsonProperty("sizeable")]
-		public System.Boolean Sizeable {get;set;} 
+		public bool Sizeable {get;set;} 
 
 		public IfcWindowStyle(IfcWindowStyleConstructionEnum constructionType
 				,IfcWindowStyleOperationEnum operationType
-				,System.Boolean parameterTakesPrecedence
-				,System.Boolean sizeable
+				,bool parameterTakesPrecedence
+				,bool sizeable
 				) : base()
 		{
 			ConstructionType = constructionType;
@@ -28674,7 +28674,7 @@ namespace IFC4
 		[JsonProperty("partitioningType")]
 		public IfcWindowTypePartitioningEnum PartitioningType {get;set;} 
 		[JsonProperty("parameterTakesPrecedence")]
-		public System.Boolean ParameterTakesPrecedence {get;set;} // optional
+		public bool ParameterTakesPrecedence {get;set;} // optional
 		[JsonProperty("userDefinedPartitioningType")]
 		public IfcLabel UserDefinedPartitioningType {get;set;} // optional
 
