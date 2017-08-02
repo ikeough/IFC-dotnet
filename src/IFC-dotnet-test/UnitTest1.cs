@@ -16,7 +16,7 @@ namespace test
 			p1.Name = "Test Project";
 			p1.Description = "A test of IFC-dotnet.";
 			
-			var p2 = JsonConvert.DeserializeObject<IfcProject>(p1.ToString());
+			var p2 = JsonConvert.DeserializeObject<IfcProject>(p1.ToJSON());
 			Assert.Equal(p1.Name.Value, p2.Name.Value);
 			Assert.Equal(p1.Description.Value, p2.Description.Value);
 		}
