@@ -7,6 +7,56 @@ using Newtonsoft.Json;
 	
 namespace IFC4
 {
+	public abstract class IfcBase
+	{
+		[JsonProperty("id")]
+		public Guid Id{get;}
+
+		public IfcBase()
+		{
+			Id = Guid.NewGuid();
+		}
+
+		public virtual string ToJSON()
+		{
+			var settings = new JsonSerializerSettings()
+			{
+				Formatting = Formatting.Indented,
+				TypeNameHandling = TypeNameHandling.Objects
+			};
+			return JsonConvert.SerializeObject(this);
+		}
+
+		public virtual string ToSTEP()
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	public abstract class Select : IfcBase
+	{
+		[JsonProperty("value")]
+		public dynamic Value {get;protected set;}
+	}
+
+	/// <summary>
+	/// A type wrapper for IFC.
+	/// </summary>
+	public class IfcType<T> : IfcBase
+	{
+		[JsonProperty("value")]
+		public T Value{get;set;}
+		public IfcType(T value)
+		{
+			Value = value;
+		}
+
+		public static implicit operator IfcType<T>(T value)
+		{
+			return new IfcType<T>(value);
+		}
+	}
+	
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcabsorbeddosemeasure.htm
 	/// </summary>
@@ -5838,15 +5888,13 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcActionRequest : IfcControl
 	{
-		[JsonProperty("predefinedType")]
-		public IfcActionRequestTypeEnum PredefinedType {get;set;} // optional
-		[JsonProperty("status")]
-		public IfcLabel Status {get;set;} // optional
-		[JsonProperty("longDescription")]
-		public IfcText LongDescription {get;set;} // optional
+		public IfcActionRequestTypeEnum PredefinedType{get;set;} // optional
+		public IfcLabel Status{get;set;} // optional
+		public IfcText LongDescription{get;set;} // optional
 
-		public IfcActionRequest() : base()
+		public IfcActionRequest(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -5862,19 +5910,40 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccontrol.htm"/>
+	/// </summary>
+	public abstract partial class IfcControl : IfcObject
+	{
+		public IfcIdentifier Identification{get;set;} // optional
+
+		public IfcControl(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcControl FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcControl>(json);
+		}
+
+		public static new IfcControl FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcactor.htm"/>
 	/// </summary>
 	public  partial class IfcActor : IfcObject
 	{
-		[JsonProperty("theActor")]
-		public IfcActorSelect TheActor {get;set;} 
-		[JsonProperty("isActingUpon")]
-		public List<IfcRelAssignsToActor> IsActingUpon {get;set;} 
+		public IfcActorSelect TheActor{get;set;} 
 
-		public IfcActor(IfcActorSelect theActor
-				) : base()
+		public IfcActor(IfcActorSelect theActor,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			TheActor = theActor;
+
 
 		}
 
@@ -5890,25 +5959,66 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcoccupant.htm"/>
+	/// </summary>
+	public  partial class IfcOccupant : IfcActor
+	{
+		public IfcOccupantTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcOccupant(IfcActorSelect theActor,IfcGloballyUniqueId globalId):base(theActor,globalId)
+		{
+
+
+		}
+
+		public static new IfcOccupant FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcOccupant>(json);
+		}
+
+		public static new IfcOccupant FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcobject.htm"/>
+	/// </summary>
+	public abstract partial class IfcObject : IfcObjectDefinition
+	{
+		public IfcLabel ObjectType{get;set;} // optional
+
+		public IfcObject(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcObject FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcObject>(json);
+		}
+
+		public static new IfcObject FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcactorrole.htm"/>
 	/// </summary>
 	public  partial class IfcActorRole : IfcBase
 	{
-		[JsonProperty("role")]
-		public IfcRoleEnum Role {get;set;} 
-		[JsonProperty("userDefinedRole")]
-		public IfcLabel UserDefinedRole {get;set;} // optional
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("hasExternalReference")]
-		public List<IfcExternalReferenceRelationship> HasExternalReference {get;set;} 
+		public IfcRoleEnum Role{get;set;} 
+		public IfcLabel UserDefinedRole{get;set;} // optional
+		public IfcText Description{get;set;} // optional
 
-		public IfcActorRole(IfcRoleEnum role
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				)
+		public IfcActorRole(IfcRoleEnum role):base()
 		{
 			Role = role;
-			HasExternalReference = hasExternalReference;
+
 
 		}
 
@@ -5928,11 +6038,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcActuator : IfcDistributionControlElement
 	{
-		[JsonProperty("predefinedType")]
-		public IfcActuatorTypeEnum PredefinedType {get;set;} // optional
+		public IfcActuatorTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcActuator() : base()
+		public IfcActuator(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -5948,17 +6058,39 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdistributioncontrolelement.htm"/>
+	/// </summary>
+	public  partial class IfcDistributionControlElement : IfcDistributionElement
+	{
+
+		public IfcDistributionControlElement(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcDistributionControlElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDistributionControlElement>(json);
+		}
+
+		public static new IfcDistributionControlElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcactuatortype.htm"/>
 	/// </summary>
 	public  partial class IfcActuatorType : IfcDistributionControlElementType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcActuatorTypeEnum PredefinedType {get;set;} 
+		public IfcActuatorTypeEnum PredefinedType{get;set;} 
 
-		public IfcActuatorType(IfcActuatorTypeEnum predefinedType
-				) : base()
+		public IfcActuatorType(IfcActuatorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -5974,27 +6106,40 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdistributioncontrolelementtype.htm"/>
+	/// </summary>
+	public abstract partial class IfcDistributionControlElementType : IfcDistributionElementType
+	{
+
+		public IfcDistributionControlElementType(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcDistributionControlElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDistributionControlElementType>(json);
+		}
+
+		public static new IfcDistributionControlElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcaddress.htm"/>
 	/// </summary>
 	public abstract partial class IfcAddress : IfcBase
 	{
-		[JsonProperty("purpose")]
-		public IfcAddressTypeEnum Purpose {get;set;} // optional
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("userDefinedPurpose")]
-		public IfcLabel UserDefinedPurpose {get;set;} // optional
-		[JsonProperty("ofPerson")]
-		public List<IfcPerson> OfPerson {get;set;} 
-		[JsonProperty("ofOrganization")]
-		public List<IfcOrganization> OfOrganization {get;set;} 
+		public IfcAddressTypeEnum Purpose{get;set;} // optional
+		public IfcText Description{get;set;} // optional
+		public IfcLabel UserDefinedPurpose{get;set;} // optional
 
-		public IfcAddress(List<IfcPerson> ofPerson
-				,List<IfcOrganization> ofOrganization
-				)
+		public IfcAddress():base()
 		{
-			OfPerson = ofPerson;
-			OfOrganization = ofOrganization;
+
 
 		}
 
@@ -6010,19 +6155,78 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpostaladdress.htm"/>
+	/// </summary>
+	public  partial class IfcPostalAddress : IfcAddress
+	{
+		public IfcLabel InternalLocation{get;set;} // optional
+		public List<IfcLabel> AddressLines{get;set;} // optional
+		public IfcLabel PostalBox{get;set;} // optional
+		public IfcLabel Town{get;set;} // optional
+		public IfcLabel Region{get;set;} // optional
+		public IfcLabel PostalCode{get;set;} // optional
+		public IfcLabel Country{get;set;} // optional
+
+		public IfcPostalAddress():base()
+		{
+
+			AddressLines = new List<IfcLabel>();
+
+		}
+
+		public static new IfcPostalAddress FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPostalAddress>(json);
+		}
+
+		public static new IfcPostalAddress FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctelecomaddress.htm"/>
+	/// </summary>
+	public  partial class IfcTelecomAddress : IfcAddress
+	{
+		public List<IfcLabel> TelephoneNumbers{get;set;} // optional
+		public List<IfcLabel> FacsimileNumbers{get;set;} // optional
+		public IfcLabel PagerNumber{get;set;} // optional
+		public List<IfcLabel> ElectronicMailAddresses{get;set;} // optional
+		public IfcURIReference WWWHomePageURL{get;set;} // optional
+		public List<IfcURIReference> MessagingIDs{get;set;} // optional
+
+		public IfcTelecomAddress():base()
+		{
+
+			TelephoneNumbers = new List<IfcLabel>();
+			FacsimileNumbers = new List<IfcLabel>();
+			ElectronicMailAddresses = new List<IfcLabel>();
+			MessagingIDs = new List<IfcURIReference>();
+
+		}
+
+		public static new IfcTelecomAddress FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTelecomAddress>(json);
+		}
+
+		public static new IfcTelecomAddress FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcadvancedbrep.htm"/>
 	/// </summary>
 	public  partial class IfcAdvancedBrep : IfcManifoldSolidBrep
 	{
 
-		public IfcAdvancedBrep(IfcClosedShell outer
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(outer
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcAdvancedBrep(IfcClosedShell outer):base(outer)
 		{
+
 
 		}
 
@@ -6042,19 +6246,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcAdvancedBrepWithVoids : IfcAdvancedBrep
 	{
-		[JsonProperty("voids")]
-		public List<IfcClosedShell> Voids {get;set;} 
+		public List<IfcClosedShell> Voids{get;set;} 
 
-		public IfcAdvancedBrepWithVoids(List<IfcClosedShell> voids
-				,IfcClosedShell outer
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(outer
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcAdvancedBrepWithVoids(List<IfcClosedShell> voids,IfcClosedShell outer):base(outer)
 		{
 			Voids = voids;
+
 
 		}
 
@@ -6070,25 +6267,39 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmanifoldsolidbrep.htm"/>
+	/// </summary>
+	public abstract partial class IfcManifoldSolidBrep : IfcSolidModel
+	{
+		public IfcClosedShell Outer{get;set;} 
+
+		public IfcManifoldSolidBrep(IfcClosedShell outer):base()
+		{
+			Outer = outer;
+
+
+		}
+
+		public static new IfcManifoldSolidBrep FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcManifoldSolidBrep>(json);
+		}
+
+		public static new IfcManifoldSolidBrep FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcadvancedface.htm"/>
 	/// </summary>
 	public  partial class IfcAdvancedFace : IfcFaceSurface
 	{
 
-		public IfcAdvancedFace(IfcSurface faceSurface
-				,bool sameSense
-				,List<IfcFaceBound> bounds
-				,List<IfcTextureMap> hasTextureMaps
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(faceSurface
-					,sameSense
-					,bounds
-					,hasTextureMaps
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcAdvancedFace(IfcSurface faceSurface,bool sameSense,List<IfcFaceBound> bounds):base(faceSurface,sameSense,bounds)
 		{
+
 
 		}
 
@@ -6104,15 +6315,42 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfacesurface.htm"/>
+	/// </summary>
+	public  partial class IfcFaceSurface : IfcFace
+	{
+		public IfcSurface FaceSurface{get;set;} 
+		public bool SameSense{get;set;} 
+
+		public IfcFaceSurface(IfcSurface faceSurface,bool sameSense,List<IfcFaceBound> bounds):base(bounds)
+		{
+			FaceSurface = faceSurface;
+			SameSense = sameSense;
+
+
+		}
+
+		public static new IfcFaceSurface FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFaceSurface>(json);
+		}
+
+		public static new IfcFaceSurface FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcairterminal.htm"/>
 	/// </summary>
 	public  partial class IfcAirTerminal : IfcFlowTerminal
 	{
-		[JsonProperty("predefinedType")]
-		public IfcAirTerminalTypeEnum PredefinedType {get;set;} // optional
+		public IfcAirTerminalTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcAirTerminal() : base()
+		public IfcAirTerminal(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -6128,15 +6366,38 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowterminal.htm"/>
+	/// </summary>
+	public  partial class IfcFlowTerminal : IfcDistributionFlowElement
+	{
+
+		public IfcFlowTerminal(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcFlowTerminal FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowTerminal>(json);
+		}
+
+		public static new IfcFlowTerminal FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcairterminalbox.htm"/>
 	/// </summary>
 	public  partial class IfcAirTerminalBox : IfcFlowController
 	{
-		[JsonProperty("predefinedType")]
-		public IfcAirTerminalBoxTypeEnum PredefinedType {get;set;} // optional
+		public IfcAirTerminalBoxTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcAirTerminalBox() : base()
+		public IfcAirTerminalBox(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -6152,17 +6413,39 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowcontroller.htm"/>
+	/// </summary>
+	public  partial class IfcFlowController : IfcDistributionFlowElement
+	{
+
+		public IfcFlowController(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcFlowController FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowController>(json);
+		}
+
+		public static new IfcFlowController FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcairterminalboxtype.htm"/>
 	/// </summary>
 	public  partial class IfcAirTerminalBoxType : IfcFlowControllerType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcAirTerminalBoxTypeEnum PredefinedType {get;set;} 
+		public IfcAirTerminalBoxTypeEnum PredefinedType{get;set;} 
 
-		public IfcAirTerminalBoxType(IfcAirTerminalBoxTypeEnum predefinedType
-				) : base()
+		public IfcAirTerminalBoxType(IfcAirTerminalBoxTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -6178,17 +6461,39 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowcontrollertype.htm"/>
+	/// </summary>
+	public abstract partial class IfcFlowControllerType : IfcDistributionFlowElementType
+	{
+
+		public IfcFlowControllerType(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcFlowControllerType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowControllerType>(json);
+		}
+
+		public static new IfcFlowControllerType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcairterminaltype.htm"/>
 	/// </summary>
 	public  partial class IfcAirTerminalType : IfcFlowTerminalType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcAirTerminalTypeEnum PredefinedType {get;set;} 
+		public IfcAirTerminalTypeEnum PredefinedType{get;set;} 
 
-		public IfcAirTerminalType(IfcAirTerminalTypeEnum predefinedType
-				) : base()
+		public IfcAirTerminalType(IfcAirTerminalTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -6204,15 +6509,38 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowterminaltype.htm"/>
+	/// </summary>
+	public abstract partial class IfcFlowTerminalType : IfcDistributionFlowElementType
+	{
+
+		public IfcFlowTerminalType(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcFlowTerminalType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowTerminalType>(json);
+		}
+
+		public static new IfcFlowTerminalType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcairtoairheatrecovery.htm"/>
 	/// </summary>
 	public  partial class IfcAirToAirHeatRecovery : IfcEnergyConversionDevice
 	{
-		[JsonProperty("predefinedType")]
-		public IfcAirToAirHeatRecoveryTypeEnum PredefinedType {get;set;} // optional
+		public IfcAirToAirHeatRecoveryTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcAirToAirHeatRecovery() : base()
+		public IfcAirToAirHeatRecovery(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -6228,17 +6556,39 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcenergyconversiondevice.htm"/>
+	/// </summary>
+	public  partial class IfcEnergyConversionDevice : IfcDistributionFlowElement
+	{
+
+		public IfcEnergyConversionDevice(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcEnergyConversionDevice FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcEnergyConversionDevice>(json);
+		}
+
+		public static new IfcEnergyConversionDevice FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcairtoairheatrecoverytype.htm"/>
 	/// </summary>
 	public  partial class IfcAirToAirHeatRecoveryType : IfcEnergyConversionDeviceType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcAirToAirHeatRecoveryTypeEnum PredefinedType {get;set;} 
+		public IfcAirToAirHeatRecoveryTypeEnum PredefinedType{get;set;} 
 
-		public IfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryTypeEnum predefinedType
-				) : base()
+		public IfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -6254,15 +6604,38 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcenergyconversiondevicetype.htm"/>
+	/// </summary>
+	public abstract partial class IfcEnergyConversionDeviceType : IfcDistributionFlowElementType
+	{
+
+		public IfcEnergyConversionDeviceType(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcEnergyConversionDeviceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcEnergyConversionDeviceType>(json);
+		}
+
+		public static new IfcEnergyConversionDeviceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcalarm.htm"/>
 	/// </summary>
 	public  partial class IfcAlarm : IfcDistributionControlElement
 	{
-		[JsonProperty("predefinedType")]
-		public IfcAlarmTypeEnum PredefinedType {get;set;} // optional
+		public IfcAlarmTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcAlarm() : base()
+		public IfcAlarm(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -6282,13 +6655,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcAlarmType : IfcDistributionControlElementType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcAlarmTypeEnum PredefinedType {get;set;} 
+		public IfcAlarmTypeEnum PredefinedType{get;set;} 
 
-		public IfcAlarmType(IfcAlarmTypeEnum predefinedType
-				) : base()
+		public IfcAlarmType(IfcAlarmTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -6308,11 +6680,10 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcAnnotation : IfcProduct
 	{
-		[JsonProperty("containedInStructure")]
-		public List<IfcRelContainedInSpatialStructure> ContainedInStructure {get;set;} 
 
-		public IfcAnnotation() : base()
+		public IfcAnnotation(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -6328,23 +6699,42 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcproduct.htm"/>
+	/// </summary>
+	public abstract partial class IfcProduct : IfcObject
+	{
+		public IfcObjectPlacement ObjectPlacement{get;set;} // optional
+		public IfcProductRepresentation Representation{get;set;} // optional
+
+		public IfcProduct(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcProduct FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProduct>(json);
+		}
+
+		public static new IfcProduct FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcannotationfillarea.htm"/>
 	/// </summary>
 	public  partial class IfcAnnotationFillArea : IfcGeometricRepresentationItem
 	{
-		[JsonProperty("outerBoundary")]
-		public IfcCurve OuterBoundary {get;set;} 
-		[JsonProperty("innerBoundaries")]
-		public List<IfcCurve> InnerBoundaries {get;set;} // optional
+		public IfcCurve OuterBoundary{get;set;} 
+		public List<IfcCurve> InnerBoundaries{get;set;} // optional
 
-		public IfcAnnotationFillArea(IfcCurve outerBoundary
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcAnnotationFillArea(IfcCurve outerBoundary):base()
 		{
 			OuterBoundary = outerBoundary;
+
 			InnerBoundaries = new List<IfcCurve>();
 
 		}
@@ -6361,29 +6751,45 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcgeometricrepresentationitem.htm"/>
+	/// </summary>
+	public abstract partial class IfcGeometricRepresentationItem : IfcRepresentationItem
+	{
+
+		public IfcGeometricRepresentationItem():base()
+		{
+
+
+		}
+
+		public static new IfcGeometricRepresentationItem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcGeometricRepresentationItem>(json);
+		}
+
+		public static new IfcGeometricRepresentationItem FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcapplication.htm"/>
 	/// </summary>
 	public  partial class IfcApplication : IfcBase
 	{
-		[JsonProperty("applicationDeveloper")]
-		public IfcOrganization ApplicationDeveloper {get;set;} 
-		[JsonProperty("version")]
-		public IfcLabel Version {get;set;} 
-		[JsonProperty("applicationFullName")]
-		public IfcLabel ApplicationFullName {get;set;} 
-		[JsonProperty("applicationIdentifier")]
-		public IfcIdentifier ApplicationIdentifier {get;set;} 
+		public IfcOrganization ApplicationDeveloper{get;set;} 
+		public IfcLabel Version{get;set;} 
+		public IfcLabel ApplicationFullName{get;set;} 
+		public IfcIdentifier ApplicationIdentifier{get;set;} 
 
-		public IfcApplication(IfcOrganization applicationDeveloper
-				,IfcLabel version
-				,IfcLabel applicationFullName
-				,IfcIdentifier applicationIdentifier
-				)
+		public IfcApplication(IfcOrganization applicationDeveloper,IfcLabel version,IfcLabel applicationFullName,IfcIdentifier applicationIdentifier):base()
 		{
 			ApplicationDeveloper = applicationDeveloper;
 			Version = version;
 			ApplicationFullName = applicationFullName;
 			ApplicationIdentifier = applicationIdentifier;
+
 
 		}
 
@@ -6403,33 +6809,20 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcAppliedValue : IfcBase
 	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("appliedValue")]
-		public IfcAppliedValueSelect AppliedValue {get;set;} // optional
-		[JsonProperty("unitBasis")]
-		public IfcMeasureWithUnit UnitBasis {get;set;} // optional
-		[JsonProperty("applicableDate")]
-		public IfcDate ApplicableDate {get;set;} // optional
-		[JsonProperty("fixedUntilDate")]
-		public IfcDate FixedUntilDate {get;set;} // optional
-		[JsonProperty("category")]
-		public IfcLabel Category {get;set;} // optional
-		[JsonProperty("condition")]
-		public IfcLabel Condition {get;set;} // optional
-		[JsonProperty("arithmeticOperator")]
-		public IfcArithmeticOperatorEnum ArithmeticOperator {get;set;} // optional
-		[JsonProperty("components")]
-		public List<IfcAppliedValue> Components {get;set;} // optional
-		[JsonProperty("hasExternalReference")]
-		public List<IfcExternalReferenceRelationship> HasExternalReference {get;set;} 
+		public IfcLabel Name{get;set;} // optional
+		public IfcText Description{get;set;} // optional
+		public IfcAppliedValueSelect AppliedValue{get;set;} // optional
+		public IfcMeasureWithUnit UnitBasis{get;set;} // optional
+		public IfcDate ApplicableDate{get;set;} // optional
+		public IfcDate FixedUntilDate{get;set;} // optional
+		public IfcLabel Category{get;set;} // optional
+		public IfcLabel Condition{get;set;} // optional
+		public IfcArithmeticOperatorEnum ArithmeticOperator{get;set;} // optional
+		public List<IfcAppliedValue> Components{get;set;} // optional
 
-		public IfcAppliedValue(List<IfcExternalReferenceRelationship> hasExternalReference
-				)
+		public IfcAppliedValue():base()
 		{
-			HasExternalReference = hasExternalReference;
+
 			Components = new List<IfcAppliedValue>();
 
 		}
@@ -6446,49 +6839,46 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccostvalue.htm"/>
+	/// </summary>
+	public  partial class IfcCostValue : IfcAppliedValue
+	{
+
+		public IfcCostValue():base()
+		{
+
+
+		}
+
+		public static new IfcCostValue FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCostValue>(json);
+		}
+
+		public static new IfcCostValue FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcapproval.htm"/>
 	/// </summary>
 	public  partial class IfcApproval : IfcBase
 	{
-		[JsonProperty("identifier")]
-		public IfcIdentifier Identifier {get;set;} // optional
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("timeOfApproval")]
-		public IfcDateTime TimeOfApproval {get;set;} // optional
-		[JsonProperty("status")]
-		public IfcLabel Status {get;set;} // optional
-		[JsonProperty("level")]
-		public IfcLabel Level {get;set;} // optional
-		[JsonProperty("qualifier")]
-		public IfcText Qualifier {get;set;} // optional
-		[JsonProperty("requestingApproval")]
-		public IfcActorSelect RequestingApproval {get;set;} // optional
-		[JsonProperty("givingApproval")]
-		public IfcActorSelect GivingApproval {get;set;} // optional
-		[JsonProperty("hasExternalReferences")]
-		public List<IfcExternalReferenceRelationship> HasExternalReferences {get;set;} 
-		[JsonProperty("approvedObjects")]
-		public List<IfcRelAssociatesApproval> ApprovedObjects {get;set;} 
-		[JsonProperty("approvedResources")]
-		public List<IfcResourceApprovalRelationship> ApprovedResources {get;set;} 
-		[JsonProperty("isRelatedWith")]
-		public List<IfcApprovalRelationship> IsRelatedWith {get;set;} 
-		[JsonProperty("relates")]
-		public List<IfcApprovalRelationship> Relates {get;set;} 
+		public IfcIdentifier Identifier{get;set;} // optional
+		public IfcLabel Name{get;set;} // optional
+		public IfcText Description{get;set;} // optional
+		public IfcDateTime TimeOfApproval{get;set;} // optional
+		public IfcLabel Status{get;set;} // optional
+		public IfcLabel Level{get;set;} // optional
+		public IfcText Qualifier{get;set;} // optional
+		public IfcActorSelect RequestingApproval{get;set;} // optional
+		public IfcActorSelect GivingApproval{get;set;} // optional
 
-		public IfcApproval(List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcResourceApprovalRelationship> approvedResources
-				,List<IfcApprovalRelationship> isRelatedWith
-				,List<IfcApprovalRelationship> relates
-				)
+		public IfcApproval():base()
 		{
-			HasExternalReferences = hasExternalReferences;
-			ApprovedResources = approvedResources;
-			IsRelatedWith = isRelatedWith;
-			Relates = relates;
+
 
 		}
 
@@ -6508,17 +6898,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcApprovalRelationship : IfcResourceLevelRelationship
 	{
-		[JsonProperty("relatingApproval")]
-		public IfcApproval RelatingApproval {get;set;} 
-		[JsonProperty("relatedApprovals")]
-		public List<IfcApproval> RelatedApprovals {get;set;} 
+		public IfcApproval RelatingApproval{get;set;} 
+		public List<IfcApproval> RelatedApprovals{get;set;} 
 
-		public IfcApprovalRelationship(IfcApproval relatingApproval
-				,List<IfcApproval> relatedApprovals
-				) : base()
+		public IfcApprovalRelationship(IfcApproval relatingApproval,List<IfcApproval> relatedApprovals):base()
 		{
 			RelatingApproval = relatingApproval;
 			RelatedApprovals = relatedApprovals;
+
 
 		}
 
@@ -6534,23 +6921,41 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcresourcelevelrelationship.htm"/>
+	/// </summary>
+	public abstract partial class IfcResourceLevelRelationship : IfcBase
+	{
+		public IfcLabel Name{get;set;} // optional
+		public IfcText Description{get;set;} // optional
+
+		public IfcResourceLevelRelationship():base()
+		{
+
+
+		}
+
+		public static  IfcResourceLevelRelationship FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcResourceLevelRelationship>(json);
+		}
+
+		public static  IfcResourceLevelRelationship FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcarbitraryclosedprofiledef.htm"/>
 	/// </summary>
 	public  partial class IfcArbitraryClosedProfileDef : IfcProfileDef
 	{
-		[JsonProperty("outerCurve")]
-		public IfcCurve OuterCurve {get;set;} 
+		public IfcCurve OuterCurve{get;set;} 
 
-		public IfcArbitraryClosedProfileDef(IfcCurve outerCurve
-				,IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(profileType
-					,hasExternalReference
-					,hasProperties
-					)
+		public IfcArbitraryClosedProfileDef(IfcCurve outerCurve,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			OuterCurve = outerCurve;
+
 
 		}
 
@@ -6566,57 +6971,16 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcarbitraryopenprofiledef.htm"/>
-	/// </summary>
-	public  partial class IfcArbitraryOpenProfileDef : IfcProfileDef
-	{
-		[JsonProperty("curve")]
-		public IfcBoundedCurve Curve {get;set;} 
-
-		public IfcArbitraryOpenProfileDef(IfcBoundedCurve curve
-				,IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(profileType
-					,hasExternalReference
-					,hasProperties
-					)
-		{
-			Curve = curve;
-
-		}
-
-		public static new IfcArbitraryOpenProfileDef FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcArbitraryOpenProfileDef>(json);
-		}
-
-		public static new IfcArbitraryOpenProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcarbitraryprofiledefwithvoids.htm"/>
 	/// </summary>
 	public  partial class IfcArbitraryProfileDefWithVoids : IfcArbitraryClosedProfileDef
 	{
-		[JsonProperty("innerCurves")]
-		public List<IfcCurve> InnerCurves {get;set;} 
+		public List<IfcCurve> InnerCurves{get;set;} 
 
-		public IfcArbitraryProfileDefWithVoids(List<IfcCurve> innerCurves
-				,IfcCurve outerCurve
-				,IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(outerCurve
-					,profileType
-					,hasExternalReference
-					,hasProperties
-					)
+		public IfcArbitraryProfileDefWithVoids(List<IfcCurve> innerCurves,IfcCurve outerCurve,IfcProfileTypeEnum profileType):base(outerCurve,profileType)
 		{
 			InnerCurves = innerCurves;
+
 
 		}
 
@@ -6632,31 +6996,99 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprofiledef.htm"/>
+	/// </summary>
+	public  partial class IfcProfileDef : IfcBase
+	{
+		public IfcProfileTypeEnum ProfileType{get;set;} 
+		public IfcLabel ProfileName{get;set;} // optional
+
+		public IfcProfileDef(IfcProfileTypeEnum profileType):base()
+		{
+			ProfileType = profileType;
+
+
+		}
+
+		public static  IfcProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProfileDef>(json);
+		}
+
+		public static  IfcProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcarbitraryopenprofiledef.htm"/>
+	/// </summary>
+	public  partial class IfcArbitraryOpenProfileDef : IfcProfileDef
+	{
+		public IfcBoundedCurve Curve{get;set;} 
+
+		public IfcArbitraryOpenProfileDef(IfcBoundedCurve curve,IfcProfileTypeEnum profileType):base(profileType)
+		{
+			Curve = curve;
+
+
+		}
+
+		public static new IfcArbitraryOpenProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcArbitraryOpenProfileDef>(json);
+		}
+
+		public static new IfcArbitraryOpenProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccenterlineprofiledef.htm"/>
+	/// </summary>
+	public  partial class IfcCenterLineProfileDef : IfcArbitraryOpenProfileDef
+	{
+		public IfcPositiveLengthMeasure Thickness{get;set;} 
+
+		public IfcCenterLineProfileDef(IfcPositiveLengthMeasure thickness,IfcBoundedCurve curve,IfcProfileTypeEnum profileType):base(curve,profileType)
+		{
+			Thickness = thickness;
+
+
+		}
+
+		public static new IfcCenterLineProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCenterLineProfileDef>(json);
+		}
+
+		public static new IfcCenterLineProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcasset.htm"/>
 	/// </summary>
 	public  partial class IfcAsset : IfcGroup
 	{
-		[JsonProperty("identification")]
-		public IfcIdentifier Identification {get;set;} // optional
-		[JsonProperty("originalValue")]
-		public IfcCostValue OriginalValue {get;set;} // optional
-		[JsonProperty("currentValue")]
-		public IfcCostValue CurrentValue {get;set;} // optional
-		[JsonProperty("totalReplacementCost")]
-		public IfcCostValue TotalReplacementCost {get;set;} // optional
-		[JsonProperty("owner")]
-		public IfcActorSelect Owner {get;set;} // optional
-		[JsonProperty("user")]
-		public IfcActorSelect User {get;set;} // optional
-		[JsonProperty("responsiblePerson")]
-		public IfcPerson ResponsiblePerson {get;set;} // optional
-		[JsonProperty("incorporationDate")]
-		public IfcDate IncorporationDate {get;set;} // optional
-		[JsonProperty("depreciatedValue")]
-		public IfcCostValue DepreciatedValue {get;set;} // optional
+		public IfcIdentifier Identification{get;set;} // optional
+		public IfcCostValue OriginalValue{get;set;} // optional
+		public IfcCostValue CurrentValue{get;set;} // optional
+		public IfcCostValue TotalReplacementCost{get;set;} // optional
+		public IfcActorSelect Owner{get;set;} // optional
+		public IfcActorSelect User{get;set;} // optional
+		public IfcPerson ResponsiblePerson{get;set;} // optional
+		public IfcDate IncorporationDate{get;set;} // optional
+		public IfcCostValue DepreciatedValue{get;set;} // optional
 
-		public IfcAsset() : base()
+		public IfcAsset(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -6672,53 +7104,54 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcgroup.htm"/>
+	/// </summary>
+	public  partial class IfcGroup : IfcObject
+	{
+
+		public IfcGroup(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcGroup FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcGroup>(json);
+		}
+
+		public static new IfcGroup FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcasymmetricishapeprofiledef.htm"/>
 	/// </summary>
 	public  partial class IfcAsymmetricIShapeProfileDef : IfcParameterizedProfileDef
 	{
-		[JsonProperty("bottomFlangeWidth")]
-		public IfcPositiveLengthMeasure BottomFlangeWidth {get;set;} 
-		[JsonProperty("overallDepth")]
-		public IfcPositiveLengthMeasure OverallDepth {get;set;} 
-		[JsonProperty("webThickness")]
-		public IfcPositiveLengthMeasure WebThickness {get;set;} 
-		[JsonProperty("bottomFlangeThickness")]
-		public IfcPositiveLengthMeasure BottomFlangeThickness {get;set;} 
-		[JsonProperty("bottomFlangeFilletRadius")]
-		public IfcNonNegativeLengthMeasure BottomFlangeFilletRadius {get;set;} // optional
-		[JsonProperty("topFlangeWidth")]
-		public IfcPositiveLengthMeasure TopFlangeWidth {get;set;} 
-		[JsonProperty("topFlangeThickness")]
-		public IfcPositiveLengthMeasure TopFlangeThickness {get;set;} // optional
-		[JsonProperty("topFlangeFilletRadius")]
-		public IfcNonNegativeLengthMeasure TopFlangeFilletRadius {get;set;} // optional
-		[JsonProperty("bottomFlangeEdgeRadius")]
-		public IfcNonNegativeLengthMeasure BottomFlangeEdgeRadius {get;set;} // optional
-		[JsonProperty("bottomFlangeSlope")]
-		public IfcPlaneAngleMeasure BottomFlangeSlope {get;set;} // optional
-		[JsonProperty("topFlangeEdgeRadius")]
-		public IfcNonNegativeLengthMeasure TopFlangeEdgeRadius {get;set;} // optional
-		[JsonProperty("topFlangeSlope")]
-		public IfcPlaneAngleMeasure TopFlangeSlope {get;set;} // optional
+		public IfcPositiveLengthMeasure BottomFlangeWidth{get;set;} 
+		public IfcPositiveLengthMeasure OverallDepth{get;set;} 
+		public IfcPositiveLengthMeasure WebThickness{get;set;} 
+		public IfcPositiveLengthMeasure BottomFlangeThickness{get;set;} 
+		public IfcNonNegativeLengthMeasure BottomFlangeFilletRadius{get;set;} // optional
+		public IfcPositiveLengthMeasure TopFlangeWidth{get;set;} 
+		public IfcPositiveLengthMeasure TopFlangeThickness{get;set;} // optional
+		public IfcNonNegativeLengthMeasure TopFlangeFilletRadius{get;set;} // optional
+		public IfcNonNegativeLengthMeasure BottomFlangeEdgeRadius{get;set;} // optional
+		public IfcPlaneAngleMeasure BottomFlangeSlope{get;set;} // optional
+		public IfcNonNegativeLengthMeasure TopFlangeEdgeRadius{get;set;} // optional
+		public IfcPlaneAngleMeasure TopFlangeSlope{get;set;} // optional
 
-		public IfcAsymmetricIShapeProfileDef(IfcPositiveLengthMeasure bottomFlangeWidth
-				,IfcPositiveLengthMeasure overallDepth
-				,IfcPositiveLengthMeasure webThickness
-				,IfcPositiveLengthMeasure bottomFlangeThickness
-				,IfcPositiveLengthMeasure topFlangeWidth
-				,IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(profileType
-					,hasExternalReference
-					,hasProperties
-					)
+		public IfcAsymmetricIShapeProfileDef(IfcPositiveLengthMeasure bottomFlangeWidth,IfcPositiveLengthMeasure overallDepth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure bottomFlangeThickness,IfcPositiveLengthMeasure topFlangeWidth,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			BottomFlangeWidth = bottomFlangeWidth;
 			OverallDepth = overallDepth;
 			WebThickness = webThickness;
 			BottomFlangeThickness = bottomFlangeThickness;
 			TopFlangeWidth = topFlangeWidth;
+
 
 		}
 
@@ -6734,15 +7167,39 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcparameterizedprofiledef.htm"/>
+	/// </summary>
+	public abstract partial class IfcParameterizedProfileDef : IfcProfileDef
+	{
+		public IfcAxis2Placement2D Position{get;set;} // optional
+
+		public IfcParameterizedProfileDef(IfcProfileTypeEnum profileType):base(profileType)
+		{
+
+
+		}
+
+		public static new IfcParameterizedProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcParameterizedProfileDef>(json);
+		}
+
+		public static new IfcParameterizedProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcaudiovisualappliance.htm"/>
 	/// </summary>
 	public  partial class IfcAudioVisualAppliance : IfcFlowTerminal
 	{
-		[JsonProperty("predefinedType")]
-		public IfcAudioVisualApplianceTypeEnum PredefinedType {get;set;} // optional
+		public IfcAudioVisualApplianceTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcAudioVisualAppliance() : base()
+		public IfcAudioVisualAppliance(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -6762,13 +7219,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcAudioVisualApplianceType : IfcFlowTerminalType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcAudioVisualApplianceTypeEnum PredefinedType {get;set;} 
+		public IfcAudioVisualApplianceTypeEnum PredefinedType{get;set;} 
 
-		public IfcAudioVisualApplianceType(IfcAudioVisualApplianceTypeEnum predefinedType
-				) : base()
+		public IfcAudioVisualApplianceType(IfcAudioVisualApplianceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -6788,17 +7244,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcAxis1Placement : IfcPlacement
 	{
-		[JsonProperty("axis")]
-		public IfcDirection Axis {get;set;} // optional
+		public IfcDirection Axis{get;set;} // optional
 
-		public IfcAxis1Placement(IfcCartesianPoint location
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(location
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcAxis1Placement(IfcCartesianPoint location):base(location)
 		{
+
 
 		}
 
@@ -6814,21 +7264,40 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcplacement.htm"/>
+	/// </summary>
+	public abstract partial class IfcPlacement : IfcGeometricRepresentationItem
+	{
+		public IfcCartesianPoint Location{get;set;} 
+
+		public IfcPlacement(IfcCartesianPoint location):base()
+		{
+			Location = location;
+
+
+		}
+
+		public static new IfcPlacement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPlacement>(json);
+		}
+
+		public static new IfcPlacement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcaxis2placement2d.htm"/>
 	/// </summary>
 	public  partial class IfcAxis2Placement2D : IfcPlacement
 	{
-		[JsonProperty("refDirection")]
-		public IfcDirection RefDirection {get;set;} // optional
+		public IfcDirection RefDirection{get;set;} // optional
 
-		public IfcAxis2Placement2D(IfcCartesianPoint location
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(location
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcAxis2Placement2D(IfcCartesianPoint location):base(location)
 		{
+
 
 		}
 
@@ -6848,19 +7317,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcAxis2Placement3D : IfcPlacement
 	{
-		[JsonProperty("axis")]
-		public IfcDirection Axis {get;set;} // optional
-		[JsonProperty("refDirection")]
-		public IfcDirection RefDirection {get;set;} // optional
+		public IfcDirection Axis{get;set;} // optional
+		public IfcDirection RefDirection{get;set;} // optional
 
-		public IfcAxis2Placement3D(IfcCartesianPoint location
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(location
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcAxis2Placement3D(IfcCartesianPoint location):base(location)
 		{
+
 
 		}
 
@@ -6880,33 +7342,20 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcBSplineCurve : IfcBoundedCurve
 	{
-		[JsonProperty("degree")]
-		public int Degree {get;set;} 
-		[JsonProperty("controlPointsList")]
-		public List<IfcCartesianPoint> ControlPointsList {get;set;} 
-		[JsonProperty("curveForm")]
-		public IfcBSplineCurveForm CurveForm {get;set;} 
-		[JsonProperty("closedCurve")]
-		public bool? ClosedCurve {get;set;} 
-		[JsonProperty("selfIntersect")]
-		public bool? SelfIntersect {get;set;} 
+		public int Degree{get;set;} 
+		public List<IfcCartesianPoint> ControlPointsList{get;set;} 
+		public IfcBSplineCurveForm CurveForm{get;set;} 
+		public bool? ClosedCurve{get;set;} 
+		public bool? SelfIntersect{get;set;} 
 
-		public IfcBSplineCurve(int degree
-				,List<IfcCartesianPoint> controlPointsList
-				,IfcBSplineCurveForm curveForm
-				,bool? closedCurve
-				,bool? selfIntersect
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcBSplineCurve(int degree,List<IfcCartesianPoint> controlPointsList,IfcBSplineCurveForm curveForm,bool? closedCurve,bool? selfIntersect):base()
 		{
 			Degree = degree;
 			ControlPointsList = controlPointsList;
 			CurveForm = curveForm;
 			ClosedCurve = closedCurve;
 			SelfIntersect = selfIntersect;
+
 
 		}
 
@@ -6926,35 +7375,16 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcBSplineCurveWithKnots : IfcBSplineCurve
 	{
-		[JsonProperty("knotMultiplicities")]
-		public List<int> KnotMultiplicities {get;set;} 
-		[JsonProperty("knots")]
-		public List<IfcParameterValue> Knots {get;set;} 
-		[JsonProperty("knotSpec")]
-		public IfcKnotType KnotSpec {get;set;} 
+		public List<int> KnotMultiplicities{get;set;} 
+		public List<IfcParameterValue> Knots{get;set;} 
+		public IfcKnotType KnotSpec{get;set;} 
 
-		public IfcBSplineCurveWithKnots(List<int> knotMultiplicities
-				,List<IfcParameterValue> knots
-				,IfcKnotType knotSpec
-				,int degree
-				,List<IfcCartesianPoint> controlPointsList
-				,IfcBSplineCurveForm curveForm
-				,bool? closedCurve
-				,bool? selfIntersect
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(degree
-					,controlPointsList
-					,curveForm
-					,closedCurve
-					,selfIntersect
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcBSplineCurveWithKnots(List<int> knotMultiplicities,List<IfcParameterValue> knots,IfcKnotType knotSpec,int degree,List<IfcCartesianPoint> controlPointsList,IfcBSplineCurveForm curveForm,bool? closedCurve,bool? selfIntersect):base(degree,controlPointsList,curveForm,closedCurve,selfIntersect)
 		{
 			KnotMultiplicities = knotMultiplicities;
 			Knots = knots;
 			KnotSpec = knotSpec;
+
 
 		}
 
@@ -6970,37 +7400,67 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcboundedcurve.htm"/>
+	/// </summary>
+	public abstract partial class IfcBoundedCurve : IfcCurve
+	{
+
+		public IfcBoundedCurve():base()
+		{
+
+
+		}
+
+		public static new IfcBoundedCurve FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBoundedCurve>(json);
+		}
+
+		public static new IfcBoundedCurve FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrationalbsplinecurvewithknots.htm"/>
+	/// </summary>
+	public  partial class IfcRationalBSplineCurveWithKnots : IfcBSplineCurveWithKnots
+	{
+		public List<double> WeightsData{get;set;} 
+
+		public IfcRationalBSplineCurveWithKnots(List<double> weightsData,List<int> knotMultiplicities,List<IfcParameterValue> knots,IfcKnotType knotSpec,int degree,List<IfcCartesianPoint> controlPointsList,IfcBSplineCurveForm curveForm,bool? closedCurve,bool? selfIntersect):base(knotMultiplicities,knots,knotSpec,degree,controlPointsList,curveForm,closedCurve,selfIntersect)
+		{
+			WeightsData = weightsData;
+
+
+		}
+
+		public static new IfcRationalBSplineCurveWithKnots FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRationalBSplineCurveWithKnots>(json);
+		}
+
+		public static new IfcRationalBSplineCurveWithKnots FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcbsplinesurface.htm"/>
 	/// </summary>
 	public abstract partial class IfcBSplineSurface : IfcBoundedSurface
 	{
-		[JsonProperty("uDegree")]
-		public int UDegree {get;set;} 
-		[JsonProperty("vDegree")]
-		public int VDegree {get;set;} 
-		[JsonProperty("controlPointsList")]
-		public List<List<IfcCartesianPoint>> ControlPointsList {get;set;} 
-		[JsonProperty("surfaceForm")]
-		public IfcBSplineSurfaceForm SurfaceForm {get;set;} 
-		[JsonProperty("uClosed")]
-		public bool? UClosed {get;set;} 
-		[JsonProperty("vClosed")]
-		public bool? VClosed {get;set;} 
-		[JsonProperty("selfIntersect")]
-		public bool? SelfIntersect {get;set;} 
+		public int UDegree{get;set;} 
+		public int VDegree{get;set;} 
+		public List<List<IfcCartesianPoint>> ControlPointsList{get;set;} 
+		public IfcBSplineSurfaceForm SurfaceForm{get;set;} 
+		public bool? UClosed{get;set;} 
+		public bool? VClosed{get;set;} 
+		public bool? SelfIntersect{get;set;} 
 
-		public IfcBSplineSurface(int uDegree
-				,int vDegree
-				,List<List<IfcCartesianPoint>> controlPointsList
-				,IfcBSplineSurfaceForm surfaceForm
-				,bool? uClosed
-				,bool? vClosed
-				,bool? selfIntersect
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcBSplineSurface(int uDegree,int vDegree,List<List<IfcCartesianPoint>> controlPointsList,IfcBSplineSurfaceForm surfaceForm,bool? uClosed,bool? vClosed,bool? selfIntersect):base()
 		{
 			UDegree = uDegree;
 			VDegree = vDegree;
@@ -7009,6 +7469,7 @@ namespace IFC4
 			UClosed = uClosed;
 			VClosed = vClosed;
 			SelfIntersect = selfIntersect;
+
 
 		}
 
@@ -7028,47 +7489,20 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcBSplineSurfaceWithKnots : IfcBSplineSurface
 	{
-		[JsonProperty("uMultiplicities")]
-		public List<int> UMultiplicities {get;set;} 
-		[JsonProperty("vMultiplicities")]
-		public List<int> VMultiplicities {get;set;} 
-		[JsonProperty("uKnots")]
-		public List<IfcParameterValue> UKnots {get;set;} 
-		[JsonProperty("vKnots")]
-		public List<IfcParameterValue> VKnots {get;set;} 
-		[JsonProperty("knotSpec")]
-		public IfcKnotType KnotSpec {get;set;} 
+		public List<int> UMultiplicities{get;set;} 
+		public List<int> VMultiplicities{get;set;} 
+		public List<IfcParameterValue> UKnots{get;set;} 
+		public List<IfcParameterValue> VKnots{get;set;} 
+		public IfcKnotType KnotSpec{get;set;} 
 
-		public IfcBSplineSurfaceWithKnots(List<int> uMultiplicities
-				,List<int> vMultiplicities
-				,List<IfcParameterValue> uKnots
-				,List<IfcParameterValue> vKnots
-				,IfcKnotType knotSpec
-				,int uDegree
-				,int vDegree
-				,List<List<IfcCartesianPoint>> controlPointsList
-				,IfcBSplineSurfaceForm surfaceForm
-				,bool? uClosed
-				,bool? vClosed
-				,bool? selfIntersect
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(uDegree
-					,vDegree
-					,controlPointsList
-					,surfaceForm
-					,uClosed
-					,vClosed
-					,selfIntersect
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcBSplineSurfaceWithKnots(List<int> uMultiplicities,List<int> vMultiplicities,List<IfcParameterValue> uKnots,List<IfcParameterValue> vKnots,IfcKnotType knotSpec,int uDegree,int vDegree,List<List<IfcCartesianPoint>> controlPointsList,IfcBSplineSurfaceForm surfaceForm,bool? uClosed,bool? vClosed,bool? selfIntersect):base(uDegree,vDegree,controlPointsList,surfaceForm,uClosed,vClosed,selfIntersect)
 		{
 			UMultiplicities = uMultiplicities;
 			VMultiplicities = vMultiplicities;
 			UKnots = uKnots;
 			VKnots = vKnots;
 			KnotSpec = knotSpec;
+
 
 		}
 
@@ -7084,15 +7518,63 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcboundedsurface.htm"/>
+	/// </summary>
+	public abstract partial class IfcBoundedSurface : IfcSurface
+	{
+
+		public IfcBoundedSurface():base()
+		{
+
+
+		}
+
+		public static new IfcBoundedSurface FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBoundedSurface>(json);
+		}
+
+		public static new IfcBoundedSurface FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrationalbsplinesurfacewithknots.htm"/>
+	/// </summary>
+	public  partial class IfcRationalBSplineSurfaceWithKnots : IfcBSplineSurfaceWithKnots
+	{
+		public List<List<double>> WeightsData{get;set;} 
+
+		public IfcRationalBSplineSurfaceWithKnots(List<List<double>> weightsData,List<int> uMultiplicities,List<int> vMultiplicities,List<IfcParameterValue> uKnots,List<IfcParameterValue> vKnots,IfcKnotType knotSpec,int uDegree,int vDegree,List<List<IfcCartesianPoint>> controlPointsList,IfcBSplineSurfaceForm surfaceForm,bool? uClosed,bool? vClosed,bool? selfIntersect):base(uMultiplicities,vMultiplicities,uKnots,vKnots,knotSpec,uDegree,vDegree,controlPointsList,surfaceForm,uClosed,vClosed,selfIntersect)
+		{
+			WeightsData = weightsData;
+
+
+		}
+
+		public static new IfcRationalBSplineSurfaceWithKnots FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRationalBSplineSurfaceWithKnots>(json);
+		}
+
+		public static new IfcRationalBSplineSurfaceWithKnots FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcbeam.htm"/>
 	/// </summary>
 	public  partial class IfcBeam : IfcBuildingElement
 	{
-		[JsonProperty("predefinedType")]
-		public IfcBeamTypeEnum PredefinedType {get;set;} // optional
+		public IfcBeamTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcBeam() : base()
+		public IfcBeam(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -7113,8 +7595,9 @@ namespace IFC4
 	public  partial class IfcBeamStandardCase : IfcBeam
 	{
 
-		public IfcBeamStandardCase() : base()
+		public IfcBeamStandardCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -7130,17 +7613,39 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcbuildingelement.htm"/>
+	/// </summary>
+	public abstract partial class IfcBuildingElement : IfcElement
+	{
+
+		public IfcBuildingElement(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcBuildingElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBuildingElement>(json);
+		}
+
+		public static new IfcBuildingElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcbeamtype.htm"/>
 	/// </summary>
 	public  partial class IfcBeamType : IfcBuildingElementType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcBeamTypeEnum PredefinedType {get;set;} 
+		public IfcBeamTypeEnum PredefinedType{get;set;} 
 
-		public IfcBeamType(IfcBeamTypeEnum predefinedType
-				) : base()
+		public IfcBeamType(IfcBeamTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -7156,29 +7661,41 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcbuildingelementtype.htm"/>
+	/// </summary>
+	public abstract partial class IfcBuildingElementType : IfcElementType
+	{
+
+		public IfcBuildingElementType(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcBuildingElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBuildingElementType>(json);
+		}
+
+		public static new IfcBuildingElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcblobtexture.htm"/>
 	/// </summary>
 	public  partial class IfcBlobTexture : IfcSurfaceTexture
 	{
-		[JsonProperty("rasterFormat")]
-		public IfcIdentifier RasterFormat {get;set;} 
-		[JsonProperty("rasterCode")]
-		public System.Byte[] RasterCode {get;set;} 
+		public IfcIdentifier RasterFormat{get;set;} 
+		public byte[] RasterCode{get;set;} 
 
-		public IfcBlobTexture(IfcIdentifier rasterFormat
-				,System.Byte[] rasterCode
-				,bool repeatS
-				,bool repeatT
-				,List<IfcTextureCoordinate> isMappedBy
-				,List<IfcSurfaceStyleWithTextures> usedInStyles
-				) : base(repeatS
-					,repeatT
-					,isMappedBy
-					,usedInStyles
-					)
+		public IfcBlobTexture(IfcIdentifier rasterFormat,byte[] rasterCode,bool repeatS,bool repeatT):base(repeatS,repeatT)
 		{
 			RasterFormat = rasterFormat;
 			RasterCode = rasterCode;
+
 
 		}
 
@@ -7194,31 +7711,51 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsurfacetexture.htm"/>
+	/// </summary>
+	public abstract partial class IfcSurfaceTexture : IfcPresentationItem
+	{
+		public bool RepeatS{get;set;} 
+		public bool RepeatT{get;set;} 
+		public IfcIdentifier Mode{get;set;} // optional
+		public IfcCartesianTransformationOperator2D TextureTransform{get;set;} // optional
+		public List<IfcIdentifier> Parameter{get;set;} // optional
+
+		public IfcSurfaceTexture(bool repeatS,bool repeatT):base()
+		{
+			RepeatS = repeatS;
+			RepeatT = repeatT;
+
+			Parameter = new List<IfcIdentifier>();
+
+		}
+
+		public static new IfcSurfaceTexture FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurfaceTexture>(json);
+		}
+
+		public static new IfcSurfaceTexture FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcblock.htm"/>
 	/// </summary>
 	public  partial class IfcBlock : IfcCsgPrimitive3D
 	{
-		[JsonProperty("xLength")]
-		public IfcPositiveLengthMeasure XLength {get;set;} 
-		[JsonProperty("yLength")]
-		public IfcPositiveLengthMeasure YLength {get;set;} 
-		[JsonProperty("zLength")]
-		public IfcPositiveLengthMeasure ZLength {get;set;} 
+		public IfcPositiveLengthMeasure XLength{get;set;} 
+		public IfcPositiveLengthMeasure YLength{get;set;} 
+		public IfcPositiveLengthMeasure ZLength{get;set;} 
 
-		public IfcBlock(IfcPositiveLengthMeasure xLength
-				,IfcPositiveLengthMeasure yLength
-				,IfcPositiveLengthMeasure zLength
-				,IfcAxis2Placement3D position
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(position
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcBlock(IfcPositiveLengthMeasure xLength,IfcPositiveLengthMeasure yLength,IfcPositiveLengthMeasure zLength,IfcAxis2Placement3D position):base(position)
 		{
 			XLength = xLength;
 			YLength = yLength;
 			ZLength = zLength;
+
 
 		}
 
@@ -7234,15 +7771,40 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccsgprimitive3d.htm"/>
+	/// </summary>
+	public abstract partial class IfcCsgPrimitive3D : IfcGeometricRepresentationItem
+	{
+		public IfcAxis2Placement3D Position{get;set;} 
+
+		public IfcCsgPrimitive3D(IfcAxis2Placement3D position):base()
+		{
+			Position = position;
+
+
+		}
+
+		public static new IfcCsgPrimitive3D FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCsgPrimitive3D>(json);
+		}
+
+		public static new IfcCsgPrimitive3D FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcboiler.htm"/>
 	/// </summary>
 	public  partial class IfcBoiler : IfcEnergyConversionDevice
 	{
-		[JsonProperty("predefinedType")]
-		public IfcBoilerTypeEnum PredefinedType {get;set;} // optional
+		public IfcBoilerTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcBoiler() : base()
+		public IfcBoiler(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -7262,13 +7824,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcBoilerType : IfcEnergyConversionDeviceType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcBoilerTypeEnum PredefinedType {get;set;} 
+		public IfcBoilerTypeEnum PredefinedType{get;set;} 
 
-		public IfcBoilerType(IfcBoilerTypeEnum predefinedType
-				) : base()
+		public IfcBoilerType(IfcBoilerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -7289,18 +7850,9 @@ namespace IFC4
 	public  partial class IfcBooleanClippingResult : IfcBooleanResult
 	{
 
-		public IfcBooleanClippingResult(IfcBooleanOperator op
-				,IfcBooleanOperand firstOperand
-				,IfcBooleanOperand secondOperand
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(op
-					,firstOperand
-					,secondOperand
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcBooleanClippingResult(IfcBooleanOperator op,IfcBooleanOperand firstOperand,IfcBooleanOperand secondOperand):base(op,firstOperand,secondOperand)
 		{
+
 
 		}
 
@@ -7320,25 +7872,16 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcBooleanResult : IfcGeometricRepresentationItem
 	{
-		[JsonProperty("operator")]
-		public IfcBooleanOperator Operator {get;set;} 
-		[JsonProperty("firstOperand")]
-		public IfcBooleanOperand FirstOperand {get;set;} 
-		[JsonProperty("secondOperand")]
-		public IfcBooleanOperand SecondOperand {get;set;} 
+		public IfcBooleanOperator Operator{get;set;} 
+		public IfcBooleanOperand FirstOperand{get;set;} 
+		public IfcBooleanOperand SecondOperand{get;set;} 
 
-		public IfcBooleanResult(IfcBooleanOperator op
-				,IfcBooleanOperand firstOperand
-				,IfcBooleanOperand secondOperand
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcBooleanResult(IfcBooleanOperator op,IfcBooleanOperand firstOperand,IfcBooleanOperand secondOperand):base()
 		{
 			Operator = op;
 			FirstOperand = firstOperand;
 			SecondOperand = secondOperand;
+
 
 		}
 
@@ -7358,11 +7901,11 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcBoundaryCondition : IfcBase
 	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
+		public IfcLabel Name{get;set;} // optional
 
-		public IfcBoundaryCondition()
+		public IfcBoundaryCondition():base()
 		{
+
 
 		}
 
@@ -7378,55 +7921,20 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcboundarycurve.htm"/>
-	/// </summary>
-	public  partial class IfcBoundaryCurve : IfcCompositeCurveOnSurface
-	{
-
-		public IfcBoundaryCurve(List<IfcCompositeCurveSegment> segments
-				,bool? selfIntersect
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(segments
-					,selfIntersect
-					,layerAssignment
-					,styledByItem
-					)
-		{
-
-		}
-
-		public static new IfcBoundaryCurve FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcBoundaryCurve>(json);
-		}
-
-		public static new IfcBoundaryCurve FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcboundaryedgecondition.htm"/>
 	/// </summary>
 	public  partial class IfcBoundaryEdgeCondition : IfcBoundaryCondition
 	{
-		[JsonProperty("translationalStiffnessByLengthX")]
-		public IfcModulusOfTranslationalSubgradeReactionSelect TranslationalStiffnessByLengthX {get;set;} // optional
-		[JsonProperty("translationalStiffnessByLengthY")]
-		public IfcModulusOfTranslationalSubgradeReactionSelect TranslationalStiffnessByLengthY {get;set;} // optional
-		[JsonProperty("translationalStiffnessByLengthZ")]
-		public IfcModulusOfTranslationalSubgradeReactionSelect TranslationalStiffnessByLengthZ {get;set;} // optional
-		[JsonProperty("rotationalStiffnessByLengthX")]
-		public IfcModulusOfRotationalSubgradeReactionSelect RotationalStiffnessByLengthX {get;set;} // optional
-		[JsonProperty("rotationalStiffnessByLengthY")]
-		public IfcModulusOfRotationalSubgradeReactionSelect RotationalStiffnessByLengthY {get;set;} // optional
-		[JsonProperty("rotationalStiffnessByLengthZ")]
-		public IfcModulusOfRotationalSubgradeReactionSelect RotationalStiffnessByLengthZ {get;set;} // optional
+		public IfcModulusOfTranslationalSubgradeReactionSelect TranslationalStiffnessByLengthX{get;set;} // optional
+		public IfcModulusOfTranslationalSubgradeReactionSelect TranslationalStiffnessByLengthY{get;set;} // optional
+		public IfcModulusOfTranslationalSubgradeReactionSelect TranslationalStiffnessByLengthZ{get;set;} // optional
+		public IfcModulusOfRotationalSubgradeReactionSelect RotationalStiffnessByLengthX{get;set;} // optional
+		public IfcModulusOfRotationalSubgradeReactionSelect RotationalStiffnessByLengthY{get;set;} // optional
+		public IfcModulusOfRotationalSubgradeReactionSelect RotationalStiffnessByLengthZ{get;set;} // optional
 
-		public IfcBoundaryEdgeCondition() : base()
+		public IfcBoundaryEdgeCondition():base()
 		{
+
 
 		}
 
@@ -7446,15 +7954,13 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcBoundaryFaceCondition : IfcBoundaryCondition
 	{
-		[JsonProperty("translationalStiffnessByAreaX")]
-		public IfcModulusOfSubgradeReactionSelect TranslationalStiffnessByAreaX {get;set;} // optional
-		[JsonProperty("translationalStiffnessByAreaY")]
-		public IfcModulusOfSubgradeReactionSelect TranslationalStiffnessByAreaY {get;set;} // optional
-		[JsonProperty("translationalStiffnessByAreaZ")]
-		public IfcModulusOfSubgradeReactionSelect TranslationalStiffnessByAreaZ {get;set;} // optional
+		public IfcModulusOfSubgradeReactionSelect TranslationalStiffnessByAreaX{get;set;} // optional
+		public IfcModulusOfSubgradeReactionSelect TranslationalStiffnessByAreaY{get;set;} // optional
+		public IfcModulusOfSubgradeReactionSelect TranslationalStiffnessByAreaZ{get;set;} // optional
 
-		public IfcBoundaryFaceCondition() : base()
+		public IfcBoundaryFaceCondition():base()
 		{
+
 
 		}
 
@@ -7474,21 +7980,16 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcBoundaryNodeCondition : IfcBoundaryCondition
 	{
-		[JsonProperty("translationalStiffnessX")]
-		public IfcTranslationalStiffnessSelect TranslationalStiffnessX {get;set;} // optional
-		[JsonProperty("translationalStiffnessY")]
-		public IfcTranslationalStiffnessSelect TranslationalStiffnessY {get;set;} // optional
-		[JsonProperty("translationalStiffnessZ")]
-		public IfcTranslationalStiffnessSelect TranslationalStiffnessZ {get;set;} // optional
-		[JsonProperty("rotationalStiffnessX")]
-		public IfcRotationalStiffnessSelect RotationalStiffnessX {get;set;} // optional
-		[JsonProperty("rotationalStiffnessY")]
-		public IfcRotationalStiffnessSelect RotationalStiffnessY {get;set;} // optional
-		[JsonProperty("rotationalStiffnessZ")]
-		public IfcRotationalStiffnessSelect RotationalStiffnessZ {get;set;} // optional
+		public IfcTranslationalStiffnessSelect TranslationalStiffnessX{get;set;} // optional
+		public IfcTranslationalStiffnessSelect TranslationalStiffnessY{get;set;} // optional
+		public IfcTranslationalStiffnessSelect TranslationalStiffnessZ{get;set;} // optional
+		public IfcRotationalStiffnessSelect RotationalStiffnessX{get;set;} // optional
+		public IfcRotationalStiffnessSelect RotationalStiffnessY{get;set;} // optional
+		public IfcRotationalStiffnessSelect RotationalStiffnessZ{get;set;} // optional
 
-		public IfcBoundaryNodeCondition() : base()
+		public IfcBoundaryNodeCondition():base()
 		{
+
 
 		}
 
@@ -7504,15 +8005,84 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcboundarycurve.htm"/>
+	/// </summary>
+	public  partial class IfcBoundaryCurve : IfcCompositeCurveOnSurface
+	{
+
+		public IfcBoundaryCurve(List<IfcCompositeCurveSegment> segments,bool? selfIntersect):base(segments,selfIntersect)
+		{
+
+
+		}
+
+		public static new IfcBoundaryCurve FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBoundaryCurve>(json);
+		}
+
+		public static new IfcBoundaryCurve FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcouterboundarycurve.htm"/>
+	/// </summary>
+	public  partial class IfcOuterBoundaryCurve : IfcBoundaryCurve
+	{
+
+		public IfcOuterBoundaryCurve(List<IfcCompositeCurveSegment> segments,bool? selfIntersect):base(segments,selfIntersect)
+		{
+
+
+		}
+
+		public static new IfcOuterBoundaryCurve FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcOuterBoundaryCurve>(json);
+		}
+
+		public static new IfcOuterBoundaryCurve FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccompositecurveonsurface.htm"/>
+	/// </summary>
+	public  partial class IfcCompositeCurveOnSurface : IfcCompositeCurve
+	{
+
+		public IfcCompositeCurveOnSurface(List<IfcCompositeCurveSegment> segments,bool? selfIntersect):base(segments,selfIntersect)
+		{
+
+
+		}
+
+		public static new IfcCompositeCurveOnSurface FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCompositeCurveOnSurface>(json);
+		}
+
+		public static new IfcCompositeCurveOnSurface FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcboundarynodeconditionwarping.htm"/>
 	/// </summary>
 	public  partial class IfcBoundaryNodeConditionWarping : IfcBoundaryNodeCondition
 	{
-		[JsonProperty("warpingStiffness")]
-		public IfcWarpingStiffnessSelect WarpingStiffness {get;set;} // optional
+		public IfcWarpingStiffnessSelect WarpingStiffness{get;set;} // optional
 
-		public IfcBoundaryNodeConditionWarping() : base()
+		public IfcBoundaryNodeConditionWarping():base()
 		{
+
 
 		}
 
@@ -7528,52 +8098,226 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcboundedcurve.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccompositecurve.htm"/>
 	/// </summary>
-	public abstract partial class IfcBoundedCurve : IfcCurve
+	public  partial class IfcCompositeCurve : IfcBoundedCurve
 	{
+		public List<IfcCompositeCurveSegment> Segments{get;set;} 
+		public bool? SelfIntersect{get;set;} 
 
-		public IfcBoundedCurve(List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcCompositeCurve(List<IfcCompositeCurveSegment> segments,bool? selfIntersect):base()
 		{
+			Segments = segments;
+			SelfIntersect = selfIntersect;
+
 
 		}
 
-		public static new IfcBoundedCurve FromJSON(string json)
+		public static new IfcCompositeCurve FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcBoundedCurve>(json);
+			return JsonConvert.DeserializeObject<IfcCompositeCurve>(json);
 		}
 
-		public static new IfcBoundedCurve FromSTEP(string step)
+		public static new IfcCompositeCurve FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcboundedsurface.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpolyline.htm"/>
 	/// </summary>
-	public abstract partial class IfcBoundedSurface : IfcSurface
+	public  partial class IfcPolyline : IfcBoundedCurve
+	{
+		public List<IfcCartesianPoint> Points{get;set;} 
+
+		public IfcPolyline(List<IfcCartesianPoint> points):base()
+		{
+			Points = points;
+
+
+		}
+
+		public static new IfcPolyline FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPolyline>(json);
+		}
+
+		public static new IfcPolyline FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctrimmedcurve.htm"/>
+	/// </summary>
+	public  partial class IfcTrimmedCurve : IfcBoundedCurve
+	{
+		public IfcCurve BasisCurve{get;set;} 
+		public List<IfcTrimmingSelect> Trim1{get;set;} 
+		public List<IfcTrimmingSelect> Trim2{get;set;} 
+		public bool SenseAgreement{get;set;} 
+		public IfcTrimmingPreference MasterRepresentation{get;set;} 
+
+		public IfcTrimmedCurve(IfcCurve basisCurve,List<IfcTrimmingSelect> trim1,List<IfcTrimmingSelect> trim2,bool senseAgreement,IfcTrimmingPreference masterRepresentation):base()
+		{
+			BasisCurve = basisCurve;
+			Trim1 = trim1;
+			Trim2 = trim2;
+			SenseAgreement = senseAgreement;
+			MasterRepresentation = masterRepresentation;
+
+
+		}
+
+		public static new IfcTrimmedCurve FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTrimmedCurve>(json);
+		}
+
+		public static new IfcTrimmedCurve FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccurve.htm"/>
+	/// </summary>
+	public abstract partial class IfcCurve : IfcGeometricRepresentationItem
 	{
 
-		public IfcBoundedSurface(List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcCurve():base()
 		{
+
 
 		}
 
-		public static new IfcBoundedSurface FromJSON(string json)
+		public static new IfcCurve FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcBoundedSurface>(json);
+			return JsonConvert.DeserializeObject<IfcCurve>(json);
 		}
 
-		public static new IfcBoundedSurface FromSTEP(string step)
+		public static new IfcCurve FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccurveboundedplane.htm"/>
+	/// </summary>
+	public  partial class IfcCurveBoundedPlane : IfcBoundedSurface
+	{
+		public IfcPlane BasisSurface{get;set;} 
+		public IfcCurve OuterBoundary{get;set;} 
+		public List<IfcCurve> InnerBoundaries{get;set;} 
+
+		public IfcCurveBoundedPlane(IfcPlane basisSurface,IfcCurve outerBoundary,List<IfcCurve> innerBoundaries):base()
+		{
+			BasisSurface = basisSurface;
+			OuterBoundary = outerBoundary;
+			InnerBoundaries = innerBoundaries;
+
+
+		}
+
+		public static new IfcCurveBoundedPlane FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCurveBoundedPlane>(json);
+		}
+
+		public static new IfcCurveBoundedPlane FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccurveboundedsurface.htm"/>
+	/// </summary>
+	public  partial class IfcCurveBoundedSurface : IfcBoundedSurface
+	{
+		public IfcSurface BasisSurface{get;set;} 
+		public List<IfcBoundaryCurve> Boundaries{get;set;} 
+		public bool ImplicitOuter{get;set;} 
+
+		public IfcCurveBoundedSurface(IfcSurface basisSurface,List<IfcBoundaryCurve> boundaries,bool implicitOuter):base()
+		{
+			BasisSurface = basisSurface;
+			Boundaries = boundaries;
+			ImplicitOuter = implicitOuter;
+
+
+		}
+
+		public static new IfcCurveBoundedSurface FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCurveBoundedSurface>(json);
+		}
+
+		public static new IfcCurveBoundedSurface FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrectangulartrimmedsurface.htm"/>
+	/// </summary>
+	public  partial class IfcRectangularTrimmedSurface : IfcBoundedSurface
+	{
+		public IfcSurface BasisSurface{get;set;} 
+		public IfcParameterValue U1{get;set;} 
+		public IfcParameterValue V1{get;set;} 
+		public IfcParameterValue U2{get;set;} 
+		public IfcParameterValue V2{get;set;} 
+		public bool Usense{get;set;} 
+		public bool Vsense{get;set;} 
+
+		public IfcRectangularTrimmedSurface(IfcSurface basisSurface,IfcParameterValue u1,IfcParameterValue v1,IfcParameterValue u2,IfcParameterValue v2,bool usense,bool vsense):base()
+		{
+			BasisSurface = basisSurface;
+			U1 = u1;
+			V1 = v1;
+			U2 = u2;
+			V2 = v2;
+			Usense = usense;
+			Vsense = vsense;
+
+
+		}
+
+		public static new IfcRectangularTrimmedSurface FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRectangularTrimmedSurface>(json);
+		}
+
+		public static new IfcRectangularTrimmedSurface FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsurface.htm"/>
+	/// </summary>
+	public abstract partial class IfcSurface : IfcGeometricRepresentationItem
+	{
+
+		public IfcSurface():base()
+		{
+
+
+		}
+
+		public static new IfcSurface FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurface>(json);
+		}
+
+		public static new IfcSurface FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -7584,29 +8328,18 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcBoundingBox : IfcGeometricRepresentationItem
 	{
-		[JsonProperty("corner")]
-		public IfcCartesianPoint Corner {get;set;} 
-		[JsonProperty("xDim")]
-		public IfcPositiveLengthMeasure XDim {get;set;} 
-		[JsonProperty("yDim")]
-		public IfcPositiveLengthMeasure YDim {get;set;} 
-		[JsonProperty("zDim")]
-		public IfcPositiveLengthMeasure ZDim {get;set;} 
+		public IfcCartesianPoint Corner{get;set;} 
+		public IfcPositiveLengthMeasure XDim{get;set;} 
+		public IfcPositiveLengthMeasure YDim{get;set;} 
+		public IfcPositiveLengthMeasure ZDim{get;set;} 
 
-		public IfcBoundingBox(IfcCartesianPoint corner
-				,IfcPositiveLengthMeasure xDim
-				,IfcPositiveLengthMeasure yDim
-				,IfcPositiveLengthMeasure zDim
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcBoundingBox(IfcCartesianPoint corner,IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim,IfcPositiveLengthMeasure zDim):base()
 		{
 			Corner = corner;
 			XDim = xDim;
 			YDim = yDim;
 			ZDim = zDim;
+
 
 		}
 
@@ -7626,21 +8359,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcBoxedHalfSpace : IfcHalfSpaceSolid
 	{
-		[JsonProperty("enclosure")]
-		public IfcBoundingBox Enclosure {get;set;} 
+		public IfcBoundingBox Enclosure{get;set;} 
 
-		public IfcBoxedHalfSpace(IfcBoundingBox enclosure
-				,IfcSurface baseSurface
-				,bool agreementFlag
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(baseSurface
-					,agreementFlag
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcBoxedHalfSpace(IfcBoundingBox enclosure,IfcSurface baseSurface,bool agreementFlag):base(baseSurface,agreementFlag)
 		{
 			Enclosure = enclosure;
+
 
 		}
 
@@ -7656,19 +8380,44 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifchalfspacesolid.htm"/>
+	/// </summary>
+	public  partial class IfcHalfSpaceSolid : IfcGeometricRepresentationItem
+	{
+		public IfcSurface BaseSurface{get;set;} 
+		public bool AgreementFlag{get;set;} 
+
+		public IfcHalfSpaceSolid(IfcSurface baseSurface,bool agreementFlag):base()
+		{
+			BaseSurface = baseSurface;
+			AgreementFlag = agreementFlag;
+
+
+		}
+
+		public static new IfcHalfSpaceSolid FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcHalfSpaceSolid>(json);
+		}
+
+		public static new IfcHalfSpaceSolid FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcbuilding.htm"/>
 	/// </summary>
 	public  partial class IfcBuilding : IfcSpatialStructureElement
 	{
-		[JsonProperty("elevationOfRefHeight")]
-		public IfcLengthMeasure ElevationOfRefHeight {get;set;} // optional
-		[JsonProperty("elevationOfTerrain")]
-		public IfcLengthMeasure ElevationOfTerrain {get;set;} // optional
-		[JsonProperty("buildingAddress")]
-		public IfcPostalAddress BuildingAddress {get;set;} // optional
+		public IfcLengthMeasure ElevationOfRefHeight{get;set;} // optional
+		public IfcLengthMeasure ElevationOfTerrain{get;set;} // optional
+		public IfcPostalAddress BuildingAddress{get;set;} // optional
 
-		public IfcBuilding() : base()
+		public IfcBuilding(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -7684,74 +8433,24 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcbuildingelement.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcspatialstructureelement.htm"/>
 	/// </summary>
-	public abstract partial class IfcBuildingElement : IfcElement
+	public abstract partial class IfcSpatialStructureElement : IfcSpatialElement
 	{
-		[JsonProperty("hasCoverings")]
-		public List<IfcRelCoversBldgElements> HasCoverings {get;set;} 
+		public IfcElementCompositionEnum CompositionType{get;set;} // optional
 
-		public IfcBuildingElement() : base()
+		public IfcSpatialStructureElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
-		public static new IfcBuildingElement FromJSON(string json)
+		public static new IfcSpatialStructureElement FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcBuildingElement>(json);
+			return JsonConvert.DeserializeObject<IfcSpatialStructureElement>(json);
 		}
 
-		public static new IfcBuildingElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcbuildingelementpart.htm"/>
-	/// </summary>
-	public  partial class IfcBuildingElementPart : IfcElementComponent
-	{
-		[JsonProperty("predefinedType")]
-		public IfcBuildingElementPartTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcBuildingElementPart() : base()
-		{
-
-		}
-
-		public static new IfcBuildingElementPart FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcBuildingElementPart>(json);
-		}
-
-		public static new IfcBuildingElementPart FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcbuildingelementparttype.htm"/>
-	/// </summary>
-	public  partial class IfcBuildingElementPartType : IfcElementComponentType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcBuildingElementPartTypeEnum PredefinedType {get;set;} 
-
-		public IfcBuildingElementPartType(IfcBuildingElementPartTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcBuildingElementPartType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcBuildingElementPartType>(json);
-		}
-
-		public static new IfcBuildingElementPartType FromSTEP(string step)
+		public static new IfcSpatialStructureElement FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -7762,11 +8461,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcBuildingElementProxy : IfcBuildingElement
 	{
-		[JsonProperty("predefinedType")]
-		public IfcBuildingElementProxyTypeEnum PredefinedType {get;set;} // optional
+		public IfcBuildingElementProxyTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcBuildingElementProxy() : base()
+		public IfcBuildingElementProxy(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -7782,17 +8481,604 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcchimney.htm"/>
+	/// </summary>
+	public  partial class IfcChimney : IfcBuildingElement
+	{
+		public IfcChimneyTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcChimney(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcChimney FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcChimney>(json);
+		}
+
+		public static new IfcChimney FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccolumn.htm"/>
+	/// </summary>
+	public  partial class IfcColumn : IfcBuildingElement
+	{
+		public IfcColumnTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcColumn(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcColumn FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcColumn>(json);
+		}
+
+		public static new IfcColumn FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccovering.htm"/>
+	/// </summary>
+	public  partial class IfcCovering : IfcBuildingElement
+	{
+		public IfcCoveringTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcCovering(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcCovering FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCovering>(json);
+		}
+
+		public static new IfcCovering FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccurtainwall.htm"/>
+	/// </summary>
+	public  partial class IfcCurtainWall : IfcBuildingElement
+	{
+		public IfcCurtainWallTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcCurtainWall(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcCurtainWall FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCurtainWall>(json);
+		}
+
+		public static new IfcCurtainWall FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdoor.htm"/>
+	/// </summary>
+	public  partial class IfcDoor : IfcBuildingElement
+	{
+		public IfcPositiveLengthMeasure OverallHeight{get;set;} // optional
+		public IfcPositiveLengthMeasure OverallWidth{get;set;} // optional
+		public IfcDoorTypeEnum PredefinedType{get;set;} // optional
+		public IfcDoorTypeOperationEnum OperationType{get;set;} // optional
+		public IfcLabel UserDefinedOperationType{get;set;} // optional
+
+		public IfcDoor(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcDoor FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDoor>(json);
+		}
+
+		public static new IfcDoor FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfooting.htm"/>
+	/// </summary>
+	public  partial class IfcFooting : IfcBuildingElement
+	{
+		public IfcFootingTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcFooting(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcFooting FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFooting>(json);
+		}
+
+		public static new IfcFooting FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmember.htm"/>
+	/// </summary>
+	public  partial class IfcMember : IfcBuildingElement
+	{
+		public IfcMemberTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcMember(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcMember FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMember>(json);
+		}
+
+		public static new IfcMember FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpile.htm"/>
+	/// </summary>
+	public  partial class IfcPile : IfcBuildingElement
+	{
+		public IfcPileTypeEnum PredefinedType{get;set;} // optional
+		public IfcPileConstructionEnum ConstructionType{get;set;} // optional
+
+		public IfcPile(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcPile FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPile>(json);
+		}
+
+		public static new IfcPile FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcplate.htm"/>
+	/// </summary>
+	public  partial class IfcPlate : IfcBuildingElement
+	{
+		public IfcPlateTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcPlate(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcPlate FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPlate>(json);
+		}
+
+		public static new IfcPlate FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrailing.htm"/>
+	/// </summary>
+	public  partial class IfcRailing : IfcBuildingElement
+	{
+		public IfcRailingTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcRailing(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcRailing FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRailing>(json);
+		}
+
+		public static new IfcRailing FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcramp.htm"/>
+	/// </summary>
+	public  partial class IfcRamp : IfcBuildingElement
+	{
+		public IfcRampTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcRamp(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcRamp FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRamp>(json);
+		}
+
+		public static new IfcRamp FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrampflight.htm"/>
+	/// </summary>
+	public  partial class IfcRampFlight : IfcBuildingElement
+	{
+		public IfcRampFlightTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcRampFlight(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcRampFlight FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRampFlight>(json);
+		}
+
+		public static new IfcRampFlight FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcroof.htm"/>
+	/// </summary>
+	public  partial class IfcRoof : IfcBuildingElement
+	{
+		public IfcRoofTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcRoof(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcRoof FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRoof>(json);
+		}
+
+		public static new IfcRoof FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcshadingdevice.htm"/>
+	/// </summary>
+	public  partial class IfcShadingDevice : IfcBuildingElement
+	{
+		public IfcShadingDeviceTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcShadingDevice(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcShadingDevice FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcShadingDevice>(json);
+		}
+
+		public static new IfcShadingDevice FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcslab.htm"/>
+	/// </summary>
+	public  partial class IfcSlab : IfcBuildingElement
+	{
+		public IfcSlabTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcSlab(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcSlab FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSlab>(json);
+		}
+
+		public static new IfcSlab FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstair.htm"/>
+	/// </summary>
+	public  partial class IfcStair : IfcBuildingElement
+	{
+		public IfcStairTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcStair(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcStair FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStair>(json);
+		}
+
+		public static new IfcStair FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstairflight.htm"/>
+	/// </summary>
+	public  partial class IfcStairFlight : IfcBuildingElement
+	{
+		public int NumberOfRiser{get;set;} // optional
+		public int NumberOfTreads{get;set;} // optional
+		public IfcPositiveLengthMeasure RiserHeight{get;set;} // optional
+		public IfcPositiveLengthMeasure TreadLength{get;set;} // optional
+		public IfcStairFlightTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcStairFlight(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcStairFlight FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStairFlight>(json);
+		}
+
+		public static new IfcStairFlight FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwall.htm"/>
+	/// </summary>
+	public  partial class IfcWall : IfcBuildingElement
+	{
+		public IfcWallTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcWall(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcWall FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWall>(json);
+		}
+
+		public static new IfcWall FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwindow.htm"/>
+	/// </summary>
+	public  partial class IfcWindow : IfcBuildingElement
+	{
+		public IfcPositiveLengthMeasure OverallHeight{get;set;} // optional
+		public IfcPositiveLengthMeasure OverallWidth{get;set;} // optional
+		public IfcWindowTypeEnum PredefinedType{get;set;} // optional
+		public IfcWindowTypePartitioningEnum PartitioningType{get;set;} // optional
+		public IfcLabel UserDefinedPartitioningType{get;set;} // optional
+
+		public IfcWindow(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcWindow FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWindow>(json);
+		}
+
+		public static new IfcWindow FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcelement.htm"/>
+	/// </summary>
+	public abstract partial class IfcElement : IfcProduct
+	{
+		public IfcIdentifier Tag{get;set;} // optional
+
+		public IfcElement(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElement>(json);
+		}
+
+		public static new IfcElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcbuildingelementpart.htm"/>
+	/// </summary>
+	public  partial class IfcBuildingElementPart : IfcElementComponent
+	{
+		public IfcBuildingElementPartTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcBuildingElementPart(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcBuildingElementPart FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBuildingElementPart>(json);
+		}
+
+		public static new IfcBuildingElementPart FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcelementcomponent.htm"/>
+	/// </summary>
+	public abstract partial class IfcElementComponent : IfcElement
+	{
+
+		public IfcElementComponent(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcElementComponent FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElementComponent>(json);
+		}
+
+		public static new IfcElementComponent FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcbuildingelementparttype.htm"/>
+	/// </summary>
+	public  partial class IfcBuildingElementPartType : IfcElementComponentType
+	{
+		public IfcBuildingElementPartTypeEnum PredefinedType{get;set;} 
+
+		public IfcBuildingElementPartType(IfcBuildingElementPartTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcBuildingElementPartType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcBuildingElementPartType>(json);
+		}
+
+		public static new IfcBuildingElementPartType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcelementcomponenttype.htm"/>
+	/// </summary>
+	public abstract partial class IfcElementComponentType : IfcElementType
+	{
+
+		public IfcElementComponentType(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcElementComponentType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElementComponentType>(json);
+		}
+
+		public static new IfcElementComponentType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcbuildingelementproxytype.htm"/>
 	/// </summary>
 	public  partial class IfcBuildingElementProxyType : IfcBuildingElementType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcBuildingElementProxyTypeEnum PredefinedType {get;set;} 
+		public IfcBuildingElementProxyTypeEnum PredefinedType{get;set;} 
 
-		public IfcBuildingElementProxyType(IfcBuildingElementProxyTypeEnum predefinedType
-				) : base()
+		public IfcBuildingElementProxyType(IfcBuildingElementProxyTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -7808,22 +9094,507 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcbuildingelementtype.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcchimneytype.htm"/>
 	/// </summary>
-	public abstract partial class IfcBuildingElementType : IfcElementType
+	public  partial class IfcChimneyType : IfcBuildingElementType
 	{
+		public IfcChimneyTypeEnum PredefinedType{get;set;} 
 
-		public IfcBuildingElementType() : base()
+		public IfcChimneyType(IfcChimneyTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
+			PredefinedType = predefinedType;
+
 
 		}
 
-		public static new IfcBuildingElementType FromJSON(string json)
+		public static new IfcChimneyType FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcBuildingElementType>(json);
+			return JsonConvert.DeserializeObject<IfcChimneyType>(json);
 		}
 
-		public static new IfcBuildingElementType FromSTEP(string step)
+		public static new IfcChimneyType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccolumntype.htm"/>
+	/// </summary>
+	public  partial class IfcColumnType : IfcBuildingElementType
+	{
+		public IfcColumnTypeEnum PredefinedType{get;set;} 
+
+		public IfcColumnType(IfcColumnTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcColumnType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcColumnType>(json);
+		}
+
+		public static new IfcColumnType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccoveringtype.htm"/>
+	/// </summary>
+	public  partial class IfcCoveringType : IfcBuildingElementType
+	{
+		public IfcCoveringTypeEnum PredefinedType{get;set;} 
+
+		public IfcCoveringType(IfcCoveringTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcCoveringType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCoveringType>(json);
+		}
+
+		public static new IfcCoveringType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccurtainwalltype.htm"/>
+	/// </summary>
+	public  partial class IfcCurtainWallType : IfcBuildingElementType
+	{
+		public IfcCurtainWallTypeEnum PredefinedType{get;set;} 
+
+		public IfcCurtainWallType(IfcCurtainWallTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcCurtainWallType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCurtainWallType>(json);
+		}
+
+		public static new IfcCurtainWallType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdoortype.htm"/>
+	/// </summary>
+	public  partial class IfcDoorType : IfcBuildingElementType
+	{
+		public IfcDoorTypeEnum PredefinedType{get;set;} 
+		public IfcDoorTypeOperationEnum OperationType{get;set;} 
+		public bool ParameterTakesPrecedence{get;set;} // optional
+		public IfcLabel UserDefinedOperationType{get;set;} // optional
+
+		public IfcDoorType(IfcDoorTypeEnum predefinedType,IfcDoorTypeOperationEnum operationType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+			OperationType = operationType;
+
+
+		}
+
+		public static new IfcDoorType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDoorType>(json);
+		}
+
+		public static new IfcDoorType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfootingtype.htm"/>
+	/// </summary>
+	public  partial class IfcFootingType : IfcBuildingElementType
+	{
+		public IfcFootingTypeEnum PredefinedType{get;set;} 
+
+		public IfcFootingType(IfcFootingTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcFootingType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFootingType>(json);
+		}
+
+		public static new IfcFootingType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmembertype.htm"/>
+	/// </summary>
+	public  partial class IfcMemberType : IfcBuildingElementType
+	{
+		public IfcMemberTypeEnum PredefinedType{get;set;} 
+
+		public IfcMemberType(IfcMemberTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcMemberType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMemberType>(json);
+		}
+
+		public static new IfcMemberType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpiletype.htm"/>
+	/// </summary>
+	public  partial class IfcPileType : IfcBuildingElementType
+	{
+		public IfcPileTypeEnum PredefinedType{get;set;} 
+
+		public IfcPileType(IfcPileTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcPileType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPileType>(json);
+		}
+
+		public static new IfcPileType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcplatetype.htm"/>
+	/// </summary>
+	public  partial class IfcPlateType : IfcBuildingElementType
+	{
+		public IfcPlateTypeEnum PredefinedType{get;set;} 
+
+		public IfcPlateType(IfcPlateTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcPlateType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPlateType>(json);
+		}
+
+		public static new IfcPlateType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrailingtype.htm"/>
+	/// </summary>
+	public  partial class IfcRailingType : IfcBuildingElementType
+	{
+		public IfcRailingTypeEnum PredefinedType{get;set;} 
+
+		public IfcRailingType(IfcRailingTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcRailingType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRailingType>(json);
+		}
+
+		public static new IfcRailingType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrampflighttype.htm"/>
+	/// </summary>
+	public  partial class IfcRampFlightType : IfcBuildingElementType
+	{
+		public IfcRampFlightTypeEnum PredefinedType{get;set;} 
+
+		public IfcRampFlightType(IfcRampFlightTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcRampFlightType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRampFlightType>(json);
+		}
+
+		public static new IfcRampFlightType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcramptype.htm"/>
+	/// </summary>
+	public  partial class IfcRampType : IfcBuildingElementType
+	{
+		public IfcRampTypeEnum PredefinedType{get;set;} 
+
+		public IfcRampType(IfcRampTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcRampType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRampType>(json);
+		}
+
+		public static new IfcRampType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrooftype.htm"/>
+	/// </summary>
+	public  partial class IfcRoofType : IfcBuildingElementType
+	{
+		public IfcRoofTypeEnum PredefinedType{get;set;} 
+
+		public IfcRoofType(IfcRoofTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcRoofType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRoofType>(json);
+		}
+
+		public static new IfcRoofType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcshadingdevicetype.htm"/>
+	/// </summary>
+	public  partial class IfcShadingDeviceType : IfcBuildingElementType
+	{
+		public IfcShadingDeviceTypeEnum PredefinedType{get;set;} 
+
+		public IfcShadingDeviceType(IfcShadingDeviceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcShadingDeviceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcShadingDeviceType>(json);
+		}
+
+		public static new IfcShadingDeviceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcslabtype.htm"/>
+	/// </summary>
+	public  partial class IfcSlabType : IfcBuildingElementType
+	{
+		public IfcSlabTypeEnum PredefinedType{get;set;} 
+
+		public IfcSlabType(IfcSlabTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcSlabType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSlabType>(json);
+		}
+
+		public static new IfcSlabType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstairflighttype.htm"/>
+	/// </summary>
+	public  partial class IfcStairFlightType : IfcBuildingElementType
+	{
+		public IfcStairFlightTypeEnum PredefinedType{get;set;} 
+
+		public IfcStairFlightType(IfcStairFlightTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcStairFlightType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStairFlightType>(json);
+		}
+
+		public static new IfcStairFlightType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstairtype.htm"/>
+	/// </summary>
+	public  partial class IfcStairType : IfcBuildingElementType
+	{
+		public IfcStairTypeEnum PredefinedType{get;set;} 
+
+		public IfcStairType(IfcStairTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcStairType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStairType>(json);
+		}
+
+		public static new IfcStairType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwalltype.htm"/>
+	/// </summary>
+	public  partial class IfcWallType : IfcBuildingElementType
+	{
+		public IfcWallTypeEnum PredefinedType{get;set;} 
+
+		public IfcWallType(IfcWallTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcWallType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWallType>(json);
+		}
+
+		public static new IfcWallType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwindowtype.htm"/>
+	/// </summary>
+	public  partial class IfcWindowType : IfcBuildingElementType
+	{
+		public IfcWindowTypeEnum PredefinedType{get;set;} 
+		public IfcWindowTypePartitioningEnum PartitioningType{get;set;} 
+		public bool ParameterTakesPrecedence{get;set;} // optional
+		public IfcLabel UserDefinedPartitioningType{get;set;} // optional
+
+		public IfcWindowType(IfcWindowTypeEnum predefinedType,IfcWindowTypePartitioningEnum partitioningType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+			PartitioningType = partitioningType;
+
+
+		}
+
+		public static new IfcWindowType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWindowType>(json);
+		}
+
+		public static new IfcWindowType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcelementtype.htm"/>
+	/// </summary>
+	public abstract partial class IfcElementType : IfcTypeProduct
+	{
+		public IfcLabel ElementType{get;set;} // optional
+
+		public IfcElementType(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElementType>(json);
+		}
+
+		public static new IfcElementType FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -7834,11 +9605,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcBuildingStorey : IfcSpatialStructureElement
 	{
-		[JsonProperty("elevation")]
-		public IfcLengthMeasure Elevation {get;set;} // optional
+		public IfcLengthMeasure Elevation{get;set;} // optional
 
-		public IfcBuildingStorey() : base()
+		public IfcBuildingStorey(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -7858,11 +9629,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcBuildingSystem : IfcSystem
 	{
-		[JsonProperty("predefinedType")]
-		public IfcBuildingSystemTypeEnum PredefinedType {get;set;} // optional
+		public IfcBuildingSystemTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcBuildingSystem() : base()
+		public IfcBuildingSystem(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -7878,15 +9649,38 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsystem.htm"/>
+	/// </summary>
+	public  partial class IfcSystem : IfcGroup
+	{
+
+		public IfcSystem(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcSystem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSystem>(json);
+		}
+
+		public static new IfcSystem FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcburner.htm"/>
 	/// </summary>
 	public  partial class IfcBurner : IfcEnergyConversionDevice
 	{
-		[JsonProperty("predefinedType")]
-		public IfcBurnerTypeEnum PredefinedType {get;set;} // optional
+		public IfcBurnerTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcBurner() : base()
+		public IfcBurner(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -7906,13 +9700,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcBurnerType : IfcEnergyConversionDeviceType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcBurnerTypeEnum PredefinedType {get;set;} 
+		public IfcBurnerTypeEnum PredefinedType{get;set;} 
 
-		public IfcBurnerType(IfcBurnerTypeEnum predefinedType
-				) : base()
+		public IfcBurnerType(IfcBurnerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -7932,33 +9725,19 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCShapeProfileDef : IfcParameterizedProfileDef
 	{
-		[JsonProperty("depth")]
-		public IfcPositiveLengthMeasure Depth {get;set;} 
-		[JsonProperty("width")]
-		public IfcPositiveLengthMeasure Width {get;set;} 
-		[JsonProperty("wallThickness")]
-		public IfcPositiveLengthMeasure WallThickness {get;set;} 
-		[JsonProperty("girth")]
-		public IfcPositiveLengthMeasure Girth {get;set;} 
-		[JsonProperty("internalFilletRadius")]
-		public IfcNonNegativeLengthMeasure InternalFilletRadius {get;set;} // optional
+		public IfcPositiveLengthMeasure Depth{get;set;} 
+		public IfcPositiveLengthMeasure Width{get;set;} 
+		public IfcPositiveLengthMeasure WallThickness{get;set;} 
+		public IfcPositiveLengthMeasure Girth{get;set;} 
+		public IfcNonNegativeLengthMeasure InternalFilletRadius{get;set;} // optional
 
-		public IfcCShapeProfileDef(IfcPositiveLengthMeasure depth
-				,IfcPositiveLengthMeasure width
-				,IfcPositiveLengthMeasure wallThickness
-				,IfcPositiveLengthMeasure girth
-				,IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(profileType
-					,hasExternalReference
-					,hasProperties
-					)
+		public IfcCShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure width,IfcPositiveLengthMeasure wallThickness,IfcPositiveLengthMeasure girth,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			Depth = depth;
 			Width = width;
 			WallThickness = wallThickness;
 			Girth = girth;
+
 
 		}
 
@@ -7978,11 +9757,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCableCarrierFitting : IfcFlowFitting
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCableCarrierFittingTypeEnum PredefinedType {get;set;} // optional
+		public IfcCableCarrierFittingTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcCableCarrierFitting() : base()
+		public IfcCableCarrierFitting(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -7998,17 +9777,39 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowfitting.htm"/>
+	/// </summary>
+	public  partial class IfcFlowFitting : IfcDistributionFlowElement
+	{
+
+		public IfcFlowFitting(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcFlowFitting FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowFitting>(json);
+		}
+
+		public static new IfcFlowFitting FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccablecarrierfittingtype.htm"/>
 	/// </summary>
 	public  partial class IfcCableCarrierFittingType : IfcFlowFittingType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCableCarrierFittingTypeEnum PredefinedType {get;set;} 
+		public IfcCableCarrierFittingTypeEnum PredefinedType{get;set;} 
 
-		public IfcCableCarrierFittingType(IfcCableCarrierFittingTypeEnum predefinedType
-				) : base()
+		public IfcCableCarrierFittingType(IfcCableCarrierFittingTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -8024,15 +9825,38 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowfittingtype.htm"/>
+	/// </summary>
+	public abstract partial class IfcFlowFittingType : IfcDistributionFlowElementType
+	{
+
+		public IfcFlowFittingType(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcFlowFittingType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowFittingType>(json);
+		}
+
+		public static new IfcFlowFittingType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccablecarriersegment.htm"/>
 	/// </summary>
 	public  partial class IfcCableCarrierSegment : IfcFlowSegment
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCableCarrierSegmentTypeEnum PredefinedType {get;set;} // optional
+		public IfcCableCarrierSegmentTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcCableCarrierSegment() : base()
+		public IfcCableCarrierSegment(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -8048,17 +9872,39 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowsegment.htm"/>
+	/// </summary>
+	public  partial class IfcFlowSegment : IfcDistributionFlowElement
+	{
+
+		public IfcFlowSegment(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcFlowSegment FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowSegment>(json);
+		}
+
+		public static new IfcFlowSegment FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccablecarriersegmenttype.htm"/>
 	/// </summary>
 	public  partial class IfcCableCarrierSegmentType : IfcFlowSegmentType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCableCarrierSegmentTypeEnum PredefinedType {get;set;} 
+		public IfcCableCarrierSegmentTypeEnum PredefinedType{get;set;} 
 
-		public IfcCableCarrierSegmentType(IfcCableCarrierSegmentTypeEnum predefinedType
-				) : base()
+		public IfcCableCarrierSegmentType(IfcCableCarrierSegmentTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -8074,15 +9920,38 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowsegmenttype.htm"/>
+	/// </summary>
+	public abstract partial class IfcFlowSegmentType : IfcDistributionFlowElementType
+	{
+
+		public IfcFlowSegmentType(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcFlowSegmentType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowSegmentType>(json);
+		}
+
+		public static new IfcFlowSegmentType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccablefitting.htm"/>
 	/// </summary>
 	public  partial class IfcCableFitting : IfcFlowFitting
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCableFittingTypeEnum PredefinedType {get;set;} // optional
+		public IfcCableFittingTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcCableFitting() : base()
+		public IfcCableFitting(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -8102,13 +9971,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCableFittingType : IfcFlowFittingType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCableFittingTypeEnum PredefinedType {get;set;} 
+		public IfcCableFittingTypeEnum PredefinedType{get;set;} 
 
-		public IfcCableFittingType(IfcCableFittingTypeEnum predefinedType
-				) : base()
+		public IfcCableFittingType(IfcCableFittingTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -8128,11 +9996,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCableSegment : IfcFlowSegment
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCableSegmentTypeEnum PredefinedType {get;set;} // optional
+		public IfcCableSegmentTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcCableSegment() : base()
+		public IfcCableSegment(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -8152,13 +10020,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCableSegmentType : IfcFlowSegmentType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCableSegmentTypeEnum PredefinedType {get;set;} 
+		public IfcCableSegmentTypeEnum PredefinedType{get;set;} 
 
-		public IfcCableSegmentType(IfcCableSegmentTypeEnum predefinedType
-				) : base()
+		public IfcCableSegmentType(IfcCableSegmentTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -8178,17 +10045,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCartesianPoint : IfcPoint
 	{
-		[JsonProperty("coordinates")]
-		public List<IfcLengthMeasure> Coordinates {get;set;} 
+		public List<IfcLengthMeasure> Coordinates{get;set;} 
 
-		public IfcCartesianPoint(List<IfcLengthMeasure> coordinates
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcCartesianPoint(List<IfcLengthMeasure> coordinates):base()
 		{
 			Coordinates = coordinates;
+
 
 		}
 
@@ -8204,17 +10066,37 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpoint.htm"/>
+	/// </summary>
+	public abstract partial class IfcPoint : IfcGeometricRepresentationItem
+	{
+
+		public IfcPoint():base()
+		{
+
+
+		}
+
+		public static new IfcPoint FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPoint>(json);
+		}
+
+		public static new IfcPoint FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccartesianpointlist.htm"/>
 	/// </summary>
 	public abstract partial class IfcCartesianPointList : IfcGeometricRepresentationItem
 	{
 
-		public IfcCartesianPointList(List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcCartesianPointList():base()
 		{
+
 
 		}
 
@@ -8234,17 +10116,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCartesianPointList3D : IfcCartesianPointList
 	{
-		[JsonProperty("coordList")]
-		public List<List<IfcLengthMeasure>> CoordList {get;set;} 
+		public List<List<IfcLengthMeasure>> CoordList{get;set;} 
 
-		public IfcCartesianPointList3D(List<List<IfcLengthMeasure>> coordList
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcCartesianPointList3D(List<List<IfcLengthMeasure>> coordList):base()
 		{
 			CoordList = coordList;
+
 
 		}
 
@@ -8264,23 +10141,15 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcCartesianTransformationOperator : IfcGeometricRepresentationItem
 	{
-		[JsonProperty("axis1")]
-		public IfcDirection Axis1 {get;set;} // optional
-		[JsonProperty("axis2")]
-		public IfcDirection Axis2 {get;set;} // optional
-		[JsonProperty("localOrigin")]
-		public IfcCartesianPoint LocalOrigin {get;set;} 
-		[JsonProperty("scale")]
-		public double Scale {get;set;} // optional
+		public IfcDirection Axis1{get;set;} // optional
+		public IfcDirection Axis2{get;set;} // optional
+		public IfcCartesianPoint LocalOrigin{get;set;} 
+		public double Scale{get;set;} // optional
 
-		public IfcCartesianTransformationOperator(IfcCartesianPoint localOrigin
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcCartesianTransformationOperator(IfcCartesianPoint localOrigin):base()
 		{
 			LocalOrigin = localOrigin;
+
 
 		}
 
@@ -8301,14 +10170,9 @@ namespace IFC4
 	public  partial class IfcCartesianTransformationOperator2D : IfcCartesianTransformationOperator
 	{
 
-		public IfcCartesianTransformationOperator2D(IfcCartesianPoint localOrigin
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(localOrigin
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcCartesianTransformationOperator2D(IfcCartesianPoint localOrigin):base(localOrigin)
 		{
+
 
 		}
 
@@ -8324,51 +10188,15 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccartesiantransformationoperator2dnonuniform.htm"/>
-	/// </summary>
-	public  partial class IfcCartesianTransformationOperator2DnonUniform : IfcCartesianTransformationOperator2D
-	{
-		[JsonProperty("scale2")]
-		public double Scale2 {get;set;} // optional
-
-		public IfcCartesianTransformationOperator2DnonUniform(IfcCartesianPoint localOrigin
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(localOrigin
-					,layerAssignment
-					,styledByItem
-					)
-		{
-
-		}
-
-		public static new IfcCartesianTransformationOperator2DnonUniform FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcCartesianTransformationOperator2DnonUniform>(json);
-		}
-
-		public static new IfcCartesianTransformationOperator2DnonUniform FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccartesiantransformationoperator3d.htm"/>
 	/// </summary>
 	public  partial class IfcCartesianTransformationOperator3D : IfcCartesianTransformationOperator
 	{
-		[JsonProperty("axis3")]
-		public IfcDirection Axis3 {get;set;} // optional
+		public IfcDirection Axis3{get;set;} // optional
 
-		public IfcCartesianTransformationOperator3D(IfcCartesianPoint localOrigin
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(localOrigin
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcCartesianTransformationOperator3D(IfcCartesianPoint localOrigin):base(localOrigin)
 		{
+
 
 		}
 
@@ -8384,23 +10212,40 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccartesiantransformationoperator2dnonuniform.htm"/>
+	/// </summary>
+	public  partial class IfcCartesianTransformationOperator2DnonUniform : IfcCartesianTransformationOperator2D
+	{
+		public double Scale2{get;set;} // optional
+
+		public IfcCartesianTransformationOperator2DnonUniform(IfcCartesianPoint localOrigin):base(localOrigin)
+		{
+
+
+		}
+
+		public static new IfcCartesianTransformationOperator2DnonUniform FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCartesianTransformationOperator2DnonUniform>(json);
+		}
+
+		public static new IfcCartesianTransformationOperator2DnonUniform FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccartesiantransformationoperator3dnonuniform.htm"/>
 	/// </summary>
 	public  partial class IfcCartesianTransformationOperator3DnonUniform : IfcCartesianTransformationOperator3D
 	{
-		[JsonProperty("scale2")]
-		public double Scale2 {get;set;} // optional
-		[JsonProperty("scale3")]
-		public double Scale3 {get;set;} // optional
+		public double Scale2{get;set;} // optional
+		public double Scale3{get;set;} // optional
 
-		public IfcCartesianTransformationOperator3DnonUniform(IfcCartesianPoint localOrigin
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(localOrigin
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcCartesianTransformationOperator3DnonUniform(IfcCartesianPoint localOrigin):base(localOrigin)
 		{
+
 
 		}
 
@@ -8416,49 +10261,15 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccenterlineprofiledef.htm"/>
-	/// </summary>
-	public  partial class IfcCenterLineProfileDef : IfcArbitraryOpenProfileDef
-	{
-		[JsonProperty("thickness")]
-		public IfcPositiveLengthMeasure Thickness {get;set;} 
-
-		public IfcCenterLineProfileDef(IfcPositiveLengthMeasure thickness
-				,IfcBoundedCurve curve
-				,IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(curve
-					,profileType
-					,hasExternalReference
-					,hasProperties
-					)
-		{
-			Thickness = thickness;
-
-		}
-
-		public static new IfcCenterLineProfileDef FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcCenterLineProfileDef>(json);
-		}
-
-		public static new IfcCenterLineProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcchiller.htm"/>
 	/// </summary>
 	public  partial class IfcChiller : IfcEnergyConversionDevice
 	{
-		[JsonProperty("predefinedType")]
-		public IfcChillerTypeEnum PredefinedType {get;set;} // optional
+		public IfcChillerTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcChiller() : base()
+		public IfcChiller(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -8478,13 +10289,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcChillerType : IfcEnergyConversionDeviceType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcChillerTypeEnum PredefinedType {get;set;} 
+		public IfcChillerTypeEnum PredefinedType{get;set;} 
 
-		public IfcChillerType(IfcChillerTypeEnum predefinedType
-				) : base()
+		public IfcChillerType(IfcChillerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -8500,73 +10310,16 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcchimney.htm"/>
-	/// </summary>
-	public  partial class IfcChimney : IfcBuildingElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcChimneyTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcChimney() : base()
-		{
-
-		}
-
-		public static new IfcChimney FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcChimney>(json);
-		}
-
-		public static new IfcChimney FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcchimneytype.htm"/>
-	/// </summary>
-	public  partial class IfcChimneyType : IfcBuildingElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcChimneyTypeEnum PredefinedType {get;set;} 
-
-		public IfcChimneyType(IfcChimneyTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcChimneyType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcChimneyType>(json);
-		}
-
-		public static new IfcChimneyType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccircle.htm"/>
 	/// </summary>
 	public  partial class IfcCircle : IfcConic
 	{
-		[JsonProperty("radius")]
-		public IfcPositiveLengthMeasure Radius {get;set;} 
+		public IfcPositiveLengthMeasure Radius{get;set;} 
 
-		public IfcCircle(IfcPositiveLengthMeasure radius
-				,IfcAxis2Placement position
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(position
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcCircle(IfcPositiveLengthMeasure radius,IfcAxis2Placement position):base(position)
 		{
 			Radius = radius;
+
 
 		}
 
@@ -8582,25 +10335,41 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcconic.htm"/>
+	/// </summary>
+	public abstract partial class IfcConic : IfcCurve
+	{
+		public IfcAxis2Placement Position{get;set;} 
+
+		public IfcConic(IfcAxis2Placement position):base()
+		{
+			Position = position;
+
+
+		}
+
+		public static new IfcConic FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConic>(json);
+		}
+
+		public static new IfcConic FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccirclehollowprofiledef.htm"/>
 	/// </summary>
 	public  partial class IfcCircleHollowProfileDef : IfcCircleProfileDef
 	{
-		[JsonProperty("wallThickness")]
-		public IfcPositiveLengthMeasure WallThickness {get;set;} 
+		public IfcPositiveLengthMeasure WallThickness{get;set;} 
 
-		public IfcCircleHollowProfileDef(IfcPositiveLengthMeasure wallThickness
-				,IfcPositiveLengthMeasure radius
-				,IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(radius
-					,profileType
-					,hasExternalReference
-					,hasProperties
-					)
+		public IfcCircleHollowProfileDef(IfcPositiveLengthMeasure wallThickness,IfcPositiveLengthMeasure radius,IfcProfileTypeEnum profileType):base(radius,profileType)
 		{
 			WallThickness = wallThickness;
+
 
 		}
 
@@ -8620,19 +10389,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCircleProfileDef : IfcParameterizedProfileDef
 	{
-		[JsonProperty("radius")]
-		public IfcPositiveLengthMeasure Radius {get;set;} 
+		public IfcPositiveLengthMeasure Radius{get;set;} 
 
-		public IfcCircleProfileDef(IfcPositiveLengthMeasure radius
-				,IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(profileType
-					,hasExternalReference
-					,hasProperties
-					)
+		public IfcCircleProfileDef(IfcPositiveLengthMeasure radius,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			Radius = radius;
+
 
 		}
 
@@ -8653,8 +10415,9 @@ namespace IFC4
 	public  partial class IfcCivilElement : IfcElement
 	{
 
-		public IfcCivilElement() : base()
+		public IfcCivilElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -8675,8 +10438,9 @@ namespace IFC4
 	public  partial class IfcCivilElementType : IfcElementType
 	{
 
-		public IfcCivilElementType() : base()
+		public IfcCivilElementType(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -8696,31 +10460,18 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcClassification : IfcExternalInformation
 	{
-		[JsonProperty("source")]
-		public IfcLabel Source {get;set;} // optional
-		[JsonProperty("edition")]
-		public IfcLabel Edition {get;set;} // optional
-		[JsonProperty("editionDate")]
-		public IfcDate EditionDate {get;set;} // optional
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} 
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("location")]
-		public IfcURIReference Location {get;set;} // optional
-		[JsonProperty("referenceTokens")]
-		public List<IfcIdentifier> ReferenceTokens {get;set;} // optional
-		[JsonProperty("classificationForObjects")]
-		public List<IfcRelAssociatesClassification> ClassificationForObjects {get;set;} 
-		[JsonProperty("hasReferences")]
-		public List<IfcClassificationReference> HasReferences {get;set;} 
+		public IfcLabel Source{get;set;} // optional
+		public IfcLabel Edition{get;set;} // optional
+		public IfcDate EditionDate{get;set;} // optional
+		public IfcLabel Name{get;set;} 
+		public IfcText Description{get;set;} // optional
+		public IfcURIReference Location{get;set;} // optional
+		public List<IfcIdentifier> ReferenceTokens{get;set;} // optional
 
-		public IfcClassification(IfcLabel name
-				,List<IfcClassificationReference> hasReferences
-				) : base()
+		public IfcClassification(IfcLabel name):base()
 		{
 			Name = name;
-			HasReferences = hasReferences;
+
 			ReferenceTokens = new List<IfcIdentifier>();
 
 		}
@@ -8737,27 +10488,40 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcexternalinformation.htm"/>
+	/// </summary>
+	public abstract partial class IfcExternalInformation : IfcBase
+	{
+
+		public IfcExternalInformation():base()
+		{
+
+
+		}
+
+		public static  IfcExternalInformation FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcExternalInformation>(json);
+		}
+
+		public static  IfcExternalInformation FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcclassificationreference.htm"/>
 	/// </summary>
 	public  partial class IfcClassificationReference : IfcExternalReference
 	{
-		[JsonProperty("referencedSource")]
-		public IfcClassificationReferenceSelect ReferencedSource {get;set;} // optional
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("sort")]
-		public IfcIdentifier Sort {get;set;} // optional
-		[JsonProperty("classificationRefForObjects")]
-		public List<IfcRelAssociatesClassification> ClassificationRefForObjects {get;set;} 
-		[JsonProperty("hasReferences")]
-		public List<IfcClassificationReference> HasReferences {get;set;} 
+		public IfcClassificationReferenceSelect ReferencedSource{get;set;} // optional
+		public IfcText Description{get;set;} // optional
+		public IfcIdentifier Sort{get;set;} // optional
 
-		public IfcClassificationReference(List<IfcClassificationReference> hasReferences
-				,List<IfcExternalReferenceRelationship> externalReferenceForResources
-				) : base(externalReferenceForResources
-					)
+		public IfcClassificationReference():base()
 		{
-			HasReferences = hasReferences;
+
 
 		}
 
@@ -8773,19 +10537,40 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcexternalreference.htm"/>
+	/// </summary>
+	public abstract partial class IfcExternalReference : IfcBase
+	{
+		public IfcURIReference Location{get;set;} // optional
+		public IfcIdentifier Identification{get;set;} // optional
+		public IfcLabel Name{get;set;} // optional
+
+		public IfcExternalReference():base()
+		{
+
+
+		}
+
+		public static  IfcExternalReference FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcExternalReference>(json);
+		}
+
+		public static  IfcExternalReference FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcclosedshell.htm"/>
 	/// </summary>
 	public  partial class IfcClosedShell : IfcConnectedFaceSet
 	{
 
-		public IfcClosedShell(List<IfcFace> cfsFaces
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(cfsFaces
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcClosedShell(List<IfcFace> cfsFaces):base(cfsFaces)
 		{
+
 
 		}
 
@@ -8801,15 +10586,40 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcconnectedfaceset.htm"/>
+	/// </summary>
+	public  partial class IfcConnectedFaceSet : IfcTopologicalRepresentationItem
+	{
+		public List<IfcFace> CfsFaces{get;set;} 
+
+		public IfcConnectedFaceSet(List<IfcFace> cfsFaces):base()
+		{
+			CfsFaces = cfsFaces;
+
+
+		}
+
+		public static new IfcConnectedFaceSet FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConnectedFaceSet>(json);
+		}
+
+		public static new IfcConnectedFaceSet FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccoil.htm"/>
 	/// </summary>
 	public  partial class IfcCoil : IfcEnergyConversionDevice
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCoilTypeEnum PredefinedType {get;set;} // optional
+		public IfcCoilTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcCoil() : base()
+		public IfcCoil(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -8829,13 +10639,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCoilType : IfcEnergyConversionDeviceType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCoilTypeEnum PredefinedType {get;set;} 
+		public IfcCoilTypeEnum PredefinedType{get;set;} 
 
-		public IfcCoilType(IfcCoilTypeEnum predefinedType
-				) : base()
+		public IfcCoilType(IfcCoilTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -8855,21 +10664,16 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcColourRgb : IfcColourSpecification
 	{
-		[JsonProperty("red")]
-		public IfcNormalisedRatioMeasure Red {get;set;} 
-		[JsonProperty("green")]
-		public IfcNormalisedRatioMeasure Green {get;set;} 
-		[JsonProperty("blue")]
-		public IfcNormalisedRatioMeasure Blue {get;set;} 
+		public IfcNormalisedRatioMeasure Red{get;set;} 
+		public IfcNormalisedRatioMeasure Green{get;set;} 
+		public IfcNormalisedRatioMeasure Blue{get;set;} 
 
-		public IfcColourRgb(IfcNormalisedRatioMeasure red
-				,IfcNormalisedRatioMeasure green
-				,IfcNormalisedRatioMeasure blue
-				) : base()
+		public IfcColourRgb(IfcNormalisedRatioMeasure red,IfcNormalisedRatioMeasure green,IfcNormalisedRatioMeasure blue):base()
 		{
 			Red = red;
 			Green = green;
 			Blue = blue;
+
 
 		}
 
@@ -8885,41 +10689,15 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccolourrgblist.htm"/>
-	/// </summary>
-	public  partial class IfcColourRgbList : IfcPresentationItem
-	{
-		[JsonProperty("colourList")]
-		public List<List<IfcNormalisedRatioMeasure>> ColourList {get;set;} 
-
-		public IfcColourRgbList(List<List<IfcNormalisedRatioMeasure>> colourList
-				) : base()
-		{
-			ColourList = colourList;
-
-		}
-
-		public static new IfcColourRgbList FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcColourRgbList>(json);
-		}
-
-		public static new IfcColourRgbList FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccolourspecification.htm"/>
 	/// </summary>
 	public abstract partial class IfcColourSpecification : IfcPresentationItem
 	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
+		public IfcLabel Name{get;set;} // optional
 
-		public IfcColourSpecification() : base()
+		public IfcColourSpecification():base()
 		{
+
 
 		}
 
@@ -8935,24 +10713,48 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccolumn.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccolourrgblist.htm"/>
 	/// </summary>
-	public  partial class IfcColumn : IfcBuildingElement
+	public  partial class IfcColourRgbList : IfcPresentationItem
 	{
-		[JsonProperty("predefinedType")]
-		public IfcColumnTypeEnum PredefinedType {get;set;} // optional
+		public List<List<IfcNormalisedRatioMeasure>> ColourList{get;set;} 
 
-		public IfcColumn() : base()
+		public IfcColourRgbList(List<List<IfcNormalisedRatioMeasure>> colourList):base()
 		{
+			ColourList = colourList;
+
 
 		}
 
-		public static new IfcColumn FromJSON(string json)
+		public static new IfcColourRgbList FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcColumn>(json);
+			return JsonConvert.DeserializeObject<IfcColourRgbList>(json);
 		}
 
-		public static new IfcColumn FromSTEP(string step)
+		public static new IfcColourRgbList FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpresentationitem.htm"/>
+	/// </summary>
+	public abstract partial class IfcPresentationItem : IfcBase
+	{
+
+		public IfcPresentationItem():base()
+		{
+
+
+		}
+
+		public static  IfcPresentationItem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPresentationItem>(json);
+		}
+
+		public static  IfcPresentationItem FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -8964,8 +10766,9 @@ namespace IFC4
 	public  partial class IfcColumnStandardCase : IfcColumn
 	{
 
-		public IfcColumnStandardCase() : base()
+		public IfcColumnStandardCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -8981,41 +10784,15 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccolumntype.htm"/>
-	/// </summary>
-	public  partial class IfcColumnType : IfcBuildingElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcColumnTypeEnum PredefinedType {get;set;} 
-
-		public IfcColumnType(IfcColumnTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcColumnType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcColumnType>(json);
-		}
-
-		public static new IfcColumnType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccommunicationsappliance.htm"/>
 	/// </summary>
 	public  partial class IfcCommunicationsAppliance : IfcFlowTerminal
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCommunicationsApplianceTypeEnum PredefinedType {get;set;} // optional
+		public IfcCommunicationsApplianceTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcCommunicationsAppliance() : base()
+		public IfcCommunicationsAppliance(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -9035,13 +10812,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCommunicationsApplianceType : IfcFlowTerminalType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCommunicationsApplianceTypeEnum PredefinedType {get;set;} 
+		public IfcCommunicationsApplianceTypeEnum PredefinedType{get;set;} 
 
-		public IfcCommunicationsApplianceType(IfcCommunicationsApplianceTypeEnum predefinedType
-				) : base()
+		public IfcCommunicationsApplianceType(IfcCommunicationsApplianceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -9061,29 +10837,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcComplexProperty : IfcProperty
 	{
-		[JsonProperty("usageName")]
-		public IfcIdentifier UsageName {get;set;} 
-		[JsonProperty("hasProperties")]
-		public List<IfcProperty> HasProperties {get;set;} 
+		public IfcIdentifier UsageName{get;set;} 
+		public List<IfcProperty> HasProperties{get;set;} 
 
-		public IfcComplexProperty(IfcIdentifier usageName
-				,List<IfcProperty> hasProperties
-				,IfcIdentifier name
-				,List<IfcPropertySet> partOfPset
-				,List<IfcPropertyDependencyRelationship> propertyForDependance
-				,List<IfcPropertyDependencyRelationship> propertyDependsOn
-				,List<IfcComplexProperty> partOfComplex
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				) : base(name
-					,partOfPset
-					,propertyForDependance
-					,propertyDependsOn
-					,partOfComplex
-					,hasExternalReferences
-					)
+		public IfcComplexProperty(IfcIdentifier usageName,List<IfcProperty> hasProperties,IfcIdentifier name):base(name)
 		{
 			UsageName = usageName;
 			HasProperties = hasProperties;
+
 
 		}
 
@@ -9099,23 +10860,43 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcproperty.htm"/>
+	/// </summary>
+	public abstract partial class IfcProperty : IfcPropertyAbstraction
+	{
+		public IfcIdentifier Name{get;set;} 
+		public IfcText Description{get;set;} // optional
+
+		public IfcProperty(IfcIdentifier name):base()
+		{
+			Name = name;
+
+
+		}
+
+		public static new IfcProperty FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProperty>(json);
+		}
+
+		public static new IfcProperty FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccomplexpropertytemplate.htm"/>
 	/// </summary>
 	public  partial class IfcComplexPropertyTemplate : IfcPropertyTemplate
 	{
-		[JsonProperty("usageName")]
-		public IfcLabel UsageName {get;set;} // optional
-		[JsonProperty("templateType")]
-		public IfcComplexPropertyTemplateTypeEnum TemplateType {get;set;} // optional
-		[JsonProperty("hasPropertyTemplates")]
-		public List<IfcPropertyTemplate> HasPropertyTemplates {get;set;} // optional
+		public IfcLabel UsageName{get;set;} // optional
+		public IfcComplexPropertyTemplateTypeEnum TemplateType{get;set;} // optional
+		public List<IfcPropertyTemplate> HasPropertyTemplates{get;set;} // optional
 
-		public IfcComplexPropertyTemplate(List<IfcComplexPropertyTemplate> partOfComplexTemplate
-				,List<IfcPropertySetTemplate> partOfPsetTemplate
-				) : base(partOfComplexTemplate
-					,partOfPsetTemplate
-					)
+		public IfcComplexPropertyTemplate(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 			HasPropertyTemplates = new List<IfcPropertyTemplate>();
 
 		}
@@ -9132,64 +10913,23 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccompositecurve.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpropertytemplate.htm"/>
 	/// </summary>
-	public  partial class IfcCompositeCurve : IfcBoundedCurve
-	{
-		[JsonProperty("segments")]
-		public List<IfcCompositeCurveSegment> Segments {get;set;} 
-		[JsonProperty("selfIntersect")]
-		public bool? SelfIntersect {get;set;} 
-
-		public IfcCompositeCurve(List<IfcCompositeCurveSegment> segments
-				,bool? selfIntersect
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-			Segments = segments;
-			SelfIntersect = selfIntersect;
-
-		}
-
-		public static new IfcCompositeCurve FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcCompositeCurve>(json);
-		}
-
-		public static new IfcCompositeCurve FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccompositecurveonsurface.htm"/>
-	/// </summary>
-	public  partial class IfcCompositeCurveOnSurface : IfcCompositeCurve
+	public abstract partial class IfcPropertyTemplate : IfcPropertyTemplateDefinition
 	{
 
-		public IfcCompositeCurveOnSurface(List<IfcCompositeCurveSegment> segments
-				,bool? selfIntersect
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(segments
-					,selfIntersect
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcPropertyTemplate(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
-		public static new IfcCompositeCurveOnSurface FromJSON(string json)
+		public static new IfcPropertyTemplate FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcCompositeCurveOnSurface>(json);
+			return JsonConvert.DeserializeObject<IfcPropertyTemplate>(json);
 		}
 
-		public static new IfcCompositeCurveOnSurface FromSTEP(string step)
+		public static new IfcPropertyTemplate FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -9200,29 +10940,16 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCompositeCurveSegment : IfcGeometricRepresentationItem
 	{
-		[JsonProperty("transition")]
-		public IfcTransitionCode Transition {get;set;} 
-		[JsonProperty("sameSense")]
-		public bool SameSense {get;set;} 
-		[JsonProperty("parentCurve")]
-		public IfcCurve ParentCurve {get;set;} 
-		[JsonProperty("usingCurves")]
-		public List<IfcCompositeCurve> UsingCurves {get;set;} 
+		public IfcTransitionCode Transition{get;set;} 
+		public bool SameSense{get;set;} 
+		public IfcCurve ParentCurve{get;set;} 
 
-		public IfcCompositeCurveSegment(IfcTransitionCode transition
-				,bool sameSense
-				,IfcCurve parentCurve
-				,List<IfcCompositeCurve> usingCurves
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcCompositeCurveSegment(IfcTransitionCode transition,bool sameSense,IfcCurve parentCurve):base()
 		{
 			Transition = transition;
 			SameSense = sameSense;
 			ParentCurve = parentCurve;
-			UsingCurves = usingCurves;
+
 
 		}
 
@@ -9238,25 +10965,42 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreparametrisedcompositecurvesegment.htm"/>
+	/// </summary>
+	public  partial class IfcReparametrisedCompositeCurveSegment : IfcCompositeCurveSegment
+	{
+		public IfcParameterValue ParamLength{get;set;} 
+
+		public IfcReparametrisedCompositeCurveSegment(IfcParameterValue paramLength,IfcTransitionCode transition,bool sameSense,IfcCurve parentCurve):base(transition,sameSense,parentCurve)
+		{
+			ParamLength = paramLength;
+
+
+		}
+
+		public static new IfcReparametrisedCompositeCurveSegment FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcReparametrisedCompositeCurveSegment>(json);
+		}
+
+		public static new IfcReparametrisedCompositeCurveSegment FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccompositeprofiledef.htm"/>
 	/// </summary>
 	public  partial class IfcCompositeProfileDef : IfcProfileDef
 	{
-		[JsonProperty("profiles")]
-		public List<IfcProfileDef> Profiles {get;set;} 
-		[JsonProperty("label")]
-		public IfcLabel Label {get;set;} // optional
+		public List<IfcProfileDef> Profiles{get;set;} 
+		public IfcLabel Label{get;set;} // optional
 
-		public IfcCompositeProfileDef(List<IfcProfileDef> profiles
-				,IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(profileType
-					,hasExternalReference
-					,hasProperties
-					)
+		public IfcCompositeProfileDef(List<IfcProfileDef> profiles,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			Profiles = profiles;
+
 
 		}
 
@@ -9276,11 +11020,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCompressor : IfcFlowMovingDevice
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCompressorTypeEnum PredefinedType {get;set;} // optional
+		public IfcCompressorTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcCompressor() : base()
+		public IfcCompressor(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -9296,17 +11040,39 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowmovingdevice.htm"/>
+	/// </summary>
+	public  partial class IfcFlowMovingDevice : IfcDistributionFlowElement
+	{
+
+		public IfcFlowMovingDevice(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcFlowMovingDevice FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowMovingDevice>(json);
+		}
+
+		public static new IfcFlowMovingDevice FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccompressortype.htm"/>
 	/// </summary>
 	public  partial class IfcCompressorType : IfcFlowMovingDeviceType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCompressorTypeEnum PredefinedType {get;set;} 
+		public IfcCompressorTypeEnum PredefinedType{get;set;} 
 
-		public IfcCompressorType(IfcCompressorTypeEnum predefinedType
-				) : base()
+		public IfcCompressorType(IfcCompressorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -9322,15 +11088,38 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowmovingdevicetype.htm"/>
+	/// </summary>
+	public abstract partial class IfcFlowMovingDeviceType : IfcDistributionFlowElementType
+	{
+
+		public IfcFlowMovingDeviceType(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcFlowMovingDeviceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowMovingDeviceType>(json);
+		}
+
+		public static new IfcFlowMovingDeviceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccondenser.htm"/>
 	/// </summary>
 	public  partial class IfcCondenser : IfcEnergyConversionDevice
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCondenserTypeEnum PredefinedType {get;set;} // optional
+		public IfcCondenserTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcCondenser() : base()
+		public IfcCondenser(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -9350,13 +11139,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCondenserType : IfcEnergyConversionDeviceType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCondenserTypeEnum PredefinedType {get;set;} 
+		public IfcCondenserTypeEnum PredefinedType{get;set;} 
 
-		public IfcCondenserType(IfcCondenserTypeEnum predefinedType
-				) : base()
+		public IfcCondenserType(IfcCondenserTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -9372,60 +11160,73 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcconic.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcellipse.htm"/>
 	/// </summary>
-	public abstract partial class IfcConic : IfcCurve
+	public  partial class IfcEllipse : IfcConic
 	{
-		[JsonProperty("position")]
-		public IfcAxis2Placement Position {get;set;} 
+		public IfcPositiveLengthMeasure SemiAxis1{get;set;} 
+		public IfcPositiveLengthMeasure SemiAxis2{get;set;} 
 
-		public IfcConic(IfcAxis2Placement position
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcEllipse(IfcPositiveLengthMeasure semiAxis1,IfcPositiveLengthMeasure semiAxis2,IfcAxis2Placement position):base(position)
 		{
-			Position = position;
+			SemiAxis1 = semiAxis1;
+			SemiAxis2 = semiAxis2;
+
 
 		}
 
-		public static new IfcConic FromJSON(string json)
+		public static new IfcEllipse FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcConic>(json);
+			return JsonConvert.DeserializeObject<IfcEllipse>(json);
 		}
 
-		public static new IfcConic FromSTEP(string step)
+		public static new IfcEllipse FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcconnectedfaceset.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcopenshell.htm"/>
 	/// </summary>
-	public  partial class IfcConnectedFaceSet : IfcTopologicalRepresentationItem
+	public  partial class IfcOpenShell : IfcConnectedFaceSet
 	{
-		[JsonProperty("cfsFaces")]
-		public List<IfcFace> CfsFaces {get;set;} 
 
-		public IfcConnectedFaceSet(List<IfcFace> cfsFaces
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcOpenShell(List<IfcFace> cfsFaces):base(cfsFaces)
 		{
-			CfsFaces = cfsFaces;
+
 
 		}
 
-		public static new IfcConnectedFaceSet FromJSON(string json)
+		public static new IfcOpenShell FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcConnectedFaceSet>(json);
+			return JsonConvert.DeserializeObject<IfcOpenShell>(json);
 		}
 
-		public static new IfcConnectedFaceSet FromSTEP(string step)
+		public static new IfcOpenShell FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctopologicalrepresentationitem.htm"/>
+	/// </summary>
+	public abstract partial class IfcTopologicalRepresentationItem : IfcRepresentationItem
+	{
+
+		public IfcTopologicalRepresentationItem():base()
+		{
+
+
+		}
+
+		public static new IfcTopologicalRepresentationItem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTopologicalRepresentationItem>(json);
+		}
+
+		public static new IfcTopologicalRepresentationItem FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -9436,15 +11237,13 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcConnectionCurveGeometry : IfcConnectionGeometry
 	{
-		[JsonProperty("curveOnRelatingElement")]
-		public IfcCurveOrEdgeCurve CurveOnRelatingElement {get;set;} 
-		[JsonProperty("curveOnRelatedElement")]
-		public IfcCurveOrEdgeCurve CurveOnRelatedElement {get;set;} // optional
+		public IfcCurveOrEdgeCurve CurveOnRelatingElement{get;set;} 
+		public IfcCurveOrEdgeCurve CurveOnRelatedElement{get;set;} // optional
 
-		public IfcConnectionCurveGeometry(IfcCurveOrEdgeCurve curveOnRelatingElement
-				) : base()
+		public IfcConnectionCurveGeometry(IfcCurveOrEdgeCurve curveOnRelatingElement):base()
 		{
 			CurveOnRelatingElement = curveOnRelatingElement;
+
 
 		}
 
@@ -9465,8 +11264,9 @@ namespace IFC4
 	public abstract partial class IfcConnectionGeometry : IfcBase
 	{
 
-		public IfcConnectionGeometry()
+		public IfcConnectionGeometry():base()
 		{
+
 
 		}
 
@@ -9482,49 +11282,17 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcconnectionpointeccentricity.htm"/>
-	/// </summary>
-	public  partial class IfcConnectionPointEccentricity : IfcConnectionPointGeometry
-	{
-		[JsonProperty("eccentricityInX")]
-		public IfcLengthMeasure EccentricityInX {get;set;} // optional
-		[JsonProperty("eccentricityInY")]
-		public IfcLengthMeasure EccentricityInY {get;set;} // optional
-		[JsonProperty("eccentricityInZ")]
-		public IfcLengthMeasure EccentricityInZ {get;set;} // optional
-
-		public IfcConnectionPointEccentricity(IfcPointOrVertexPoint pointOnRelatingElement
-				) : base(pointOnRelatingElement
-					)
-		{
-
-		}
-
-		public static new IfcConnectionPointEccentricity FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcConnectionPointEccentricity>(json);
-		}
-
-		public static new IfcConnectionPointEccentricity FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcconnectionpointgeometry.htm"/>
 	/// </summary>
 	public  partial class IfcConnectionPointGeometry : IfcConnectionGeometry
 	{
-		[JsonProperty("pointOnRelatingElement")]
-		public IfcPointOrVertexPoint PointOnRelatingElement {get;set;} 
-		[JsonProperty("pointOnRelatedElement")]
-		public IfcPointOrVertexPoint PointOnRelatedElement {get;set;} // optional
+		public IfcPointOrVertexPoint PointOnRelatingElement{get;set;} 
+		public IfcPointOrVertexPoint PointOnRelatedElement{get;set;} // optional
 
-		public IfcConnectionPointGeometry(IfcPointOrVertexPoint pointOnRelatingElement
-				) : base()
+		public IfcConnectionPointGeometry(IfcPointOrVertexPoint pointOnRelatingElement):base()
 		{
 			PointOnRelatingElement = pointOnRelatingElement;
+
 
 		}
 
@@ -9544,15 +11312,13 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcConnectionSurfaceGeometry : IfcConnectionGeometry
 	{
-		[JsonProperty("surfaceOnRelatingElement")]
-		public IfcSurfaceOrFaceSurface SurfaceOnRelatingElement {get;set;} 
-		[JsonProperty("surfaceOnRelatedElement")]
-		public IfcSurfaceOrFaceSurface SurfaceOnRelatedElement {get;set;} // optional
+		public IfcSurfaceOrFaceSurface SurfaceOnRelatingElement{get;set;} 
+		public IfcSurfaceOrFaceSurface SurfaceOnRelatedElement{get;set;} // optional
 
-		public IfcConnectionSurfaceGeometry(IfcSurfaceOrFaceSurface surfaceOnRelatingElement
-				) : base()
+		public IfcConnectionSurfaceGeometry(IfcSurfaceOrFaceSurface surfaceOnRelatingElement):base()
 		{
 			SurfaceOnRelatingElement = surfaceOnRelatingElement;
+
 
 		}
 
@@ -9572,15 +11338,13 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcConnectionVolumeGeometry : IfcConnectionGeometry
 	{
-		[JsonProperty("volumeOnRelatingElement")]
-		public IfcSolidOrShell VolumeOnRelatingElement {get;set;} 
-		[JsonProperty("volumeOnRelatedElement")]
-		public IfcSolidOrShell VolumeOnRelatedElement {get;set;} // optional
+		public IfcSolidOrShell VolumeOnRelatingElement{get;set;} 
+		public IfcSolidOrShell VolumeOnRelatedElement{get;set;} // optional
 
-		public IfcConnectionVolumeGeometry(IfcSolidOrShell volumeOnRelatingElement
-				) : base()
+		public IfcConnectionVolumeGeometry(IfcSolidOrShell volumeOnRelatingElement):base()
 		{
 			VolumeOnRelatingElement = volumeOnRelatingElement;
+
 
 		}
 
@@ -9596,39 +11360,49 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcconnectionpointeccentricity.htm"/>
+	/// </summary>
+	public  partial class IfcConnectionPointEccentricity : IfcConnectionPointGeometry
+	{
+		public IfcLengthMeasure EccentricityInX{get;set;} // optional
+		public IfcLengthMeasure EccentricityInY{get;set;} // optional
+		public IfcLengthMeasure EccentricityInZ{get;set;} // optional
+
+		public IfcConnectionPointEccentricity(IfcPointOrVertexPoint pointOnRelatingElement):base(pointOnRelatingElement)
+		{
+
+
+		}
+
+		public static new IfcConnectionPointEccentricity FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConnectionPointEccentricity>(json);
+		}
+
+		public static new IfcConnectionPointEccentricity FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcconstraint.htm"/>
 	/// </summary>
 	public abstract partial class IfcConstraint : IfcBase
 	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} 
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("constraintGrade")]
-		public IfcConstraintEnum ConstraintGrade {get;set;} 
-		[JsonProperty("constraintSource")]
-		public IfcLabel ConstraintSource {get;set;} // optional
-		[JsonProperty("creatingActor")]
-		public IfcActorSelect CreatingActor {get;set;} // optional
-		[JsonProperty("creationTime")]
-		public IfcDateTime CreationTime {get;set;} // optional
-		[JsonProperty("userDefinedGrade")]
-		public IfcLabel UserDefinedGrade {get;set;} // optional
-		[JsonProperty("hasExternalReferences")]
-		public List<IfcExternalReferenceRelationship> HasExternalReferences {get;set;} 
-		[JsonProperty("propertiesForConstraint")]
-		public List<IfcResourceConstraintRelationship> PropertiesForConstraint {get;set;} 
+		public IfcLabel Name{get;set;} 
+		public IfcText Description{get;set;} // optional
+		public IfcConstraintEnum ConstraintGrade{get;set;} 
+		public IfcLabel ConstraintSource{get;set;} // optional
+		public IfcActorSelect CreatingActor{get;set;} // optional
+		public IfcDateTime CreationTime{get;set;} // optional
+		public IfcLabel UserDefinedGrade{get;set;} // optional
 
-		public IfcConstraint(IfcLabel name
-				,IfcConstraintEnum constraintGrade
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcResourceConstraintRelationship> propertiesForConstraint
-				)
+		public IfcConstraint(IfcLabel name,IfcConstraintEnum constraintGrade):base()
 		{
 			Name = name;
 			ConstraintGrade = constraintGrade;
-			HasExternalReferences = hasExternalReferences;
-			PropertiesForConstraint = propertiesForConstraint;
+
 
 		}
 
@@ -9644,15 +11418,73 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmetric.htm"/>
+	/// </summary>
+	public  partial class IfcMetric : IfcConstraint
+	{
+		public IfcBenchmarkEnum Benchmark{get;set;} 
+		public IfcLabel ValueSource{get;set;} // optional
+		public IfcMetricValueSelect DataValue{get;set;} 
+		public IfcReference ReferencePath{get;set;} // optional
+
+		public IfcMetric(IfcBenchmarkEnum benchmark,IfcMetricValueSelect dataValue,IfcLabel name,IfcConstraintEnum constraintGrade):base(name,constraintGrade)
+		{
+			Benchmark = benchmark;
+			DataValue = dataValue;
+
+
+		}
+
+		public static new IfcMetric FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMetric>(json);
+		}
+
+		public static new IfcMetric FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcobjective.htm"/>
+	/// </summary>
+	public  partial class IfcObjective : IfcConstraint
+	{
+		public List<IfcConstraint> BenchmarkValues{get;set;} // optional
+		public IfcLogicalOperatorEnum LogicalAggregator{get;set;} // optional
+		public IfcObjectiveEnum ObjectiveQualifier{get;set;} 
+		public IfcLabel UserDefinedQualifier{get;set;} // optional
+
+		public IfcObjective(IfcObjectiveEnum objectiveQualifier,IfcLabel name,IfcConstraintEnum constraintGrade):base(name,constraintGrade)
+		{
+			ObjectiveQualifier = objectiveQualifier;
+
+			BenchmarkValues = new List<IfcConstraint>();
+
+		}
+
+		public static new IfcObjective FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcObjective>(json);
+		}
+
+		public static new IfcObjective FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcconstructionequipmentresource.htm"/>
 	/// </summary>
 	public  partial class IfcConstructionEquipmentResource : IfcConstructionResource
 	{
-		[JsonProperty("predefinedType")]
-		public IfcConstructionEquipmentResourceTypeEnum PredefinedType {get;set;} // optional
+		public IfcConstructionEquipmentResourceTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcConstructionEquipmentResource() : base()
+		public IfcConstructionEquipmentResource(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -9668,17 +11500,43 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcconstructionresource.htm"/>
+	/// </summary>
+	public abstract partial class IfcConstructionResource : IfcResource
+	{
+		public IfcResourceTime Usage{get;set;} // optional
+		public List<IfcAppliedValue> BaseCosts{get;set;} // optional
+		public IfcPhysicalQuantity BaseQuantity{get;set;} // optional
+
+		public IfcConstructionResource(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+			BaseCosts = new List<IfcAppliedValue>();
+
+		}
+
+		public static new IfcConstructionResource FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConstructionResource>(json);
+		}
+
+		public static new IfcConstructionResource FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcconstructionequipmentresourcetype.htm"/>
 	/// </summary>
 	public  partial class IfcConstructionEquipmentResourceType : IfcConstructionResourceType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcConstructionEquipmentResourceTypeEnum PredefinedType {get;set;} 
+		public IfcConstructionEquipmentResourceTypeEnum PredefinedType{get;set;} 
 
-		public IfcConstructionEquipmentResourceType(IfcConstructionEquipmentResourceTypeEnum predefinedType
-				) : base()
+		public IfcConstructionEquipmentResourceType(IfcConstructionEquipmentResourceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -9694,15 +11552,41 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcconstructionresourcetype.htm"/>
+	/// </summary>
+	public abstract partial class IfcConstructionResourceType : IfcTypeResource
+	{
+		public List<IfcAppliedValue> BaseCosts{get;set;} // optional
+		public IfcPhysicalQuantity BaseQuantity{get;set;} // optional
+
+		public IfcConstructionResourceType(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+			BaseCosts = new List<IfcAppliedValue>();
+
+		}
+
+		public static new IfcConstructionResourceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConstructionResourceType>(json);
+		}
+
+		public static new IfcConstructionResourceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcconstructionmaterialresource.htm"/>
 	/// </summary>
 	public  partial class IfcConstructionMaterialResource : IfcConstructionResource
 	{
-		[JsonProperty("predefinedType")]
-		public IfcConstructionMaterialResourceTypeEnum PredefinedType {get;set;} // optional
+		public IfcConstructionMaterialResourceTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcConstructionMaterialResource() : base()
+		public IfcConstructionMaterialResource(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -9722,13 +11606,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcConstructionMaterialResourceType : IfcConstructionResourceType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcConstructionMaterialResourceTypeEnum PredefinedType {get;set;} 
+		public IfcConstructionMaterialResourceTypeEnum PredefinedType{get;set;} 
 
-		public IfcConstructionMaterialResourceType(IfcConstructionMaterialResourceTypeEnum predefinedType
-				) : base()
+		public IfcConstructionMaterialResourceType(IfcConstructionMaterialResourceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -9748,11 +11631,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcConstructionProductResource : IfcConstructionResource
 	{
-		[JsonProperty("predefinedType")]
-		public IfcConstructionProductResourceTypeEnum PredefinedType {get;set;} // optional
+		public IfcConstructionProductResourceTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcConstructionProductResource() : base()
+		public IfcConstructionProductResource(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -9772,13 +11655,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcConstructionProductResourceType : IfcConstructionResourceType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcConstructionProductResourceTypeEnum PredefinedType {get;set;} 
+		public IfcConstructionProductResourceTypeEnum PredefinedType{get;set;} 
 
-		public IfcConstructionProductResourceType(IfcConstructionProductResourceTypeEnum predefinedType
-				) : base()
+		public IfcConstructionProductResourceType(IfcConstructionProductResourceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -9794,56 +11676,198 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcconstructionresource.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccrewresource.htm"/>
 	/// </summary>
-	public abstract partial class IfcConstructionResource : IfcResource
+	public  partial class IfcCrewResource : IfcConstructionResource
 	{
-		[JsonProperty("usage")]
-		public IfcResourceTime Usage {get;set;} // optional
-		[JsonProperty("baseCosts")]
-		public List<IfcAppliedValue> BaseCosts {get;set;} // optional
-		[JsonProperty("baseQuantity")]
-		public IfcPhysicalQuantity BaseQuantity {get;set;} // optional
+		public IfcCrewResourceTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcConstructionResource() : base()
+		public IfcCrewResource(IfcGloballyUniqueId globalId):base(globalId)
 		{
-			BaseCosts = new List<IfcAppliedValue>();
+
 
 		}
 
-		public static new IfcConstructionResource FromJSON(string json)
+		public static new IfcCrewResource FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcConstructionResource>(json);
+			return JsonConvert.DeserializeObject<IfcCrewResource>(json);
 		}
 
-		public static new IfcConstructionResource FromSTEP(string step)
+		public static new IfcCrewResource FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcconstructionresourcetype.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclaborresource.htm"/>
 	/// </summary>
-	public abstract partial class IfcConstructionResourceType : IfcTypeResource
+	public  partial class IfcLaborResource : IfcConstructionResource
 	{
-		[JsonProperty("baseCosts")]
-		public List<IfcAppliedValue> BaseCosts {get;set;} // optional
-		[JsonProperty("baseQuantity")]
-		public IfcPhysicalQuantity BaseQuantity {get;set;} // optional
+		public IfcLaborResourceTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcConstructionResourceType() : base()
+		public IfcLaborResource(IfcGloballyUniqueId globalId):base(globalId)
 		{
-			BaseCosts = new List<IfcAppliedValue>();
+
 
 		}
 
-		public static new IfcConstructionResourceType FromJSON(string json)
+		public static new IfcLaborResource FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcConstructionResourceType>(json);
+			return JsonConvert.DeserializeObject<IfcLaborResource>(json);
 		}
 
-		public static new IfcConstructionResourceType FromSTEP(string step)
+		public static new IfcLaborResource FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsubcontractresource.htm"/>
+	/// </summary>
+	public  partial class IfcSubContractResource : IfcConstructionResource
+	{
+		public IfcSubContractResourceTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcSubContractResource(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcSubContractResource FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSubContractResource>(json);
+		}
+
+		public static new IfcSubContractResource FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcresource.htm"/>
+	/// </summary>
+	public abstract partial class IfcResource : IfcObject
+	{
+		public IfcIdentifier Identification{get;set;} // optional
+		public IfcText LongDescription{get;set;} // optional
+
+		public IfcResource(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcResource FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcResource>(json);
+		}
+
+		public static new IfcResource FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccrewresourcetype.htm"/>
+	/// </summary>
+	public  partial class IfcCrewResourceType : IfcConstructionResourceType
+	{
+		public IfcCrewResourceTypeEnum PredefinedType{get;set;} 
+
+		public IfcCrewResourceType(IfcCrewResourceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcCrewResourceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCrewResourceType>(json);
+		}
+
+		public static new IfcCrewResourceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclaborresourcetype.htm"/>
+	/// </summary>
+	public  partial class IfcLaborResourceType : IfcConstructionResourceType
+	{
+		public IfcLaborResourceTypeEnum PredefinedType{get;set;} 
+
+		public IfcLaborResourceType(IfcLaborResourceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcLaborResourceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLaborResourceType>(json);
+		}
+
+		public static new IfcLaborResourceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsubcontractresourcetype.htm"/>
+	/// </summary>
+	public  partial class IfcSubContractResourceType : IfcConstructionResourceType
+	{
+		public IfcSubContractResourceTypeEnum PredefinedType{get;set;} 
+
+		public IfcSubContractResourceType(IfcSubContractResourceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcSubContractResourceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSubContractResourceType>(json);
+		}
+
+		public static new IfcSubContractResourceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctyperesource.htm"/>
+	/// </summary>
+	public abstract partial class IfcTypeResource : IfcTypeObject
+	{
+		public IfcIdentifier Identification{get;set;} // optional
+		public IfcText LongDescription{get;set;} // optional
+		public IfcLabel ResourceType{get;set;} // optional
+
+		public IfcTypeResource(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcTypeResource FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTypeResource>(json);
+		}
+
+		public static new IfcTypeResource FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -9854,23 +11878,15 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcContext : IfcObjectDefinition
 	{
-		[JsonProperty("objectType")]
-		public IfcLabel ObjectType {get;set;} // optional
-		[JsonProperty("longName")]
-		public IfcLabel LongName {get;set;} // optional
-		[JsonProperty("phase")]
-		public IfcLabel Phase {get;set;} // optional
-		[JsonProperty("representationContexts")]
-		public List<IfcRepresentationContext> RepresentationContexts {get;set;} // optional
-		[JsonProperty("unitsInContext")]
-		public IfcUnitAssignment UnitsInContext {get;set;} // optional
-		[JsonProperty("isDefinedBy")]
-		public List<IfcRelDefinesByProperties> IsDefinedBy {get;set;} 
-		[JsonProperty("declares")]
-		public List<IfcRelDeclares> Declares {get;set;} 
+		public IfcLabel ObjectType{get;set;} // optional
+		public IfcLabel LongName{get;set;} // optional
+		public IfcLabel Phase{get;set;} // optional
+		public List<IfcRepresentationContext> RepresentationContexts{get;set;} // optional
+		public IfcUnitAssignment UnitsInContext{get;set;} // optional
 
-		public IfcContext() : base()
+		public IfcContext(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 			RepresentationContexts = new List<IfcRepresentationContext>();
 
 		}
@@ -9887,25 +11903,85 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcproject.htm"/>
+	/// </summary>
+	public  partial class IfcProject : IfcContext
+	{
+
+		public IfcProject(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcProject FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProject>(json);
+		}
+
+		public static new IfcProject FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprojectlibrary.htm"/>
+	/// </summary>
+	public  partial class IfcProjectLibrary : IfcContext
+	{
+
+		public IfcProjectLibrary(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcProjectLibrary FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProjectLibrary>(json);
+		}
+
+		public static new IfcProjectLibrary FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcobjectdefinition.htm"/>
+	/// </summary>
+	public abstract partial class IfcObjectDefinition : IfcRoot
+	{
+
+		public IfcObjectDefinition(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcObjectDefinition FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcObjectDefinition>(json);
+		}
+
+		public static new IfcObjectDefinition FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccontextdependentunit.htm"/>
 	/// </summary>
 	public  partial class IfcContextDependentUnit : IfcNamedUnit
 	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} 
-		[JsonProperty("hasExternalReference")]
-		public List<IfcExternalReferenceRelationship> HasExternalReference {get;set;} 
+		public IfcLabel Name{get;set;} 
 
-		public IfcContextDependentUnit(IfcLabel name
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,IfcDimensionalExponents dimensions
-				,IfcUnitEnum unitType
-				) : base(dimensions
-					,unitType
-					)
+		public IfcContextDependentUnit(IfcLabel name,IfcDimensionalExponents dimensions,IfcUnitEnum unitType):base(dimensions,unitType)
 		{
 			Name = name;
-			HasExternalReference = hasExternalReference;
+
 
 		}
 
@@ -9921,312 +11997,27 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccontrol.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcnamedunit.htm"/>
 	/// </summary>
-	public abstract partial class IfcControl : IfcObject
+	public abstract partial class IfcNamedUnit : IfcBase
 	{
-		[JsonProperty("identification")]
-		public IfcIdentifier Identification {get;set;} // optional
-		[JsonProperty("controls")]
-		public List<IfcRelAssignsToControl> Controls {get;set;} 
+		public IfcDimensionalExponents Dimensions{get;set;} 
+		public IfcUnitEnum UnitType{get;set;} 
 
-		public IfcControl() : base()
+		public IfcNamedUnit(IfcDimensionalExponents dimensions,IfcUnitEnum unitType):base()
 		{
+			Dimensions = dimensions;
+			UnitType = unitType;
+
 
 		}
 
-		public static new IfcControl FromJSON(string json)
+		public static  IfcNamedUnit FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcControl>(json);
+			return JsonConvert.DeserializeObject<IfcNamedUnit>(json);
 		}
 
-		public static new IfcControl FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccontroller.htm"/>
-	/// </summary>
-	public  partial class IfcController : IfcDistributionControlElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcControllerTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcController() : base()
-		{
-
-		}
-
-		public static new IfcController FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcController>(json);
-		}
-
-		public static new IfcController FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccontrollertype.htm"/>
-	/// </summary>
-	public  partial class IfcControllerType : IfcDistributionControlElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcControllerTypeEnum PredefinedType {get;set;} 
-
-		public IfcControllerType(IfcControllerTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcControllerType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcControllerType>(json);
-		}
-
-		public static new IfcControllerType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcconversionbasedunit.htm"/>
-	/// </summary>
-	public  partial class IfcConversionBasedUnit : IfcNamedUnit
-	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} 
-		[JsonProperty("conversionFactor")]
-		public IfcMeasureWithUnit ConversionFactor {get;set;} 
-		[JsonProperty("hasExternalReference")]
-		public List<IfcExternalReferenceRelationship> HasExternalReference {get;set;} 
-
-		public IfcConversionBasedUnit(IfcLabel name
-				,IfcMeasureWithUnit conversionFactor
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,IfcDimensionalExponents dimensions
-				,IfcUnitEnum unitType
-				) : base(dimensions
-					,unitType
-					)
-		{
-			Name = name;
-			ConversionFactor = conversionFactor;
-			HasExternalReference = hasExternalReference;
-
-		}
-
-		public static new IfcConversionBasedUnit FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcConversionBasedUnit>(json);
-		}
-
-		public static new IfcConversionBasedUnit FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcconversionbasedunitwithoffset.htm"/>
-	/// </summary>
-	public  partial class IfcConversionBasedUnitWithOffset : IfcConversionBasedUnit
-	{
-		[JsonProperty("conversionOffset")]
-		public IfcReal ConversionOffset {get;set;} 
-
-		public IfcConversionBasedUnitWithOffset(IfcReal conversionOffset
-				,IfcLabel name
-				,IfcMeasureWithUnit conversionFactor
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,IfcDimensionalExponents dimensions
-				,IfcUnitEnum unitType
-				) : base(name
-					,conversionFactor
-					,hasExternalReference
-					,dimensions
-					,unitType
-					)
-		{
-			ConversionOffset = conversionOffset;
-
-		}
-
-		public static new IfcConversionBasedUnitWithOffset FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcConversionBasedUnitWithOffset>(json);
-		}
-
-		public static new IfcConversionBasedUnitWithOffset FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccooledbeam.htm"/>
-	/// </summary>
-	public  partial class IfcCooledBeam : IfcEnergyConversionDevice
-	{
-		[JsonProperty("predefinedType")]
-		public IfcCooledBeamTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcCooledBeam() : base()
-		{
-
-		}
-
-		public static new IfcCooledBeam FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcCooledBeam>(json);
-		}
-
-		public static new IfcCooledBeam FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccooledbeamtype.htm"/>
-	/// </summary>
-	public  partial class IfcCooledBeamType : IfcEnergyConversionDeviceType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcCooledBeamTypeEnum PredefinedType {get;set;} 
-
-		public IfcCooledBeamType(IfcCooledBeamTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcCooledBeamType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcCooledBeamType>(json);
-		}
-
-		public static new IfcCooledBeamType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccoolingtower.htm"/>
-	/// </summary>
-	public  partial class IfcCoolingTower : IfcEnergyConversionDevice
-	{
-		[JsonProperty("predefinedType")]
-		public IfcCoolingTowerTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcCoolingTower() : base()
-		{
-
-		}
-
-		public static new IfcCoolingTower FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcCoolingTower>(json);
-		}
-
-		public static new IfcCoolingTower FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccoolingtowertype.htm"/>
-	/// </summary>
-	public  partial class IfcCoolingTowerType : IfcEnergyConversionDeviceType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcCoolingTowerTypeEnum PredefinedType {get;set;} 
-
-		public IfcCoolingTowerType(IfcCoolingTowerTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcCoolingTowerType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcCoolingTowerType>(json);
-		}
-
-		public static new IfcCoolingTowerType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccoordinateoperation.htm"/>
-	/// </summary>
-	public abstract partial class IfcCoordinateOperation : IfcBase
-	{
-		[JsonProperty("sourceCRS")]
-		public IfcCoordinateReferenceSystemSelect SourceCRS {get;set;} 
-		[JsonProperty("targetCRS")]
-		public IfcCoordinateReferenceSystem TargetCRS {get;set;} 
-
-		public IfcCoordinateOperation(IfcCoordinateReferenceSystemSelect sourceCRS
-				,IfcCoordinateReferenceSystem targetCRS
-				)
-		{
-			SourceCRS = sourceCRS;
-			TargetCRS = targetCRS;
-
-		}
-
-		public static  IfcCoordinateOperation FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcCoordinateOperation>(json);
-		}
-
-		public static  IfcCoordinateOperation FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccoordinatereferencesystem.htm"/>
-	/// </summary>
-	public abstract partial class IfcCoordinateReferenceSystem : IfcBase
-	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("geodeticDatum")]
-		public IfcIdentifier GeodeticDatum {get;set;} 
-		[JsonProperty("verticalDatum")]
-		public IfcIdentifier VerticalDatum {get;set;} // optional
-
-		public IfcCoordinateReferenceSystem(IfcIdentifier geodeticDatum
-				)
-		{
-			GeodeticDatum = geodeticDatum;
-
-		}
-
-		public static  IfcCoordinateReferenceSystem FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcCoordinateReferenceSystem>(json);
-		}
-
-		public static  IfcCoordinateReferenceSystem FromSTEP(string step)
+		public static  IfcNamedUnit FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -10237,15 +12028,13 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCostItem : IfcControl
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCostItemTypeEnum PredefinedType {get;set;} // optional
-		[JsonProperty("costValues")]
-		public List<IfcCostValue> CostValues {get;set;} // optional
-		[JsonProperty("costQuantities")]
-		public List<IfcPhysicalQuantity> CostQuantities {get;set;} // optional
+		public IfcCostItemTypeEnum PredefinedType{get;set;} // optional
+		public List<IfcCostValue> CostValues{get;set;} // optional
+		public List<IfcPhysicalQuantity> CostQuantities{get;set;} // optional
 
-		public IfcCostItem() : base()
+		public IfcCostItem(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 			CostValues = new List<IfcCostValue>();
 			CostQuantities = new List<IfcPhysicalQuantity>();
 
@@ -10267,17 +12056,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCostSchedule : IfcControl
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCostScheduleTypeEnum PredefinedType {get;set;} // optional
-		[JsonProperty("status")]
-		public IfcLabel Status {get;set;} // optional
-		[JsonProperty("submittedOn")]
-		public IfcDateTime SubmittedOn {get;set;} // optional
-		[JsonProperty("updateDate")]
-		public IfcDateTime UpdateDate {get;set;} // optional
+		public IfcCostScheduleTypeEnum PredefinedType{get;set;} // optional
+		public IfcLabel Status{get;set;} // optional
+		public IfcDateTime SubmittedOn{get;set;} // optional
+		public IfcDateTime UpdateDate{get;set;} // optional
 
-		public IfcCostSchedule() : base()
+		public IfcCostSchedule(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -10293,158 +12079,559 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccostvalue.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcperformancehistory.htm"/>
 	/// </summary>
-	public  partial class IfcCostValue : IfcAppliedValue
+	public  partial class IfcPerformanceHistory : IfcControl
 	{
+		public IfcLabel LifeCyclePhase{get;set;} 
+		public IfcPerformanceHistoryTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcCostValue(List<IfcExternalReferenceRelationship> hasExternalReference
-				) : base(hasExternalReference
-					)
+		public IfcPerformanceHistory(IfcLabel lifeCyclePhase,IfcGloballyUniqueId globalId):base(globalId)
 		{
+			LifeCyclePhase = lifeCyclePhase;
+
 
 		}
 
-		public static new IfcCostValue FromJSON(string json)
+		public static new IfcPerformanceHistory FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcCostValue>(json);
+			return JsonConvert.DeserializeObject<IfcPerformanceHistory>(json);
 		}
 
-		public static new IfcCostValue FromSTEP(string step)
+		public static new IfcPerformanceHistory FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccovering.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpermit.htm"/>
 	/// </summary>
-	public  partial class IfcCovering : IfcBuildingElement
+	public  partial class IfcPermit : IfcControl
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCoveringTypeEnum PredefinedType {get;set;} // optional
-		[JsonProperty("coversSpaces")]
-		public List<IfcRelCoversSpaces> CoversSpaces {get;set;} 
-		[JsonProperty("coversElements")]
-		public List<IfcRelCoversBldgElements> CoversElements {get;set;} 
+		public IfcPermitTypeEnum PredefinedType{get;set;} // optional
+		public IfcLabel Status{get;set;} // optional
+		public IfcText LongDescription{get;set;} // optional
 
-		public IfcCovering() : base()
+		public IfcPermit(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
-		public static new IfcCovering FromJSON(string json)
+		public static new IfcPermit FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcCovering>(json);
+			return JsonConvert.DeserializeObject<IfcPermit>(json);
 		}
 
-		public static new IfcCovering FromSTEP(string step)
+		public static new IfcPermit FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccoveringtype.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprojectorder.htm"/>
 	/// </summary>
-	public  partial class IfcCoveringType : IfcBuildingElementType
+	public  partial class IfcProjectOrder : IfcControl
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCoveringTypeEnum PredefinedType {get;set;} 
+		public IfcProjectOrderTypeEnum PredefinedType{get;set;} // optional
+		public IfcLabel Status{get;set;} // optional
+		public IfcText LongDescription{get;set;} // optional
 
-		public IfcCoveringType(IfcCoveringTypeEnum predefinedType
-				) : base()
+		public IfcProjectOrder(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcProjectOrder FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProjectOrder>(json);
+		}
+
+		public static new IfcProjectOrder FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcworkcalendar.htm"/>
+	/// </summary>
+	public  partial class IfcWorkCalendar : IfcControl
+	{
+		public List<IfcWorkTime> WorkingTimes{get;set;} // optional
+		public List<IfcWorkTime> ExceptionTimes{get;set;} // optional
+		public IfcWorkCalendarTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcWorkCalendar(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+			WorkingTimes = new List<IfcWorkTime>();
+			ExceptionTimes = new List<IfcWorkTime>();
+
+		}
+
+		public static new IfcWorkCalendar FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWorkCalendar>(json);
+		}
+
+		public static new IfcWorkCalendar FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcworkcontrol.htm"/>
+	/// </summary>
+	public abstract partial class IfcWorkControl : IfcControl
+	{
+		public IfcDateTime CreationDate{get;set;} 
+		public List<IfcPerson> Creators{get;set;} // optional
+		public IfcLabel Purpose{get;set;} // optional
+		public IfcDuration Duration{get;set;} // optional
+		public IfcDuration TotalFloat{get;set;} // optional
+		public IfcDateTime StartTime{get;set;} 
+		public IfcDateTime FinishTime{get;set;} // optional
+
+		public IfcWorkControl(IfcDateTime creationDate,IfcDateTime startTime,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			CreationDate = creationDate;
+			StartTime = startTime;
+
+			Creators = new List<IfcPerson>();
+
+		}
+
+		public static new IfcWorkControl FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWorkControl>(json);
+		}
+
+		public static new IfcWorkControl FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccontroller.htm"/>
+	/// </summary>
+	public  partial class IfcController : IfcDistributionControlElement
+	{
+		public IfcControllerTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcController(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcController FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcController>(json);
+		}
+
+		public static new IfcController FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccontrollertype.htm"/>
+	/// </summary>
+	public  partial class IfcControllerType : IfcDistributionControlElementType
+	{
+		public IfcControllerTypeEnum PredefinedType{get;set;} 
+
+		public IfcControllerType(IfcControllerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+
 		}
 
-		public static new IfcCoveringType FromJSON(string json)
+		public static new IfcControllerType FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcCoveringType>(json);
+			return JsonConvert.DeserializeObject<IfcControllerType>(json);
 		}
 
-		public static new IfcCoveringType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccrewresource.htm"/>
-	/// </summary>
-	public  partial class IfcCrewResource : IfcConstructionResource
-	{
-		[JsonProperty("predefinedType")]
-		public IfcCrewResourceTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcCrewResource() : base()
-		{
-
-		}
-
-		public static new IfcCrewResource FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcCrewResource>(json);
-		}
-
-		public static new IfcCrewResource FromSTEP(string step)
+		public static new IfcControllerType FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccrewresourcetype.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcconversionbasedunit.htm"/>
 	/// </summary>
-	public  partial class IfcCrewResourceType : IfcConstructionResourceType
+	public  partial class IfcConversionBasedUnit : IfcNamedUnit
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCrewResourceTypeEnum PredefinedType {get;set;} 
+		public IfcLabel Name{get;set;} 
+		public IfcMeasureWithUnit ConversionFactor{get;set;} 
 
-		public IfcCrewResourceType(IfcCrewResourceTypeEnum predefinedType
-				) : base()
+		public IfcConversionBasedUnit(IfcLabel name,IfcMeasureWithUnit conversionFactor,IfcDimensionalExponents dimensions,IfcUnitEnum unitType):base(dimensions,unitType)
+		{
+			Name = name;
+			ConversionFactor = conversionFactor;
+
+
+		}
+
+		public static new IfcConversionBasedUnit FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConversionBasedUnit>(json);
+		}
+
+		public static new IfcConversionBasedUnit FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcconversionbasedunitwithoffset.htm"/>
+	/// </summary>
+	public  partial class IfcConversionBasedUnitWithOffset : IfcConversionBasedUnit
+	{
+		public IfcReal ConversionOffset{get;set;} 
+
+		public IfcConversionBasedUnitWithOffset(IfcReal conversionOffset,IfcLabel name,IfcMeasureWithUnit conversionFactor,IfcDimensionalExponents dimensions,IfcUnitEnum unitType):base(name,conversionFactor,dimensions,unitType)
+		{
+			ConversionOffset = conversionOffset;
+
+
+		}
+
+		public static new IfcConversionBasedUnitWithOffset FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcConversionBasedUnitWithOffset>(json);
+		}
+
+		public static new IfcConversionBasedUnitWithOffset FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccooledbeam.htm"/>
+	/// </summary>
+	public  partial class IfcCooledBeam : IfcEnergyConversionDevice
+	{
+		public IfcCooledBeamTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcCooledBeam(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcCooledBeam FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCooledBeam>(json);
+		}
+
+		public static new IfcCooledBeam FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccooledbeamtype.htm"/>
+	/// </summary>
+	public  partial class IfcCooledBeamType : IfcEnergyConversionDeviceType
+	{
+		public IfcCooledBeamTypeEnum PredefinedType{get;set;} 
+
+		public IfcCooledBeamType(IfcCooledBeamTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+
 		}
 
-		public static new IfcCrewResourceType FromJSON(string json)
+		public static new IfcCooledBeamType FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcCrewResourceType>(json);
+			return JsonConvert.DeserializeObject<IfcCooledBeamType>(json);
 		}
 
-		public static new IfcCrewResourceType FromSTEP(string step)
+		public static new IfcCooledBeamType FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccsgprimitive3d.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccoolingtower.htm"/>
 	/// </summary>
-	public abstract partial class IfcCsgPrimitive3D : IfcGeometricRepresentationItem
+	public  partial class IfcCoolingTower : IfcEnergyConversionDevice
 	{
-		[JsonProperty("position")]
-		public IfcAxis2Placement3D Position {get;set;} 
+		public IfcCoolingTowerTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcCsgPrimitive3D(IfcAxis2Placement3D position
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcCoolingTower(IfcGloballyUniqueId globalId):base(globalId)
 		{
-			Position = position;
+
 
 		}
 
-		public static new IfcCsgPrimitive3D FromJSON(string json)
+		public static new IfcCoolingTower FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcCsgPrimitive3D>(json);
+			return JsonConvert.DeserializeObject<IfcCoolingTower>(json);
 		}
 
-		public static new IfcCsgPrimitive3D FromSTEP(string step)
+		public static new IfcCoolingTower FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccoolingtowertype.htm"/>
+	/// </summary>
+	public  partial class IfcCoolingTowerType : IfcEnergyConversionDeviceType
+	{
+		public IfcCoolingTowerTypeEnum PredefinedType{get;set;} 
+
+		public IfcCoolingTowerType(IfcCoolingTowerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcCoolingTowerType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCoolingTowerType>(json);
+		}
+
+		public static new IfcCoolingTowerType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccoordinateoperation.htm"/>
+	/// </summary>
+	public abstract partial class IfcCoordinateOperation : IfcBase
+	{
+		public IfcCoordinateReferenceSystemSelect SourceCRS{get;set;} 
+		public IfcCoordinateReferenceSystem TargetCRS{get;set;} 
+
+		public IfcCoordinateOperation(IfcCoordinateReferenceSystemSelect sourceCRS,IfcCoordinateReferenceSystem targetCRS):base()
+		{
+			SourceCRS = sourceCRS;
+			TargetCRS = targetCRS;
+
+
+		}
+
+		public static  IfcCoordinateOperation FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCoordinateOperation>(json);
+		}
+
+		public static  IfcCoordinateOperation FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmapconversion.htm"/>
+	/// </summary>
+	public  partial class IfcMapConversion : IfcCoordinateOperation
+	{
+		public IfcLengthMeasure Eastings{get;set;} 
+		public IfcLengthMeasure Northings{get;set;} 
+		public IfcLengthMeasure OrthogonalHeight{get;set;} 
+		public IfcReal XAxisAbscissa{get;set;} // optional
+		public IfcReal XAxisOrdinate{get;set;} // optional
+		public IfcReal Scale{get;set;} // optional
+
+		public IfcMapConversion(IfcLengthMeasure eastings,IfcLengthMeasure northings,IfcLengthMeasure orthogonalHeight,IfcCoordinateReferenceSystemSelect sourceCRS,IfcCoordinateReferenceSystem targetCRS):base(sourceCRS,targetCRS)
+		{
+			Eastings = eastings;
+			Northings = northings;
+			OrthogonalHeight = orthogonalHeight;
+
+
+		}
+
+		public static new IfcMapConversion FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMapConversion>(json);
+		}
+
+		public static new IfcMapConversion FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccoordinatereferencesystem.htm"/>
+	/// </summary>
+	public abstract partial class IfcCoordinateReferenceSystem : IfcBase
+	{
+		public IfcLabel Name{get;set;} // optional
+		public IfcText Description{get;set;} // optional
+		public IfcIdentifier GeodeticDatum{get;set;} 
+		public IfcIdentifier VerticalDatum{get;set;} // optional
+
+		public IfcCoordinateReferenceSystem(IfcIdentifier geodeticDatum):base()
+		{
+			GeodeticDatum = geodeticDatum;
+
+
+		}
+
+		public static  IfcCoordinateReferenceSystem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcCoordinateReferenceSystem>(json);
+		}
+
+		public static  IfcCoordinateReferenceSystem FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprojectedcrs.htm"/>
+	/// </summary>
+	public  partial class IfcProjectedCRS : IfcCoordinateReferenceSystem
+	{
+		public IfcIdentifier MapProjection{get;set;} // optional
+		public IfcIdentifier MapZone{get;set;} // optional
+		public IfcNamedUnit MapUnit{get;set;} // optional
+
+		public IfcProjectedCRS(IfcIdentifier geodeticDatum):base(geodeticDatum)
+		{
+
+
+		}
+
+		public static new IfcProjectedCRS FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProjectedCRS>(json);
+		}
+
+		public static new IfcProjectedCRS FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrectangularpyramid.htm"/>
+	/// </summary>
+	public  partial class IfcRectangularPyramid : IfcCsgPrimitive3D
+	{
+		public IfcPositiveLengthMeasure XLength{get;set;} 
+		public IfcPositiveLengthMeasure YLength{get;set;} 
+		public IfcPositiveLengthMeasure Height{get;set;} 
+
+		public IfcRectangularPyramid(IfcPositiveLengthMeasure xLength,IfcPositiveLengthMeasure yLength,IfcPositiveLengthMeasure height,IfcAxis2Placement3D position):base(position)
+		{
+			XLength = xLength;
+			YLength = yLength;
+			Height = height;
+
+
+		}
+
+		public static new IfcRectangularPyramid FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRectangularPyramid>(json);
+		}
+
+		public static new IfcRectangularPyramid FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrightcircularcone.htm"/>
+	/// </summary>
+	public  partial class IfcRightCircularCone : IfcCsgPrimitive3D
+	{
+		public IfcPositiveLengthMeasure Height{get;set;} 
+		public IfcPositiveLengthMeasure BottomRadius{get;set;} 
+
+		public IfcRightCircularCone(IfcPositiveLengthMeasure height,IfcPositiveLengthMeasure bottomRadius,IfcAxis2Placement3D position):base(position)
+		{
+			Height = height;
+			BottomRadius = bottomRadius;
+
+
+		}
+
+		public static new IfcRightCircularCone FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRightCircularCone>(json);
+		}
+
+		public static new IfcRightCircularCone FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrightcircularcylinder.htm"/>
+	/// </summary>
+	public  partial class IfcRightCircularCylinder : IfcCsgPrimitive3D
+	{
+		public IfcPositiveLengthMeasure Height{get;set;} 
+		public IfcPositiveLengthMeasure Radius{get;set;} 
+
+		public IfcRightCircularCylinder(IfcPositiveLengthMeasure height,IfcPositiveLengthMeasure radius,IfcAxis2Placement3D position):base(position)
+		{
+			Height = height;
+			Radius = radius;
+
+
+		}
+
+		public static new IfcRightCircularCylinder FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRightCircularCylinder>(json);
+		}
+
+		public static new IfcRightCircularCylinder FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsphere.htm"/>
+	/// </summary>
+	public  partial class IfcSphere : IfcCsgPrimitive3D
+	{
+		public IfcPositiveLengthMeasure Radius{get;set;} 
+
+		public IfcSphere(IfcPositiveLengthMeasure radius,IfcAxis2Placement3D position):base(position)
+		{
+			Radius = radius;
+
+
+		}
+
+		public static new IfcSphere FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSphere>(json);
+		}
+
+		public static new IfcSphere FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -10455,17 +12642,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCsgSolid : IfcSolidModel
 	{
-		[JsonProperty("treeRootExpression")]
-		public IfcCsgSelect TreeRootExpression {get;set;} 
+		public IfcCsgSelect TreeRootExpression{get;set;} 
 
-		public IfcCsgSolid(IfcCsgSelect treeRootExpression
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcCsgSolid(IfcCsgSelect treeRootExpression):base()
 		{
 			TreeRootExpression = treeRootExpression;
+
 
 		}
 
@@ -10481,29 +12663,45 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsolidmodel.htm"/>
+	/// </summary>
+	public abstract partial class IfcSolidModel : IfcGeometricRepresentationItem
+	{
+
+		public IfcSolidModel():base()
+		{
+
+
+		}
+
+		public static new IfcSolidModel FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSolidModel>(json);
+		}
+
+		public static new IfcSolidModel FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccurrencyrelationship.htm"/>
 	/// </summary>
 	public  partial class IfcCurrencyRelationship : IfcResourceLevelRelationship
 	{
-		[JsonProperty("relatingMonetaryUnit")]
-		public IfcMonetaryUnit RelatingMonetaryUnit {get;set;} 
-		[JsonProperty("relatedMonetaryUnit")]
-		public IfcMonetaryUnit RelatedMonetaryUnit {get;set;} 
-		[JsonProperty("exchangeRate")]
-		public IfcPositiveRatioMeasure ExchangeRate {get;set;} 
-		[JsonProperty("rateDateTime")]
-		public IfcDateTime RateDateTime {get;set;} // optional
-		[JsonProperty("rateSource")]
-		public IfcLibraryInformation RateSource {get;set;} // optional
+		public IfcMonetaryUnit RelatingMonetaryUnit{get;set;} 
+		public IfcMonetaryUnit RelatedMonetaryUnit{get;set;} 
+		public IfcPositiveRatioMeasure ExchangeRate{get;set;} 
+		public IfcDateTime RateDateTime{get;set;} // optional
+		public IfcLibraryInformation RateSource{get;set;} // optional
 
-		public IfcCurrencyRelationship(IfcMonetaryUnit relatingMonetaryUnit
-				,IfcMonetaryUnit relatedMonetaryUnit
-				,IfcPositiveRatioMeasure exchangeRate
-				) : base()
+		public IfcCurrencyRelationship(IfcMonetaryUnit relatingMonetaryUnit,IfcMonetaryUnit relatedMonetaryUnit,IfcPositiveRatioMeasure exchangeRate):base()
 		{
 			RelatingMonetaryUnit = relatingMonetaryUnit;
 			RelatedMonetaryUnit = relatedMonetaryUnit;
 			ExchangeRate = exchangeRate;
+
 
 		}
 
@@ -10519,152 +12717,114 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccurtainwall.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcline.htm"/>
 	/// </summary>
-	public  partial class IfcCurtainWall : IfcBuildingElement
+	public  partial class IfcLine : IfcCurve
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCurtainWallTypeEnum PredefinedType {get;set;} // optional
+		public IfcCartesianPoint Pnt{get;set;} 
+		public IfcVector Dir{get;set;} 
 
-		public IfcCurtainWall() : base()
+		public IfcLine(IfcCartesianPoint pnt,IfcVector dir):base()
 		{
+			Pnt = pnt;
+			Dir = dir;
+
 
 		}
 
-		public static new IfcCurtainWall FromJSON(string json)
+		public static new IfcLine FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcCurtainWall>(json);
+			return JsonConvert.DeserializeObject<IfcLine>(json);
 		}
 
-		public static new IfcCurtainWall FromSTEP(string step)
+		public static new IfcLine FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccurtainwalltype.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcoffsetcurve2d.htm"/>
 	/// </summary>
-	public  partial class IfcCurtainWallType : IfcBuildingElementType
+	public  partial class IfcOffsetCurve2D : IfcCurve
 	{
-		[JsonProperty("predefinedType")]
-		public IfcCurtainWallTypeEnum PredefinedType {get;set;} 
+		public IfcCurve BasisCurve{get;set;} 
+		public IfcLengthMeasure Distance{get;set;} 
+		public bool? SelfIntersect{get;set;} 
 
-		public IfcCurtainWallType(IfcCurtainWallTypeEnum predefinedType
-				) : base()
+		public IfcOffsetCurve2D(IfcCurve basisCurve,IfcLengthMeasure distance,bool? selfIntersect):base()
 		{
-			PredefinedType = predefinedType;
+			BasisCurve = basisCurve;
+			Distance = distance;
+			SelfIntersect = selfIntersect;
+
 
 		}
 
-		public static new IfcCurtainWallType FromJSON(string json)
+		public static new IfcOffsetCurve2D FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcCurtainWallType>(json);
+			return JsonConvert.DeserializeObject<IfcOffsetCurve2D>(json);
 		}
 
-		public static new IfcCurtainWallType FromSTEP(string step)
+		public static new IfcOffsetCurve2D FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccurve.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcoffsetcurve3d.htm"/>
 	/// </summary>
-	public abstract partial class IfcCurve : IfcGeometricRepresentationItem
+	public  partial class IfcOffsetCurve3D : IfcCurve
 	{
+		public IfcCurve BasisCurve{get;set;} 
+		public IfcLengthMeasure Distance{get;set;} 
+		public bool? SelfIntersect{get;set;} 
+		public IfcDirection RefDirection{get;set;} 
 
-		public IfcCurve(List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcOffsetCurve3D(IfcCurve basisCurve,IfcLengthMeasure distance,bool? selfIntersect,IfcDirection refDirection):base()
 		{
+			BasisCurve = basisCurve;
+			Distance = distance;
+			SelfIntersect = selfIntersect;
+			RefDirection = refDirection;
+
 
 		}
 
-		public static new IfcCurve FromJSON(string json)
+		public static new IfcOffsetCurve3D FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcCurve>(json);
+			return JsonConvert.DeserializeObject<IfcOffsetCurve3D>(json);
 		}
 
-		public static new IfcCurve FromSTEP(string step)
+		public static new IfcOffsetCurve3D FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccurveboundedplane.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpcurve.htm"/>
 	/// </summary>
-	public  partial class IfcCurveBoundedPlane : IfcBoundedSurface
+	public  partial class IfcPcurve : IfcCurve
 	{
-		[JsonProperty("basisSurface")]
-		public IfcPlane BasisSurface {get;set;} 
-		[JsonProperty("outerBoundary")]
-		public IfcCurve OuterBoundary {get;set;} 
-		[JsonProperty("innerBoundaries")]
-		public List<IfcCurve> InnerBoundaries {get;set;} 
+		public IfcSurface BasisSurface{get;set;} 
+		public IfcCurve ReferenceCurve{get;set;} 
 
-		public IfcCurveBoundedPlane(IfcPlane basisSurface
-				,IfcCurve outerBoundary
-				,List<IfcCurve> innerBoundaries
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcPcurve(IfcSurface basisSurface,IfcCurve referenceCurve):base()
 		{
 			BasisSurface = basisSurface;
-			OuterBoundary = outerBoundary;
-			InnerBoundaries = innerBoundaries;
+			ReferenceCurve = referenceCurve;
+
 
 		}
 
-		public static new IfcCurveBoundedPlane FromJSON(string json)
+		public static new IfcPcurve FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcCurveBoundedPlane>(json);
+			return JsonConvert.DeserializeObject<IfcPcurve>(json);
 		}
 
-		public static new IfcCurveBoundedPlane FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccurveboundedsurface.htm"/>
-	/// </summary>
-	public  partial class IfcCurveBoundedSurface : IfcBoundedSurface
-	{
-		[JsonProperty("basisSurface")]
-		public IfcSurface BasisSurface {get;set;} 
-		[JsonProperty("boundaries")]
-		public List<IfcBoundaryCurve> Boundaries {get;set;} 
-		[JsonProperty("implicitOuter")]
-		public bool ImplicitOuter {get;set;} 
-
-		public IfcCurveBoundedSurface(IfcSurface basisSurface
-				,List<IfcBoundaryCurve> boundaries
-				,bool implicitOuter
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-			BasisSurface = basisSurface;
-			Boundaries = boundaries;
-			ImplicitOuter = implicitOuter;
-
-		}
-
-		public static new IfcCurveBoundedSurface FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcCurveBoundedSurface>(json);
-		}
-
-		public static new IfcCurveBoundedSurface FromSTEP(string step)
+		public static new IfcPcurve FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -10675,17 +12835,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCurveStyle : IfcPresentationStyle
 	{
-		[JsonProperty("curveFont")]
-		public IfcCurveFontOrScaledCurveFontSelect CurveFont {get;set;} // optional
-		[JsonProperty("curveWidth")]
-		public IfcSizeSelect CurveWidth {get;set;} // optional
-		[JsonProperty("curveColour")]
-		public IfcColour CurveColour {get;set;} // optional
-		[JsonProperty("modelOrDraughting")]
-		public bool ModelOrDraughting {get;set;} // optional
+		public IfcCurveFontOrScaledCurveFontSelect CurveFont{get;set;} // optional
+		public IfcSizeSelect CurveWidth{get;set;} // optional
+		public IfcColour CurveColour{get;set;} // optional
+		public bool ModelOrDraughting{get;set;} // optional
 
-		public IfcCurveStyle() : base()
+		public IfcCurveStyle():base()
 		{
+
 
 		}
 
@@ -10701,19 +12858,41 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpresentationstyle.htm"/>
+	/// </summary>
+	public abstract partial class IfcPresentationStyle : IfcBase
+	{
+		public IfcLabel Name{get;set;} // optional
+
+		public IfcPresentationStyle():base()
+		{
+
+
+		}
+
+		public static  IfcPresentationStyle FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPresentationStyle>(json);
+		}
+
+		public static  IfcPresentationStyle FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifccurvestylefont.htm"/>
 	/// </summary>
 	public  partial class IfcCurveStyleFont : IfcPresentationItem
 	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
-		[JsonProperty("patternList")]
-		public List<IfcCurveStyleFontPattern> PatternList {get;set;} 
+		public IfcLabel Name{get;set;} // optional
+		public List<IfcCurveStyleFontPattern> PatternList{get;set;} 
 
-		public IfcCurveStyleFont(List<IfcCurveStyleFontPattern> patternList
-				) : base()
+		public IfcCurveStyleFont(List<IfcCurveStyleFontPattern> patternList):base()
 		{
 			PatternList = patternList;
+
 
 		}
 
@@ -10733,19 +12912,15 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCurveStyleFontAndScaling : IfcPresentationItem
 	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
-		[JsonProperty("curveFont")]
-		public IfcCurveStyleFontSelect CurveFont {get;set;} 
-		[JsonProperty("curveFontScaling")]
-		public IfcPositiveRatioMeasure CurveFontScaling {get;set;} 
+		public IfcLabel Name{get;set;} // optional
+		public IfcCurveStyleFontSelect CurveFont{get;set;} 
+		public IfcPositiveRatioMeasure CurveFontScaling{get;set;} 
 
-		public IfcCurveStyleFontAndScaling(IfcCurveStyleFontSelect curveFont
-				,IfcPositiveRatioMeasure curveFontScaling
-				) : base()
+		public IfcCurveStyleFontAndScaling(IfcCurveStyleFontSelect curveFont,IfcPositiveRatioMeasure curveFontScaling):base()
 		{
 			CurveFont = curveFont;
 			CurveFontScaling = curveFontScaling;
+
 
 		}
 
@@ -10765,17 +12940,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCurveStyleFontPattern : IfcPresentationItem
 	{
-		[JsonProperty("visibleSegmentLength")]
-		public IfcLengthMeasure VisibleSegmentLength {get;set;} 
-		[JsonProperty("invisibleSegmentLength")]
-		public IfcPositiveLengthMeasure InvisibleSegmentLength {get;set;} 
+		public IfcLengthMeasure VisibleSegmentLength{get;set;} 
+		public IfcPositiveLengthMeasure InvisibleSegmentLength{get;set;} 
 
-		public IfcCurveStyleFontPattern(IfcLengthMeasure visibleSegmentLength
-				,IfcPositiveLengthMeasure invisibleSegmentLength
-				) : base()
+		public IfcCurveStyleFontPattern(IfcLengthMeasure visibleSegmentLength,IfcPositiveLengthMeasure invisibleSegmentLength):base()
 		{
 			VisibleSegmentLength = visibleSegmentLength;
 			InvisibleSegmentLength = invisibleSegmentLength;
+
 
 		}
 
@@ -10795,19 +12967,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCylindricalSurface : IfcElementarySurface
 	{
-		[JsonProperty("radius")]
-		public IfcPositiveLengthMeasure Radius {get;set;} 
+		public IfcPositiveLengthMeasure Radius{get;set;} 
 
-		public IfcCylindricalSurface(IfcPositiveLengthMeasure radius
-				,IfcAxis2Placement3D position
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(position
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcCylindricalSurface(IfcPositiveLengthMeasure radius,IfcAxis2Placement3D position):base(position)
 		{
 			Radius = radius;
+
 
 		}
 
@@ -10823,15 +12988,40 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcelementarysurface.htm"/>
+	/// </summary>
+	public abstract partial class IfcElementarySurface : IfcSurface
+	{
+		public IfcAxis2Placement3D Position{get;set;} 
+
+		public IfcElementarySurface(IfcAxis2Placement3D position):base()
+		{
+			Position = position;
+
+
+		}
+
+		public static new IfcElementarySurface FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcElementarySurface>(json);
+		}
+
+		public static new IfcElementarySurface FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdamper.htm"/>
 	/// </summary>
 	public  partial class IfcDamper : IfcFlowController
 	{
-		[JsonProperty("predefinedType")]
-		public IfcDamperTypeEnum PredefinedType {get;set;} // optional
+		public IfcDamperTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcDamper() : base()
+		public IfcDamper(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -10851,13 +13041,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDamperType : IfcFlowControllerType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcDamperTypeEnum PredefinedType {get;set;} 
+		public IfcDamperTypeEnum PredefinedType{get;set;} 
 
-		public IfcDamperType(IfcDamperTypeEnum predefinedType
-				) : base()
+		public IfcDamperType(IfcDamperTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -10877,25 +13066,15 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDerivedProfileDef : IfcProfileDef
 	{
-		[JsonProperty("parentProfile")]
-		public IfcProfileDef ParentProfile {get;set;} 
-		[JsonProperty("operator")]
-		public IfcCartesianTransformationOperator2D Operator {get;set;} 
-		[JsonProperty("label")]
-		public IfcLabel Label {get;set;} // optional
+		public IfcProfileDef ParentProfile{get;set;} 
+		public IfcCartesianTransformationOperator2D Operator{get;set;} 
+		public IfcLabel Label{get;set;} // optional
 
-		public IfcDerivedProfileDef(IfcProfileDef parentProfile
-				,IfcCartesianTransformationOperator2D op
-				,IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(profileType
-					,hasExternalReference
-					,hasProperties
-					)
+		public IfcDerivedProfileDef(IfcProfileDef parentProfile,IfcCartesianTransformationOperator2D op,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			ParentProfile = parentProfile;
 			Operator = op;
+
 
 		}
 
@@ -10911,23 +13090,42 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmirroredprofiledef.htm"/>
+	/// </summary>
+	public  partial class IfcMirroredProfileDef : IfcDerivedProfileDef
+	{
+
+		public IfcMirroredProfileDef(IfcProfileDef parentProfile,IfcCartesianTransformationOperator2D op,IfcProfileTypeEnum profileType):base(parentProfile,op,profileType)
+		{
+
+
+		}
+
+		public static new IfcMirroredProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMirroredProfileDef>(json);
+		}
+
+		public static new IfcMirroredProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcderivedunit.htm"/>
 	/// </summary>
 	public  partial class IfcDerivedUnit : IfcBase
 	{
-		[JsonProperty("elements")]
-		public List<IfcDerivedUnitElement> Elements {get;set;} 
-		[JsonProperty("unitType")]
-		public IfcDerivedUnitEnum UnitType {get;set;} 
-		[JsonProperty("userDefinedType")]
-		public IfcLabel UserDefinedType {get;set;} // optional
+		public List<IfcDerivedUnitElement> Elements{get;set;} 
+		public IfcDerivedUnitEnum UnitType{get;set;} 
+		public IfcLabel UserDefinedType{get;set;} // optional
 
-		public IfcDerivedUnit(List<IfcDerivedUnitElement> elements
-				,IfcDerivedUnitEnum unitType
-				)
+		public IfcDerivedUnit(List<IfcDerivedUnitElement> elements,IfcDerivedUnitEnum unitType):base()
 		{
 			Elements = elements;
 			UnitType = unitType;
+
 
 		}
 
@@ -10947,17 +13145,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDerivedUnitElement : IfcBase
 	{
-		[JsonProperty("unit")]
-		public IfcNamedUnit Unit {get;set;} 
-		[JsonProperty("exponent")]
-		public int Exponent {get;set;} 
+		public IfcNamedUnit Unit{get;set;} 
+		public int Exponent{get;set;} 
 
-		public IfcDerivedUnitElement(IfcNamedUnit unit
-				,int exponent
-				)
+		public IfcDerivedUnitElement(IfcNamedUnit unit,int exponent):base()
 		{
 			Unit = unit;
 			Exponent = exponent;
+
 
 		}
 
@@ -10977,29 +13172,15 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDimensionalExponents : IfcBase
 	{
-		[JsonProperty("lengthExponent")]
-		public int LengthExponent {get;set;} 
-		[JsonProperty("massExponent")]
-		public int MassExponent {get;set;} 
-		[JsonProperty("timeExponent")]
-		public int TimeExponent {get;set;} 
-		[JsonProperty("electricCurrentExponent")]
-		public int ElectricCurrentExponent {get;set;} 
-		[JsonProperty("thermodynamicTemperatureExponent")]
-		public int ThermodynamicTemperatureExponent {get;set;} 
-		[JsonProperty("amountOfSubstanceExponent")]
-		public int AmountOfSubstanceExponent {get;set;} 
-		[JsonProperty("luminousIntensityExponent")]
-		public int LuminousIntensityExponent {get;set;} 
+		public int LengthExponent{get;set;} 
+		public int MassExponent{get;set;} 
+		public int TimeExponent{get;set;} 
+		public int ElectricCurrentExponent{get;set;} 
+		public int ThermodynamicTemperatureExponent{get;set;} 
+		public int AmountOfSubstanceExponent{get;set;} 
+		public int LuminousIntensityExponent{get;set;} 
 
-		public IfcDimensionalExponents(int lengthExponent
-				,int massExponent
-				,int timeExponent
-				,int electricCurrentExponent
-				,int thermodynamicTemperatureExponent
-				,int amountOfSubstanceExponent
-				,int luminousIntensityExponent
-				)
+		public IfcDimensionalExponents(int lengthExponent,int massExponent,int timeExponent,int electricCurrentExponent,int thermodynamicTemperatureExponent,int amountOfSubstanceExponent,int luminousIntensityExponent):base()
 		{
 			LengthExponent = lengthExponent;
 			MassExponent = massExponent;
@@ -11008,6 +13189,7 @@ namespace IFC4
 			ThermodynamicTemperatureExponent = thermodynamicTemperatureExponent;
 			AmountOfSubstanceExponent = amountOfSubstanceExponent;
 			LuminousIntensityExponent = luminousIntensityExponent;
+
 
 		}
 
@@ -11027,17 +13209,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDirection : IfcGeometricRepresentationItem
 	{
-		[JsonProperty("directionRatios")]
-		public List<double> DirectionRatios {get;set;} 
+		public List<double> DirectionRatios{get;set;} 
 
-		public IfcDirection(List<double> directionRatios
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcDirection(List<double> directionRatios):base()
 		{
 			DirectionRatios = directionRatios;
+
 
 		}
 
@@ -11057,11 +13234,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDiscreteAccessory : IfcElementComponent
 	{
-		[JsonProperty("predefinedType")]
-		public IfcDiscreteAccessoryTypeEnum PredefinedType {get;set;} // optional
+		public IfcDiscreteAccessoryTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcDiscreteAccessory() : base()
+		public IfcDiscreteAccessory(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -11081,13 +13258,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDiscreteAccessoryType : IfcElementComponentType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcDiscreteAccessoryTypeEnum PredefinedType {get;set;} 
+		public IfcDiscreteAccessoryTypeEnum PredefinedType{get;set;} 
 
-		public IfcDiscreteAccessoryType(IfcDiscreteAccessoryTypeEnum predefinedType
-				) : base()
+		public IfcDiscreteAccessoryType(IfcDiscreteAccessoryTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -11107,11 +13283,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDistributionChamberElement : IfcDistributionFlowElement
 	{
-		[JsonProperty("predefinedType")]
-		public IfcDistributionChamberElementTypeEnum PredefinedType {get;set;} // optional
+		public IfcDistributionChamberElementTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcDistributionChamberElement() : base()
+		public IfcDistributionChamberElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -11127,155 +13303,14 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdistributionchamberelementtype.htm"/>
-	/// </summary>
-	public  partial class IfcDistributionChamberElementType : IfcDistributionFlowElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcDistributionChamberElementTypeEnum PredefinedType {get;set;} 
-
-		public IfcDistributionChamberElementType(IfcDistributionChamberElementTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcDistributionChamberElementType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcDistributionChamberElementType>(json);
-		}
-
-		public static new IfcDistributionChamberElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdistributioncircuit.htm"/>
-	/// </summary>
-	public  partial class IfcDistributionCircuit : IfcDistributionSystem
-	{
-
-		public IfcDistributionCircuit() : base()
-		{
-
-		}
-
-		public static new IfcDistributionCircuit FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcDistributionCircuit>(json);
-		}
-
-		public static new IfcDistributionCircuit FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdistributioncontrolelement.htm"/>
-	/// </summary>
-	public  partial class IfcDistributionControlElement : IfcDistributionElement
-	{
-		[JsonProperty("assignedToFlowElement")]
-		public List<IfcRelFlowControlElements> AssignedToFlowElement {get;set;} 
-
-		public IfcDistributionControlElement() : base()
-		{
-
-		}
-
-		public static new IfcDistributionControlElement FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcDistributionControlElement>(json);
-		}
-
-		public static new IfcDistributionControlElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdistributioncontrolelementtype.htm"/>
-	/// </summary>
-	public abstract partial class IfcDistributionControlElementType : IfcDistributionElementType
-	{
-
-		public IfcDistributionControlElementType() : base()
-		{
-
-		}
-
-		public static new IfcDistributionControlElementType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcDistributionControlElementType>(json);
-		}
-
-		public static new IfcDistributionControlElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdistributionelement.htm"/>
-	/// </summary>
-	public  partial class IfcDistributionElement : IfcElement
-	{
-		[JsonProperty("hasPorts")]
-		public List<IfcRelConnectsPortToElement> HasPorts {get;set;} 
-
-		public IfcDistributionElement() : base()
-		{
-
-		}
-
-		public static new IfcDistributionElement FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcDistributionElement>(json);
-		}
-
-		public static new IfcDistributionElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdistributionelementtype.htm"/>
-	/// </summary>
-	public  partial class IfcDistributionElementType : IfcElementType
-	{
-
-		public IfcDistributionElementType() : base()
-		{
-
-		}
-
-		public static new IfcDistributionElementType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcDistributionElementType>(json);
-		}
-
-		public static new IfcDistributionElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdistributionflowelement.htm"/>
 	/// </summary>
 	public  partial class IfcDistributionFlowElement : IfcDistributionElement
 	{
-		[JsonProperty("hasControlElements")]
-		public List<IfcRelFlowControlElements> HasControlElements {get;set;} 
 
-		public IfcDistributionFlowElement() : base()
+		public IfcDistributionFlowElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -11291,13 +13326,39 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdistributionchamberelementtype.htm"/>
+	/// </summary>
+	public  partial class IfcDistributionChamberElementType : IfcDistributionFlowElementType
+	{
+		public IfcDistributionChamberElementTypeEnum PredefinedType{get;set;} 
+
+		public IfcDistributionChamberElementType(IfcDistributionChamberElementTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcDistributionChamberElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDistributionChamberElementType>(json);
+		}
+
+		public static new IfcDistributionChamberElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdistributionflowelementtype.htm"/>
 	/// </summary>
 	public abstract partial class IfcDistributionFlowElementType : IfcDistributionElementType
 	{
 
-		public IfcDistributionFlowElementType() : base()
+		public IfcDistributionFlowElementType(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -11313,28 +13374,23 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdistributionport.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdistributioncircuit.htm"/>
 	/// </summary>
-	public  partial class IfcDistributionPort : IfcPort
+	public  partial class IfcDistributionCircuit : IfcDistributionSystem
 	{
-		[JsonProperty("flowDirection")]
-		public IfcFlowDirectionEnum FlowDirection {get;set;} // optional
-		[JsonProperty("predefinedType")]
-		public IfcDistributionPortTypeEnum PredefinedType {get;set;} // optional
-		[JsonProperty("systemType")]
-		public IfcDistributionSystemEnum SystemType {get;set;} // optional
 
-		public IfcDistributionPort() : base()
+		public IfcDistributionCircuit(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
-		public static new IfcDistributionPort FromJSON(string json)
+		public static new IfcDistributionCircuit FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcDistributionPort>(json);
+			return JsonConvert.DeserializeObject<IfcDistributionCircuit>(json);
 		}
 
-		public static new IfcDistributionPort FromSTEP(string step)
+		public static new IfcDistributionCircuit FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -11345,13 +13401,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDistributionSystem : IfcSystem
 	{
-		[JsonProperty("longName")]
-		public IfcLabel LongName {get;set;} // optional
-		[JsonProperty("predefinedType")]
-		public IfcDistributionSystemEnum PredefinedType {get;set;} // optional
+		public IfcLabel LongName{get;set;} // optional
+		public IfcDistributionSystemEnum PredefinedType{get;set;} // optional
 
-		public IfcDistributionSystem() : base()
+		public IfcDistributionSystem(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -11367,65 +13422,416 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowinstrument.htm"/>
+	/// </summary>
+	public  partial class IfcFlowInstrument : IfcDistributionControlElement
+	{
+		public IfcFlowInstrumentTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcFlowInstrument(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcFlowInstrument FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowInstrument>(json);
+		}
+
+		public static new IfcFlowInstrument FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprotectivedevicetrippingunit.htm"/>
+	/// </summary>
+	public  partial class IfcProtectiveDeviceTrippingUnit : IfcDistributionControlElement
+	{
+		public IfcProtectiveDeviceTrippingUnitTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcProtectiveDeviceTrippingUnit(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcProtectiveDeviceTrippingUnit FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProtectiveDeviceTrippingUnit>(json);
+		}
+
+		public static new IfcProtectiveDeviceTrippingUnit FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsensor.htm"/>
+	/// </summary>
+	public  partial class IfcSensor : IfcDistributionControlElement
+	{
+		public IfcSensorTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcSensor(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcSensor FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSensor>(json);
+		}
+
+		public static new IfcSensor FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcunitarycontrolelement.htm"/>
+	/// </summary>
+	public  partial class IfcUnitaryControlElement : IfcDistributionControlElement
+	{
+		public IfcUnitaryControlElementTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcUnitaryControlElement(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcUnitaryControlElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcUnitaryControlElement>(json);
+		}
+
+		public static new IfcUnitaryControlElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdistributionelement.htm"/>
+	/// </summary>
+	public  partial class IfcDistributionElement : IfcElement
+	{
+
+		public IfcDistributionElement(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcDistributionElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDistributionElement>(json);
+		}
+
+		public static new IfcDistributionElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowinstrumenttype.htm"/>
+	/// </summary>
+	public  partial class IfcFlowInstrumentType : IfcDistributionControlElementType
+	{
+		public IfcFlowInstrumentTypeEnum PredefinedType{get;set;} 
+
+		public IfcFlowInstrumentType(IfcFlowInstrumentTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcFlowInstrumentType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowInstrumentType>(json);
+		}
+
+		public static new IfcFlowInstrumentType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprotectivedevicetrippingunittype.htm"/>
+	/// </summary>
+	public  partial class IfcProtectiveDeviceTrippingUnitType : IfcDistributionControlElementType
+	{
+		public IfcProtectiveDeviceTrippingUnitTypeEnum PredefinedType{get;set;} 
+
+		public IfcProtectiveDeviceTrippingUnitType(IfcProtectiveDeviceTrippingUnitTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcProtectiveDeviceTrippingUnitType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProtectiveDeviceTrippingUnitType>(json);
+		}
+
+		public static new IfcProtectiveDeviceTrippingUnitType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsensortype.htm"/>
+	/// </summary>
+	public  partial class IfcSensorType : IfcDistributionControlElementType
+	{
+		public IfcSensorTypeEnum PredefinedType{get;set;} 
+
+		public IfcSensorType(IfcSensorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcSensorType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSensorType>(json);
+		}
+
+		public static new IfcSensorType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcunitarycontrolelementtype.htm"/>
+	/// </summary>
+	public  partial class IfcUnitaryControlElementType : IfcDistributionControlElementType
+	{
+		public IfcUnitaryControlElementTypeEnum PredefinedType{get;set;} 
+
+		public IfcUnitaryControlElementType(IfcUnitaryControlElementTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcUnitaryControlElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcUnitaryControlElementType>(json);
+		}
+
+		public static new IfcUnitaryControlElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdistributionelementtype.htm"/>
+	/// </summary>
+	public  partial class IfcDistributionElementType : IfcElementType
+	{
+
+		public IfcDistributionElementType(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcDistributionElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDistributionElementType>(json);
+		}
+
+		public static new IfcDistributionElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowstoragedevice.htm"/>
+	/// </summary>
+	public  partial class IfcFlowStorageDevice : IfcDistributionFlowElement
+	{
+
+		public IfcFlowStorageDevice(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcFlowStorageDevice FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowStorageDevice>(json);
+		}
+
+		public static new IfcFlowStorageDevice FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowtreatmentdevice.htm"/>
+	/// </summary>
+	public  partial class IfcFlowTreatmentDevice : IfcDistributionFlowElement
+	{
+
+		public IfcFlowTreatmentDevice(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcFlowTreatmentDevice FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowTreatmentDevice>(json);
+		}
+
+		public static new IfcFlowTreatmentDevice FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowstoragedevicetype.htm"/>
+	/// </summary>
+	public abstract partial class IfcFlowStorageDeviceType : IfcDistributionFlowElementType
+	{
+
+		public IfcFlowStorageDeviceType(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcFlowStorageDeviceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowStorageDeviceType>(json);
+		}
+
+		public static new IfcFlowStorageDeviceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowtreatmentdevicetype.htm"/>
+	/// </summary>
+	public abstract partial class IfcFlowTreatmentDeviceType : IfcDistributionFlowElementType
+	{
+
+		public IfcFlowTreatmentDeviceType(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcFlowTreatmentDeviceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFlowTreatmentDeviceType>(json);
+		}
+
+		public static new IfcFlowTreatmentDeviceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdistributionport.htm"/>
+	/// </summary>
+	public  partial class IfcDistributionPort : IfcPort
+	{
+		public IfcFlowDirectionEnum FlowDirection{get;set;} // optional
+		public IfcDistributionPortTypeEnum PredefinedType{get;set;} // optional
+		public IfcDistributionSystemEnum SystemType{get;set;} // optional
+
+		public IfcDistributionPort(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcDistributionPort FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDistributionPort>(json);
+		}
+
+		public static new IfcDistributionPort FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcport.htm"/>
+	/// </summary>
+	public abstract partial class IfcPort : IfcProduct
+	{
+
+		public IfcPort(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcPort FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPort>(json);
+		}
+
+		public static new IfcPort FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdocumentinformation.htm"/>
 	/// </summary>
 	public  partial class IfcDocumentInformation : IfcExternalInformation
 	{
-		[JsonProperty("identification")]
-		public IfcIdentifier Identification {get;set;} 
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} 
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("location")]
-		public IfcURIReference Location {get;set;} // optional
-		[JsonProperty("purpose")]
-		public IfcText Purpose {get;set;} // optional
-		[JsonProperty("intendedUse")]
-		public IfcText IntendedUse {get;set;} // optional
-		[JsonProperty("scope")]
-		public IfcText Scope {get;set;} // optional
-		[JsonProperty("revision")]
-		public IfcLabel Revision {get;set;} // optional
-		[JsonProperty("documentOwner")]
-		public IfcActorSelect DocumentOwner {get;set;} // optional
-		[JsonProperty("editors")]
-		public List<IfcActorSelect> Editors {get;set;} // optional
-		[JsonProperty("creationTime")]
-		public IfcDateTime CreationTime {get;set;} // optional
-		[JsonProperty("lastRevisionTime")]
-		public IfcDateTime LastRevisionTime {get;set;} // optional
-		[JsonProperty("electronicFormat")]
-		public IfcIdentifier ElectronicFormat {get;set;} // optional
-		[JsonProperty("validFrom")]
-		public IfcDate ValidFrom {get;set;} // optional
-		[JsonProperty("validUntil")]
-		public IfcDate ValidUntil {get;set;} // optional
-		[JsonProperty("confidentiality")]
-		public IfcDocumentConfidentialityEnum Confidentiality {get;set;} // optional
-		[JsonProperty("status")]
-		public IfcDocumentStatusEnum Status {get;set;} // optional
-		[JsonProperty("documentInfoForObjects")]
-		public List<IfcRelAssociatesDocument> DocumentInfoForObjects {get;set;} 
-		[JsonProperty("hasDocumentReferences")]
-		public List<IfcDocumentReference> HasDocumentReferences {get;set;} 
-		[JsonProperty("isPointedTo")]
-		public List<IfcDocumentInformationRelationship> IsPointedTo {get;set;} 
-		[JsonProperty("isPointer")]
-		public List<IfcDocumentInformationRelationship> IsPointer {get;set;} 
+		public IfcIdentifier Identification{get;set;} 
+		public IfcLabel Name{get;set;} 
+		public IfcText Description{get;set;} // optional
+		public IfcURIReference Location{get;set;} // optional
+		public IfcText Purpose{get;set;} // optional
+		public IfcText IntendedUse{get;set;} // optional
+		public IfcText Scope{get;set;} // optional
+		public IfcLabel Revision{get;set;} // optional
+		public IfcActorSelect DocumentOwner{get;set;} // optional
+		public List<IfcActorSelect> Editors{get;set;} // optional
+		public IfcDateTime CreationTime{get;set;} // optional
+		public IfcDateTime LastRevisionTime{get;set;} // optional
+		public IfcIdentifier ElectronicFormat{get;set;} // optional
+		public IfcDate ValidFrom{get;set;} // optional
+		public IfcDate ValidUntil{get;set;} // optional
+		public IfcDocumentConfidentialityEnum Confidentiality{get;set;} // optional
+		public IfcDocumentStatusEnum Status{get;set;} // optional
 
-		public IfcDocumentInformation(IfcIdentifier identification
-				,IfcLabel name
-				,List<IfcDocumentReference> hasDocumentReferences
-				,List<IfcDocumentInformationRelationship> isPointedTo
-				,List<IfcDocumentInformationRelationship> isPointer
-				) : base()
+		public IfcDocumentInformation(IfcIdentifier identification,IfcLabel name):base()
 		{
 			Identification = identification;
 			Name = name;
-			HasDocumentReferences = hasDocumentReferences;
-			IsPointedTo = isPointedTo;
-			IsPointer = isPointer;
+
 			Editors = new List<IfcActorSelect>();
 
 		}
@@ -11446,19 +13852,15 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDocumentInformationRelationship : IfcResourceLevelRelationship
 	{
-		[JsonProperty("relatingDocument")]
-		public IfcDocumentInformation RelatingDocument {get;set;} 
-		[JsonProperty("relatedDocuments")]
-		public List<IfcDocumentInformation> RelatedDocuments {get;set;} 
-		[JsonProperty("relationshipType")]
-		public IfcLabel RelationshipType {get;set;} // optional
+		public IfcDocumentInformation RelatingDocument{get;set;} 
+		public List<IfcDocumentInformation> RelatedDocuments{get;set;} 
+		public IfcLabel RelationshipType{get;set;} // optional
 
-		public IfcDocumentInformationRelationship(IfcDocumentInformation relatingDocument
-				,List<IfcDocumentInformation> relatedDocuments
-				) : base()
+		public IfcDocumentInformationRelationship(IfcDocumentInformation relatingDocument,List<IfcDocumentInformation> relatedDocuments):base()
 		{
 			RelatingDocument = relatingDocument;
 			RelatedDocuments = relatedDocuments;
+
 
 		}
 
@@ -11478,17 +13880,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDocumentReference : IfcExternalReference
 	{
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("referencedDocument")]
-		public IfcDocumentInformation ReferencedDocument {get;set;} // optional
-		[JsonProperty("documentRefForObjects")]
-		public List<IfcRelAssociatesDocument> DocumentRefForObjects {get;set;} 
+		public IfcText Description{get;set;} // optional
+		public IfcDocumentInformation ReferencedDocument{get;set;} // optional
 
-		public IfcDocumentReference(List<IfcExternalReferenceRelationship> externalReferenceForResources
-				) : base(externalReferenceForResources
-					)
+		public IfcDocumentReference():base()
 		{
+
 
 		}
 
@@ -11504,133 +13901,14 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdoor.htm"/>
-	/// </summary>
-	public  partial class IfcDoor : IfcBuildingElement
-	{
-		[JsonProperty("overallHeight")]
-		public IfcPositiveLengthMeasure OverallHeight {get;set;} // optional
-		[JsonProperty("overallWidth")]
-		public IfcPositiveLengthMeasure OverallWidth {get;set;} // optional
-		[JsonProperty("predefinedType")]
-		public IfcDoorTypeEnum PredefinedType {get;set;} // optional
-		[JsonProperty("operationType")]
-		public IfcDoorTypeOperationEnum OperationType {get;set;} // optional
-		[JsonProperty("userDefinedOperationType")]
-		public IfcLabel UserDefinedOperationType {get;set;} // optional
-
-		public IfcDoor() : base()
-		{
-
-		}
-
-		public static new IfcDoor FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcDoor>(json);
-		}
-
-		public static new IfcDoor FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdoorliningproperties.htm"/>
-	/// </summary>
-	public  partial class IfcDoorLiningProperties : IfcPreDefinedPropertySet
-	{
-		[JsonProperty("liningDepth")]
-		public IfcPositiveLengthMeasure LiningDepth {get;set;} // optional
-		[JsonProperty("liningThickness")]
-		public IfcNonNegativeLengthMeasure LiningThickness {get;set;} // optional
-		[JsonProperty("thresholdDepth")]
-		public IfcPositiveLengthMeasure ThresholdDepth {get;set;} // optional
-		[JsonProperty("thresholdThickness")]
-		public IfcNonNegativeLengthMeasure ThresholdThickness {get;set;} // optional
-		[JsonProperty("transomThickness")]
-		public IfcNonNegativeLengthMeasure TransomThickness {get;set;} // optional
-		[JsonProperty("transomOffset")]
-		public IfcLengthMeasure TransomOffset {get;set;} // optional
-		[JsonProperty("liningOffset")]
-		public IfcLengthMeasure LiningOffset {get;set;} // optional
-		[JsonProperty("thresholdOffset")]
-		public IfcLengthMeasure ThresholdOffset {get;set;} // optional
-		[JsonProperty("casingThickness")]
-		public IfcPositiveLengthMeasure CasingThickness {get;set;} // optional
-		[JsonProperty("casingDepth")]
-		public IfcPositiveLengthMeasure CasingDepth {get;set;} // optional
-		[JsonProperty("shapeAspectStyle")]
-		public IfcShapeAspect ShapeAspectStyle {get;set;} // optional
-		[JsonProperty("liningToPanelOffsetX")]
-		public IfcLengthMeasure LiningToPanelOffsetX {get;set;} // optional
-		[JsonProperty("liningToPanelOffsetY")]
-		public IfcLengthMeasure LiningToPanelOffsetY {get;set;} // optional
-
-		public IfcDoorLiningProperties(List<IfcTypeObject> definesType
-				) : base(definesType
-					)
-		{
-
-		}
-
-		public static new IfcDoorLiningProperties FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcDoorLiningProperties>(json);
-		}
-
-		public static new IfcDoorLiningProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdoorpanelproperties.htm"/>
-	/// </summary>
-	public  partial class IfcDoorPanelProperties : IfcPreDefinedPropertySet
-	{
-		[JsonProperty("panelDepth")]
-		public IfcPositiveLengthMeasure PanelDepth {get;set;} // optional
-		[JsonProperty("panelOperation")]
-		public IfcDoorPanelOperationEnum PanelOperation {get;set;} 
-		[JsonProperty("panelWidth")]
-		public IfcNormalisedRatioMeasure PanelWidth {get;set;} // optional
-		[JsonProperty("panelPosition")]
-		public IfcDoorPanelPositionEnum PanelPosition {get;set;} 
-		[JsonProperty("shapeAspectStyle")]
-		public IfcShapeAspect ShapeAspectStyle {get;set;} // optional
-
-		public IfcDoorPanelProperties(IfcDoorPanelOperationEnum panelOperation
-				,IfcDoorPanelPositionEnum panelPosition
-				,List<IfcTypeObject> definesType
-				) : base(definesType
-					)
-		{
-			PanelOperation = panelOperation;
-			PanelPosition = panelPosition;
-
-		}
-
-		public static new IfcDoorPanelProperties FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcDoorPanelProperties>(json);
-		}
-
-		public static new IfcDoorPanelProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdoorstandardcase.htm"/>
 	/// </summary>
 	public  partial class IfcDoorStandardCase : IfcDoor
 	{
 
-		public IfcDoorStandardCase() : base()
+		public IfcDoorStandardCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -11646,29 +13924,111 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdoorliningproperties.htm"/>
+	/// </summary>
+	public  partial class IfcDoorLiningProperties : IfcPreDefinedPropertySet
+	{
+		public IfcPositiveLengthMeasure LiningDepth{get;set;} // optional
+		public IfcNonNegativeLengthMeasure LiningThickness{get;set;} // optional
+		public IfcPositiveLengthMeasure ThresholdDepth{get;set;} // optional
+		public IfcNonNegativeLengthMeasure ThresholdThickness{get;set;} // optional
+		public IfcNonNegativeLengthMeasure TransomThickness{get;set;} // optional
+		public IfcLengthMeasure TransomOffset{get;set;} // optional
+		public IfcLengthMeasure LiningOffset{get;set;} // optional
+		public IfcLengthMeasure ThresholdOffset{get;set;} // optional
+		public IfcPositiveLengthMeasure CasingThickness{get;set;} // optional
+		public IfcPositiveLengthMeasure CasingDepth{get;set;} // optional
+		public IfcShapeAspect ShapeAspectStyle{get;set;} // optional
+		public IfcLengthMeasure LiningToPanelOffsetX{get;set;} // optional
+		public IfcLengthMeasure LiningToPanelOffsetY{get;set;} // optional
+
+		public IfcDoorLiningProperties(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcDoorLiningProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDoorLiningProperties>(json);
+		}
+
+		public static new IfcDoorLiningProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpredefinedpropertyset.htm"/>
+	/// </summary>
+	public abstract partial class IfcPreDefinedPropertySet : IfcPropertySetDefinition
+	{
+
+		public IfcPreDefinedPropertySet(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcPreDefinedPropertySet FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPreDefinedPropertySet>(json);
+		}
+
+		public static new IfcPreDefinedPropertySet FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdoorpanelproperties.htm"/>
+	/// </summary>
+	public  partial class IfcDoorPanelProperties : IfcPreDefinedPropertySet
+	{
+		public IfcPositiveLengthMeasure PanelDepth{get;set;} // optional
+		public IfcDoorPanelOperationEnum PanelOperation{get;set;} 
+		public IfcNormalisedRatioMeasure PanelWidth{get;set;} // optional
+		public IfcDoorPanelPositionEnum PanelPosition{get;set;} 
+		public IfcShapeAspect ShapeAspectStyle{get;set;} // optional
+
+		public IfcDoorPanelProperties(IfcDoorPanelOperationEnum panelOperation,IfcDoorPanelPositionEnum panelPosition,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PanelOperation = panelOperation;
+			PanelPosition = panelPosition;
+
+
+		}
+
+		public static new IfcDoorPanelProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcDoorPanelProperties>(json);
+		}
+
+		public static new IfcDoorPanelProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdoorstyle.htm"/>
 	/// </summary>
 	public  partial class IfcDoorStyle : IfcTypeProduct
 	{
-		[JsonProperty("operationType")]
-		public IfcDoorStyleOperationEnum OperationType {get;set;} 
-		[JsonProperty("constructionType")]
-		public IfcDoorStyleConstructionEnum ConstructionType {get;set;} 
-		[JsonProperty("parameterTakesPrecedence")]
-		public bool ParameterTakesPrecedence {get;set;} 
-		[JsonProperty("sizeable")]
-		public bool Sizeable {get;set;} 
+		public IfcDoorStyleOperationEnum OperationType{get;set;} 
+		public IfcDoorStyleConstructionEnum ConstructionType{get;set;} 
+		public bool ParameterTakesPrecedence{get;set;} 
+		public bool Sizeable{get;set;} 
 
-		public IfcDoorStyle(IfcDoorStyleOperationEnum operationType
-				,IfcDoorStyleConstructionEnum constructionType
-				,bool parameterTakesPrecedence
-				,bool sizeable
-				) : base()
+		public IfcDoorStyle(IfcDoorStyleOperationEnum operationType,IfcDoorStyleConstructionEnum constructionType,bool parameterTakesPrecedence,bool sizeable,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			OperationType = operationType;
 			ConstructionType = constructionType;
 			ParameterTakesPrecedence = parameterTakesPrecedence;
 			Sizeable = sizeable;
+
 
 		}
 
@@ -11684,34 +14044,26 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdoortype.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctypeproduct.htm"/>
 	/// </summary>
-	public  partial class IfcDoorType : IfcBuildingElementType
+	public  partial class IfcTypeProduct : IfcTypeObject
 	{
-		[JsonProperty("predefinedType")]
-		public IfcDoorTypeEnum PredefinedType {get;set;} 
-		[JsonProperty("operationType")]
-		public IfcDoorTypeOperationEnum OperationType {get;set;} 
-		[JsonProperty("parameterTakesPrecedence")]
-		public bool ParameterTakesPrecedence {get;set;} // optional
-		[JsonProperty("userDefinedOperationType")]
-		public IfcLabel UserDefinedOperationType {get;set;} // optional
+		public List<IfcRepresentationMap> RepresentationMaps{get;set;} // optional
+		public IfcLabel Tag{get;set;} // optional
 
-		public IfcDoorType(IfcDoorTypeEnum predefinedType
-				,IfcDoorTypeOperationEnum operationType
-				) : base()
+		public IfcTypeProduct(IfcGloballyUniqueId globalId):base(globalId)
 		{
-			PredefinedType = predefinedType;
-			OperationType = operationType;
+
+			RepresentationMaps = new List<IfcRepresentationMap>();
 
 		}
 
-		public static new IfcDoorType FromJSON(string json)
+		public static new IfcTypeProduct FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcDoorType>(json);
+			return JsonConvert.DeserializeObject<IfcTypeProduct>(json);
 		}
 
-		public static new IfcDoorType FromSTEP(string step)
+		public static new IfcTypeProduct FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -11723,10 +14075,9 @@ namespace IFC4
 	public  partial class IfcDraughtingPreDefinedColour : IfcPreDefinedColour
 	{
 
-		public IfcDraughtingPreDefinedColour(IfcLabel name
-				) : base(name
-					)
+		public IfcDraughtingPreDefinedColour(IfcLabel name):base(name)
 		{
+
 
 		}
 
@@ -11742,15 +14093,37 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpredefinedcolour.htm"/>
+	/// </summary>
+	public abstract partial class IfcPreDefinedColour : IfcPreDefinedItem
+	{
+
+		public IfcPreDefinedColour(IfcLabel name):base(name)
+		{
+
+
+		}
+
+		public static new IfcPreDefinedColour FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPreDefinedColour>(json);
+		}
+
+		public static new IfcPreDefinedColour FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcdraughtingpredefinedcurvefont.htm"/>
 	/// </summary>
 	public  partial class IfcDraughtingPreDefinedCurveFont : IfcPreDefinedCurveFont
 	{
 
-		public IfcDraughtingPreDefinedCurveFont(IfcLabel name
-				) : base(name
-					)
+		public IfcDraughtingPreDefinedCurveFont(IfcLabel name):base(name)
 		{
+
 
 		}
 
@@ -11766,15 +14139,38 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpredefinedcurvefont.htm"/>
+	/// </summary>
+	public abstract partial class IfcPreDefinedCurveFont : IfcPreDefinedItem
+	{
+
+		public IfcPreDefinedCurveFont(IfcLabel name):base(name)
+		{
+
+
+		}
+
+		public static new IfcPreDefinedCurveFont FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPreDefinedCurveFont>(json);
+		}
+
+		public static new IfcPreDefinedCurveFont FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcductfitting.htm"/>
 	/// </summary>
 	public  partial class IfcDuctFitting : IfcFlowFitting
 	{
-		[JsonProperty("predefinedType")]
-		public IfcDuctFittingTypeEnum PredefinedType {get;set;} // optional
+		public IfcDuctFittingTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcDuctFitting() : base()
+		public IfcDuctFitting(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -11794,13 +14190,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDuctFittingType : IfcFlowFittingType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcDuctFittingTypeEnum PredefinedType {get;set;} 
+		public IfcDuctFittingTypeEnum PredefinedType{get;set;} 
 
-		public IfcDuctFittingType(IfcDuctFittingTypeEnum predefinedType
-				) : base()
+		public IfcDuctFittingType(IfcDuctFittingTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -11820,11 +14215,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDuctSegment : IfcFlowSegment
 	{
-		[JsonProperty("predefinedType")]
-		public IfcDuctSegmentTypeEnum PredefinedType {get;set;} // optional
+		public IfcDuctSegmentTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcDuctSegment() : base()
+		public IfcDuctSegment(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -11844,13 +14239,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDuctSegmentType : IfcFlowSegmentType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcDuctSegmentTypeEnum PredefinedType {get;set;} 
+		public IfcDuctSegmentTypeEnum PredefinedType{get;set;} 
 
-		public IfcDuctSegmentType(IfcDuctSegmentTypeEnum predefinedType
-				) : base()
+		public IfcDuctSegmentType(IfcDuctSegmentTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -11870,11 +14264,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDuctSilencer : IfcFlowTreatmentDevice
 	{
-		[JsonProperty("predefinedType")]
-		public IfcDuctSilencerTypeEnum PredefinedType {get;set;} // optional
+		public IfcDuctSilencerTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcDuctSilencer() : base()
+		public IfcDuctSilencer(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -11894,13 +14288,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDuctSilencerType : IfcFlowTreatmentDeviceType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcDuctSilencerTypeEnum PredefinedType {get;set;} 
+		public IfcDuctSilencerTypeEnum PredefinedType{get;set;} 
 
-		public IfcDuctSilencerType(IfcDuctSilencerTypeEnum predefinedType
-				) : base()
+		public IfcDuctSilencerType(IfcDuctSilencerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -11920,21 +14313,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcEdge : IfcTopologicalRepresentationItem
 	{
-		[JsonProperty("edgeStart")]
-		public IfcVertex EdgeStart {get;set;} 
-		[JsonProperty("edgeEnd")]
-		public IfcVertex EdgeEnd {get;set;} 
+		public IfcVertex EdgeStart{get;set;} 
+		public IfcVertex EdgeEnd{get;set;} 
 
-		public IfcEdge(IfcVertex edgeStart
-				,IfcVertex edgeEnd
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcEdge(IfcVertex edgeStart,IfcVertex edgeEnd):base()
 		{
 			EdgeStart = edgeStart;
 			EdgeEnd = edgeEnd;
+
 
 		}
 
@@ -11954,25 +14340,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcEdgeCurve : IfcEdge
 	{
-		[JsonProperty("edgeGeometry")]
-		public IfcCurve EdgeGeometry {get;set;} 
-		[JsonProperty("sameSense")]
-		public bool SameSense {get;set;} 
+		public IfcCurve EdgeGeometry{get;set;} 
+		public bool SameSense{get;set;} 
 
-		public IfcEdgeCurve(IfcCurve edgeGeometry
-				,bool sameSense
-				,IfcVertex edgeStart
-				,IfcVertex edgeEnd
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(edgeStart
-					,edgeEnd
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcEdgeCurve(IfcCurve edgeGeometry,bool sameSense,IfcVertex edgeStart,IfcVertex edgeEnd):base(edgeStart,edgeEnd)
 		{
 			EdgeGeometry = edgeGeometry;
 			SameSense = sameSense;
+
 
 		}
 
@@ -11988,21 +14363,68 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcorientededge.htm"/>
+	/// </summary>
+	public  partial class IfcOrientedEdge : IfcEdge
+	{
+		public IfcEdge EdgeElement{get;set;} 
+		public bool Orientation{get;set;} 
+
+		public IfcOrientedEdge(IfcEdge edgeElement,bool orientation,IfcVertex edgeStart,IfcVertex edgeEnd):base(edgeStart,edgeEnd)
+		{
+			EdgeElement = edgeElement;
+			Orientation = orientation;
+
+
+		}
+
+		public static new IfcOrientedEdge FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcOrientedEdge>(json);
+		}
+
+		public static new IfcOrientedEdge FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsubedge.htm"/>
+	/// </summary>
+	public  partial class IfcSubedge : IfcEdge
+	{
+		public IfcEdge ParentEdge{get;set;} 
+
+		public IfcSubedge(IfcEdge parentEdge,IfcVertex edgeStart,IfcVertex edgeEnd):base(edgeStart,edgeEnd)
+		{
+			ParentEdge = parentEdge;
+
+
+		}
+
+		public static new IfcSubedge FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSubedge>(json);
+		}
+
+		public static new IfcSubedge FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcedgeloop.htm"/>
 	/// </summary>
 	public  partial class IfcEdgeLoop : IfcLoop
 	{
-		[JsonProperty("edgeList")]
-		public List<IfcOrientedEdge> EdgeList {get;set;} 
+		public List<IfcOrientedEdge> EdgeList{get;set;} 
 
-		public IfcEdgeLoop(List<IfcOrientedEdge> edgeList
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcEdgeLoop(List<IfcOrientedEdge> edgeList):base()
 		{
 			EdgeList = edgeList;
+
 
 		}
 
@@ -12018,15 +14440,38 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcloop.htm"/>
+	/// </summary>
+	public  partial class IfcLoop : IfcTopologicalRepresentationItem
+	{
+
+		public IfcLoop():base()
+		{
+
+
+		}
+
+		public static new IfcLoop FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLoop>(json);
+		}
+
+		public static new IfcLoop FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcelectricappliance.htm"/>
 	/// </summary>
 	public  partial class IfcElectricAppliance : IfcFlowTerminal
 	{
-		[JsonProperty("predefinedType")]
-		public IfcElectricApplianceTypeEnum PredefinedType {get;set;} // optional
+		public IfcElectricApplianceTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcElectricAppliance() : base()
+		public IfcElectricAppliance(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -12046,13 +14491,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcElectricApplianceType : IfcFlowTerminalType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcElectricApplianceTypeEnum PredefinedType {get;set;} 
+		public IfcElectricApplianceTypeEnum PredefinedType{get;set;} 
 
-		public IfcElectricApplianceType(IfcElectricApplianceTypeEnum predefinedType
-				) : base()
+		public IfcElectricApplianceType(IfcElectricApplianceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -12072,11 +14516,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcElectricDistributionBoard : IfcFlowController
 	{
-		[JsonProperty("predefinedType")]
-		public IfcElectricDistributionBoardTypeEnum PredefinedType {get;set;} // optional
+		public IfcElectricDistributionBoardTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcElectricDistributionBoard() : base()
+		public IfcElectricDistributionBoard(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -12096,13 +14540,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcElectricDistributionBoardType : IfcFlowControllerType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcElectricDistributionBoardTypeEnum PredefinedType {get;set;} 
+		public IfcElectricDistributionBoardTypeEnum PredefinedType{get;set;} 
 
-		public IfcElectricDistributionBoardType(IfcElectricDistributionBoardTypeEnum predefinedType
-				) : base()
+		public IfcElectricDistributionBoardType(IfcElectricDistributionBoardTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -12122,11 +14565,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcElectricFlowStorageDevice : IfcFlowStorageDevice
 	{
-		[JsonProperty("predefinedType")]
-		public IfcElectricFlowStorageDeviceTypeEnum PredefinedType {get;set;} // optional
+		public IfcElectricFlowStorageDeviceTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcElectricFlowStorageDevice() : base()
+		public IfcElectricFlowStorageDevice(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -12146,13 +14589,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcElectricFlowStorageDeviceType : IfcFlowStorageDeviceType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcElectricFlowStorageDeviceTypeEnum PredefinedType {get;set;} 
+		public IfcElectricFlowStorageDeviceTypeEnum PredefinedType{get;set;} 
 
-		public IfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceTypeEnum predefinedType
-				) : base()
+		public IfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -12172,11 +14614,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcElectricGenerator : IfcEnergyConversionDevice
 	{
-		[JsonProperty("predefinedType")]
-		public IfcElectricGeneratorTypeEnum PredefinedType {get;set;} // optional
+		public IfcElectricGeneratorTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcElectricGenerator() : base()
+		public IfcElectricGenerator(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -12196,13 +14638,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcElectricGeneratorType : IfcEnergyConversionDeviceType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcElectricGeneratorTypeEnum PredefinedType {get;set;} 
+		public IfcElectricGeneratorTypeEnum PredefinedType{get;set;} 
 
-		public IfcElectricGeneratorType(IfcElectricGeneratorTypeEnum predefinedType
-				) : base()
+		public IfcElectricGeneratorType(IfcElectricGeneratorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -12222,11 +14663,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcElectricMotor : IfcEnergyConversionDevice
 	{
-		[JsonProperty("predefinedType")]
-		public IfcElectricMotorTypeEnum PredefinedType {get;set;} // optional
+		public IfcElectricMotorTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcElectricMotor() : base()
+		public IfcElectricMotor(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -12246,13 +14687,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcElectricMotorType : IfcEnergyConversionDeviceType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcElectricMotorTypeEnum PredefinedType {get;set;} 
+		public IfcElectricMotorTypeEnum PredefinedType{get;set;} 
 
-		public IfcElectricMotorType(IfcElectricMotorTypeEnum predefinedType
-				) : base()
+		public IfcElectricMotorType(IfcElectricMotorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -12272,11 +14712,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcElectricTimeControl : IfcFlowController
 	{
-		[JsonProperty("predefinedType")]
-		public IfcElectricTimeControlTypeEnum PredefinedType {get;set;} // optional
+		public IfcElectricTimeControlTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcElectricTimeControl() : base()
+		public IfcElectricTimeControl(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -12296,13 +14736,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcElectricTimeControlType : IfcFlowControllerType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcElectricTimeControlTypeEnum PredefinedType {get;set;} 
+		public IfcElectricTimeControlTypeEnum PredefinedType{get;set;} 
 
-		public IfcElectricTimeControlType(IfcElectricTimeControlTypeEnum predefinedType
-				) : base()
+		public IfcElectricTimeControlType(IfcElectricTimeControlTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -12318,63 +14757,16 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcelement.htm"/>
-	/// </summary>
-	public abstract partial class IfcElement : IfcProduct
-	{
-		[JsonProperty("tag")]
-		public IfcIdentifier Tag {get;set;} // optional
-		[JsonProperty("fillsVoids")]
-		public List<IfcRelFillsElement> FillsVoids {get;set;} 
-		[JsonProperty("connectedTo")]
-		public List<IfcRelConnectsElements> ConnectedTo {get;set;} 
-		[JsonProperty("isInterferedByElements")]
-		public List<IfcRelInterferesElements> IsInterferedByElements {get;set;} 
-		[JsonProperty("interferesElements")]
-		public List<IfcRelInterferesElements> InterferesElements {get;set;} 
-		[JsonProperty("hasProjections")]
-		public List<IfcRelProjectsElement> HasProjections {get;set;} 
-		[JsonProperty("referencedInStructures")]
-		public List<IfcRelReferencedInSpatialStructure> ReferencedInStructures {get;set;} 
-		[JsonProperty("hasOpenings")]
-		public List<IfcRelVoidsElement> HasOpenings {get;set;} 
-		[JsonProperty("isConnectionRealization")]
-		public List<IfcRelConnectsWithRealizingElements> IsConnectionRealization {get;set;} 
-		[JsonProperty("providesBoundaries")]
-		public List<IfcRelSpaceBoundary> ProvidesBoundaries {get;set;} 
-		[JsonProperty("connectedFrom")]
-		public List<IfcRelConnectsElements> ConnectedFrom {get;set;} 
-		[JsonProperty("containedInStructure")]
-		public List<IfcRelContainedInSpatialStructure> ContainedInStructure {get;set;} 
-
-		public IfcElement() : base()
-		{
-
-		}
-
-		public static new IfcElement FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcElement>(json);
-		}
-
-		public static new IfcElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcelementassembly.htm"/>
 	/// </summary>
 	public  partial class IfcElementAssembly : IfcElement
 	{
-		[JsonProperty("assemblyPlace")]
-		public IfcAssemblyPlaceEnum AssemblyPlace {get;set;} // optional
-		[JsonProperty("predefinedType")]
-		public IfcElementAssemblyTypeEnum PredefinedType {get;set;} // optional
+		public IfcAssemblyPlaceEnum AssemblyPlace{get;set;} // optional
+		public IfcElementAssemblyTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcElementAssembly() : base()
+		public IfcElementAssembly(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -12390,17 +14782,133 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfeatureelement.htm"/>
+	/// </summary>
+	public abstract partial class IfcFeatureElement : IfcElement
+	{
+
+		public IfcFeatureElement(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcFeatureElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFeatureElement>(json);
+		}
+
+		public static new IfcFeatureElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfurnishingelement.htm"/>
+	/// </summary>
+	public  partial class IfcFurnishingElement : IfcElement
+	{
+
+		public IfcFurnishingElement(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcFurnishingElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFurnishingElement>(json);
+		}
+
+		public static new IfcFurnishingElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcgeographicelement.htm"/>
+	/// </summary>
+	public  partial class IfcGeographicElement : IfcElement
+	{
+		public IfcGeographicElementTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcGeographicElement(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcGeographicElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcGeographicElement>(json);
+		}
+
+		public static new IfcGeographicElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctransportelement.htm"/>
+	/// </summary>
+	public  partial class IfcTransportElement : IfcElement
+	{
+		public IfcTransportElementTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcTransportElement(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcTransportElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTransportElement>(json);
+		}
+
+		public static new IfcTransportElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvirtualelement.htm"/>
+	/// </summary>
+	public  partial class IfcVirtualElement : IfcElement
+	{
+
+		public IfcVirtualElement(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcVirtualElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcVirtualElement>(json);
+		}
+
+		public static new IfcVirtualElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcelementassemblytype.htm"/>
 	/// </summary>
 	public  partial class IfcElementAssemblyType : IfcElementType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcElementAssemblyTypeEnum PredefinedType {get;set;} 
+		public IfcElementAssemblyTypeEnum PredefinedType{get;set;} 
 
-		public IfcElementAssemblyType(IfcElementAssemblyTypeEnum predefinedType
-				) : base()
+		public IfcElementAssemblyType(IfcElementAssemblyTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -12416,44 +14924,198 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcelementcomponent.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfastener.htm"/>
 	/// </summary>
-	public abstract partial class IfcElementComponent : IfcElement
+	public  partial class IfcFastener : IfcElementComponent
 	{
+		public IfcFastenerTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcElementComponent() : base()
+		public IfcFastener(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
-		public static new IfcElementComponent FromJSON(string json)
+		public static new IfcFastener FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcElementComponent>(json);
+			return JsonConvert.DeserializeObject<IfcFastener>(json);
 		}
 
-		public static new IfcElementComponent FromSTEP(string step)
+		public static new IfcFastener FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcelementcomponenttype.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmechanicalfastener.htm"/>
 	/// </summary>
-	public abstract partial class IfcElementComponentType : IfcElementType
+	public  partial class IfcMechanicalFastener : IfcElementComponent
+	{
+		public IfcPositiveLengthMeasure NominalDiameter{get;set;} // optional
+		public IfcPositiveLengthMeasure NominalLength{get;set;} // optional
+		public IfcMechanicalFastenerTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcMechanicalFastener(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcMechanicalFastener FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMechanicalFastener>(json);
+		}
+
+		public static new IfcMechanicalFastener FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreinforcingelement.htm"/>
+	/// </summary>
+	public abstract partial class IfcReinforcingElement : IfcElementComponent
+	{
+		public IfcLabel SteelGrade{get;set;} // optional
+
+		public IfcReinforcingElement(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcReinforcingElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcReinforcingElement>(json);
+		}
+
+		public static new IfcReinforcingElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvibrationisolator.htm"/>
+	/// </summary>
+	public  partial class IfcVibrationIsolator : IfcElementComponent
+	{
+		public IfcVibrationIsolatorTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcVibrationIsolator(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcVibrationIsolator FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcVibrationIsolator>(json);
+		}
+
+		public static new IfcVibrationIsolator FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfastenertype.htm"/>
+	/// </summary>
+	public  partial class IfcFastenerType : IfcElementComponentType
+	{
+		public IfcFastenerTypeEnum PredefinedType{get;set;} 
+
+		public IfcFastenerType(IfcFastenerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcFastenerType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcFastenerType>(json);
+		}
+
+		public static new IfcFastenerType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmechanicalfastenertype.htm"/>
+	/// </summary>
+	public  partial class IfcMechanicalFastenerType : IfcElementComponentType
+	{
+		public IfcMechanicalFastenerTypeEnum PredefinedType{get;set;} 
+		public IfcPositiveLengthMeasure NominalDiameter{get;set;} // optional
+		public IfcPositiveLengthMeasure NominalLength{get;set;} // optional
+
+		public IfcMechanicalFastenerType(IfcMechanicalFastenerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcMechanicalFastenerType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMechanicalFastenerType>(json);
+		}
+
+		public static new IfcMechanicalFastenerType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreinforcingelementtype.htm"/>
+	/// </summary>
+	public abstract partial class IfcReinforcingElementType : IfcElementComponentType
 	{
 
-		public IfcElementComponentType() : base()
+		public IfcReinforcingElementType(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
-		public static new IfcElementComponentType FromJSON(string json)
+		public static new IfcReinforcingElementType FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcElementComponentType>(json);
+			return JsonConvert.DeserializeObject<IfcReinforcingElementType>(json);
 		}
 
-		public static new IfcElementComponentType FromSTEP(string step)
+		public static new IfcReinforcingElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvibrationisolatortype.htm"/>
+	/// </summary>
+	public  partial class IfcVibrationIsolatorType : IfcElementComponentType
+	{
+		public IfcVibrationIsolatorTypeEnum PredefinedType{get;set;} 
+
+		public IfcVibrationIsolatorType(IfcVibrationIsolatorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcVibrationIsolatorType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcVibrationIsolatorType>(json);
+		}
+
+		public static new IfcVibrationIsolatorType FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -12464,17 +15126,13 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcElementQuantity : IfcQuantitySet
 	{
-		[JsonProperty("methodOfMeasurement")]
-		public IfcLabel MethodOfMeasurement {get;set;} // optional
-		[JsonProperty("quantities")]
-		public List<IfcPhysicalQuantity> Quantities {get;set;} 
+		public IfcLabel MethodOfMeasurement{get;set;} // optional
+		public List<IfcPhysicalQuantity> Quantities{get;set;} 
 
-		public IfcElementQuantity(List<IfcPhysicalQuantity> quantities
-				,List<IfcTypeObject> definesType
-				) : base(definesType
-					)
+		public IfcElementQuantity(List<IfcPhysicalQuantity> quantities,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			Quantities = quantities;
+
 
 		}
 
@@ -12490,90 +15148,119 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcelementtype.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcquantityset.htm"/>
 	/// </summary>
-	public abstract partial class IfcElementType : IfcTypeProduct
+	public abstract partial class IfcQuantitySet : IfcPropertySetDefinition
 	{
-		[JsonProperty("elementType")]
-		public IfcLabel ElementType {get;set;} // optional
 
-		public IfcElementType() : base()
+		public IfcQuantitySet(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
-		public static new IfcElementType FromJSON(string json)
+		public static new IfcQuantitySet FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcElementType>(json);
+			return JsonConvert.DeserializeObject<IfcQuantitySet>(json);
 		}
 
-		public static new IfcElementType FromSTEP(string step)
+		public static new IfcQuantitySet FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcelementarysurface.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfurnishingelementtype.htm"/>
 	/// </summary>
-	public abstract partial class IfcElementarySurface : IfcSurface
+	public  partial class IfcFurnishingElementType : IfcElementType
 	{
-		[JsonProperty("position")]
-		public IfcAxis2Placement3D Position {get;set;} 
 
-		public IfcElementarySurface(IfcAxis2Placement3D position
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcFurnishingElementType(IfcGloballyUniqueId globalId):base(globalId)
 		{
-			Position = position;
+
 
 		}
 
-		public static new IfcElementarySurface FromJSON(string json)
+		public static new IfcFurnishingElementType FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcElementarySurface>(json);
+			return JsonConvert.DeserializeObject<IfcFurnishingElementType>(json);
 		}
 
-		public static new IfcElementarySurface FromSTEP(string step)
+		public static new IfcFurnishingElementType FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcellipse.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcgeographicelementtype.htm"/>
 	/// </summary>
-	public  partial class IfcEllipse : IfcConic
+	public  partial class IfcGeographicElementType : IfcElementType
 	{
-		[JsonProperty("semiAxis1")]
-		public IfcPositiveLengthMeasure SemiAxis1 {get;set;} 
-		[JsonProperty("semiAxis2")]
-		public IfcPositiveLengthMeasure SemiAxis2 {get;set;} 
+		public IfcGeographicElementTypeEnum PredefinedType{get;set;} 
 
-		public IfcEllipse(IfcPositiveLengthMeasure semiAxis1
-				,IfcPositiveLengthMeasure semiAxis2
-				,IfcAxis2Placement position
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(position
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcGeographicElementType(IfcGeographicElementTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
-			SemiAxis1 = semiAxis1;
-			SemiAxis2 = semiAxis2;
+			PredefinedType = predefinedType;
+
 
 		}
 
-		public static new IfcEllipse FromJSON(string json)
+		public static new IfcGeographicElementType FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcEllipse>(json);
+			return JsonConvert.DeserializeObject<IfcGeographicElementType>(json);
 		}
 
-		public static new IfcEllipse FromSTEP(string step)
+		public static new IfcGeographicElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctransportelementtype.htm"/>
+	/// </summary>
+	public  partial class IfcTransportElementType : IfcElementType
+	{
+		public IfcTransportElementTypeEnum PredefinedType{get;set;} 
+
+		public IfcTransportElementType(IfcTransportElementTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcTransportElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTransportElementType>(json);
+		}
+
+		public static new IfcTransportElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcplane.htm"/>
+	/// </summary>
+	public  partial class IfcPlane : IfcElementarySurface
+	{
+
+		public IfcPlane(IfcAxis2Placement3D position):base(position)
+		{
+
+
+		}
+
+		public static new IfcPlane FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPlane>(json);
+		}
+
+		public static new IfcPlane FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -12584,23 +15271,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcEllipseProfileDef : IfcParameterizedProfileDef
 	{
-		[JsonProperty("semiAxis1")]
-		public IfcPositiveLengthMeasure SemiAxis1 {get;set;} 
-		[JsonProperty("semiAxis2")]
-		public IfcPositiveLengthMeasure SemiAxis2 {get;set;} 
+		public IfcPositiveLengthMeasure SemiAxis1{get;set;} 
+		public IfcPositiveLengthMeasure SemiAxis2{get;set;} 
 
-		public IfcEllipseProfileDef(IfcPositiveLengthMeasure semiAxis1
-				,IfcPositiveLengthMeasure semiAxis2
-				,IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(profileType
-					,hasExternalReference
-					,hasProperties
-					)
+		public IfcEllipseProfileDef(IfcPositiveLengthMeasure semiAxis1,IfcPositiveLengthMeasure semiAxis2,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			SemiAxis1 = semiAxis1;
 			SemiAxis2 = semiAxis2;
+
 
 		}
 
@@ -12616,59 +15294,15 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcenergyconversiondevice.htm"/>
-	/// </summary>
-	public  partial class IfcEnergyConversionDevice : IfcDistributionFlowElement
-	{
-
-		public IfcEnergyConversionDevice() : base()
-		{
-
-		}
-
-		public static new IfcEnergyConversionDevice FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcEnergyConversionDevice>(json);
-		}
-
-		public static new IfcEnergyConversionDevice FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcenergyconversiondevicetype.htm"/>
-	/// </summary>
-	public abstract partial class IfcEnergyConversionDeviceType : IfcDistributionFlowElementType
-	{
-
-		public IfcEnergyConversionDeviceType() : base()
-		{
-
-		}
-
-		public static new IfcEnergyConversionDeviceType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcEnergyConversionDeviceType>(json);
-		}
-
-		public static new IfcEnergyConversionDeviceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcengine.htm"/>
 	/// </summary>
 	public  partial class IfcEngine : IfcEnergyConversionDevice
 	{
-		[JsonProperty("predefinedType")]
-		public IfcEngineTypeEnum PredefinedType {get;set;} // optional
+		public IfcEngineTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcEngine() : base()
+		public IfcEngine(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -12684,41 +15318,15 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcenginetype.htm"/>
-	/// </summary>
-	public  partial class IfcEngineType : IfcEnergyConversionDeviceType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcEngineTypeEnum PredefinedType {get;set;} 
-
-		public IfcEngineType(IfcEngineTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcEngineType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcEngineType>(json);
-		}
-
-		public static new IfcEngineType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcevaporativecooler.htm"/>
 	/// </summary>
 	public  partial class IfcEvaporativeCooler : IfcEnergyConversionDevice
 	{
-		[JsonProperty("predefinedType")]
-		public IfcEvaporativeCoolerTypeEnum PredefinedType {get;set;} // optional
+		public IfcEvaporativeCoolerTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcEvaporativeCooler() : base()
+		public IfcEvaporativeCooler(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -12734,41 +15342,15 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcevaporativecoolertype.htm"/>
-	/// </summary>
-	public  partial class IfcEvaporativeCoolerType : IfcEnergyConversionDeviceType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcEvaporativeCoolerTypeEnum PredefinedType {get;set;} 
-
-		public IfcEvaporativeCoolerType(IfcEvaporativeCoolerTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcEvaporativeCoolerType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcEvaporativeCoolerType>(json);
-		}
-
-		public static new IfcEvaporativeCoolerType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcevaporator.htm"/>
 	/// </summary>
 	public  partial class IfcEvaporator : IfcEnergyConversionDevice
 	{
-		[JsonProperty("predefinedType")]
-		public IfcEvaporatorTypeEnum PredefinedType {get;set;} // optional
+		public IfcEvaporatorTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcEvaporator() : base()
+		public IfcEvaporator(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -12784,17 +15366,234 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcheatexchanger.htm"/>
+	/// </summary>
+	public  partial class IfcHeatExchanger : IfcEnergyConversionDevice
+	{
+		public IfcHeatExchangerTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcHeatExchanger(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcHeatExchanger FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcHeatExchanger>(json);
+		}
+
+		public static new IfcHeatExchanger FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifchumidifier.htm"/>
+	/// </summary>
+	public  partial class IfcHumidifier : IfcEnergyConversionDevice
+	{
+		public IfcHumidifierTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcHumidifier(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcHumidifier FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcHumidifier>(json);
+		}
+
+		public static new IfcHumidifier FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmotorconnection.htm"/>
+	/// </summary>
+	public  partial class IfcMotorConnection : IfcEnergyConversionDevice
+	{
+		public IfcMotorConnectionTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcMotorConnection(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcMotorConnection FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMotorConnection>(json);
+		}
+
+		public static new IfcMotorConnection FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsolardevice.htm"/>
+	/// </summary>
+	public  partial class IfcSolarDevice : IfcEnergyConversionDevice
+	{
+		public IfcSolarDeviceTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcSolarDevice(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcSolarDevice FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSolarDevice>(json);
+		}
+
+		public static new IfcSolarDevice FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctransformer.htm"/>
+	/// </summary>
+	public  partial class IfcTransformer : IfcEnergyConversionDevice
+	{
+		public IfcTransformerTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcTransformer(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcTransformer FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTransformer>(json);
+		}
+
+		public static new IfcTransformer FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctubebundle.htm"/>
+	/// </summary>
+	public  partial class IfcTubeBundle : IfcEnergyConversionDevice
+	{
+		public IfcTubeBundleTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcTubeBundle(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcTubeBundle FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTubeBundle>(json);
+		}
+
+		public static new IfcTubeBundle FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcunitaryequipment.htm"/>
+	/// </summary>
+	public  partial class IfcUnitaryEquipment : IfcEnergyConversionDevice
+	{
+		public IfcUnitaryEquipmentTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcUnitaryEquipment(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcUnitaryEquipment FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcUnitaryEquipment>(json);
+		}
+
+		public static new IfcUnitaryEquipment FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcenginetype.htm"/>
+	/// </summary>
+	public  partial class IfcEngineType : IfcEnergyConversionDeviceType
+	{
+		public IfcEngineTypeEnum PredefinedType{get;set;} 
+
+		public IfcEngineType(IfcEngineTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcEngineType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcEngineType>(json);
+		}
+
+		public static new IfcEngineType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcevaporativecoolertype.htm"/>
+	/// </summary>
+	public  partial class IfcEvaporativeCoolerType : IfcEnergyConversionDeviceType
+	{
+		public IfcEvaporativeCoolerTypeEnum PredefinedType{get;set;} 
+
+		public IfcEvaporativeCoolerType(IfcEvaporativeCoolerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcEvaporativeCoolerType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcEvaporativeCoolerType>(json);
+		}
+
+		public static new IfcEvaporativeCoolerType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcevaporatortype.htm"/>
 	/// </summary>
 	public  partial class IfcEvaporatorType : IfcEnergyConversionDeviceType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcEvaporatorTypeEnum PredefinedType {get;set;} 
+		public IfcEvaporatorTypeEnum PredefinedType{get;set;} 
 
-		public IfcEvaporatorType(IfcEvaporatorTypeEnum predefinedType
-				) : base()
+		public IfcEvaporatorType(IfcEvaporatorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -12810,21 +15609,193 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcheatexchangertype.htm"/>
+	/// </summary>
+	public  partial class IfcHeatExchangerType : IfcEnergyConversionDeviceType
+	{
+		public IfcHeatExchangerTypeEnum PredefinedType{get;set;} 
+
+		public IfcHeatExchangerType(IfcHeatExchangerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcHeatExchangerType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcHeatExchangerType>(json);
+		}
+
+		public static new IfcHeatExchangerType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifchumidifiertype.htm"/>
+	/// </summary>
+	public  partial class IfcHumidifierType : IfcEnergyConversionDeviceType
+	{
+		public IfcHumidifierTypeEnum PredefinedType{get;set;} 
+
+		public IfcHumidifierType(IfcHumidifierTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcHumidifierType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcHumidifierType>(json);
+		}
+
+		public static new IfcHumidifierType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmotorconnectiontype.htm"/>
+	/// </summary>
+	public  partial class IfcMotorConnectionType : IfcEnergyConversionDeviceType
+	{
+		public IfcMotorConnectionTypeEnum PredefinedType{get;set;} 
+
+		public IfcMotorConnectionType(IfcMotorConnectionTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcMotorConnectionType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMotorConnectionType>(json);
+		}
+
+		public static new IfcMotorConnectionType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsolardevicetype.htm"/>
+	/// </summary>
+	public  partial class IfcSolarDeviceType : IfcEnergyConversionDeviceType
+	{
+		public IfcSolarDeviceTypeEnum PredefinedType{get;set;} 
+
+		public IfcSolarDeviceType(IfcSolarDeviceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcSolarDeviceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSolarDeviceType>(json);
+		}
+
+		public static new IfcSolarDeviceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctransformertype.htm"/>
+	/// </summary>
+	public  partial class IfcTransformerType : IfcEnergyConversionDeviceType
+	{
+		public IfcTransformerTypeEnum PredefinedType{get;set;} 
+
+		public IfcTransformerType(IfcTransformerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcTransformerType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTransformerType>(json);
+		}
+
+		public static new IfcTransformerType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctubebundletype.htm"/>
+	/// </summary>
+	public  partial class IfcTubeBundleType : IfcEnergyConversionDeviceType
+	{
+		public IfcTubeBundleTypeEnum PredefinedType{get;set;} 
+
+		public IfcTubeBundleType(IfcTubeBundleTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcTubeBundleType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTubeBundleType>(json);
+		}
+
+		public static new IfcTubeBundleType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcunitaryequipmenttype.htm"/>
+	/// </summary>
+	public  partial class IfcUnitaryEquipmentType : IfcEnergyConversionDeviceType
+	{
+		public IfcUnitaryEquipmentTypeEnum PredefinedType{get;set;} 
+
+		public IfcUnitaryEquipmentType(IfcUnitaryEquipmentTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcUnitaryEquipmentType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcUnitaryEquipmentType>(json);
+		}
+
+		public static new IfcUnitaryEquipmentType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcevent.htm"/>
 	/// </summary>
 	public  partial class IfcEvent : IfcProcess
 	{
-		[JsonProperty("predefinedType")]
-		public IfcEventTypeEnum PredefinedType {get;set;} // optional
-		[JsonProperty("eventTriggerType")]
-		public IfcEventTriggerTypeEnum EventTriggerType {get;set;} // optional
-		[JsonProperty("userDefinedEventTriggerType")]
-		public IfcLabel UserDefinedEventTriggerType {get;set;} // optional
-		[JsonProperty("eventOccurenceTime")]
-		public IfcEventTime EventOccurenceTime {get;set;} // optional
+		public IfcEventTypeEnum PredefinedType{get;set;} // optional
+		public IfcEventTriggerTypeEnum EventTriggerType{get;set;} // optional
+		public IfcLabel UserDefinedEventTriggerType{get;set;} // optional
+		public IfcEventTime EventOccurenceTime{get;set;} // optional
 
-		public IfcEvent() : base()
+		public IfcEvent(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -12840,21 +15811,43 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprocess.htm"/>
+	/// </summary>
+	public abstract partial class IfcProcess : IfcObject
+	{
+		public IfcIdentifier Identification{get;set;} // optional
+		public IfcText LongDescription{get;set;} // optional
+
+		public IfcProcess(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcProcess FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProcess>(json);
+		}
+
+		public static new IfcProcess FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifceventtime.htm"/>
 	/// </summary>
 	public  partial class IfcEventTime : IfcSchedulingTime
 	{
-		[JsonProperty("actualDate")]
-		public IfcDateTime ActualDate {get;set;} // optional
-		[JsonProperty("earlyDate")]
-		public IfcDateTime EarlyDate {get;set;} // optional
-		[JsonProperty("lateDate")]
-		public IfcDateTime LateDate {get;set;} // optional
-		[JsonProperty("scheduleDate")]
-		public IfcDateTime ScheduleDate {get;set;} // optional
+		public IfcDateTime ActualDate{get;set;} // optional
+		public IfcDateTime EarlyDate{get;set;} // optional
+		public IfcDateTime LateDate{get;set;} // optional
+		public IfcDateTime ScheduleDate{get;set;} // optional
 
-		public IfcEventTime() : base()
+		public IfcEventTime():base()
 		{
+
 
 		}
 
@@ -12870,23 +15863,45 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcschedulingtime.htm"/>
+	/// </summary>
+	public abstract partial class IfcSchedulingTime : IfcBase
+	{
+		public IfcLabel Name{get;set;} // optional
+		public IfcDataOriginEnum DataOrigin{get;set;} // optional
+		public IfcLabel UserDefinedDataOrigin{get;set;} // optional
+
+		public IfcSchedulingTime():base()
+		{
+
+
+		}
+
+		public static  IfcSchedulingTime FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSchedulingTime>(json);
+		}
+
+		public static  IfcSchedulingTime FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifceventtype.htm"/>
 	/// </summary>
 	public  partial class IfcEventType : IfcTypeProcess
 	{
-		[JsonProperty("predefinedType")]
-		public IfcEventTypeEnum PredefinedType {get;set;} 
-		[JsonProperty("eventTriggerType")]
-		public IfcEventTriggerTypeEnum EventTriggerType {get;set;} 
-		[JsonProperty("userDefinedEventTriggerType")]
-		public IfcLabel UserDefinedEventTriggerType {get;set;} // optional
+		public IfcEventTypeEnum PredefinedType{get;set;} 
+		public IfcEventTriggerTypeEnum EventTriggerType{get;set;} 
+		public IfcLabel UserDefinedEventTriggerType{get;set;} // optional
 
-		public IfcEventType(IfcEventTypeEnum predefinedType
-				,IfcEventTriggerTypeEnum eventTriggerType
-				) : base()
+		public IfcEventType(IfcEventTypeEnum predefinedType,IfcEventTriggerTypeEnum eventTriggerType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 			EventTriggerType = eventTriggerType;
+
 
 		}
 
@@ -12902,23 +15917,44 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctypeprocess.htm"/>
+	/// </summary>
+	public abstract partial class IfcTypeProcess : IfcTypeObject
+	{
+		public IfcIdentifier Identification{get;set;} // optional
+		public IfcText LongDescription{get;set;} // optional
+		public IfcLabel ProcessType{get;set;} // optional
+
+		public IfcTypeProcess(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcTypeProcess FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTypeProcess>(json);
+		}
+
+		public static new IfcTypeProcess FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcextendedproperties.htm"/>
 	/// </summary>
 	public abstract partial class IfcExtendedProperties : IfcPropertyAbstraction
 	{
-		[JsonProperty("name")]
-		public IfcIdentifier Name {get;set;} // optional
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("properties")]
-		public List<IfcProperty> Properties {get;set;} 
+		public IfcIdentifier Name{get;set;} // optional
+		public IfcText Description{get;set;} // optional
+		public List<IfcProperty> Properties{get;set;} 
 
-		public IfcExtendedProperties(List<IfcProperty> properties
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				) : base(hasExternalReferences
-					)
+		public IfcExtendedProperties(List<IfcProperty> properties):base()
 		{
 			Properties = properties;
+
 
 		}
 
@@ -12934,132 +15970,103 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcexternalinformation.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmaterialproperties.htm"/>
 	/// </summary>
-	public abstract partial class IfcExternalInformation : IfcBase
+	public  partial class IfcMaterialProperties : IfcExtendedProperties
 	{
+		public IfcMaterialDefinition Material{get;set;} 
 
-		public IfcExternalInformation()
+		public IfcMaterialProperties(IfcMaterialDefinition material,List<IfcProperty> properties):base(properties)
 		{
+			Material = material;
+
 
 		}
 
-		public static  IfcExternalInformation FromJSON(string json)
+		public static new IfcMaterialProperties FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcExternalInformation>(json);
+			return JsonConvert.DeserializeObject<IfcMaterialProperties>(json);
 		}
 
-		public static  IfcExternalInformation FromSTEP(string step)
+		public static new IfcMaterialProperties FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcexternalreference.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprofileproperties.htm"/>
 	/// </summary>
-	public abstract partial class IfcExternalReference : IfcBase
+	public  partial class IfcProfileProperties : IfcExtendedProperties
 	{
-		[JsonProperty("location")]
-		public IfcURIReference Location {get;set;} // optional
-		[JsonProperty("identification")]
-		public IfcIdentifier Identification {get;set;} // optional
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
-		[JsonProperty("externalReferenceForResources")]
-		public List<IfcExternalReferenceRelationship> ExternalReferenceForResources {get;set;} 
+		public IfcProfileDef ProfileDefinition{get;set;} 
 
-		public IfcExternalReference(List<IfcExternalReferenceRelationship> externalReferenceForResources
-				)
+		public IfcProfileProperties(IfcProfileDef profileDefinition,List<IfcProperty> properties):base(properties)
 		{
-			ExternalReferenceForResources = externalReferenceForResources;
+			ProfileDefinition = profileDefinition;
+
 
 		}
 
-		public static  IfcExternalReference FromJSON(string json)
+		public static new IfcProfileProperties FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcExternalReference>(json);
+			return JsonConvert.DeserializeObject<IfcProfileProperties>(json);
 		}
 
-		public static  IfcExternalReference FromSTEP(string step)
+		public static new IfcProfileProperties FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcexternalreferencerelationship.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpropertyabstraction.htm"/>
 	/// </summary>
-	public  partial class IfcExternalReferenceRelationship : IfcResourceLevelRelationship
+	public abstract partial class IfcPropertyAbstraction : IfcBase
 	{
-		[JsonProperty("relatingReference")]
-		public IfcExternalReference RelatingReference {get;set;} 
-		[JsonProperty("relatedResourceObjects")]
-		public List<IfcResourceObjectSelect> RelatedResourceObjects {get;set;} 
 
-		public IfcExternalReferenceRelationship(IfcExternalReference relatingReference
-				,List<IfcResourceObjectSelect> relatedResourceObjects
-				) : base()
+		public IfcPropertyAbstraction():base()
 		{
-			RelatingReference = relatingReference;
-			RelatedResourceObjects = relatedResourceObjects;
+
 
 		}
 
-		public static new IfcExternalReferenceRelationship FromJSON(string json)
+		public static  IfcPropertyAbstraction FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcExternalReferenceRelationship>(json);
+			return JsonConvert.DeserializeObject<IfcPropertyAbstraction>(json);
 		}
 
-		public static new IfcExternalReferenceRelationship FromSTEP(string step)
+		public static  IfcPropertyAbstraction FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcexternalspatialelement.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclibraryinformation.htm"/>
 	/// </summary>
-	public  partial class IfcExternalSpatialElement : IfcExternalSpatialStructureElement
+	public  partial class IfcLibraryInformation : IfcExternalInformation
 	{
-		[JsonProperty("predefinedType")]
-		public IfcExternalSpatialElementTypeEnum PredefinedType {get;set;} // optional
-		[JsonProperty("boundedBy")]
-		public List<IfcRelSpaceBoundary> BoundedBy {get;set;} 
+		public IfcLabel Name{get;set;} 
+		public IfcLabel Version{get;set;} // optional
+		public IfcActorSelect Publisher{get;set;} // optional
+		public IfcDateTime VersionDate{get;set;} // optional
+		public IfcURIReference Location{get;set;} // optional
+		public IfcText Description{get;set;} // optional
 
-		public IfcExternalSpatialElement() : base()
+		public IfcLibraryInformation(IfcLabel name):base()
 		{
+			Name = name;
+
 
 		}
 
-		public static new IfcExternalSpatialElement FromJSON(string json)
+		public static new IfcLibraryInformation FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcExternalSpatialElement>(json);
+			return JsonConvert.DeserializeObject<IfcLibraryInformation>(json);
 		}
 
-		public static new IfcExternalSpatialElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcexternalspatialstructureelement.htm"/>
-	/// </summary>
-	public abstract partial class IfcExternalSpatialStructureElement : IfcSpatialElement
-	{
-
-		public IfcExternalSpatialStructureElement() : base()
-		{
-
-		}
-
-		public static new IfcExternalSpatialStructureElement FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcExternalSpatialStructureElement>(json);
-		}
-
-		public static new IfcExternalSpatialStructureElement FromSTEP(string step)
+		public static new IfcLibraryInformation FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -13071,10 +16078,9 @@ namespace IFC4
 	public  partial class IfcExternallyDefinedHatchStyle : IfcExternalReference
 	{
 
-		public IfcExternallyDefinedHatchStyle(List<IfcExternalReferenceRelationship> externalReferenceForResources
-				) : base(externalReferenceForResources
-					)
+		public IfcExternallyDefinedHatchStyle():base()
 		{
+
 
 		}
 
@@ -13095,10 +16101,9 @@ namespace IFC4
 	public  partial class IfcExternallyDefinedSurfaceStyle : IfcExternalReference
 	{
 
-		public IfcExternallyDefinedSurfaceStyle(List<IfcExternalReferenceRelationship> externalReferenceForResources
-				) : base(externalReferenceForResources
-					)
+		public IfcExternallyDefinedSurfaceStyle():base()
 		{
+
 
 		}
 
@@ -13119,10 +16124,9 @@ namespace IFC4
 	public  partial class IfcExternallyDefinedTextFont : IfcExternalReference
 	{
 
-		public IfcExternallyDefinedTextFont(List<IfcExternalReferenceRelationship> externalReferenceForResources
-				) : base(externalReferenceForResources
-					)
+		public IfcExternallyDefinedTextFont():base()
 		{
+
 
 		}
 
@@ -13138,27 +16142,142 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclibraryreference.htm"/>
+	/// </summary>
+	public  partial class IfcLibraryReference : IfcExternalReference
+	{
+		public IfcText Description{get;set;} // optional
+		public IfcLanguageId Language{get;set;} // optional
+		public IfcLibraryInformation ReferencedLibrary{get;set;} // optional
+
+		public IfcLibraryReference():base()
+		{
+
+
+		}
+
+		public static new IfcLibraryReference FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLibraryReference>(json);
+		}
+
+		public static new IfcLibraryReference FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcexternalreferencerelationship.htm"/>
+	/// </summary>
+	public  partial class IfcExternalReferenceRelationship : IfcResourceLevelRelationship
+	{
+		public IfcExternalReference RelatingReference{get;set;} 
+		public List<IfcResourceObjectSelect> RelatedResourceObjects{get;set;} 
+
+		public IfcExternalReferenceRelationship(IfcExternalReference relatingReference,List<IfcResourceObjectSelect> relatedResourceObjects):base()
+		{
+			RelatingReference = relatingReference;
+			RelatedResourceObjects = relatedResourceObjects;
+
+
+		}
+
+		public static new IfcExternalReferenceRelationship FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcExternalReferenceRelationship>(json);
+		}
+
+		public static new IfcExternalReferenceRelationship FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcexternalspatialelement.htm"/>
+	/// </summary>
+	public  partial class IfcExternalSpatialElement : IfcExternalSpatialStructureElement
+	{
+		public IfcExternalSpatialElementTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcExternalSpatialElement(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcExternalSpatialElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcExternalSpatialElement>(json);
+		}
+
+		public static new IfcExternalSpatialElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcexternalspatialstructureelement.htm"/>
+	/// </summary>
+	public abstract partial class IfcExternalSpatialStructureElement : IfcSpatialElement
+	{
+
+		public IfcExternalSpatialStructureElement(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcExternalSpatialStructureElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcExternalSpatialStructureElement>(json);
+		}
+
+		public static new IfcExternalSpatialStructureElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcspatialelement.htm"/>
+	/// </summary>
+	public abstract partial class IfcSpatialElement : IfcProduct
+	{
+		public IfcLabel LongName{get;set;} // optional
+
+		public IfcSpatialElement(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcSpatialElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSpatialElement>(json);
+		}
+
+		public static new IfcSpatialElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcextrudedareasolid.htm"/>
 	/// </summary>
 	public  partial class IfcExtrudedAreaSolid : IfcSweptAreaSolid
 	{
-		[JsonProperty("extrudedDirection")]
-		public IfcDirection ExtrudedDirection {get;set;} 
-		[JsonProperty("depth")]
-		public IfcPositiveLengthMeasure Depth {get;set;} 
+		public IfcDirection ExtrudedDirection{get;set;} 
+		public IfcPositiveLengthMeasure Depth{get;set;} 
 
-		public IfcExtrudedAreaSolid(IfcDirection extrudedDirection
-				,IfcPositiveLengthMeasure depth
-				,IfcProfileDef sweptArea
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(sweptArea
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcExtrudedAreaSolid(IfcDirection extrudedDirection,IfcPositiveLengthMeasure depth,IfcProfileDef sweptArea):base(sweptArea)
 		{
 			ExtrudedDirection = extrudedDirection;
 			Depth = depth;
+
 
 		}
 
@@ -13178,23 +16297,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcExtrudedAreaSolidTapered : IfcExtrudedAreaSolid
 	{
-		[JsonProperty("endSweptArea")]
-		public IfcProfileDef EndSweptArea {get;set;} 
+		public IfcProfileDef EndSweptArea{get;set;} 
 
-		public IfcExtrudedAreaSolidTapered(IfcProfileDef endSweptArea
-				,IfcDirection extrudedDirection
-				,IfcPositiveLengthMeasure depth
-				,IfcProfileDef sweptArea
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(extrudedDirection
-					,depth
-					,sweptArea
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcExtrudedAreaSolidTapered(IfcProfileDef endSweptArea,IfcDirection extrudedDirection,IfcPositiveLengthMeasure depth,IfcProfileDef sweptArea):base(extrudedDirection,depth,sweptArea)
 		{
 			EndSweptArea = endSweptArea;
+
 
 		}
 
@@ -13210,25 +16318,42 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsweptareasolid.htm"/>
+	/// </summary>
+	public abstract partial class IfcSweptAreaSolid : IfcSolidModel
+	{
+		public IfcProfileDef SweptArea{get;set;} 
+		public IfcAxis2Placement3D Position{get;set;} // optional
+
+		public IfcSweptAreaSolid(IfcProfileDef sweptArea):base()
+		{
+			SweptArea = sweptArea;
+
+
+		}
+
+		public static new IfcSweptAreaSolid FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSweptAreaSolid>(json);
+		}
+
+		public static new IfcSweptAreaSolid FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcface.htm"/>
 	/// </summary>
 	public  partial class IfcFace : IfcTopologicalRepresentationItem
 	{
-		[JsonProperty("bounds")]
-		public List<IfcFaceBound> Bounds {get;set;} 
-		[JsonProperty("hasTextureMaps")]
-		public List<IfcTextureMap> HasTextureMaps {get;set;} 
+		public List<IfcFaceBound> Bounds{get;set;} 
 
-		public IfcFace(List<IfcFaceBound> bounds
-				,List<IfcTextureMap> hasTextureMaps
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcFace(List<IfcFaceBound> bounds):base()
 		{
 			Bounds = bounds;
-			HasTextureMaps = hasTextureMaps;
+
 
 		}
 
@@ -13248,17 +16373,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFaceBasedSurfaceModel : IfcGeometricRepresentationItem
 	{
-		[JsonProperty("fbsmFaces")]
-		public List<IfcConnectedFaceSet> FbsmFaces {get;set;} 
+		public List<IfcConnectedFaceSet> FbsmFaces{get;set;} 
 
-		public IfcFaceBasedSurfaceModel(List<IfcConnectedFaceSet> fbsmFaces
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcFaceBasedSurfaceModel(List<IfcConnectedFaceSet> fbsmFaces):base()
 		{
 			FbsmFaces = fbsmFaces;
+
 
 		}
 
@@ -13278,21 +16398,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFaceBound : IfcTopologicalRepresentationItem
 	{
-		[JsonProperty("bound")]
-		public IfcLoop Bound {get;set;} 
-		[JsonProperty("orientation")]
-		public bool Orientation {get;set;} 
+		public IfcLoop Bound{get;set;} 
+		public bool Orientation{get;set;} 
 
-		public IfcFaceBound(IfcLoop bound
-				,bool orientation
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcFaceBound(IfcLoop bound,bool orientation):base()
 		{
 			Bound = bound;
 			Orientation = orientation;
+
 
 		}
 
@@ -13313,16 +16426,9 @@ namespace IFC4
 	public  partial class IfcFaceOuterBound : IfcFaceBound
 	{
 
-		public IfcFaceOuterBound(IfcLoop bound
-				,bool orientation
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(bound
-					,orientation
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcFaceOuterBound(IfcLoop bound,bool orientation):base(bound,orientation)
 		{
+
 
 		}
 
@@ -13338,57 +16444,14 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfacesurface.htm"/>
-	/// </summary>
-	public  partial class IfcFaceSurface : IfcFace
-	{
-		[JsonProperty("faceSurface")]
-		public IfcSurface FaceSurface {get;set;} 
-		[JsonProperty("sameSense")]
-		public bool SameSense {get;set;} 
-
-		public IfcFaceSurface(IfcSurface faceSurface
-				,bool sameSense
-				,List<IfcFaceBound> bounds
-				,List<IfcTextureMap> hasTextureMaps
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(bounds
-					,hasTextureMaps
-					,layerAssignment
-					,styledByItem
-					)
-		{
-			FaceSurface = faceSurface;
-			SameSense = sameSense;
-
-		}
-
-		public static new IfcFaceSurface FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFaceSurface>(json);
-		}
-
-		public static new IfcFaceSurface FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfacetedbrep.htm"/>
 	/// </summary>
 	public  partial class IfcFacetedBrep : IfcManifoldSolidBrep
 	{
 
-		public IfcFacetedBrep(IfcClosedShell outer
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(outer
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcFacetedBrep(IfcClosedShell outer):base(outer)
 		{
+
 
 		}
 
@@ -13408,19 +16471,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFacetedBrepWithVoids : IfcFacetedBrep
 	{
-		[JsonProperty("voids")]
-		public List<IfcClosedShell> Voids {get;set;} 
+		public List<IfcClosedShell> Voids{get;set;} 
 
-		public IfcFacetedBrepWithVoids(List<IfcClosedShell> voids
-				,IfcClosedShell outer
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(outer
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcFacetedBrepWithVoids(List<IfcClosedShell> voids,IfcClosedShell outer):base(outer)
 		{
 			Voids = voids;
+
 
 		}
 
@@ -13440,21 +16496,16 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFailureConnectionCondition : IfcStructuralConnectionCondition
 	{
-		[JsonProperty("tensionFailureX")]
-		public IfcForceMeasure TensionFailureX {get;set;} // optional
-		[JsonProperty("tensionFailureY")]
-		public IfcForceMeasure TensionFailureY {get;set;} // optional
-		[JsonProperty("tensionFailureZ")]
-		public IfcForceMeasure TensionFailureZ {get;set;} // optional
-		[JsonProperty("compressionFailureX")]
-		public IfcForceMeasure CompressionFailureX {get;set;} // optional
-		[JsonProperty("compressionFailureY")]
-		public IfcForceMeasure CompressionFailureY {get;set;} // optional
-		[JsonProperty("compressionFailureZ")]
-		public IfcForceMeasure CompressionFailureZ {get;set;} // optional
+		public IfcForceMeasure TensionFailureX{get;set;} // optional
+		public IfcForceMeasure TensionFailureY{get;set;} // optional
+		public IfcForceMeasure TensionFailureZ{get;set;} // optional
+		public IfcForceMeasure CompressionFailureX{get;set;} // optional
+		public IfcForceMeasure CompressionFailureY{get;set;} // optional
+		public IfcForceMeasure CompressionFailureZ{get;set;} // optional
 
-		public IfcFailureConnectionCondition() : base()
+		public IfcFailureConnectionCondition():base()
 		{
+
 
 		}
 
@@ -13470,15 +16521,39 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralconnectioncondition.htm"/>
+	/// </summary>
+	public abstract partial class IfcStructuralConnectionCondition : IfcBase
+	{
+		public IfcLabel Name{get;set;} // optional
+
+		public IfcStructuralConnectionCondition():base()
+		{
+
+
+		}
+
+		public static  IfcStructuralConnectionCondition FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralConnectionCondition>(json);
+		}
+
+		public static  IfcStructuralConnectionCondition FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfan.htm"/>
 	/// </summary>
 	public  partial class IfcFan : IfcFlowMovingDevice
 	{
-		[JsonProperty("predefinedType")]
-		public IfcFanTypeEnum PredefinedType {get;set;} // optional
+		public IfcFanTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcFan() : base()
+		public IfcFan(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -13498,13 +16573,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFanType : IfcFlowMovingDeviceType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcFanTypeEnum PredefinedType {get;set;} 
+		public IfcFanTypeEnum PredefinedType{get;set;} 
 
-		public IfcFanType(IfcFanTypeEnum predefinedType
-				) : base()
+		public IfcFanType(IfcFanTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -13520,87 +16594,14 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfastener.htm"/>
-	/// </summary>
-	public  partial class IfcFastener : IfcElementComponent
-	{
-		[JsonProperty("predefinedType")]
-		public IfcFastenerTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcFastener() : base()
-		{
-
-		}
-
-		public static new IfcFastener FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFastener>(json);
-		}
-
-		public static new IfcFastener FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfastenertype.htm"/>
-	/// </summary>
-	public  partial class IfcFastenerType : IfcElementComponentType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcFastenerTypeEnum PredefinedType {get;set;} 
-
-		public IfcFastenerType(IfcFastenerTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcFastenerType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFastenerType>(json);
-		}
-
-		public static new IfcFastenerType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfeatureelement.htm"/>
-	/// </summary>
-	public abstract partial class IfcFeatureElement : IfcElement
-	{
-
-		public IfcFeatureElement() : base()
-		{
-
-		}
-
-		public static new IfcFeatureElement FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFeatureElement>(json);
-		}
-
-		public static new IfcFeatureElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfeatureelementaddition.htm"/>
 	/// </summary>
 	public abstract partial class IfcFeatureElementAddition : IfcFeatureElement
 	{
-		[JsonProperty("projectsElements")]
-		public IfcRelProjectsElement ProjectsElements {get;set;} 
 
-		public IfcFeatureElementAddition() : base()
+		public IfcFeatureElementAddition(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -13620,11 +16621,10 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcFeatureElementSubtraction : IfcFeatureElement
 	{
-		[JsonProperty("voidsElements")]
-		public IfcRelVoidsElement VoidsElements {get;set;} 
 
-		public IfcFeatureElementSubtraction() : base()
+		public IfcFeatureElementSubtraction(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -13640,19 +16640,113 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsurfacefeature.htm"/>
+	/// </summary>
+	public  partial class IfcSurfaceFeature : IfcFeatureElement
+	{
+		public IfcSurfaceFeatureTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcSurfaceFeature(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcSurfaceFeature FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurfaceFeature>(json);
+		}
+
+		public static new IfcSurfaceFeature FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprojectionelement.htm"/>
+	/// </summary>
+	public  partial class IfcProjectionElement : IfcFeatureElementAddition
+	{
+		public IfcProjectionElementTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcProjectionElement(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcProjectionElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProjectionElement>(json);
+		}
+
+		public static new IfcProjectionElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcopeningelement.htm"/>
+	/// </summary>
+	public  partial class IfcOpeningElement : IfcFeatureElementSubtraction
+	{
+		public IfcOpeningElementTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcOpeningElement(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcOpeningElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcOpeningElement>(json);
+		}
+
+		public static new IfcOpeningElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvoidingfeature.htm"/>
+	/// </summary>
+	public  partial class IfcVoidingFeature : IfcFeatureElementSubtraction
+	{
+		public IfcVoidingFeatureTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcVoidingFeature(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcVoidingFeature FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcVoidingFeature>(json);
+		}
+
+		public static new IfcVoidingFeature FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfillareastyle.htm"/>
 	/// </summary>
 	public  partial class IfcFillAreaStyle : IfcPresentationStyle
 	{
-		[JsonProperty("fillStyles")]
-		public List<IfcFillStyleSelect> FillStyles {get;set;} 
-		[JsonProperty("modelorDraughting")]
-		public bool ModelorDraughting {get;set;} // optional
+		public List<IfcFillStyleSelect> FillStyles{get;set;} 
+		public bool ModelorDraughting{get;set;} // optional
 
-		public IfcFillAreaStyle(List<IfcFillStyleSelect> fillStyles
-				) : base()
+		public IfcFillAreaStyle(List<IfcFillStyleSelect> fillStyles):base()
 		{
 			FillStyles = fillStyles;
+
 
 		}
 
@@ -13672,29 +16766,18 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFillAreaStyleHatching : IfcGeometricRepresentationItem
 	{
-		[JsonProperty("hatchLineAppearance")]
-		public IfcCurveStyle HatchLineAppearance {get;set;} 
-		[JsonProperty("startOfNextHatchLine")]
-		public IfcHatchLineDistanceSelect StartOfNextHatchLine {get;set;} 
-		[JsonProperty("pointOfReferenceHatchLine")]
-		public IfcCartesianPoint PointOfReferenceHatchLine {get;set;} // optional
-		[JsonProperty("patternStart")]
-		public IfcCartesianPoint PatternStart {get;set;} // optional
-		[JsonProperty("hatchLineAngle")]
-		public IfcPlaneAngleMeasure HatchLineAngle {get;set;} 
+		public IfcCurveStyle HatchLineAppearance{get;set;} 
+		public IfcHatchLineDistanceSelect StartOfNextHatchLine{get;set;} 
+		public IfcCartesianPoint PointOfReferenceHatchLine{get;set;} // optional
+		public IfcCartesianPoint PatternStart{get;set;} // optional
+		public IfcPlaneAngleMeasure HatchLineAngle{get;set;} 
 
-		public IfcFillAreaStyleHatching(IfcCurveStyle hatchLineAppearance
-				,IfcHatchLineDistanceSelect startOfNextHatchLine
-				,IfcPlaneAngleMeasure hatchLineAngle
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcFillAreaStyleHatching(IfcCurveStyle hatchLineAppearance,IfcHatchLineDistanceSelect startOfNextHatchLine,IfcPlaneAngleMeasure hatchLineAngle):base()
 		{
 			HatchLineAppearance = hatchLineAppearance;
 			StartOfNextHatchLine = startOfNextHatchLine;
 			HatchLineAngle = hatchLineAngle;
+
 
 		}
 
@@ -13714,25 +16797,16 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFillAreaStyleTiles : IfcGeometricRepresentationItem
 	{
-		[JsonProperty("tilingPattern")]
-		public List<IfcVector> TilingPattern {get;set;} 
-		[JsonProperty("tiles")]
-		public List<IfcStyledItem> Tiles {get;set;} 
-		[JsonProperty("tilingScale")]
-		public IfcPositiveRatioMeasure TilingScale {get;set;} 
+		public List<IfcVector> TilingPattern{get;set;} 
+		public List<IfcStyledItem> Tiles{get;set;} 
+		public IfcPositiveRatioMeasure TilingScale{get;set;} 
 
-		public IfcFillAreaStyleTiles(List<IfcVector> tilingPattern
-				,List<IfcStyledItem> tiles
-				,IfcPositiveRatioMeasure tilingScale
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcFillAreaStyleTiles(List<IfcVector> tilingPattern,List<IfcStyledItem> tiles,IfcPositiveRatioMeasure tilingScale):base()
 		{
 			TilingPattern = tilingPattern;
 			Tiles = tiles;
 			TilingScale = tilingScale;
+
 
 		}
 
@@ -13752,11 +16826,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFilter : IfcFlowTreatmentDevice
 	{
-		[JsonProperty("predefinedType")]
-		public IfcFilterTypeEnum PredefinedType {get;set;} // optional
+		public IfcFilterTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcFilter() : base()
+		public IfcFilter(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -13776,13 +16850,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFilterType : IfcFlowTreatmentDeviceType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcFilterTypeEnum PredefinedType {get;set;} 
+		public IfcFilterTypeEnum PredefinedType{get;set;} 
 
-		public IfcFilterType(IfcFilterTypeEnum predefinedType
-				) : base()
+		public IfcFilterType(IfcFilterTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -13802,11 +16875,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFireSuppressionTerminal : IfcFlowTerminal
 	{
-		[JsonProperty("predefinedType")]
-		public IfcFireSuppressionTerminalTypeEnum PredefinedType {get;set;} // optional
+		public IfcFireSuppressionTerminalTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcFireSuppressionTerminal() : base()
+		public IfcFireSuppressionTerminal(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -13826,13 +16899,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFireSuppressionTerminalType : IfcFlowTerminalType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcFireSuppressionTerminalTypeEnum PredefinedType {get;set;} 
+		public IfcFireSuppressionTerminalTypeEnum PredefinedType{get;set;} 
 
-		public IfcFireSuppressionTerminalType(IfcFireSuppressionTerminalTypeEnum predefinedType
-				) : base()
+		public IfcFireSuppressionTerminalType(IfcFireSuppressionTerminalTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -13852,27 +16924,16 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFixedReferenceSweptAreaSolid : IfcSweptAreaSolid
 	{
-		[JsonProperty("directrix")]
-		public IfcCurve Directrix {get;set;} 
-		[JsonProperty("startParam")]
-		public IfcParameterValue StartParam {get;set;} // optional
-		[JsonProperty("endParam")]
-		public IfcParameterValue EndParam {get;set;} // optional
-		[JsonProperty("fixedReference")]
-		public IfcDirection FixedReference {get;set;} 
+		public IfcCurve Directrix{get;set;} 
+		public IfcParameterValue StartParam{get;set;} // optional
+		public IfcParameterValue EndParam{get;set;} // optional
+		public IfcDirection FixedReference{get;set;} 
 
-		public IfcFixedReferenceSweptAreaSolid(IfcCurve directrix
-				,IfcDirection fixedReference
-				,IfcProfileDef sweptArea
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(sweptArea
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcFixedReferenceSweptAreaSolid(IfcCurve directrix,IfcDirection fixedReference,IfcProfileDef sweptArea):base(sweptArea)
 		{
 			Directrix = directrix;
 			FixedReference = fixedReference;
+
 
 		}
 
@@ -13888,153 +16949,15 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowcontroller.htm"/>
-	/// </summary>
-	public  partial class IfcFlowController : IfcDistributionFlowElement
-	{
-
-		public IfcFlowController() : base()
-		{
-
-		}
-
-		public static new IfcFlowController FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFlowController>(json);
-		}
-
-		public static new IfcFlowController FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowcontrollertype.htm"/>
-	/// </summary>
-	public abstract partial class IfcFlowControllerType : IfcDistributionFlowElementType
-	{
-
-		public IfcFlowControllerType() : base()
-		{
-
-		}
-
-		public static new IfcFlowControllerType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFlowControllerType>(json);
-		}
-
-		public static new IfcFlowControllerType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowfitting.htm"/>
-	/// </summary>
-	public  partial class IfcFlowFitting : IfcDistributionFlowElement
-	{
-
-		public IfcFlowFitting() : base()
-		{
-
-		}
-
-		public static new IfcFlowFitting FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFlowFitting>(json);
-		}
-
-		public static new IfcFlowFitting FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowfittingtype.htm"/>
-	/// </summary>
-	public abstract partial class IfcFlowFittingType : IfcDistributionFlowElementType
-	{
-
-		public IfcFlowFittingType() : base()
-		{
-
-		}
-
-		public static new IfcFlowFittingType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFlowFittingType>(json);
-		}
-
-		public static new IfcFlowFittingType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowinstrument.htm"/>
-	/// </summary>
-	public  partial class IfcFlowInstrument : IfcDistributionControlElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcFlowInstrumentTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcFlowInstrument() : base()
-		{
-
-		}
-
-		public static new IfcFlowInstrument FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFlowInstrument>(json);
-		}
-
-		public static new IfcFlowInstrument FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowinstrumenttype.htm"/>
-	/// </summary>
-	public  partial class IfcFlowInstrumentType : IfcDistributionControlElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcFlowInstrumentTypeEnum PredefinedType {get;set;} 
-
-		public IfcFlowInstrumentType(IfcFlowInstrumentTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcFlowInstrumentType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFlowInstrumentType>(json);
-		}
-
-		public static new IfcFlowInstrumentType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowmeter.htm"/>
 	/// </summary>
 	public  partial class IfcFlowMeter : IfcFlowController
 	{
-		[JsonProperty("predefinedType")]
-		public IfcFlowMeterTypeEnum PredefinedType {get;set;} // optional
+		public IfcFlowMeterTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcFlowMeter() : base()
+		public IfcFlowMeter(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -14050,17 +16973,88 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprotectivedevice.htm"/>
+	/// </summary>
+	public  partial class IfcProtectiveDevice : IfcFlowController
+	{
+		public IfcProtectiveDeviceTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcProtectiveDevice(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcProtectiveDevice FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProtectiveDevice>(json);
+		}
+
+		public static new IfcProtectiveDevice FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcswitchingdevice.htm"/>
+	/// </summary>
+	public  partial class IfcSwitchingDevice : IfcFlowController
+	{
+		public IfcSwitchingDeviceTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcSwitchingDevice(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcSwitchingDevice FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSwitchingDevice>(json);
+		}
+
+		public static new IfcSwitchingDevice FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvalve.htm"/>
+	/// </summary>
+	public  partial class IfcValve : IfcFlowController
+	{
+		public IfcValveTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcValve(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcValve FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcValve>(json);
+		}
+
+		public static new IfcValve FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowmetertype.htm"/>
 	/// </summary>
 	public  partial class IfcFlowMeterType : IfcFlowControllerType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcFlowMeterTypeEnum PredefinedType {get;set;} 
+		public IfcFlowMeterTypeEnum PredefinedType{get;set;} 
 
-		public IfcFlowMeterType(IfcFlowMeterTypeEnum predefinedType
-				) : base()
+		public IfcFlowMeterType(IfcFlowMeterTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -14076,314 +17070,761 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowmovingdevice.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprotectivedevicetype.htm"/>
 	/// </summary>
-	public  partial class IfcFlowMovingDevice : IfcDistributionFlowElement
+	public  partial class IfcProtectiveDeviceType : IfcFlowControllerType
 	{
+		public IfcProtectiveDeviceTypeEnum PredefinedType{get;set;} 
 
-		public IfcFlowMovingDevice() : base()
-		{
-
-		}
-
-		public static new IfcFlowMovingDevice FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFlowMovingDevice>(json);
-		}
-
-		public static new IfcFlowMovingDevice FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowmovingdevicetype.htm"/>
-	/// </summary>
-	public abstract partial class IfcFlowMovingDeviceType : IfcDistributionFlowElementType
-	{
-
-		public IfcFlowMovingDeviceType() : base()
-		{
-
-		}
-
-		public static new IfcFlowMovingDeviceType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFlowMovingDeviceType>(json);
-		}
-
-		public static new IfcFlowMovingDeviceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowsegment.htm"/>
-	/// </summary>
-	public  partial class IfcFlowSegment : IfcDistributionFlowElement
-	{
-
-		public IfcFlowSegment() : base()
-		{
-
-		}
-
-		public static new IfcFlowSegment FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFlowSegment>(json);
-		}
-
-		public static new IfcFlowSegment FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowsegmenttype.htm"/>
-	/// </summary>
-	public abstract partial class IfcFlowSegmentType : IfcDistributionFlowElementType
-	{
-
-		public IfcFlowSegmentType() : base()
-		{
-
-		}
-
-		public static new IfcFlowSegmentType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFlowSegmentType>(json);
-		}
-
-		public static new IfcFlowSegmentType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowstoragedevice.htm"/>
-	/// </summary>
-	public  partial class IfcFlowStorageDevice : IfcDistributionFlowElement
-	{
-
-		public IfcFlowStorageDevice() : base()
-		{
-
-		}
-
-		public static new IfcFlowStorageDevice FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFlowStorageDevice>(json);
-		}
-
-		public static new IfcFlowStorageDevice FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowstoragedevicetype.htm"/>
-	/// </summary>
-	public abstract partial class IfcFlowStorageDeviceType : IfcDistributionFlowElementType
-	{
-
-		public IfcFlowStorageDeviceType() : base()
-		{
-
-		}
-
-		public static new IfcFlowStorageDeviceType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFlowStorageDeviceType>(json);
-		}
-
-		public static new IfcFlowStorageDeviceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowterminal.htm"/>
-	/// </summary>
-	public  partial class IfcFlowTerminal : IfcDistributionFlowElement
-	{
-
-		public IfcFlowTerminal() : base()
-		{
-
-		}
-
-		public static new IfcFlowTerminal FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFlowTerminal>(json);
-		}
-
-		public static new IfcFlowTerminal FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowterminaltype.htm"/>
-	/// </summary>
-	public abstract partial class IfcFlowTerminalType : IfcDistributionFlowElementType
-	{
-
-		public IfcFlowTerminalType() : base()
-		{
-
-		}
-
-		public static new IfcFlowTerminalType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFlowTerminalType>(json);
-		}
-
-		public static new IfcFlowTerminalType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowtreatmentdevice.htm"/>
-	/// </summary>
-	public  partial class IfcFlowTreatmentDevice : IfcDistributionFlowElement
-	{
-
-		public IfcFlowTreatmentDevice() : base()
-		{
-
-		}
-
-		public static new IfcFlowTreatmentDevice FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFlowTreatmentDevice>(json);
-		}
-
-		public static new IfcFlowTreatmentDevice FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcflowtreatmentdevicetype.htm"/>
-	/// </summary>
-	public abstract partial class IfcFlowTreatmentDeviceType : IfcDistributionFlowElementType
-	{
-
-		public IfcFlowTreatmentDeviceType() : base()
-		{
-
-		}
-
-		public static new IfcFlowTreatmentDeviceType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFlowTreatmentDeviceType>(json);
-		}
-
-		public static new IfcFlowTreatmentDeviceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfooting.htm"/>
-	/// </summary>
-	public  partial class IfcFooting : IfcBuildingElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcFootingTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcFooting() : base()
-		{
-
-		}
-
-		public static new IfcFooting FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFooting>(json);
-		}
-
-		public static new IfcFooting FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfootingtype.htm"/>
-	/// </summary>
-	public  partial class IfcFootingType : IfcBuildingElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcFootingTypeEnum PredefinedType {get;set;} 
-
-		public IfcFootingType(IfcFootingTypeEnum predefinedType
-				) : base()
+		public IfcProtectiveDeviceType(IfcProtectiveDeviceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+
 		}
 
-		public static new IfcFootingType FromJSON(string json)
+		public static new IfcProtectiveDeviceType FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcFootingType>(json);
+			return JsonConvert.DeserializeObject<IfcProtectiveDeviceType>(json);
 		}
 
-		public static new IfcFootingType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfurnishingelement.htm"/>
-	/// </summary>
-	public  partial class IfcFurnishingElement : IfcElement
-	{
-
-		public IfcFurnishingElement() : base()
-		{
-
-		}
-
-		public static new IfcFurnishingElement FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcFurnishingElement>(json);
-		}
-
-		public static new IfcFurnishingElement FromSTEP(string step)
+		public static new IfcProtectiveDeviceType FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfurnishingelementtype.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcswitchingdevicetype.htm"/>
 	/// </summary>
-	public  partial class IfcFurnishingElementType : IfcElementType
+	public  partial class IfcSwitchingDeviceType : IfcFlowControllerType
 	{
+		public IfcSwitchingDeviceTypeEnum PredefinedType{get;set;} 
 
-		public IfcFurnishingElementType() : base()
+		public IfcSwitchingDeviceType(IfcSwitchingDeviceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
+			PredefinedType = predefinedType;
+
 
 		}
 
-		public static new IfcFurnishingElementType FromJSON(string json)
+		public static new IfcSwitchingDeviceType FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcFurnishingElementType>(json);
+			return JsonConvert.DeserializeObject<IfcSwitchingDeviceType>(json);
 		}
 
-		public static new IfcFurnishingElementType FromSTEP(string step)
+		public static new IfcSwitchingDeviceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvalvetype.htm"/>
+	/// </summary>
+	public  partial class IfcValveType : IfcFlowControllerType
+	{
+		public IfcValveTypeEnum PredefinedType{get;set;} 
+
+		public IfcValveType(IfcValveTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcValveType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcValveType>(json);
+		}
+
+		public static new IfcValveType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcjunctionbox.htm"/>
+	/// </summary>
+	public  partial class IfcJunctionBox : IfcFlowFitting
+	{
+		public IfcJunctionBoxTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcJunctionBox(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcJunctionBox FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcJunctionBox>(json);
+		}
+
+		public static new IfcJunctionBox FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpipefitting.htm"/>
+	/// </summary>
+	public  partial class IfcPipeFitting : IfcFlowFitting
+	{
+		public IfcPipeFittingTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcPipeFitting(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcPipeFitting FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPipeFitting>(json);
+		}
+
+		public static new IfcPipeFitting FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcjunctionboxtype.htm"/>
+	/// </summary>
+	public  partial class IfcJunctionBoxType : IfcFlowFittingType
+	{
+		public IfcJunctionBoxTypeEnum PredefinedType{get;set;} 
+
+		public IfcJunctionBoxType(IfcJunctionBoxTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcJunctionBoxType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcJunctionBoxType>(json);
+		}
+
+		public static new IfcJunctionBoxType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpipefittingtype.htm"/>
+	/// </summary>
+	public  partial class IfcPipeFittingType : IfcFlowFittingType
+	{
+		public IfcPipeFittingTypeEnum PredefinedType{get;set;} 
+
+		public IfcPipeFittingType(IfcPipeFittingTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcPipeFittingType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPipeFittingType>(json);
+		}
+
+		public static new IfcPipeFittingType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpump.htm"/>
+	/// </summary>
+	public  partial class IfcPump : IfcFlowMovingDevice
+	{
+		public IfcPumpTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcPump(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcPump FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPump>(json);
+		}
+
+		public static new IfcPump FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpumptype.htm"/>
+	/// </summary>
+	public  partial class IfcPumpType : IfcFlowMovingDeviceType
+	{
+		public IfcPumpTypeEnum PredefinedType{get;set;} 
+
+		public IfcPumpType(IfcPumpTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcPumpType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPumpType>(json);
+		}
+
+		public static new IfcPumpType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpipesegment.htm"/>
+	/// </summary>
+	public  partial class IfcPipeSegment : IfcFlowSegment
+	{
+		public IfcPipeSegmentTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcPipeSegment(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcPipeSegment FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPipeSegment>(json);
+		}
+
+		public static new IfcPipeSegment FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpipesegmenttype.htm"/>
+	/// </summary>
+	public  partial class IfcPipeSegmentType : IfcFlowSegmentType
+	{
+		public IfcPipeSegmentTypeEnum PredefinedType{get;set;} 
+
+		public IfcPipeSegmentType(IfcPipeSegmentTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcPipeSegmentType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPipeSegmentType>(json);
+		}
+
+		public static new IfcPipeSegmentType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctank.htm"/>
+	/// </summary>
+	public  partial class IfcTank : IfcFlowStorageDevice
+	{
+		public IfcTankTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcTank(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcTank FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTank>(json);
+		}
+
+		public static new IfcTank FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctanktype.htm"/>
+	/// </summary>
+	public  partial class IfcTankType : IfcFlowStorageDeviceType
+	{
+		public IfcTankTypeEnum PredefinedType{get;set;} 
+
+		public IfcTankType(IfcTankTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcTankType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTankType>(json);
+		}
+
+		public static new IfcTankType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclamp.htm"/>
+	/// </summary>
+	public  partial class IfcLamp : IfcFlowTerminal
+	{
+		public IfcLampTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcLamp(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcLamp FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLamp>(json);
+		}
+
+		public static new IfcLamp FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclightfixture.htm"/>
+	/// </summary>
+	public  partial class IfcLightFixture : IfcFlowTerminal
+	{
+		public IfcLightFixtureTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcLightFixture(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcLightFixture FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLightFixture>(json);
+		}
+
+		public static new IfcLightFixture FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmedicaldevice.htm"/>
+	/// </summary>
+	public  partial class IfcMedicalDevice : IfcFlowTerminal
+	{
+		public IfcMedicalDeviceTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcMedicalDevice(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcMedicalDevice FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMedicalDevice>(json);
+		}
+
+		public static new IfcMedicalDevice FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcoutlet.htm"/>
+	/// </summary>
+	public  partial class IfcOutlet : IfcFlowTerminal
+	{
+		public IfcOutletTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcOutlet(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcOutlet FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcOutlet>(json);
+		}
+
+		public static new IfcOutlet FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsanitaryterminal.htm"/>
+	/// </summary>
+	public  partial class IfcSanitaryTerminal : IfcFlowTerminal
+	{
+		public IfcSanitaryTerminalTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcSanitaryTerminal(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcSanitaryTerminal FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSanitaryTerminal>(json);
+		}
+
+		public static new IfcSanitaryTerminal FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcspaceheater.htm"/>
+	/// </summary>
+	public  partial class IfcSpaceHeater : IfcFlowTerminal
+	{
+		public IfcSpaceHeaterTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcSpaceHeater(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcSpaceHeater FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSpaceHeater>(json);
+		}
+
+		public static new IfcSpaceHeater FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstackterminal.htm"/>
+	/// </summary>
+	public  partial class IfcStackTerminal : IfcFlowTerminal
+	{
+		public IfcStackTerminalTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcStackTerminal(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcStackTerminal FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStackTerminal>(json);
+		}
+
+		public static new IfcStackTerminal FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwasteterminal.htm"/>
+	/// </summary>
+	public  partial class IfcWasteTerminal : IfcFlowTerminal
+	{
+		public IfcWasteTerminalTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcWasteTerminal(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcWasteTerminal FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWasteTerminal>(json);
+		}
+
+		public static new IfcWasteTerminal FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclamptype.htm"/>
+	/// </summary>
+	public  partial class IfcLampType : IfcFlowTerminalType
+	{
+		public IfcLampTypeEnum PredefinedType{get;set;} 
+
+		public IfcLampType(IfcLampTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcLampType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLampType>(json);
+		}
+
+		public static new IfcLampType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclightfixturetype.htm"/>
+	/// </summary>
+	public  partial class IfcLightFixtureType : IfcFlowTerminalType
+	{
+		public IfcLightFixtureTypeEnum PredefinedType{get;set;} 
+
+		public IfcLightFixtureType(IfcLightFixtureTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcLightFixtureType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLightFixtureType>(json);
+		}
+
+		public static new IfcLightFixtureType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmedicaldevicetype.htm"/>
+	/// </summary>
+	public  partial class IfcMedicalDeviceType : IfcFlowTerminalType
+	{
+		public IfcMedicalDeviceTypeEnum PredefinedType{get;set;} 
+
+		public IfcMedicalDeviceType(IfcMedicalDeviceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcMedicalDeviceType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMedicalDeviceType>(json);
+		}
+
+		public static new IfcMedicalDeviceType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcoutlettype.htm"/>
+	/// </summary>
+	public  partial class IfcOutletType : IfcFlowTerminalType
+	{
+		public IfcOutletTypeEnum PredefinedType{get;set;} 
+
+		public IfcOutletType(IfcOutletTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcOutletType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcOutletType>(json);
+		}
+
+		public static new IfcOutletType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsanitaryterminaltype.htm"/>
+	/// </summary>
+	public  partial class IfcSanitaryTerminalType : IfcFlowTerminalType
+	{
+		public IfcSanitaryTerminalTypeEnum PredefinedType{get;set;} 
+
+		public IfcSanitaryTerminalType(IfcSanitaryTerminalTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcSanitaryTerminalType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSanitaryTerminalType>(json);
+		}
+
+		public static new IfcSanitaryTerminalType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcspaceheatertype.htm"/>
+	/// </summary>
+	public  partial class IfcSpaceHeaterType : IfcFlowTerminalType
+	{
+		public IfcSpaceHeaterTypeEnum PredefinedType{get;set;} 
+
+		public IfcSpaceHeaterType(IfcSpaceHeaterTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcSpaceHeaterType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSpaceHeaterType>(json);
+		}
+
+		public static new IfcSpaceHeaterType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstackterminaltype.htm"/>
+	/// </summary>
+	public  partial class IfcStackTerminalType : IfcFlowTerminalType
+	{
+		public IfcStackTerminalTypeEnum PredefinedType{get;set;} 
+
+		public IfcStackTerminalType(IfcStackTerminalTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcStackTerminalType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStackTerminalType>(json);
+		}
+
+		public static new IfcStackTerminalType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwasteterminaltype.htm"/>
+	/// </summary>
+	public  partial class IfcWasteTerminalType : IfcFlowTerminalType
+	{
+		public IfcWasteTerminalTypeEnum PredefinedType{get;set;} 
+
+		public IfcWasteTerminalType(IfcWasteTerminalTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcWasteTerminalType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWasteTerminalType>(json);
+		}
+
+		public static new IfcWasteTerminalType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcinterceptor.htm"/>
+	/// </summary>
+	public  partial class IfcInterceptor : IfcFlowTreatmentDevice
+	{
+		public IfcInterceptorTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcInterceptor(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcInterceptor FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcInterceptor>(json);
+		}
+
+		public static new IfcInterceptor FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcinterceptortype.htm"/>
+	/// </summary>
+	public  partial class IfcInterceptorType : IfcFlowTreatmentDeviceType
+	{
+		public IfcInterceptorTypeEnum PredefinedType{get;set;} 
+
+		public IfcInterceptorType(IfcInterceptorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcInterceptorType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcInterceptorType>(json);
+		}
+
+		public static new IfcInterceptorType FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -14394,11 +17835,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFurniture : IfcFurnishingElement
 	{
-		[JsonProperty("predefinedType")]
-		public IfcFurnitureTypeEnum PredefinedType {get;set;} // optional
+		public IfcFurnitureTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcFurniture() : base()
+		public IfcFurniture(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -14414,19 +17855,41 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsystemfurnitureelement.htm"/>
+	/// </summary>
+	public  partial class IfcSystemFurnitureElement : IfcFurnishingElement
+	{
+		public IfcSystemFurnitureElementTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcSystemFurnitureElement(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcSystemFurnitureElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSystemFurnitureElement>(json);
+		}
+
+		public static new IfcSystemFurnitureElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcfurnituretype.htm"/>
 	/// </summary>
 	public  partial class IfcFurnitureType : IfcFurnishingElementType
 	{
-		[JsonProperty("assemblyPlace")]
-		public IfcAssemblyPlaceEnum AssemblyPlace {get;set;} 
-		[JsonProperty("predefinedType")]
-		public IfcFurnitureTypeEnum PredefinedType {get;set;} // optional
+		public IfcAssemblyPlaceEnum AssemblyPlace{get;set;} 
+		public IfcFurnitureTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcFurnitureType(IfcAssemblyPlaceEnum assemblyPlace
-				) : base()
+		public IfcFurnitureType(IfcAssemblyPlaceEnum assemblyPlace,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			AssemblyPlace = assemblyPlace;
+
 
 		}
 
@@ -14442,50 +17905,24 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcgeographicelement.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsystemfurnitureelementtype.htm"/>
 	/// </summary>
-	public  partial class IfcGeographicElement : IfcElement
+	public  partial class IfcSystemFurnitureElementType : IfcFurnishingElementType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcGeographicElementTypeEnum PredefinedType {get;set;} // optional
+		public IfcSystemFurnitureElementTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcGeographicElement() : base()
+		public IfcSystemFurnitureElementType(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
-		public static new IfcGeographicElement FromJSON(string json)
+		public static new IfcSystemFurnitureElementType FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcGeographicElement>(json);
+			return JsonConvert.DeserializeObject<IfcSystemFurnitureElementType>(json);
 		}
 
-		public static new IfcGeographicElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcgeographicelementtype.htm"/>
-	/// </summary>
-	public  partial class IfcGeographicElementType : IfcElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcGeographicElementTypeEnum PredefinedType {get;set;} 
-
-		public IfcGeographicElementType(IfcGeographicElementTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcGeographicElementType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcGeographicElementType>(json);
-		}
-
-		public static new IfcGeographicElementType FromSTEP(string step)
+		public static new IfcSystemFurnitureElementType FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -14497,14 +17934,9 @@ namespace IFC4
 	public  partial class IfcGeometricCurveSet : IfcGeometricSet
 	{
 
-		public IfcGeometricCurveSet(List<IfcGeometricSetSelect> elements
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(elements
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcGeometricCurveSet(List<IfcGeometricSetSelect> elements):base(elements)
 		{
+
 
 		}
 
@@ -14520,129 +17952,16 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcgeometricrepresentationcontext.htm"/>
-	/// </summary>
-	public  partial class IfcGeometricRepresentationContext : IfcRepresentationContext
-	{
-		[JsonProperty("coordinateSpaceDimension")]
-		public IfcDimensionCount CoordinateSpaceDimension {get;set;} 
-		[JsonProperty("precision")]
-		public double Precision {get;set;} // optional
-		[JsonProperty("worldCoordinateSystem")]
-		public IfcAxis2Placement WorldCoordinateSystem {get;set;} 
-		[JsonProperty("trueNorth")]
-		public IfcDirection TrueNorth {get;set;} // optional
-		[JsonProperty("hasSubContexts")]
-		public List<IfcGeometricRepresentationSubContext> HasSubContexts {get;set;} 
-
-		public IfcGeometricRepresentationContext(IfcDimensionCount coordinateSpaceDimension
-				,IfcAxis2Placement worldCoordinateSystem
-				,List<IfcGeometricRepresentationSubContext> hasSubContexts
-				,List<IfcRepresentation> representationsInContext
-				) : base(representationsInContext
-					)
-		{
-			CoordinateSpaceDimension = coordinateSpaceDimension;
-			WorldCoordinateSystem = worldCoordinateSystem;
-			HasSubContexts = hasSubContexts;
-
-		}
-
-		public static new IfcGeometricRepresentationContext FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcGeometricRepresentationContext>(json);
-		}
-
-		public static new IfcGeometricRepresentationContext FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcgeometricrepresentationitem.htm"/>
-	/// </summary>
-	public abstract partial class IfcGeometricRepresentationItem : IfcRepresentationItem
-	{
-
-		public IfcGeometricRepresentationItem(List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-
-		}
-
-		public static new IfcGeometricRepresentationItem FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcGeometricRepresentationItem>(json);
-		}
-
-		public static new IfcGeometricRepresentationItem FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcgeometricrepresentationsubcontext.htm"/>
-	/// </summary>
-	public  partial class IfcGeometricRepresentationSubContext : IfcGeometricRepresentationContext
-	{
-		[JsonProperty("parentContext")]
-		public IfcGeometricRepresentationContext ParentContext {get;set;} 
-		[JsonProperty("targetScale")]
-		public IfcPositiveRatioMeasure TargetScale {get;set;} // optional
-		[JsonProperty("targetView")]
-		public IfcGeometricProjectionEnum TargetView {get;set;} 
-		[JsonProperty("userDefinedTargetView")]
-		public IfcLabel UserDefinedTargetView {get;set;} // optional
-
-		public IfcGeometricRepresentationSubContext(IfcGeometricRepresentationContext parentContext
-				,IfcGeometricProjectionEnum targetView
-				,IfcDimensionCount coordinateSpaceDimension
-				,IfcAxis2Placement worldCoordinateSystem
-				,List<IfcGeometricRepresentationSubContext> hasSubContexts
-				,List<IfcRepresentation> representationsInContext
-				) : base(coordinateSpaceDimension
-					,worldCoordinateSystem
-					,hasSubContexts
-					,representationsInContext
-					)
-		{
-			ParentContext = parentContext;
-			TargetView = targetView;
-
-		}
-
-		public static new IfcGeometricRepresentationSubContext FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcGeometricRepresentationSubContext>(json);
-		}
-
-		public static new IfcGeometricRepresentationSubContext FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcgeometricset.htm"/>
 	/// </summary>
 	public  partial class IfcGeometricSet : IfcGeometricRepresentationItem
 	{
-		[JsonProperty("elements")]
-		public List<IfcGeometricSetSelect> Elements {get;set;} 
+		public List<IfcGeometricSetSelect> Elements{get;set;} 
 
-		public IfcGeometricSet(List<IfcGeometricSetSelect> elements
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcGeometricSet(List<IfcGeometricSetSelect> elements):base()
 		{
 			Elements = elements;
+
 
 		}
 
@@ -14658,27 +17977,314 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcgeometricrepresentationcontext.htm"/>
+	/// </summary>
+	public  partial class IfcGeometricRepresentationContext : IfcRepresentationContext
+	{
+		public IfcDimensionCount CoordinateSpaceDimension{get;set;} 
+		public double Precision{get;set;} // optional
+		public IfcAxis2Placement WorldCoordinateSystem{get;set;} 
+		public IfcDirection TrueNorth{get;set;} // optional
+
+		public IfcGeometricRepresentationContext(IfcDimensionCount coordinateSpaceDimension,IfcAxis2Placement worldCoordinateSystem):base()
+		{
+			CoordinateSpaceDimension = coordinateSpaceDimension;
+			WorldCoordinateSystem = worldCoordinateSystem;
+
+
+		}
+
+		public static new IfcGeometricRepresentationContext FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcGeometricRepresentationContext>(json);
+		}
+
+		public static new IfcGeometricRepresentationContext FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcgeometricrepresentationsubcontext.htm"/>
+	/// </summary>
+	public  partial class IfcGeometricRepresentationSubContext : IfcGeometricRepresentationContext
+	{
+		public IfcGeometricRepresentationContext ParentContext{get;set;} 
+		public IfcPositiveRatioMeasure TargetScale{get;set;} // optional
+		public IfcGeometricProjectionEnum TargetView{get;set;} 
+		public IfcLabel UserDefinedTargetView{get;set;} // optional
+
+		public IfcGeometricRepresentationSubContext(IfcGeometricRepresentationContext parentContext,IfcGeometricProjectionEnum targetView,IfcDimensionCount coordinateSpaceDimension,IfcAxis2Placement worldCoordinateSystem):base(coordinateSpaceDimension,worldCoordinateSystem)
+		{
+			ParentContext = parentContext;
+			TargetView = targetView;
+
+
+		}
+
+		public static new IfcGeometricRepresentationSubContext FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcGeometricRepresentationSubContext>(json);
+		}
+
+		public static new IfcGeometricRepresentationSubContext FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrepresentationcontext.htm"/>
+	/// </summary>
+	public abstract partial class IfcRepresentationContext : IfcBase
+	{
+		public IfcLabel ContextIdentifier{get;set;} // optional
+		public IfcLabel ContextType{get;set;} // optional
+
+		public IfcRepresentationContext():base()
+		{
+
+
+		}
+
+		public static  IfcRepresentationContext FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRepresentationContext>(json);
+		}
+
+		public static  IfcRepresentationContext FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclightsource.htm"/>
+	/// </summary>
+	public abstract partial class IfcLightSource : IfcGeometricRepresentationItem
+	{
+		public IfcLabel Name{get;set;} // optional
+		public IfcColourRgb LightColour{get;set;} 
+		public IfcNormalisedRatioMeasure AmbientIntensity{get;set;} // optional
+		public IfcNormalisedRatioMeasure Intensity{get;set;} // optional
+
+		public IfcLightSource(IfcColourRgb lightColour):base()
+		{
+			LightColour = lightColour;
+
+
+		}
+
+		public static new IfcLightSource FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcLightSource>(json);
+		}
+
+		public static new IfcLightSource FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcplanarextent.htm"/>
+	/// </summary>
+	public  partial class IfcPlanarExtent : IfcGeometricRepresentationItem
+	{
+		public IfcLengthMeasure SizeInX{get;set;} 
+		public IfcLengthMeasure SizeInY{get;set;} 
+
+		public IfcPlanarExtent(IfcLengthMeasure sizeInX,IfcLengthMeasure sizeInY):base()
+		{
+			SizeInX = sizeInX;
+			SizeInY = sizeInY;
+
+
+		}
+
+		public static new IfcPlanarExtent FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPlanarExtent>(json);
+		}
+
+		public static new IfcPlanarExtent FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsectionedspine.htm"/>
+	/// </summary>
+	public  partial class IfcSectionedSpine : IfcGeometricRepresentationItem
+	{
+		public IfcCompositeCurve SpineCurve{get;set;} 
+		public List<IfcProfileDef> CrossSections{get;set;} 
+		public List<IfcAxis2Placement3D> CrossSectionPositions{get;set;} 
+
+		public IfcSectionedSpine(IfcCompositeCurve spineCurve,List<IfcProfileDef> crossSections,List<IfcAxis2Placement3D> crossSectionPositions):base()
+		{
+			SpineCurve = spineCurve;
+			CrossSections = crossSections;
+			CrossSectionPositions = crossSectionPositions;
+
+
+		}
+
+		public static new IfcSectionedSpine FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSectionedSpine>(json);
+		}
+
+		public static new IfcSectionedSpine FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcshellbasedsurfacemodel.htm"/>
+	/// </summary>
+	public  partial class IfcShellBasedSurfaceModel : IfcGeometricRepresentationItem
+	{
+		public List<IfcShell> SbsmBoundary{get;set;} 
+
+		public IfcShellBasedSurfaceModel(List<IfcShell> sbsmBoundary):base()
+		{
+			SbsmBoundary = sbsmBoundary;
+
+
+		}
+
+		public static new IfcShellBasedSurfaceModel FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcShellBasedSurfaceModel>(json);
+		}
+
+		public static new IfcShellBasedSurfaceModel FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctessellateditem.htm"/>
+	/// </summary>
+	public abstract partial class IfcTessellatedItem : IfcGeometricRepresentationItem
+	{
+
+		public IfcTessellatedItem():base()
+		{
+
+
+		}
+
+		public static new IfcTessellatedItem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTessellatedItem>(json);
+		}
+
+		public static new IfcTessellatedItem FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctextliteral.htm"/>
+	/// </summary>
+	public  partial class IfcTextLiteral : IfcGeometricRepresentationItem
+	{
+		public IfcPresentableText Literal{get;set;} 
+		public IfcAxis2Placement Placement{get;set;} 
+		public IfcTextPath Path{get;set;} 
+
+		public IfcTextLiteral(IfcPresentableText literal,IfcAxis2Placement placement,IfcTextPath path):base()
+		{
+			Literal = literal;
+			Placement = placement;
+			Path = path;
+
+
+		}
+
+		public static new IfcTextLiteral FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextLiteral>(json);
+		}
+
+		public static new IfcTextLiteral FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvector.htm"/>
+	/// </summary>
+	public  partial class IfcVector : IfcGeometricRepresentationItem
+	{
+		public IfcDirection Orientation{get;set;} 
+		public IfcLengthMeasure Magnitude{get;set;} 
+
+		public IfcVector(IfcDirection orientation,IfcLengthMeasure magnitude):base()
+		{
+			Orientation = orientation;
+			Magnitude = magnitude;
+
+
+		}
+
+		public static new IfcVector FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcVector>(json);
+		}
+
+		public static new IfcVector FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrepresentationitem.htm"/>
+	/// </summary>
+	public abstract partial class IfcRepresentationItem : IfcBase
+	{
+
+		public IfcRepresentationItem():base()
+		{
+
+
+		}
+
+		public static  IfcRepresentationItem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRepresentationItem>(json);
+		}
+
+		public static  IfcRepresentationItem FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcgrid.htm"/>
 	/// </summary>
 	public  partial class IfcGrid : IfcProduct
 	{
-		[JsonProperty("uAxes")]
-		public List<IfcGridAxis> UAxes {get;set;} 
-		[JsonProperty("vAxes")]
-		public List<IfcGridAxis> VAxes {get;set;} 
-		[JsonProperty("wAxes")]
-		public List<IfcGridAxis> WAxes {get;set;} // optional
-		[JsonProperty("predefinedType")]
-		public IfcGridTypeEnum PredefinedType {get;set;} // optional
-		[JsonProperty("containedInStructure")]
-		public List<IfcRelContainedInSpatialStructure> ContainedInStructure {get;set;} 
+		public List<IfcGridAxis> UAxes{get;set;} 
+		public List<IfcGridAxis> VAxes{get;set;} 
+		public List<IfcGridAxis> WAxes{get;set;} // optional
+		public IfcGridTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcGrid(List<IfcGridAxis> uAxes
-				,List<IfcGridAxis> vAxes
-				) : base()
+		public IfcGrid(List<IfcGridAxis> uAxes,List<IfcGridAxis> vAxes,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			UAxes = uAxes;
 			VAxes = vAxes;
+
 			WAxes = new List<IfcGridAxis>();
 
 		}
@@ -14699,35 +18305,15 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcGridAxis : IfcBase
 	{
-		[JsonProperty("axisTag")]
-		public IfcLabel AxisTag {get;set;} // optional
-		[JsonProperty("axisCurve")]
-		public IfcCurve AxisCurve {get;set;} 
-		[JsonProperty("sameSense")]
-		public IfcBoolean SameSense {get;set;} 
-		[JsonProperty("partOfW")]
-		public List<IfcGrid> PartOfW {get;set;} 
-		[JsonProperty("partOfV")]
-		public List<IfcGrid> PartOfV {get;set;} 
-		[JsonProperty("partOfU")]
-		public List<IfcGrid> PartOfU {get;set;} 
-		[JsonProperty("hasIntersections")]
-		public List<IfcVirtualGridIntersection> HasIntersections {get;set;} 
+		public IfcLabel AxisTag{get;set;} // optional
+		public IfcCurve AxisCurve{get;set;} 
+		public IfcBoolean SameSense{get;set;} 
 
-		public IfcGridAxis(IfcCurve axisCurve
-				,IfcBoolean sameSense
-				,List<IfcGrid> partOfW
-				,List<IfcGrid> partOfV
-				,List<IfcGrid> partOfU
-				,List<IfcVirtualGridIntersection> hasIntersections
-				)
+		public IfcGridAxis(IfcCurve axisCurve,IfcBoolean sameSense):base()
 		{
 			AxisCurve = axisCurve;
 			SameSense = sameSense;
-			PartOfW = partOfW;
-			PartOfV = partOfV;
-			PartOfU = partOfU;
-			HasIntersections = hasIntersections;
+
 
 		}
 
@@ -14747,19 +18333,13 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcGridPlacement : IfcObjectPlacement
 	{
-		[JsonProperty("placementLocation")]
-		public IfcVirtualGridIntersection PlacementLocation {get;set;} 
-		[JsonProperty("placementRefDirection")]
-		public IfcGridPlacementDirectionSelect PlacementRefDirection {get;set;} // optional
+		public IfcVirtualGridIntersection PlacementLocation{get;set;} 
+		public IfcGridPlacementDirectionSelect PlacementRefDirection{get;set;} // optional
 
-		public IfcGridPlacement(IfcVirtualGridIntersection placementLocation
-				,List<IfcProduct> placesObject
-				,List<IfcLocalPlacement> referencedByPlacements
-				) : base(placesObject
-					,referencedByPlacements
-					)
+		public IfcGridPlacement(IfcVirtualGridIntersection placementLocation):base()
 		{
 			PlacementLocation = placementLocation;
+
 
 		}
 
@@ -14775,158 +18355,139 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcgroup.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcobjectplacement.htm"/>
 	/// </summary>
-	public  partial class IfcGroup : IfcObject
+	public abstract partial class IfcObjectPlacement : IfcBase
 	{
-		[JsonProperty("isGroupedBy")]
-		public List<IfcRelAssignsToGroup> IsGroupedBy {get;set;} 
 
-		public IfcGroup() : base()
+		public IfcObjectPlacement():base()
 		{
+
 
 		}
 
-		public static new IfcGroup FromJSON(string json)
+		public static  IfcObjectPlacement FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcGroup>(json);
+			return JsonConvert.DeserializeObject<IfcObjectPlacement>(json);
 		}
 
-		public static new IfcGroup FromSTEP(string step)
+		public static  IfcObjectPlacement FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifchalfspacesolid.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcinventory.htm"/>
 	/// </summary>
-	public  partial class IfcHalfSpaceSolid : IfcGeometricRepresentationItem
+	public  partial class IfcInventory : IfcGroup
 	{
-		[JsonProperty("baseSurface")]
-		public IfcSurface BaseSurface {get;set;} 
-		[JsonProperty("agreementFlag")]
-		public bool AgreementFlag {get;set;} 
+		public IfcInventoryTypeEnum PredefinedType{get;set;} // optional
+		public IfcActorSelect Jurisdiction{get;set;} // optional
+		public List<IfcPerson> ResponsiblePersons{get;set;} // optional
+		public IfcDate LastUpdateDate{get;set;} // optional
+		public IfcCostValue CurrentValue{get;set;} // optional
+		public IfcCostValue OriginalValue{get;set;} // optional
 
-		public IfcHalfSpaceSolid(IfcSurface baseSurface
-				,bool agreementFlag
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcInventory(IfcGloballyUniqueId globalId):base(globalId)
 		{
-			BaseSurface = baseSurface;
-			AgreementFlag = agreementFlag;
+
+			ResponsiblePersons = new List<IfcPerson>();
 
 		}
 
-		public static new IfcHalfSpaceSolid FromJSON(string json)
+		public static new IfcInventory FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcHalfSpaceSolid>(json);
+			return JsonConvert.DeserializeObject<IfcInventory>(json);
 		}
 
-		public static new IfcHalfSpaceSolid FromSTEP(string step)
+		public static new IfcInventory FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcheatexchanger.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralloadgroup.htm"/>
 	/// </summary>
-	public  partial class IfcHeatExchanger : IfcEnergyConversionDevice
+	public  partial class IfcStructuralLoadGroup : IfcGroup
 	{
-		[JsonProperty("predefinedType")]
-		public IfcHeatExchangerTypeEnum PredefinedType {get;set;} // optional
+		public IfcLoadGroupTypeEnum PredefinedType{get;set;} 
+		public IfcActionTypeEnum ActionType{get;set;} 
+		public IfcActionSourceTypeEnum ActionSource{get;set;} 
+		public IfcRatioMeasure Coefficient{get;set;} // optional
+		public IfcLabel Purpose{get;set;} // optional
 
-		public IfcHeatExchanger() : base()
-		{
-
-		}
-
-		public static new IfcHeatExchanger FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcHeatExchanger>(json);
-		}
-
-		public static new IfcHeatExchanger FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcheatexchangertype.htm"/>
-	/// </summary>
-	public  partial class IfcHeatExchangerType : IfcEnergyConversionDeviceType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcHeatExchangerTypeEnum PredefinedType {get;set;} 
-
-		public IfcHeatExchangerType(IfcHeatExchangerTypeEnum predefinedType
-				) : base()
+		public IfcStructuralLoadGroup(IfcLoadGroupTypeEnum predefinedType,IfcActionTypeEnum actionType,IfcActionSourceTypeEnum actionSource,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+			ActionType = actionType;
+			ActionSource = actionSource;
+
 
 		}
 
-		public static new IfcHeatExchangerType FromJSON(string json)
+		public static new IfcStructuralLoadGroup FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcHeatExchangerType>(json);
+			return JsonConvert.DeserializeObject<IfcStructuralLoadGroup>(json);
 		}
 
-		public static new IfcHeatExchangerType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifchumidifier.htm"/>
-	/// </summary>
-	public  partial class IfcHumidifier : IfcEnergyConversionDevice
-	{
-		[JsonProperty("predefinedType")]
-		public IfcHumidifierTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcHumidifier() : base()
-		{
-
-		}
-
-		public static new IfcHumidifier FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcHumidifier>(json);
-		}
-
-		public static new IfcHumidifier FromSTEP(string step)
+		public static new IfcStructuralLoadGroup FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifchumidifiertype.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralresultgroup.htm"/>
 	/// </summary>
-	public  partial class IfcHumidifierType : IfcEnergyConversionDeviceType
+	public  partial class IfcStructuralResultGroup : IfcGroup
 	{
-		[JsonProperty("predefinedType")]
-		public IfcHumidifierTypeEnum PredefinedType {get;set;} 
+		public IfcAnalysisTheoryTypeEnum TheoryType{get;set;} 
+		public IfcStructuralLoadGroup ResultForLoadGroup{get;set;} // optional
+		public bool IsLinear{get;set;} 
 
-		public IfcHumidifierType(IfcHumidifierTypeEnum predefinedType
-				) : base()
+		public IfcStructuralResultGroup(IfcAnalysisTheoryTypeEnum theoryType,bool isLinear,IfcGloballyUniqueId globalId):base(globalId)
 		{
-			PredefinedType = predefinedType;
+			TheoryType = theoryType;
+			IsLinear = isLinear;
+
 
 		}
 
-		public static new IfcHumidifierType FromJSON(string json)
+		public static new IfcStructuralResultGroup FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcHumidifierType>(json);
+			return JsonConvert.DeserializeObject<IfcStructuralResultGroup>(json);
 		}
 
-		public static new IfcHumidifierType FromSTEP(string step)
+		public static new IfcStructuralResultGroup FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpolygonalboundedhalfspace.htm"/>
+	/// </summary>
+	public  partial class IfcPolygonalBoundedHalfSpace : IfcHalfSpaceSolid
+	{
+		public IfcAxis2Placement3D Position{get;set;} 
+		public IfcBoundedCurve PolygonalBoundary{get;set;} 
+
+		public IfcPolygonalBoundedHalfSpace(IfcAxis2Placement3D position,IfcBoundedCurve polygonalBoundary,IfcSurface baseSurface,bool agreementFlag):base(baseSurface,agreementFlag)
+		{
+			Position = position;
+			PolygonalBoundary = polygonalBoundary;
+
+
+		}
+
+		public static new IfcPolygonalBoundedHalfSpace FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPolygonalBoundedHalfSpace>(json);
+		}
+
+		public static new IfcPolygonalBoundedHalfSpace FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -14937,37 +18498,21 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcIShapeProfileDef : IfcParameterizedProfileDef
 	{
-		[JsonProperty("overallWidth")]
-		public IfcPositiveLengthMeasure OverallWidth {get;set;} 
-		[JsonProperty("overallDepth")]
-		public IfcPositiveLengthMeasure OverallDepth {get;set;} 
-		[JsonProperty("webThickness")]
-		public IfcPositiveLengthMeasure WebThickness {get;set;} 
-		[JsonProperty("flangeThickness")]
-		public IfcPositiveLengthMeasure FlangeThickness {get;set;} 
-		[JsonProperty("filletRadius")]
-		public IfcNonNegativeLengthMeasure FilletRadius {get;set;} // optional
-		[JsonProperty("flangeEdgeRadius")]
-		public IfcNonNegativeLengthMeasure FlangeEdgeRadius {get;set;} // optional
-		[JsonProperty("flangeSlope")]
-		public IfcPlaneAngleMeasure FlangeSlope {get;set;} // optional
+		public IfcPositiveLengthMeasure OverallWidth{get;set;} 
+		public IfcPositiveLengthMeasure OverallDepth{get;set;} 
+		public IfcPositiveLengthMeasure WebThickness{get;set;} 
+		public IfcPositiveLengthMeasure FlangeThickness{get;set;} 
+		public IfcNonNegativeLengthMeasure FilletRadius{get;set;} // optional
+		public IfcNonNegativeLengthMeasure FlangeEdgeRadius{get;set;} // optional
+		public IfcPlaneAngleMeasure FlangeSlope{get;set;} // optional
 
-		public IfcIShapeProfileDef(IfcPositiveLengthMeasure overallWidth
-				,IfcPositiveLengthMeasure overallDepth
-				,IfcPositiveLengthMeasure webThickness
-				,IfcPositiveLengthMeasure flangeThickness
-				,IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(profileType
-					,hasExternalReference
-					,hasProperties
-					)
+		public IfcIShapeProfileDef(IfcPositiveLengthMeasure overallWidth,IfcPositiveLengthMeasure overallDepth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			OverallWidth = overallWidth;
 			OverallDepth = overallDepth;
 			WebThickness = webThickness;
 			FlangeThickness = flangeThickness;
+
 
 		}
 
@@ -14987,21 +18532,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcImageTexture : IfcSurfaceTexture
 	{
-		[JsonProperty("uRLReference")]
-		public IfcURIReference URLReference {get;set;} 
+		public IfcURIReference URLReference{get;set;} 
 
-		public IfcImageTexture(IfcURIReference uRLReference
-				,bool repeatS
-				,bool repeatT
-				,List<IfcTextureCoordinate> isMappedBy
-				,List<IfcSurfaceStyleWithTextures> usedInStyles
-				) : base(repeatS
-					,repeatT
-					,isMappedBy
-					,usedInStyles
-					)
+		public IfcImageTexture(IfcURIReference uRLReference,bool repeatS,bool repeatT):base(repeatS,repeatT)
 		{
 			URLReference = uRLReference;
+
 
 		}
 
@@ -15021,23 +18557,17 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcIndexedColourMap : IfcPresentationItem
 	{
-		[JsonProperty("mappedTo")]
-		public IfcTessellatedFaceSet MappedTo {get;set;} 
-		[JsonProperty("overrides")]
-		public IfcSurfaceStyleShading Overrides {get;set;} // optional
-		[JsonProperty("colours")]
-		public IfcColourRgbList Colours {get;set;} 
-		[JsonProperty("colourIndex")]
-		public List<int> ColourIndex {get;set;} 
+		public IfcTessellatedFaceSet MappedTo{get;set;} 
+		public IfcSurfaceStyleShading Overrides{get;set;} // optional
+		public IfcColourRgbList Colours{get;set;} 
+		public List<int> ColourIndex{get;set;} 
 
-		public IfcIndexedColourMap(IfcTessellatedFaceSet mappedTo
-				,IfcColourRgbList colours
-				,List<int> colourIndex
-				) : base()
+		public IfcIndexedColourMap(IfcTessellatedFaceSet mappedTo,IfcColourRgbList colours,List<int> colourIndex):base()
 		{
 			MappedTo = mappedTo;
 			Colours = colours;
 			ColourIndex = colourIndex;
+
 
 		}
 
@@ -15057,19 +18587,14 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcIndexedTextureMap : IfcTextureCoordinate
 	{
-		[JsonProperty("mappedTo")]
-		public IfcTessellatedFaceSet MappedTo {get;set;} 
-		[JsonProperty("texCoords")]
-		public IfcTextureVertexList TexCoords {get;set;} 
+		public IfcTessellatedFaceSet MappedTo{get;set;} 
+		public IfcTextureVertexList TexCoords{get;set;} 
 
-		public IfcIndexedTextureMap(IfcTessellatedFaceSet mappedTo
-				,IfcTextureVertexList texCoords
-				,List<IfcSurfaceTexture> maps
-				) : base(maps
-					)
+		public IfcIndexedTextureMap(IfcTessellatedFaceSet mappedTo,IfcTextureVertexList texCoords,List<IfcSurfaceTexture> maps):base(maps)
 		{
 			MappedTo = mappedTo;
 			TexCoords = texCoords;
+
 
 		}
 
@@ -15089,17 +18614,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcIndexedTriangleTextureMap : IfcIndexedTextureMap
 	{
-		[JsonProperty("texCoordIndex")]
-		public List<List<int>> TexCoordIndex {get;set;} // optional
+		public List<List<int>> TexCoordIndex{get;set;} // optional
 
-		public IfcIndexedTriangleTextureMap(IfcTessellatedFaceSet mappedTo
-				,IfcTextureVertexList texCoords
-				,List<IfcSurfaceTexture> maps
-				) : base(mappedTo
-					,texCoords
-					,maps
-					)
+		public IfcIndexedTriangleTextureMap(IfcTessellatedFaceSet mappedTo,IfcTextureVertexList texCoords,List<IfcSurfaceTexture> maps):base(mappedTo,texCoords,maps)
 		{
+
 			TexCoordIndex = new List<List<int>>();
 
 		}
@@ -15116,85 +18635,25 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcinterceptor.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctexturecoordinate.htm"/>
 	/// </summary>
-	public  partial class IfcInterceptor : IfcFlowTreatmentDevice
+	public abstract partial class IfcTextureCoordinate : IfcPresentationItem
 	{
-		[JsonProperty("predefinedType")]
-		public IfcInterceptorTypeEnum PredefinedType {get;set;} // optional
+		public List<IfcSurfaceTexture> Maps{get;set;} 
 
-		public IfcInterceptor() : base()
+		public IfcTextureCoordinate(List<IfcSurfaceTexture> maps):base()
 		{
+			Maps = maps;
+
 
 		}
 
-		public static new IfcInterceptor FromJSON(string json)
+		public static new IfcTextureCoordinate FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcInterceptor>(json);
+			return JsonConvert.DeserializeObject<IfcTextureCoordinate>(json);
 		}
 
-		public static new IfcInterceptor FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcinterceptortype.htm"/>
-	/// </summary>
-	public  partial class IfcInterceptorType : IfcFlowTreatmentDeviceType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcInterceptorTypeEnum PredefinedType {get;set;} 
-
-		public IfcInterceptorType(IfcInterceptorTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcInterceptorType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcInterceptorType>(json);
-		}
-
-		public static new IfcInterceptorType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcinventory.htm"/>
-	/// </summary>
-	public  partial class IfcInventory : IfcGroup
-	{
-		[JsonProperty("predefinedType")]
-		public IfcInventoryTypeEnum PredefinedType {get;set;} // optional
-		[JsonProperty("jurisdiction")]
-		public IfcActorSelect Jurisdiction {get;set;} // optional
-		[JsonProperty("responsiblePersons")]
-		public List<IfcPerson> ResponsiblePersons {get;set;} // optional
-		[JsonProperty("lastUpdateDate")]
-		public IfcDate LastUpdateDate {get;set;} // optional
-		[JsonProperty("currentValue")]
-		public IfcCostValue CurrentValue {get;set;} // optional
-		[JsonProperty("originalValue")]
-		public IfcCostValue OriginalValue {get;set;} // optional
-
-		public IfcInventory() : base()
-		{
-			ResponsiblePersons = new List<IfcPerson>();
-
-		}
-
-		public static new IfcInventory FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcInventory>(json);
-		}
-
-		public static new IfcInventory FromSTEP(string step)
+		public static new IfcTextureCoordinate FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -15205,25 +18664,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcIrregularTimeSeries : IfcTimeSeries
 	{
-		[JsonProperty("values")]
-		public List<IfcIrregularTimeSeriesValue> Values {get;set;} 
+		public List<IfcIrregularTimeSeriesValue> Values{get;set;} 
 
-		public IfcIrregularTimeSeries(List<IfcIrregularTimeSeriesValue> values
-				,IfcLabel name
-				,IfcDateTime startTime
-				,IfcDateTime endTime
-				,IfcTimeSeriesDataTypeEnum timeSeriesDataType
-				,IfcDataOriginEnum dataOrigin
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				) : base(name
-					,startTime
-					,endTime
-					,timeSeriesDataType
-					,dataOrigin
-					,hasExternalReference
-					)
+		public IfcIrregularTimeSeries(List<IfcIrregularTimeSeriesValue> values,IfcLabel name,IfcDateTime startTime,IfcDateTime endTime,IfcTimeSeriesDataTypeEnum timeSeriesDataType,IfcDataOriginEnum dataOrigin):base(name,startTime,endTime,timeSeriesDataType,dataOrigin)
 		{
 			Values = values;
+
 
 		}
 
@@ -15239,21 +18685,54 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctimeseries.htm"/>
+	/// </summary>
+	public abstract partial class IfcTimeSeries : IfcBase
+	{
+		public IfcLabel Name{get;set;} 
+		public IfcText Description{get;set;} // optional
+		public IfcDateTime StartTime{get;set;} 
+		public IfcDateTime EndTime{get;set;} 
+		public IfcTimeSeriesDataTypeEnum TimeSeriesDataType{get;set;} 
+		public IfcDataOriginEnum DataOrigin{get;set;} 
+		public IfcLabel UserDefinedDataOrigin{get;set;} // optional
+		public IfcUnit Unit{get;set;} // optional
+
+		public IfcTimeSeries(IfcLabel name,IfcDateTime startTime,IfcDateTime endTime,IfcTimeSeriesDataTypeEnum timeSeriesDataType,IfcDataOriginEnum dataOrigin):base()
+		{
+			Name = name;
+			StartTime = startTime;
+			EndTime = endTime;
+			TimeSeriesDataType = timeSeriesDataType;
+			DataOrigin = dataOrigin;
+
+
+		}
+
+		public static  IfcTimeSeries FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTimeSeries>(json);
+		}
+
+		public static  IfcTimeSeries FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcirregulartimeseriesvalue.htm"/>
 	/// </summary>
 	public  partial class IfcIrregularTimeSeriesValue : IfcBase
 	{
-		[JsonProperty("timeStamp")]
-		public IfcDateTime TimeStamp {get;set;} 
-		[JsonProperty("listValues")]
-		public List<IfcValue> ListValues {get;set;} 
+		public IfcDateTime TimeStamp{get;set;} 
+		public List<IfcValue> ListValues{get;set;} 
 
-		public IfcIrregularTimeSeriesValue(IfcDateTime timeStamp
-				,List<IfcValue> listValues
-				)
+		public IfcIrregularTimeSeriesValue(IfcDateTime timeStamp,List<IfcValue> listValues):base()
 		{
 			TimeStamp = timeStamp;
 			ListValues = listValues;
+
 
 		}
 
@@ -15269,85 +18748,22 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcjunctionbox.htm"/>
-	/// </summary>
-	public  partial class IfcJunctionBox : IfcFlowFitting
-	{
-		[JsonProperty("predefinedType")]
-		public IfcJunctionBoxTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcJunctionBox() : base()
-		{
-
-		}
-
-		public static new IfcJunctionBox FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcJunctionBox>(json);
-		}
-
-		public static new IfcJunctionBox FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcjunctionboxtype.htm"/>
-	/// </summary>
-	public  partial class IfcJunctionBoxType : IfcFlowFittingType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcJunctionBoxTypeEnum PredefinedType {get;set;} 
-
-		public IfcJunctionBoxType(IfcJunctionBoxTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcJunctionBoxType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcJunctionBoxType>(json);
-		}
-
-		public static new IfcJunctionBoxType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclshapeprofiledef.htm"/>
 	/// </summary>
 	public  partial class IfcLShapeProfileDef : IfcParameterizedProfileDef
 	{
-		[JsonProperty("depth")]
-		public IfcPositiveLengthMeasure Depth {get;set;} 
-		[JsonProperty("width")]
-		public IfcPositiveLengthMeasure Width {get;set;} // optional
-		[JsonProperty("thickness")]
-		public IfcPositiveLengthMeasure Thickness {get;set;} 
-		[JsonProperty("filletRadius")]
-		public IfcNonNegativeLengthMeasure FilletRadius {get;set;} // optional
-		[JsonProperty("edgeRadius")]
-		public IfcNonNegativeLengthMeasure EdgeRadius {get;set;} // optional
-		[JsonProperty("legSlope")]
-		public IfcPlaneAngleMeasure LegSlope {get;set;} // optional
+		public IfcPositiveLengthMeasure Depth{get;set;} 
+		public IfcPositiveLengthMeasure Width{get;set;} // optional
+		public IfcPositiveLengthMeasure Thickness{get;set;} 
+		public IfcNonNegativeLengthMeasure FilletRadius{get;set;} // optional
+		public IfcNonNegativeLengthMeasure EdgeRadius{get;set;} // optional
+		public IfcPlaneAngleMeasure LegSlope{get;set;} // optional
 
-		public IfcLShapeProfileDef(IfcPositiveLengthMeasure depth
-				,IfcPositiveLengthMeasure thickness
-				,IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(profileType
-					,hasExternalReference
-					,hasProperties
-					)
+		public IfcLShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure thickness,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			Depth = depth;
 			Thickness = thickness;
+
 
 		}
 
@@ -15363,71 +18779,18 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclaborresource.htm"/>
-	/// </summary>
-	public  partial class IfcLaborResource : IfcConstructionResource
-	{
-		[JsonProperty("predefinedType")]
-		public IfcLaborResourceTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcLaborResource() : base()
-		{
-
-		}
-
-		public static new IfcLaborResource FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcLaborResource>(json);
-		}
-
-		public static new IfcLaborResource FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclaborresourcetype.htm"/>
-	/// </summary>
-	public  partial class IfcLaborResourceType : IfcConstructionResourceType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcLaborResourceTypeEnum PredefinedType {get;set;} 
-
-		public IfcLaborResourceType(IfcLaborResourceTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcLaborResourceType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcLaborResourceType>(json);
-		}
-
-		public static new IfcLaborResourceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclagtime.htm"/>
 	/// </summary>
 	public  partial class IfcLagTime : IfcSchedulingTime
 	{
-		[JsonProperty("lagValue")]
-		public IfcTimeOrRatioSelect LagValue {get;set;} 
-		[JsonProperty("durationType")]
-		public IfcTaskDurationEnum DurationType {get;set;} 
+		public IfcTimeOrRatioSelect LagValue{get;set;} 
+		public IfcTaskDurationEnum DurationType{get;set;} 
 
-		public IfcLagTime(IfcTimeOrRatioSelect lagValue
-				,IfcTaskDurationEnum durationType
-				) : base()
+		public IfcLagTime(IfcTimeOrRatioSelect lagValue,IfcTaskDurationEnum durationType):base()
 		{
 			LagValue = lagValue;
 			DurationType = durationType;
+
 
 		}
 
@@ -15443,149 +18806,20 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclamp.htm"/>
-	/// </summary>
-	public  partial class IfcLamp : IfcFlowTerminal
-	{
-		[JsonProperty("predefinedType")]
-		public IfcLampTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcLamp() : base()
-		{
-
-		}
-
-		public static new IfcLamp FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcLamp>(json);
-		}
-
-		public static new IfcLamp FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclamptype.htm"/>
-	/// </summary>
-	public  partial class IfcLampType : IfcFlowTerminalType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcLampTypeEnum PredefinedType {get;set;} 
-
-		public IfcLampType(IfcLampTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcLampType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcLampType>(json);
-		}
-
-		public static new IfcLampType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclibraryinformation.htm"/>
-	/// </summary>
-	public  partial class IfcLibraryInformation : IfcExternalInformation
-	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} 
-		[JsonProperty("version")]
-		public IfcLabel Version {get;set;} // optional
-		[JsonProperty("publisher")]
-		public IfcActorSelect Publisher {get;set;} // optional
-		[JsonProperty("versionDate")]
-		public IfcDateTime VersionDate {get;set;} // optional
-		[JsonProperty("location")]
-		public IfcURIReference Location {get;set;} // optional
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("libraryInfoForObjects")]
-		public List<IfcRelAssociatesLibrary> LibraryInfoForObjects {get;set;} 
-		[JsonProperty("hasLibraryReferences")]
-		public List<IfcLibraryReference> HasLibraryReferences {get;set;} 
-
-		public IfcLibraryInformation(IfcLabel name
-				,List<IfcLibraryReference> hasLibraryReferences
-				) : base()
-		{
-			Name = name;
-			HasLibraryReferences = hasLibraryReferences;
-
-		}
-
-		public static new IfcLibraryInformation FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcLibraryInformation>(json);
-		}
-
-		public static new IfcLibraryInformation FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclibraryreference.htm"/>
-	/// </summary>
-	public  partial class IfcLibraryReference : IfcExternalReference
-	{
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("language")]
-		public IfcLanguageId Language {get;set;} // optional
-		[JsonProperty("referencedLibrary")]
-		public IfcLibraryInformation ReferencedLibrary {get;set;} // optional
-		[JsonProperty("libraryRefForObjects")]
-		public List<IfcRelAssociatesLibrary> LibraryRefForObjects {get;set;} 
-
-		public IfcLibraryReference(List<IfcExternalReferenceRelationship> externalReferenceForResources
-				) : base(externalReferenceForResources
-					)
-		{
-
-		}
-
-		public static new IfcLibraryReference FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcLibraryReference>(json);
-		}
-
-		public static new IfcLibraryReference FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclightdistributiondata.htm"/>
 	/// </summary>
 	public  partial class IfcLightDistributionData : IfcBase
 	{
-		[JsonProperty("mainPlaneAngle")]
-		public IfcPlaneAngleMeasure MainPlaneAngle {get;set;} 
-		[JsonProperty("secondaryPlaneAngle")]
-		public List<IfcPlaneAngleMeasure> SecondaryPlaneAngle {get;set;} 
-		[JsonProperty("luminousIntensity")]
-		public List<IfcLuminousIntensityDistributionMeasure> LuminousIntensity {get;set;} 
+		public IfcPlaneAngleMeasure MainPlaneAngle{get;set;} 
+		public List<IfcPlaneAngleMeasure> SecondaryPlaneAngle{get;set;} 
+		public List<IfcLuminousIntensityDistributionMeasure> LuminousIntensity{get;set;} 
 
-		public IfcLightDistributionData(IfcPlaneAngleMeasure mainPlaneAngle
-				,List<IfcPlaneAngleMeasure> secondaryPlaneAngle
-				,List<IfcLuminousIntensityDistributionMeasure> luminousIntensity
-				)
+		public IfcLightDistributionData(IfcPlaneAngleMeasure mainPlaneAngle,List<IfcPlaneAngleMeasure> secondaryPlaneAngle,List<IfcLuminousIntensityDistributionMeasure> luminousIntensity):base()
 		{
 			MainPlaneAngle = mainPlaneAngle;
 			SecondaryPlaneAngle = secondaryPlaneAngle;
 			LuminousIntensity = luminousIntensity;
+
 
 		}
 
@@ -15601,71 +18835,18 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclightfixture.htm"/>
-	/// </summary>
-	public  partial class IfcLightFixture : IfcFlowTerminal
-	{
-		[JsonProperty("predefinedType")]
-		public IfcLightFixtureTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcLightFixture() : base()
-		{
-
-		}
-
-		public static new IfcLightFixture FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcLightFixture>(json);
-		}
-
-		public static new IfcLightFixture FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclightfixturetype.htm"/>
-	/// </summary>
-	public  partial class IfcLightFixtureType : IfcFlowTerminalType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcLightFixtureTypeEnum PredefinedType {get;set;} 
-
-		public IfcLightFixtureType(IfcLightFixtureTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcLightFixtureType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcLightFixtureType>(json);
-		}
-
-		public static new IfcLightFixtureType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclightintensitydistribution.htm"/>
 	/// </summary>
 	public  partial class IfcLightIntensityDistribution : IfcBase
 	{
-		[JsonProperty("lightDistributionCurve")]
-		public IfcLightDistributionCurveEnum LightDistributionCurve {get;set;} 
-		[JsonProperty("distributionData")]
-		public List<IfcLightDistributionData> DistributionData {get;set;} 
+		public IfcLightDistributionCurveEnum LightDistributionCurve{get;set;} 
+		public List<IfcLightDistributionData> DistributionData{get;set;} 
 
-		public IfcLightIntensityDistribution(IfcLightDistributionCurveEnum lightDistributionCurve
-				,List<IfcLightDistributionData> distributionData
-				)
+		public IfcLightIntensityDistribution(IfcLightDistributionCurveEnum lightDistributionCurve,List<IfcLightDistributionData> distributionData):base()
 		{
 			LightDistributionCurve = lightDistributionCurve;
 			DistributionData = distributionData;
+
 
 		}
 
@@ -15681,55 +18862,14 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclightsource.htm"/>
-	/// </summary>
-	public abstract partial class IfcLightSource : IfcGeometricRepresentationItem
-	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
-		[JsonProperty("lightColour")]
-		public IfcColourRgb LightColour {get;set;} 
-		[JsonProperty("ambientIntensity")]
-		public IfcNormalisedRatioMeasure AmbientIntensity {get;set;} // optional
-		[JsonProperty("intensity")]
-		public IfcNormalisedRatioMeasure Intensity {get;set;} // optional
-
-		public IfcLightSource(IfcColourRgb lightColour
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-			LightColour = lightColour;
-
-		}
-
-		public static new IfcLightSource FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcLightSource>(json);
-		}
-
-		public static new IfcLightSource FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclightsourceambient.htm"/>
 	/// </summary>
 	public  partial class IfcLightSourceAmbient : IfcLightSource
 	{
 
-		public IfcLightSourceAmbient(IfcColourRgb lightColour
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(lightColour
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcLightSourceAmbient(IfcColourRgb lightColour):base(lightColour)
 		{
+
 
 		}
 
@@ -15749,19 +18889,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcLightSourceDirectional : IfcLightSource
 	{
-		[JsonProperty("orientation")]
-		public IfcDirection Orientation {get;set;} 
+		public IfcDirection Orientation{get;set;} 
 
-		public IfcLightSourceDirectional(IfcDirection orientation
-				,IfcColourRgb lightColour
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(lightColour
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcLightSourceDirectional(IfcDirection orientation,IfcColourRgb lightColour):base(lightColour)
 		{
 			Orientation = orientation;
+
 
 		}
 
@@ -15781,37 +18914,21 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcLightSourceGoniometric : IfcLightSource
 	{
-		[JsonProperty("position")]
-		public IfcAxis2Placement3D Position {get;set;} 
-		[JsonProperty("colourAppearance")]
-		public IfcColourRgb ColourAppearance {get;set;} // optional
-		[JsonProperty("colourTemperature")]
-		public IfcThermodynamicTemperatureMeasure ColourTemperature {get;set;} 
-		[JsonProperty("luminousFlux")]
-		public IfcLuminousFluxMeasure LuminousFlux {get;set;} 
-		[JsonProperty("lightEmissionSource")]
-		public IfcLightEmissionSourceEnum LightEmissionSource {get;set;} 
-		[JsonProperty("lightDistributionDataSource")]
-		public IfcLightDistributionDataSourceSelect LightDistributionDataSource {get;set;} 
+		public IfcAxis2Placement3D Position{get;set;} 
+		public IfcColourRgb ColourAppearance{get;set;} // optional
+		public IfcThermodynamicTemperatureMeasure ColourTemperature{get;set;} 
+		public IfcLuminousFluxMeasure LuminousFlux{get;set;} 
+		public IfcLightEmissionSourceEnum LightEmissionSource{get;set;} 
+		public IfcLightDistributionDataSourceSelect LightDistributionDataSource{get;set;} 
 
-		public IfcLightSourceGoniometric(IfcAxis2Placement3D position
-				,IfcThermodynamicTemperatureMeasure colourTemperature
-				,IfcLuminousFluxMeasure luminousFlux
-				,IfcLightEmissionSourceEnum lightEmissionSource
-				,IfcLightDistributionDataSourceSelect lightDistributionDataSource
-				,IfcColourRgb lightColour
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(lightColour
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcLightSourceGoniometric(IfcAxis2Placement3D position,IfcThermodynamicTemperatureMeasure colourTemperature,IfcLuminousFluxMeasure luminousFlux,IfcLightEmissionSourceEnum lightEmissionSource,IfcLightDistributionDataSourceSelect lightDistributionDataSource,IfcColourRgb lightColour):base(lightColour)
 		{
 			Position = position;
 			ColourTemperature = colourTemperature;
 			LuminousFlux = luminousFlux;
 			LightEmissionSource = lightEmissionSource;
 			LightDistributionDataSource = lightDistributionDataSource;
+
 
 		}
 
@@ -15831,35 +18948,20 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcLightSourcePositional : IfcLightSource
 	{
-		[JsonProperty("position")]
-		public IfcCartesianPoint Position {get;set;} 
-		[JsonProperty("radius")]
-		public IfcPositiveLengthMeasure Radius {get;set;} 
-		[JsonProperty("constantAttenuation")]
-		public IfcReal ConstantAttenuation {get;set;} 
-		[JsonProperty("distanceAttenuation")]
-		public IfcReal DistanceAttenuation {get;set;} 
-		[JsonProperty("quadricAttenuation")]
-		public IfcReal QuadricAttenuation {get;set;} 
+		public IfcCartesianPoint Position{get;set;} 
+		public IfcPositiveLengthMeasure Radius{get;set;} 
+		public IfcReal ConstantAttenuation{get;set;} 
+		public IfcReal DistanceAttenuation{get;set;} 
+		public IfcReal QuadricAttenuation{get;set;} 
 
-		public IfcLightSourcePositional(IfcCartesianPoint position
-				,IfcPositiveLengthMeasure radius
-				,IfcReal constantAttenuation
-				,IfcReal distanceAttenuation
-				,IfcReal quadricAttenuation
-				,IfcColourRgb lightColour
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(lightColour
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcLightSourcePositional(IfcCartesianPoint position,IfcPositiveLengthMeasure radius,IfcReal constantAttenuation,IfcReal distanceAttenuation,IfcReal quadricAttenuation,IfcColourRgb lightColour):base(lightColour)
 		{
 			Position = position;
 			Radius = radius;
 			ConstantAttenuation = constantAttenuation;
 			DistanceAttenuation = distanceAttenuation;
 			QuadricAttenuation = quadricAttenuation;
+
 
 		}
 
@@ -15879,39 +18981,17 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcLightSourceSpot : IfcLightSourcePositional
 	{
-		[JsonProperty("orientation")]
-		public IfcDirection Orientation {get;set;} 
-		[JsonProperty("concentrationExponent")]
-		public IfcReal ConcentrationExponent {get;set;} // optional
-		[JsonProperty("spreadAngle")]
-		public IfcPositivePlaneAngleMeasure SpreadAngle {get;set;} 
-		[JsonProperty("beamWidthAngle")]
-		public IfcPositivePlaneAngleMeasure BeamWidthAngle {get;set;} 
+		public IfcDirection Orientation{get;set;} 
+		public IfcReal ConcentrationExponent{get;set;} // optional
+		public IfcPositivePlaneAngleMeasure SpreadAngle{get;set;} 
+		public IfcPositivePlaneAngleMeasure BeamWidthAngle{get;set;} 
 
-		public IfcLightSourceSpot(IfcDirection orientation
-				,IfcPositivePlaneAngleMeasure spreadAngle
-				,IfcPositivePlaneAngleMeasure beamWidthAngle
-				,IfcCartesianPoint position
-				,IfcPositiveLengthMeasure radius
-				,IfcReal constantAttenuation
-				,IfcReal distanceAttenuation
-				,IfcReal quadricAttenuation
-				,IfcColourRgb lightColour
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(position
-					,radius
-					,constantAttenuation
-					,distanceAttenuation
-					,quadricAttenuation
-					,lightColour
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcLightSourceSpot(IfcDirection orientation,IfcPositivePlaneAngleMeasure spreadAngle,IfcPositivePlaneAngleMeasure beamWidthAngle,IfcCartesianPoint position,IfcPositiveLengthMeasure radius,IfcReal constantAttenuation,IfcReal distanceAttenuation,IfcReal quadricAttenuation,IfcColourRgb lightColour):base(position,radius,constantAttenuation,distanceAttenuation,quadricAttenuation,lightColour)
 		{
 			Orientation = orientation;
 			SpreadAngle = spreadAngle;
 			BeamWidthAngle = beamWidthAngle;
+
 
 		}
 
@@ -15927,57 +19007,17 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcline.htm"/>
-	/// </summary>
-	public  partial class IfcLine : IfcCurve
-	{
-		[JsonProperty("pnt")]
-		public IfcCartesianPoint Pnt {get;set;} 
-		[JsonProperty("dir")]
-		public IfcVector Dir {get;set;} 
-
-		public IfcLine(IfcCartesianPoint pnt
-				,IfcVector dir
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-			Pnt = pnt;
-			Dir = dir;
-
-		}
-
-		public static new IfcLine FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcLine>(json);
-		}
-
-		public static new IfcLine FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifclocalplacement.htm"/>
 	/// </summary>
 	public  partial class IfcLocalPlacement : IfcObjectPlacement
 	{
-		[JsonProperty("placementRelTo")]
-		public IfcObjectPlacement PlacementRelTo {get;set;} // optional
-		[JsonProperty("relativePlacement")]
-		public IfcAxis2Placement RelativePlacement {get;set;} 
+		public IfcObjectPlacement PlacementRelTo{get;set;} // optional
+		public IfcAxis2Placement RelativePlacement{get;set;} 
 
-		public IfcLocalPlacement(IfcAxis2Placement relativePlacement
-				,List<IfcProduct> placesObject
-				,List<IfcLocalPlacement> referencedByPlacements
-				) : base(placesObject
-					,referencedByPlacements
-					)
+		public IfcLocalPlacement(IfcAxis2Placement relativePlacement):base()
 		{
 			RelativePlacement = relativePlacement;
+
 
 		}
 
@@ -15993,100 +19033,50 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcloop.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpolyloop.htm"/>
 	/// </summary>
-	public  partial class IfcLoop : IfcTopologicalRepresentationItem
+	public  partial class IfcPolyLoop : IfcLoop
 	{
+		public List<IfcCartesianPoint> Polygon{get;set;} 
 
-		public IfcLoop(List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcPolyLoop(List<IfcCartesianPoint> polygon):base()
 		{
+			Polygon = polygon;
+
 
 		}
 
-		public static new IfcLoop FromJSON(string json)
+		public static new IfcPolyLoop FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcLoop>(json);
+			return JsonConvert.DeserializeObject<IfcPolyLoop>(json);
 		}
 
-		public static new IfcLoop FromSTEP(string step)
+		public static new IfcPolyLoop FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmanifoldsolidbrep.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvertexloop.htm"/>
 	/// </summary>
-	public abstract partial class IfcManifoldSolidBrep : IfcSolidModel
+	public  partial class IfcVertexLoop : IfcLoop
 	{
-		[JsonProperty("outer")]
-		public IfcClosedShell Outer {get;set;} 
+		public IfcVertex LoopVertex{get;set;} 
 
-		public IfcManifoldSolidBrep(IfcClosedShell outer
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcVertexLoop(IfcVertex loopVertex):base()
 		{
-			Outer = outer;
+			LoopVertex = loopVertex;
+
 
 		}
 
-		public static new IfcManifoldSolidBrep FromJSON(string json)
+		public static new IfcVertexLoop FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcManifoldSolidBrep>(json);
+			return JsonConvert.DeserializeObject<IfcVertexLoop>(json);
 		}
 
-		public static new IfcManifoldSolidBrep FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmapconversion.htm"/>
-	/// </summary>
-	public  partial class IfcMapConversion : IfcCoordinateOperation
-	{
-		[JsonProperty("eastings")]
-		public IfcLengthMeasure Eastings {get;set;} 
-		[JsonProperty("northings")]
-		public IfcLengthMeasure Northings {get;set;} 
-		[JsonProperty("orthogonalHeight")]
-		public IfcLengthMeasure OrthogonalHeight {get;set;} 
-		[JsonProperty("xAxisAbscissa")]
-		public IfcReal XAxisAbscissa {get;set;} // optional
-		[JsonProperty("xAxisOrdinate")]
-		public IfcReal XAxisOrdinate {get;set;} // optional
-		[JsonProperty("scale")]
-		public IfcReal Scale {get;set;} // optional
-
-		public IfcMapConversion(IfcLengthMeasure eastings
-				,IfcLengthMeasure northings
-				,IfcLengthMeasure orthogonalHeight
-				,IfcCoordinateReferenceSystemSelect sourceCRS
-				,IfcCoordinateReferenceSystem targetCRS
-				) : base(sourceCRS
-					,targetCRS
-					)
-		{
-			Eastings = eastings;
-			Northings = northings;
-			OrthogonalHeight = orthogonalHeight;
-
-		}
-
-		public static new IfcMapConversion FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcMapConversion>(json);
-		}
-
-		public static new IfcMapConversion FromSTEP(string step)
+		public static new IfcVertexLoop FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -16097,21 +19087,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcMappedItem : IfcRepresentationItem
 	{
-		[JsonProperty("mappingSource")]
-		public IfcRepresentationMap MappingSource {get;set;} 
-		[JsonProperty("mappingTarget")]
-		public IfcCartesianTransformationOperator MappingTarget {get;set;} 
+		public IfcRepresentationMap MappingSource{get;set;} 
+		public IfcCartesianTransformationOperator MappingTarget{get;set;} 
 
-		public IfcMappedItem(IfcRepresentationMap mappingSource
-				,IfcCartesianTransformationOperator mappingTarget
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcMappedItem(IfcRepresentationMap mappingSource,IfcCartesianTransformationOperator mappingTarget):base()
 		{
 			MappingSource = mappingSource;
 			MappingTarget = mappingTarget;
+
 
 		}
 
@@ -16131,33 +19114,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcMaterial : IfcMaterialDefinition
 	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} 
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("category")]
-		public IfcLabel Category {get;set;} // optional
-		[JsonProperty("hasRepresentation")]
-		public List<IfcMaterialDefinitionRepresentation> HasRepresentation {get;set;} 
-		[JsonProperty("isRelatedWith")]
-		public List<IfcMaterialRelationship> IsRelatedWith {get;set;} 
-		[JsonProperty("relatesTo")]
-		public List<IfcMaterialRelationship> RelatesTo {get;set;} 
+		public IfcLabel Name{get;set;} 
+		public IfcText Description{get;set;} // optional
+		public IfcLabel Category{get;set;} // optional
 
-		public IfcMaterial(IfcLabel name
-				,List<IfcMaterialDefinitionRepresentation> hasRepresentation
-				,List<IfcMaterialRelationship> isRelatedWith
-				,List<IfcMaterialRelationship> relatesTo
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcMaterialProperties> hasProperties
-				) : base(hasExternalReferences
-					,hasProperties
-					)
+		public IfcMaterial(IfcLabel name):base()
 		{
 			Name = name;
-			HasRepresentation = hasRepresentation;
-			IsRelatedWith = isRelatedWith;
-			RelatesTo = relatesTo;
+
 
 		}
 
@@ -16173,21 +19137,41 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmaterialdefinition.htm"/>
+	/// </summary>
+	public abstract partial class IfcMaterialDefinition : IfcBase
+	{
+
+		public IfcMaterialDefinition():base()
+		{
+
+
+		}
+
+		public static  IfcMaterialDefinition FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialDefinition>(json);
+		}
+
+		public static  IfcMaterialDefinition FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmaterialclassificationrelationship.htm"/>
 	/// </summary>
 	public  partial class IfcMaterialClassificationRelationship : IfcBase
 	{
-		[JsonProperty("materialClassifications")]
-		public List<IfcClassificationSelect> MaterialClassifications {get;set;} 
-		[JsonProperty("classifiedMaterial")]
-		public IfcMaterial ClassifiedMaterial {get;set;} 
+		public List<IfcClassificationSelect> MaterialClassifications{get;set;} 
+		public IfcMaterial ClassifiedMaterial{get;set;} 
 
-		public IfcMaterialClassificationRelationship(List<IfcClassificationSelect> materialClassifications
-				,IfcMaterial classifiedMaterial
-				)
+		public IfcMaterialClassificationRelationship(List<IfcClassificationSelect> materialClassifications,IfcMaterial classifiedMaterial):base()
 		{
 			MaterialClassifications = materialClassifications;
 			ClassifiedMaterial = classifiedMaterial;
+
 
 		}
 
@@ -16207,29 +19191,16 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcMaterialConstituent : IfcMaterialDefinition
 	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("material")]
-		public IfcMaterial Material {get;set;} 
-		[JsonProperty("fraction")]
-		public IfcNormalisedRatioMeasure Fraction {get;set;} // optional
-		[JsonProperty("category")]
-		public IfcLabel Category {get;set;} // optional
-		[JsonProperty("toMaterialConstituentSet")]
-		public IfcMaterialConstituentSet ToMaterialConstituentSet {get;set;} 
+		public IfcLabel Name{get;set;} // optional
+		public IfcText Description{get;set;} // optional
+		public IfcMaterial Material{get;set;} 
+		public IfcNormalisedRatioMeasure Fraction{get;set;} // optional
+		public IfcLabel Category{get;set;} // optional
 
-		public IfcMaterialConstituent(IfcMaterial material
-				,IfcMaterialConstituentSet toMaterialConstituentSet
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcMaterialProperties> hasProperties
-				) : base(hasExternalReferences
-					,hasProperties
-					)
+		public IfcMaterialConstituent(IfcMaterial material):base()
 		{
 			Material = material;
-			ToMaterialConstituentSet = toMaterialConstituentSet;
+
 
 		}
 
@@ -16249,19 +19220,13 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcMaterialConstituentSet : IfcMaterialDefinition
 	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("materialConstituents")]
-		public List<IfcMaterialConstituent> MaterialConstituents {get;set;} // optional
+		public IfcLabel Name{get;set;} // optional
+		public IfcText Description{get;set;} // optional
+		public List<IfcMaterialConstituent> MaterialConstituents{get;set;} // optional
 
-		public IfcMaterialConstituentSet(List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcMaterialProperties> hasProperties
-				) : base(hasExternalReferences
-					,hasProperties
-					)
+		public IfcMaterialConstituentSet():base()
 		{
+
 			MaterialConstituents = new List<IfcMaterialConstituent>();
 
 		}
@@ -16278,97 +19243,22 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmaterialdefinition.htm"/>
-	/// </summary>
-	public abstract partial class IfcMaterialDefinition : IfcBase
-	{
-		[JsonProperty("associatedTo")]
-		public List<IfcRelAssociatesMaterial> AssociatedTo {get;set;} 
-		[JsonProperty("hasExternalReferences")]
-		public List<IfcExternalReferenceRelationship> HasExternalReferences {get;set;} 
-		[JsonProperty("hasProperties")]
-		public List<IfcMaterialProperties> HasProperties {get;set;} 
-
-		public IfcMaterialDefinition(List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcMaterialProperties> hasProperties
-				)
-		{
-			HasExternalReferences = hasExternalReferences;
-			HasProperties = hasProperties;
-
-		}
-
-		public static  IfcMaterialDefinition FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcMaterialDefinition>(json);
-		}
-
-		public static  IfcMaterialDefinition FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmaterialdefinitionrepresentation.htm"/>
-	/// </summary>
-	public  partial class IfcMaterialDefinitionRepresentation : IfcProductRepresentation
-	{
-		[JsonProperty("representedMaterial")]
-		public IfcMaterial RepresentedMaterial {get;set;} 
-
-		public IfcMaterialDefinitionRepresentation(IfcMaterial representedMaterial
-				,List<IfcRepresentation> representations
-				) : base(representations
-					)
-		{
-			RepresentedMaterial = representedMaterial;
-
-		}
-
-		public static new IfcMaterialDefinitionRepresentation FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcMaterialDefinitionRepresentation>(json);
-		}
-
-		public static new IfcMaterialDefinitionRepresentation FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmateriallayer.htm"/>
 	/// </summary>
 	public  partial class IfcMaterialLayer : IfcMaterialDefinition
 	{
-		[JsonProperty("material")]
-		public IfcMaterial Material {get;set;} // optional
-		[JsonProperty("layerThickness")]
-		public IfcNonNegativeLengthMeasure LayerThickness {get;set;} 
-		[JsonProperty("isVentilated")]
-		public IfcLogical IsVentilated {get;set;} // optional
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("category")]
-		public IfcLabel Category {get;set;} // optional
-		[JsonProperty("priority")]
-		public IfcNormalisedRatioMeasure Priority {get;set;} // optional
-		[JsonProperty("toMaterialLayerSet")]
-		public IfcMaterialLayerSet ToMaterialLayerSet {get;set;} 
+		public IfcMaterial Material{get;set;} // optional
+		public IfcNonNegativeLengthMeasure LayerThickness{get;set;} 
+		public IfcLogical IsVentilated{get;set;} // optional
+		public IfcLabel Name{get;set;} // optional
+		public IfcText Description{get;set;} // optional
+		public IfcLabel Category{get;set;} // optional
+		public IfcNormalisedRatioMeasure Priority{get;set;} // optional
 
-		public IfcMaterialLayer(IfcNonNegativeLengthMeasure layerThickness
-				,IfcMaterialLayerSet toMaterialLayerSet
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcMaterialProperties> hasProperties
-				) : base(hasExternalReferences
-					,hasProperties
-					)
+		public IfcMaterialLayer(IfcNonNegativeLengthMeasure layerThickness):base()
 		{
 			LayerThickness = layerThickness;
-			ToMaterialLayerSet = toMaterialLayerSet;
+
 
 		}
 
@@ -16388,21 +19278,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcMaterialLayerSet : IfcMaterialDefinition
 	{
-		[JsonProperty("materialLayers")]
-		public List<IfcMaterialLayer> MaterialLayers {get;set;} 
-		[JsonProperty("layerSetName")]
-		public IfcLabel LayerSetName {get;set;} // optional
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
+		public List<IfcMaterialLayer> MaterialLayers{get;set;} 
+		public IfcLabel LayerSetName{get;set;} // optional
+		public IfcText Description{get;set;} // optional
 
-		public IfcMaterialLayerSet(List<IfcMaterialLayer> materialLayers
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcMaterialProperties> hasProperties
-				) : base(hasExternalReferences
-					,hasProperties
-					)
+		public IfcMaterialLayerSet(List<IfcMaterialLayer> materialLayers):base()
 		{
 			MaterialLayers = materialLayers;
+
 
 		}
 
@@ -16418,139 +19301,21 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmateriallayersetusage.htm"/>
-	/// </summary>
-	public  partial class IfcMaterialLayerSetUsage : IfcMaterialUsageDefinition
-	{
-		[JsonProperty("forLayerSet")]
-		public IfcMaterialLayerSet ForLayerSet {get;set;} 
-		[JsonProperty("layerSetDirection")]
-		public IfcLayerSetDirectionEnum LayerSetDirection {get;set;} 
-		[JsonProperty("directionSense")]
-		public IfcDirectionSenseEnum DirectionSense {get;set;} 
-		[JsonProperty("offsetFromReferenceLine")]
-		public IfcLengthMeasure OffsetFromReferenceLine {get;set;} 
-		[JsonProperty("referenceExtent")]
-		public IfcPositiveLengthMeasure ReferenceExtent {get;set;} // optional
-
-		public IfcMaterialLayerSetUsage(IfcMaterialLayerSet forLayerSet
-				,IfcLayerSetDirectionEnum layerSetDirection
-				,IfcDirectionSenseEnum directionSense
-				,IfcLengthMeasure offsetFromReferenceLine
-				) : base()
-		{
-			ForLayerSet = forLayerSet;
-			LayerSetDirection = layerSetDirection;
-			DirectionSense = directionSense;
-			OffsetFromReferenceLine = offsetFromReferenceLine;
-
-		}
-
-		public static new IfcMaterialLayerSetUsage FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcMaterialLayerSetUsage>(json);
-		}
-
-		public static new IfcMaterialLayerSetUsage FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmateriallayerwithoffsets.htm"/>
-	/// </summary>
-	public  partial class IfcMaterialLayerWithOffsets : IfcMaterialLayer
-	{
-		[JsonProperty("offsetDirection")]
-		public IfcLayerSetDirectionEnum OffsetDirection {get;set;} 
-		[JsonProperty("offsetValues")]
-		public List<IfcLengthMeasure> OffsetValues {get;set;} 
-
-		public IfcMaterialLayerWithOffsets(IfcLayerSetDirectionEnum offsetDirection
-				,List<IfcLengthMeasure> offsetValues
-				,IfcNonNegativeLengthMeasure layerThickness
-				,IfcMaterialLayerSet toMaterialLayerSet
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcMaterialProperties> hasProperties
-				) : base(layerThickness
-					,toMaterialLayerSet
-					,hasExternalReferences
-					,hasProperties
-					)
-		{
-			OffsetDirection = offsetDirection;
-			OffsetValues = offsetValues;
-
-		}
-
-		public static new IfcMaterialLayerWithOffsets FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcMaterialLayerWithOffsets>(json);
-		}
-
-		public static new IfcMaterialLayerWithOffsets FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmateriallist.htm"/>
-	/// </summary>
-	public  partial class IfcMaterialList : IfcBase
-	{
-		[JsonProperty("materials")]
-		public List<IfcMaterial> Materials {get;set;} 
-
-		public IfcMaterialList(List<IfcMaterial> materials
-				)
-		{
-			Materials = materials;
-
-		}
-
-		public static  IfcMaterialList FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcMaterialList>(json);
-		}
-
-		public static  IfcMaterialList FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmaterialprofile.htm"/>
 	/// </summary>
 	public  partial class IfcMaterialProfile : IfcMaterialDefinition
 	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("material")]
-		public IfcMaterial Material {get;set;} // optional
-		[JsonProperty("profile")]
-		public IfcProfileDef Profile {get;set;} 
-		[JsonProperty("priority")]
-		public IfcNormalisedRatioMeasure Priority {get;set;} // optional
-		[JsonProperty("category")]
-		public IfcLabel Category {get;set;} // optional
-		[JsonProperty("toMaterialProfileSet")]
-		public IfcMaterialProfileSet ToMaterialProfileSet {get;set;} 
+		public IfcLabel Name{get;set;} // optional
+		public IfcText Description{get;set;} // optional
+		public IfcMaterial Material{get;set;} // optional
+		public IfcProfileDef Profile{get;set;} 
+		public IfcNormalisedRatioMeasure Priority{get;set;} // optional
+		public IfcLabel Category{get;set;} // optional
 
-		public IfcMaterialProfile(IfcProfileDef profile
-				,IfcMaterialProfileSet toMaterialProfileSet
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcMaterialProperties> hasProperties
-				) : base(hasExternalReferences
-					,hasProperties
-					)
+		public IfcMaterialProfile(IfcProfileDef profile):base()
 		{
 			Profile = profile;
-			ToMaterialProfileSet = toMaterialProfileSet;
+
 
 		}
 
@@ -16570,23 +19335,15 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcMaterialProfileSet : IfcMaterialDefinition
 	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("materialProfiles")]
-		public List<IfcMaterialProfile> MaterialProfiles {get;set;} 
-		[JsonProperty("compositeProfile")]
-		public IfcCompositeProfileDef CompositeProfile {get;set;} // optional
+		public IfcLabel Name{get;set;} // optional
+		public IfcText Description{get;set;} // optional
+		public List<IfcMaterialProfile> MaterialProfiles{get;set;} 
+		public IfcCompositeProfileDef CompositeProfile{get;set;} // optional
 
-		public IfcMaterialProfileSet(List<IfcMaterialProfile> materialProfiles
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcMaterialProperties> hasProperties
-				) : base(hasExternalReferences
-					,hasProperties
-					)
+		public IfcMaterialProfileSet(List<IfcMaterialProfile> materialProfiles):base()
 		{
 			MaterialProfiles = materialProfiles;
+
 
 		}
 
@@ -16602,21 +19359,202 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmaterialdefinitionrepresentation.htm"/>
+	/// </summary>
+	public  partial class IfcMaterialDefinitionRepresentation : IfcProductRepresentation
+	{
+		public IfcMaterial RepresentedMaterial{get;set;} 
+
+		public IfcMaterialDefinitionRepresentation(IfcMaterial representedMaterial,List<IfcRepresentation> representations):base(representations)
+		{
+			RepresentedMaterial = representedMaterial;
+
+
+		}
+
+		public static new IfcMaterialDefinitionRepresentation FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialDefinitionRepresentation>(json);
+		}
+
+		public static new IfcMaterialDefinitionRepresentation FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcproductrepresentation.htm"/>
+	/// </summary>
+	public abstract partial class IfcProductRepresentation : IfcBase
+	{
+		public IfcLabel Name{get;set;} // optional
+		public IfcText Description{get;set;} // optional
+		public List<IfcRepresentation> Representations{get;set;} 
+
+		public IfcProductRepresentation(List<IfcRepresentation> representations):base()
+		{
+			Representations = representations;
+
+
+		}
+
+		public static  IfcProductRepresentation FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcProductRepresentation>(json);
+		}
+
+		public static  IfcProductRepresentation FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmateriallayerwithoffsets.htm"/>
+	/// </summary>
+	public  partial class IfcMaterialLayerWithOffsets : IfcMaterialLayer
+	{
+		public IfcLayerSetDirectionEnum OffsetDirection{get;set;} 
+		public List<IfcLengthMeasure> OffsetValues{get;set;} 
+
+		public IfcMaterialLayerWithOffsets(IfcLayerSetDirectionEnum offsetDirection,List<IfcLengthMeasure> offsetValues,IfcNonNegativeLengthMeasure layerThickness):base(layerThickness)
+		{
+			OffsetDirection = offsetDirection;
+			OffsetValues = offsetValues;
+
+
+		}
+
+		public static new IfcMaterialLayerWithOffsets FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialLayerWithOffsets>(json);
+		}
+
+		public static new IfcMaterialLayerWithOffsets FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmateriallayersetusage.htm"/>
+	/// </summary>
+	public  partial class IfcMaterialLayerSetUsage : IfcMaterialUsageDefinition
+	{
+		public IfcMaterialLayerSet ForLayerSet{get;set;} 
+		public IfcLayerSetDirectionEnum LayerSetDirection{get;set;} 
+		public IfcDirectionSenseEnum DirectionSense{get;set;} 
+		public IfcLengthMeasure OffsetFromReferenceLine{get;set;} 
+		public IfcPositiveLengthMeasure ReferenceExtent{get;set;} // optional
+
+		public IfcMaterialLayerSetUsage(IfcMaterialLayerSet forLayerSet,IfcLayerSetDirectionEnum layerSetDirection,IfcDirectionSenseEnum directionSense,IfcLengthMeasure offsetFromReferenceLine):base()
+		{
+			ForLayerSet = forLayerSet;
+			LayerSetDirection = layerSetDirection;
+			DirectionSense = directionSense;
+			OffsetFromReferenceLine = offsetFromReferenceLine;
+
+
+		}
+
+		public static new IfcMaterialLayerSetUsage FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialLayerSetUsage>(json);
+		}
+
+		public static new IfcMaterialLayerSetUsage FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmaterialusagedefinition.htm"/>
+	/// </summary>
+	public abstract partial class IfcMaterialUsageDefinition : IfcBase
+	{
+
+		public IfcMaterialUsageDefinition():base()
+		{
+
+
+		}
+
+		public static  IfcMaterialUsageDefinition FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialUsageDefinition>(json);
+		}
+
+		public static  IfcMaterialUsageDefinition FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmateriallist.htm"/>
+	/// </summary>
+	public  partial class IfcMaterialList : IfcBase
+	{
+		public List<IfcMaterial> Materials{get;set;} 
+
+		public IfcMaterialList(List<IfcMaterial> materials):base()
+		{
+			Materials = materials;
+
+
+		}
+
+		public static  IfcMaterialList FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialList>(json);
+		}
+
+		public static  IfcMaterialList FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmaterialprofilewithoffsets.htm"/>
+	/// </summary>
+	public  partial class IfcMaterialProfileWithOffsets : IfcMaterialProfile
+	{
+		public List<IfcLengthMeasure> OffsetValues{get;set;} 
+
+		public IfcMaterialProfileWithOffsets(List<IfcLengthMeasure> offsetValues,IfcProfileDef profile):base(profile)
+		{
+			OffsetValues = offsetValues;
+
+
+		}
+
+		public static new IfcMaterialProfileWithOffsets FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcMaterialProfileWithOffsets>(json);
+		}
+
+		public static new IfcMaterialProfileWithOffsets FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmaterialprofilesetusage.htm"/>
 	/// </summary>
 	public  partial class IfcMaterialProfileSetUsage : IfcMaterialUsageDefinition
 	{
-		[JsonProperty("forProfileSet")]
-		public IfcMaterialProfileSet ForProfileSet {get;set;} 
-		[JsonProperty("cardinalPoint")]
-		public IfcCardinalPointReference CardinalPoint {get;set;} // optional
-		[JsonProperty("referenceExtent")]
-		public IfcPositiveLengthMeasure ReferenceExtent {get;set;} // optional
+		public IfcMaterialProfileSet ForProfileSet{get;set;} 
+		public IfcCardinalPointReference CardinalPoint{get;set;} // optional
+		public IfcPositiveLengthMeasure ReferenceExtent{get;set;} // optional
 
-		public IfcMaterialProfileSetUsage(IfcMaterialProfileSet forProfileSet
-				) : base()
+		public IfcMaterialProfileSetUsage(IfcMaterialProfileSet forProfileSet):base()
 		{
 			ForProfileSet = forProfileSet;
+
 
 		}
 
@@ -16636,17 +19574,13 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcMaterialProfileSetUsageTapering : IfcMaterialProfileSetUsage
 	{
-		[JsonProperty("forProfileEndSet")]
-		public IfcMaterialProfileSet ForProfileEndSet {get;set;} 
-		[JsonProperty("cardinalEndPoint")]
-		public IfcCardinalPointReference CardinalEndPoint {get;set;} // optional
+		public IfcMaterialProfileSet ForProfileEndSet{get;set;} 
+		public IfcCardinalPointReference CardinalEndPoint{get;set;} // optional
 
-		public IfcMaterialProfileSetUsageTapering(IfcMaterialProfileSet forProfileEndSet
-				,IfcMaterialProfileSet forProfileSet
-				) : base(forProfileSet
-					)
+		public IfcMaterialProfileSetUsageTapering(IfcMaterialProfileSet forProfileEndSet,IfcMaterialProfileSet forProfileSet):base(forProfileSet)
 		{
 			ForProfileEndSet = forProfileEndSet;
+
 
 		}
 
@@ -16662,87 +19596,19 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmaterialprofilewithoffsets.htm"/>
-	/// </summary>
-	public  partial class IfcMaterialProfileWithOffsets : IfcMaterialProfile
-	{
-		[JsonProperty("offsetValues")]
-		public List<IfcLengthMeasure> OffsetValues {get;set;} 
-
-		public IfcMaterialProfileWithOffsets(List<IfcLengthMeasure> offsetValues
-				,IfcProfileDef profile
-				,IfcMaterialProfileSet toMaterialProfileSet
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcMaterialProperties> hasProperties
-				) : base(profile
-					,toMaterialProfileSet
-					,hasExternalReferences
-					,hasProperties
-					)
-		{
-			OffsetValues = offsetValues;
-
-		}
-
-		public static new IfcMaterialProfileWithOffsets FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcMaterialProfileWithOffsets>(json);
-		}
-
-		public static new IfcMaterialProfileWithOffsets FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmaterialproperties.htm"/>
-	/// </summary>
-	public  partial class IfcMaterialProperties : IfcExtendedProperties
-	{
-		[JsonProperty("material")]
-		public IfcMaterialDefinition Material {get;set;} 
-
-		public IfcMaterialProperties(IfcMaterialDefinition material
-				,List<IfcProperty> properties
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				) : base(properties
-					,hasExternalReferences
-					)
-		{
-			Material = material;
-
-		}
-
-		public static new IfcMaterialProperties FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcMaterialProperties>(json);
-		}
-
-		public static new IfcMaterialProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmaterialrelationship.htm"/>
 	/// </summary>
 	public  partial class IfcMaterialRelationship : IfcResourceLevelRelationship
 	{
-		[JsonProperty("relatingMaterial")]
-		public IfcMaterial RelatingMaterial {get;set;} 
-		[JsonProperty("relatedMaterials")]
-		public List<IfcMaterial> RelatedMaterials {get;set;} 
-		[JsonProperty("expression")]
-		public IfcLabel Expression {get;set;} // optional
+		public IfcMaterial RelatingMaterial{get;set;} 
+		public List<IfcMaterial> RelatedMaterials{get;set;} 
+		public IfcLabel Expression{get;set;} // optional
 
-		public IfcMaterialRelationship(IfcMaterial relatingMaterial
-				,List<IfcMaterial> relatedMaterials
-				) : base()
+		public IfcMaterialRelationship(IfcMaterial relatingMaterial,List<IfcMaterial> relatedMaterials):base()
 		{
 			RelatingMaterial = relatingMaterial;
 			RelatedMaterials = relatedMaterials;
+
 
 		}
 
@@ -16758,45 +19624,18 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmaterialusagedefinition.htm"/>
-	/// </summary>
-	public abstract partial class IfcMaterialUsageDefinition : IfcBase
-	{
-		[JsonProperty("associatedTo")]
-		public List<IfcRelAssociatesMaterial> AssociatedTo {get;set;} 
-
-		public IfcMaterialUsageDefinition()
-		{
-
-		}
-
-		public static  IfcMaterialUsageDefinition FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcMaterialUsageDefinition>(json);
-		}
-
-		public static  IfcMaterialUsageDefinition FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmeasurewithunit.htm"/>
 	/// </summary>
 	public  partial class IfcMeasureWithUnit : IfcBase
 	{
-		[JsonProperty("valueComponent")]
-		public IfcValue ValueComponent {get;set;} 
-		[JsonProperty("unitComponent")]
-		public IfcUnit UnitComponent {get;set;} 
+		public IfcValue ValueComponent{get;set;} 
+		public IfcUnit UnitComponent{get;set;} 
 
-		public IfcMeasureWithUnit(IfcValue valueComponent
-				,IfcUnit unitComponent
-				)
+		public IfcMeasureWithUnit(IfcValue valueComponent,IfcUnit unitComponent):base()
 		{
 			ValueComponent = valueComponent;
 			UnitComponent = unitComponent;
+
 
 		}
 
@@ -16812,145 +19651,14 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmechanicalfastener.htm"/>
-	/// </summary>
-	public  partial class IfcMechanicalFastener : IfcElementComponent
-	{
-		[JsonProperty("nominalDiameter")]
-		public IfcPositiveLengthMeasure NominalDiameter {get;set;} // optional
-		[JsonProperty("nominalLength")]
-		public IfcPositiveLengthMeasure NominalLength {get;set;} // optional
-		[JsonProperty("predefinedType")]
-		public IfcMechanicalFastenerTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcMechanicalFastener() : base()
-		{
-
-		}
-
-		public static new IfcMechanicalFastener FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcMechanicalFastener>(json);
-		}
-
-		public static new IfcMechanicalFastener FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmechanicalfastenertype.htm"/>
-	/// </summary>
-	public  partial class IfcMechanicalFastenerType : IfcElementComponentType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcMechanicalFastenerTypeEnum PredefinedType {get;set;} 
-		[JsonProperty("nominalDiameter")]
-		public IfcPositiveLengthMeasure NominalDiameter {get;set;} // optional
-		[JsonProperty("nominalLength")]
-		public IfcPositiveLengthMeasure NominalLength {get;set;} // optional
-
-		public IfcMechanicalFastenerType(IfcMechanicalFastenerTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcMechanicalFastenerType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcMechanicalFastenerType>(json);
-		}
-
-		public static new IfcMechanicalFastenerType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmedicaldevice.htm"/>
-	/// </summary>
-	public  partial class IfcMedicalDevice : IfcFlowTerminal
-	{
-		[JsonProperty("predefinedType")]
-		public IfcMedicalDeviceTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcMedicalDevice() : base()
-		{
-
-		}
-
-		public static new IfcMedicalDevice FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcMedicalDevice>(json);
-		}
-
-		public static new IfcMedicalDevice FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmedicaldevicetype.htm"/>
-	/// </summary>
-	public  partial class IfcMedicalDeviceType : IfcFlowTerminalType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcMedicalDeviceTypeEnum PredefinedType {get;set;} 
-
-		public IfcMedicalDeviceType(IfcMedicalDeviceTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcMedicalDeviceType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcMedicalDeviceType>(json);
-		}
-
-		public static new IfcMedicalDeviceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmember.htm"/>
-	/// </summary>
-	public  partial class IfcMember : IfcBuildingElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcMemberTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcMember() : base()
-		{
-
-		}
-
-		public static new IfcMember FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcMember>(json);
-		}
-
-		public static new IfcMember FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmemberstandardcase.htm"/>
 	/// </summary>
 	public  partial class IfcMemberStandardCase : IfcMember
 	{
 
-		public IfcMemberStandardCase() : base()
+		public IfcMemberStandardCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -16966,117 +19674,16 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmembertype.htm"/>
-	/// </summary>
-	public  partial class IfcMemberType : IfcBuildingElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcMemberTypeEnum PredefinedType {get;set;} 
-
-		public IfcMemberType(IfcMemberTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcMemberType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcMemberType>(json);
-		}
-
-		public static new IfcMemberType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmetric.htm"/>
-	/// </summary>
-	public  partial class IfcMetric : IfcConstraint
-	{
-		[JsonProperty("benchmark")]
-		public IfcBenchmarkEnum Benchmark {get;set;} 
-		[JsonProperty("valueSource")]
-		public IfcLabel ValueSource {get;set;} // optional
-		[JsonProperty("dataValue")]
-		public IfcMetricValueSelect DataValue {get;set;} 
-		[JsonProperty("referencePath")]
-		public IfcReference ReferencePath {get;set;} // optional
-
-		public IfcMetric(IfcBenchmarkEnum benchmark
-				,IfcMetricValueSelect dataValue
-				,IfcLabel name
-				,IfcConstraintEnum constraintGrade
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcResourceConstraintRelationship> propertiesForConstraint
-				) : base(name
-					,constraintGrade
-					,hasExternalReferences
-					,propertiesForConstraint
-					)
-		{
-			Benchmark = benchmark;
-			DataValue = dataValue;
-
-		}
-
-		public static new IfcMetric FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcMetric>(json);
-		}
-
-		public static new IfcMetric FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmirroredprofiledef.htm"/>
-	/// </summary>
-	public  partial class IfcMirroredProfileDef : IfcDerivedProfileDef
-	{
-
-		public IfcMirroredProfileDef(IfcProfileDef parentProfile
-				,IfcCartesianTransformationOperator2D op
-				,IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(parentProfile
-					,op
-					,profileType
-					,hasExternalReference
-					,hasProperties
-					)
-		{
-
-		}
-
-		public static new IfcMirroredProfileDef FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcMirroredProfileDef>(json);
-		}
-
-		public static new IfcMirroredProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmonetaryunit.htm"/>
 	/// </summary>
 	public  partial class IfcMonetaryUnit : IfcBase
 	{
-		[JsonProperty("currency")]
-		public IfcLabel Currency {get;set;} 
+		public IfcLabel Currency{get;set;} 
 
-		public IfcMonetaryUnit(IfcLabel currency
-				)
+		public IfcMonetaryUnit(IfcLabel currency):base()
 		{
 			Currency = currency;
+
 
 		}
 
@@ -17092,379 +19699,80 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmotorconnection.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsiunit.htm"/>
 	/// </summary>
-	public  partial class IfcMotorConnection : IfcEnergyConversionDevice
+	public  partial class IfcSIUnit : IfcNamedUnit
 	{
-		[JsonProperty("predefinedType")]
-		public IfcMotorConnectionTypeEnum PredefinedType {get;set;} // optional
+		public IfcSIPrefix Prefix{get;set;} // optional
+		public IfcSIUnitName Name{get;set;} 
 
-		public IfcMotorConnection() : base()
+		public IfcSIUnit(IfcSIUnitName name,IfcDimensionalExponents dimensions,IfcUnitEnum unitType):base(dimensions,unitType)
 		{
+			Name = name;
+
 
 		}
 
-		public static new IfcMotorConnection FromJSON(string json)
+		public static new IfcSIUnit FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcMotorConnection>(json);
+			return JsonConvert.DeserializeObject<IfcSIUnit>(json);
 		}
 
-		public static new IfcMotorConnection FromSTEP(string step)
+		public static new IfcSIUnit FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcmotorconnectiontype.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctypeobject.htm"/>
 	/// </summary>
-	public  partial class IfcMotorConnectionType : IfcEnergyConversionDeviceType
+	public  partial class IfcTypeObject : IfcObjectDefinition
 	{
-		[JsonProperty("predefinedType")]
-		public IfcMotorConnectionTypeEnum PredefinedType {get;set;} 
+		public IfcIdentifier ApplicableOccurrence{get;set;} // optional
+		public List<IfcPropertySetDefinition> HasPropertySets{get;set;} // optional
 
-		public IfcMotorConnectionType(IfcMotorConnectionTypeEnum predefinedType
-				) : base()
+		public IfcTypeObject(IfcGloballyUniqueId globalId):base(globalId)
 		{
-			PredefinedType = predefinedType;
+
+			HasPropertySets = new List<IfcPropertySetDefinition>();
 
 		}
 
-		public static new IfcMotorConnectionType FromJSON(string json)
+		public static new IfcTypeObject FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcMotorConnectionType>(json);
+			return JsonConvert.DeserializeObject<IfcTypeObject>(json);
 		}
 
-		public static new IfcMotorConnectionType FromSTEP(string step)
+		public static new IfcTypeObject FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcnamedunit.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcroot.htm"/>
 	/// </summary>
-	public abstract partial class IfcNamedUnit : IfcBase
+	public abstract partial class IfcRoot : IfcBase
 	{
-		[JsonProperty("dimensions")]
-		public IfcDimensionalExponents Dimensions {get;set;} 
-		[JsonProperty("unitType")]
-		public IfcUnitEnum UnitType {get;set;} 
+		public IfcGloballyUniqueId GlobalId{get;set;} 
+		public IfcOwnerHistory OwnerHistory{get;set;} // optional
+		public IfcLabel Name{get;set;} // optional
+		public IfcText Description{get;set;} // optional
 
-		public IfcNamedUnit(IfcDimensionalExponents dimensions
-				,IfcUnitEnum unitType
-				)
+		public IfcRoot(IfcGloballyUniqueId globalId):base()
 		{
-			Dimensions = dimensions;
-			UnitType = unitType;
+			GlobalId = globalId;
+
 
 		}
 
-		public static  IfcNamedUnit FromJSON(string json)
+		public static  IfcRoot FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcNamedUnit>(json);
+			return JsonConvert.DeserializeObject<IfcRoot>(json);
 		}
 
-		public static  IfcNamedUnit FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcobject.htm"/>
-	/// </summary>
-	public abstract partial class IfcObject : IfcObjectDefinition
-	{
-		[JsonProperty("objectType")]
-		public IfcLabel ObjectType {get;set;} // optional
-		[JsonProperty("isDeclaredBy")]
-		public List<IfcRelDefinesByObject> IsDeclaredBy {get;set;} 
-		[JsonProperty("declares")]
-		public List<IfcRelDefinesByObject> Declares {get;set;} 
-		[JsonProperty("isTypedBy")]
-		public List<IfcRelDefinesByType> IsTypedBy {get;set;} 
-		[JsonProperty("isDefinedBy")]
-		public List<IfcRelDefinesByProperties> IsDefinedBy {get;set;} 
-
-		public IfcObject() : base()
-		{
-
-		}
-
-		public static new IfcObject FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcObject>(json);
-		}
-
-		public static new IfcObject FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcobjectdefinition.htm"/>
-	/// </summary>
-	public abstract partial class IfcObjectDefinition : IfcRoot
-	{
-		[JsonProperty("hasAssignments")]
-		public List<IfcRelAssigns> HasAssignments {get;set;} 
-		[JsonProperty("nests")]
-		public List<IfcRelNests> Nests {get;set;} 
-		[JsonProperty("isNestedBy")]
-		public List<IfcRelNests> IsNestedBy {get;set;} 
-		[JsonProperty("hasContext")]
-		public List<IfcRelDeclares> HasContext {get;set;} 
-		[JsonProperty("isDecomposedBy")]
-		public List<IfcRelAggregates> IsDecomposedBy {get;set;} 
-		[JsonProperty("decomposes")]
-		public List<IfcRelAggregates> Decomposes {get;set;} 
-		[JsonProperty("hasAssociations")]
-		public List<IfcRelAssociates> HasAssociations {get;set;} 
-
-		public IfcObjectDefinition() : base()
-		{
-
-		}
-
-		public static new IfcObjectDefinition FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcObjectDefinition>(json);
-		}
-
-		public static new IfcObjectDefinition FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcobjectplacement.htm"/>
-	/// </summary>
-	public abstract partial class IfcObjectPlacement : IfcBase
-	{
-		[JsonProperty("placesObject")]
-		public List<IfcProduct> PlacesObject {get;set;} 
-		[JsonProperty("referencedByPlacements")]
-		public List<IfcLocalPlacement> ReferencedByPlacements {get;set;} 
-
-		public IfcObjectPlacement(List<IfcProduct> placesObject
-				,List<IfcLocalPlacement> referencedByPlacements
-				)
-		{
-			PlacesObject = placesObject;
-			ReferencedByPlacements = referencedByPlacements;
-
-		}
-
-		public static  IfcObjectPlacement FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcObjectPlacement>(json);
-		}
-
-		public static  IfcObjectPlacement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcobjective.htm"/>
-	/// </summary>
-	public  partial class IfcObjective : IfcConstraint
-	{
-		[JsonProperty("benchmarkValues")]
-		public List<IfcConstraint> BenchmarkValues {get;set;} // optional
-		[JsonProperty("logicalAggregator")]
-		public IfcLogicalOperatorEnum LogicalAggregator {get;set;} // optional
-		[JsonProperty("objectiveQualifier")]
-		public IfcObjectiveEnum ObjectiveQualifier {get;set;} 
-		[JsonProperty("userDefinedQualifier")]
-		public IfcLabel UserDefinedQualifier {get;set;} // optional
-
-		public IfcObjective(IfcObjectiveEnum objectiveQualifier
-				,IfcLabel name
-				,IfcConstraintEnum constraintGrade
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcResourceConstraintRelationship> propertiesForConstraint
-				) : base(name
-					,constraintGrade
-					,hasExternalReferences
-					,propertiesForConstraint
-					)
-		{
-			ObjectiveQualifier = objectiveQualifier;
-			BenchmarkValues = new List<IfcConstraint>();
-
-		}
-
-		public static new IfcObjective FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcObjective>(json);
-		}
-
-		public static new IfcObjective FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcoccupant.htm"/>
-	/// </summary>
-	public  partial class IfcOccupant : IfcActor
-	{
-		[JsonProperty("predefinedType")]
-		public IfcOccupantTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcOccupant(IfcActorSelect theActor
-				) : base(theActor
-					)
-		{
-
-		}
-
-		public static new IfcOccupant FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcOccupant>(json);
-		}
-
-		public static new IfcOccupant FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcoffsetcurve2d.htm"/>
-	/// </summary>
-	public  partial class IfcOffsetCurve2D : IfcCurve
-	{
-		[JsonProperty("basisCurve")]
-		public IfcCurve BasisCurve {get;set;} 
-		[JsonProperty("distance")]
-		public IfcLengthMeasure Distance {get;set;} 
-		[JsonProperty("selfIntersect")]
-		public bool? SelfIntersect {get;set;} 
-
-		public IfcOffsetCurve2D(IfcCurve basisCurve
-				,IfcLengthMeasure distance
-				,bool? selfIntersect
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-			BasisCurve = basisCurve;
-			Distance = distance;
-			SelfIntersect = selfIntersect;
-
-		}
-
-		public static new IfcOffsetCurve2D FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcOffsetCurve2D>(json);
-		}
-
-		public static new IfcOffsetCurve2D FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcoffsetcurve3d.htm"/>
-	/// </summary>
-	public  partial class IfcOffsetCurve3D : IfcCurve
-	{
-		[JsonProperty("basisCurve")]
-		public IfcCurve BasisCurve {get;set;} 
-		[JsonProperty("distance")]
-		public IfcLengthMeasure Distance {get;set;} 
-		[JsonProperty("selfIntersect")]
-		public bool? SelfIntersect {get;set;} 
-		[JsonProperty("refDirection")]
-		public IfcDirection RefDirection {get;set;} 
-
-		public IfcOffsetCurve3D(IfcCurve basisCurve
-				,IfcLengthMeasure distance
-				,bool? selfIntersect
-				,IfcDirection refDirection
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-			BasisCurve = basisCurve;
-			Distance = distance;
-			SelfIntersect = selfIntersect;
-			RefDirection = refDirection;
-
-		}
-
-		public static new IfcOffsetCurve3D FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcOffsetCurve3D>(json);
-		}
-
-		public static new IfcOffsetCurve3D FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcopenshell.htm"/>
-	/// </summary>
-	public  partial class IfcOpenShell : IfcConnectedFaceSet
-	{
-
-		public IfcOpenShell(List<IfcFace> cfsFaces
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(cfsFaces
-					,layerAssignment
-					,styledByItem
-					)
-		{
-
-		}
-
-		public static new IfcOpenShell FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcOpenShell>(json);
-		}
-
-		public static new IfcOpenShell FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcopeningelement.htm"/>
-	/// </summary>
-	public  partial class IfcOpeningElement : IfcFeatureElementSubtraction
-	{
-		[JsonProperty("predefinedType")]
-		public IfcOpeningElementTypeEnum PredefinedType {get;set;} // optional
-		[JsonProperty("hasFillings")]
-		public List<IfcRelFillsElement> HasFillings {get;set;} 
-
-		public IfcOpeningElement() : base()
-		{
-
-		}
-
-		public static new IfcOpeningElement FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcOpeningElement>(json);
-		}
-
-		public static new IfcOpeningElement FromSTEP(string step)
+		public static  IfcRoot FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -17476,8 +19784,9 @@ namespace IFC4
 	public  partial class IfcOpeningStandardCase : IfcOpeningElement
 	{
 
-		public IfcOpeningStandardCase() : base()
+		public IfcOpeningStandardCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -17497,33 +19806,16 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcOrganization : IfcBase
 	{
-		[JsonProperty("identification")]
-		public IfcIdentifier Identification {get;set;} // optional
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} 
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("roles")]
-		public List<IfcActorRole> Roles {get;set;} // optional
-		[JsonProperty("addresses")]
-		public List<IfcAddress> Addresses {get;set;} // optional
-		[JsonProperty("isRelatedBy")]
-		public List<IfcOrganizationRelationship> IsRelatedBy {get;set;} 
-		[JsonProperty("relates")]
-		public List<IfcOrganizationRelationship> Relates {get;set;} 
-		[JsonProperty("engages")]
-		public List<IfcPersonAndOrganization> Engages {get;set;} 
+		public IfcIdentifier Identification{get;set;} // optional
+		public IfcLabel Name{get;set;} 
+		public IfcText Description{get;set;} // optional
+		public List<IfcActorRole> Roles{get;set;} // optional
+		public List<IfcAddress> Addresses{get;set;} // optional
 
-		public IfcOrganization(IfcLabel name
-				,List<IfcOrganizationRelationship> isRelatedBy
-				,List<IfcOrganizationRelationship> relates
-				,List<IfcPersonAndOrganization> engages
-				)
+		public IfcOrganization(IfcLabel name):base()
 		{
 			Name = name;
-			IsRelatedBy = isRelatedBy;
-			Relates = relates;
-			Engages = engages;
+
 			Roles = new List<IfcActorRole>();
 			Addresses = new List<IfcAddress>();
 
@@ -17545,17 +19837,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcOrganizationRelationship : IfcResourceLevelRelationship
 	{
-		[JsonProperty("relatingOrganization")]
-		public IfcOrganization RelatingOrganization {get;set;} 
-		[JsonProperty("relatedOrganizations")]
-		public List<IfcOrganization> RelatedOrganizations {get;set;} 
+		public IfcOrganization RelatingOrganization{get;set;} 
+		public List<IfcOrganization> RelatedOrganizations{get;set;} 
 
-		public IfcOrganizationRelationship(IfcOrganization relatingOrganization
-				,List<IfcOrganization> relatedOrganizations
-				) : base()
+		public IfcOrganizationRelationship(IfcOrganization relatingOrganization,List<IfcOrganization> relatedOrganizations):base()
 		{
 			RelatingOrganization = relatingOrganization;
 			RelatedOrganizations = relatedOrganizations;
+
 
 		}
 
@@ -17571,153 +19860,25 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcorientededge.htm"/>
-	/// </summary>
-	public  partial class IfcOrientedEdge : IfcEdge
-	{
-		[JsonProperty("edgeElement")]
-		public IfcEdge EdgeElement {get;set;} 
-		[JsonProperty("orientation")]
-		public bool Orientation {get;set;} 
-
-		public IfcOrientedEdge(IfcEdge edgeElement
-				,bool orientation
-				,IfcVertex edgeStart
-				,IfcVertex edgeEnd
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(edgeStart
-					,edgeEnd
-					,layerAssignment
-					,styledByItem
-					)
-		{
-			EdgeElement = edgeElement;
-			Orientation = orientation;
-
-		}
-
-		public static new IfcOrientedEdge FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcOrientedEdge>(json);
-		}
-
-		public static new IfcOrientedEdge FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcouterboundarycurve.htm"/>
-	/// </summary>
-	public  partial class IfcOuterBoundaryCurve : IfcBoundaryCurve
-	{
-
-		public IfcOuterBoundaryCurve(List<IfcCompositeCurveSegment> segments
-				,bool? selfIntersect
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(segments
-					,selfIntersect
-					,layerAssignment
-					,styledByItem
-					)
-		{
-
-		}
-
-		public static new IfcOuterBoundaryCurve FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcOuterBoundaryCurve>(json);
-		}
-
-		public static new IfcOuterBoundaryCurve FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcoutlet.htm"/>
-	/// </summary>
-	public  partial class IfcOutlet : IfcFlowTerminal
-	{
-		[JsonProperty("predefinedType")]
-		public IfcOutletTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcOutlet() : base()
-		{
-
-		}
-
-		public static new IfcOutlet FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcOutlet>(json);
-		}
-
-		public static new IfcOutlet FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcoutlettype.htm"/>
-	/// </summary>
-	public  partial class IfcOutletType : IfcFlowTerminalType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcOutletTypeEnum PredefinedType {get;set;} 
-
-		public IfcOutletType(IfcOutletTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcOutletType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcOutletType>(json);
-		}
-
-		public static new IfcOutletType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcownerhistory.htm"/>
 	/// </summary>
 	public  partial class IfcOwnerHistory : IfcBase
 	{
-		[JsonProperty("owningUser")]
-		public IfcPersonAndOrganization OwningUser {get;set;} 
-		[JsonProperty("owningApplication")]
-		public IfcApplication OwningApplication {get;set;} 
-		[JsonProperty("state")]
-		public IfcStateEnum State {get;set;} // optional
-		[JsonProperty("changeAction")]
-		public IfcChangeActionEnum ChangeAction {get;set;} // optional
-		[JsonProperty("lastModifiedDate")]
-		public IfcTimeStamp LastModifiedDate {get;set;} // optional
-		[JsonProperty("lastModifyingUser")]
-		public IfcPersonAndOrganization LastModifyingUser {get;set;} // optional
-		[JsonProperty("lastModifyingApplication")]
-		public IfcApplication LastModifyingApplication {get;set;} // optional
-		[JsonProperty("creationDate")]
-		public IfcTimeStamp CreationDate {get;set;} 
+		public IfcPersonAndOrganization OwningUser{get;set;} 
+		public IfcApplication OwningApplication{get;set;} 
+		public IfcStateEnum State{get;set;} // optional
+		public IfcChangeActionEnum ChangeAction{get;set;} // optional
+		public IfcTimeStamp LastModifiedDate{get;set;} // optional
+		public IfcPersonAndOrganization LastModifyingUser{get;set;} // optional
+		public IfcApplication LastModifyingApplication{get;set;} // optional
+		public IfcTimeStamp CreationDate{get;set;} 
 
-		public IfcOwnerHistory(IfcPersonAndOrganization owningUser
-				,IfcApplication owningApplication
-				,IfcTimeStamp creationDate
-				)
+		public IfcOwnerHistory(IfcPersonAndOrganization owningUser,IfcApplication owningApplication,IfcTimeStamp creationDate):base()
 		{
 			OwningUser = owningUser;
 			OwningApplication = owningApplication;
 			CreationDate = creationDate;
+
 
 		}
 
@@ -17733,30 +19894,161 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcparameterizedprofiledef.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrectangleprofiledef.htm"/>
 	/// </summary>
-	public abstract partial class IfcParameterizedProfileDef : IfcProfileDef
+	public  partial class IfcRectangleProfileDef : IfcParameterizedProfileDef
 	{
-		[JsonProperty("position")]
-		public IfcAxis2Placement2D Position {get;set;} // optional
+		public IfcPositiveLengthMeasure XDim{get;set;} 
+		public IfcPositiveLengthMeasure YDim{get;set;} 
 
-		public IfcParameterizedProfileDef(IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(profileType
-					,hasExternalReference
-					,hasProperties
-					)
+		public IfcRectangleProfileDef(IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim,IfcProfileTypeEnum profileType):base(profileType)
 		{
+			XDim = xDim;
+			YDim = yDim;
+
 
 		}
 
-		public static new IfcParameterizedProfileDef FromJSON(string json)
+		public static new IfcRectangleProfileDef FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcParameterizedProfileDef>(json);
+			return JsonConvert.DeserializeObject<IfcRectangleProfileDef>(json);
 		}
 
-		public static new IfcParameterizedProfileDef FromSTEP(string step)
+		public static new IfcRectangleProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctshapeprofiledef.htm"/>
+	/// </summary>
+	public  partial class IfcTShapeProfileDef : IfcParameterizedProfileDef
+	{
+		public IfcPositiveLengthMeasure Depth{get;set;} 
+		public IfcPositiveLengthMeasure FlangeWidth{get;set;} 
+		public IfcPositiveLengthMeasure WebThickness{get;set;} 
+		public IfcPositiveLengthMeasure FlangeThickness{get;set;} 
+		public IfcNonNegativeLengthMeasure FilletRadius{get;set;} // optional
+		public IfcNonNegativeLengthMeasure FlangeEdgeRadius{get;set;} // optional
+		public IfcNonNegativeLengthMeasure WebEdgeRadius{get;set;} // optional
+		public IfcPlaneAngleMeasure WebSlope{get;set;} // optional
+		public IfcPlaneAngleMeasure FlangeSlope{get;set;} // optional
+
+		public IfcTShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure flangeWidth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcProfileTypeEnum profileType):base(profileType)
+		{
+			Depth = depth;
+			FlangeWidth = flangeWidth;
+			WebThickness = webThickness;
+			FlangeThickness = flangeThickness;
+
+
+		}
+
+		public static new IfcTShapeProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTShapeProfileDef>(json);
+		}
+
+		public static new IfcTShapeProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctrapeziumprofiledef.htm"/>
+	/// </summary>
+	public  partial class IfcTrapeziumProfileDef : IfcParameterizedProfileDef
+	{
+		public IfcPositiveLengthMeasure BottomXDim{get;set;} 
+		public IfcPositiveLengthMeasure TopXDim{get;set;} 
+		public IfcPositiveLengthMeasure YDim{get;set;} 
+		public IfcLengthMeasure TopXOffset{get;set;} 
+
+		public IfcTrapeziumProfileDef(IfcPositiveLengthMeasure bottomXDim,IfcPositiveLengthMeasure topXDim,IfcPositiveLengthMeasure yDim,IfcLengthMeasure topXOffset,IfcProfileTypeEnum profileType):base(profileType)
+		{
+			BottomXDim = bottomXDim;
+			TopXDim = topXDim;
+			YDim = yDim;
+			TopXOffset = topXOffset;
+
+
+		}
+
+		public static new IfcTrapeziumProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTrapeziumProfileDef>(json);
+		}
+
+		public static new IfcTrapeziumProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcushapeprofiledef.htm"/>
+	/// </summary>
+	public  partial class IfcUShapeProfileDef : IfcParameterizedProfileDef
+	{
+		public IfcPositiveLengthMeasure Depth{get;set;} 
+		public IfcPositiveLengthMeasure FlangeWidth{get;set;} 
+		public IfcPositiveLengthMeasure WebThickness{get;set;} 
+		public IfcPositiveLengthMeasure FlangeThickness{get;set;} 
+		public IfcNonNegativeLengthMeasure FilletRadius{get;set;} // optional
+		public IfcNonNegativeLengthMeasure EdgeRadius{get;set;} // optional
+		public IfcPlaneAngleMeasure FlangeSlope{get;set;} // optional
+
+		public IfcUShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure flangeWidth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcProfileTypeEnum profileType):base(profileType)
+		{
+			Depth = depth;
+			FlangeWidth = flangeWidth;
+			WebThickness = webThickness;
+			FlangeThickness = flangeThickness;
+
+
+		}
+
+		public static new IfcUShapeProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcUShapeProfileDef>(json);
+		}
+
+		public static new IfcUShapeProfileDef FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifczshapeprofiledef.htm"/>
+	/// </summary>
+	public  partial class IfcZShapeProfileDef : IfcParameterizedProfileDef
+	{
+		public IfcPositiveLengthMeasure Depth{get;set;} 
+		public IfcPositiveLengthMeasure FlangeWidth{get;set;} 
+		public IfcPositiveLengthMeasure WebThickness{get;set;} 
+		public IfcPositiveLengthMeasure FlangeThickness{get;set;} 
+		public IfcNonNegativeLengthMeasure FilletRadius{get;set;} // optional
+		public IfcNonNegativeLengthMeasure EdgeRadius{get;set;} // optional
+
+		public IfcZShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure flangeWidth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcProfileTypeEnum profileType):base(profileType)
+		{
+			Depth = depth;
+			FlangeWidth = flangeWidth;
+			WebThickness = webThickness;
+			FlangeThickness = flangeThickness;
+
+
+		}
+
+		public static new IfcZShapeProfileDef FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcZShapeProfileDef>(json);
+		}
+
+		public static new IfcZShapeProfileDef FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -17767,17 +20059,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcPath : IfcTopologicalRepresentationItem
 	{
-		[JsonProperty("edgeList")]
-		public List<IfcOrientedEdge> EdgeList {get;set;} 
+		public List<IfcOrientedEdge> EdgeList{get;set;} 
 
-		public IfcPath(List<IfcOrientedEdge> edgeList
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcPath(List<IfcOrientedEdge> edgeList):base()
 		{
 			EdgeList = edgeList;
+
 
 		}
 
@@ -17793,91 +20080,21 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpcurve.htm"/>
-	/// </summary>
-	public  partial class IfcPcurve : IfcCurve
-	{
-		[JsonProperty("basisSurface")]
-		public IfcSurface BasisSurface {get;set;} 
-		[JsonProperty("referenceCurve")]
-		public IfcCurve ReferenceCurve {get;set;} 
-
-		public IfcPcurve(IfcSurface basisSurface
-				,IfcCurve referenceCurve
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-			BasisSurface = basisSurface;
-			ReferenceCurve = referenceCurve;
-
-		}
-
-		public static new IfcPcurve FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPcurve>(json);
-		}
-
-		public static new IfcPcurve FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcperformancehistory.htm"/>
-	/// </summary>
-	public  partial class IfcPerformanceHistory : IfcControl
-	{
-		[JsonProperty("lifeCyclePhase")]
-		public IfcLabel LifeCyclePhase {get;set;} 
-		[JsonProperty("predefinedType")]
-		public IfcPerformanceHistoryTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcPerformanceHistory(IfcLabel lifeCyclePhase
-				) : base()
-		{
-			LifeCyclePhase = lifeCyclePhase;
-
-		}
-
-		public static new IfcPerformanceHistory FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPerformanceHistory>(json);
-		}
-
-		public static new IfcPerformanceHistory FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpermeablecoveringproperties.htm"/>
 	/// </summary>
 	public  partial class IfcPermeableCoveringProperties : IfcPreDefinedPropertySet
 	{
-		[JsonProperty("operationType")]
-		public IfcPermeableCoveringOperationEnum OperationType {get;set;} 
-		[JsonProperty("panelPosition")]
-		public IfcWindowPanelPositionEnum PanelPosition {get;set;} 
-		[JsonProperty("frameDepth")]
-		public IfcPositiveLengthMeasure FrameDepth {get;set;} // optional
-		[JsonProperty("frameThickness")]
-		public IfcPositiveLengthMeasure FrameThickness {get;set;} // optional
-		[JsonProperty("shapeAspectStyle")]
-		public IfcShapeAspect ShapeAspectStyle {get;set;} // optional
+		public IfcPermeableCoveringOperationEnum OperationType{get;set;} 
+		public IfcWindowPanelPositionEnum PanelPosition{get;set;} 
+		public IfcPositiveLengthMeasure FrameDepth{get;set;} // optional
+		public IfcPositiveLengthMeasure FrameThickness{get;set;} // optional
+		public IfcShapeAspect ShapeAspectStyle{get;set;} // optional
 
-		public IfcPermeableCoveringProperties(IfcPermeableCoveringOperationEnum operationType
-				,IfcWindowPanelPositionEnum panelPosition
-				,List<IfcTypeObject> definesType
-				) : base(definesType
-					)
+		public IfcPermeableCoveringProperties(IfcPermeableCoveringOperationEnum operationType,IfcWindowPanelPositionEnum panelPosition,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			OperationType = operationType;
 			PanelPosition = panelPosition;
+
 
 		}
 
@@ -17893,61 +20110,22 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpermit.htm"/>
-	/// </summary>
-	public  partial class IfcPermit : IfcControl
-	{
-		[JsonProperty("predefinedType")]
-		public IfcPermitTypeEnum PredefinedType {get;set;} // optional
-		[JsonProperty("status")]
-		public IfcLabel Status {get;set;} // optional
-		[JsonProperty("longDescription")]
-		public IfcText LongDescription {get;set;} // optional
-
-		public IfcPermit() : base()
-		{
-
-		}
-
-		public static new IfcPermit FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPermit>(json);
-		}
-
-		public static new IfcPermit FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcperson.htm"/>
 	/// </summary>
 	public  partial class IfcPerson : IfcBase
 	{
-		[JsonProperty("identification")]
-		public IfcIdentifier Identification {get;set;} // optional
-		[JsonProperty("familyName")]
-		public IfcLabel FamilyName {get;set;} // optional
-		[JsonProperty("givenName")]
-		public IfcLabel GivenName {get;set;} // optional
-		[JsonProperty("middleNames")]
-		public List<IfcLabel> MiddleNames {get;set;} // optional
-		[JsonProperty("prefixTitles")]
-		public List<IfcLabel> PrefixTitles {get;set;} // optional
-		[JsonProperty("suffixTitles")]
-		public List<IfcLabel> SuffixTitles {get;set;} // optional
-		[JsonProperty("roles")]
-		public List<IfcActorRole> Roles {get;set;} // optional
-		[JsonProperty("addresses")]
-		public List<IfcAddress> Addresses {get;set;} // optional
-		[JsonProperty("engagedIn")]
-		public List<IfcPersonAndOrganization> EngagedIn {get;set;} 
+		public IfcIdentifier Identification{get;set;} // optional
+		public IfcLabel FamilyName{get;set;} // optional
+		public IfcLabel GivenName{get;set;} // optional
+		public List<IfcLabel> MiddleNames{get;set;} // optional
+		public List<IfcLabel> PrefixTitles{get;set;} // optional
+		public List<IfcLabel> SuffixTitles{get;set;} // optional
+		public List<IfcActorRole> Roles{get;set;} // optional
+		public List<IfcAddress> Addresses{get;set;} // optional
 
-		public IfcPerson(List<IfcPersonAndOrganization> engagedIn
-				)
+		public IfcPerson():base()
 		{
-			EngagedIn = engagedIn;
+
 			MiddleNames = new List<IfcLabel>();
 			PrefixTitles = new List<IfcLabel>();
 			SuffixTitles = new List<IfcLabel>();
@@ -17972,19 +20150,15 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcPersonAndOrganization : IfcBase
 	{
-		[JsonProperty("thePerson")]
-		public IfcPerson ThePerson {get;set;} 
-		[JsonProperty("theOrganization")]
-		public IfcOrganization TheOrganization {get;set;} 
-		[JsonProperty("roles")]
-		public List<IfcActorRole> Roles {get;set;} // optional
+		public IfcPerson ThePerson{get;set;} 
+		public IfcOrganization TheOrganization{get;set;} 
+		public List<IfcActorRole> Roles{get;set;} // optional
 
-		public IfcPersonAndOrganization(IfcPerson thePerson
-				,IfcOrganization theOrganization
-				)
+		public IfcPersonAndOrganization(IfcPerson thePerson,IfcOrganization theOrganization):base()
 		{
 			ThePerson = thePerson;
 			TheOrganization = theOrganization;
+
 			Roles = new List<IfcActorRole>();
 
 		}
@@ -18005,27 +20179,16 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcPhysicalComplexQuantity : IfcPhysicalQuantity
 	{
-		[JsonProperty("hasQuantities")]
-		public List<IfcPhysicalQuantity> HasQuantities {get;set;} 
-		[JsonProperty("discrimination")]
-		public IfcLabel Discrimination {get;set;} 
-		[JsonProperty("quality")]
-		public IfcLabel Quality {get;set;} // optional
-		[JsonProperty("usage")]
-		public IfcLabel Usage {get;set;} // optional
+		public List<IfcPhysicalQuantity> HasQuantities{get;set;} 
+		public IfcLabel Discrimination{get;set;} 
+		public IfcLabel Quality{get;set;} // optional
+		public IfcLabel Usage{get;set;} // optional
 
-		public IfcPhysicalComplexQuantity(List<IfcPhysicalQuantity> hasQuantities
-				,IfcLabel discrimination
-				,IfcLabel name
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcPhysicalComplexQuantity> partOfComplex
-				) : base(name
-					,hasExternalReferences
-					,partOfComplex
-					)
+		public IfcPhysicalComplexQuantity(List<IfcPhysicalQuantity> hasQuantities,IfcLabel discrimination,IfcLabel name):base(name)
 		{
 			HasQuantities = hasQuantities;
 			Discrimination = discrimination;
+
 
 		}
 
@@ -18045,23 +20208,13 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcPhysicalQuantity : IfcBase
 	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} 
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("hasExternalReferences")]
-		public List<IfcExternalReferenceRelationship> HasExternalReferences {get;set;} 
-		[JsonProperty("partOfComplex")]
-		public List<IfcPhysicalComplexQuantity> PartOfComplex {get;set;} 
+		public IfcLabel Name{get;set;} 
+		public IfcText Description{get;set;} // optional
 
-		public IfcPhysicalQuantity(IfcLabel name
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcPhysicalComplexQuantity> partOfComplex
-				)
+		public IfcPhysicalQuantity(IfcLabel name):base()
 		{
 			Name = name;
-			HasExternalReferences = hasExternalReferences;
-			PartOfComplex = partOfComplex;
+
 
 		}
 
@@ -18081,17 +20234,11 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcPhysicalSimpleQuantity : IfcPhysicalQuantity
 	{
-		[JsonProperty("unit")]
-		public IfcNamedUnit Unit {get;set;} // optional
+		public IfcNamedUnit Unit{get;set;} // optional
 
-		public IfcPhysicalSimpleQuantity(IfcLabel name
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcPhysicalComplexQuantity> partOfComplex
-				) : base(name
-					,hasExternalReferences
-					,partOfComplex
-					)
+		public IfcPhysicalSimpleQuantity(IfcLabel name):base(name)
 		{
+
 
 		}
 
@@ -18107,152 +20254,156 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpile.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcquantityarea.htm"/>
 	/// </summary>
-	public  partial class IfcPile : IfcBuildingElement
+	public  partial class IfcQuantityArea : IfcPhysicalSimpleQuantity
 	{
-		[JsonProperty("predefinedType")]
-		public IfcPileTypeEnum PredefinedType {get;set;} // optional
-		[JsonProperty("constructionType")]
-		public IfcPileConstructionEnum ConstructionType {get;set;} // optional
+		public IfcAreaMeasure AreaValue{get;set;} 
+		public IfcLabel Formula{get;set;} // optional
 
-		public IfcPile() : base()
+		public IfcQuantityArea(IfcAreaMeasure areaValue,IfcLabel name):base(name)
 		{
+			AreaValue = areaValue;
+
 
 		}
 
-		public static new IfcPile FromJSON(string json)
+		public static new IfcQuantityArea FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcPile>(json);
+			return JsonConvert.DeserializeObject<IfcQuantityArea>(json);
 		}
 
-		public static new IfcPile FromSTEP(string step)
+		public static new IfcQuantityArea FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpiletype.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcquantitycount.htm"/>
 	/// </summary>
-	public  partial class IfcPileType : IfcBuildingElementType
+	public  partial class IfcQuantityCount : IfcPhysicalSimpleQuantity
 	{
-		[JsonProperty("predefinedType")]
-		public IfcPileTypeEnum PredefinedType {get;set;} 
+		public IfcCountMeasure CountValue{get;set;} 
+		public IfcLabel Formula{get;set;} // optional
 
-		public IfcPileType(IfcPileTypeEnum predefinedType
-				) : base()
+		public IfcQuantityCount(IfcCountMeasure countValue,IfcLabel name):base(name)
 		{
-			PredefinedType = predefinedType;
+			CountValue = countValue;
+
 
 		}
 
-		public static new IfcPileType FromJSON(string json)
+		public static new IfcQuantityCount FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcPileType>(json);
+			return JsonConvert.DeserializeObject<IfcQuantityCount>(json);
 		}
 
-		public static new IfcPileType FromSTEP(string step)
+		public static new IfcQuantityCount FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpipefitting.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcquantitylength.htm"/>
 	/// </summary>
-	public  partial class IfcPipeFitting : IfcFlowFitting
+	public  partial class IfcQuantityLength : IfcPhysicalSimpleQuantity
 	{
-		[JsonProperty("predefinedType")]
-		public IfcPipeFittingTypeEnum PredefinedType {get;set;} // optional
+		public IfcLengthMeasure LengthValue{get;set;} 
+		public IfcLabel Formula{get;set;} // optional
 
-		public IfcPipeFitting() : base()
+		public IfcQuantityLength(IfcLengthMeasure lengthValue,IfcLabel name):base(name)
 		{
+			LengthValue = lengthValue;
+
 
 		}
 
-		public static new IfcPipeFitting FromJSON(string json)
+		public static new IfcQuantityLength FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcPipeFitting>(json);
+			return JsonConvert.DeserializeObject<IfcQuantityLength>(json);
 		}
 
-		public static new IfcPipeFitting FromSTEP(string step)
+		public static new IfcQuantityLength FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpipefittingtype.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcquantitytime.htm"/>
 	/// </summary>
-	public  partial class IfcPipeFittingType : IfcFlowFittingType
+	public  partial class IfcQuantityTime : IfcPhysicalSimpleQuantity
 	{
-		[JsonProperty("predefinedType")]
-		public IfcPipeFittingTypeEnum PredefinedType {get;set;} 
+		public IfcTimeMeasure TimeValue{get;set;} 
+		public IfcLabel Formula{get;set;} // optional
 
-		public IfcPipeFittingType(IfcPipeFittingTypeEnum predefinedType
-				) : base()
+		public IfcQuantityTime(IfcTimeMeasure timeValue,IfcLabel name):base(name)
 		{
-			PredefinedType = predefinedType;
+			TimeValue = timeValue;
+
 
 		}
 
-		public static new IfcPipeFittingType FromJSON(string json)
+		public static new IfcQuantityTime FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcPipeFittingType>(json);
+			return JsonConvert.DeserializeObject<IfcQuantityTime>(json);
 		}
 
-		public static new IfcPipeFittingType FromSTEP(string step)
+		public static new IfcQuantityTime FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpipesegment.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcquantityvolume.htm"/>
 	/// </summary>
-	public  partial class IfcPipeSegment : IfcFlowSegment
+	public  partial class IfcQuantityVolume : IfcPhysicalSimpleQuantity
 	{
-		[JsonProperty("predefinedType")]
-		public IfcPipeSegmentTypeEnum PredefinedType {get;set;} // optional
+		public IfcVolumeMeasure VolumeValue{get;set;} 
+		public IfcLabel Formula{get;set;} // optional
 
-		public IfcPipeSegment() : base()
+		public IfcQuantityVolume(IfcVolumeMeasure volumeValue,IfcLabel name):base(name)
 		{
+			VolumeValue = volumeValue;
+
 
 		}
 
-		public static new IfcPipeSegment FromJSON(string json)
+		public static new IfcQuantityVolume FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcPipeSegment>(json);
+			return JsonConvert.DeserializeObject<IfcQuantityVolume>(json);
 		}
 
-		public static new IfcPipeSegment FromSTEP(string step)
+		public static new IfcQuantityVolume FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpipesegmenttype.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcquantityweight.htm"/>
 	/// </summary>
-	public  partial class IfcPipeSegmentType : IfcFlowSegmentType
+	public  partial class IfcQuantityWeight : IfcPhysicalSimpleQuantity
 	{
-		[JsonProperty("predefinedType")]
-		public IfcPipeSegmentTypeEnum PredefinedType {get;set;} 
+		public IfcMassMeasure WeightValue{get;set;} 
+		public IfcLabel Formula{get;set;} // optional
 
-		public IfcPipeSegmentType(IfcPipeSegmentTypeEnum predefinedType
-				) : base()
+		public IfcQuantityWeight(IfcMassMeasure weightValue,IfcLabel name):base(name)
 		{
-			PredefinedType = predefinedType;
+			WeightValue = weightValue;
+
 
 		}
 
-		public static new IfcPipeSegmentType FromJSON(string json)
+		public static new IfcQuantityWeight FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcPipeSegmentType>(json);
+			return JsonConvert.DeserializeObject<IfcQuantityWeight>(json);
 		}
 
-		public static new IfcPipeSegmentType FromSTEP(string step)
+		public static new IfcQuantityWeight FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -18263,33 +20414,18 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcPixelTexture : IfcSurfaceTexture
 	{
-		[JsonProperty("width")]
-		public IfcInteger Width {get;set;} 
-		[JsonProperty("height")]
-		public IfcInteger Height {get;set;} 
-		[JsonProperty("colourComponents")]
-		public IfcInteger ColourComponents {get;set;} 
-		[JsonProperty("pixel")]
-		public List<System.Byte[]> Pixel {get;set;} 
+		public IfcInteger Width{get;set;} 
+		public IfcInteger Height{get;set;} 
+		public IfcInteger ColourComponents{get;set;} 
+		public List<byte[]> Pixel{get;set;} 
 
-		public IfcPixelTexture(IfcInteger width
-				,IfcInteger height
-				,IfcInteger colourComponents
-				,List<System.Byte[]> pixel
-				,bool repeatS
-				,bool repeatT
-				,List<IfcTextureCoordinate> isMappedBy
-				,List<IfcSurfaceStyleWithTextures> usedInStyles
-				) : base(repeatS
-					,repeatT
-					,isMappedBy
-					,usedInStyles
-					)
+		public IfcPixelTexture(IfcInteger width,IfcInteger height,IfcInteger colourComponents,List<byte[]> pixel,bool repeatS,bool repeatT):base(repeatS,repeatT)
 		{
 			Width = width;
 			Height = height;
 			ColourComponents = colourComponents;
 			Pixel = pixel;
+
 
 		}
 
@@ -18305,55 +20441,16 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcplacement.htm"/>
-	/// </summary>
-	public abstract partial class IfcPlacement : IfcGeometricRepresentationItem
-	{
-		[JsonProperty("location")]
-		public IfcCartesianPoint Location {get;set;} 
-
-		public IfcPlacement(IfcCartesianPoint location
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-			Location = location;
-
-		}
-
-		public static new IfcPlacement FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPlacement>(json);
-		}
-
-		public static new IfcPlacement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcplanarbox.htm"/>
 	/// </summary>
 	public  partial class IfcPlanarBox : IfcPlanarExtent
 	{
-		[JsonProperty("placement")]
-		public IfcAxis2Placement Placement {get;set;} 
+		public IfcAxis2Placement Placement{get;set;} 
 
-		public IfcPlanarBox(IfcAxis2Placement placement
-				,IfcLengthMeasure sizeInX
-				,IfcLengthMeasure sizeInY
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(sizeInX
-					,sizeInY
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcPlanarBox(IfcAxis2Placement placement,IfcLengthMeasure sizeInX,IfcLengthMeasure sizeInY):base(sizeInX,sizeInY)
 		{
 			Placement = placement;
+
 
 		}
 
@@ -18369,99 +20466,14 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcplanarextent.htm"/>
-	/// </summary>
-	public  partial class IfcPlanarExtent : IfcGeometricRepresentationItem
-	{
-		[JsonProperty("sizeInX")]
-		public IfcLengthMeasure SizeInX {get;set;} 
-		[JsonProperty("sizeInY")]
-		public IfcLengthMeasure SizeInY {get;set;} 
-
-		public IfcPlanarExtent(IfcLengthMeasure sizeInX
-				,IfcLengthMeasure sizeInY
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-			SizeInX = sizeInX;
-			SizeInY = sizeInY;
-
-		}
-
-		public static new IfcPlanarExtent FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPlanarExtent>(json);
-		}
-
-		public static new IfcPlanarExtent FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcplane.htm"/>
-	/// </summary>
-	public  partial class IfcPlane : IfcElementarySurface
-	{
-
-		public IfcPlane(IfcAxis2Placement3D position
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(position
-					,layerAssignment
-					,styledByItem
-					)
-		{
-
-		}
-
-		public static new IfcPlane FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPlane>(json);
-		}
-
-		public static new IfcPlane FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcplate.htm"/>
-	/// </summary>
-	public  partial class IfcPlate : IfcBuildingElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcPlateTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcPlate() : base()
-		{
-
-		}
-
-		public static new IfcPlate FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPlate>(json);
-		}
-
-		public static new IfcPlate FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcplatestandardcase.htm"/>
 	/// </summary>
 	public  partial class IfcPlateStandardCase : IfcPlate
 	{
 
-		public IfcPlateStandardCase() : base()
+		public IfcPlateStandardCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -18477,77 +20489,18 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcplatetype.htm"/>
-	/// </summary>
-	public  partial class IfcPlateType : IfcBuildingElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcPlateTypeEnum PredefinedType {get;set;} 
-
-		public IfcPlateType(IfcPlateTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcPlateType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPlateType>(json);
-		}
-
-		public static new IfcPlateType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpoint.htm"/>
-	/// </summary>
-	public abstract partial class IfcPoint : IfcGeometricRepresentationItem
-	{
-
-		public IfcPoint(List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-
-		}
-
-		public static new IfcPoint FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPoint>(json);
-		}
-
-		public static new IfcPoint FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpointoncurve.htm"/>
 	/// </summary>
 	public  partial class IfcPointOnCurve : IfcPoint
 	{
-		[JsonProperty("basisCurve")]
-		public IfcCurve BasisCurve {get;set;} 
-		[JsonProperty("pointParameter")]
-		public IfcParameterValue PointParameter {get;set;} 
+		public IfcCurve BasisCurve{get;set;} 
+		public IfcParameterValue PointParameter{get;set;} 
 
-		public IfcPointOnCurve(IfcCurve basisCurve
-				,IfcParameterValue pointParameter
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcPointOnCurve(IfcCurve basisCurve,IfcParameterValue pointParameter):base()
 		{
 			BasisCurve = basisCurve;
 			PointParameter = pointParameter;
+
 
 		}
 
@@ -18567,25 +20520,16 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcPointOnSurface : IfcPoint
 	{
-		[JsonProperty("basisSurface")]
-		public IfcSurface BasisSurface {get;set;} 
-		[JsonProperty("pointParameterU")]
-		public IfcParameterValue PointParameterU {get;set;} 
-		[JsonProperty("pointParameterV")]
-		public IfcParameterValue PointParameterV {get;set;} 
+		public IfcSurface BasisSurface{get;set;} 
+		public IfcParameterValue PointParameterU{get;set;} 
+		public IfcParameterValue PointParameterV{get;set;} 
 
-		public IfcPointOnSurface(IfcSurface basisSurface
-				,IfcParameterValue pointParameterU
-				,IfcParameterValue pointParameterV
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcPointOnSurface(IfcSurface basisSurface,IfcParameterValue pointParameterU,IfcParameterValue pointParameterV):base()
 		{
 			BasisSurface = basisSurface;
 			PointParameterU = pointParameterU;
 			PointParameterV = pointParameterV;
+
 
 		}
 
@@ -18601,232 +20545,16 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpolyloop.htm"/>
-	/// </summary>
-	public  partial class IfcPolyLoop : IfcLoop
-	{
-		[JsonProperty("polygon")]
-		public List<IfcCartesianPoint> Polygon {get;set;} 
-
-		public IfcPolyLoop(List<IfcCartesianPoint> polygon
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-			Polygon = polygon;
-
-		}
-
-		public static new IfcPolyLoop FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPolyLoop>(json);
-		}
-
-		public static new IfcPolyLoop FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpolygonalboundedhalfspace.htm"/>
-	/// </summary>
-	public  partial class IfcPolygonalBoundedHalfSpace : IfcHalfSpaceSolid
-	{
-		[JsonProperty("position")]
-		public IfcAxis2Placement3D Position {get;set;} 
-		[JsonProperty("polygonalBoundary")]
-		public IfcBoundedCurve PolygonalBoundary {get;set;} 
-
-		public IfcPolygonalBoundedHalfSpace(IfcAxis2Placement3D position
-				,IfcBoundedCurve polygonalBoundary
-				,IfcSurface baseSurface
-				,bool agreementFlag
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(baseSurface
-					,agreementFlag
-					,layerAssignment
-					,styledByItem
-					)
-		{
-			Position = position;
-			PolygonalBoundary = polygonalBoundary;
-
-		}
-
-		public static new IfcPolygonalBoundedHalfSpace FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPolygonalBoundedHalfSpace>(json);
-		}
-
-		public static new IfcPolygonalBoundedHalfSpace FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpolyline.htm"/>
-	/// </summary>
-	public  partial class IfcPolyline : IfcBoundedCurve
-	{
-		[JsonProperty("points")]
-		public List<IfcCartesianPoint> Points {get;set;} 
-
-		public IfcPolyline(List<IfcCartesianPoint> points
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-			Points = points;
-
-		}
-
-		public static new IfcPolyline FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPolyline>(json);
-		}
-
-		public static new IfcPolyline FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcport.htm"/>
-	/// </summary>
-	public abstract partial class IfcPort : IfcProduct
-	{
-		[JsonProperty("containedIn")]
-		public List<IfcRelConnectsPortToElement> ContainedIn {get;set;} 
-		[JsonProperty("connectedFrom")]
-		public List<IfcRelConnectsPorts> ConnectedFrom {get;set;} 
-		[JsonProperty("connectedTo")]
-		public List<IfcRelConnectsPorts> ConnectedTo {get;set;} 
-
-		public IfcPort() : base()
-		{
-
-		}
-
-		public static new IfcPort FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPort>(json);
-		}
-
-		public static new IfcPort FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpostaladdress.htm"/>
-	/// </summary>
-	public  partial class IfcPostalAddress : IfcAddress
-	{
-		[JsonProperty("internalLocation")]
-		public IfcLabel InternalLocation {get;set;} // optional
-		[JsonProperty("addressLines")]
-		public List<IfcLabel> AddressLines {get;set;} // optional
-		[JsonProperty("postalBox")]
-		public IfcLabel PostalBox {get;set;} // optional
-		[JsonProperty("town")]
-		public IfcLabel Town {get;set;} // optional
-		[JsonProperty("region")]
-		public IfcLabel Region {get;set;} // optional
-		[JsonProperty("postalCode")]
-		public IfcLabel PostalCode {get;set;} // optional
-		[JsonProperty("country")]
-		public IfcLabel Country {get;set;} // optional
-
-		public IfcPostalAddress(List<IfcPerson> ofPerson
-				,List<IfcOrganization> ofOrganization
-				) : base(ofPerson
-					,ofOrganization
-					)
-		{
-			AddressLines = new List<IfcLabel>();
-
-		}
-
-		public static new IfcPostalAddress FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPostalAddress>(json);
-		}
-
-		public static new IfcPostalAddress FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpredefinedcolour.htm"/>
-	/// </summary>
-	public abstract partial class IfcPreDefinedColour : IfcPreDefinedItem
-	{
-
-		public IfcPreDefinedColour(IfcLabel name
-				) : base(name
-					)
-		{
-
-		}
-
-		public static new IfcPreDefinedColour FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPreDefinedColour>(json);
-		}
-
-		public static new IfcPreDefinedColour FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpredefinedcurvefont.htm"/>
-	/// </summary>
-	public abstract partial class IfcPreDefinedCurveFont : IfcPreDefinedItem
-	{
-
-		public IfcPreDefinedCurveFont(IfcLabel name
-				) : base(name
-					)
-		{
-
-		}
-
-		public static new IfcPreDefinedCurveFont FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPreDefinedCurveFont>(json);
-		}
-
-		public static new IfcPreDefinedCurveFont FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpredefineditem.htm"/>
 	/// </summary>
 	public abstract partial class IfcPreDefinedItem : IfcPresentationItem
 	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} 
+		public IfcLabel Name{get;set;} 
 
-		public IfcPreDefinedItem(IfcLabel name
-				) : base()
+		public IfcPreDefinedItem(IfcLabel name):base()
 		{
 			Name = name;
+
 
 		}
 
@@ -18842,63 +20570,14 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpredefinedproperties.htm"/>
-	/// </summary>
-	public abstract partial class IfcPreDefinedProperties : IfcPropertyAbstraction
-	{
-
-		public IfcPreDefinedProperties(List<IfcExternalReferenceRelationship> hasExternalReferences
-				) : base(hasExternalReferences
-					)
-		{
-
-		}
-
-		public static new IfcPreDefinedProperties FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPreDefinedProperties>(json);
-		}
-
-		public static new IfcPreDefinedProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpredefinedpropertyset.htm"/>
-	/// </summary>
-	public abstract partial class IfcPreDefinedPropertySet : IfcPropertySetDefinition
-	{
-
-		public IfcPreDefinedPropertySet(List<IfcTypeObject> definesType
-				) : base(definesType
-					)
-		{
-
-		}
-
-		public static new IfcPreDefinedPropertySet FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPreDefinedPropertySet>(json);
-		}
-
-		public static new IfcPreDefinedPropertySet FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpredefinedtextfont.htm"/>
 	/// </summary>
 	public abstract partial class IfcPreDefinedTextFont : IfcPreDefinedItem
 	{
 
-		public IfcPreDefinedTextFont(IfcLabel name
-				) : base(name
-					)
+		public IfcPreDefinedTextFont(IfcLabel name):base(name)
 		{
+
 
 		}
 
@@ -18914,22 +20593,472 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpresentationitem.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpredefinedproperties.htm"/>
 	/// </summary>
-	public abstract partial class IfcPresentationItem : IfcBase
+	public abstract partial class IfcPreDefinedProperties : IfcPropertyAbstraction
 	{
 
-		public IfcPresentationItem()
+		public IfcPreDefinedProperties():base()
 		{
+
 
 		}
 
-		public static  IfcPresentationItem FromJSON(string json)
+		public static new IfcPreDefinedProperties FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcPresentationItem>(json);
+			return JsonConvert.DeserializeObject<IfcPreDefinedProperties>(json);
 		}
 
-		public static  IfcPresentationItem FromSTEP(string step)
+		public static new IfcPreDefinedProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreinforcementbarproperties.htm"/>
+	/// </summary>
+	public  partial class IfcReinforcementBarProperties : IfcPreDefinedProperties
+	{
+		public IfcAreaMeasure TotalCrossSectionArea{get;set;} 
+		public IfcLabel SteelGrade{get;set;} 
+		public IfcReinforcingBarSurfaceEnum BarSurface{get;set;} // optional
+		public IfcLengthMeasure EffectiveDepth{get;set;} // optional
+		public IfcPositiveLengthMeasure NominalBarDiameter{get;set;} // optional
+		public IfcCountMeasure BarCount{get;set;} // optional
+
+		public IfcReinforcementBarProperties(IfcAreaMeasure totalCrossSectionArea,IfcLabel steelGrade):base()
+		{
+			TotalCrossSectionArea = totalCrossSectionArea;
+			SteelGrade = steelGrade;
+
+
+		}
+
+		public static new IfcReinforcementBarProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcReinforcementBarProperties>(json);
+		}
+
+		public static new IfcReinforcementBarProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsectionproperties.htm"/>
+	/// </summary>
+	public  partial class IfcSectionProperties : IfcPreDefinedProperties
+	{
+		public IfcSectionTypeEnum SectionType{get;set;} 
+		public IfcProfileDef StartProfile{get;set;} 
+		public IfcProfileDef EndProfile{get;set;} // optional
+
+		public IfcSectionProperties(IfcSectionTypeEnum sectionType,IfcProfileDef startProfile):base()
+		{
+			SectionType = sectionType;
+			StartProfile = startProfile;
+
+
+		}
+
+		public static new IfcSectionProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSectionProperties>(json);
+		}
+
+		public static new IfcSectionProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsectionreinforcementproperties.htm"/>
+	/// </summary>
+	public  partial class IfcSectionReinforcementProperties : IfcPreDefinedProperties
+	{
+		public IfcLengthMeasure LongitudinalStartPosition{get;set;} 
+		public IfcLengthMeasure LongitudinalEndPosition{get;set;} 
+		public IfcLengthMeasure TransversePosition{get;set;} // optional
+		public IfcReinforcingBarRoleEnum ReinforcementRole{get;set;} 
+		public IfcSectionProperties SectionDefinition{get;set;} 
+		public List<IfcReinforcementBarProperties> CrossSectionReinforcementDefinitions{get;set;} 
+
+		public IfcSectionReinforcementProperties(IfcLengthMeasure longitudinalStartPosition,IfcLengthMeasure longitudinalEndPosition,IfcReinforcingBarRoleEnum reinforcementRole,IfcSectionProperties sectionDefinition,List<IfcReinforcementBarProperties> crossSectionReinforcementDefinitions):base()
+		{
+			LongitudinalStartPosition = longitudinalStartPosition;
+			LongitudinalEndPosition = longitudinalEndPosition;
+			ReinforcementRole = reinforcementRole;
+			SectionDefinition = sectionDefinition;
+			CrossSectionReinforcementDefinitions = crossSectionReinforcementDefinitions;
+
+
+		}
+
+		public static new IfcSectionReinforcementProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSectionReinforcementProperties>(json);
+		}
+
+		public static new IfcSectionReinforcementProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreinforcementdefinitionproperties.htm"/>
+	/// </summary>
+	public  partial class IfcReinforcementDefinitionProperties : IfcPreDefinedPropertySet
+	{
+		public IfcLabel DefinitionType{get;set;} // optional
+		public List<IfcSectionReinforcementProperties> ReinforcementSectionDefinitions{get;set;} 
+
+		public IfcReinforcementDefinitionProperties(List<IfcSectionReinforcementProperties> reinforcementSectionDefinitions,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			ReinforcementSectionDefinitions = reinforcementSectionDefinitions;
+
+
+		}
+
+		public static new IfcReinforcementDefinitionProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcReinforcementDefinitionProperties>(json);
+		}
+
+		public static new IfcReinforcementDefinitionProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwindowliningproperties.htm"/>
+	/// </summary>
+	public  partial class IfcWindowLiningProperties : IfcPreDefinedPropertySet
+	{
+		public IfcPositiveLengthMeasure LiningDepth{get;set;} // optional
+		public IfcNonNegativeLengthMeasure LiningThickness{get;set;} // optional
+		public IfcNonNegativeLengthMeasure TransomThickness{get;set;} // optional
+		public IfcNonNegativeLengthMeasure MullionThickness{get;set;} // optional
+		public IfcNormalisedRatioMeasure FirstTransomOffset{get;set;} // optional
+		public IfcNormalisedRatioMeasure SecondTransomOffset{get;set;} // optional
+		public IfcNormalisedRatioMeasure FirstMullionOffset{get;set;} // optional
+		public IfcNormalisedRatioMeasure SecondMullionOffset{get;set;} // optional
+		public IfcShapeAspect ShapeAspectStyle{get;set;} // optional
+		public IfcLengthMeasure LiningOffset{get;set;} // optional
+		public IfcLengthMeasure LiningToPanelOffsetX{get;set;} // optional
+		public IfcLengthMeasure LiningToPanelOffsetY{get;set;} // optional
+
+		public IfcWindowLiningProperties(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcWindowLiningProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWindowLiningProperties>(json);
+		}
+
+		public static new IfcWindowLiningProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwindowpanelproperties.htm"/>
+	/// </summary>
+	public  partial class IfcWindowPanelProperties : IfcPreDefinedPropertySet
+	{
+		public IfcWindowPanelOperationEnum OperationType{get;set;} 
+		public IfcWindowPanelPositionEnum PanelPosition{get;set;} 
+		public IfcPositiveLengthMeasure FrameDepth{get;set;} // optional
+		public IfcPositiveLengthMeasure FrameThickness{get;set;} // optional
+		public IfcShapeAspect ShapeAspectStyle{get;set;} // optional
+
+		public IfcWindowPanelProperties(IfcWindowPanelOperationEnum operationType,IfcWindowPanelPositionEnum panelPosition,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			OperationType = operationType;
+			PanelPosition = panelPosition;
+
+
+		}
+
+		public static new IfcWindowPanelProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcWindowPanelProperties>(json);
+		}
+
+		public static new IfcWindowPanelProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpropertysetdefinition.htm"/>
+	/// </summary>
+	public abstract partial class IfcPropertySetDefinition : IfcPropertyDefinition
+	{
+
+		public IfcPropertySetDefinition(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcPropertySetDefinition FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPropertySetDefinition>(json);
+		}
+
+		public static new IfcPropertySetDefinition FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctextstylefontmodel.htm"/>
+	/// </summary>
+	public  partial class IfcTextStyleFontModel : IfcPreDefinedTextFont
+	{
+		public List<IfcTextFontName> FontFamily{get;set;} 
+		public IfcFontStyle FontStyle{get;set;} // optional
+		public IfcFontVariant FontVariant{get;set;} // optional
+		public IfcFontWeight FontWeight{get;set;} // optional
+		public IfcSizeSelect FontSize{get;set;} 
+
+		public IfcTextStyleFontModel(List<IfcTextFontName> fontFamily,IfcSizeSelect fontSize,IfcLabel name):base(name)
+		{
+			FontFamily = fontFamily;
+			FontSize = fontSize;
+
+
+		}
+
+		public static new IfcTextStyleFontModel FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextStyleFontModel>(json);
+		}
+
+		public static new IfcTextStyleFontModel FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsurfacestylelighting.htm"/>
+	/// </summary>
+	public  partial class IfcSurfaceStyleLighting : IfcPresentationItem
+	{
+		public IfcColourRgb DiffuseTransmissionColour{get;set;} 
+		public IfcColourRgb DiffuseReflectionColour{get;set;} 
+		public IfcColourRgb TransmissionColour{get;set;} 
+		public IfcColourRgb ReflectanceColour{get;set;} 
+
+		public IfcSurfaceStyleLighting(IfcColourRgb diffuseTransmissionColour,IfcColourRgb diffuseReflectionColour,IfcColourRgb transmissionColour,IfcColourRgb reflectanceColour):base()
+		{
+			DiffuseTransmissionColour = diffuseTransmissionColour;
+			DiffuseReflectionColour = diffuseReflectionColour;
+			TransmissionColour = transmissionColour;
+			ReflectanceColour = reflectanceColour;
+
+
+		}
+
+		public static new IfcSurfaceStyleLighting FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurfaceStyleLighting>(json);
+		}
+
+		public static new IfcSurfaceStyleLighting FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsurfacestylerefraction.htm"/>
+	/// </summary>
+	public  partial class IfcSurfaceStyleRefraction : IfcPresentationItem
+	{
+		public IfcReal RefractionIndex{get;set;} // optional
+		public IfcReal DispersionFactor{get;set;} // optional
+
+		public IfcSurfaceStyleRefraction():base()
+		{
+
+
+		}
+
+		public static new IfcSurfaceStyleRefraction FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurfaceStyleRefraction>(json);
+		}
+
+		public static new IfcSurfaceStyleRefraction FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsurfacestyleshading.htm"/>
+	/// </summary>
+	public  partial class IfcSurfaceStyleShading : IfcPresentationItem
+	{
+		public IfcColourRgb SurfaceColour{get;set;} 
+
+		public IfcSurfaceStyleShading(IfcColourRgb surfaceColour):base()
+		{
+			SurfaceColour = surfaceColour;
+
+
+		}
+
+		public static new IfcSurfaceStyleShading FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurfaceStyleShading>(json);
+		}
+
+		public static new IfcSurfaceStyleShading FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsurfacestylewithtextures.htm"/>
+	/// </summary>
+	public  partial class IfcSurfaceStyleWithTextures : IfcPresentationItem
+	{
+		public List<IfcSurfaceTexture> Textures{get;set;} 
+
+		public IfcSurfaceStyleWithTextures(List<IfcSurfaceTexture> textures):base()
+		{
+			Textures = textures;
+
+
+		}
+
+		public static new IfcSurfaceStyleWithTextures FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurfaceStyleWithTextures>(json);
+		}
+
+		public static new IfcSurfaceStyleWithTextures FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctextstylefordefinedfont.htm"/>
+	/// </summary>
+	public  partial class IfcTextStyleForDefinedFont : IfcPresentationItem
+	{
+		public IfcColour Colour{get;set;} 
+		public IfcColour BackgroundColour{get;set;} // optional
+
+		public IfcTextStyleForDefinedFont(IfcColour colour):base()
+		{
+			Colour = colour;
+
+
+		}
+
+		public static new IfcTextStyleForDefinedFont FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextStyleForDefinedFont>(json);
+		}
+
+		public static new IfcTextStyleForDefinedFont FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctextstyletextmodel.htm"/>
+	/// </summary>
+	public  partial class IfcTextStyleTextModel : IfcPresentationItem
+	{
+		public IfcSizeSelect TextIndent{get;set;} // optional
+		public IfcTextAlignment TextAlign{get;set;} // optional
+		public IfcTextDecoration TextDecoration{get;set;} // optional
+		public IfcSizeSelect LetterSpacing{get;set;} // optional
+		public IfcSizeSelect WordSpacing{get;set;} // optional
+		public IfcTextTransformation TextTransform{get;set;} // optional
+		public IfcSizeSelect LineHeight{get;set;} // optional
+
+		public IfcTextStyleTextModel():base()
+		{
+
+
+		}
+
+		public static new IfcTextStyleTextModel FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextStyleTextModel>(json);
+		}
+
+		public static new IfcTextStyleTextModel FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctexturevertex.htm"/>
+	/// </summary>
+	public  partial class IfcTextureVertex : IfcPresentationItem
+	{
+		public List<IfcParameterValue> Coordinates{get;set;} 
+
+		public IfcTextureVertex(List<IfcParameterValue> coordinates):base()
+		{
+			Coordinates = coordinates;
+
+
+		}
+
+		public static new IfcTextureVertex FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextureVertex>(json);
+		}
+
+		public static new IfcTextureVertex FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctexturevertexlist.htm"/>
+	/// </summary>
+	public  partial class IfcTextureVertexList : IfcPresentationItem
+	{
+		public List<List<IfcParameterValue>> TexCoordsList{get;set;} 
+
+		public IfcTextureVertexList(List<List<IfcParameterValue>> texCoordsList):base()
+		{
+			TexCoordsList = texCoordsList;
+
+
+		}
+
+		public static new IfcTextureVertexList FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextureVertexList>(json);
+		}
+
+		public static new IfcTextureVertexList FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -18940,21 +21069,16 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcPresentationLayerAssignment : IfcBase
 	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} 
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("assignedItems")]
-		public List<IfcLayeredItem> AssignedItems {get;set;} 
-		[JsonProperty("identifier")]
-		public IfcIdentifier Identifier {get;set;} // optional
+		public IfcLabel Name{get;set;} 
+		public IfcText Description{get;set;} // optional
+		public List<IfcLayeredItem> AssignedItems{get;set;} 
+		public IfcIdentifier Identifier{get;set;} // optional
 
-		public IfcPresentationLayerAssignment(IfcLabel name
-				,List<IfcLayeredItem> assignedItems
-				)
+		public IfcPresentationLayerAssignment(IfcLabel name,List<IfcLayeredItem> assignedItems):base()
 		{
 			Name = name;
 			AssignedItems = assignedItems;
+
 
 		}
 
@@ -18974,29 +21098,18 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcPresentationLayerWithStyle : IfcPresentationLayerAssignment
 	{
-		[JsonProperty("layerOn")]
-		public bool? LayerOn {get;set;} 
-		[JsonProperty("layerFrozen")]
-		public bool? LayerFrozen {get;set;} 
-		[JsonProperty("layerBlocked")]
-		public bool? LayerBlocked {get;set;} 
-		[JsonProperty("layerStyles")]
-		public List<IfcPresentationStyle> LayerStyles {get;set;} 
+		public bool? LayerOn{get;set;} 
+		public bool? LayerFrozen{get;set;} 
+		public bool? LayerBlocked{get;set;} 
+		public List<IfcPresentationStyle> LayerStyles{get;set;} 
 
-		public IfcPresentationLayerWithStyle(bool? layerOn
-				,bool? layerFrozen
-				,bool? layerBlocked
-				,List<IfcPresentationStyle> layerStyles
-				,IfcLabel name
-				,List<IfcLayeredItem> assignedItems
-				) : base(name
-					,assignedItems
-					)
+		public IfcPresentationLayerWithStyle(bool? layerOn,bool? layerFrozen,bool? layerBlocked,List<IfcPresentationStyle> layerStyles,IfcLabel name,List<IfcLayeredItem> assignedItems):base(name,assignedItems)
 		{
 			LayerOn = layerOn;
 			LayerFrozen = layerFrozen;
 			LayerBlocked = layerBlocked;
 			LayerStyles = layerStyles;
+
 
 		}
 
@@ -19012,24 +21125,55 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpresentationstyle.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsurfacestyle.htm"/>
 	/// </summary>
-	public abstract partial class IfcPresentationStyle : IfcBase
+	public  partial class IfcSurfaceStyle : IfcPresentationStyle
 	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
+		public IfcSurfaceSide Side{get;set;} 
+		public List<IfcSurfaceStyleElementSelect> Styles{get;set;} 
 
-		public IfcPresentationStyle()
+		public IfcSurfaceStyle(IfcSurfaceSide side,List<IfcSurfaceStyleElementSelect> styles):base()
 		{
+			Side = side;
+			Styles = styles;
+
 
 		}
 
-		public static  IfcPresentationStyle FromJSON(string json)
+		public static new IfcSurfaceStyle FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcPresentationStyle>(json);
+			return JsonConvert.DeserializeObject<IfcSurfaceStyle>(json);
 		}
 
-		public static  IfcPresentationStyle FromSTEP(string step)
+		public static new IfcSurfaceStyle FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctextstyle.htm"/>
+	/// </summary>
+	public  partial class IfcTextStyle : IfcPresentationStyle
+	{
+		public IfcTextStyleForDefinedFont TextCharacterAppearance{get;set;} // optional
+		public IfcTextStyleTextModel TextStyle{get;set;} // optional
+		public IfcTextFontSelect TextFontStyle{get;set;} 
+		public bool ModelOrDraughting{get;set;} // optional
+
+		public IfcTextStyle(IfcTextFontSelect textFontStyle):base()
+		{
+			TextFontStyle = textFontStyle;
+
+
+		}
+
+		public static new IfcTextStyle FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTextStyle>(json);
+		}
+
+		public static new IfcTextStyle FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -19040,13 +21184,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcPresentationStyleAssignment : IfcBase
 	{
-		[JsonProperty("styles")]
-		public List<IfcPresentationStyleSelect> Styles {get;set;} 
+		public List<IfcPresentationStyleSelect> Styles{get;set;} 
 
-		public IfcPresentationStyleAssignment(List<IfcPresentationStyleSelect> styles
-				)
+		public IfcPresentationStyleAssignment(List<IfcPresentationStyleSelect> styles):base()
 		{
 			Styles = styles;
+
 
 		}
 
@@ -19066,11 +21209,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcProcedure : IfcProcess
 	{
-		[JsonProperty("predefinedType")]
-		public IfcProcedureTypeEnum PredefinedType {get;set;} // optional
+		public IfcProcedureTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcProcedure() : base()
+		public IfcProcedure(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -19090,13 +21233,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcProcedureType : IfcTypeProcess
 	{
-		[JsonProperty("predefinedType")]
-		public IfcProcedureTypeEnum PredefinedType {get;set;} 
+		public IfcProcedureTypeEnum PredefinedType{get;set;} 
 
-		public IfcProcedureType(IfcProcedureTypeEnum predefinedType
-				) : base()
+		public IfcProcedureType(IfcProcedureTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -19112,60 +21254,106 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprocess.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctask.htm"/>
 	/// </summary>
-	public abstract partial class IfcProcess : IfcObject
+	public  partial class IfcTask : IfcProcess
 	{
-		[JsonProperty("identification")]
-		public IfcIdentifier Identification {get;set;} // optional
-		[JsonProperty("longDescription")]
-		public IfcText LongDescription {get;set;} // optional
-		[JsonProperty("isPredecessorTo")]
-		public List<IfcRelSequence> IsPredecessorTo {get;set;} 
-		[JsonProperty("isSuccessorFrom")]
-		public List<IfcRelSequence> IsSuccessorFrom {get;set;} 
-		[JsonProperty("operatesOn")]
-		public List<IfcRelAssignsToProcess> OperatesOn {get;set;} 
+		public IfcLabel Status{get;set;} // optional
+		public IfcLabel WorkMethod{get;set;} // optional
+		public bool IsMilestone{get;set;} 
+		public int Priority{get;set;} // optional
+		public IfcTaskTime TaskTime{get;set;} // optional
+		public IfcTaskTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcProcess() : base()
+		public IfcTask(bool isMilestone,IfcGloballyUniqueId globalId):base(globalId)
 		{
+			IsMilestone = isMilestone;
+
 
 		}
 
-		public static new IfcProcess FromJSON(string json)
+		public static new IfcTask FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcProcess>(json);
+			return JsonConvert.DeserializeObject<IfcTask>(json);
 		}
 
-		public static new IfcProcess FromSTEP(string step)
+		public static new IfcTask FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcproduct.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcproxy.htm"/>
 	/// </summary>
-	public abstract partial class IfcProduct : IfcObject
+	public  partial class IfcProxy : IfcProduct
 	{
-		[JsonProperty("objectPlacement")]
-		public IfcObjectPlacement ObjectPlacement {get;set;} // optional
-		[JsonProperty("representation")]
-		public IfcProductRepresentation Representation {get;set;} // optional
-		[JsonProperty("referencedBy")]
-		public List<IfcRelAssignsToProduct> ReferencedBy {get;set;} 
+		public IfcObjectTypeEnum ProxyType{get;set;} 
+		public IfcLabel Tag{get;set;} // optional
 
-		public IfcProduct() : base()
+		public IfcProxy(IfcObjectTypeEnum proxyType,IfcGloballyUniqueId globalId):base(globalId)
 		{
+			ProxyType = proxyType;
+
 
 		}
 
-		public static new IfcProduct FromJSON(string json)
+		public static new IfcProxy FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcProduct>(json);
+			return JsonConvert.DeserializeObject<IfcProxy>(json);
 		}
 
-		public static new IfcProduct FromSTEP(string step)
+		public static new IfcProxy FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralactivity.htm"/>
+	/// </summary>
+	public abstract partial class IfcStructuralActivity : IfcProduct
+	{
+		public IfcStructuralLoad AppliedLoad{get;set;} 
+		public IfcGlobalOrLocalEnum GlobalOrLocal{get;set;} 
+
+		public IfcStructuralActivity(IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			AppliedLoad = appliedLoad;
+			GlobalOrLocal = globalOrLocal;
+
+
+		}
+
+		public static new IfcStructuralActivity FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralActivity>(json);
+		}
+
+		public static new IfcStructuralActivity FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralitem.htm"/>
+	/// </summary>
+	public abstract partial class IfcStructuralItem : IfcProduct
+	{
+
+		public IfcStructuralItem(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcStructuralItem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralItem>(json);
+		}
+
+		public static new IfcStructuralItem FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -19176,19 +21364,10 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcProductDefinitionShape : IfcProductRepresentation
 	{
-		[JsonProperty("shapeOfProduct")]
-		public List<IfcProduct> ShapeOfProduct {get;set;} 
-		[JsonProperty("hasShapeAspects")]
-		public List<IfcShapeAspect> HasShapeAspects {get;set;} 
 
-		public IfcProductDefinitionShape(List<IfcProduct> shapeOfProduct
-				,List<IfcShapeAspect> hasShapeAspects
-				,List<IfcRepresentation> representations
-				) : base(representations
-					)
+		public IfcProductDefinitionShape(List<IfcRepresentation> representations):base(representations)
 		{
-			ShapeOfProduct = shapeOfProduct;
-			HasShapeAspects = hasShapeAspects;
+
 
 		}
 
@@ -19204,294 +21383,51 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcproductrepresentation.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsimpleproperty.htm"/>
 	/// </summary>
-	public abstract partial class IfcProductRepresentation : IfcBase
+	public abstract partial class IfcSimpleProperty : IfcProperty
 	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("representations")]
-		public List<IfcRepresentation> Representations {get;set;} 
 
-		public IfcProductRepresentation(List<IfcRepresentation> representations
-				)
+		public IfcSimpleProperty(IfcIdentifier name):base(name)
 		{
-			Representations = representations;
+
 
 		}
 
-		public static  IfcProductRepresentation FromJSON(string json)
+		public static new IfcSimpleProperty FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcProductRepresentation>(json);
+			return JsonConvert.DeserializeObject<IfcSimpleProperty>(json);
 		}
 
-		public static  IfcProductRepresentation FromSTEP(string step)
+		public static new IfcSimpleProperty FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprofiledef.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpropertyenumeration.htm"/>
 	/// </summary>
-	public  partial class IfcProfileDef : IfcBase
+	public  partial class IfcPropertyEnumeration : IfcPropertyAbstraction
 	{
-		[JsonProperty("profileType")]
-		public IfcProfileTypeEnum ProfileType {get;set;} 
-		[JsonProperty("profileName")]
-		public IfcLabel ProfileName {get;set;} // optional
-		[JsonProperty("hasExternalReference")]
-		public List<IfcExternalReferenceRelationship> HasExternalReference {get;set;} 
-		[JsonProperty("hasProperties")]
-		public List<IfcProfileProperties> HasProperties {get;set;} 
+		public IfcLabel Name{get;set;} 
+		public List<IfcValue> EnumerationValues{get;set;} 
+		public IfcUnit Unit{get;set;} // optional
 
-		public IfcProfileDef(IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				)
-		{
-			ProfileType = profileType;
-			HasExternalReference = hasExternalReference;
-			HasProperties = hasProperties;
-
-		}
-
-		public static  IfcProfileDef FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcProfileDef>(json);
-		}
-
-		public static  IfcProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprofileproperties.htm"/>
-	/// </summary>
-	public  partial class IfcProfileProperties : IfcExtendedProperties
-	{
-		[JsonProperty("profileDefinition")]
-		public IfcProfileDef ProfileDefinition {get;set;} 
-
-		public IfcProfileProperties(IfcProfileDef profileDefinition
-				,List<IfcProperty> properties
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				) : base(properties
-					,hasExternalReferences
-					)
-		{
-			ProfileDefinition = profileDefinition;
-
-		}
-
-		public static new IfcProfileProperties FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcProfileProperties>(json);
-		}
-
-		public static new IfcProfileProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcproject.htm"/>
-	/// </summary>
-	public  partial class IfcProject : IfcContext
-	{
-
-		public IfcProject() : base()
-		{
-
-		}
-
-		public static new IfcProject FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcProject>(json);
-		}
-
-		public static new IfcProject FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprojectlibrary.htm"/>
-	/// </summary>
-	public  partial class IfcProjectLibrary : IfcContext
-	{
-
-		public IfcProjectLibrary() : base()
-		{
-
-		}
-
-		public static new IfcProjectLibrary FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcProjectLibrary>(json);
-		}
-
-		public static new IfcProjectLibrary FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprojectorder.htm"/>
-	/// </summary>
-	public  partial class IfcProjectOrder : IfcControl
-	{
-		[JsonProperty("predefinedType")]
-		public IfcProjectOrderTypeEnum PredefinedType {get;set;} // optional
-		[JsonProperty("status")]
-		public IfcLabel Status {get;set;} // optional
-		[JsonProperty("longDescription")]
-		public IfcText LongDescription {get;set;} // optional
-
-		public IfcProjectOrder() : base()
-		{
-
-		}
-
-		public static new IfcProjectOrder FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcProjectOrder>(json);
-		}
-
-		public static new IfcProjectOrder FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprojectedcrs.htm"/>
-	/// </summary>
-	public  partial class IfcProjectedCRS : IfcCoordinateReferenceSystem
-	{
-		[JsonProperty("mapProjection")]
-		public IfcIdentifier MapProjection {get;set;} // optional
-		[JsonProperty("mapZone")]
-		public IfcIdentifier MapZone {get;set;} // optional
-		[JsonProperty("mapUnit")]
-		public IfcNamedUnit MapUnit {get;set;} // optional
-
-		public IfcProjectedCRS(IfcIdentifier geodeticDatum
-				) : base(geodeticDatum
-					)
-		{
-
-		}
-
-		public static new IfcProjectedCRS FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcProjectedCRS>(json);
-		}
-
-		public static new IfcProjectedCRS FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprojectionelement.htm"/>
-	/// </summary>
-	public  partial class IfcProjectionElement : IfcFeatureElementAddition
-	{
-		[JsonProperty("predefinedType")]
-		public IfcProjectionElementTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcProjectionElement() : base()
-		{
-
-		}
-
-		public static new IfcProjectionElement FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcProjectionElement>(json);
-		}
-
-		public static new IfcProjectionElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcproperty.htm"/>
-	/// </summary>
-	public abstract partial class IfcProperty : IfcPropertyAbstraction
-	{
-		[JsonProperty("name")]
-		public IfcIdentifier Name {get;set;} 
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("partOfPset")]
-		public List<IfcPropertySet> PartOfPset {get;set;} 
-		[JsonProperty("propertyForDependance")]
-		public List<IfcPropertyDependencyRelationship> PropertyForDependance {get;set;} 
-		[JsonProperty("propertyDependsOn")]
-		public List<IfcPropertyDependencyRelationship> PropertyDependsOn {get;set;} 
-		[JsonProperty("partOfComplex")]
-		public List<IfcComplexProperty> PartOfComplex {get;set;} 
-
-		public IfcProperty(IfcIdentifier name
-				,List<IfcPropertySet> partOfPset
-				,List<IfcPropertyDependencyRelationship> propertyForDependance
-				,List<IfcPropertyDependencyRelationship> propertyDependsOn
-				,List<IfcComplexProperty> partOfComplex
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				) : base(hasExternalReferences
-					)
+		public IfcPropertyEnumeration(IfcLabel name,List<IfcValue> enumerationValues):base()
 		{
 			Name = name;
-			PartOfPset = partOfPset;
-			PropertyForDependance = propertyForDependance;
-			PropertyDependsOn = propertyDependsOn;
-			PartOfComplex = partOfComplex;
+			EnumerationValues = enumerationValues;
+
 
 		}
 
-		public static new IfcProperty FromJSON(string json)
+		public static new IfcPropertyEnumeration FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcProperty>(json);
+			return JsonConvert.DeserializeObject<IfcPropertyEnumeration>(json);
 		}
 
-		public static new IfcProperty FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpropertyabstraction.htm"/>
-	/// </summary>
-	public abstract partial class IfcPropertyAbstraction : IfcBase
-	{
-		[JsonProperty("hasExternalReferences")]
-		public List<IfcExternalReferenceRelationship> HasExternalReferences {get;set;} 
-
-		public IfcPropertyAbstraction(List<IfcExternalReferenceRelationship> hasExternalReferences
-				)
-		{
-			HasExternalReferences = hasExternalReferences;
-
-		}
-
-		public static  IfcPropertyAbstraction FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPropertyAbstraction>(json);
-		}
-
-		public static  IfcPropertyAbstraction FromSTEP(string step)
+		public static new IfcPropertyEnumeration FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -19502,29 +21438,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcPropertyBoundedValue : IfcSimpleProperty
 	{
-		[JsonProperty("upperBoundValue")]
-		public IfcValue UpperBoundValue {get;set;} // optional
-		[JsonProperty("lowerBoundValue")]
-		public IfcValue LowerBoundValue {get;set;} // optional
-		[JsonProperty("unit")]
-		public IfcUnit Unit {get;set;} // optional
-		[JsonProperty("setPointValue")]
-		public IfcValue SetPointValue {get;set;} // optional
+		public IfcValue UpperBoundValue{get;set;} // optional
+		public IfcValue LowerBoundValue{get;set;} // optional
+		public IfcUnit Unit{get;set;} // optional
+		public IfcValue SetPointValue{get;set;} // optional
 
-		public IfcPropertyBoundedValue(IfcIdentifier name
-				,List<IfcPropertySet> partOfPset
-				,List<IfcPropertyDependencyRelationship> propertyForDependance
-				,List<IfcPropertyDependencyRelationship> propertyDependsOn
-				,List<IfcComplexProperty> partOfComplex
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				) : base(name
-					,partOfPset
-					,propertyForDependance
-					,propertyDependsOn
-					,partOfComplex
-					,hasExternalReferences
-					)
+		public IfcPropertyBoundedValue(IfcIdentifier name):base(name)
 		{
+
 
 		}
 
@@ -19544,13 +21465,10 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcPropertyDefinition : IfcRoot
 	{
-		[JsonProperty("hasContext")]
-		public List<IfcRelDeclares> HasContext {get;set;} 
-		[JsonProperty("hasAssociations")]
-		public List<IfcRelAssociates> HasAssociations {get;set;} 
 
-		public IfcPropertyDefinition() : base()
+		public IfcPropertyDefinition(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -19566,23 +21484,42 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpropertytemplatedefinition.htm"/>
+	/// </summary>
+	public abstract partial class IfcPropertyTemplateDefinition : IfcPropertyDefinition
+	{
+
+		public IfcPropertyTemplateDefinition(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcPropertyTemplateDefinition FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcPropertyTemplateDefinition>(json);
+		}
+
+		public static new IfcPropertyTemplateDefinition FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpropertydependencyrelationship.htm"/>
 	/// </summary>
 	public  partial class IfcPropertyDependencyRelationship : IfcResourceLevelRelationship
 	{
-		[JsonProperty("dependingProperty")]
-		public IfcProperty DependingProperty {get;set;} 
-		[JsonProperty("dependantProperty")]
-		public IfcProperty DependantProperty {get;set;} 
-		[JsonProperty("expression")]
-		public IfcText Expression {get;set;} // optional
+		public IfcProperty DependingProperty{get;set;} 
+		public IfcProperty DependantProperty{get;set;} 
+		public IfcText Expression{get;set;} // optional
 
-		public IfcPropertyDependencyRelationship(IfcProperty dependingProperty
-				,IfcProperty dependantProperty
-				) : base()
+		public IfcPropertyDependencyRelationship(IfcProperty dependingProperty,IfcProperty dependantProperty):base()
 		{
 			DependingProperty = dependingProperty;
 			DependantProperty = dependantProperty;
+
 
 		}
 
@@ -19602,25 +21539,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcPropertyEnumeratedValue : IfcSimpleProperty
 	{
-		[JsonProperty("enumerationValues")]
-		public List<IfcValue> EnumerationValues {get;set;} // optional
-		[JsonProperty("enumerationReference")]
-		public IfcPropertyEnumeration EnumerationReference {get;set;} // optional
+		public List<IfcValue> EnumerationValues{get;set;} // optional
+		public IfcPropertyEnumeration EnumerationReference{get;set;} // optional
 
-		public IfcPropertyEnumeratedValue(IfcIdentifier name
-				,List<IfcPropertySet> partOfPset
-				,List<IfcPropertyDependencyRelationship> propertyForDependance
-				,List<IfcPropertyDependencyRelationship> propertyDependsOn
-				,List<IfcComplexProperty> partOfComplex
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				) : base(name
-					,partOfPset
-					,propertyForDependance
-					,propertyDependsOn
-					,partOfComplex
-					,hasExternalReferences
-					)
+		public IfcPropertyEnumeratedValue(IfcIdentifier name):base(name)
 		{
+
 			EnumerationValues = new List<IfcValue>();
 
 		}
@@ -19637,63 +21561,16 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpropertyenumeration.htm"/>
-	/// </summary>
-	public  partial class IfcPropertyEnumeration : IfcPropertyAbstraction
-	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} 
-		[JsonProperty("enumerationValues")]
-		public List<IfcValue> EnumerationValues {get;set;} 
-		[JsonProperty("unit")]
-		public IfcUnit Unit {get;set;} // optional
-
-		public IfcPropertyEnumeration(IfcLabel name
-				,List<IfcValue> enumerationValues
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				) : base(hasExternalReferences
-					)
-		{
-			Name = name;
-			EnumerationValues = enumerationValues;
-
-		}
-
-		public static new IfcPropertyEnumeration FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPropertyEnumeration>(json);
-		}
-
-		public static new IfcPropertyEnumeration FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpropertylistvalue.htm"/>
 	/// </summary>
 	public  partial class IfcPropertyListValue : IfcSimpleProperty
 	{
-		[JsonProperty("listValues")]
-		public List<IfcValue> ListValues {get;set;} // optional
-		[JsonProperty("unit")]
-		public IfcUnit Unit {get;set;} // optional
+		public List<IfcValue> ListValues{get;set;} // optional
+		public IfcUnit Unit{get;set;} // optional
 
-		public IfcPropertyListValue(IfcIdentifier name
-				,List<IfcPropertySet> partOfPset
-				,List<IfcPropertyDependencyRelationship> propertyForDependance
-				,List<IfcPropertyDependencyRelationship> propertyDependsOn
-				,List<IfcComplexProperty> partOfComplex
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				) : base(name
-					,partOfPset
-					,propertyForDependance
-					,propertyDependsOn
-					,partOfComplex
-					,hasExternalReferences
-					)
+		public IfcPropertyListValue(IfcIdentifier name):base(name)
 		{
+
 			ListValues = new List<IfcValue>();
 
 		}
@@ -19714,25 +21591,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcPropertyReferenceValue : IfcSimpleProperty
 	{
-		[JsonProperty("usageName")]
-		public IfcText UsageName {get;set;} // optional
-		[JsonProperty("propertyReference")]
-		public IfcObjectReferenceSelect PropertyReference {get;set;} // optional
+		public IfcText UsageName{get;set;} // optional
+		public IfcObjectReferenceSelect PropertyReference{get;set;} // optional
 
-		public IfcPropertyReferenceValue(IfcIdentifier name
-				,List<IfcPropertySet> partOfPset
-				,List<IfcPropertyDependencyRelationship> propertyForDependance
-				,List<IfcPropertyDependencyRelationship> propertyDependsOn
-				,List<IfcComplexProperty> partOfComplex
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				) : base(name
-					,partOfPset
-					,propertyForDependance
-					,propertyDependsOn
-					,partOfComplex
-					,hasExternalReferences
-					)
+		public IfcPropertyReferenceValue(IfcIdentifier name):base(name)
 		{
+
 
 		}
 
@@ -19752,15 +21616,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcPropertySet : IfcPropertySetDefinition
 	{
-		[JsonProperty("hasProperties")]
-		public List<IfcProperty> HasProperties {get;set;} 
+		public List<IfcProperty> HasProperties{get;set;} 
 
-		public IfcPropertySet(List<IfcProperty> hasProperties
-				,List<IfcTypeObject> definesType
-				) : base(definesType
-					)
+		public IfcPropertySet(List<IfcProperty> hasProperties,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			HasProperties = hasProperties;
+
 
 		}
 
@@ -19776,53 +21637,18 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpropertysetdefinition.htm"/>
-	/// </summary>
-	public abstract partial class IfcPropertySetDefinition : IfcPropertyDefinition
-	{
-		[JsonProperty("definesType")]
-		public List<IfcTypeObject> DefinesType {get;set;} 
-		[JsonProperty("isDefinedBy")]
-		public List<IfcRelDefinesByTemplate> IsDefinedBy {get;set;} 
-		[JsonProperty("definesOccurrence")]
-		public List<IfcRelDefinesByProperties> DefinesOccurrence {get;set;} 
-
-		public IfcPropertySetDefinition(List<IfcTypeObject> definesType
-				) : base()
-		{
-			DefinesType = definesType;
-
-		}
-
-		public static new IfcPropertySetDefinition FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPropertySetDefinition>(json);
-		}
-
-		public static new IfcPropertySetDefinition FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpropertysettemplate.htm"/>
 	/// </summary>
 	public  partial class IfcPropertySetTemplate : IfcPropertyTemplateDefinition
 	{
-		[JsonProperty("templateType")]
-		public IfcPropertySetTemplateTypeEnum TemplateType {get;set;} // optional
-		[JsonProperty("applicableEntity")]
-		public IfcIdentifier ApplicableEntity {get;set;} // optional
-		[JsonProperty("hasPropertyTemplates")]
-		public List<IfcPropertyTemplate> HasPropertyTemplates {get;set;} 
-		[JsonProperty("defines")]
-		public List<IfcRelDefinesByTemplate> Defines {get;set;} 
+		public IfcPropertySetTemplateTypeEnum TemplateType{get;set;} // optional
+		public IfcIdentifier ApplicableEntity{get;set;} // optional
+		public List<IfcPropertyTemplate> HasPropertyTemplates{get;set;} 
 
-		public IfcPropertySetTemplate(List<IfcPropertyTemplate> hasPropertyTemplates
-				) : base()
+		public IfcPropertySetTemplate(List<IfcPropertyTemplate> hasPropertyTemplates,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			HasPropertyTemplates = hasPropertyTemplates;
+
 
 		}
 
@@ -19842,25 +21668,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcPropertySingleValue : IfcSimpleProperty
 	{
-		[JsonProperty("nominalValue")]
-		public IfcValue NominalValue {get;set;} // optional
-		[JsonProperty("unit")]
-		public IfcUnit Unit {get;set;} // optional
+		public IfcValue NominalValue{get;set;} // optional
+		public IfcUnit Unit{get;set;} // optional
 
-		public IfcPropertySingleValue(IfcIdentifier name
-				,List<IfcPropertySet> partOfPset
-				,List<IfcPropertyDependencyRelationship> propertyForDependance
-				,List<IfcPropertyDependencyRelationship> propertyDependsOn
-				,List<IfcComplexProperty> partOfComplex
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				) : base(name
-					,partOfPset
-					,propertyForDependance
-					,propertyDependsOn
-					,partOfComplex
-					,hasExternalReferences
-					)
+		public IfcPropertySingleValue(IfcIdentifier name):base(name)
 		{
+
 
 		}
 
@@ -19880,33 +21693,16 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcPropertyTableValue : IfcSimpleProperty
 	{
-		[JsonProperty("definingValues")]
-		public List<IfcValue> DefiningValues {get;set;} // optional
-		[JsonProperty("definedValues")]
-		public List<IfcValue> DefinedValues {get;set;} // optional
-		[JsonProperty("expression")]
-		public IfcText Expression {get;set;} // optional
-		[JsonProperty("definingUnit")]
-		public IfcUnit DefiningUnit {get;set;} // optional
-		[JsonProperty("definedUnit")]
-		public IfcUnit DefinedUnit {get;set;} // optional
-		[JsonProperty("curveInterpolation")]
-		public IfcCurveInterpolationEnum CurveInterpolation {get;set;} // optional
+		public List<IfcValue> DefiningValues{get;set;} // optional
+		public List<IfcValue> DefinedValues{get;set;} // optional
+		public IfcText Expression{get;set;} // optional
+		public IfcUnit DefiningUnit{get;set;} // optional
+		public IfcUnit DefinedUnit{get;set;} // optional
+		public IfcCurveInterpolationEnum CurveInterpolation{get;set;} // optional
 
-		public IfcPropertyTableValue(IfcIdentifier name
-				,List<IfcPropertySet> partOfPset
-				,List<IfcPropertyDependencyRelationship> propertyForDependance
-				,List<IfcPropertyDependencyRelationship> propertyDependsOn
-				,List<IfcComplexProperty> partOfComplex
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				) : base(name
-					,partOfPset
-					,propertyForDependance
-					,propertyDependsOn
-					,partOfComplex
-					,hasExternalReferences
-					)
+		public IfcPropertyTableValue(IfcIdentifier name):base(name)
 		{
+
 			DefiningValues = new List<IfcValue>();
 			DefinedValues = new List<IfcValue>();
 
@@ -19924,708 +21720,31 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpropertytemplate.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsimplepropertytemplate.htm"/>
 	/// </summary>
-	public abstract partial class IfcPropertyTemplate : IfcPropertyTemplateDefinition
+	public  partial class IfcSimplePropertyTemplate : IfcPropertyTemplate
 	{
-		[JsonProperty("partOfComplexTemplate")]
-		public List<IfcComplexPropertyTemplate> PartOfComplexTemplate {get;set;} 
-		[JsonProperty("partOfPsetTemplate")]
-		public List<IfcPropertySetTemplate> PartOfPsetTemplate {get;set;} 
+		public IfcSimplePropertyTemplateTypeEnum TemplateType{get;set;} // optional
+		public IfcLabel PrimaryMeasureType{get;set;} // optional
+		public IfcLabel SecondaryMeasureType{get;set;} // optional
+		public IfcPropertyEnumeration Enumerators{get;set;} // optional
+		public IfcUnit PrimaryUnit{get;set;} // optional
+		public IfcUnit SecondaryUnit{get;set;} // optional
+		public IfcLabel Expression{get;set;} // optional
+		public IfcStateEnum AccessState{get;set;} // optional
 
-		public IfcPropertyTemplate(List<IfcComplexPropertyTemplate> partOfComplexTemplate
-				,List<IfcPropertySetTemplate> partOfPsetTemplate
-				) : base()
+		public IfcSimplePropertyTemplate(IfcGloballyUniqueId globalId):base(globalId)
 		{
-			PartOfComplexTemplate = partOfComplexTemplate;
-			PartOfPsetTemplate = partOfPsetTemplate;
 
-		}
-
-		public static new IfcPropertyTemplate FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPropertyTemplate>(json);
-		}
-
-		public static new IfcPropertyTemplate FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpropertytemplatedefinition.htm"/>
-	/// </summary>
-	public abstract partial class IfcPropertyTemplateDefinition : IfcPropertyDefinition
-	{
-
-		public IfcPropertyTemplateDefinition() : base()
-		{
-
-		}
-
-		public static new IfcPropertyTemplateDefinition FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPropertyTemplateDefinition>(json);
-		}
-
-		public static new IfcPropertyTemplateDefinition FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprotectivedevice.htm"/>
-	/// </summary>
-	public  partial class IfcProtectiveDevice : IfcFlowController
-	{
-		[JsonProperty("predefinedType")]
-		public IfcProtectiveDeviceTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcProtectiveDevice() : base()
-		{
-
-		}
-
-		public static new IfcProtectiveDevice FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcProtectiveDevice>(json);
-		}
-
-		public static new IfcProtectiveDevice FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprotectivedevicetrippingunit.htm"/>
-	/// </summary>
-	public  partial class IfcProtectiveDeviceTrippingUnit : IfcDistributionControlElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcProtectiveDeviceTrippingUnitTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcProtectiveDeviceTrippingUnit() : base()
-		{
-
-		}
-
-		public static new IfcProtectiveDeviceTrippingUnit FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcProtectiveDeviceTrippingUnit>(json);
-		}
-
-		public static new IfcProtectiveDeviceTrippingUnit FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprotectivedevicetrippingunittype.htm"/>
-	/// </summary>
-	public  partial class IfcProtectiveDeviceTrippingUnitType : IfcDistributionControlElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcProtectiveDeviceTrippingUnitTypeEnum PredefinedType {get;set;} 
-
-		public IfcProtectiveDeviceTrippingUnitType(IfcProtectiveDeviceTrippingUnitTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcProtectiveDeviceTrippingUnitType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcProtectiveDeviceTrippingUnitType>(json);
-		}
-
-		public static new IfcProtectiveDeviceTrippingUnitType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcprotectivedevicetype.htm"/>
-	/// </summary>
-	public  partial class IfcProtectiveDeviceType : IfcFlowControllerType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcProtectiveDeviceTypeEnum PredefinedType {get;set;} 
-
-		public IfcProtectiveDeviceType(IfcProtectiveDeviceTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcProtectiveDeviceType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcProtectiveDeviceType>(json);
-		}
-
-		public static new IfcProtectiveDeviceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcproxy.htm"/>
-	/// </summary>
-	public  partial class IfcProxy : IfcProduct
-	{
-		[JsonProperty("proxyType")]
-		public IfcObjectTypeEnum ProxyType {get;set;} 
-		[JsonProperty("tag")]
-		public IfcLabel Tag {get;set;} // optional
-
-		public IfcProxy(IfcObjectTypeEnum proxyType
-				) : base()
-		{
-			ProxyType = proxyType;
-
-		}
-
-		public static new IfcProxy FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcProxy>(json);
-		}
-
-		public static new IfcProxy FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpump.htm"/>
-	/// </summary>
-	public  partial class IfcPump : IfcFlowMovingDevice
-	{
-		[JsonProperty("predefinedType")]
-		public IfcPumpTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcPump() : base()
-		{
-
-		}
-
-		public static new IfcPump FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPump>(json);
-		}
-
-		public static new IfcPump FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcpumptype.htm"/>
-	/// </summary>
-	public  partial class IfcPumpType : IfcFlowMovingDeviceType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcPumpTypeEnum PredefinedType {get;set;} 
-
-		public IfcPumpType(IfcPumpTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcPumpType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcPumpType>(json);
-		}
-
-		public static new IfcPumpType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcquantityarea.htm"/>
-	/// </summary>
-	public  partial class IfcQuantityArea : IfcPhysicalSimpleQuantity
-	{
-		[JsonProperty("areaValue")]
-		public IfcAreaMeasure AreaValue {get;set;} 
-		[JsonProperty("formula")]
-		public IfcLabel Formula {get;set;} // optional
-
-		public IfcQuantityArea(IfcAreaMeasure areaValue
-				,IfcLabel name
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcPhysicalComplexQuantity> partOfComplex
-				) : base(name
-					,hasExternalReferences
-					,partOfComplex
-					)
-		{
-			AreaValue = areaValue;
-
-		}
-
-		public static new IfcQuantityArea FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcQuantityArea>(json);
-		}
-
-		public static new IfcQuantityArea FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcquantitycount.htm"/>
-	/// </summary>
-	public  partial class IfcQuantityCount : IfcPhysicalSimpleQuantity
-	{
-		[JsonProperty("countValue")]
-		public IfcCountMeasure CountValue {get;set;} 
-		[JsonProperty("formula")]
-		public IfcLabel Formula {get;set;} // optional
-
-		public IfcQuantityCount(IfcCountMeasure countValue
-				,IfcLabel name
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcPhysicalComplexQuantity> partOfComplex
-				) : base(name
-					,hasExternalReferences
-					,partOfComplex
-					)
-		{
-			CountValue = countValue;
-
-		}
-
-		public static new IfcQuantityCount FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcQuantityCount>(json);
-		}
-
-		public static new IfcQuantityCount FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcquantitylength.htm"/>
-	/// </summary>
-	public  partial class IfcQuantityLength : IfcPhysicalSimpleQuantity
-	{
-		[JsonProperty("lengthValue")]
-		public IfcLengthMeasure LengthValue {get;set;} 
-		[JsonProperty("formula")]
-		public IfcLabel Formula {get;set;} // optional
-
-		public IfcQuantityLength(IfcLengthMeasure lengthValue
-				,IfcLabel name
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcPhysicalComplexQuantity> partOfComplex
-				) : base(name
-					,hasExternalReferences
-					,partOfComplex
-					)
-		{
-			LengthValue = lengthValue;
-
-		}
-
-		public static new IfcQuantityLength FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcQuantityLength>(json);
-		}
-
-		public static new IfcQuantityLength FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcquantityset.htm"/>
-	/// </summary>
-	public abstract partial class IfcQuantitySet : IfcPropertySetDefinition
-	{
-
-		public IfcQuantitySet(List<IfcTypeObject> definesType
-				) : base(definesType
-					)
-		{
-
-		}
-
-		public static new IfcQuantitySet FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcQuantitySet>(json);
-		}
-
-		public static new IfcQuantitySet FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcquantitytime.htm"/>
-	/// </summary>
-	public  partial class IfcQuantityTime : IfcPhysicalSimpleQuantity
-	{
-		[JsonProperty("timeValue")]
-		public IfcTimeMeasure TimeValue {get;set;} 
-		[JsonProperty("formula")]
-		public IfcLabel Formula {get;set;} // optional
-
-		public IfcQuantityTime(IfcTimeMeasure timeValue
-				,IfcLabel name
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcPhysicalComplexQuantity> partOfComplex
-				) : base(name
-					,hasExternalReferences
-					,partOfComplex
-					)
-		{
-			TimeValue = timeValue;
-
-		}
-
-		public static new IfcQuantityTime FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcQuantityTime>(json);
-		}
-
-		public static new IfcQuantityTime FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcquantityvolume.htm"/>
-	/// </summary>
-	public  partial class IfcQuantityVolume : IfcPhysicalSimpleQuantity
-	{
-		[JsonProperty("volumeValue")]
-		public IfcVolumeMeasure VolumeValue {get;set;} 
-		[JsonProperty("formula")]
-		public IfcLabel Formula {get;set;} // optional
-
-		public IfcQuantityVolume(IfcVolumeMeasure volumeValue
-				,IfcLabel name
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcPhysicalComplexQuantity> partOfComplex
-				) : base(name
-					,hasExternalReferences
-					,partOfComplex
-					)
-		{
-			VolumeValue = volumeValue;
-
-		}
-
-		public static new IfcQuantityVolume FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcQuantityVolume>(json);
-		}
-
-		public static new IfcQuantityVolume FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcquantityweight.htm"/>
-	/// </summary>
-	public  partial class IfcQuantityWeight : IfcPhysicalSimpleQuantity
-	{
-		[JsonProperty("weightValue")]
-		public IfcMassMeasure WeightValue {get;set;} 
-		[JsonProperty("formula")]
-		public IfcLabel Formula {get;set;} // optional
-
-		public IfcQuantityWeight(IfcMassMeasure weightValue
-				,IfcLabel name
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				,List<IfcPhysicalComplexQuantity> partOfComplex
-				) : base(name
-					,hasExternalReferences
-					,partOfComplex
-					)
-		{
-			WeightValue = weightValue;
-
-		}
-
-		public static new IfcQuantityWeight FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcQuantityWeight>(json);
-		}
-
-		public static new IfcQuantityWeight FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrailing.htm"/>
-	/// </summary>
-	public  partial class IfcRailing : IfcBuildingElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcRailingTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcRailing() : base()
-		{
-
-		}
-
-		public static new IfcRailing FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRailing>(json);
-		}
-
-		public static new IfcRailing FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrailingtype.htm"/>
-	/// </summary>
-	public  partial class IfcRailingType : IfcBuildingElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcRailingTypeEnum PredefinedType {get;set;} 
-
-		public IfcRailingType(IfcRailingTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcRailingType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRailingType>(json);
-		}
-
-		public static new IfcRailingType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcramp.htm"/>
-	/// </summary>
-	public  partial class IfcRamp : IfcBuildingElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcRampTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcRamp() : base()
-		{
-
-		}
-
-		public static new IfcRamp FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRamp>(json);
-		}
-
-		public static new IfcRamp FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrampflight.htm"/>
-	/// </summary>
-	public  partial class IfcRampFlight : IfcBuildingElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcRampFlightTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcRampFlight() : base()
-		{
-
-		}
-
-		public static new IfcRampFlight FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRampFlight>(json);
-		}
-
-		public static new IfcRampFlight FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrampflighttype.htm"/>
-	/// </summary>
-	public  partial class IfcRampFlightType : IfcBuildingElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcRampFlightTypeEnum PredefinedType {get;set;} 
-
-		public IfcRampFlightType(IfcRampFlightTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcRampFlightType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRampFlightType>(json);
-		}
-
-		public static new IfcRampFlightType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcramptype.htm"/>
-	/// </summary>
-	public  partial class IfcRampType : IfcBuildingElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcRampTypeEnum PredefinedType {get;set;} 
-
-		public IfcRampType(IfcRampTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcRampType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRampType>(json);
-		}
-
-		public static new IfcRampType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrationalbsplinecurvewithknots.htm"/>
-	/// </summary>
-	public  partial class IfcRationalBSplineCurveWithKnots : IfcBSplineCurveWithKnots
-	{
-		[JsonProperty("weightsData")]
-		public List<double> WeightsData {get;set;} 
-
-		public IfcRationalBSplineCurveWithKnots(List<double> weightsData
-				,List<int> knotMultiplicities
-				,List<IfcParameterValue> knots
-				,IfcKnotType knotSpec
-				,int degree
-				,List<IfcCartesianPoint> controlPointsList
-				,IfcBSplineCurveForm curveForm
-				,bool? closedCurve
-				,bool? selfIntersect
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(knotMultiplicities
-					,knots
-					,knotSpec
-					,degree
-					,controlPointsList
-					,curveForm
-					,closedCurve
-					,selfIntersect
-					,layerAssignment
-					,styledByItem
-					)
-		{
-			WeightsData = weightsData;
-
-		}
-
-		public static new IfcRationalBSplineCurveWithKnots FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRationalBSplineCurveWithKnots>(json);
-		}
-
-		public static new IfcRationalBSplineCurveWithKnots FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrationalbsplinesurfacewithknots.htm"/>
-	/// </summary>
-	public  partial class IfcRationalBSplineSurfaceWithKnots : IfcBSplineSurfaceWithKnots
-	{
-		[JsonProperty("weightsData")]
-		public List<List<double>> WeightsData {get;set;} 
-
-		public IfcRationalBSplineSurfaceWithKnots(List<List<double>> weightsData
-				,List<int> uMultiplicities
-				,List<int> vMultiplicities
-				,List<IfcParameterValue> uKnots
-				,List<IfcParameterValue> vKnots
-				,IfcKnotType knotSpec
-				,int uDegree
-				,int vDegree
-				,List<List<IfcCartesianPoint>> controlPointsList
-				,IfcBSplineSurfaceForm surfaceForm
-				,bool? uClosed
-				,bool? vClosed
-				,bool? selfIntersect
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(uMultiplicities
-					,vMultiplicities
-					,uKnots
-					,vKnots
-					,knotSpec
-					,uDegree
-					,vDegree
-					,controlPointsList
-					,surfaceForm
-					,uClosed
-					,vClosed
-					,selfIntersect
-					,layerAssignment
-					,styledByItem
-					)
-		{
-			WeightsData = weightsData;
 
 		}
 
-		public static new IfcRationalBSplineSurfaceWithKnots FromJSON(string json)
+		public static new IfcSimplePropertyTemplate FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcRationalBSplineSurfaceWithKnots>(json);
+			return JsonConvert.DeserializeObject<IfcSimplePropertyTemplate>(json);
 		}
 
-		public static new IfcRationalBSplineSurfaceWithKnots FromSTEP(string step)
+		public static new IfcSimplePropertyTemplate FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -20636,27 +21755,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRectangleHollowProfileDef : IfcRectangleProfileDef
 	{
-		[JsonProperty("wallThickness")]
-		public IfcPositiveLengthMeasure WallThickness {get;set;} 
-		[JsonProperty("innerFilletRadius")]
-		public IfcNonNegativeLengthMeasure InnerFilletRadius {get;set;} // optional
-		[JsonProperty("outerFilletRadius")]
-		public IfcNonNegativeLengthMeasure OuterFilletRadius {get;set;} // optional
+		public IfcPositiveLengthMeasure WallThickness{get;set;} 
+		public IfcNonNegativeLengthMeasure InnerFilletRadius{get;set;} // optional
+		public IfcNonNegativeLengthMeasure OuterFilletRadius{get;set;} // optional
 
-		public IfcRectangleHollowProfileDef(IfcPositiveLengthMeasure wallThickness
-				,IfcPositiveLengthMeasure xDim
-				,IfcPositiveLengthMeasure yDim
-				,IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(xDim
-					,yDim
-					,profileType
-					,hasExternalReference
-					,hasProperties
-					)
+		public IfcRectangleHollowProfileDef(IfcPositiveLengthMeasure wallThickness,IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim,IfcProfileTypeEnum profileType):base(xDim,yDim,profileType)
 		{
 			WallThickness = wallThickness;
+
 
 		}
 
@@ -20672,130 +21778,25 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrectangleprofiledef.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcroundedrectangleprofiledef.htm"/>
 	/// </summary>
-	public  partial class IfcRectangleProfileDef : IfcParameterizedProfileDef
+	public  partial class IfcRoundedRectangleProfileDef : IfcRectangleProfileDef
 	{
-		[JsonProperty("xDim")]
-		public IfcPositiveLengthMeasure XDim {get;set;} 
-		[JsonProperty("yDim")]
-		public IfcPositiveLengthMeasure YDim {get;set;} 
+		public IfcPositiveLengthMeasure RoundingRadius{get;set;} 
 
-		public IfcRectangleProfileDef(IfcPositiveLengthMeasure xDim
-				,IfcPositiveLengthMeasure yDim
-				,IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(profileType
-					,hasExternalReference
-					,hasProperties
-					)
+		public IfcRoundedRectangleProfileDef(IfcPositiveLengthMeasure roundingRadius,IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim,IfcProfileTypeEnum profileType):base(xDim,yDim,profileType)
 		{
-			XDim = xDim;
-			YDim = yDim;
+			RoundingRadius = roundingRadius;
+
 
 		}
 
-		public static new IfcRectangleProfileDef FromJSON(string json)
+		public static new IfcRoundedRectangleProfileDef FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcRectangleProfileDef>(json);
+			return JsonConvert.DeserializeObject<IfcRoundedRectangleProfileDef>(json);
 		}
 
-		public static new IfcRectangleProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrectangularpyramid.htm"/>
-	/// </summary>
-	public  partial class IfcRectangularPyramid : IfcCsgPrimitive3D
-	{
-		[JsonProperty("xLength")]
-		public IfcPositiveLengthMeasure XLength {get;set;} 
-		[JsonProperty("yLength")]
-		public IfcPositiveLengthMeasure YLength {get;set;} 
-		[JsonProperty("height")]
-		public IfcPositiveLengthMeasure Height {get;set;} 
-
-		public IfcRectangularPyramid(IfcPositiveLengthMeasure xLength
-				,IfcPositiveLengthMeasure yLength
-				,IfcPositiveLengthMeasure height
-				,IfcAxis2Placement3D position
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(position
-					,layerAssignment
-					,styledByItem
-					)
-		{
-			XLength = xLength;
-			YLength = yLength;
-			Height = height;
-
-		}
-
-		public static new IfcRectangularPyramid FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRectangularPyramid>(json);
-		}
-
-		public static new IfcRectangularPyramid FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrectangulartrimmedsurface.htm"/>
-	/// </summary>
-	public  partial class IfcRectangularTrimmedSurface : IfcBoundedSurface
-	{
-		[JsonProperty("basisSurface")]
-		public IfcSurface BasisSurface {get;set;} 
-		[JsonProperty("u1")]
-		public IfcParameterValue U1 {get;set;} 
-		[JsonProperty("v1")]
-		public IfcParameterValue V1 {get;set;} 
-		[JsonProperty("u2")]
-		public IfcParameterValue U2 {get;set;} 
-		[JsonProperty("v2")]
-		public IfcParameterValue V2 {get;set;} 
-		[JsonProperty("usense")]
-		public bool Usense {get;set;} 
-		[JsonProperty("vsense")]
-		public bool Vsense {get;set;} 
-
-		public IfcRectangularTrimmedSurface(IfcSurface basisSurface
-				,IfcParameterValue u1
-				,IfcParameterValue v1
-				,IfcParameterValue u2
-				,IfcParameterValue v2
-				,bool usense
-				,bool vsense
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-			BasisSurface = basisSurface;
-			U1 = u1;
-			V1 = v1;
-			U2 = u2;
-			V2 = v2;
-			Usense = usense;
-			Vsense = vsense;
-
-		}
-
-		public static new IfcRectangularTrimmedSurface FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRectangularTrimmedSurface>(json);
-		}
-
-		public static new IfcRectangularTrimmedSurface FromSTEP(string step)
+		public static new IfcRoundedRectangleProfileDef FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -20806,27 +21807,19 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRecurrencePattern : IfcBase
 	{
-		[JsonProperty("recurrenceType")]
-		public IfcRecurrenceTypeEnum RecurrenceType {get;set;} 
-		[JsonProperty("dayComponent")]
-		public List<IfcDayInMonthNumber> DayComponent {get;set;} // optional
-		[JsonProperty("weekdayComponent")]
-		public List<IfcDayInWeekNumber> WeekdayComponent {get;set;} // optional
-		[JsonProperty("monthComponent")]
-		public List<IfcMonthInYearNumber> MonthComponent {get;set;} // optional
-		[JsonProperty("position")]
-		public IfcInteger Position {get;set;} // optional
-		[JsonProperty("interval")]
-		public IfcInteger Interval {get;set;} // optional
-		[JsonProperty("occurrences")]
-		public IfcInteger Occurrences {get;set;} // optional
-		[JsonProperty("timePeriods")]
-		public List<IfcTimePeriod> TimePeriods {get;set;} // optional
+		public IfcRecurrenceTypeEnum RecurrenceType{get;set;} 
+		public List<IfcDayInMonthNumber> DayComponent{get;set;} // optional
+		public List<IfcDayInWeekNumber> WeekdayComponent{get;set;} // optional
+		public List<IfcMonthInYearNumber> MonthComponent{get;set;} // optional
+		public IfcInteger Position{get;set;} // optional
+		public IfcInteger Interval{get;set;} // optional
+		public IfcInteger Occurrences{get;set;} // optional
+		public List<IfcTimePeriod> TimePeriods{get;set;} // optional
 
-		public IfcRecurrencePattern(IfcRecurrenceTypeEnum recurrenceType
-				)
+		public IfcRecurrencePattern(IfcRecurrenceTypeEnum recurrenceType):base()
 		{
 			RecurrenceType = recurrenceType;
+
 			DayComponent = new List<IfcDayInMonthNumber>();
 			WeekdayComponent = new List<IfcDayInWeekNumber>();
 			MonthComponent = new List<IfcMonthInYearNumber>();
@@ -20850,19 +21843,15 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcReference : IfcBase
 	{
-		[JsonProperty("typeIdentifier")]
-		public IfcIdentifier TypeIdentifier {get;set;} // optional
-		[JsonProperty("attributeIdentifier")]
-		public IfcIdentifier AttributeIdentifier {get;set;} // optional
-		[JsonProperty("instanceName")]
-		public IfcLabel InstanceName {get;set;} // optional
-		[JsonProperty("listPositions")]
-		public List<int> ListPositions {get;set;} // optional
-		[JsonProperty("innerReference")]
-		public IfcReference InnerReference {get;set;} // optional
+		public IfcIdentifier TypeIdentifier{get;set;} // optional
+		public IfcIdentifier AttributeIdentifier{get;set;} // optional
+		public IfcLabel InstanceName{get;set;} // optional
+		public List<int> ListPositions{get;set;} // optional
+		public IfcReference InnerReference{get;set;} // optional
 
-		public IfcReference()
+		public IfcReference():base()
 		{
+
 			ListPositions = new List<int>();
 
 		}
@@ -20883,29 +21872,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRegularTimeSeries : IfcTimeSeries
 	{
-		[JsonProperty("timeStep")]
-		public IfcTimeMeasure TimeStep {get;set;} 
-		[JsonProperty("values")]
-		public List<IfcTimeSeriesValue> Values {get;set;} 
+		public IfcTimeMeasure TimeStep{get;set;} 
+		public List<IfcTimeSeriesValue> Values{get;set;} 
 
-		public IfcRegularTimeSeries(IfcTimeMeasure timeStep
-				,List<IfcTimeSeriesValue> values
-				,IfcLabel name
-				,IfcDateTime startTime
-				,IfcDateTime endTime
-				,IfcTimeSeriesDataTypeEnum timeSeriesDataType
-				,IfcDataOriginEnum dataOrigin
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				) : base(name
-					,startTime
-					,endTime
-					,timeSeriesDataType
-					,dataOrigin
-					,hasExternalReference
-					)
+		public IfcRegularTimeSeries(IfcTimeMeasure timeStep,List<IfcTimeSeriesValue> values,IfcLabel name,IfcDateTime startTime,IfcDateTime endTime,IfcTimeSeriesDataTypeEnum timeSeriesDataType,IfcDataOriginEnum dataOrigin):base(name,startTime,endTime,timeSeriesDataType,dataOrigin)
 		{
 			TimeStep = timeStep;
 			Values = values;
+
 
 		}
 
@@ -20921,93 +21895,19 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreinforcementbarproperties.htm"/>
-	/// </summary>
-	public  partial class IfcReinforcementBarProperties : IfcPreDefinedProperties
-	{
-		[JsonProperty("totalCrossSectionArea")]
-		public IfcAreaMeasure TotalCrossSectionArea {get;set;} 
-		[JsonProperty("steelGrade")]
-		public IfcLabel SteelGrade {get;set;} 
-		[JsonProperty("barSurface")]
-		public IfcReinforcingBarSurfaceEnum BarSurface {get;set;} // optional
-		[JsonProperty("effectiveDepth")]
-		public IfcLengthMeasure EffectiveDepth {get;set;} // optional
-		[JsonProperty("nominalBarDiameter")]
-		public IfcPositiveLengthMeasure NominalBarDiameter {get;set;} // optional
-		[JsonProperty("barCount")]
-		public IfcCountMeasure BarCount {get;set;} // optional
-
-		public IfcReinforcementBarProperties(IfcAreaMeasure totalCrossSectionArea
-				,IfcLabel steelGrade
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				) : base(hasExternalReferences
-					)
-		{
-			TotalCrossSectionArea = totalCrossSectionArea;
-			SteelGrade = steelGrade;
-
-		}
-
-		public static new IfcReinforcementBarProperties FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcReinforcementBarProperties>(json);
-		}
-
-		public static new IfcReinforcementBarProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreinforcementdefinitionproperties.htm"/>
-	/// </summary>
-	public  partial class IfcReinforcementDefinitionProperties : IfcPreDefinedPropertySet
-	{
-		[JsonProperty("definitionType")]
-		public IfcLabel DefinitionType {get;set;} // optional
-		[JsonProperty("reinforcementSectionDefinitions")]
-		public List<IfcSectionReinforcementProperties> ReinforcementSectionDefinitions {get;set;} 
-
-		public IfcReinforcementDefinitionProperties(List<IfcSectionReinforcementProperties> reinforcementSectionDefinitions
-				,List<IfcTypeObject> definesType
-				) : base(definesType
-					)
-		{
-			ReinforcementSectionDefinitions = reinforcementSectionDefinitions;
-
-		}
-
-		public static new IfcReinforcementDefinitionProperties FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcReinforcementDefinitionProperties>(json);
-		}
-
-		public static new IfcReinforcementDefinitionProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreinforcingbar.htm"/>
 	/// </summary>
 	public  partial class IfcReinforcingBar : IfcReinforcingElement
 	{
-		[JsonProperty("nominalDiameter")]
-		public IfcPositiveLengthMeasure NominalDiameter {get;set;} // optional
-		[JsonProperty("crossSectionArea")]
-		public IfcAreaMeasure CrossSectionArea {get;set;} // optional
-		[JsonProperty("barLength")]
-		public IfcPositiveLengthMeasure BarLength {get;set;} // optional
-		[JsonProperty("predefinedType")]
-		public IfcReinforcingBarTypeEnum PredefinedType {get;set;} // optional
-		[JsonProperty("barSurface")]
-		public IfcReinforcingBarSurfaceEnum BarSurface {get;set;} // optional
+		public IfcPositiveLengthMeasure NominalDiameter{get;set;} // optional
+		public IfcAreaMeasure CrossSectionArea{get;set;} // optional
+		public IfcPositiveLengthMeasure BarLength{get;set;} // optional
+		public IfcReinforcingBarTypeEnum PredefinedType{get;set;} // optional
+		public IfcReinforcingBarSurfaceEnum BarSurface{get;set;} // optional
 
-		public IfcReinforcingBar() : base()
+		public IfcReinforcingBar(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -21027,25 +21927,18 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcReinforcingBarType : IfcReinforcingElementType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcReinforcingBarTypeEnum PredefinedType {get;set;} 
-		[JsonProperty("nominalDiameter")]
-		public IfcPositiveLengthMeasure NominalDiameter {get;set;} // optional
-		[JsonProperty("crossSectionArea")]
-		public IfcAreaMeasure CrossSectionArea {get;set;} // optional
-		[JsonProperty("barLength")]
-		public IfcPositiveLengthMeasure BarLength {get;set;} // optional
-		[JsonProperty("barSurface")]
-		public IfcReinforcingBarSurfaceEnum BarSurface {get;set;} // optional
-		[JsonProperty("bendingShapeCode")]
-		public IfcLabel BendingShapeCode {get;set;} // optional
-		[JsonProperty("bendingParameters")]
-		public List<IfcBendingParameterSelect> BendingParameters {get;set;} // optional
+		public IfcReinforcingBarTypeEnum PredefinedType{get;set;} 
+		public IfcPositiveLengthMeasure NominalDiameter{get;set;} // optional
+		public IfcAreaMeasure CrossSectionArea{get;set;} // optional
+		public IfcPositiveLengthMeasure BarLength{get;set;} // optional
+		public IfcReinforcingBarSurfaceEnum BarSurface{get;set;} // optional
+		public IfcLabel BendingShapeCode{get;set;} // optional
+		public List<IfcBendingParameterSelect> BendingParameters{get;set;} // optional
 
-		public IfcReinforcingBarType(IfcReinforcingBarTypeEnum predefinedType
-				) : base()
+		public IfcReinforcingBarType(IfcReinforcingBarTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 			BendingParameters = new List<IfcBendingParameterSelect>();
 
 		}
@@ -21062,77 +21955,23 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreinforcingelement.htm"/>
-	/// </summary>
-	public abstract partial class IfcReinforcingElement : IfcElementComponent
-	{
-		[JsonProperty("steelGrade")]
-		public IfcLabel SteelGrade {get;set;} // optional
-
-		public IfcReinforcingElement() : base()
-		{
-
-		}
-
-		public static new IfcReinforcingElement FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcReinforcingElement>(json);
-		}
-
-		public static new IfcReinforcingElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreinforcingelementtype.htm"/>
-	/// </summary>
-	public abstract partial class IfcReinforcingElementType : IfcElementComponentType
-	{
-
-		public IfcReinforcingElementType() : base()
-		{
-
-		}
-
-		public static new IfcReinforcingElementType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcReinforcingElementType>(json);
-		}
-
-		public static new IfcReinforcingElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreinforcingmesh.htm"/>
 	/// </summary>
 	public  partial class IfcReinforcingMesh : IfcReinforcingElement
 	{
-		[JsonProperty("meshLength")]
-		public IfcPositiveLengthMeasure MeshLength {get;set;} // optional
-		[JsonProperty("meshWidth")]
-		public IfcPositiveLengthMeasure MeshWidth {get;set;} // optional
-		[JsonProperty("longitudinalBarNominalDiameter")]
-		public IfcPositiveLengthMeasure LongitudinalBarNominalDiameter {get;set;} // optional
-		[JsonProperty("transverseBarNominalDiameter")]
-		public IfcPositiveLengthMeasure TransverseBarNominalDiameter {get;set;} // optional
-		[JsonProperty("longitudinalBarCrossSectionArea")]
-		public IfcAreaMeasure LongitudinalBarCrossSectionArea {get;set;} // optional
-		[JsonProperty("transverseBarCrossSectionArea")]
-		public IfcAreaMeasure TransverseBarCrossSectionArea {get;set;} // optional
-		[JsonProperty("longitudinalBarSpacing")]
-		public IfcPositiveLengthMeasure LongitudinalBarSpacing {get;set;} // optional
-		[JsonProperty("transverseBarSpacing")]
-		public IfcPositiveLengthMeasure TransverseBarSpacing {get;set;} // optional
-		[JsonProperty("predefinedType")]
-		public IfcReinforcingMeshTypeEnum PredefinedType {get;set;} // optional
+		public IfcPositiveLengthMeasure MeshLength{get;set;} // optional
+		public IfcPositiveLengthMeasure MeshWidth{get;set;} // optional
+		public IfcPositiveLengthMeasure LongitudinalBarNominalDiameter{get;set;} // optional
+		public IfcPositiveLengthMeasure TransverseBarNominalDiameter{get;set;} // optional
+		public IfcAreaMeasure LongitudinalBarCrossSectionArea{get;set;} // optional
+		public IfcAreaMeasure TransverseBarCrossSectionArea{get;set;} // optional
+		public IfcPositiveLengthMeasure LongitudinalBarSpacing{get;set;} // optional
+		public IfcPositiveLengthMeasure TransverseBarSpacing{get;set;} // optional
+		public IfcReinforcingMeshTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcReinforcingMesh() : base()
+		public IfcReinforcingMesh(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -21148,37 +21987,81 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctendon.htm"/>
+	/// </summary>
+	public  partial class IfcTendon : IfcReinforcingElement
+	{
+		public IfcTendonTypeEnum PredefinedType{get;set;} // optional
+		public IfcPositiveLengthMeasure NominalDiameter{get;set;} // optional
+		public IfcAreaMeasure CrossSectionArea{get;set;} // optional
+		public IfcForceMeasure TensionForce{get;set;} // optional
+		public IfcPressureMeasure PreStress{get;set;} // optional
+		public IfcNormalisedRatioMeasure FrictionCoefficient{get;set;} // optional
+		public IfcPositiveLengthMeasure AnchorageSlip{get;set;} // optional
+		public IfcPositiveLengthMeasure MinCurvatureRadius{get;set;} // optional
+
+		public IfcTendon(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcTendon FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTendon>(json);
+		}
+
+		public static new IfcTendon FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctendonanchor.htm"/>
+	/// </summary>
+	public  partial class IfcTendonAnchor : IfcReinforcingElement
+	{
+		public IfcTendonAnchorTypeEnum PredefinedType{get;set;} // optional
+
+		public IfcTendonAnchor(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcTendonAnchor FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTendonAnchor>(json);
+		}
+
+		public static new IfcTendonAnchor FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreinforcingmeshtype.htm"/>
 	/// </summary>
 	public  partial class IfcReinforcingMeshType : IfcReinforcingElementType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcReinforcingMeshTypeEnum PredefinedType {get;set;} 
-		[JsonProperty("meshLength")]
-		public IfcPositiveLengthMeasure MeshLength {get;set;} // optional
-		[JsonProperty("meshWidth")]
-		public IfcPositiveLengthMeasure MeshWidth {get;set;} // optional
-		[JsonProperty("longitudinalBarNominalDiameter")]
-		public IfcPositiveLengthMeasure LongitudinalBarNominalDiameter {get;set;} // optional
-		[JsonProperty("transverseBarNominalDiameter")]
-		public IfcPositiveLengthMeasure TransverseBarNominalDiameter {get;set;} // optional
-		[JsonProperty("longitudinalBarCrossSectionArea")]
-		public IfcAreaMeasure LongitudinalBarCrossSectionArea {get;set;} // optional
-		[JsonProperty("transverseBarCrossSectionArea")]
-		public IfcAreaMeasure TransverseBarCrossSectionArea {get;set;} // optional
-		[JsonProperty("longitudinalBarSpacing")]
-		public IfcPositiveLengthMeasure LongitudinalBarSpacing {get;set;} // optional
-		[JsonProperty("transverseBarSpacing")]
-		public IfcPositiveLengthMeasure TransverseBarSpacing {get;set;} // optional
-		[JsonProperty("bendingShapeCode")]
-		public IfcLabel BendingShapeCode {get;set;} // optional
-		[JsonProperty("bendingParameters")]
-		public List<IfcBendingParameterSelect> BendingParameters {get;set;} // optional
+		public IfcReinforcingMeshTypeEnum PredefinedType{get;set;} 
+		public IfcPositiveLengthMeasure MeshLength{get;set;} // optional
+		public IfcPositiveLengthMeasure MeshWidth{get;set;} // optional
+		public IfcPositiveLengthMeasure LongitudinalBarNominalDiameter{get;set;} // optional
+		public IfcPositiveLengthMeasure TransverseBarNominalDiameter{get;set;} // optional
+		public IfcAreaMeasure LongitudinalBarCrossSectionArea{get;set;} // optional
+		public IfcAreaMeasure TransverseBarCrossSectionArea{get;set;} // optional
+		public IfcPositiveLengthMeasure LongitudinalBarSpacing{get;set;} // optional
+		public IfcPositiveLengthMeasure TransverseBarSpacing{get;set;} // optional
+		public IfcLabel BendingShapeCode{get;set;} // optional
+		public List<IfcBendingParameterSelect> BendingParameters{get;set;} // optional
 
-		public IfcReinforcingMeshType(IfcReinforcingMeshTypeEnum predefinedType
-				) : base()
+		public IfcReinforcingMeshType(IfcReinforcingMeshTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 			BendingParameters = new List<IfcBendingParameterSelect>();
 
 		}
@@ -21195,21 +22078,71 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctendonanchortype.htm"/>
+	/// </summary>
+	public  partial class IfcTendonAnchorType : IfcReinforcingElementType
+	{
+		public IfcTendonAnchorTypeEnum PredefinedType{get;set;} 
+
+		public IfcTendonAnchorType(IfcTendonAnchorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcTendonAnchorType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTendonAnchorType>(json);
+		}
+
+		public static new IfcTendonAnchorType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctendontype.htm"/>
+	/// </summary>
+	public  partial class IfcTendonType : IfcReinforcingElementType
+	{
+		public IfcTendonTypeEnum PredefinedType{get;set;} 
+		public IfcPositiveLengthMeasure NominalDiameter{get;set;} // optional
+		public IfcAreaMeasure CrossSectionArea{get;set;} // optional
+		public IfcPositiveLengthMeasure SheethDiameter{get;set;} // optional
+
+		public IfcTendonType(IfcTendonTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcTendonType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcTendonType>(json);
+		}
+
+		public static new IfcTendonType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelaggregates.htm"/>
 	/// </summary>
 	public  partial class IfcRelAggregates : IfcRelDecomposes
 	{
-		[JsonProperty("relatingObject")]
-		public IfcObjectDefinition RelatingObject {get;set;} 
-		[JsonProperty("relatedObjects")]
-		public List<IfcObjectDefinition> RelatedObjects {get;set;} 
+		public IfcObjectDefinition RelatingObject{get;set;} 
+		public List<IfcObjectDefinition> RelatedObjects{get;set;} 
 
-		public IfcRelAggregates(IfcObjectDefinition relatingObject
-				,List<IfcObjectDefinition> relatedObjects
-				) : base()
+		public IfcRelAggregates(IfcObjectDefinition relatingObject,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingObject = relatingObject;
 			RelatedObjects = relatedObjects;
+
 
 		}
 
@@ -21225,19 +22158,40 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreldecomposes.htm"/>
+	/// </summary>
+	public abstract partial class IfcRelDecomposes : IfcRelationship
+	{
+
+		public IfcRelDecomposes(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcRelDecomposes FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelDecomposes>(json);
+		}
+
+		public static new IfcRelDecomposes FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelassigns.htm"/>
 	/// </summary>
 	public abstract partial class IfcRelAssigns : IfcRelationship
 	{
-		[JsonProperty("relatedObjects")]
-		public List<IfcObjectDefinition> RelatedObjects {get;set;} 
-		[JsonProperty("relatedObjectsType")]
-		public IfcObjectTypeEnum RelatedObjectsType {get;set;} // optional
+		public List<IfcObjectDefinition> RelatedObjects{get;set;} 
+		public IfcObjectTypeEnum RelatedObjectsType{get;set;} // optional
 
-		public IfcRelAssigns(List<IfcObjectDefinition> relatedObjects
-				) : base()
+		public IfcRelAssigns(List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatedObjects = relatedObjects;
+
 
 		}
 
@@ -21257,17 +22211,13 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelAssignsToActor : IfcRelAssigns
 	{
-		[JsonProperty("relatingActor")]
-		public IfcActor RelatingActor {get;set;} 
-		[JsonProperty("actingRole")]
-		public IfcActorRole ActingRole {get;set;} // optional
+		public IfcActor RelatingActor{get;set;} 
+		public IfcActorRole ActingRole{get;set;} // optional
 
-		public IfcRelAssignsToActor(IfcActor relatingActor
-				,List<IfcObjectDefinition> relatedObjects
-				) : base(relatedObjects
-					)
+		public IfcRelAssignsToActor(IfcActor relatingActor,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingActor = relatingActor;
+
 
 		}
 
@@ -21287,15 +22237,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelAssignsToControl : IfcRelAssigns
 	{
-		[JsonProperty("relatingControl")]
-		public IfcControl RelatingControl {get;set;} 
+		public IfcControl RelatingControl{get;set;} 
 
-		public IfcRelAssignsToControl(IfcControl relatingControl
-				,List<IfcObjectDefinition> relatedObjects
-				) : base(relatedObjects
-					)
+		public IfcRelAssignsToControl(IfcControl relatingControl,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingControl = relatingControl;
+
 
 		}
 
@@ -21315,15 +22262,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelAssignsToGroup : IfcRelAssigns
 	{
-		[JsonProperty("relatingGroup")]
-		public IfcGroup RelatingGroup {get;set;} 
+		public IfcGroup RelatingGroup{get;set;} 
 
-		public IfcRelAssignsToGroup(IfcGroup relatingGroup
-				,List<IfcObjectDefinition> relatedObjects
-				) : base(relatedObjects
-					)
+		public IfcRelAssignsToGroup(IfcGroup relatingGroup,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingGroup = relatingGroup;
+
 
 		}
 
@@ -21339,51 +22283,17 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelassignstogroupbyfactor.htm"/>
-	/// </summary>
-	public  partial class IfcRelAssignsToGroupByFactor : IfcRelAssignsToGroup
-	{
-		[JsonProperty("factor")]
-		public IfcRatioMeasure Factor {get;set;} 
-
-		public IfcRelAssignsToGroupByFactor(IfcRatioMeasure factor
-				,IfcGroup relatingGroup
-				,List<IfcObjectDefinition> relatedObjects
-				) : base(relatingGroup
-					,relatedObjects
-					)
-		{
-			Factor = factor;
-
-		}
-
-		public static new IfcRelAssignsToGroupByFactor FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRelAssignsToGroupByFactor>(json);
-		}
-
-		public static new IfcRelAssignsToGroupByFactor FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelassignstoprocess.htm"/>
 	/// </summary>
 	public  partial class IfcRelAssignsToProcess : IfcRelAssigns
 	{
-		[JsonProperty("relatingProcess")]
-		public IfcProcessSelect RelatingProcess {get;set;} 
-		[JsonProperty("quantityInProcess")]
-		public IfcMeasureWithUnit QuantityInProcess {get;set;} // optional
+		public IfcProcessSelect RelatingProcess{get;set;} 
+		public IfcMeasureWithUnit QuantityInProcess{get;set;} // optional
 
-		public IfcRelAssignsToProcess(IfcProcessSelect relatingProcess
-				,List<IfcObjectDefinition> relatedObjects
-				) : base(relatedObjects
-					)
+		public IfcRelAssignsToProcess(IfcProcessSelect relatingProcess,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingProcess = relatingProcess;
+
 
 		}
 
@@ -21403,15 +22313,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelAssignsToProduct : IfcRelAssigns
 	{
-		[JsonProperty("relatingProduct")]
-		public IfcProductSelect RelatingProduct {get;set;} 
+		public IfcProductSelect RelatingProduct{get;set;} 
 
-		public IfcRelAssignsToProduct(IfcProductSelect relatingProduct
-				,List<IfcObjectDefinition> relatedObjects
-				) : base(relatedObjects
-					)
+		public IfcRelAssignsToProduct(IfcProductSelect relatingProduct,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingProduct = relatingProduct;
+
 
 		}
 
@@ -21431,15 +22338,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelAssignsToResource : IfcRelAssigns
 	{
-		[JsonProperty("relatingResource")]
-		public IfcResourceSelect RelatingResource {get;set;} 
+		public IfcResourceSelect RelatingResource{get;set;} 
 
-		public IfcRelAssignsToResource(IfcResourceSelect relatingResource
-				,List<IfcObjectDefinition> relatedObjects
-				) : base(relatedObjects
-					)
+		public IfcRelAssignsToResource(IfcResourceSelect relatingResource,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingResource = relatingResource;
+
 
 		}
 
@@ -21455,17 +22359,64 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelationship.htm"/>
+	/// </summary>
+	public abstract partial class IfcRelationship : IfcRoot
+	{
+
+		public IfcRelationship(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcRelationship FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelationship>(json);
+		}
+
+		public static new IfcRelationship FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelassignstogroupbyfactor.htm"/>
+	/// </summary>
+	public  partial class IfcRelAssignsToGroupByFactor : IfcRelAssignsToGroup
+	{
+		public IfcRatioMeasure Factor{get;set;} 
+
+		public IfcRelAssignsToGroupByFactor(IfcRatioMeasure factor,IfcGroup relatingGroup,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(relatingGroup,relatedObjects,globalId)
+		{
+			Factor = factor;
+
+
+		}
+
+		public static new IfcRelAssignsToGroupByFactor FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelAssignsToGroupByFactor>(json);
+		}
+
+		public static new IfcRelAssignsToGroupByFactor FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelassociates.htm"/>
 	/// </summary>
 	public abstract partial class IfcRelAssociates : IfcRelationship
 	{
-		[JsonProperty("relatedObjects")]
-		public List<IfcDefinitionSelect> RelatedObjects {get;set;} 
+		public List<IfcDefinitionSelect> RelatedObjects{get;set;} 
 
-		public IfcRelAssociates(List<IfcDefinitionSelect> relatedObjects
-				) : base()
+		public IfcRelAssociates(List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatedObjects = relatedObjects;
+
 
 		}
 
@@ -21485,15 +22436,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelAssociatesApproval : IfcRelAssociates
 	{
-		[JsonProperty("relatingApproval")]
-		public IfcApproval RelatingApproval {get;set;} 
+		public IfcApproval RelatingApproval{get;set;} 
 
-		public IfcRelAssociatesApproval(IfcApproval relatingApproval
-				,List<IfcDefinitionSelect> relatedObjects
-				) : base(relatedObjects
-					)
+		public IfcRelAssociatesApproval(IfcApproval relatingApproval,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingApproval = relatingApproval;
+
 
 		}
 
@@ -21513,15 +22461,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelAssociatesClassification : IfcRelAssociates
 	{
-		[JsonProperty("relatingClassification")]
-		public IfcClassificationSelect RelatingClassification {get;set;} 
+		public IfcClassificationSelect RelatingClassification{get;set;} 
 
-		public IfcRelAssociatesClassification(IfcClassificationSelect relatingClassification
-				,List<IfcDefinitionSelect> relatedObjects
-				) : base(relatedObjects
-					)
+		public IfcRelAssociatesClassification(IfcClassificationSelect relatingClassification,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingClassification = relatingClassification;
+
 
 		}
 
@@ -21541,17 +22486,13 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelAssociatesConstraint : IfcRelAssociates
 	{
-		[JsonProperty("intent")]
-		public IfcLabel Intent {get;set;} // optional
-		[JsonProperty("relatingConstraint")]
-		public IfcConstraint RelatingConstraint {get;set;} 
+		public IfcLabel Intent{get;set;} // optional
+		public IfcConstraint RelatingConstraint{get;set;} 
 
-		public IfcRelAssociatesConstraint(IfcConstraint relatingConstraint
-				,List<IfcDefinitionSelect> relatedObjects
-				) : base(relatedObjects
-					)
+		public IfcRelAssociatesConstraint(IfcConstraint relatingConstraint,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingConstraint = relatingConstraint;
+
 
 		}
 
@@ -21571,15 +22512,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelAssociatesDocument : IfcRelAssociates
 	{
-		[JsonProperty("relatingDocument")]
-		public IfcDocumentSelect RelatingDocument {get;set;} 
+		public IfcDocumentSelect RelatingDocument{get;set;} 
 
-		public IfcRelAssociatesDocument(IfcDocumentSelect relatingDocument
-				,List<IfcDefinitionSelect> relatedObjects
-				) : base(relatedObjects
-					)
+		public IfcRelAssociatesDocument(IfcDocumentSelect relatingDocument,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingDocument = relatingDocument;
+
 
 		}
 
@@ -21599,15 +22537,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelAssociatesLibrary : IfcRelAssociates
 	{
-		[JsonProperty("relatingLibrary")]
-		public IfcLibrarySelect RelatingLibrary {get;set;} 
+		public IfcLibrarySelect RelatingLibrary{get;set;} 
 
-		public IfcRelAssociatesLibrary(IfcLibrarySelect relatingLibrary
-				,List<IfcDefinitionSelect> relatedObjects
-				) : base(relatedObjects
-					)
+		public IfcRelAssociatesLibrary(IfcLibrarySelect relatingLibrary,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingLibrary = relatingLibrary;
+
 
 		}
 
@@ -21627,15 +22562,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelAssociatesMaterial : IfcRelAssociates
 	{
-		[JsonProperty("relatingMaterial")]
-		public IfcMaterialSelect RelatingMaterial {get;set;} 
+		public IfcMaterialSelect RelatingMaterial{get;set;} 
 
-		public IfcRelAssociatesMaterial(IfcMaterialSelect relatingMaterial
-				,List<IfcDefinitionSelect> relatedObjects
-				) : base(relatedObjects
-					)
+		public IfcRelAssociatesMaterial(IfcMaterialSelect relatingMaterial,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingMaterial = relatingMaterial;
+
 
 		}
 
@@ -21656,8 +22588,9 @@ namespace IFC4
 	public abstract partial class IfcRelConnects : IfcRelationship
 	{
 
-		public IfcRelConnects() : base()
+		public IfcRelConnects(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -21677,19 +22610,15 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelConnectsElements : IfcRelConnects
 	{
-		[JsonProperty("connectionGeometry")]
-		public IfcConnectionGeometry ConnectionGeometry {get;set;} // optional
-		[JsonProperty("relatingElement")]
-		public IfcElement RelatingElement {get;set;} 
-		[JsonProperty("relatedElement")]
-		public IfcElement RelatedElement {get;set;} 
+		public IfcConnectionGeometry ConnectionGeometry{get;set;} // optional
+		public IfcElement RelatingElement{get;set;} 
+		public IfcElement RelatedElement{get;set;} 
 
-		public IfcRelConnectsElements(IfcElement relatingElement
-				,IfcElement relatedElement
-				) : base()
+		public IfcRelConnectsElements(IfcElement relatingElement,IfcElement relatedElement,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingElement = relatingElement;
 			RelatedElement = relatedElement;
+
 
 		}
 
@@ -21705,63 +22634,18 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelconnectspathelements.htm"/>
-	/// </summary>
-	public  partial class IfcRelConnectsPathElements : IfcRelConnectsElements
-	{
-		[JsonProperty("relatingPriorities")]
-		public List<double> RelatingPriorities {get;set;} 
-		[JsonProperty("relatedPriorities")]
-		public List<double> RelatedPriorities {get;set;} 
-		[JsonProperty("relatedConnectionType")]
-		public IfcConnectionTypeEnum RelatedConnectionType {get;set;} 
-		[JsonProperty("relatingConnectionType")]
-		public IfcConnectionTypeEnum RelatingConnectionType {get;set;} 
-
-		public IfcRelConnectsPathElements(List<double> relatingPriorities
-				,List<double> relatedPriorities
-				,IfcConnectionTypeEnum relatedConnectionType
-				,IfcConnectionTypeEnum relatingConnectionType
-				,IfcElement relatingElement
-				,IfcElement relatedElement
-				) : base(relatingElement
-					,relatedElement
-					)
-		{
-			RelatingPriorities = relatingPriorities;
-			RelatedPriorities = relatedPriorities;
-			RelatedConnectionType = relatedConnectionType;
-			RelatingConnectionType = relatingConnectionType;
-
-		}
-
-		public static new IfcRelConnectsPathElements FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRelConnectsPathElements>(json);
-		}
-
-		public static new IfcRelConnectsPathElements FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelconnectsporttoelement.htm"/>
 	/// </summary>
 	public  partial class IfcRelConnectsPortToElement : IfcRelConnects
 	{
-		[JsonProperty("relatingPort")]
-		public IfcPort RelatingPort {get;set;} 
-		[JsonProperty("relatedElement")]
-		public IfcDistributionElement RelatedElement {get;set;} 
+		public IfcPort RelatingPort{get;set;} 
+		public IfcDistributionElement RelatedElement{get;set;} 
 
-		public IfcRelConnectsPortToElement(IfcPort relatingPort
-				,IfcDistributionElement relatedElement
-				) : base()
+		public IfcRelConnectsPortToElement(IfcPort relatingPort,IfcDistributionElement relatedElement,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingPort = relatingPort;
 			RelatedElement = relatedElement;
+
 
 		}
 
@@ -21781,19 +22665,15 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelConnectsPorts : IfcRelConnects
 	{
-		[JsonProperty("relatingPort")]
-		public IfcPort RelatingPort {get;set;} 
-		[JsonProperty("relatedPort")]
-		public IfcPort RelatedPort {get;set;} 
-		[JsonProperty("realizingElement")]
-		public IfcElement RealizingElement {get;set;} // optional
+		public IfcPort RelatingPort{get;set;} 
+		public IfcPort RelatedPort{get;set;} 
+		public IfcElement RealizingElement{get;set;} // optional
 
-		public IfcRelConnectsPorts(IfcPort relatingPort
-				,IfcPort relatedPort
-				) : base()
+		public IfcRelConnectsPorts(IfcPort relatingPort,IfcPort relatedPort,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingPort = relatingPort;
 			RelatedPort = relatedPort;
+
 
 		}
 
@@ -21813,17 +22693,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelConnectsStructuralActivity : IfcRelConnects
 	{
-		[JsonProperty("relatingElement")]
-		public IfcStructuralActivityAssignmentSelect RelatingElement {get;set;} 
-		[JsonProperty("relatedStructuralActivity")]
-		public IfcStructuralActivity RelatedStructuralActivity {get;set;} 
+		public IfcStructuralActivityAssignmentSelect RelatingElement{get;set;} 
+		public IfcStructuralActivity RelatedStructuralActivity{get;set;} 
 
-		public IfcRelConnectsStructuralActivity(IfcStructuralActivityAssignmentSelect relatingElement
-				,IfcStructuralActivity relatedStructuralActivity
-				) : base()
+		public IfcRelConnectsStructuralActivity(IfcStructuralActivityAssignmentSelect relatingElement,IfcStructuralActivity relatedStructuralActivity,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingElement = relatingElement;
 			RelatedStructuralActivity = relatedStructuralActivity;
+
 
 		}
 
@@ -21843,25 +22720,18 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelConnectsStructuralMember : IfcRelConnects
 	{
-		[JsonProperty("relatingStructuralMember")]
-		public IfcStructuralMember RelatingStructuralMember {get;set;} 
-		[JsonProperty("relatedStructuralConnection")]
-		public IfcStructuralConnection RelatedStructuralConnection {get;set;} 
-		[JsonProperty("appliedCondition")]
-		public IfcBoundaryCondition AppliedCondition {get;set;} // optional
-		[JsonProperty("additionalConditions")]
-		public IfcStructuralConnectionCondition AdditionalConditions {get;set;} // optional
-		[JsonProperty("supportedLength")]
-		public IfcLengthMeasure SupportedLength {get;set;} // optional
-		[JsonProperty("conditionCoordinateSystem")]
-		public IfcAxis2Placement3D ConditionCoordinateSystem {get;set;} // optional
+		public IfcStructuralMember RelatingStructuralMember{get;set;} 
+		public IfcStructuralConnection RelatedStructuralConnection{get;set;} 
+		public IfcBoundaryCondition AppliedCondition{get;set;} // optional
+		public IfcStructuralConnectionCondition AdditionalConditions{get;set;} // optional
+		public IfcLengthMeasure SupportedLength{get;set;} // optional
+		public IfcAxis2Placement3D ConditionCoordinateSystem{get;set;} // optional
 
-		public IfcRelConnectsStructuralMember(IfcStructuralMember relatingStructuralMember
-				,IfcStructuralConnection relatedStructuralConnection
-				) : base()
+		public IfcRelConnectsStructuralMember(IfcStructuralMember relatingStructuralMember,IfcStructuralConnection relatedStructuralConnection,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingStructuralMember = relatingStructuralMember;
 			RelatedStructuralConnection = relatedStructuralConnection;
+
 
 		}
 
@@ -21877,83 +22747,18 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelconnectswitheccentricity.htm"/>
-	/// </summary>
-	public  partial class IfcRelConnectsWithEccentricity : IfcRelConnectsStructuralMember
-	{
-		[JsonProperty("connectionConstraint")]
-		public IfcConnectionGeometry ConnectionConstraint {get;set;} 
-
-		public IfcRelConnectsWithEccentricity(IfcConnectionGeometry connectionConstraint
-				,IfcStructuralMember relatingStructuralMember
-				,IfcStructuralConnection relatedStructuralConnection
-				) : base(relatingStructuralMember
-					,relatedStructuralConnection
-					)
-		{
-			ConnectionConstraint = connectionConstraint;
-
-		}
-
-		public static new IfcRelConnectsWithEccentricity FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRelConnectsWithEccentricity>(json);
-		}
-
-		public static new IfcRelConnectsWithEccentricity FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelconnectswithrealizingelements.htm"/>
-	/// </summary>
-	public  partial class IfcRelConnectsWithRealizingElements : IfcRelConnectsElements
-	{
-		[JsonProperty("realizingElements")]
-		public List<IfcElement> RealizingElements {get;set;} 
-		[JsonProperty("connectionType")]
-		public IfcLabel ConnectionType {get;set;} // optional
-
-		public IfcRelConnectsWithRealizingElements(List<IfcElement> realizingElements
-				,IfcElement relatingElement
-				,IfcElement relatedElement
-				) : base(relatingElement
-					,relatedElement
-					)
-		{
-			RealizingElements = realizingElements;
-
-		}
-
-		public static new IfcRelConnectsWithRealizingElements FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRelConnectsWithRealizingElements>(json);
-		}
-
-		public static new IfcRelConnectsWithRealizingElements FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelcontainedinspatialstructure.htm"/>
 	/// </summary>
 	public  partial class IfcRelContainedInSpatialStructure : IfcRelConnects
 	{
-		[JsonProperty("relatedElements")]
-		public List<IfcProduct> RelatedElements {get;set;} 
-		[JsonProperty("relatingStructure")]
-		public IfcSpatialElement RelatingStructure {get;set;} 
+		public List<IfcProduct> RelatedElements{get;set;} 
+		public IfcSpatialElement RelatingStructure{get;set;} 
 
-		public IfcRelContainedInSpatialStructure(List<IfcProduct> relatedElements
-				,IfcSpatialElement relatingStructure
-				) : base()
+		public IfcRelContainedInSpatialStructure(List<IfcProduct> relatedElements,IfcSpatialElement relatingStructure,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatedElements = relatedElements;
 			RelatingStructure = relatingStructure;
+
 
 		}
 
@@ -21973,17 +22778,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelCoversBldgElements : IfcRelConnects
 	{
-		[JsonProperty("relatingBuildingElement")]
-		public IfcElement RelatingBuildingElement {get;set;} 
-		[JsonProperty("relatedCoverings")]
-		public List<IfcCovering> RelatedCoverings {get;set;} 
+		public IfcElement RelatingBuildingElement{get;set;} 
+		public List<IfcCovering> RelatedCoverings{get;set;} 
 
-		public IfcRelCoversBldgElements(IfcElement relatingBuildingElement
-				,List<IfcCovering> relatedCoverings
-				) : base()
+		public IfcRelCoversBldgElements(IfcElement relatingBuildingElement,List<IfcCovering> relatedCoverings,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingBuildingElement = relatingBuildingElement;
 			RelatedCoverings = relatedCoverings;
+
 
 		}
 
@@ -22003,17 +22805,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelCoversSpaces : IfcRelConnects
 	{
-		[JsonProperty("relatingSpace")]
-		public IfcSpace RelatingSpace {get;set;} 
-		[JsonProperty("relatedCoverings")]
-		public List<IfcCovering> RelatedCoverings {get;set;} 
+		public IfcSpace RelatingSpace{get;set;} 
+		public List<IfcCovering> RelatedCoverings{get;set;} 
 
-		public IfcRelCoversSpaces(IfcSpace relatingSpace
-				,List<IfcCovering> relatedCoverings
-				) : base()
+		public IfcRelCoversSpaces(IfcSpace relatingSpace,List<IfcCovering> relatedCoverings,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingSpace = relatingSpace;
 			RelatedCoverings = relatedCoverings;
+
 
 		}
 
@@ -22029,215 +22828,18 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreldeclares.htm"/>
-	/// </summary>
-	public  partial class IfcRelDeclares : IfcRelationship
-	{
-		[JsonProperty("relatingContext")]
-		public IfcContext RelatingContext {get;set;} 
-		[JsonProperty("relatedDefinitions")]
-		public List<IfcDefinitionSelect> RelatedDefinitions {get;set;} 
-
-		public IfcRelDeclares(IfcContext relatingContext
-				,List<IfcDefinitionSelect> relatedDefinitions
-				) : base()
-		{
-			RelatingContext = relatingContext;
-			RelatedDefinitions = relatedDefinitions;
-
-		}
-
-		public static new IfcRelDeclares FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRelDeclares>(json);
-		}
-
-		public static new IfcRelDeclares FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreldecomposes.htm"/>
-	/// </summary>
-	public abstract partial class IfcRelDecomposes : IfcRelationship
-	{
-
-		public IfcRelDecomposes() : base()
-		{
-
-		}
-
-		public static new IfcRelDecomposes FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRelDecomposes>(json);
-		}
-
-		public static new IfcRelDecomposes FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreldefines.htm"/>
-	/// </summary>
-	public abstract partial class IfcRelDefines : IfcRelationship
-	{
-
-		public IfcRelDefines() : base()
-		{
-
-		}
-
-		public static new IfcRelDefines FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRelDefines>(json);
-		}
-
-		public static new IfcRelDefines FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreldefinesbyobject.htm"/>
-	/// </summary>
-	public  partial class IfcRelDefinesByObject : IfcRelDefines
-	{
-		[JsonProperty("relatedObjects")]
-		public List<IfcObject> RelatedObjects {get;set;} 
-		[JsonProperty("relatingObject")]
-		public IfcObject RelatingObject {get;set;} 
-
-		public IfcRelDefinesByObject(List<IfcObject> relatedObjects
-				,IfcObject relatingObject
-				) : base()
-		{
-			RelatedObjects = relatedObjects;
-			RelatingObject = relatingObject;
-
-		}
-
-		public static new IfcRelDefinesByObject FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRelDefinesByObject>(json);
-		}
-
-		public static new IfcRelDefinesByObject FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreldefinesbyproperties.htm"/>
-	/// </summary>
-	public  partial class IfcRelDefinesByProperties : IfcRelDefines
-	{
-		[JsonProperty("relatedObjects")]
-		public List<IfcObjectDefinition> RelatedObjects {get;set;} 
-		[JsonProperty("relatingPropertyDefinition")]
-		public IfcPropertySetDefinitionSelect RelatingPropertyDefinition {get;set;} 
-
-		public IfcRelDefinesByProperties(List<IfcObjectDefinition> relatedObjects
-				,IfcPropertySetDefinitionSelect relatingPropertyDefinition
-				) : base()
-		{
-			RelatedObjects = relatedObjects;
-			RelatingPropertyDefinition = relatingPropertyDefinition;
-
-		}
-
-		public static new IfcRelDefinesByProperties FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRelDefinesByProperties>(json);
-		}
-
-		public static new IfcRelDefinesByProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreldefinesbytemplate.htm"/>
-	/// </summary>
-	public  partial class IfcRelDefinesByTemplate : IfcRelDefines
-	{
-		[JsonProperty("relatedPropertySets")]
-		public List<IfcPropertySetDefinition> RelatedPropertySets {get;set;} 
-		[JsonProperty("relatingTemplate")]
-		public IfcPropertySetTemplate RelatingTemplate {get;set;} 
-
-		public IfcRelDefinesByTemplate(List<IfcPropertySetDefinition> relatedPropertySets
-				,IfcPropertySetTemplate relatingTemplate
-				) : base()
-		{
-			RelatedPropertySets = relatedPropertySets;
-			RelatingTemplate = relatingTemplate;
-
-		}
-
-		public static new IfcRelDefinesByTemplate FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRelDefinesByTemplate>(json);
-		}
-
-		public static new IfcRelDefinesByTemplate FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreldefinesbytype.htm"/>
-	/// </summary>
-	public  partial class IfcRelDefinesByType : IfcRelDefines
-	{
-		[JsonProperty("relatedObjects")]
-		public List<IfcObject> RelatedObjects {get;set;} 
-		[JsonProperty("relatingType")]
-		public IfcTypeObject RelatingType {get;set;} 
-
-		public IfcRelDefinesByType(List<IfcObject> relatedObjects
-				,IfcTypeObject relatingType
-				) : base()
-		{
-			RelatedObjects = relatedObjects;
-			RelatingType = relatingType;
-
-		}
-
-		public static new IfcRelDefinesByType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRelDefinesByType>(json);
-		}
-
-		public static new IfcRelDefinesByType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelfillselement.htm"/>
 	/// </summary>
 	public  partial class IfcRelFillsElement : IfcRelConnects
 	{
-		[JsonProperty("relatingOpeningElement")]
-		public IfcOpeningElement RelatingOpeningElement {get;set;} 
-		[JsonProperty("relatedBuildingElement")]
-		public IfcElement RelatedBuildingElement {get;set;} 
+		public IfcOpeningElement RelatingOpeningElement{get;set;} 
+		public IfcElement RelatedBuildingElement{get;set;} 
 
-		public IfcRelFillsElement(IfcOpeningElement relatingOpeningElement
-				,IfcElement relatedBuildingElement
-				) : base()
+		public IfcRelFillsElement(IfcOpeningElement relatingOpeningElement,IfcElement relatedBuildingElement,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingOpeningElement = relatingOpeningElement;
 			RelatedBuildingElement = relatedBuildingElement;
+
 
 		}
 
@@ -22257,17 +22859,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelFlowControlElements : IfcRelConnects
 	{
-		[JsonProperty("relatedControlElements")]
-		public List<IfcDistributionControlElement> RelatedControlElements {get;set;} 
-		[JsonProperty("relatingFlowElement")]
-		public IfcDistributionFlowElement RelatingFlowElement {get;set;} 
+		public List<IfcDistributionControlElement> RelatedControlElements{get;set;} 
+		public IfcDistributionFlowElement RelatingFlowElement{get;set;} 
 
-		public IfcRelFlowControlElements(List<IfcDistributionControlElement> relatedControlElements
-				,IfcDistributionFlowElement relatingFlowElement
-				) : base()
+		public IfcRelFlowControlElements(List<IfcDistributionControlElement> relatedControlElements,IfcDistributionFlowElement relatingFlowElement,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatedControlElements = relatedControlElements;
 			RelatingFlowElement = relatingFlowElement;
+
 
 		}
 
@@ -22287,25 +22886,18 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelInterferesElements : IfcRelConnects
 	{
-		[JsonProperty("relatingElement")]
-		public IfcElement RelatingElement {get;set;} 
-		[JsonProperty("relatedElement")]
-		public IfcElement RelatedElement {get;set;} 
-		[JsonProperty("interferenceGeometry")]
-		public IfcConnectionGeometry InterferenceGeometry {get;set;} // optional
-		[JsonProperty("interferenceType")]
-		public IfcIdentifier InterferenceType {get;set;} // optional
-		[JsonProperty("impliedOrder")]
-		public bool? ImpliedOrder {get;set;} 
+		public IfcElement RelatingElement{get;set;} 
+		public IfcElement RelatedElement{get;set;} 
+		public IfcConnectionGeometry InterferenceGeometry{get;set;} // optional
+		public IfcIdentifier InterferenceType{get;set;} // optional
+		public bool? ImpliedOrder{get;set;} 
 
-		public IfcRelInterferesElements(IfcElement relatingElement
-				,IfcElement relatedElement
-				,bool? impliedOrder
-				) : base()
+		public IfcRelInterferesElements(IfcElement relatingElement,IfcElement relatedElement,bool? impliedOrder,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingElement = relatingElement;
 			RelatedElement = relatedElement;
 			ImpliedOrder = impliedOrder;
+
 
 		}
 
@@ -22321,81 +22913,18 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelnests.htm"/>
-	/// </summary>
-	public  partial class IfcRelNests : IfcRelDecomposes
-	{
-		[JsonProperty("relatingObject")]
-		public IfcObjectDefinition RelatingObject {get;set;} 
-		[JsonProperty("relatedObjects")]
-		public List<IfcObjectDefinition> RelatedObjects {get;set;} 
-
-		public IfcRelNests(IfcObjectDefinition relatingObject
-				,List<IfcObjectDefinition> relatedObjects
-				) : base()
-		{
-			RelatingObject = relatingObject;
-			RelatedObjects = relatedObjects;
-
-		}
-
-		public static new IfcRelNests FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRelNests>(json);
-		}
-
-		public static new IfcRelNests FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelprojectselement.htm"/>
-	/// </summary>
-	public  partial class IfcRelProjectsElement : IfcRelDecomposes
-	{
-		[JsonProperty("relatingElement")]
-		public IfcElement RelatingElement {get;set;} 
-		[JsonProperty("relatedFeatureElement")]
-		public IfcFeatureElementAddition RelatedFeatureElement {get;set;} 
-
-		public IfcRelProjectsElement(IfcElement relatingElement
-				,IfcFeatureElementAddition relatedFeatureElement
-				) : base()
-		{
-			RelatingElement = relatingElement;
-			RelatedFeatureElement = relatedFeatureElement;
-
-		}
-
-		public static new IfcRelProjectsElement FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRelProjectsElement>(json);
-		}
-
-		public static new IfcRelProjectsElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelreferencedinspatialstructure.htm"/>
 	/// </summary>
 	public  partial class IfcRelReferencedInSpatialStructure : IfcRelConnects
 	{
-		[JsonProperty("relatedElements")]
-		public List<IfcProduct> RelatedElements {get;set;} 
-		[JsonProperty("relatingStructure")]
-		public IfcSpatialElement RelatingStructure {get;set;} 
+		public List<IfcProduct> RelatedElements{get;set;} 
+		public IfcSpatialElement RelatingStructure{get;set;} 
 
-		public IfcRelReferencedInSpatialStructure(List<IfcProduct> relatedElements
-				,IfcSpatialElement relatingStructure
-				) : base()
+		public IfcRelReferencedInSpatialStructure(List<IfcProduct> relatedElements,IfcSpatialElement relatingStructure,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatedElements = relatedElements;
 			RelatingStructure = relatingStructure;
+
 
 		}
 
@@ -22415,23 +22944,17 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelSequence : IfcRelConnects
 	{
-		[JsonProperty("relatingProcess")]
-		public IfcProcess RelatingProcess {get;set;} 
-		[JsonProperty("relatedProcess")]
-		public IfcProcess RelatedProcess {get;set;} 
-		[JsonProperty("timeLag")]
-		public IfcLagTime TimeLag {get;set;} // optional
-		[JsonProperty("sequenceType")]
-		public IfcSequenceEnum SequenceType {get;set;} // optional
-		[JsonProperty("userDefinedSequenceType")]
-		public IfcLabel UserDefinedSequenceType {get;set;} // optional
+		public IfcProcess RelatingProcess{get;set;} 
+		public IfcProcess RelatedProcess{get;set;} 
+		public IfcLagTime TimeLag{get;set;} // optional
+		public IfcSequenceEnum SequenceType{get;set;} // optional
+		public IfcLabel UserDefinedSequenceType{get;set;} // optional
 
-		public IfcRelSequence(IfcProcess relatingProcess
-				,IfcProcess relatedProcess
-				) : base()
+		public IfcRelSequence(IfcProcess relatingProcess,IfcProcess relatedProcess,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingProcess = relatingProcess;
 			RelatedProcess = relatedProcess;
+
 
 		}
 
@@ -22451,17 +22974,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelServicesBuildings : IfcRelConnects
 	{
-		[JsonProperty("relatingSystem")]
-		public IfcSystem RelatingSystem {get;set;} 
-		[JsonProperty("relatedBuildings")]
-		public List<IfcSpatialElement> RelatedBuildings {get;set;} 
+		public IfcSystem RelatingSystem{get;set;} 
+		public List<IfcSpatialElement> RelatedBuildings{get;set;} 
 
-		public IfcRelServicesBuildings(IfcSystem relatingSystem
-				,List<IfcSpatialElement> relatedBuildings
-				) : base()
+		public IfcRelServicesBuildings(IfcSystem relatingSystem,List<IfcSpatialElement> relatedBuildings,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingSystem = relatingSystem;
 			RelatedBuildings = relatedBuildings;
+
 
 		}
 
@@ -22481,27 +23001,19 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelSpaceBoundary : IfcRelConnects
 	{
-		[JsonProperty("relatingSpace")]
-		public IfcSpaceBoundarySelect RelatingSpace {get;set;} 
-		[JsonProperty("relatedBuildingElement")]
-		public IfcElement RelatedBuildingElement {get;set;} 
-		[JsonProperty("connectionGeometry")]
-		public IfcConnectionGeometry ConnectionGeometry {get;set;} // optional
-		[JsonProperty("physicalOrVirtualBoundary")]
-		public IfcPhysicalOrVirtualEnum PhysicalOrVirtualBoundary {get;set;} 
-		[JsonProperty("internalOrExternalBoundary")]
-		public IfcInternalOrExternalEnum InternalOrExternalBoundary {get;set;} 
+		public IfcSpaceBoundarySelect RelatingSpace{get;set;} 
+		public IfcElement RelatedBuildingElement{get;set;} 
+		public IfcConnectionGeometry ConnectionGeometry{get;set;} // optional
+		public IfcPhysicalOrVirtualEnum PhysicalOrVirtualBoundary{get;set;} 
+		public IfcInternalOrExternalEnum InternalOrExternalBoundary{get;set;} 
 
-		public IfcRelSpaceBoundary(IfcSpaceBoundarySelect relatingSpace
-				,IfcElement relatedBuildingElement
-				,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary
-				,IfcInternalOrExternalEnum internalOrExternalBoundary
-				) : base()
+		public IfcRelSpaceBoundary(IfcSpaceBoundarySelect relatingSpace,IfcElement relatedBuildingElement,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary,IfcInternalOrExternalEnum internalOrExternalBoundary,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingSpace = relatingSpace;
 			RelatedBuildingElement = relatedBuildingElement;
 			PhysicalOrVirtualBoundary = physicalOrVirtualBoundary;
 			InternalOrExternalBoundary = internalOrExternalBoundary;
+
 
 		}
 
@@ -22517,25 +23029,336 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelconnectspathelements.htm"/>
+	/// </summary>
+	public  partial class IfcRelConnectsPathElements : IfcRelConnectsElements
+	{
+		public List<double> RelatingPriorities{get;set;} 
+		public List<double> RelatedPriorities{get;set;} 
+		public IfcConnectionTypeEnum RelatedConnectionType{get;set;} 
+		public IfcConnectionTypeEnum RelatingConnectionType{get;set;} 
+
+		public IfcRelConnectsPathElements(List<double> relatingPriorities,List<double> relatedPriorities,IfcConnectionTypeEnum relatedConnectionType,IfcConnectionTypeEnum relatingConnectionType,IfcElement relatingElement,IfcElement relatedElement,IfcGloballyUniqueId globalId):base(relatingElement,relatedElement,globalId)
+		{
+			RelatingPriorities = relatingPriorities;
+			RelatedPriorities = relatedPriorities;
+			RelatedConnectionType = relatedConnectionType;
+			RelatingConnectionType = relatingConnectionType;
+
+
+		}
+
+		public static new IfcRelConnectsPathElements FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelConnectsPathElements>(json);
+		}
+
+		public static new IfcRelConnectsPathElements FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelconnectswithrealizingelements.htm"/>
+	/// </summary>
+	public  partial class IfcRelConnectsWithRealizingElements : IfcRelConnectsElements
+	{
+		public List<IfcElement> RealizingElements{get;set;} 
+		public IfcLabel ConnectionType{get;set;} // optional
+
+		public IfcRelConnectsWithRealizingElements(List<IfcElement> realizingElements,IfcElement relatingElement,IfcElement relatedElement,IfcGloballyUniqueId globalId):base(relatingElement,relatedElement,globalId)
+		{
+			RealizingElements = realizingElements;
+
+
+		}
+
+		public static new IfcRelConnectsWithRealizingElements FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelConnectsWithRealizingElements>(json);
+		}
+
+		public static new IfcRelConnectsWithRealizingElements FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelconnectswitheccentricity.htm"/>
+	/// </summary>
+	public  partial class IfcRelConnectsWithEccentricity : IfcRelConnectsStructuralMember
+	{
+		public IfcConnectionGeometry ConnectionConstraint{get;set;} 
+
+		public IfcRelConnectsWithEccentricity(IfcConnectionGeometry connectionConstraint,IfcStructuralMember relatingStructuralMember,IfcStructuralConnection relatedStructuralConnection,IfcGloballyUniqueId globalId):base(relatingStructuralMember,relatedStructuralConnection,globalId)
+		{
+			ConnectionConstraint = connectionConstraint;
+
+
+		}
+
+		public static new IfcRelConnectsWithEccentricity FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelConnectsWithEccentricity>(json);
+		}
+
+		public static new IfcRelConnectsWithEccentricity FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreldeclares.htm"/>
+	/// </summary>
+	public  partial class IfcRelDeclares : IfcRelationship
+	{
+		public IfcContext RelatingContext{get;set;} 
+		public List<IfcDefinitionSelect> RelatedDefinitions{get;set;} 
+
+		public IfcRelDeclares(IfcContext relatingContext,List<IfcDefinitionSelect> relatedDefinitions,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			RelatingContext = relatingContext;
+			RelatedDefinitions = relatedDefinitions;
+
+
+		}
+
+		public static new IfcRelDeclares FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelDeclares>(json);
+		}
+
+		public static new IfcRelDeclares FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelnests.htm"/>
+	/// </summary>
+	public  partial class IfcRelNests : IfcRelDecomposes
+	{
+		public IfcObjectDefinition RelatingObject{get;set;} 
+		public List<IfcObjectDefinition> RelatedObjects{get;set;} 
+
+		public IfcRelNests(IfcObjectDefinition relatingObject,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			RelatingObject = relatingObject;
+			RelatedObjects = relatedObjects;
+
+
+		}
+
+		public static new IfcRelNests FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelNests>(json);
+		}
+
+		public static new IfcRelNests FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelprojectselement.htm"/>
+	/// </summary>
+	public  partial class IfcRelProjectsElement : IfcRelDecomposes
+	{
+		public IfcElement RelatingElement{get;set;} 
+		public IfcFeatureElementAddition RelatedFeatureElement{get;set;} 
+
+		public IfcRelProjectsElement(IfcElement relatingElement,IfcFeatureElementAddition relatedFeatureElement,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			RelatingElement = relatingElement;
+			RelatedFeatureElement = relatedFeatureElement;
+
+
+		}
+
+		public static new IfcRelProjectsElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelProjectsElement>(json);
+		}
+
+		public static new IfcRelProjectsElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelvoidselement.htm"/>
+	/// </summary>
+	public  partial class IfcRelVoidsElement : IfcRelDecomposes
+	{
+		public IfcElement RelatingBuildingElement{get;set;} 
+		public IfcFeatureElementSubtraction RelatedOpeningElement{get;set;} 
+
+		public IfcRelVoidsElement(IfcElement relatingBuildingElement,IfcFeatureElementSubtraction relatedOpeningElement,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			RelatingBuildingElement = relatingBuildingElement;
+			RelatedOpeningElement = relatedOpeningElement;
+
+
+		}
+
+		public static new IfcRelVoidsElement FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelVoidsElement>(json);
+		}
+
+		public static new IfcRelVoidsElement FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreldefines.htm"/>
+	/// </summary>
+	public abstract partial class IfcRelDefines : IfcRelationship
+	{
+
+		public IfcRelDefines(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcRelDefines FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelDefines>(json);
+		}
+
+		public static new IfcRelDefines FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreldefinesbyobject.htm"/>
+	/// </summary>
+	public  partial class IfcRelDefinesByObject : IfcRelDefines
+	{
+		public List<IfcObject> RelatedObjects{get;set;} 
+		public IfcObject RelatingObject{get;set;} 
+
+		public IfcRelDefinesByObject(List<IfcObject> relatedObjects,IfcObject relatingObject,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			RelatedObjects = relatedObjects;
+			RelatingObject = relatingObject;
+
+
+		}
+
+		public static new IfcRelDefinesByObject FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelDefinesByObject>(json);
+		}
+
+		public static new IfcRelDefinesByObject FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreldefinesbyproperties.htm"/>
+	/// </summary>
+	public  partial class IfcRelDefinesByProperties : IfcRelDefines
+	{
+		public List<IfcObjectDefinition> RelatedObjects{get;set;} 
+		public IfcPropertySetDefinitionSelect RelatingPropertyDefinition{get;set;} 
+
+		public IfcRelDefinesByProperties(List<IfcObjectDefinition> relatedObjects,IfcPropertySetDefinitionSelect relatingPropertyDefinition,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			RelatedObjects = relatedObjects;
+			RelatingPropertyDefinition = relatingPropertyDefinition;
+
+
+		}
+
+		public static new IfcRelDefinesByProperties FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelDefinesByProperties>(json);
+		}
+
+		public static new IfcRelDefinesByProperties FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreldefinesbytemplate.htm"/>
+	/// </summary>
+	public  partial class IfcRelDefinesByTemplate : IfcRelDefines
+	{
+		public List<IfcPropertySetDefinition> RelatedPropertySets{get;set;} 
+		public IfcPropertySetTemplate RelatingTemplate{get;set;} 
+
+		public IfcRelDefinesByTemplate(List<IfcPropertySetDefinition> relatedPropertySets,IfcPropertySetTemplate relatingTemplate,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			RelatedPropertySets = relatedPropertySets;
+			RelatingTemplate = relatingTemplate;
+
+
+		}
+
+		public static new IfcRelDefinesByTemplate FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelDefinesByTemplate>(json);
+		}
+
+		public static new IfcRelDefinesByTemplate FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreldefinesbytype.htm"/>
+	/// </summary>
+	public  partial class IfcRelDefinesByType : IfcRelDefines
+	{
+		public List<IfcObject> RelatedObjects{get;set;} 
+		public IfcTypeObject RelatingType{get;set;} 
+
+		public IfcRelDefinesByType(List<IfcObject> relatedObjects,IfcTypeObject relatingType,IfcGloballyUniqueId globalId):base(globalId)
+		{
+			RelatedObjects = relatedObjects;
+			RelatingType = relatingType;
+
+
+		}
+
+		public static new IfcRelDefinesByType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcRelDefinesByType>(json);
+		}
+
+		public static new IfcRelDefinesByType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelspaceboundary1stlevel.htm"/>
 	/// </summary>
 	public  partial class IfcRelSpaceBoundary1stLevel : IfcRelSpaceBoundary
 	{
-		[JsonProperty("parentBoundary")]
-		public IfcRelSpaceBoundary1stLevel ParentBoundary {get;set;} // optional
-		[JsonProperty("innerBoundaries")]
-		public List<IfcRelSpaceBoundary1stLevel> InnerBoundaries {get;set;} 
+		public IfcRelSpaceBoundary1stLevel ParentBoundary{get;set;} // optional
 
-		public IfcRelSpaceBoundary1stLevel(IfcSpaceBoundarySelect relatingSpace
-				,IfcElement relatedBuildingElement
-				,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary
-				,IfcInternalOrExternalEnum internalOrExternalBoundary
-				) : base(relatingSpace
-					,relatedBuildingElement
-					,physicalOrVirtualBoundary
-					,internalOrExternalBoundary
-					)
+		public IfcRelSpaceBoundary1stLevel(IfcSpaceBoundarySelect relatingSpace,IfcElement relatedBuildingElement,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary,IfcInternalOrExternalEnum internalOrExternalBoundary,IfcGloballyUniqueId globalId):base(relatingSpace,relatedBuildingElement,physicalOrVirtualBoundary,internalOrExternalBoundary,globalId)
 		{
+
 
 		}
 
@@ -22555,21 +23378,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRelSpaceBoundary2ndLevel : IfcRelSpaceBoundary1stLevel
 	{
-		[JsonProperty("correspondingBoundary")]
-		public IfcRelSpaceBoundary2ndLevel CorrespondingBoundary {get;set;} // optional
-		[JsonProperty("corresponds")]
-		public List<IfcRelSpaceBoundary2ndLevel> Corresponds {get;set;} 
+		public IfcRelSpaceBoundary2ndLevel CorrespondingBoundary{get;set;} // optional
 
-		public IfcRelSpaceBoundary2ndLevel(IfcSpaceBoundarySelect relatingSpace
-				,IfcElement relatedBuildingElement
-				,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary
-				,IfcInternalOrExternalEnum internalOrExternalBoundary
-				) : base(relatingSpace
-					,relatedBuildingElement
-					,physicalOrVirtualBoundary
-					,internalOrExternalBoundary
-					)
+		public IfcRelSpaceBoundary2ndLevel(IfcSpaceBoundarySelect relatingSpace,IfcElement relatedBuildingElement,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary,IfcInternalOrExternalEnum internalOrExternalBoundary,IfcGloballyUniqueId globalId):base(relatingSpace,relatedBuildingElement,physicalOrVirtualBoundary,internalOrExternalBoundary,globalId)
 		{
+
 
 		}
 
@@ -22585,127 +23398,20 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelvoidselement.htm"/>
-	/// </summary>
-	public  partial class IfcRelVoidsElement : IfcRelDecomposes
-	{
-		[JsonProperty("relatingBuildingElement")]
-		public IfcElement RelatingBuildingElement {get;set;} 
-		[JsonProperty("relatedOpeningElement")]
-		public IfcFeatureElementSubtraction RelatedOpeningElement {get;set;} 
-
-		public IfcRelVoidsElement(IfcElement relatingBuildingElement
-				,IfcFeatureElementSubtraction relatedOpeningElement
-				) : base()
-		{
-			RelatingBuildingElement = relatingBuildingElement;
-			RelatedOpeningElement = relatedOpeningElement;
-
-		}
-
-		public static new IfcRelVoidsElement FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRelVoidsElement>(json);
-		}
-
-		public static new IfcRelVoidsElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrelationship.htm"/>
-	/// </summary>
-	public abstract partial class IfcRelationship : IfcRoot
-	{
-
-		public IfcRelationship() : base()
-		{
-
-		}
-
-		public static new IfcRelationship FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRelationship>(json);
-		}
-
-		public static new IfcRelationship FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcreparametrisedcompositecurvesegment.htm"/>
-	/// </summary>
-	public  partial class IfcReparametrisedCompositeCurveSegment : IfcCompositeCurveSegment
-	{
-		[JsonProperty("paramLength")]
-		public IfcParameterValue ParamLength {get;set;} 
-
-		public IfcReparametrisedCompositeCurveSegment(IfcParameterValue paramLength
-				,IfcTransitionCode transition
-				,bool sameSense
-				,IfcCurve parentCurve
-				,List<IfcCompositeCurve> usingCurves
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(transition
-					,sameSense
-					,parentCurve
-					,usingCurves
-					,layerAssignment
-					,styledByItem
-					)
-		{
-			ParamLength = paramLength;
-
-		}
-
-		public static new IfcReparametrisedCompositeCurveSegment FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcReparametrisedCompositeCurveSegment>(json);
-		}
-
-		public static new IfcReparametrisedCompositeCurveSegment FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrepresentation.htm"/>
 	/// </summary>
 	public abstract partial class IfcRepresentation : IfcBase
 	{
-		[JsonProperty("contextOfItems")]
-		public IfcRepresentationContext ContextOfItems {get;set;} 
-		[JsonProperty("representationIdentifier")]
-		public IfcLabel RepresentationIdentifier {get;set;} // optional
-		[JsonProperty("representationType")]
-		public IfcLabel RepresentationType {get;set;} // optional
-		[JsonProperty("items")]
-		public List<IfcRepresentationItem> Items {get;set;} 
-		[JsonProperty("representationMap")]
-		public List<IfcRepresentationMap> RepresentationMap {get;set;} 
-		[JsonProperty("layerAssignments")]
-		public List<IfcPresentationLayerAssignment> LayerAssignments {get;set;} 
-		[JsonProperty("ofProductRepresentation")]
-		public List<IfcProductRepresentation> OfProductRepresentation {get;set;} 
+		public IfcRepresentationContext ContextOfItems{get;set;} 
+		public IfcLabel RepresentationIdentifier{get;set;} // optional
+		public IfcLabel RepresentationType{get;set;} // optional
+		public List<IfcRepresentationItem> Items{get;set;} 
 
-		public IfcRepresentation(IfcRepresentationContext contextOfItems
-				,List<IfcRepresentationItem> items
-				,List<IfcRepresentationMap> representationMap
-				,List<IfcPresentationLayerAssignment> layerAssignments
-				,List<IfcProductRepresentation> ofProductRepresentation
-				)
+		public IfcRepresentation(IfcRepresentationContext contextOfItems,List<IfcRepresentationItem> items):base()
 		{
 			ContextOfItems = contextOfItems;
 			Items = items;
-			RepresentationMap = representationMap;
-			LayerAssignments = layerAssignments;
-			OfProductRepresentation = ofProductRepresentation;
+
 
 		}
 
@@ -22721,60 +23427,73 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrepresentationcontext.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcshapemodel.htm"/>
 	/// </summary>
-	public abstract partial class IfcRepresentationContext : IfcBase
+	public abstract partial class IfcShapeModel : IfcRepresentation
 	{
-		[JsonProperty("contextIdentifier")]
-		public IfcLabel ContextIdentifier {get;set;} // optional
-		[JsonProperty("contextType")]
-		public IfcLabel ContextType {get;set;} // optional
-		[JsonProperty("representationsInContext")]
-		public List<IfcRepresentation> RepresentationsInContext {get;set;} 
 
-		public IfcRepresentationContext(List<IfcRepresentation> representationsInContext
-				)
+		public IfcShapeModel(IfcRepresentationContext contextOfItems,List<IfcRepresentationItem> items):base(contextOfItems,items)
 		{
-			RepresentationsInContext = representationsInContext;
+
 
 		}
 
-		public static  IfcRepresentationContext FromJSON(string json)
+		public static new IfcShapeModel FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcRepresentationContext>(json);
+			return JsonConvert.DeserializeObject<IfcShapeModel>(json);
 		}
 
-		public static  IfcRepresentationContext FromSTEP(string step)
+		public static new IfcShapeModel FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrepresentationitem.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstylemodel.htm"/>
 	/// </summary>
-	public abstract partial class IfcRepresentationItem : IfcBase
+	public abstract partial class IfcStyleModel : IfcRepresentation
 	{
-		[JsonProperty("layerAssignment")]
-		public List<IfcPresentationLayerAssignment> LayerAssignment {get;set;} 
-		[JsonProperty("styledByItem")]
-		public List<IfcStyledItem> StyledByItem {get;set;} 
 
-		public IfcRepresentationItem(List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				)
+		public IfcStyleModel(IfcRepresentationContext contextOfItems,List<IfcRepresentationItem> items):base(contextOfItems,items)
 		{
-			LayerAssignment = layerAssignment;
-			StyledByItem = styledByItem;
+
 
 		}
 
-		public static  IfcRepresentationItem FromJSON(string json)
+		public static new IfcStyleModel FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcRepresentationItem>(json);
+			return JsonConvert.DeserializeObject<IfcStyleModel>(json);
 		}
 
-		public static  IfcRepresentationItem FromSTEP(string step)
+		public static new IfcStyleModel FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstyleditem.htm"/>
+	/// </summary>
+	public  partial class IfcStyledItem : IfcRepresentationItem
+	{
+		public IfcRepresentationItem Item{get;set;} // optional
+		public List<IfcStyleAssignmentSelect> Styles{get;set;} 
+		public IfcLabel Name{get;set;} // optional
+
+		public IfcStyledItem(List<IfcStyleAssignmentSelect> styles):base()
+		{
+			Styles = styles;
+
+
+		}
+
+		public static new IfcStyledItem FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStyledItem>(json);
+		}
+
+		public static new IfcStyledItem FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -22785,25 +23504,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRepresentationMap : IfcBase
 	{
-		[JsonProperty("mappingOrigin")]
-		public IfcAxis2Placement MappingOrigin {get;set;} 
-		[JsonProperty("mappedRepresentation")]
-		public IfcRepresentation MappedRepresentation {get;set;} 
-		[JsonProperty("hasShapeAspects")]
-		public List<IfcShapeAspect> HasShapeAspects {get;set;} 
-		[JsonProperty("mapUsage")]
-		public List<IfcMappedItem> MapUsage {get;set;} 
+		public IfcAxis2Placement MappingOrigin{get;set;} 
+		public IfcRepresentation MappedRepresentation{get;set;} 
 
-		public IfcRepresentationMap(IfcAxis2Placement mappingOrigin
-				,IfcRepresentation mappedRepresentation
-				,List<IfcShapeAspect> hasShapeAspects
-				,List<IfcMappedItem> mapUsage
-				)
+		public IfcRepresentationMap(IfcAxis2Placement mappingOrigin,IfcRepresentation mappedRepresentation):base()
 		{
 			MappingOrigin = mappingOrigin;
 			MappedRepresentation = mappedRepresentation;
-			HasShapeAspects = hasShapeAspects;
-			MapUsage = mapUsage;
+
 
 		}
 
@@ -22819,49 +23527,18 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcresource.htm"/>
-	/// </summary>
-	public abstract partial class IfcResource : IfcObject
-	{
-		[JsonProperty("identification")]
-		public IfcIdentifier Identification {get;set;} // optional
-		[JsonProperty("longDescription")]
-		public IfcText LongDescription {get;set;} // optional
-		[JsonProperty("resourceOf")]
-		public List<IfcRelAssignsToResource> ResourceOf {get;set;} 
-
-		public IfcResource() : base()
-		{
-
-		}
-
-		public static new IfcResource FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcResource>(json);
-		}
-
-		public static new IfcResource FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcresourceapprovalrelationship.htm"/>
 	/// </summary>
 	public  partial class IfcResourceApprovalRelationship : IfcResourceLevelRelationship
 	{
-		[JsonProperty("relatedResourceObjects")]
-		public List<IfcResourceObjectSelect> RelatedResourceObjects {get;set;} 
-		[JsonProperty("relatingApproval")]
-		public IfcApproval RelatingApproval {get;set;} 
+		public List<IfcResourceObjectSelect> RelatedResourceObjects{get;set;} 
+		public IfcApproval RelatingApproval{get;set;} 
 
-		public IfcResourceApprovalRelationship(List<IfcResourceObjectSelect> relatedResourceObjects
-				,IfcApproval relatingApproval
-				) : base()
+		public IfcResourceApprovalRelationship(List<IfcResourceObjectSelect> relatedResourceObjects,IfcApproval relatingApproval):base()
 		{
 			RelatedResourceObjects = relatedResourceObjects;
 			RelatingApproval = relatingApproval;
+
 
 		}
 
@@ -22881,17 +23558,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcResourceConstraintRelationship : IfcResourceLevelRelationship
 	{
-		[JsonProperty("relatingConstraint")]
-		public IfcConstraint RelatingConstraint {get;set;} 
-		[JsonProperty("relatedResourceObjects")]
-		public List<IfcResourceObjectSelect> RelatedResourceObjects {get;set;} 
+		public IfcConstraint RelatingConstraint{get;set;} 
+		public List<IfcResourceObjectSelect> RelatedResourceObjects{get;set;} 
 
-		public IfcResourceConstraintRelationship(IfcConstraint relatingConstraint
-				,List<IfcResourceObjectSelect> relatedResourceObjects
-				) : base()
+		public IfcResourceConstraintRelationship(IfcConstraint relatingConstraint,List<IfcResourceObjectSelect> relatedResourceObjects):base()
 		{
 			RelatingConstraint = relatingConstraint;
 			RelatedResourceObjects = relatedResourceObjects;
+
 
 		}
 
@@ -22907,69 +23581,29 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcresourcelevelrelationship.htm"/>
-	/// </summary>
-	public abstract partial class IfcResourceLevelRelationship : IfcBase
-	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-
-		public IfcResourceLevelRelationship()
-		{
-
-		}
-
-		public static  IfcResourceLevelRelationship FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcResourceLevelRelationship>(json);
-		}
-
-		public static  IfcResourceLevelRelationship FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcresourcetime.htm"/>
 	/// </summary>
 	public  partial class IfcResourceTime : IfcSchedulingTime
 	{
-		[JsonProperty("scheduleWork")]
-		public IfcDuration ScheduleWork {get;set;} // optional
-		[JsonProperty("scheduleUsage")]
-		public IfcPositiveRatioMeasure ScheduleUsage {get;set;} // optional
-		[JsonProperty("scheduleStart")]
-		public IfcDateTime ScheduleStart {get;set;} // optional
-		[JsonProperty("scheduleFinish")]
-		public IfcDateTime ScheduleFinish {get;set;} // optional
-		[JsonProperty("scheduleContour")]
-		public IfcLabel ScheduleContour {get;set;} // optional
-		[JsonProperty("levelingDelay")]
-		public IfcDuration LevelingDelay {get;set;} // optional
-		[JsonProperty("isOverAllocated")]
-		public bool IsOverAllocated {get;set;} // optional
-		[JsonProperty("statusTime")]
-		public IfcDateTime StatusTime {get;set;} // optional
-		[JsonProperty("actualWork")]
-		public IfcDuration ActualWork {get;set;} // optional
-		[JsonProperty("actualUsage")]
-		public IfcPositiveRatioMeasure ActualUsage {get;set;} // optional
-		[JsonProperty("actualStart")]
-		public IfcDateTime ActualStart {get;set;} // optional
-		[JsonProperty("actualFinish")]
-		public IfcDateTime ActualFinish {get;set;} // optional
-		[JsonProperty("remainingWork")]
-		public IfcDuration RemainingWork {get;set;} // optional
-		[JsonProperty("remainingUsage")]
-		public IfcPositiveRatioMeasure RemainingUsage {get;set;} // optional
-		[JsonProperty("completion")]
-		public IfcPositiveRatioMeasure Completion {get;set;} // optional
+		public IfcDuration ScheduleWork{get;set;} // optional
+		public IfcPositiveRatioMeasure ScheduleUsage{get;set;} // optional
+		public IfcDateTime ScheduleStart{get;set;} // optional
+		public IfcDateTime ScheduleFinish{get;set;} // optional
+		public IfcLabel ScheduleContour{get;set;} // optional
+		public IfcDuration LevelingDelay{get;set;} // optional
+		public bool IsOverAllocated{get;set;} // optional
+		public IfcDateTime StatusTime{get;set;} // optional
+		public IfcDuration ActualWork{get;set;} // optional
+		public IfcPositiveRatioMeasure ActualUsage{get;set;} // optional
+		public IfcDateTime ActualStart{get;set;} // optional
+		public IfcDateTime ActualFinish{get;set;} // optional
+		public IfcDuration RemainingWork{get;set;} // optional
+		public IfcPositiveRatioMeasure RemainingUsage{get;set;} // optional
+		public IfcPositiveRatioMeasure Completion{get;set;} // optional
 
-		public IfcResourceTime() : base()
+		public IfcResourceTime():base()
 		{
+
 
 		}
 
@@ -22989,23 +23623,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRevolvedAreaSolid : IfcSweptAreaSolid
 	{
-		[JsonProperty("axis")]
-		public IfcAxis1Placement Axis {get;set;} 
-		[JsonProperty("angle")]
-		public IfcPlaneAngleMeasure Angle {get;set;} 
+		public IfcAxis1Placement Axis{get;set;} 
+		public IfcPlaneAngleMeasure Angle{get;set;} 
 
-		public IfcRevolvedAreaSolid(IfcAxis1Placement axis
-				,IfcPlaneAngleMeasure angle
-				,IfcProfileDef sweptArea
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(sweptArea
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcRevolvedAreaSolid(IfcAxis1Placement axis,IfcPlaneAngleMeasure angle,IfcProfileDef sweptArea):base(sweptArea)
 		{
 			Axis = axis;
 			Angle = angle;
+
 
 		}
 
@@ -23025,23 +23650,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcRevolvedAreaSolidTapered : IfcRevolvedAreaSolid
 	{
-		[JsonProperty("endSweptArea")]
-		public IfcProfileDef EndSweptArea {get;set;} 
+		public IfcProfileDef EndSweptArea{get;set;} 
 
-		public IfcRevolvedAreaSolidTapered(IfcProfileDef endSweptArea
-				,IfcAxis1Placement axis
-				,IfcPlaneAngleMeasure angle
-				,IfcProfileDef sweptArea
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(axis
-					,angle
-					,sweptArea
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcRevolvedAreaSolidTapered(IfcProfileDef endSweptArea,IfcAxis1Placement axis,IfcPlaneAngleMeasure angle,IfcProfileDef sweptArea):base(axis,angle,sweptArea)
 		{
 			EndSweptArea = endSweptArea;
+
 
 		}
 
@@ -23057,517 +23671,66 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrightcircularcone.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctasktime.htm"/>
 	/// </summary>
-	public  partial class IfcRightCircularCone : IfcCsgPrimitive3D
+	public  partial class IfcTaskTime : IfcSchedulingTime
 	{
-		[JsonProperty("height")]
-		public IfcPositiveLengthMeasure Height {get;set;} 
-		[JsonProperty("bottomRadius")]
-		public IfcPositiveLengthMeasure BottomRadius {get;set;} 
+		public IfcTaskDurationEnum DurationType{get;set;} // optional
+		public IfcDuration ScheduleDuration{get;set;} // optional
+		public IfcDateTime ScheduleStart{get;set;} // optional
+		public IfcDateTime ScheduleFinish{get;set;} // optional
+		public IfcDateTime EarlyStart{get;set;} // optional
+		public IfcDateTime EarlyFinish{get;set;} // optional
+		public IfcDateTime LateStart{get;set;} // optional
+		public IfcDateTime LateFinish{get;set;} // optional
+		public IfcDuration FreeFloat{get;set;} // optional
+		public IfcDuration TotalFloat{get;set;} // optional
+		public bool IsCritical{get;set;} // optional
+		public IfcDateTime StatusTime{get;set;} // optional
+		public IfcDuration ActualDuration{get;set;} // optional
+		public IfcDateTime ActualStart{get;set;} // optional
+		public IfcDateTime ActualFinish{get;set;} // optional
+		public IfcDuration RemainingTime{get;set;} // optional
+		public IfcPositiveRatioMeasure Completion{get;set;} // optional
 
-		public IfcRightCircularCone(IfcPositiveLengthMeasure height
-				,IfcPositiveLengthMeasure bottomRadius
-				,IfcAxis2Placement3D position
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(position
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcTaskTime():base()
 		{
-			Height = height;
-			BottomRadius = bottomRadius;
+
 
 		}
 
-		public static new IfcRightCircularCone FromJSON(string json)
+		public static new IfcTaskTime FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcRightCircularCone>(json);
+			return JsonConvert.DeserializeObject<IfcTaskTime>(json);
 		}
 
-		public static new IfcRightCircularCone FromSTEP(string step)
+		public static new IfcTaskTime FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrightcircularcylinder.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcworktime.htm"/>
 	/// </summary>
-	public  partial class IfcRightCircularCylinder : IfcCsgPrimitive3D
+	public  partial class IfcWorkTime : IfcSchedulingTime
 	{
-		[JsonProperty("height")]
-		public IfcPositiveLengthMeasure Height {get;set;} 
-		[JsonProperty("radius")]
-		public IfcPositiveLengthMeasure Radius {get;set;} 
+		public IfcRecurrencePattern RecurrencePattern{get;set;} // optional
+		public IfcDate Start{get;set;} // optional
+		public IfcDate Finish{get;set;} // optional
 
-		public IfcRightCircularCylinder(IfcPositiveLengthMeasure height
-				,IfcPositiveLengthMeasure radius
-				,IfcAxis2Placement3D position
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(position
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcWorkTime():base()
 		{
-			Height = height;
-			Radius = radius;
+
 
 		}
 
-		public static new IfcRightCircularCylinder FromJSON(string json)
+		public static new IfcWorkTime FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcRightCircularCylinder>(json);
+			return JsonConvert.DeserializeObject<IfcWorkTime>(json);
 		}
 
-		public static new IfcRightCircularCylinder FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcroof.htm"/>
-	/// </summary>
-	public  partial class IfcRoof : IfcBuildingElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcRoofTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcRoof() : base()
-		{
-
-		}
-
-		public static new IfcRoof FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRoof>(json);
-		}
-
-		public static new IfcRoof FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcrooftype.htm"/>
-	/// </summary>
-	public  partial class IfcRoofType : IfcBuildingElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcRoofTypeEnum PredefinedType {get;set;} 
-
-		public IfcRoofType(IfcRoofTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcRoofType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRoofType>(json);
-		}
-
-		public static new IfcRoofType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcroot.htm"/>
-	/// </summary>
-	public abstract partial class IfcRoot : IfcBase
-	{
-		[JsonProperty("globalId")]
-		public IfcGloballyUniqueId GlobalId {get;set;} 
-		[JsonProperty("ownerHistory")]
-		public IfcOwnerHistory OwnerHistory {get;set;} // optional
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-
-		public IfcRoot()
-		{
-			GlobalId = new IfcGloballyUniqueId(Guid.NewGuid().ToString());
-
-		}
-
-		public static  IfcRoot FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRoot>(json);
-		}
-
-		public static  IfcRoot FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcroundedrectangleprofiledef.htm"/>
-	/// </summary>
-	public  partial class IfcRoundedRectangleProfileDef : IfcRectangleProfileDef
-	{
-		[JsonProperty("roundingRadius")]
-		public IfcPositiveLengthMeasure RoundingRadius {get;set;} 
-
-		public IfcRoundedRectangleProfileDef(IfcPositiveLengthMeasure roundingRadius
-				,IfcPositiveLengthMeasure xDim
-				,IfcPositiveLengthMeasure yDim
-				,IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(xDim
-					,yDim
-					,profileType
-					,hasExternalReference
-					,hasProperties
-					)
-		{
-			RoundingRadius = roundingRadius;
-
-		}
-
-		public static new IfcRoundedRectangleProfileDef FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcRoundedRectangleProfileDef>(json);
-		}
-
-		public static new IfcRoundedRectangleProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsiunit.htm"/>
-	/// </summary>
-	public  partial class IfcSIUnit : IfcNamedUnit
-	{
-		[JsonProperty("prefix")]
-		public IfcSIPrefix Prefix {get;set;} // optional
-		[JsonProperty("name")]
-		public IfcSIUnitName Name {get;set;} 
-
-		public IfcSIUnit(IfcSIUnitName name
-				,IfcDimensionalExponents dimensions
-				,IfcUnitEnum unitType
-				) : base(dimensions
-					,unitType
-					)
-		{
-			Name = name;
-
-		}
-
-		public static new IfcSIUnit FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSIUnit>(json);
-		}
-
-		public static new IfcSIUnit FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsanitaryterminal.htm"/>
-	/// </summary>
-	public  partial class IfcSanitaryTerminal : IfcFlowTerminal
-	{
-		[JsonProperty("predefinedType")]
-		public IfcSanitaryTerminalTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcSanitaryTerminal() : base()
-		{
-
-		}
-
-		public static new IfcSanitaryTerminal FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSanitaryTerminal>(json);
-		}
-
-		public static new IfcSanitaryTerminal FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsanitaryterminaltype.htm"/>
-	/// </summary>
-	public  partial class IfcSanitaryTerminalType : IfcFlowTerminalType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcSanitaryTerminalTypeEnum PredefinedType {get;set;} 
-
-		public IfcSanitaryTerminalType(IfcSanitaryTerminalTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcSanitaryTerminalType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSanitaryTerminalType>(json);
-		}
-
-		public static new IfcSanitaryTerminalType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcschedulingtime.htm"/>
-	/// </summary>
-	public abstract partial class IfcSchedulingTime : IfcBase
-	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
-		[JsonProperty("dataOrigin")]
-		public IfcDataOriginEnum DataOrigin {get;set;} // optional
-		[JsonProperty("userDefinedDataOrigin")]
-		public IfcLabel UserDefinedDataOrigin {get;set;} // optional
-
-		public IfcSchedulingTime()
-		{
-
-		}
-
-		public static  IfcSchedulingTime FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSchedulingTime>(json);
-		}
-
-		public static  IfcSchedulingTime FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsectionproperties.htm"/>
-	/// </summary>
-	public  partial class IfcSectionProperties : IfcPreDefinedProperties
-	{
-		[JsonProperty("sectionType")]
-		public IfcSectionTypeEnum SectionType {get;set;} 
-		[JsonProperty("startProfile")]
-		public IfcProfileDef StartProfile {get;set;} 
-		[JsonProperty("endProfile")]
-		public IfcProfileDef EndProfile {get;set;} // optional
-
-		public IfcSectionProperties(IfcSectionTypeEnum sectionType
-				,IfcProfileDef startProfile
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				) : base(hasExternalReferences
-					)
-		{
-			SectionType = sectionType;
-			StartProfile = startProfile;
-
-		}
-
-		public static new IfcSectionProperties FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSectionProperties>(json);
-		}
-
-		public static new IfcSectionProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsectionreinforcementproperties.htm"/>
-	/// </summary>
-	public  partial class IfcSectionReinforcementProperties : IfcPreDefinedProperties
-	{
-		[JsonProperty("longitudinalStartPosition")]
-		public IfcLengthMeasure LongitudinalStartPosition {get;set;} 
-		[JsonProperty("longitudinalEndPosition")]
-		public IfcLengthMeasure LongitudinalEndPosition {get;set;} 
-		[JsonProperty("transversePosition")]
-		public IfcLengthMeasure TransversePosition {get;set;} // optional
-		[JsonProperty("reinforcementRole")]
-		public IfcReinforcingBarRoleEnum ReinforcementRole {get;set;} 
-		[JsonProperty("sectionDefinition")]
-		public IfcSectionProperties SectionDefinition {get;set;} 
-		[JsonProperty("crossSectionReinforcementDefinitions")]
-		public List<IfcReinforcementBarProperties> CrossSectionReinforcementDefinitions {get;set;} 
-
-		public IfcSectionReinforcementProperties(IfcLengthMeasure longitudinalStartPosition
-				,IfcLengthMeasure longitudinalEndPosition
-				,IfcReinforcingBarRoleEnum reinforcementRole
-				,IfcSectionProperties sectionDefinition
-				,List<IfcReinforcementBarProperties> crossSectionReinforcementDefinitions
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				) : base(hasExternalReferences
-					)
-		{
-			LongitudinalStartPosition = longitudinalStartPosition;
-			LongitudinalEndPosition = longitudinalEndPosition;
-			ReinforcementRole = reinforcementRole;
-			SectionDefinition = sectionDefinition;
-			CrossSectionReinforcementDefinitions = crossSectionReinforcementDefinitions;
-
-		}
-
-		public static new IfcSectionReinforcementProperties FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSectionReinforcementProperties>(json);
-		}
-
-		public static new IfcSectionReinforcementProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsectionedspine.htm"/>
-	/// </summary>
-	public  partial class IfcSectionedSpine : IfcGeometricRepresentationItem
-	{
-		[JsonProperty("spineCurve")]
-		public IfcCompositeCurve SpineCurve {get;set;} 
-		[JsonProperty("crossSections")]
-		public List<IfcProfileDef> CrossSections {get;set;} 
-		[JsonProperty("crossSectionPositions")]
-		public List<IfcAxis2Placement3D> CrossSectionPositions {get;set;} 
-
-		public IfcSectionedSpine(IfcCompositeCurve spineCurve
-				,List<IfcProfileDef> crossSections
-				,List<IfcAxis2Placement3D> crossSectionPositions
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-			SpineCurve = spineCurve;
-			CrossSections = crossSections;
-			CrossSectionPositions = crossSectionPositions;
-
-		}
-
-		public static new IfcSectionedSpine FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSectionedSpine>(json);
-		}
-
-		public static new IfcSectionedSpine FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsensor.htm"/>
-	/// </summary>
-	public  partial class IfcSensor : IfcDistributionControlElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcSensorTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcSensor() : base()
-		{
-
-		}
-
-		public static new IfcSensor FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSensor>(json);
-		}
-
-		public static new IfcSensor FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsensortype.htm"/>
-	/// </summary>
-	public  partial class IfcSensorType : IfcDistributionControlElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcSensorTypeEnum PredefinedType {get;set;} 
-
-		public IfcSensorType(IfcSensorTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcSensorType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSensorType>(json);
-		}
-
-		public static new IfcSensorType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcshadingdevice.htm"/>
-	/// </summary>
-	public  partial class IfcShadingDevice : IfcBuildingElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcShadingDeviceTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcShadingDevice() : base()
-		{
-
-		}
-
-		public static new IfcShadingDevice FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcShadingDevice>(json);
-		}
-
-		public static new IfcShadingDevice FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcshadingdevicetype.htm"/>
-	/// </summary>
-	public  partial class IfcShadingDeviceType : IfcBuildingElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcShadingDeviceTypeEnum PredefinedType {get;set;} 
-
-		public IfcShadingDeviceType(IfcShadingDeviceTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcShadingDeviceType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcShadingDeviceType>(json);
-		}
-
-		public static new IfcShadingDeviceType FromSTEP(string step)
+		public static new IfcWorkTime FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -23578,23 +23741,17 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcShapeAspect : IfcBase
 	{
-		[JsonProperty("shapeRepresentations")]
-		public List<IfcShapeModel> ShapeRepresentations {get;set;} 
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("productDefinitional")]
-		public bool? ProductDefinitional {get;set;} 
-		[JsonProperty("partOfProductDefinitionShape")]
-		public IfcProductRepresentationSelect PartOfProductDefinitionShape {get;set;} // optional
+		public List<IfcShapeModel> ShapeRepresentations{get;set;} 
+		public IfcLabel Name{get;set;} // optional
+		public IfcText Description{get;set;} // optional
+		public bool? ProductDefinitional{get;set;} 
+		public IfcProductRepresentationSelect PartOfProductDefinitionShape{get;set;} // optional
 
-		public IfcShapeAspect(List<IfcShapeModel> shapeRepresentations
-				,bool? productDefinitional
-				)
+		public IfcShapeAspect(List<IfcShapeModel> shapeRepresentations,bool? productDefinitional):base()
 		{
 			ShapeRepresentations = shapeRepresentations;
 			ProductDefinitional = productDefinitional;
+
 
 		}
 
@@ -23610,61 +23767,14 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcshapemodel.htm"/>
-	/// </summary>
-	public abstract partial class IfcShapeModel : IfcRepresentation
-	{
-		[JsonProperty("ofShapeAspect")]
-		public List<IfcShapeAspect> OfShapeAspect {get;set;} 
-
-		public IfcShapeModel(List<IfcShapeAspect> ofShapeAspect
-				,IfcRepresentationContext contextOfItems
-				,List<IfcRepresentationItem> items
-				,List<IfcRepresentationMap> representationMap
-				,List<IfcPresentationLayerAssignment> layerAssignments
-				,List<IfcProductRepresentation> ofProductRepresentation
-				) : base(contextOfItems
-					,items
-					,representationMap
-					,layerAssignments
-					,ofProductRepresentation
-					)
-		{
-			OfShapeAspect = ofShapeAspect;
-
-		}
-
-		public static new IfcShapeModel FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcShapeModel>(json);
-		}
-
-		public static new IfcShapeModel FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcshaperepresentation.htm"/>
 	/// </summary>
 	public  partial class IfcShapeRepresentation : IfcShapeModel
 	{
 
-		public IfcShapeRepresentation(List<IfcShapeAspect> ofShapeAspect
-				,IfcRepresentationContext contextOfItems
-				,List<IfcRepresentationItem> items
-				,List<IfcRepresentationMap> representationMap
-				,List<IfcPresentationLayerAssignment> layerAssignments
-				,List<IfcProductRepresentation> ofProductRepresentation
-				) : base(ofShapeAspect
-					,contextOfItems
-					,items
-					,representationMap
-					,layerAssignments
-					,ofProductRepresentation
-					)
+		public IfcShapeRepresentation(IfcRepresentationContext contextOfItems,List<IfcRepresentationItem> items):base(contextOfItems,items)
 		{
+
 
 		}
 
@@ -23680,106 +23790,23 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcshellbasedsurfacemodel.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctopologyrepresentation.htm"/>
 	/// </summary>
-	public  partial class IfcShellBasedSurfaceModel : IfcGeometricRepresentationItem
-	{
-		[JsonProperty("sbsmBoundary")]
-		public List<IfcShell> SbsmBoundary {get;set;} 
-
-		public IfcShellBasedSurfaceModel(List<IfcShell> sbsmBoundary
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-			SbsmBoundary = sbsmBoundary;
-
-		}
-
-		public static new IfcShellBasedSurfaceModel FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcShellBasedSurfaceModel>(json);
-		}
-
-		public static new IfcShellBasedSurfaceModel FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsimpleproperty.htm"/>
-	/// </summary>
-	public abstract partial class IfcSimpleProperty : IfcProperty
+	public  partial class IfcTopologyRepresentation : IfcShapeModel
 	{
 
-		public IfcSimpleProperty(IfcIdentifier name
-				,List<IfcPropertySet> partOfPset
-				,List<IfcPropertyDependencyRelationship> propertyForDependance
-				,List<IfcPropertyDependencyRelationship> propertyDependsOn
-				,List<IfcComplexProperty> partOfComplex
-				,List<IfcExternalReferenceRelationship> hasExternalReferences
-				) : base(name
-					,partOfPset
-					,propertyForDependance
-					,propertyDependsOn
-					,partOfComplex
-					,hasExternalReferences
-					)
+		public IfcTopologyRepresentation(IfcRepresentationContext contextOfItems,List<IfcRepresentationItem> items):base(contextOfItems,items)
 		{
+
 
 		}
 
-		public static new IfcSimpleProperty FromJSON(string json)
+		public static new IfcTopologyRepresentation FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcSimpleProperty>(json);
+			return JsonConvert.DeserializeObject<IfcTopologyRepresentation>(json);
 		}
 
-		public static new IfcSimpleProperty FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsimplepropertytemplate.htm"/>
-	/// </summary>
-	public  partial class IfcSimplePropertyTemplate : IfcPropertyTemplate
-	{
-		[JsonProperty("templateType")]
-		public IfcSimplePropertyTemplateTypeEnum TemplateType {get;set;} // optional
-		[JsonProperty("primaryMeasureType")]
-		public IfcLabel PrimaryMeasureType {get;set;} // optional
-		[JsonProperty("secondaryMeasureType")]
-		public IfcLabel SecondaryMeasureType {get;set;} // optional
-		[JsonProperty("enumerators")]
-		public IfcPropertyEnumeration Enumerators {get;set;} // optional
-		[JsonProperty("primaryUnit")]
-		public IfcUnit PrimaryUnit {get;set;} // optional
-		[JsonProperty("secondaryUnit")]
-		public IfcUnit SecondaryUnit {get;set;} // optional
-		[JsonProperty("expression")]
-		public IfcLabel Expression {get;set;} // optional
-		[JsonProperty("accessState")]
-		public IfcStateEnum AccessState {get;set;} // optional
-
-		public IfcSimplePropertyTemplate(List<IfcComplexPropertyTemplate> partOfComplexTemplate
-				,List<IfcPropertySetTemplate> partOfPsetTemplate
-				) : base(partOfComplexTemplate
-					,partOfPsetTemplate
-					)
-		{
-
-		}
-
-		public static new IfcSimplePropertyTemplate FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSimplePropertyTemplate>(json);
-		}
-
-		public static new IfcSimplePropertyTemplate FromSTEP(string step)
+		public static new IfcTopologyRepresentation FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -23790,19 +23817,15 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcSite : IfcSpatialStructureElement
 	{
-		[JsonProperty("refLatitude")]
-		public IfcCompoundPlaneAngleMeasure RefLatitude {get;set;} // optional
-		[JsonProperty("refLongitude")]
-		public IfcCompoundPlaneAngleMeasure RefLongitude {get;set;} // optional
-		[JsonProperty("refElevation")]
-		public IfcLengthMeasure RefElevation {get;set;} // optional
-		[JsonProperty("landTitleNumber")]
-		public IfcLabel LandTitleNumber {get;set;} // optional
-		[JsonProperty("siteAddress")]
-		public IfcPostalAddress SiteAddress {get;set;} // optional
+		public IfcCompoundPlaneAngleMeasure RefLatitude{get;set;} // optional
+		public IfcCompoundPlaneAngleMeasure RefLongitude{get;set;} // optional
+		public IfcLengthMeasure RefElevation{get;set;} // optional
+		public IfcLabel LandTitleNumber{get;set;} // optional
+		public IfcPostalAddress SiteAddress{get;set;} // optional
 
-		public IfcSite() : base()
+		public IfcSite(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -23818,37 +23841,14 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcslab.htm"/>
-	/// </summary>
-	public  partial class IfcSlab : IfcBuildingElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcSlabTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcSlab() : base()
-		{
-
-		}
-
-		public static new IfcSlab FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSlab>(json);
-		}
-
-		public static new IfcSlab FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcslabelementedcase.htm"/>
 	/// </summary>
 	public  partial class IfcSlabElementedCase : IfcSlab
 	{
 
-		public IfcSlabElementedCase() : base()
+		public IfcSlabElementedCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -23869,8 +23869,9 @@ namespace IFC4
 	public  partial class IfcSlabStandardCase : IfcSlab
 	{
 
-		public IfcSlabStandardCase() : base()
+		public IfcSlabStandardCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -23886,45 +23887,17 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcslabtype.htm"/>
-	/// </summary>
-	public  partial class IfcSlabType : IfcBuildingElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcSlabTypeEnum PredefinedType {get;set;} 
-
-		public IfcSlabType(IfcSlabTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcSlabType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSlabType>(json);
-		}
-
-		public static new IfcSlabType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcslippageconnectioncondition.htm"/>
 	/// </summary>
 	public  partial class IfcSlippageConnectionCondition : IfcStructuralConnectionCondition
 	{
-		[JsonProperty("slippageX")]
-		public IfcLengthMeasure SlippageX {get;set;} // optional
-		[JsonProperty("slippageY")]
-		public IfcLengthMeasure SlippageY {get;set;} // optional
-		[JsonProperty("slippageZ")]
-		public IfcLengthMeasure SlippageZ {get;set;} // optional
+		public IfcLengthMeasure SlippageX{get;set;} // optional
+		public IfcLengthMeasure SlippageY{get;set;} // optional
+		public IfcLengthMeasure SlippageZ{get;set;} // optional
 
-		public IfcSlippageConnectionCondition() : base()
+		public IfcSlippageConnectionCondition():base()
 		{
+
 
 		}
 
@@ -23940,76 +23913,30 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsolardevice.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsweptdisksolid.htm"/>
 	/// </summary>
-	public  partial class IfcSolarDevice : IfcEnergyConversionDevice
+	public  partial class IfcSweptDiskSolid : IfcSolidModel
 	{
-		[JsonProperty("predefinedType")]
-		public IfcSolarDeviceTypeEnum PredefinedType {get;set;} // optional
+		public IfcCurve Directrix{get;set;} 
+		public IfcPositiveLengthMeasure Radius{get;set;} 
+		public IfcPositiveLengthMeasure InnerRadius{get;set;} // optional
+		public IfcParameterValue StartParam{get;set;} // optional
+		public IfcParameterValue EndParam{get;set;} // optional
 
-		public IfcSolarDevice() : base()
+		public IfcSweptDiskSolid(IfcCurve directrix,IfcPositiveLengthMeasure radius):base()
 		{
+			Directrix = directrix;
+			Radius = radius;
+
 
 		}
 
-		public static new IfcSolarDevice FromJSON(string json)
+		public static new IfcSweptDiskSolid FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcSolarDevice>(json);
+			return JsonConvert.DeserializeObject<IfcSweptDiskSolid>(json);
 		}
 
-		public static new IfcSolarDevice FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsolardevicetype.htm"/>
-	/// </summary>
-	public  partial class IfcSolarDeviceType : IfcEnergyConversionDeviceType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcSolarDeviceTypeEnum PredefinedType {get;set;} 
-
-		public IfcSolarDeviceType(IfcSolarDeviceTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcSolarDeviceType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSolarDeviceType>(json);
-		}
-
-		public static new IfcSolarDeviceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsolidmodel.htm"/>
-	/// </summary>
-	public abstract partial class IfcSolidModel : IfcGeometricRepresentationItem
-	{
-
-		public IfcSolidModel(List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-
-		}
-
-		public static new IfcSolidModel FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSolidModel>(json);
-		}
-
-		public static new IfcSolidModel FromSTEP(string step)
+		public static new IfcSweptDiskSolid FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -24020,17 +23947,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcSpace : IfcSpatialStructureElement
 	{
-		[JsonProperty("predefinedType")]
-		public IfcSpaceTypeEnum PredefinedType {get;set;} // optional
-		[JsonProperty("elevationWithFlooring")]
-		public IfcLengthMeasure ElevationWithFlooring {get;set;} // optional
-		[JsonProperty("hasCoverings")]
-		public List<IfcRelCoversSpaces> HasCoverings {get;set;} 
-		[JsonProperty("boundedBy")]
-		public List<IfcRelSpaceBoundary> BoundedBy {get;set;} 
+		public IfcSpaceTypeEnum PredefinedType{get;set;} // optional
+		public IfcLengthMeasure ElevationWithFlooring{get;set;} // optional
 
-		public IfcSpace() : base()
+		public IfcSpace(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -24046,69 +23968,17 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcspaceheater.htm"/>
-	/// </summary>
-	public  partial class IfcSpaceHeater : IfcFlowTerminal
-	{
-		[JsonProperty("predefinedType")]
-		public IfcSpaceHeaterTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcSpaceHeater() : base()
-		{
-
-		}
-
-		public static new IfcSpaceHeater FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSpaceHeater>(json);
-		}
-
-		public static new IfcSpaceHeater FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcspaceheatertype.htm"/>
-	/// </summary>
-	public  partial class IfcSpaceHeaterType : IfcFlowTerminalType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcSpaceHeaterTypeEnum PredefinedType {get;set;} 
-
-		public IfcSpaceHeaterType(IfcSpaceHeaterTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcSpaceHeaterType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSpaceHeaterType>(json);
-		}
-
-		public static new IfcSpaceHeaterType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcspacetype.htm"/>
 	/// </summary>
 	public  partial class IfcSpaceType : IfcSpatialStructureElementType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcSpaceTypeEnum PredefinedType {get;set;} 
-		[JsonProperty("longName")]
-		public IfcLabel LongName {get;set;} // optional
+		public IfcSpaceTypeEnum PredefinedType{get;set;} 
+		public IfcLabel LongName{get;set;} // optional
 
-		public IfcSpaceType(IfcSpaceTypeEnum predefinedType
-				) : base()
+		public IfcSpaceType(IfcSpaceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -24124,91 +23994,14 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcspatialelement.htm"/>
-	/// </summary>
-	public abstract partial class IfcSpatialElement : IfcProduct
-	{
-		[JsonProperty("longName")]
-		public IfcLabel LongName {get;set;} // optional
-		[JsonProperty("containsElements")]
-		public List<IfcRelContainedInSpatialStructure> ContainsElements {get;set;} 
-		[JsonProperty("servicedBySystems")]
-		public List<IfcRelServicesBuildings> ServicedBySystems {get;set;} 
-		[JsonProperty("referencesElements")]
-		public List<IfcRelReferencedInSpatialStructure> ReferencesElements {get;set;} 
-
-		public IfcSpatialElement() : base()
-		{
-
-		}
-
-		public static new IfcSpatialElement FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSpatialElement>(json);
-		}
-
-		public static new IfcSpatialElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcspatialelementtype.htm"/>
-	/// </summary>
-	public abstract partial class IfcSpatialElementType : IfcTypeProduct
-	{
-		[JsonProperty("elementType")]
-		public IfcLabel ElementType {get;set;} // optional
-
-		public IfcSpatialElementType() : base()
-		{
-
-		}
-
-		public static new IfcSpatialElementType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSpatialElementType>(json);
-		}
-
-		public static new IfcSpatialElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcspatialstructureelement.htm"/>
-	/// </summary>
-	public abstract partial class IfcSpatialStructureElement : IfcSpatialElement
-	{
-		[JsonProperty("compositionType")]
-		public IfcElementCompositionEnum CompositionType {get;set;} // optional
-
-		public IfcSpatialStructureElement() : base()
-		{
-
-		}
-
-		public static new IfcSpatialStructureElement FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSpatialStructureElement>(json);
-		}
-
-		public static new IfcSpatialStructureElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcspatialstructureelementtype.htm"/>
 	/// </summary>
 	public abstract partial class IfcSpatialStructureElementType : IfcSpatialElementType
 	{
 
-		public IfcSpatialStructureElementType() : base()
+		public IfcSpatialStructureElementType(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -24228,11 +24021,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcSpatialZone : IfcSpatialElement
 	{
-		[JsonProperty("predefinedType")]
-		public IfcSpatialZoneTypeEnum PredefinedType {get;set;} // optional
+		public IfcSpatialZoneTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcSpatialZone() : base()
+		public IfcSpatialZone(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -24248,19 +24041,41 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcspatialelementtype.htm"/>
+	/// </summary>
+	public abstract partial class IfcSpatialElementType : IfcTypeProduct
+	{
+		public IfcLabel ElementType{get;set;} // optional
+
+		public IfcSpatialElementType(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcSpatialElementType FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSpatialElementType>(json);
+		}
+
+		public static new IfcSpatialElementType FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcspatialzonetype.htm"/>
 	/// </summary>
 	public  partial class IfcSpatialZoneType : IfcSpatialElementType
 	{
-		[JsonProperty("predefinedType")]
-		public IfcSpatialZoneTypeEnum PredefinedType {get;set;} 
-		[JsonProperty("longName")]
-		public IfcLabel LongName {get;set;} // optional
+		public IfcSpatialZoneTypeEnum PredefinedType{get;set;} 
+		public IfcLabel LongName{get;set;} // optional
 
-		public IfcSpatialZoneType(IfcSpatialZoneTypeEnum predefinedType
-				) : base()
+		public IfcSpatialZoneType(IfcSpatialZoneTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -24276,209 +24091,15 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsphere.htm"/>
-	/// </summary>
-	public  partial class IfcSphere : IfcCsgPrimitive3D
-	{
-		[JsonProperty("radius")]
-		public IfcPositiveLengthMeasure Radius {get;set;} 
-
-		public IfcSphere(IfcPositiveLengthMeasure radius
-				,IfcAxis2Placement3D position
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(position
-					,layerAssignment
-					,styledByItem
-					)
-		{
-			Radius = radius;
-
-		}
-
-		public static new IfcSphere FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSphere>(json);
-		}
-
-		public static new IfcSphere FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstackterminal.htm"/>
-	/// </summary>
-	public  partial class IfcStackTerminal : IfcFlowTerminal
-	{
-		[JsonProperty("predefinedType")]
-		public IfcStackTerminalTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcStackTerminal() : base()
-		{
-
-		}
-
-		public static new IfcStackTerminal FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStackTerminal>(json);
-		}
-
-		public static new IfcStackTerminal FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstackterminaltype.htm"/>
-	/// </summary>
-	public  partial class IfcStackTerminalType : IfcFlowTerminalType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcStackTerminalTypeEnum PredefinedType {get;set;} 
-
-		public IfcStackTerminalType(IfcStackTerminalTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcStackTerminalType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStackTerminalType>(json);
-		}
-
-		public static new IfcStackTerminalType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstair.htm"/>
-	/// </summary>
-	public  partial class IfcStair : IfcBuildingElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcStairTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcStair() : base()
-		{
-
-		}
-
-		public static new IfcStair FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStair>(json);
-		}
-
-		public static new IfcStair FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstairflight.htm"/>
-	/// </summary>
-	public  partial class IfcStairFlight : IfcBuildingElement
-	{
-		[JsonProperty("numberOfRiser")]
-		public int NumberOfRiser {get;set;} // optional
-		[JsonProperty("numberOfTreads")]
-		public int NumberOfTreads {get;set;} // optional
-		[JsonProperty("riserHeight")]
-		public IfcPositiveLengthMeasure RiserHeight {get;set;} // optional
-		[JsonProperty("treadLength")]
-		public IfcPositiveLengthMeasure TreadLength {get;set;} // optional
-		[JsonProperty("predefinedType")]
-		public IfcStairFlightTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcStairFlight() : base()
-		{
-
-		}
-
-		public static new IfcStairFlight FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStairFlight>(json);
-		}
-
-		public static new IfcStairFlight FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstairflighttype.htm"/>
-	/// </summary>
-	public  partial class IfcStairFlightType : IfcBuildingElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcStairFlightTypeEnum PredefinedType {get;set;} 
-
-		public IfcStairFlightType(IfcStairFlightTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcStairFlightType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStairFlightType>(json);
-		}
-
-		public static new IfcStairFlightType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstairtype.htm"/>
-	/// </summary>
-	public  partial class IfcStairType : IfcBuildingElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcStairTypeEnum PredefinedType {get;set;} 
-
-		public IfcStairType(IfcStairTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcStairType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStairType>(json);
-		}
-
-		public static new IfcStairType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralaction.htm"/>
 	/// </summary>
 	public abstract partial class IfcStructuralAction : IfcStructuralActivity
 	{
-		[JsonProperty("destabilizingLoad")]
-		public bool DestabilizingLoad {get;set;} // optional
+		public bool DestabilizingLoad{get;set;} // optional
 
-		public IfcStructuralAction(IfcStructuralLoad appliedLoad
-				,IfcGlobalOrLocalEnum globalOrLocal
-				) : base(appliedLoad
-					,globalOrLocal
-					)
+		public IfcStructuralAction(IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
 		{
+
 
 		}
 
@@ -24494,32 +24115,98 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralactivity.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralcurveaction.htm"/>
 	/// </summary>
-	public abstract partial class IfcStructuralActivity : IfcProduct
+	public  partial class IfcStructuralCurveAction : IfcStructuralAction
 	{
-		[JsonProperty("appliedLoad")]
-		public IfcStructuralLoad AppliedLoad {get;set;} 
-		[JsonProperty("globalOrLocal")]
-		public IfcGlobalOrLocalEnum GlobalOrLocal {get;set;} 
-		[JsonProperty("assignedToStructuralItem")]
-		public List<IfcRelConnectsStructuralActivity> AssignedToStructuralItem {get;set;} 
+		public IfcProjectedOrTrueLengthEnum ProjectedOrTrue{get;set;} // optional
+		public IfcStructuralCurveActivityTypeEnum PredefinedType{get;set;} 
 
-		public IfcStructuralActivity(IfcStructuralLoad appliedLoad
-				,IfcGlobalOrLocalEnum globalOrLocal
-				) : base()
+		public IfcStructuralCurveAction(IfcStructuralCurveActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
 		{
-			AppliedLoad = appliedLoad;
-			GlobalOrLocal = globalOrLocal;
+			PredefinedType = predefinedType;
+
 
 		}
 
-		public static new IfcStructuralActivity FromJSON(string json)
+		public static new IfcStructuralCurveAction FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcStructuralActivity>(json);
+			return JsonConvert.DeserializeObject<IfcStructuralCurveAction>(json);
 		}
 
-		public static new IfcStructuralActivity FromSTEP(string step)
+		public static new IfcStructuralCurveAction FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralpointaction.htm"/>
+	/// </summary>
+	public  partial class IfcStructuralPointAction : IfcStructuralAction
+	{
+
+		public IfcStructuralPointAction(IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
+		{
+
+
+		}
+
+		public static new IfcStructuralPointAction FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralPointAction>(json);
+		}
+
+		public static new IfcStructuralPointAction FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralsurfaceaction.htm"/>
+	/// </summary>
+	public  partial class IfcStructuralSurfaceAction : IfcStructuralAction
+	{
+		public IfcProjectedOrTrueLengthEnum ProjectedOrTrue{get;set;} // optional
+		public IfcStructuralSurfaceActivityTypeEnum PredefinedType{get;set;} 
+
+		public IfcStructuralSurfaceAction(IfcStructuralSurfaceActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
+		{
+			PredefinedType = predefinedType;
+
+
+		}
+
+		public static new IfcStructuralSurfaceAction FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralSurfaceAction>(json);
+		}
+
+		public static new IfcStructuralSurfaceAction FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralreaction.htm"/>
+	/// </summary>
+	public abstract partial class IfcStructuralReaction : IfcStructuralActivity
+	{
+
+		public IfcStructuralReaction(IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
+		{
+
+
+		}
+
+		public static new IfcStructuralReaction FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralReaction>(json);
+		}
+
+		public static new IfcStructuralReaction FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -24530,21 +24217,16 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcStructuralAnalysisModel : IfcSystem
 	{
-		[JsonProperty("predefinedType")]
-		public IfcAnalysisModelTypeEnum PredefinedType {get;set;} 
-		[JsonProperty("orientationOf2DPlane")]
-		public IfcAxis2Placement3D OrientationOf2DPlane {get;set;} // optional
-		[JsonProperty("loadedBy")]
-		public List<IfcStructuralLoadGroup> LoadedBy {get;set;} // optional
-		[JsonProperty("hasResults")]
-		public List<IfcStructuralResultGroup> HasResults {get;set;} // optional
-		[JsonProperty("sharedPlacement")]
-		public IfcObjectPlacement SharedPlacement {get;set;} // optional
+		public IfcAnalysisModelTypeEnum PredefinedType{get;set;} 
+		public IfcAxis2Placement3D OrientationOf2DPlane{get;set;} // optional
+		public List<IfcStructuralLoadGroup> LoadedBy{get;set;} // optional
+		public List<IfcStructuralResultGroup> HasResults{get;set;} // optional
+		public IfcObjectPlacement SharedPlacement{get;set;} // optional
 
-		public IfcStructuralAnalysisModel(IfcAnalysisModelTypeEnum predefinedType
-				) : base()
+		public IfcStructuralAnalysisModel(IfcAnalysisModelTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 			LoadedBy = new List<IfcStructuralLoadGroup>();
 			HasResults = new List<IfcStructuralResultGroup>();
 
@@ -24566,13 +24248,11 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcStructuralConnection : IfcStructuralItem
 	{
-		[JsonProperty("appliedCondition")]
-		public IfcBoundaryCondition AppliedCondition {get;set;} // optional
-		[JsonProperty("connectsStructuralMembers")]
-		public List<IfcRelConnectsStructuralMember> ConnectsStructuralMembers {get;set;} 
+		public IfcBoundaryCondition AppliedCondition{get;set;} // optional
 
-		public IfcStructuralConnection() : base()
+		public IfcStructuralConnection(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -24588,73 +24268,16 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralconnectioncondition.htm"/>
-	/// </summary>
-	public abstract partial class IfcStructuralConnectionCondition : IfcBase
-	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
-
-		public IfcStructuralConnectionCondition()
-		{
-
-		}
-
-		public static  IfcStructuralConnectionCondition FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStructuralConnectionCondition>(json);
-		}
-
-		public static  IfcStructuralConnectionCondition FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralcurveaction.htm"/>
-	/// </summary>
-	public  partial class IfcStructuralCurveAction : IfcStructuralAction
-	{
-		[JsonProperty("projectedOrTrue")]
-		public IfcProjectedOrTrueLengthEnum ProjectedOrTrue {get;set;} // optional
-		[JsonProperty("predefinedType")]
-		public IfcStructuralCurveActivityTypeEnum PredefinedType {get;set;} 
-
-		public IfcStructuralCurveAction(IfcStructuralCurveActivityTypeEnum predefinedType
-				,IfcStructuralLoad appliedLoad
-				,IfcGlobalOrLocalEnum globalOrLocal
-				) : base(appliedLoad
-					,globalOrLocal
-					)
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcStructuralCurveAction FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStructuralCurveAction>(json);
-		}
-
-		public static new IfcStructuralCurveAction FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralcurveconnection.htm"/>
 	/// </summary>
 	public  partial class IfcStructuralCurveConnection : IfcStructuralConnection
 	{
-		[JsonProperty("axis")]
-		public IfcDirection Axis {get;set;} 
+		public IfcDirection Axis{get;set;} 
 
-		public IfcStructuralCurveConnection(IfcDirection axis
-				) : base()
+		public IfcStructuralCurveConnection(IfcDirection axis,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			Axis = axis;
+
 
 		}
 
@@ -24670,21 +24293,88 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralpointconnection.htm"/>
+	/// </summary>
+	public  partial class IfcStructuralPointConnection : IfcStructuralConnection
+	{
+		public IfcAxis2Placement3D ConditionCoordinateSystem{get;set;} // optional
+
+		public IfcStructuralPointConnection(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcStructuralPointConnection FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralPointConnection>(json);
+		}
+
+		public static new IfcStructuralPointConnection FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralsurfaceconnection.htm"/>
+	/// </summary>
+	public  partial class IfcStructuralSurfaceConnection : IfcStructuralConnection
+	{
+
+		public IfcStructuralSurfaceConnection(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcStructuralSurfaceConnection FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralSurfaceConnection>(json);
+		}
+
+		public static new IfcStructuralSurfaceConnection FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructurallinearaction.htm"/>
+	/// </summary>
+	public  partial class IfcStructuralLinearAction : IfcStructuralCurveAction
+	{
+
+		public IfcStructuralLinearAction(IfcStructuralCurveActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(predefinedType,appliedLoad,globalOrLocal,globalId)
+		{
+
+
+		}
+
+		public static new IfcStructuralLinearAction FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralLinearAction>(json);
+		}
+
+		public static new IfcStructuralLinearAction FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralcurvemember.htm"/>
 	/// </summary>
 	public  partial class IfcStructuralCurveMember : IfcStructuralMember
 	{
-		[JsonProperty("predefinedType")]
-		public IfcStructuralCurveMemberTypeEnum PredefinedType {get;set;} 
-		[JsonProperty("axis")]
-		public IfcDirection Axis {get;set;} 
+		public IfcStructuralCurveMemberTypeEnum PredefinedType{get;set;} 
+		public IfcDirection Axis{get;set;} 
 
-		public IfcStructuralCurveMember(IfcStructuralCurveMemberTypeEnum predefinedType
-				,IfcDirection axis
-				) : base()
+		public IfcStructuralCurveMember(IfcStructuralCurveMemberTypeEnum predefinedType,IfcDirection axis,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 			Axis = axis;
+
 
 		}
 
@@ -24705,12 +24395,9 @@ namespace IFC4
 	public  partial class IfcStructuralCurveMemberVarying : IfcStructuralCurveMember
 	{
 
-		public IfcStructuralCurveMemberVarying(IfcStructuralCurveMemberTypeEnum predefinedType
-				,IfcDirection axis
-				) : base(predefinedType
-					,axis
-					)
+		public IfcStructuralCurveMemberVarying(IfcStructuralCurveMemberTypeEnum predefinedType,IfcDirection axis,IfcGloballyUniqueId globalId):base(predefinedType,axis,globalId)
 		{
+
 
 		}
 
@@ -24726,21 +24413,39 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralmember.htm"/>
+	/// </summary>
+	public abstract partial class IfcStructuralMember : IfcStructuralItem
+	{
+
+		public IfcStructuralMember(IfcGloballyUniqueId globalId):base(globalId)
+		{
+
+
+		}
+
+		public static new IfcStructuralMember FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralMember>(json);
+		}
+
+		public static new IfcStructuralMember FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralcurvereaction.htm"/>
 	/// </summary>
 	public  partial class IfcStructuralCurveReaction : IfcStructuralReaction
 	{
-		[JsonProperty("predefinedType")]
-		public IfcStructuralCurveActivityTypeEnum PredefinedType {get;set;} 
+		public IfcStructuralCurveActivityTypeEnum PredefinedType{get;set;} 
 
-		public IfcStructuralCurveReaction(IfcStructuralCurveActivityTypeEnum predefinedType
-				,IfcStructuralLoad appliedLoad
-				,IfcGlobalOrLocalEnum globalOrLocal
-				) : base(appliedLoad
-					,globalOrLocal
-					)
+		public IfcStructuralCurveReaction(IfcStructuralCurveActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -24756,67 +24461,15 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralitem.htm"/>
-	/// </summary>
-	public abstract partial class IfcStructuralItem : IfcProduct
-	{
-		[JsonProperty("assignedStructuralActivity")]
-		public List<IfcRelConnectsStructuralActivity> AssignedStructuralActivity {get;set;} 
-
-		public IfcStructuralItem() : base()
-		{
-
-		}
-
-		public static new IfcStructuralItem FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStructuralItem>(json);
-		}
-
-		public static new IfcStructuralItem FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructurallinearaction.htm"/>
-	/// </summary>
-	public  partial class IfcStructuralLinearAction : IfcStructuralCurveAction
-	{
-
-		public IfcStructuralLinearAction(IfcStructuralCurveActivityTypeEnum predefinedType
-				,IfcStructuralLoad appliedLoad
-				,IfcGlobalOrLocalEnum globalOrLocal
-				) : base(predefinedType
-					,appliedLoad
-					,globalOrLocal
-					)
-		{
-
-		}
-
-		public static new IfcStructuralLinearAction FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStructuralLinearAction>(json);
-		}
-
-		public static new IfcStructuralLinearAction FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralload.htm"/>
 	/// </summary>
 	public abstract partial class IfcStructuralLoad : IfcBase
 	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
+		public IfcLabel Name{get;set;} // optional
 
-		public IfcStructuralLoad()
+		public IfcStructuralLoad():base()
 		{
+
 
 		}
 
@@ -24832,54 +24485,17 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralloadcase.htm"/>
-	/// </summary>
-	public  partial class IfcStructuralLoadCase : IfcStructuralLoadGroup
-	{
-		[JsonProperty("selfWeightCoefficients")]
-		public List<IfcRatioMeasure> SelfWeightCoefficients {get;set;} // optional
-
-		public IfcStructuralLoadCase(IfcLoadGroupTypeEnum predefinedType
-				,IfcActionTypeEnum actionType
-				,IfcActionSourceTypeEnum actionSource
-				,List<IfcStructuralResultGroup> sourceOfResultGroup
-				,List<IfcStructuralAnalysisModel> loadGroupFor
-				) : base(predefinedType
-					,actionType
-					,actionSource
-					,sourceOfResultGroup
-					,loadGroupFor
-					)
-		{
-			SelfWeightCoefficients = new List<IfcRatioMeasure>();
-
-		}
-
-		public static new IfcStructuralLoadCase FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStructuralLoadCase>(json);
-		}
-
-		public static new IfcStructuralLoadCase FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralloadconfiguration.htm"/>
 	/// </summary>
 	public  partial class IfcStructuralLoadConfiguration : IfcStructuralLoad
 	{
-		[JsonProperty("values")]
-		public List<IfcStructuralLoadOrResult> Values {get;set;} 
-		[JsonProperty("locations")]
-		public List<List<IfcLengthMeasure>> Locations {get;set;} // optional
+		public List<IfcStructuralLoadOrResult> Values{get;set;} 
+		public List<List<IfcLengthMeasure>> Locations{get;set;} // optional
 
-		public IfcStructuralLoadConfiguration(List<IfcStructuralLoadOrResult> values
-				) : base()
+		public IfcStructuralLoadConfiguration(List<IfcStructuralLoadOrResult> values):base()
 		{
 			Values = values;
+
 			Locations = new List<List<IfcLengthMeasure>>();
 
 		}
@@ -24896,93 +24512,14 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralloadgroup.htm"/>
-	/// </summary>
-	public  partial class IfcStructuralLoadGroup : IfcGroup
-	{
-		[JsonProperty("predefinedType")]
-		public IfcLoadGroupTypeEnum PredefinedType {get;set;} 
-		[JsonProperty("actionType")]
-		public IfcActionTypeEnum ActionType {get;set;} 
-		[JsonProperty("actionSource")]
-		public IfcActionSourceTypeEnum ActionSource {get;set;} 
-		[JsonProperty("coefficient")]
-		public IfcRatioMeasure Coefficient {get;set;} // optional
-		[JsonProperty("purpose")]
-		public IfcLabel Purpose {get;set;} // optional
-		[JsonProperty("sourceOfResultGroup")]
-		public List<IfcStructuralResultGroup> SourceOfResultGroup {get;set;} 
-		[JsonProperty("loadGroupFor")]
-		public List<IfcStructuralAnalysisModel> LoadGroupFor {get;set;} 
-
-		public IfcStructuralLoadGroup(IfcLoadGroupTypeEnum predefinedType
-				,IfcActionTypeEnum actionType
-				,IfcActionSourceTypeEnum actionSource
-				,List<IfcStructuralResultGroup> sourceOfResultGroup
-				,List<IfcStructuralAnalysisModel> loadGroupFor
-				) : base()
-		{
-			PredefinedType = predefinedType;
-			ActionType = actionType;
-			ActionSource = actionSource;
-			SourceOfResultGroup = sourceOfResultGroup;
-			LoadGroupFor = loadGroupFor;
-
-		}
-
-		public static new IfcStructuralLoadGroup FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStructuralLoadGroup>(json);
-		}
-
-		public static new IfcStructuralLoadGroup FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralloadlinearforce.htm"/>
-	/// </summary>
-	public  partial class IfcStructuralLoadLinearForce : IfcStructuralLoadStatic
-	{
-		[JsonProperty("linearForceX")]
-		public IfcLinearForceMeasure LinearForceX {get;set;} // optional
-		[JsonProperty("linearForceY")]
-		public IfcLinearForceMeasure LinearForceY {get;set;} // optional
-		[JsonProperty("linearForceZ")]
-		public IfcLinearForceMeasure LinearForceZ {get;set;} // optional
-		[JsonProperty("linearMomentX")]
-		public IfcLinearMomentMeasure LinearMomentX {get;set;} // optional
-		[JsonProperty("linearMomentY")]
-		public IfcLinearMomentMeasure LinearMomentY {get;set;} // optional
-		[JsonProperty("linearMomentZ")]
-		public IfcLinearMomentMeasure LinearMomentZ {get;set;} // optional
-
-		public IfcStructuralLoadLinearForce() : base()
-		{
-
-		}
-
-		public static new IfcStructuralLoadLinearForce FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStructuralLoadLinearForce>(json);
-		}
-
-		public static new IfcStructuralLoadLinearForce FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralloadorresult.htm"/>
 	/// </summary>
 	public abstract partial class IfcStructuralLoadOrResult : IfcStructuralLoad
 	{
 
-		public IfcStructuralLoadOrResult() : base()
+		public IfcStructuralLoadOrResult():base()
 		{
+
 
 		}
 
@@ -24998,19 +24535,122 @@ namespace IFC4
 	}
 
 	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralloadcase.htm"/>
+	/// </summary>
+	public  partial class IfcStructuralLoadCase : IfcStructuralLoadGroup
+	{
+		public List<IfcRatioMeasure> SelfWeightCoefficients{get;set;} // optional
+
+		public IfcStructuralLoadCase(IfcLoadGroupTypeEnum predefinedType,IfcActionTypeEnum actionType,IfcActionSourceTypeEnum actionSource,IfcGloballyUniqueId globalId):base(predefinedType,actionType,actionSource,globalId)
+		{
+
+			SelfWeightCoefficients = new List<IfcRatioMeasure>();
+
+		}
+
+		public static new IfcStructuralLoadCase FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralLoadCase>(json);
+		}
+
+		public static new IfcStructuralLoadCase FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralloadlinearforce.htm"/>
+	/// </summary>
+	public  partial class IfcStructuralLoadLinearForce : IfcStructuralLoadStatic
+	{
+		public IfcLinearForceMeasure LinearForceX{get;set;} // optional
+		public IfcLinearForceMeasure LinearForceY{get;set;} // optional
+		public IfcLinearForceMeasure LinearForceZ{get;set;} // optional
+		public IfcLinearMomentMeasure LinearMomentX{get;set;} // optional
+		public IfcLinearMomentMeasure LinearMomentY{get;set;} // optional
+		public IfcLinearMomentMeasure LinearMomentZ{get;set;} // optional
+
+		public IfcStructuralLoadLinearForce():base()
+		{
+
+
+		}
+
+		public static new IfcStructuralLoadLinearForce FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralLoadLinearForce>(json);
+		}
+
+		public static new IfcStructuralLoadLinearForce FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralloadstatic.htm"/>
+	/// </summary>
+	public abstract partial class IfcStructuralLoadStatic : IfcStructuralLoadOrResult
+	{
+
+		public IfcStructuralLoadStatic():base()
+		{
+
+
+		}
+
+		public static new IfcStructuralLoadStatic FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralLoadStatic>(json);
+		}
+
+		public static new IfcStructuralLoadStatic FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsurfacereinforcementarea.htm"/>
+	/// </summary>
+	public  partial class IfcSurfaceReinforcementArea : IfcStructuralLoadOrResult
+	{
+		public List<IfcLengthMeasure> SurfaceReinforcement1{get;set;} // optional
+		public List<IfcLengthMeasure> SurfaceReinforcement2{get;set;} // optional
+		public IfcRatioMeasure ShearReinforcement{get;set;} // optional
+
+		public IfcSurfaceReinforcementArea():base()
+		{
+
+			SurfaceReinforcement1 = new List<IfcLengthMeasure>();
+			SurfaceReinforcement2 = new List<IfcLengthMeasure>();
+
+		}
+
+		public static new IfcSurfaceReinforcementArea FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcSurfaceReinforcementArea>(json);
+		}
+
+		public static new IfcSurfaceReinforcementArea FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralloadplanarforce.htm"/>
 	/// </summary>
 	public  partial class IfcStructuralLoadPlanarForce : IfcStructuralLoadStatic
 	{
-		[JsonProperty("planarForceX")]
-		public IfcPlanarForceMeasure PlanarForceX {get;set;} // optional
-		[JsonProperty("planarForceY")]
-		public IfcPlanarForceMeasure PlanarForceY {get;set;} // optional
-		[JsonProperty("planarForceZ")]
-		public IfcPlanarForceMeasure PlanarForceZ {get;set;} // optional
+		public IfcPlanarForceMeasure PlanarForceX{get;set;} // optional
+		public IfcPlanarForceMeasure PlanarForceY{get;set;} // optional
+		public IfcPlanarForceMeasure PlanarForceZ{get;set;} // optional
 
-		public IfcStructuralLoadPlanarForce() : base()
+		public IfcStructuralLoadPlanarForce():base()
 		{
+
 
 		}
 
@@ -25030,21 +24670,16 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcStructuralLoadSingleDisplacement : IfcStructuralLoadStatic
 	{
-		[JsonProperty("displacementX")]
-		public IfcLengthMeasure DisplacementX {get;set;} // optional
-		[JsonProperty("displacementY")]
-		public IfcLengthMeasure DisplacementY {get;set;} // optional
-		[JsonProperty("displacementZ")]
-		public IfcLengthMeasure DisplacementZ {get;set;} // optional
-		[JsonProperty("rotationalDisplacementRX")]
-		public IfcPlaneAngleMeasure RotationalDisplacementRX {get;set;} // optional
-		[JsonProperty("rotationalDisplacementRY")]
-		public IfcPlaneAngleMeasure RotationalDisplacementRY {get;set;} // optional
-		[JsonProperty("rotationalDisplacementRZ")]
-		public IfcPlaneAngleMeasure RotationalDisplacementRZ {get;set;} // optional
+		public IfcLengthMeasure DisplacementX{get;set;} // optional
+		public IfcLengthMeasure DisplacementY{get;set;} // optional
+		public IfcLengthMeasure DisplacementZ{get;set;} // optional
+		public IfcPlaneAngleMeasure RotationalDisplacementRX{get;set;} // optional
+		public IfcPlaneAngleMeasure RotationalDisplacementRY{get;set;} // optional
+		public IfcPlaneAngleMeasure RotationalDisplacementRZ{get;set;} // optional
 
-		public IfcStructuralLoadSingleDisplacement() : base()
+		public IfcStructuralLoadSingleDisplacement():base()
 		{
+
 
 		}
 
@@ -25064,11 +24699,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcStructuralLoadSingleDisplacementDistortion : IfcStructuralLoadSingleDisplacement
 	{
-		[JsonProperty("distortion")]
-		public IfcCurvatureMeasure Distortion {get;set;} // optional
+		public IfcCurvatureMeasure Distortion{get;set;} // optional
 
-		public IfcStructuralLoadSingleDisplacementDistortion() : base()
+		public IfcStructuralLoadSingleDisplacementDistortion():base()
 		{
+
 
 		}
 
@@ -25088,21 +24723,16 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcStructuralLoadSingleForce : IfcStructuralLoadStatic
 	{
-		[JsonProperty("forceX")]
-		public IfcForceMeasure ForceX {get;set;} // optional
-		[JsonProperty("forceY")]
-		public IfcForceMeasure ForceY {get;set;} // optional
-		[JsonProperty("forceZ")]
-		public IfcForceMeasure ForceZ {get;set;} // optional
-		[JsonProperty("momentX")]
-		public IfcTorqueMeasure MomentX {get;set;} // optional
-		[JsonProperty("momentY")]
-		public IfcTorqueMeasure MomentY {get;set;} // optional
-		[JsonProperty("momentZ")]
-		public IfcTorqueMeasure MomentZ {get;set;} // optional
+		public IfcForceMeasure ForceX{get;set;} // optional
+		public IfcForceMeasure ForceY{get;set;} // optional
+		public IfcForceMeasure ForceZ{get;set;} // optional
+		public IfcTorqueMeasure MomentX{get;set;} // optional
+		public IfcTorqueMeasure MomentY{get;set;} // optional
+		public IfcTorqueMeasure MomentZ{get;set;} // optional
 
-		public IfcStructuralLoadSingleForce() : base()
+		public IfcStructuralLoadSingleForce():base()
 		{
+
 
 		}
 
@@ -25122,11 +24752,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcStructuralLoadSingleForceWarping : IfcStructuralLoadSingleForce
 	{
-		[JsonProperty("warpingMoment")]
-		public IfcWarpingMomentMeasure WarpingMoment {get;set;} // optional
+		public IfcWarpingMomentMeasure WarpingMoment{get;set;} // optional
 
-		public IfcStructuralLoadSingleForceWarping() : base()
+		public IfcStructuralLoadSingleForceWarping():base()
 		{
+
 
 		}
 
@@ -25142,41 +24772,17 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralloadstatic.htm"/>
-	/// </summary>
-	public abstract partial class IfcStructuralLoadStatic : IfcStructuralLoadOrResult
-	{
-
-		public IfcStructuralLoadStatic() : base()
-		{
-
-		}
-
-		public static new IfcStructuralLoadStatic FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStructuralLoadStatic>(json);
-		}
-
-		public static new IfcStructuralLoadStatic FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralloadtemperature.htm"/>
 	/// </summary>
 	public  partial class IfcStructuralLoadTemperature : IfcStructuralLoadStatic
 	{
-		[JsonProperty("deltaTConstant")]
-		public IfcThermodynamicTemperatureMeasure DeltaTConstant {get;set;} // optional
-		[JsonProperty("deltaTY")]
-		public IfcThermodynamicTemperatureMeasure DeltaTY {get;set;} // optional
-		[JsonProperty("deltaTZ")]
-		public IfcThermodynamicTemperatureMeasure DeltaTZ {get;set;} // optional
+		public IfcThermodynamicTemperatureMeasure DeltaTConstant{get;set;} // optional
+		public IfcThermodynamicTemperatureMeasure DeltaTY{get;set;} // optional
+		public IfcThermodynamicTemperatureMeasure DeltaTZ{get;set;} // optional
 
-		public IfcStructuralLoadTemperature() : base()
+		public IfcStructuralLoadTemperature():base()
 		{
+
 
 		}
 
@@ -25192,263 +24798,17 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralmember.htm"/>
-	/// </summary>
-	public abstract partial class IfcStructuralMember : IfcStructuralItem
-	{
-		[JsonProperty("connectedBy")]
-		public List<IfcRelConnectsStructuralMember> ConnectedBy {get;set;} 
-
-		public IfcStructuralMember() : base()
-		{
-
-		}
-
-		public static new IfcStructuralMember FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStructuralMember>(json);
-		}
-
-		public static new IfcStructuralMember FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralplanaraction.htm"/>
-	/// </summary>
-	public  partial class IfcStructuralPlanarAction : IfcStructuralSurfaceAction
-	{
-
-		public IfcStructuralPlanarAction(IfcStructuralSurfaceActivityTypeEnum predefinedType
-				,IfcStructuralLoad appliedLoad
-				,IfcGlobalOrLocalEnum globalOrLocal
-				) : base(predefinedType
-					,appliedLoad
-					,globalOrLocal
-					)
-		{
-
-		}
-
-		public static new IfcStructuralPlanarAction FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStructuralPlanarAction>(json);
-		}
-
-		public static new IfcStructuralPlanarAction FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralpointaction.htm"/>
-	/// </summary>
-	public  partial class IfcStructuralPointAction : IfcStructuralAction
-	{
-
-		public IfcStructuralPointAction(IfcStructuralLoad appliedLoad
-				,IfcGlobalOrLocalEnum globalOrLocal
-				) : base(appliedLoad
-					,globalOrLocal
-					)
-		{
-
-		}
-
-		public static new IfcStructuralPointAction FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStructuralPointAction>(json);
-		}
-
-		public static new IfcStructuralPointAction FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralpointconnection.htm"/>
-	/// </summary>
-	public  partial class IfcStructuralPointConnection : IfcStructuralConnection
-	{
-		[JsonProperty("conditionCoordinateSystem")]
-		public IfcAxis2Placement3D ConditionCoordinateSystem {get;set;} // optional
-
-		public IfcStructuralPointConnection() : base()
-		{
-
-		}
-
-		public static new IfcStructuralPointConnection FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStructuralPointConnection>(json);
-		}
-
-		public static new IfcStructuralPointConnection FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralpointreaction.htm"/>
-	/// </summary>
-	public  partial class IfcStructuralPointReaction : IfcStructuralReaction
-	{
-
-		public IfcStructuralPointReaction(IfcStructuralLoad appliedLoad
-				,IfcGlobalOrLocalEnum globalOrLocal
-				) : base(appliedLoad
-					,globalOrLocal
-					)
-		{
-
-		}
-
-		public static new IfcStructuralPointReaction FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStructuralPointReaction>(json);
-		}
-
-		public static new IfcStructuralPointReaction FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralreaction.htm"/>
-	/// </summary>
-	public abstract partial class IfcStructuralReaction : IfcStructuralActivity
-	{
-
-		public IfcStructuralReaction(IfcStructuralLoad appliedLoad
-				,IfcGlobalOrLocalEnum globalOrLocal
-				) : base(appliedLoad
-					,globalOrLocal
-					)
-		{
-
-		}
-
-		public static new IfcStructuralReaction FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStructuralReaction>(json);
-		}
-
-		public static new IfcStructuralReaction FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralresultgroup.htm"/>
-	/// </summary>
-	public  partial class IfcStructuralResultGroup : IfcGroup
-	{
-		[JsonProperty("theoryType")]
-		public IfcAnalysisTheoryTypeEnum TheoryType {get;set;} 
-		[JsonProperty("resultForLoadGroup")]
-		public IfcStructuralLoadGroup ResultForLoadGroup {get;set;} // optional
-		[JsonProperty("isLinear")]
-		public bool IsLinear {get;set;} 
-		[JsonProperty("resultGroupFor")]
-		public List<IfcStructuralAnalysisModel> ResultGroupFor {get;set;} 
-
-		public IfcStructuralResultGroup(IfcAnalysisTheoryTypeEnum theoryType
-				,bool isLinear
-				,List<IfcStructuralAnalysisModel> resultGroupFor
-				) : base()
-		{
-			TheoryType = theoryType;
-			IsLinear = isLinear;
-			ResultGroupFor = resultGroupFor;
-
-		}
-
-		public static new IfcStructuralResultGroup FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStructuralResultGroup>(json);
-		}
-
-		public static new IfcStructuralResultGroup FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralsurfaceaction.htm"/>
-	/// </summary>
-	public  partial class IfcStructuralSurfaceAction : IfcStructuralAction
-	{
-		[JsonProperty("projectedOrTrue")]
-		public IfcProjectedOrTrueLengthEnum ProjectedOrTrue {get;set;} // optional
-		[JsonProperty("predefinedType")]
-		public IfcStructuralSurfaceActivityTypeEnum PredefinedType {get;set;} 
-
-		public IfcStructuralSurfaceAction(IfcStructuralSurfaceActivityTypeEnum predefinedType
-				,IfcStructuralLoad appliedLoad
-				,IfcGlobalOrLocalEnum globalOrLocal
-				) : base(appliedLoad
-					,globalOrLocal
-					)
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcStructuralSurfaceAction FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStructuralSurfaceAction>(json);
-		}
-
-		public static new IfcStructuralSurfaceAction FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralsurfaceconnection.htm"/>
-	/// </summary>
-	public  partial class IfcStructuralSurfaceConnection : IfcStructuralConnection
-	{
-
-		public IfcStructuralSurfaceConnection() : base()
-		{
-
-		}
-
-		public static new IfcStructuralSurfaceConnection FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStructuralSurfaceConnection>(json);
-		}
-
-		public static new IfcStructuralSurfaceConnection FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralsurfacemember.htm"/>
 	/// </summary>
 	public  partial class IfcStructuralSurfaceMember : IfcStructuralMember
 	{
-		[JsonProperty("predefinedType")]
-		public IfcStructuralSurfaceMemberTypeEnum PredefinedType {get;set;} 
-		[JsonProperty("thickness")]
-		public IfcPositiveLengthMeasure Thickness {get;set;} // optional
+		public IfcStructuralSurfaceMemberTypeEnum PredefinedType{get;set;} 
+		public IfcPositiveLengthMeasure Thickness{get;set;} // optional
 
-		public IfcStructuralSurfaceMember(IfcStructuralSurfaceMemberTypeEnum predefinedType
-				) : base()
+		public IfcStructuralSurfaceMember(IfcStructuralSurfaceMemberTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -25464,24 +24824,46 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralsurfacemembervarying.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralplanaraction.htm"/>
 	/// </summary>
-	public  partial class IfcStructuralSurfaceMemberVarying : IfcStructuralSurfaceMember
+	public  partial class IfcStructuralPlanarAction : IfcStructuralSurfaceAction
 	{
 
-		public IfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMemberTypeEnum predefinedType
-				) : base(predefinedType
-					)
+		public IfcStructuralPlanarAction(IfcStructuralSurfaceActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(predefinedType,appliedLoad,globalOrLocal,globalId)
 		{
+
 
 		}
 
-		public static new IfcStructuralSurfaceMemberVarying FromJSON(string json)
+		public static new IfcStructuralPlanarAction FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcStructuralSurfaceMemberVarying>(json);
+			return JsonConvert.DeserializeObject<IfcStructuralPlanarAction>(json);
 		}
 
-		public static new IfcStructuralSurfaceMemberVarying FromSTEP(string step)
+		public static new IfcStructuralPlanarAction FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralpointreaction.htm"/>
+	/// </summary>
+	public  partial class IfcStructuralPointReaction : IfcStructuralReaction
+	{
+
+		public IfcStructuralPointReaction(IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
+		{
+
+
+		}
+
+		public static new IfcStructuralPointReaction FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcStructuralPointReaction>(json);
+		}
+
+		public static new IfcStructuralPointReaction FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -25492,17 +24874,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcStructuralSurfaceReaction : IfcStructuralReaction
 	{
-		[JsonProperty("predefinedType")]
-		public IfcStructuralSurfaceActivityTypeEnum PredefinedType {get;set;} 
+		public IfcStructuralSurfaceActivityTypeEnum PredefinedType{get;set;} 
 
-		public IfcStructuralSurfaceReaction(IfcStructuralSurfaceActivityTypeEnum predefinedType
-				,IfcStructuralLoad appliedLoad
-				,IfcGlobalOrLocalEnum globalOrLocal
-				) : base(appliedLoad
-					,globalOrLocal
-					)
+		public IfcStructuralSurfaceReaction(IfcStructuralSurfaceActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -25518,66 +24895,23 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstylemodel.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstructuralsurfacemembervarying.htm"/>
 	/// </summary>
-	public abstract partial class IfcStyleModel : IfcRepresentation
+	public  partial class IfcStructuralSurfaceMemberVarying : IfcStructuralSurfaceMember
 	{
 
-		public IfcStyleModel(IfcRepresentationContext contextOfItems
-				,List<IfcRepresentationItem> items
-				,List<IfcRepresentationMap> representationMap
-				,List<IfcPresentationLayerAssignment> layerAssignments
-				,List<IfcProductRepresentation> ofProductRepresentation
-				) : base(contextOfItems
-					,items
-					,representationMap
-					,layerAssignments
-					,ofProductRepresentation
-					)
+		public IfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMemberTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(predefinedType,globalId)
 		{
+
 
 		}
 
-		public static new IfcStyleModel FromJSON(string json)
+		public static new IfcStructuralSurfaceMemberVarying FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcStyleModel>(json);
+			return JsonConvert.DeserializeObject<IfcStructuralSurfaceMemberVarying>(json);
 		}
 
-		public static new IfcStyleModel FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcstyleditem.htm"/>
-	/// </summary>
-	public  partial class IfcStyledItem : IfcRepresentationItem
-	{
-		[JsonProperty("item")]
-		public IfcRepresentationItem Item {get;set;} // optional
-		[JsonProperty("styles")]
-		public List<IfcStyleAssignmentSelect> Styles {get;set;} 
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
-
-		public IfcStyledItem(List<IfcStyleAssignmentSelect> styles
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-			Styles = styles;
-
-		}
-
-		public static new IfcStyledItem FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcStyledItem>(json);
-		}
-
-		public static new IfcStyledItem FromSTEP(string step)
+		public static new IfcStructuralSurfaceMemberVarying FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -25589,18 +24923,9 @@ namespace IFC4
 	public  partial class IfcStyledRepresentation : IfcStyleModel
 	{
 
-		public IfcStyledRepresentation(IfcRepresentationContext contextOfItems
-				,List<IfcRepresentationItem> items
-				,List<IfcRepresentationMap> representationMap
-				,List<IfcPresentationLayerAssignment> layerAssignments
-				,List<IfcProductRepresentation> ofProductRepresentation
-				) : base(contextOfItems
-					,items
-					,representationMap
-					,layerAssignments
-					,ofProductRepresentation
-					)
+		public IfcStyledRepresentation(IfcRepresentationContext contextOfItems,List<IfcRepresentationItem> items):base(contextOfItems,items)
 		{
+
 
 		}
 
@@ -25616,110 +24941,26 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsubcontractresource.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsweptsurface.htm"/>
 	/// </summary>
-	public  partial class IfcSubContractResource : IfcConstructionResource
+	public abstract partial class IfcSweptSurface : IfcSurface
 	{
-		[JsonProperty("predefinedType")]
-		public IfcSubContractResourceTypeEnum PredefinedType {get;set;} // optional
+		public IfcProfileDef SweptCurve{get;set;} 
+		public IfcAxis2Placement3D Position{get;set;} // optional
 
-		public IfcSubContractResource() : base()
+		public IfcSweptSurface(IfcProfileDef sweptCurve):base()
 		{
+			SweptCurve = sweptCurve;
+
 
 		}
 
-		public static new IfcSubContractResource FromJSON(string json)
+		public static new IfcSweptSurface FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcSubContractResource>(json);
+			return JsonConvert.DeserializeObject<IfcSweptSurface>(json);
 		}
 
-		public static new IfcSubContractResource FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsubcontractresourcetype.htm"/>
-	/// </summary>
-	public  partial class IfcSubContractResourceType : IfcConstructionResourceType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcSubContractResourceTypeEnum PredefinedType {get;set;} 
-
-		public IfcSubContractResourceType(IfcSubContractResourceTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcSubContractResourceType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSubContractResourceType>(json);
-		}
-
-		public static new IfcSubContractResourceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsubedge.htm"/>
-	/// </summary>
-	public  partial class IfcSubedge : IfcEdge
-	{
-		[JsonProperty("parentEdge")]
-		public IfcEdge ParentEdge {get;set;} 
-
-		public IfcSubedge(IfcEdge parentEdge
-				,IfcVertex edgeStart
-				,IfcVertex edgeEnd
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(edgeStart
-					,edgeEnd
-					,layerAssignment
-					,styledByItem
-					)
-		{
-			ParentEdge = parentEdge;
-
-		}
-
-		public static new IfcSubedge FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSubedge>(json);
-		}
-
-		public static new IfcSubedge FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsurface.htm"/>
-	/// </summary>
-	public abstract partial class IfcSurface : IfcGeometricRepresentationItem
-	{
-
-		public IfcSurface(List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-
-		}
-
-		public static new IfcSurface FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSurface>(json);
-		}
-
-		public static new IfcSurface FromSTEP(string step)
+		public static new IfcSweptSurface FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -25730,27 +24971,16 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcSurfaceCurveSweptAreaSolid : IfcSweptAreaSolid
 	{
-		[JsonProperty("directrix")]
-		public IfcCurve Directrix {get;set;} 
-		[JsonProperty("startParam")]
-		public IfcParameterValue StartParam {get;set;} // optional
-		[JsonProperty("endParam")]
-		public IfcParameterValue EndParam {get;set;} // optional
-		[JsonProperty("referenceSurface")]
-		public IfcSurface ReferenceSurface {get;set;} 
+		public IfcCurve Directrix{get;set;} 
+		public IfcParameterValue StartParam{get;set;} // optional
+		public IfcParameterValue EndParam{get;set;} // optional
+		public IfcSurface ReferenceSurface{get;set;} 
 
-		public IfcSurfaceCurveSweptAreaSolid(IfcCurve directrix
-				,IfcSurface referenceSurface
-				,IfcProfileDef sweptArea
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(sweptArea
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcSurfaceCurveSweptAreaSolid(IfcCurve directrix,IfcSurface referenceSurface,IfcProfileDef sweptArea):base(sweptArea)
 		{
 			Directrix = directrix;
 			ReferenceSurface = referenceSurface;
+
 
 		}
 
@@ -25766,51 +24996,18 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsurfacefeature.htm"/>
-	/// </summary>
-	public  partial class IfcSurfaceFeature : IfcFeatureElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcSurfaceFeatureTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcSurfaceFeature() : base()
-		{
-
-		}
-
-		public static new IfcSurfaceFeature FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSurfaceFeature>(json);
-		}
-
-		public static new IfcSurfaceFeature FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsurfaceoflinearextrusion.htm"/>
 	/// </summary>
 	public  partial class IfcSurfaceOfLinearExtrusion : IfcSweptSurface
 	{
-		[JsonProperty("extrudedDirection")]
-		public IfcDirection ExtrudedDirection {get;set;} 
-		[JsonProperty("depth")]
-		public IfcLengthMeasure Depth {get;set;} 
+		public IfcDirection ExtrudedDirection{get;set;} 
+		public IfcLengthMeasure Depth{get;set;} 
 
-		public IfcSurfaceOfLinearExtrusion(IfcDirection extrudedDirection
-				,IfcLengthMeasure depth
-				,IfcProfileDef sweptCurve
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(sweptCurve
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcSurfaceOfLinearExtrusion(IfcDirection extrudedDirection,IfcLengthMeasure depth,IfcProfileDef sweptCurve):base(sweptCurve)
 		{
 			ExtrudedDirection = extrudedDirection;
 			Depth = depth;
+
 
 		}
 
@@ -25830,19 +25027,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcSurfaceOfRevolution : IfcSweptSurface
 	{
-		[JsonProperty("axisPosition")]
-		public IfcAxis1Placement AxisPosition {get;set;} 
+		public IfcAxis1Placement AxisPosition{get;set;} 
 
-		public IfcSurfaceOfRevolution(IfcAxis1Placement axisPosition
-				,IfcProfileDef sweptCurve
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(sweptCurve
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcSurfaceOfRevolution(IfcAxis1Placement axisPosition,IfcProfileDef sweptCurve):base(sweptCurve)
 		{
 			AxisPosition = axisPosition;
+
 
 		}
 
@@ -25858,157 +25048,23 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsurfacereinforcementarea.htm"/>
-	/// </summary>
-	public  partial class IfcSurfaceReinforcementArea : IfcStructuralLoadOrResult
-	{
-		[JsonProperty("surfaceReinforcement1")]
-		public List<IfcLengthMeasure> SurfaceReinforcement1 {get;set;} // optional
-		[JsonProperty("surfaceReinforcement2")]
-		public List<IfcLengthMeasure> SurfaceReinforcement2 {get;set;} // optional
-		[JsonProperty("shearReinforcement")]
-		public IfcRatioMeasure ShearReinforcement {get;set;} // optional
-
-		public IfcSurfaceReinforcementArea() : base()
-		{
-			SurfaceReinforcement1 = new List<IfcLengthMeasure>();
-			SurfaceReinforcement2 = new List<IfcLengthMeasure>();
-
-		}
-
-		public static new IfcSurfaceReinforcementArea FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSurfaceReinforcementArea>(json);
-		}
-
-		public static new IfcSurfaceReinforcementArea FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsurfacestyle.htm"/>
-	/// </summary>
-	public  partial class IfcSurfaceStyle : IfcPresentationStyle
-	{
-		[JsonProperty("side")]
-		public IfcSurfaceSide Side {get;set;} 
-		[JsonProperty("styles")]
-		public List<IfcSurfaceStyleElementSelect> Styles {get;set;} 
-
-		public IfcSurfaceStyle(IfcSurfaceSide side
-				,List<IfcSurfaceStyleElementSelect> styles
-				) : base()
-		{
-			Side = side;
-			Styles = styles;
-
-		}
-
-		public static new IfcSurfaceStyle FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSurfaceStyle>(json);
-		}
-
-		public static new IfcSurfaceStyle FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsurfacestylelighting.htm"/>
-	/// </summary>
-	public  partial class IfcSurfaceStyleLighting : IfcPresentationItem
-	{
-		[JsonProperty("diffuseTransmissionColour")]
-		public IfcColourRgb DiffuseTransmissionColour {get;set;} 
-		[JsonProperty("diffuseReflectionColour")]
-		public IfcColourRgb DiffuseReflectionColour {get;set;} 
-		[JsonProperty("transmissionColour")]
-		public IfcColourRgb TransmissionColour {get;set;} 
-		[JsonProperty("reflectanceColour")]
-		public IfcColourRgb ReflectanceColour {get;set;} 
-
-		public IfcSurfaceStyleLighting(IfcColourRgb diffuseTransmissionColour
-				,IfcColourRgb diffuseReflectionColour
-				,IfcColourRgb transmissionColour
-				,IfcColourRgb reflectanceColour
-				) : base()
-		{
-			DiffuseTransmissionColour = diffuseTransmissionColour;
-			DiffuseReflectionColour = diffuseReflectionColour;
-			TransmissionColour = transmissionColour;
-			ReflectanceColour = reflectanceColour;
-
-		}
-
-		public static new IfcSurfaceStyleLighting FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSurfaceStyleLighting>(json);
-		}
-
-		public static new IfcSurfaceStyleLighting FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsurfacestylerefraction.htm"/>
-	/// </summary>
-	public  partial class IfcSurfaceStyleRefraction : IfcPresentationItem
-	{
-		[JsonProperty("refractionIndex")]
-		public IfcReal RefractionIndex {get;set;} // optional
-		[JsonProperty("dispersionFactor")]
-		public IfcReal DispersionFactor {get;set;} // optional
-
-		public IfcSurfaceStyleRefraction() : base()
-		{
-
-		}
-
-		public static new IfcSurfaceStyleRefraction FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSurfaceStyleRefraction>(json);
-		}
-
-		public static new IfcSurfaceStyleRefraction FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsurfacestylerendering.htm"/>
 	/// </summary>
 	public  partial class IfcSurfaceStyleRendering : IfcSurfaceStyleShading
 	{
-		[JsonProperty("transparency")]
-		public IfcNormalisedRatioMeasure Transparency {get;set;} // optional
-		[JsonProperty("diffuseColour")]
-		public IfcColourOrFactor DiffuseColour {get;set;} // optional
-		[JsonProperty("transmissionColour")]
-		public IfcColourOrFactor TransmissionColour {get;set;} // optional
-		[JsonProperty("diffuseTransmissionColour")]
-		public IfcColourOrFactor DiffuseTransmissionColour {get;set;} // optional
-		[JsonProperty("reflectionColour")]
-		public IfcColourOrFactor ReflectionColour {get;set;} // optional
-		[JsonProperty("specularColour")]
-		public IfcColourOrFactor SpecularColour {get;set;} // optional
-		[JsonProperty("specularHighlight")]
-		public IfcSpecularHighlightSelect SpecularHighlight {get;set;} // optional
-		[JsonProperty("reflectanceMethod")]
-		public IfcReflectanceMethodEnum ReflectanceMethod {get;set;} 
+		public IfcNormalisedRatioMeasure Transparency{get;set;} // optional
+		public IfcColourOrFactor DiffuseColour{get;set;} // optional
+		public IfcColourOrFactor TransmissionColour{get;set;} // optional
+		public IfcColourOrFactor DiffuseTransmissionColour{get;set;} // optional
+		public IfcColourOrFactor ReflectionColour{get;set;} // optional
+		public IfcColourOrFactor SpecularColour{get;set;} // optional
+		public IfcSpecularHighlightSelect SpecularHighlight{get;set;} // optional
+		public IfcReflectanceMethodEnum ReflectanceMethod{get;set;} 
 
-		public IfcSurfaceStyleRendering(IfcReflectanceMethodEnum reflectanceMethod
-				,IfcColourRgb surfaceColour
-				) : base(surfaceColour
-					)
+		public IfcSurfaceStyleRendering(IfcReflectanceMethodEnum reflectanceMethod,IfcColourRgb surfaceColour):base(surfaceColour)
 		{
 			ReflectanceMethod = reflectanceMethod;
+
 
 		}
 
@@ -26024,192 +25080,15 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsurfacestyleshading.htm"/>
-	/// </summary>
-	public  partial class IfcSurfaceStyleShading : IfcPresentationItem
-	{
-		[JsonProperty("surfaceColour")]
-		public IfcColourRgb SurfaceColour {get;set;} 
-
-		public IfcSurfaceStyleShading(IfcColourRgb surfaceColour
-				) : base()
-		{
-			SurfaceColour = surfaceColour;
-
-		}
-
-		public static new IfcSurfaceStyleShading FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSurfaceStyleShading>(json);
-		}
-
-		public static new IfcSurfaceStyleShading FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsurfacestylewithtextures.htm"/>
-	/// </summary>
-	public  partial class IfcSurfaceStyleWithTextures : IfcPresentationItem
-	{
-		[JsonProperty("textures")]
-		public List<IfcSurfaceTexture> Textures {get;set;} 
-
-		public IfcSurfaceStyleWithTextures(List<IfcSurfaceTexture> textures
-				) : base()
-		{
-			Textures = textures;
-
-		}
-
-		public static new IfcSurfaceStyleWithTextures FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSurfaceStyleWithTextures>(json);
-		}
-
-		public static new IfcSurfaceStyleWithTextures FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsurfacetexture.htm"/>
-	/// </summary>
-	public abstract partial class IfcSurfaceTexture : IfcPresentationItem
-	{
-		[JsonProperty("repeatS")]
-		public bool RepeatS {get;set;} 
-		[JsonProperty("repeatT")]
-		public bool RepeatT {get;set;} 
-		[JsonProperty("mode")]
-		public IfcIdentifier Mode {get;set;} // optional
-		[JsonProperty("textureTransform")]
-		public IfcCartesianTransformationOperator2D TextureTransform {get;set;} // optional
-		[JsonProperty("parameter")]
-		public List<IfcIdentifier> Parameter {get;set;} // optional
-		[JsonProperty("isMappedBy")]
-		public List<IfcTextureCoordinate> IsMappedBy {get;set;} 
-		[JsonProperty("usedInStyles")]
-		public List<IfcSurfaceStyleWithTextures> UsedInStyles {get;set;} 
-
-		public IfcSurfaceTexture(bool repeatS
-				,bool repeatT
-				,List<IfcTextureCoordinate> isMappedBy
-				,List<IfcSurfaceStyleWithTextures> usedInStyles
-				) : base()
-		{
-			RepeatS = repeatS;
-			RepeatT = repeatT;
-			IsMappedBy = isMappedBy;
-			UsedInStyles = usedInStyles;
-			Parameter = new List<IfcIdentifier>();
-
-		}
-
-		public static new IfcSurfaceTexture FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSurfaceTexture>(json);
-		}
-
-		public static new IfcSurfaceTexture FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsweptareasolid.htm"/>
-	/// </summary>
-	public abstract partial class IfcSweptAreaSolid : IfcSolidModel
-	{
-		[JsonProperty("sweptArea")]
-		public IfcProfileDef SweptArea {get;set;} 
-		[JsonProperty("position")]
-		public IfcAxis2Placement3D Position {get;set;} // optional
-
-		public IfcSweptAreaSolid(IfcProfileDef sweptArea
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-			SweptArea = sweptArea;
-
-		}
-
-		public static new IfcSweptAreaSolid FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSweptAreaSolid>(json);
-		}
-
-		public static new IfcSweptAreaSolid FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsweptdisksolid.htm"/>
-	/// </summary>
-	public  partial class IfcSweptDiskSolid : IfcSolidModel
-	{
-		[JsonProperty("directrix")]
-		public IfcCurve Directrix {get;set;} 
-		[JsonProperty("radius")]
-		public IfcPositiveLengthMeasure Radius {get;set;} 
-		[JsonProperty("innerRadius")]
-		public IfcPositiveLengthMeasure InnerRadius {get;set;} // optional
-		[JsonProperty("startParam")]
-		public IfcParameterValue StartParam {get;set;} // optional
-		[JsonProperty("endParam")]
-		public IfcParameterValue EndParam {get;set;} // optional
-
-		public IfcSweptDiskSolid(IfcCurve directrix
-				,IfcPositiveLengthMeasure radius
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-			Directrix = directrix;
-			Radius = radius;
-
-		}
-
-		public static new IfcSweptDiskSolid FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSweptDiskSolid>(json);
-		}
-
-		public static new IfcSweptDiskSolid FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsweptdisksolidpolygonal.htm"/>
 	/// </summary>
 	public  partial class IfcSweptDiskSolidPolygonal : IfcSweptDiskSolid
 	{
-		[JsonProperty("filletRadius")]
-		public IfcPositiveLengthMeasure FilletRadius {get;set;} // optional
+		public IfcPositiveLengthMeasure FilletRadius{get;set;} // optional
 
-		public IfcSweptDiskSolidPolygonal(IfcCurve directrix
-				,IfcPositiveLengthMeasure radius
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(directrix
-					,radius
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcSweptDiskSolidPolygonal(IfcCurve directrix,IfcPositiveLengthMeasure radius):base(directrix,radius)
 		{
+
 
 		}
 
@@ -26225,208 +25104,24 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsweptsurface.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifczone.htm"/>
 	/// </summary>
-	public abstract partial class IfcSweptSurface : IfcSurface
+	public  partial class IfcZone : IfcSystem
 	{
-		[JsonProperty("sweptCurve")]
-		public IfcProfileDef SweptCurve {get;set;} 
-		[JsonProperty("position")]
-		public IfcAxis2Placement3D Position {get;set;} // optional
+		public IfcLabel LongName{get;set;} // optional
 
-		public IfcSweptSurface(IfcProfileDef sweptCurve
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcZone(IfcGloballyUniqueId globalId):base(globalId)
 		{
-			SweptCurve = sweptCurve;
+
 
 		}
 
-		public static new IfcSweptSurface FromJSON(string json)
+		public static new IfcZone FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcSweptSurface>(json);
+			return JsonConvert.DeserializeObject<IfcZone>(json);
 		}
 
-		public static new IfcSweptSurface FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcswitchingdevice.htm"/>
-	/// </summary>
-	public  partial class IfcSwitchingDevice : IfcFlowController
-	{
-		[JsonProperty("predefinedType")]
-		public IfcSwitchingDeviceTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcSwitchingDevice() : base()
-		{
-
-		}
-
-		public static new IfcSwitchingDevice FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSwitchingDevice>(json);
-		}
-
-		public static new IfcSwitchingDevice FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcswitchingdevicetype.htm"/>
-	/// </summary>
-	public  partial class IfcSwitchingDeviceType : IfcFlowControllerType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcSwitchingDeviceTypeEnum PredefinedType {get;set;} 
-
-		public IfcSwitchingDeviceType(IfcSwitchingDeviceTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcSwitchingDeviceType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSwitchingDeviceType>(json);
-		}
-
-		public static new IfcSwitchingDeviceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsystem.htm"/>
-	/// </summary>
-	public  partial class IfcSystem : IfcGroup
-	{
-		[JsonProperty("servicesBuildings")]
-		public List<IfcRelServicesBuildings> ServicesBuildings {get;set;} 
-
-		public IfcSystem() : base()
-		{
-
-		}
-
-		public static new IfcSystem FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSystem>(json);
-		}
-
-		public static new IfcSystem FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsystemfurnitureelement.htm"/>
-	/// </summary>
-	public  partial class IfcSystemFurnitureElement : IfcFurnishingElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcSystemFurnitureElementTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcSystemFurnitureElement() : base()
-		{
-
-		}
-
-		public static new IfcSystemFurnitureElement FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSystemFurnitureElement>(json);
-		}
-
-		public static new IfcSystemFurnitureElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcsystemfurnitureelementtype.htm"/>
-	/// </summary>
-	public  partial class IfcSystemFurnitureElementType : IfcFurnishingElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcSystemFurnitureElementTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcSystemFurnitureElementType() : base()
-		{
-
-		}
-
-		public static new IfcSystemFurnitureElementType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcSystemFurnitureElementType>(json);
-		}
-
-		public static new IfcSystemFurnitureElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctshapeprofiledef.htm"/>
-	/// </summary>
-	public  partial class IfcTShapeProfileDef : IfcParameterizedProfileDef
-	{
-		[JsonProperty("depth")]
-		public IfcPositiveLengthMeasure Depth {get;set;} 
-		[JsonProperty("flangeWidth")]
-		public IfcPositiveLengthMeasure FlangeWidth {get;set;} 
-		[JsonProperty("webThickness")]
-		public IfcPositiveLengthMeasure WebThickness {get;set;} 
-		[JsonProperty("flangeThickness")]
-		public IfcPositiveLengthMeasure FlangeThickness {get;set;} 
-		[JsonProperty("filletRadius")]
-		public IfcNonNegativeLengthMeasure FilletRadius {get;set;} // optional
-		[JsonProperty("flangeEdgeRadius")]
-		public IfcNonNegativeLengthMeasure FlangeEdgeRadius {get;set;} // optional
-		[JsonProperty("webEdgeRadius")]
-		public IfcNonNegativeLengthMeasure WebEdgeRadius {get;set;} // optional
-		[JsonProperty("webSlope")]
-		public IfcPlaneAngleMeasure WebSlope {get;set;} // optional
-		[JsonProperty("flangeSlope")]
-		public IfcPlaneAngleMeasure FlangeSlope {get;set;} // optional
-
-		public IfcTShapeProfileDef(IfcPositiveLengthMeasure depth
-				,IfcPositiveLengthMeasure flangeWidth
-				,IfcPositiveLengthMeasure webThickness
-				,IfcPositiveLengthMeasure flangeThickness
-				,IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(profileType
-					,hasExternalReference
-					,hasProperties
-					)
-		{
-			Depth = depth;
-			FlangeWidth = flangeWidth;
-			WebThickness = webThickness;
-			FlangeThickness = flangeThickness;
-
-		}
-
-		public static new IfcTShapeProfileDef FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTShapeProfileDef>(json);
-		}
-
-		public static new IfcTShapeProfileDef FromSTEP(string step)
+		public static new IfcZone FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -26437,15 +25132,13 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcTable : IfcBase
 	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
-		[JsonProperty("rows")]
-		public List<IfcTableRow> Rows {get;set;} // optional
-		[JsonProperty("columns")]
-		public List<IfcTableColumn> Columns {get;set;} // optional
+		public IfcLabel Name{get;set;} // optional
+		public List<IfcTableRow> Rows{get;set;} // optional
+		public List<IfcTableColumn> Columns{get;set;} // optional
 
-		public IfcTable()
+		public IfcTable():base()
 		{
+
 			Rows = new List<IfcTableRow>();
 			Columns = new List<IfcTableColumn>();
 
@@ -26467,19 +25160,15 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcTableColumn : IfcBase
 	{
-		[JsonProperty("identifier")]
-		public IfcIdentifier Identifier {get;set;} // optional
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} // optional
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("unit")]
-		public IfcUnit Unit {get;set;} // optional
-		[JsonProperty("referencePath")]
-		public IfcReference ReferencePath {get;set;} // optional
+		public IfcIdentifier Identifier{get;set;} // optional
+		public IfcLabel Name{get;set;} // optional
+		public IfcText Description{get;set;} // optional
+		public IfcUnit Unit{get;set;} // optional
+		public IfcReference ReferencePath{get;set;} // optional
 
-		public IfcTableColumn()
+		public IfcTableColumn():base()
 		{
+
 
 		}
 
@@ -26499,17 +25188,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcTableRow : IfcBase
 	{
-		[JsonProperty("rowCells")]
-		public List<IfcValue> RowCells {get;set;} // optional
-		[JsonProperty("isHeading")]
-		public bool IsHeading {get;set;} // optional
-		[JsonProperty("ofTable")]
-		public IfcTable OfTable {get;set;} 
+		public List<IfcValue> RowCells{get;set;} // optional
+		public bool IsHeading{get;set;} // optional
 
-		public IfcTableRow(IfcTable ofTable
-				)
+		public IfcTableRow():base()
 		{
-			OfTable = ofTable;
+
 			RowCells = new List<IfcValue>();
 
 		}
@@ -26526,159 +25210,16 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctank.htm"/>
-	/// </summary>
-	public  partial class IfcTank : IfcFlowStorageDevice
-	{
-		[JsonProperty("predefinedType")]
-		public IfcTankTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcTank() : base()
-		{
-
-		}
-
-		public static new IfcTank FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTank>(json);
-		}
-
-		public static new IfcTank FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctanktype.htm"/>
-	/// </summary>
-	public  partial class IfcTankType : IfcFlowStorageDeviceType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcTankTypeEnum PredefinedType {get;set;} 
-
-		public IfcTankType(IfcTankTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcTankType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTankType>(json);
-		}
-
-		public static new IfcTankType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctask.htm"/>
-	/// </summary>
-	public  partial class IfcTask : IfcProcess
-	{
-		[JsonProperty("status")]
-		public IfcLabel Status {get;set;} // optional
-		[JsonProperty("workMethod")]
-		public IfcLabel WorkMethod {get;set;} // optional
-		[JsonProperty("isMilestone")]
-		public bool IsMilestone {get;set;} 
-		[JsonProperty("priority")]
-		public int Priority {get;set;} // optional
-		[JsonProperty("taskTime")]
-		public IfcTaskTime TaskTime {get;set;} // optional
-		[JsonProperty("predefinedType")]
-		public IfcTaskTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcTask(bool isMilestone
-				) : base()
-		{
-			IsMilestone = isMilestone;
-
-		}
-
-		public static new IfcTask FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTask>(json);
-		}
-
-		public static new IfcTask FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctasktime.htm"/>
-	/// </summary>
-	public  partial class IfcTaskTime : IfcSchedulingTime
-	{
-		[JsonProperty("durationType")]
-		public IfcTaskDurationEnum DurationType {get;set;} // optional
-		[JsonProperty("scheduleDuration")]
-		public IfcDuration ScheduleDuration {get;set;} // optional
-		[JsonProperty("scheduleStart")]
-		public IfcDateTime ScheduleStart {get;set;} // optional
-		[JsonProperty("scheduleFinish")]
-		public IfcDateTime ScheduleFinish {get;set;} // optional
-		[JsonProperty("earlyStart")]
-		public IfcDateTime EarlyStart {get;set;} // optional
-		[JsonProperty("earlyFinish")]
-		public IfcDateTime EarlyFinish {get;set;} // optional
-		[JsonProperty("lateStart")]
-		public IfcDateTime LateStart {get;set;} // optional
-		[JsonProperty("lateFinish")]
-		public IfcDateTime LateFinish {get;set;} // optional
-		[JsonProperty("freeFloat")]
-		public IfcDuration FreeFloat {get;set;} // optional
-		[JsonProperty("totalFloat")]
-		public IfcDuration TotalFloat {get;set;} // optional
-		[JsonProperty("isCritical")]
-		public bool IsCritical {get;set;} // optional
-		[JsonProperty("statusTime")]
-		public IfcDateTime StatusTime {get;set;} // optional
-		[JsonProperty("actualDuration")]
-		public IfcDuration ActualDuration {get;set;} // optional
-		[JsonProperty("actualStart")]
-		public IfcDateTime ActualStart {get;set;} // optional
-		[JsonProperty("actualFinish")]
-		public IfcDateTime ActualFinish {get;set;} // optional
-		[JsonProperty("remainingTime")]
-		public IfcDuration RemainingTime {get;set;} // optional
-		[JsonProperty("completion")]
-		public IfcPositiveRatioMeasure Completion {get;set;} // optional
-
-		public IfcTaskTime() : base()
-		{
-
-		}
-
-		public static new IfcTaskTime FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTaskTime>(json);
-		}
-
-		public static new IfcTaskTime FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctasktimerecurring.htm"/>
 	/// </summary>
 	public  partial class IfcTaskTimeRecurring : IfcTaskTime
 	{
-		[JsonProperty("recurrance")]
-		public IfcRecurrencePattern Recurrance {get;set;} 
+		public IfcRecurrencePattern Recurrance{get;set;} 
 
-		public IfcTaskTimeRecurring(IfcRecurrencePattern recurrance
-				) : base()
+		public IfcTaskTimeRecurring(IfcRecurrencePattern recurrance):base()
 		{
 			Recurrance = recurrance;
+
 
 		}
 
@@ -26698,15 +25239,13 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcTaskType : IfcTypeProcess
 	{
-		[JsonProperty("predefinedType")]
-		public IfcTaskTypeEnum PredefinedType {get;set;} 
-		[JsonProperty("workMethod")]
-		public IfcLabel WorkMethod {get;set;} // optional
+		public IfcTaskTypeEnum PredefinedType{get;set;} 
+		public IfcLabel WorkMethod{get;set;} // optional
 
-		public IfcTaskType(IfcTaskTypeEnum predefinedType
-				) : base()
+		public IfcTaskType(IfcTaskTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+
 
 		}
 
@@ -26722,195 +25261,18 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctelecomaddress.htm"/>
-	/// </summary>
-	public  partial class IfcTelecomAddress : IfcAddress
-	{
-		[JsonProperty("telephoneNumbers")]
-		public List<IfcLabel> TelephoneNumbers {get;set;} // optional
-		[JsonProperty("facsimileNumbers")]
-		public List<IfcLabel> FacsimileNumbers {get;set;} // optional
-		[JsonProperty("pagerNumber")]
-		public IfcLabel PagerNumber {get;set;} // optional
-		[JsonProperty("electronicMailAddresses")]
-		public List<IfcLabel> ElectronicMailAddresses {get;set;} // optional
-		[JsonProperty("wWWHomePageURL")]
-		public IfcURIReference WWWHomePageURL {get;set;} // optional
-		[JsonProperty("messagingIDs")]
-		public List<IfcURIReference> MessagingIDs {get;set;} // optional
-
-		public IfcTelecomAddress(List<IfcPerson> ofPerson
-				,List<IfcOrganization> ofOrganization
-				) : base(ofPerson
-					,ofOrganization
-					)
-		{
-			TelephoneNumbers = new List<IfcLabel>();
-			FacsimileNumbers = new List<IfcLabel>();
-			ElectronicMailAddresses = new List<IfcLabel>();
-			MessagingIDs = new List<IfcURIReference>();
-
-		}
-
-		public static new IfcTelecomAddress FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTelecomAddress>(json);
-		}
-
-		public static new IfcTelecomAddress FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctendon.htm"/>
-	/// </summary>
-	public  partial class IfcTendon : IfcReinforcingElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcTendonTypeEnum PredefinedType {get;set;} // optional
-		[JsonProperty("nominalDiameter")]
-		public IfcPositiveLengthMeasure NominalDiameter {get;set;} // optional
-		[JsonProperty("crossSectionArea")]
-		public IfcAreaMeasure CrossSectionArea {get;set;} // optional
-		[JsonProperty("tensionForce")]
-		public IfcForceMeasure TensionForce {get;set;} // optional
-		[JsonProperty("preStress")]
-		public IfcPressureMeasure PreStress {get;set;} // optional
-		[JsonProperty("frictionCoefficient")]
-		public IfcNormalisedRatioMeasure FrictionCoefficient {get;set;} // optional
-		[JsonProperty("anchorageSlip")]
-		public IfcPositiveLengthMeasure AnchorageSlip {get;set;} // optional
-		[JsonProperty("minCurvatureRadius")]
-		public IfcPositiveLengthMeasure MinCurvatureRadius {get;set;} // optional
-
-		public IfcTendon() : base()
-		{
-
-		}
-
-		public static new IfcTendon FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTendon>(json);
-		}
-
-		public static new IfcTendon FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctendonanchor.htm"/>
-	/// </summary>
-	public  partial class IfcTendonAnchor : IfcReinforcingElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcTendonAnchorTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcTendonAnchor() : base()
-		{
-
-		}
-
-		public static new IfcTendonAnchor FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTendonAnchor>(json);
-		}
-
-		public static new IfcTendonAnchor FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctendonanchortype.htm"/>
-	/// </summary>
-	public  partial class IfcTendonAnchorType : IfcReinforcingElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcTendonAnchorTypeEnum PredefinedType {get;set;} 
-
-		public IfcTendonAnchorType(IfcTendonAnchorTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcTendonAnchorType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTendonAnchorType>(json);
-		}
-
-		public static new IfcTendonAnchorType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctendontype.htm"/>
-	/// </summary>
-	public  partial class IfcTendonType : IfcReinforcingElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcTendonTypeEnum PredefinedType {get;set;} 
-		[JsonProperty("nominalDiameter")]
-		public IfcPositiveLengthMeasure NominalDiameter {get;set;} // optional
-		[JsonProperty("crossSectionArea")]
-		public IfcAreaMeasure CrossSectionArea {get;set;} // optional
-		[JsonProperty("sheethDiameter")]
-		public IfcPositiveLengthMeasure SheethDiameter {get;set;} // optional
-
-		public IfcTendonType(IfcTendonTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcTendonType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTendonType>(json);
-		}
-
-		public static new IfcTendonType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctessellatedfaceset.htm"/>
 	/// </summary>
 	public abstract partial class IfcTessellatedFaceSet : IfcTessellatedItem
 	{
-		[JsonProperty("coordinates")]
-		public IfcCartesianPointList3D Coordinates {get;set;} 
-		[JsonProperty("normals")]
-		public List<List<IfcParameterValue>> Normals {get;set;} // optional
-		[JsonProperty("closed")]
-		public bool Closed {get;set;} // optional
-		[JsonProperty("hasColours")]
-		public List<IfcIndexedColourMap> HasColours {get;set;} 
-		[JsonProperty("hasTextures")]
-		public List<IfcIndexedTextureMap> HasTextures {get;set;} 
+		public IfcCartesianPointList3D Coordinates{get;set;} 
+		public List<List<IfcParameterValue>> Normals{get;set;} // optional
+		public bool Closed{get;set;} // optional
 
-		public IfcTessellatedFaceSet(IfcCartesianPointList3D coordinates
-				,List<IfcIndexedColourMap> hasColours
-				,List<IfcIndexedTextureMap> hasTextures
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcTessellatedFaceSet(IfcCartesianPointList3D coordinates):base()
 		{
 			Coordinates = coordinates;
-			HasColours = hasColours;
-			HasTextures = hasTextures;
+
 			Normals = new List<List<IfcParameterValue>>();
 
 		}
@@ -26927,64 +25289,27 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctessellateditem.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctriangulatedfaceset.htm"/>
 	/// </summary>
-	public abstract partial class IfcTessellatedItem : IfcGeometricRepresentationItem
+	public  partial class IfcTriangulatedFaceSet : IfcTessellatedFaceSet
 	{
+		public List<List<int>> CoordIndex{get;set;} 
+		public List<List<int>> NormalIndex{get;set;} // optional
 
-		public IfcTessellatedItem(List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcTriangulatedFaceSet(List<List<int>> coordIndex,IfcCartesianPointList3D coordinates):base(coordinates)
 		{
+			CoordIndex = coordIndex;
+
+			NormalIndex = new List<List<int>>();
 
 		}
 
-		public static new IfcTessellatedItem FromJSON(string json)
+		public static new IfcTriangulatedFaceSet FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcTessellatedItem>(json);
+			return JsonConvert.DeserializeObject<IfcTriangulatedFaceSet>(json);
 		}
 
-		public static new IfcTessellatedItem FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctextliteral.htm"/>
-	/// </summary>
-	public  partial class IfcTextLiteral : IfcGeometricRepresentationItem
-	{
-		[JsonProperty("literal")]
-		public IfcPresentableText Literal {get;set;} 
-		[JsonProperty("placement")]
-		public IfcAxis2Placement Placement {get;set;} 
-		[JsonProperty("path")]
-		public IfcTextPath Path {get;set;} 
-
-		public IfcTextLiteral(IfcPresentableText literal
-				,IfcAxis2Placement placement
-				,IfcTextPath path
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-			Literal = literal;
-			Placement = placement;
-			Path = path;
-
-		}
-
-		public static new IfcTextLiteral FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTextLiteral>(json);
-		}
-
-		public static new IfcTextLiteral FromSTEP(string step)
+		public static new IfcTriangulatedFaceSet FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -26995,27 +25320,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcTextLiteralWithExtent : IfcTextLiteral
 	{
-		[JsonProperty("extent")]
-		public IfcPlanarExtent Extent {get;set;} 
-		[JsonProperty("boxAlignment")]
-		public IfcBoxAlignment BoxAlignment {get;set;} 
+		public IfcPlanarExtent Extent{get;set;} 
+		public IfcBoxAlignment BoxAlignment{get;set;} 
 
-		public IfcTextLiteralWithExtent(IfcPlanarExtent extent
-				,IfcBoxAlignment boxAlignment
-				,IfcPresentableText literal
-				,IfcAxis2Placement placement
-				,IfcTextPath path
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(literal
-					,placement
-					,path
-					,layerAssignment
-					,styledByItem
-					)
+		public IfcTextLiteralWithExtent(IfcPlanarExtent extent,IfcBoxAlignment boxAlignment,IfcPresentableText literal,IfcAxis2Placement placement,IfcTextPath path):base(literal,placement,path)
 		{
 			Extent = extent;
 			BoxAlignment = boxAlignment;
+
 
 		}
 
@@ -27031,181 +25343,17 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctextstyle.htm"/>
-	/// </summary>
-	public  partial class IfcTextStyle : IfcPresentationStyle
-	{
-		[JsonProperty("textCharacterAppearance")]
-		public IfcTextStyleForDefinedFont TextCharacterAppearance {get;set;} // optional
-		[JsonProperty("textStyle")]
-		public IfcTextStyleTextModel TextStyle {get;set;} // optional
-		[JsonProperty("textFontStyle")]
-		public IfcTextFontSelect TextFontStyle {get;set;} 
-		[JsonProperty("modelOrDraughting")]
-		public bool ModelOrDraughting {get;set;} // optional
-
-		public IfcTextStyle(IfcTextFontSelect textFontStyle
-				) : base()
-		{
-			TextFontStyle = textFontStyle;
-
-		}
-
-		public static new IfcTextStyle FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTextStyle>(json);
-		}
-
-		public static new IfcTextStyle FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctextstylefontmodel.htm"/>
-	/// </summary>
-	public  partial class IfcTextStyleFontModel : IfcPreDefinedTextFont
-	{
-		[JsonProperty("fontFamily")]
-		public List<IfcTextFontName> FontFamily {get;set;} 
-		[JsonProperty("fontStyle")]
-		public IfcFontStyle FontStyle {get;set;} // optional
-		[JsonProperty("fontVariant")]
-		public IfcFontVariant FontVariant {get;set;} // optional
-		[JsonProperty("fontWeight")]
-		public IfcFontWeight FontWeight {get;set;} // optional
-		[JsonProperty("fontSize")]
-		public IfcSizeSelect FontSize {get;set;} 
-
-		public IfcTextStyleFontModel(List<IfcTextFontName> fontFamily
-				,IfcSizeSelect fontSize
-				,IfcLabel name
-				) : base(name
-					)
-		{
-			FontFamily = fontFamily;
-			FontSize = fontSize;
-
-		}
-
-		public static new IfcTextStyleFontModel FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTextStyleFontModel>(json);
-		}
-
-		public static new IfcTextStyleFontModel FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctextstylefordefinedfont.htm"/>
-	/// </summary>
-	public  partial class IfcTextStyleForDefinedFont : IfcPresentationItem
-	{
-		[JsonProperty("colour")]
-		public IfcColour Colour {get;set;} 
-		[JsonProperty("backgroundColour")]
-		public IfcColour BackgroundColour {get;set;} // optional
-
-		public IfcTextStyleForDefinedFont(IfcColour colour
-				) : base()
-		{
-			Colour = colour;
-
-		}
-
-		public static new IfcTextStyleForDefinedFont FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTextStyleForDefinedFont>(json);
-		}
-
-		public static new IfcTextStyleForDefinedFont FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctextstyletextmodel.htm"/>
-	/// </summary>
-	public  partial class IfcTextStyleTextModel : IfcPresentationItem
-	{
-		[JsonProperty("textIndent")]
-		public IfcSizeSelect TextIndent {get;set;} // optional
-		[JsonProperty("textAlign")]
-		public IfcTextAlignment TextAlign {get;set;} // optional
-		[JsonProperty("textDecoration")]
-		public IfcTextDecoration TextDecoration {get;set;} // optional
-		[JsonProperty("letterSpacing")]
-		public IfcSizeSelect LetterSpacing {get;set;} // optional
-		[JsonProperty("wordSpacing")]
-		public IfcSizeSelect WordSpacing {get;set;} // optional
-		[JsonProperty("textTransform")]
-		public IfcTextTransformation TextTransform {get;set;} // optional
-		[JsonProperty("lineHeight")]
-		public IfcSizeSelect LineHeight {get;set;} // optional
-
-		public IfcTextStyleTextModel() : base()
-		{
-
-		}
-
-		public static new IfcTextStyleTextModel FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTextStyleTextModel>(json);
-		}
-
-		public static new IfcTextStyleTextModel FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctexturecoordinate.htm"/>
-	/// </summary>
-	public abstract partial class IfcTextureCoordinate : IfcPresentationItem
-	{
-		[JsonProperty("maps")]
-		public List<IfcSurfaceTexture> Maps {get;set;} 
-
-		public IfcTextureCoordinate(List<IfcSurfaceTexture> maps
-				) : base()
-		{
-			Maps = maps;
-
-		}
-
-		public static new IfcTextureCoordinate FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTextureCoordinate>(json);
-		}
-
-		public static new IfcTextureCoordinate FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctexturecoordinategenerator.htm"/>
 	/// </summary>
 	public  partial class IfcTextureCoordinateGenerator : IfcTextureCoordinate
 	{
-		[JsonProperty("mode")]
-		public IfcLabel Mode {get;set;} 
-		[JsonProperty("parameter")]
-		public List<IfcReal> Parameter {get;set;} // optional
+		public IfcLabel Mode{get;set;} 
+		public List<IfcReal> Parameter{get;set;} // optional
 
-		public IfcTextureCoordinateGenerator(IfcLabel mode
-				,List<IfcSurfaceTexture> maps
-				) : base(maps
-					)
+		public IfcTextureCoordinateGenerator(IfcLabel mode,List<IfcSurfaceTexture> maps):base(maps)
 		{
 			Mode = mode;
+
 			Parameter = new List<IfcReal>();
 
 		}
@@ -27226,19 +25374,14 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcTextureMap : IfcTextureCoordinate
 	{
-		[JsonProperty("vertices")]
-		public List<IfcTextureVertex> Vertices {get;set;} 
-		[JsonProperty("mappedTo")]
-		public IfcFace MappedTo {get;set;} 
+		public List<IfcTextureVertex> Vertices{get;set;} 
+		public IfcFace MappedTo{get;set;} 
 
-		public IfcTextureMap(List<IfcTextureVertex> vertices
-				,IfcFace mappedTo
-				,List<IfcSurfaceTexture> maps
-				) : base(maps
-					)
+		public IfcTextureMap(List<IfcTextureVertex> vertices,IfcFace mappedTo,List<IfcSurfaceTexture> maps):base(maps)
 		{
 			Vertices = vertices;
 			MappedTo = mappedTo;
+
 
 		}
 
@@ -27254,73 +25397,18 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctexturevertex.htm"/>
-	/// </summary>
-	public  partial class IfcTextureVertex : IfcPresentationItem
-	{
-		[JsonProperty("coordinates")]
-		public List<IfcParameterValue> Coordinates {get;set;} 
-
-		public IfcTextureVertex(List<IfcParameterValue> coordinates
-				) : base()
-		{
-			Coordinates = coordinates;
-
-		}
-
-		public static new IfcTextureVertex FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTextureVertex>(json);
-		}
-
-		public static new IfcTextureVertex FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctexturevertexlist.htm"/>
-	/// </summary>
-	public  partial class IfcTextureVertexList : IfcPresentationItem
-	{
-		[JsonProperty("texCoordsList")]
-		public List<List<IfcParameterValue>> TexCoordsList {get;set;} 
-
-		public IfcTextureVertexList(List<List<IfcParameterValue>> texCoordsList
-				) : base()
-		{
-			TexCoordsList = texCoordsList;
-
-		}
-
-		public static new IfcTextureVertexList FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTextureVertexList>(json);
-		}
-
-		public static new IfcTextureVertexList FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctimeperiod.htm"/>
 	/// </summary>
 	public  partial class IfcTimePeriod : IfcBase
 	{
-		[JsonProperty("startTime")]
-		public IfcTime StartTime {get;set;} 
-		[JsonProperty("endTime")]
-		public IfcTime EndTime {get;set;} 
+		public IfcTime StartTime{get;set;} 
+		public IfcTime EndTime{get;set;} 
 
-		public IfcTimePeriod(IfcTime startTime
-				,IfcTime endTime
-				)
+		public IfcTimePeriod(IfcTime startTime,IfcTime endTime):base()
 		{
 			StartTime = startTime;
 			EndTime = endTime;
+
 
 		}
 
@@ -27336,69 +25424,16 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctimeseries.htm"/>
-	/// </summary>
-	public abstract partial class IfcTimeSeries : IfcBase
-	{
-		[JsonProperty("name")]
-		public IfcLabel Name {get;set;} 
-		[JsonProperty("description")]
-		public IfcText Description {get;set;} // optional
-		[JsonProperty("startTime")]
-		public IfcDateTime StartTime {get;set;} 
-		[JsonProperty("endTime")]
-		public IfcDateTime EndTime {get;set;} 
-		[JsonProperty("timeSeriesDataType")]
-		public IfcTimeSeriesDataTypeEnum TimeSeriesDataType {get;set;} 
-		[JsonProperty("dataOrigin")]
-		public IfcDataOriginEnum DataOrigin {get;set;} 
-		[JsonProperty("userDefinedDataOrigin")]
-		public IfcLabel UserDefinedDataOrigin {get;set;} // optional
-		[JsonProperty("unit")]
-		public IfcUnit Unit {get;set;} // optional
-		[JsonProperty("hasExternalReference")]
-		public List<IfcExternalReferenceRelationship> HasExternalReference {get;set;} 
-
-		public IfcTimeSeries(IfcLabel name
-				,IfcDateTime startTime
-				,IfcDateTime endTime
-				,IfcTimeSeriesDataTypeEnum timeSeriesDataType
-				,IfcDataOriginEnum dataOrigin
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				)
-		{
-			Name = name;
-			StartTime = startTime;
-			EndTime = endTime;
-			TimeSeriesDataType = timeSeriesDataType;
-			DataOrigin = dataOrigin;
-			HasExternalReference = hasExternalReference;
-
-		}
-
-		public static  IfcTimeSeries FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTimeSeries>(json);
-		}
-
-		public static  IfcTimeSeries FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctimeseriesvalue.htm"/>
 	/// </summary>
 	public  partial class IfcTimeSeriesValue : IfcBase
 	{
-		[JsonProperty("listValues")]
-		public List<IfcValue> ListValues {get;set;} 
+		public List<IfcValue> ListValues{get;set;} 
 
-		public IfcTimeSeriesValue(List<IfcValue> listValues
-				)
+		public IfcTimeSeriesValue(List<IfcValue> listValues):base()
 		{
 			ListValues = listValues;
+
 
 		}
 
@@ -27414,734 +25449,14 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctopologicalrepresentationitem.htm"/>
-	/// </summary>
-	public abstract partial class IfcTopologicalRepresentationItem : IfcRepresentationItem
-	{
-
-		public IfcTopologicalRepresentationItem(List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-
-		}
-
-		public static new IfcTopologicalRepresentationItem FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTopologicalRepresentationItem>(json);
-		}
-
-		public static new IfcTopologicalRepresentationItem FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctopologyrepresentation.htm"/>
-	/// </summary>
-	public  partial class IfcTopologyRepresentation : IfcShapeModel
-	{
-
-		public IfcTopologyRepresentation(List<IfcShapeAspect> ofShapeAspect
-				,IfcRepresentationContext contextOfItems
-				,List<IfcRepresentationItem> items
-				,List<IfcRepresentationMap> representationMap
-				,List<IfcPresentationLayerAssignment> layerAssignments
-				,List<IfcProductRepresentation> ofProductRepresentation
-				) : base(ofShapeAspect
-					,contextOfItems
-					,items
-					,representationMap
-					,layerAssignments
-					,ofProductRepresentation
-					)
-		{
-
-		}
-
-		public static new IfcTopologyRepresentation FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTopologyRepresentation>(json);
-		}
-
-		public static new IfcTopologyRepresentation FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctransformer.htm"/>
-	/// </summary>
-	public  partial class IfcTransformer : IfcEnergyConversionDevice
-	{
-		[JsonProperty("predefinedType")]
-		public IfcTransformerTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcTransformer() : base()
-		{
-
-		}
-
-		public static new IfcTransformer FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTransformer>(json);
-		}
-
-		public static new IfcTransformer FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctransformertype.htm"/>
-	/// </summary>
-	public  partial class IfcTransformerType : IfcEnergyConversionDeviceType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcTransformerTypeEnum PredefinedType {get;set;} 
-
-		public IfcTransformerType(IfcTransformerTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcTransformerType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTransformerType>(json);
-		}
-
-		public static new IfcTransformerType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctransportelement.htm"/>
-	/// </summary>
-	public  partial class IfcTransportElement : IfcElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcTransportElementTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcTransportElement() : base()
-		{
-
-		}
-
-		public static new IfcTransportElement FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTransportElement>(json);
-		}
-
-		public static new IfcTransportElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctransportelementtype.htm"/>
-	/// </summary>
-	public  partial class IfcTransportElementType : IfcElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcTransportElementTypeEnum PredefinedType {get;set;} 
-
-		public IfcTransportElementType(IfcTransportElementTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcTransportElementType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTransportElementType>(json);
-		}
-
-		public static new IfcTransportElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctrapeziumprofiledef.htm"/>
-	/// </summary>
-	public  partial class IfcTrapeziumProfileDef : IfcParameterizedProfileDef
-	{
-		[JsonProperty("bottomXDim")]
-		public IfcPositiveLengthMeasure BottomXDim {get;set;} 
-		[JsonProperty("topXDim")]
-		public IfcPositiveLengthMeasure TopXDim {get;set;} 
-		[JsonProperty("yDim")]
-		public IfcPositiveLengthMeasure YDim {get;set;} 
-		[JsonProperty("topXOffset")]
-		public IfcLengthMeasure TopXOffset {get;set;} 
-
-		public IfcTrapeziumProfileDef(IfcPositiveLengthMeasure bottomXDim
-				,IfcPositiveLengthMeasure topXDim
-				,IfcPositiveLengthMeasure yDim
-				,IfcLengthMeasure topXOffset
-				,IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(profileType
-					,hasExternalReference
-					,hasProperties
-					)
-		{
-			BottomXDim = bottomXDim;
-			TopXDim = topXDim;
-			YDim = yDim;
-			TopXOffset = topXOffset;
-
-		}
-
-		public static new IfcTrapeziumProfileDef FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTrapeziumProfileDef>(json);
-		}
-
-		public static new IfcTrapeziumProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctriangulatedfaceset.htm"/>
-	/// </summary>
-	public  partial class IfcTriangulatedFaceSet : IfcTessellatedFaceSet
-	{
-		[JsonProperty("coordIndex")]
-		public List<List<int>> CoordIndex {get;set;} 
-		[JsonProperty("normalIndex")]
-		public List<List<int>> NormalIndex {get;set;} // optional
-
-		public IfcTriangulatedFaceSet(List<List<int>> coordIndex
-				,IfcCartesianPointList3D coordinates
-				,List<IfcIndexedColourMap> hasColours
-				,List<IfcIndexedTextureMap> hasTextures
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(coordinates
-					,hasColours
-					,hasTextures
-					,layerAssignment
-					,styledByItem
-					)
-		{
-			CoordIndex = coordIndex;
-			NormalIndex = new List<List<int>>();
-
-		}
-
-		public static new IfcTriangulatedFaceSet FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTriangulatedFaceSet>(json);
-		}
-
-		public static new IfcTriangulatedFaceSet FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctrimmedcurve.htm"/>
-	/// </summary>
-	public  partial class IfcTrimmedCurve : IfcBoundedCurve
-	{
-		[JsonProperty("basisCurve")]
-		public IfcCurve BasisCurve {get;set;} 
-		[JsonProperty("trim1")]
-		public List<IfcTrimmingSelect> Trim1 {get;set;} 
-		[JsonProperty("trim2")]
-		public List<IfcTrimmingSelect> Trim2 {get;set;} 
-		[JsonProperty("senseAgreement")]
-		public bool SenseAgreement {get;set;} 
-		[JsonProperty("masterRepresentation")]
-		public IfcTrimmingPreference MasterRepresentation {get;set;} 
-
-		public IfcTrimmedCurve(IfcCurve basisCurve
-				,List<IfcTrimmingSelect> trim1
-				,List<IfcTrimmingSelect> trim2
-				,bool senseAgreement
-				,IfcTrimmingPreference masterRepresentation
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-			BasisCurve = basisCurve;
-			Trim1 = trim1;
-			Trim2 = trim2;
-			SenseAgreement = senseAgreement;
-			MasterRepresentation = masterRepresentation;
-
-		}
-
-		public static new IfcTrimmedCurve FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTrimmedCurve>(json);
-		}
-
-		public static new IfcTrimmedCurve FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctubebundle.htm"/>
-	/// </summary>
-	public  partial class IfcTubeBundle : IfcEnergyConversionDevice
-	{
-		[JsonProperty("predefinedType")]
-		public IfcTubeBundleTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcTubeBundle() : base()
-		{
-
-		}
-
-		public static new IfcTubeBundle FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTubeBundle>(json);
-		}
-
-		public static new IfcTubeBundle FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctubebundletype.htm"/>
-	/// </summary>
-	public  partial class IfcTubeBundleType : IfcEnergyConversionDeviceType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcTubeBundleTypeEnum PredefinedType {get;set;} 
-
-		public IfcTubeBundleType(IfcTubeBundleTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcTubeBundleType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTubeBundleType>(json);
-		}
-
-		public static new IfcTubeBundleType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctypeobject.htm"/>
-	/// </summary>
-	public  partial class IfcTypeObject : IfcObjectDefinition
-	{
-		[JsonProperty("applicableOccurrence")]
-		public IfcIdentifier ApplicableOccurrence {get;set;} // optional
-		[JsonProperty("hasPropertySets")]
-		public List<IfcPropertySetDefinition> HasPropertySets {get;set;} // optional
-		[JsonProperty("types")]
-		public List<IfcRelDefinesByType> Types {get;set;} 
-
-		public IfcTypeObject() : base()
-		{
-			HasPropertySets = new List<IfcPropertySetDefinition>();
-
-		}
-
-		public static new IfcTypeObject FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTypeObject>(json);
-		}
-
-		public static new IfcTypeObject FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctypeprocess.htm"/>
-	/// </summary>
-	public abstract partial class IfcTypeProcess : IfcTypeObject
-	{
-		[JsonProperty("identification")]
-		public IfcIdentifier Identification {get;set;} // optional
-		[JsonProperty("longDescription")]
-		public IfcText LongDescription {get;set;} // optional
-		[JsonProperty("processType")]
-		public IfcLabel ProcessType {get;set;} // optional
-		[JsonProperty("operatesOn")]
-		public List<IfcRelAssignsToProcess> OperatesOn {get;set;} 
-
-		public IfcTypeProcess() : base()
-		{
-
-		}
-
-		public static new IfcTypeProcess FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTypeProcess>(json);
-		}
-
-		public static new IfcTypeProcess FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctypeproduct.htm"/>
-	/// </summary>
-	public  partial class IfcTypeProduct : IfcTypeObject
-	{
-		[JsonProperty("representationMaps")]
-		public List<IfcRepresentationMap> RepresentationMaps {get;set;} // optional
-		[JsonProperty("tag")]
-		public IfcLabel Tag {get;set;} // optional
-		[JsonProperty("referencedBy")]
-		public List<IfcRelAssignsToProduct> ReferencedBy {get;set;} 
-
-		public IfcTypeProduct() : base()
-		{
-			RepresentationMaps = new List<IfcRepresentationMap>();
-
-		}
-
-		public static new IfcTypeProduct FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTypeProduct>(json);
-		}
-
-		public static new IfcTypeProduct FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctyperesource.htm"/>
-	/// </summary>
-	public abstract partial class IfcTypeResource : IfcTypeObject
-	{
-		[JsonProperty("identification")]
-		public IfcIdentifier Identification {get;set;} // optional
-		[JsonProperty("longDescription")]
-		public IfcText LongDescription {get;set;} // optional
-		[JsonProperty("resourceType")]
-		public IfcLabel ResourceType {get;set;} // optional
-		[JsonProperty("resourceOf")]
-		public List<IfcRelAssignsToResource> ResourceOf {get;set;} 
-
-		public IfcTypeResource() : base()
-		{
-
-		}
-
-		public static new IfcTypeResource FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcTypeResource>(json);
-		}
-
-		public static new IfcTypeResource FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcushapeprofiledef.htm"/>
-	/// </summary>
-	public  partial class IfcUShapeProfileDef : IfcParameterizedProfileDef
-	{
-		[JsonProperty("depth")]
-		public IfcPositiveLengthMeasure Depth {get;set;} 
-		[JsonProperty("flangeWidth")]
-		public IfcPositiveLengthMeasure FlangeWidth {get;set;} 
-		[JsonProperty("webThickness")]
-		public IfcPositiveLengthMeasure WebThickness {get;set;} 
-		[JsonProperty("flangeThickness")]
-		public IfcPositiveLengthMeasure FlangeThickness {get;set;} 
-		[JsonProperty("filletRadius")]
-		public IfcNonNegativeLengthMeasure FilletRadius {get;set;} // optional
-		[JsonProperty("edgeRadius")]
-		public IfcNonNegativeLengthMeasure EdgeRadius {get;set;} // optional
-		[JsonProperty("flangeSlope")]
-		public IfcPlaneAngleMeasure FlangeSlope {get;set;} // optional
-
-		public IfcUShapeProfileDef(IfcPositiveLengthMeasure depth
-				,IfcPositiveLengthMeasure flangeWidth
-				,IfcPositiveLengthMeasure webThickness
-				,IfcPositiveLengthMeasure flangeThickness
-				,IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(profileType
-					,hasExternalReference
-					,hasProperties
-					)
-		{
-			Depth = depth;
-			FlangeWidth = flangeWidth;
-			WebThickness = webThickness;
-			FlangeThickness = flangeThickness;
-
-		}
-
-		public static new IfcUShapeProfileDef FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcUShapeProfileDef>(json);
-		}
-
-		public static new IfcUShapeProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcunitassignment.htm"/>
-	/// </summary>
-	public  partial class IfcUnitAssignment : IfcBase
-	{
-		[JsonProperty("units")]
-		public List<IfcUnit> Units {get;set;} 
-
-		public IfcUnitAssignment(List<IfcUnit> units
-				)
-		{
-			Units = units;
-
-		}
-
-		public static  IfcUnitAssignment FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcUnitAssignment>(json);
-		}
-
-		public static  IfcUnitAssignment FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcunitarycontrolelement.htm"/>
-	/// </summary>
-	public  partial class IfcUnitaryControlElement : IfcDistributionControlElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcUnitaryControlElementTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcUnitaryControlElement() : base()
-		{
-
-		}
-
-		public static new IfcUnitaryControlElement FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcUnitaryControlElement>(json);
-		}
-
-		public static new IfcUnitaryControlElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcunitarycontrolelementtype.htm"/>
-	/// </summary>
-	public  partial class IfcUnitaryControlElementType : IfcDistributionControlElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcUnitaryControlElementTypeEnum PredefinedType {get;set;} 
-
-		public IfcUnitaryControlElementType(IfcUnitaryControlElementTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcUnitaryControlElementType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcUnitaryControlElementType>(json);
-		}
-
-		public static new IfcUnitaryControlElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcunitaryequipment.htm"/>
-	/// </summary>
-	public  partial class IfcUnitaryEquipment : IfcEnergyConversionDevice
-	{
-		[JsonProperty("predefinedType")]
-		public IfcUnitaryEquipmentTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcUnitaryEquipment() : base()
-		{
-
-		}
-
-		public static new IfcUnitaryEquipment FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcUnitaryEquipment>(json);
-		}
-
-		public static new IfcUnitaryEquipment FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcunitaryequipmenttype.htm"/>
-	/// </summary>
-	public  partial class IfcUnitaryEquipmentType : IfcEnergyConversionDeviceType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcUnitaryEquipmentTypeEnum PredefinedType {get;set;} 
-
-		public IfcUnitaryEquipmentType(IfcUnitaryEquipmentTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcUnitaryEquipmentType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcUnitaryEquipmentType>(json);
-		}
-
-		public static new IfcUnitaryEquipmentType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvalve.htm"/>
-	/// </summary>
-	public  partial class IfcValve : IfcFlowController
-	{
-		[JsonProperty("predefinedType")]
-		public IfcValveTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcValve() : base()
-		{
-
-		}
-
-		public static new IfcValve FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcValve>(json);
-		}
-
-		public static new IfcValve FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvalvetype.htm"/>
-	/// </summary>
-	public  partial class IfcValveType : IfcFlowControllerType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcValveTypeEnum PredefinedType {get;set;} 
-
-		public IfcValveType(IfcValveTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcValveType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcValveType>(json);
-		}
-
-		public static new IfcValveType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvector.htm"/>
-	/// </summary>
-	public  partial class IfcVector : IfcGeometricRepresentationItem
-	{
-		[JsonProperty("orientation")]
-		public IfcDirection Orientation {get;set;} 
-		[JsonProperty("magnitude")]
-		public IfcLengthMeasure Magnitude {get;set;} 
-
-		public IfcVector(IfcDirection orientation
-				,IfcLengthMeasure magnitude
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
-		{
-			Orientation = orientation;
-			Magnitude = magnitude;
-
-		}
-
-		public static new IfcVector FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcVector>(json);
-		}
-
-		public static new IfcVector FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvertex.htm"/>
 	/// </summary>
 	public  partial class IfcVertex : IfcTopologicalRepresentationItem
 	{
 
-		public IfcVertex(List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcVertex():base()
 		{
+
 
 		}
 
@@ -28157,30 +25472,56 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvertexloop.htm"/>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwindowstyle.htm"/>
 	/// </summary>
-	public  partial class IfcVertexLoop : IfcLoop
+	public  partial class IfcWindowStyle : IfcTypeProduct
 	{
-		[JsonProperty("loopVertex")]
-		public IfcVertex LoopVertex {get;set;} 
+		public IfcWindowStyleConstructionEnum ConstructionType{get;set;} 
+		public IfcWindowStyleOperationEnum OperationType{get;set;} 
+		public bool ParameterTakesPrecedence{get;set;} 
+		public bool Sizeable{get;set;} 
 
-		public IfcVertexLoop(IfcVertex loopVertex
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcWindowStyle(IfcWindowStyleConstructionEnum constructionType,IfcWindowStyleOperationEnum operationType,bool parameterTakesPrecedence,bool sizeable,IfcGloballyUniqueId globalId):base(globalId)
 		{
-			LoopVertex = loopVertex;
+			ConstructionType = constructionType;
+			OperationType = operationType;
+			ParameterTakesPrecedence = parameterTakesPrecedence;
+			Sizeable = sizeable;
+
 
 		}
 
-		public static new IfcVertexLoop FromJSON(string json)
+		public static new IfcWindowStyle FromJSON(string json)
 		{
-			return JsonConvert.DeserializeObject<IfcVertexLoop>(json);
+			return JsonConvert.DeserializeObject<IfcWindowStyle>(json);
 		}
 
-		public static new IfcVertexLoop FromSTEP(string step)
+		public static new IfcWindowStyle FromSTEP(string step)
+		{
+			throw new NotImplementedException();
+		}
+	}
+
+	/// <summary>
+	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcunitassignment.htm"/>
+	/// </summary>
+	public  partial class IfcUnitAssignment : IfcBase
+	{
+		public List<IfcUnit> Units{get;set;} 
+
+		public IfcUnitAssignment(List<IfcUnit> units):base()
+		{
+			Units = units;
+
+
+		}
+
+		public static  IfcUnitAssignment FromJSON(string json)
+		{
+			return JsonConvert.DeserializeObject<IfcUnitAssignment>(json);
+		}
+
+		public static  IfcUnitAssignment FromSTEP(string step)
 		{
 			throw new NotImplementedException();
 		}
@@ -28191,17 +25532,12 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcVertexPoint : IfcVertex
 	{
-		[JsonProperty("vertexGeometry")]
-		public IfcPoint VertexGeometry {get;set;} 
+		public IfcPoint VertexGeometry{get;set;} 
 
-		public IfcVertexPoint(IfcPoint vertexGeometry
-				,List<IfcPresentationLayerAssignment> layerAssignment
-				,List<IfcStyledItem> styledByItem
-				) : base(layerAssignment
-					,styledByItem
-					)
+		public IfcVertexPoint(IfcPoint vertexGeometry):base()
 		{
 			VertexGeometry = vertexGeometry;
+
 
 		}
 
@@ -28217,93 +25553,18 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvibrationisolator.htm"/>
-	/// </summary>
-	public  partial class IfcVibrationIsolator : IfcElementComponent
-	{
-		[JsonProperty("predefinedType")]
-		public IfcVibrationIsolatorTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcVibrationIsolator() : base()
-		{
-
-		}
-
-		public static new IfcVibrationIsolator FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcVibrationIsolator>(json);
-		}
-
-		public static new IfcVibrationIsolator FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvibrationisolatortype.htm"/>
-	/// </summary>
-	public  partial class IfcVibrationIsolatorType : IfcElementComponentType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcVibrationIsolatorTypeEnum PredefinedType {get;set;} 
-
-		public IfcVibrationIsolatorType(IfcVibrationIsolatorTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcVibrationIsolatorType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcVibrationIsolatorType>(json);
-		}
-
-		public static new IfcVibrationIsolatorType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvirtualelement.htm"/>
-	/// </summary>
-	public  partial class IfcVirtualElement : IfcElement
-	{
-
-		public IfcVirtualElement() : base()
-		{
-
-		}
-
-		public static new IfcVirtualElement FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcVirtualElement>(json);
-		}
-
-		public static new IfcVirtualElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvirtualgridintersection.htm"/>
 	/// </summary>
 	public  partial class IfcVirtualGridIntersection : IfcBase
 	{
-		[JsonProperty("intersectingAxes")]
-		public List<IfcGridAxis> IntersectingAxes {get;set;} 
-		[JsonProperty("offsetDistances")]
-		public List<IfcLengthMeasure> OffsetDistances {get;set;} 
+		public List<IfcGridAxis> IntersectingAxes{get;set;} 
+		public List<IfcLengthMeasure> OffsetDistances{get;set;} 
 
-		public IfcVirtualGridIntersection(List<IfcGridAxis> intersectingAxes
-				,List<IfcLengthMeasure> offsetDistances
-				)
+		public IfcVirtualGridIntersection(List<IfcGridAxis> intersectingAxes,List<IfcLengthMeasure> offsetDistances):base()
 		{
 			IntersectingAxes = intersectingAxes;
 			OffsetDistances = offsetDistances;
+
 
 		}
 
@@ -28319,61 +25580,14 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcvoidingfeature.htm"/>
-	/// </summary>
-	public  partial class IfcVoidingFeature : IfcFeatureElementSubtraction
-	{
-		[JsonProperty("predefinedType")]
-		public IfcVoidingFeatureTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcVoidingFeature() : base()
-		{
-
-		}
-
-		public static new IfcVoidingFeature FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcVoidingFeature>(json);
-		}
-
-		public static new IfcVoidingFeature FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwall.htm"/>
-	/// </summary>
-	public  partial class IfcWall : IfcBuildingElement
-	{
-		[JsonProperty("predefinedType")]
-		public IfcWallTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcWall() : base()
-		{
-
-		}
-
-		public static new IfcWall FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcWall>(json);
-		}
-
-		public static new IfcWall FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwallelementedcase.htm"/>
 	/// </summary>
 	public  partial class IfcWallElementedCase : IfcWall
 	{
 
-		public IfcWallElementedCase() : base()
+		public IfcWallElementedCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -28394,8 +25608,9 @@ namespace IFC4
 	public  partial class IfcWallStandardCase : IfcWall
 	{
 
-		public IfcWallStandardCase() : base()
+		public IfcWallStandardCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -28411,207 +25626,14 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwalltype.htm"/>
-	/// </summary>
-	public  partial class IfcWallType : IfcBuildingElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcWallTypeEnum PredefinedType {get;set;} 
-
-		public IfcWallType(IfcWallTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcWallType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcWallType>(json);
-		}
-
-		public static new IfcWallType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwasteterminal.htm"/>
-	/// </summary>
-	public  partial class IfcWasteTerminal : IfcFlowTerminal
-	{
-		[JsonProperty("predefinedType")]
-		public IfcWasteTerminalTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcWasteTerminal() : base()
-		{
-
-		}
-
-		public static new IfcWasteTerminal FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcWasteTerminal>(json);
-		}
-
-		public static new IfcWasteTerminal FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwasteterminaltype.htm"/>
-	/// </summary>
-	public  partial class IfcWasteTerminalType : IfcFlowTerminalType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcWasteTerminalTypeEnum PredefinedType {get;set;} 
-
-		public IfcWasteTerminalType(IfcWasteTerminalTypeEnum predefinedType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-
-		}
-
-		public static new IfcWasteTerminalType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcWasteTerminalType>(json);
-		}
-
-		public static new IfcWasteTerminalType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwindow.htm"/>
-	/// </summary>
-	public  partial class IfcWindow : IfcBuildingElement
-	{
-		[JsonProperty("overallHeight")]
-		public IfcPositiveLengthMeasure OverallHeight {get;set;} // optional
-		[JsonProperty("overallWidth")]
-		public IfcPositiveLengthMeasure OverallWidth {get;set;} // optional
-		[JsonProperty("predefinedType")]
-		public IfcWindowTypeEnum PredefinedType {get;set;} // optional
-		[JsonProperty("partitioningType")]
-		public IfcWindowTypePartitioningEnum PartitioningType {get;set;} // optional
-		[JsonProperty("userDefinedPartitioningType")]
-		public IfcLabel UserDefinedPartitioningType {get;set;} // optional
-
-		public IfcWindow() : base()
-		{
-
-		}
-
-		public static new IfcWindow FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcWindow>(json);
-		}
-
-		public static new IfcWindow FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwindowliningproperties.htm"/>
-	/// </summary>
-	public  partial class IfcWindowLiningProperties : IfcPreDefinedPropertySet
-	{
-		[JsonProperty("liningDepth")]
-		public IfcPositiveLengthMeasure LiningDepth {get;set;} // optional
-		[JsonProperty("liningThickness")]
-		public IfcNonNegativeLengthMeasure LiningThickness {get;set;} // optional
-		[JsonProperty("transomThickness")]
-		public IfcNonNegativeLengthMeasure TransomThickness {get;set;} // optional
-		[JsonProperty("mullionThickness")]
-		public IfcNonNegativeLengthMeasure MullionThickness {get;set;} // optional
-		[JsonProperty("firstTransomOffset")]
-		public IfcNormalisedRatioMeasure FirstTransomOffset {get;set;} // optional
-		[JsonProperty("secondTransomOffset")]
-		public IfcNormalisedRatioMeasure SecondTransomOffset {get;set;} // optional
-		[JsonProperty("firstMullionOffset")]
-		public IfcNormalisedRatioMeasure FirstMullionOffset {get;set;} // optional
-		[JsonProperty("secondMullionOffset")]
-		public IfcNormalisedRatioMeasure SecondMullionOffset {get;set;} // optional
-		[JsonProperty("shapeAspectStyle")]
-		public IfcShapeAspect ShapeAspectStyle {get;set;} // optional
-		[JsonProperty("liningOffset")]
-		public IfcLengthMeasure LiningOffset {get;set;} // optional
-		[JsonProperty("liningToPanelOffsetX")]
-		public IfcLengthMeasure LiningToPanelOffsetX {get;set;} // optional
-		[JsonProperty("liningToPanelOffsetY")]
-		public IfcLengthMeasure LiningToPanelOffsetY {get;set;} // optional
-
-		public IfcWindowLiningProperties(List<IfcTypeObject> definesType
-				) : base(definesType
-					)
-		{
-
-		}
-
-		public static new IfcWindowLiningProperties FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcWindowLiningProperties>(json);
-		}
-
-		public static new IfcWindowLiningProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwindowpanelproperties.htm"/>
-	/// </summary>
-	public  partial class IfcWindowPanelProperties : IfcPreDefinedPropertySet
-	{
-		[JsonProperty("operationType")]
-		public IfcWindowPanelOperationEnum OperationType {get;set;} 
-		[JsonProperty("panelPosition")]
-		public IfcWindowPanelPositionEnum PanelPosition {get;set;} 
-		[JsonProperty("frameDepth")]
-		public IfcPositiveLengthMeasure FrameDepth {get;set;} // optional
-		[JsonProperty("frameThickness")]
-		public IfcPositiveLengthMeasure FrameThickness {get;set;} // optional
-		[JsonProperty("shapeAspectStyle")]
-		public IfcShapeAspect ShapeAspectStyle {get;set;} // optional
-
-		public IfcWindowPanelProperties(IfcWindowPanelOperationEnum operationType
-				,IfcWindowPanelPositionEnum panelPosition
-				,List<IfcTypeObject> definesType
-				) : base(definesType
-					)
-		{
-			OperationType = operationType;
-			PanelPosition = panelPosition;
-
-		}
-
-		public static new IfcWindowPanelProperties FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcWindowPanelProperties>(json);
-		}
-
-		public static new IfcWindowPanelProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwindowstandardcase.htm"/>
 	/// </summary>
 	public  partial class IfcWindowStandardCase : IfcWindow
 	{
 
-		public IfcWindowStandardCase() : base()
+		public IfcWindowStandardCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
+
 
 		}
 
@@ -28627,162 +25649,15 @@ namespace IFC4
 	}
 
 	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwindowstyle.htm"/>
-	/// </summary>
-	public  partial class IfcWindowStyle : IfcTypeProduct
-	{
-		[JsonProperty("constructionType")]
-		public IfcWindowStyleConstructionEnum ConstructionType {get;set;} 
-		[JsonProperty("operationType")]
-		public IfcWindowStyleOperationEnum OperationType {get;set;} 
-		[JsonProperty("parameterTakesPrecedence")]
-		public bool ParameterTakesPrecedence {get;set;} 
-		[JsonProperty("sizeable")]
-		public bool Sizeable {get;set;} 
-
-		public IfcWindowStyle(IfcWindowStyleConstructionEnum constructionType
-				,IfcWindowStyleOperationEnum operationType
-				,bool parameterTakesPrecedence
-				,bool sizeable
-				) : base()
-		{
-			ConstructionType = constructionType;
-			OperationType = operationType;
-			ParameterTakesPrecedence = parameterTakesPrecedence;
-			Sizeable = sizeable;
-
-		}
-
-		public static new IfcWindowStyle FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcWindowStyle>(json);
-		}
-
-		public static new IfcWindowStyle FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcwindowtype.htm"/>
-	/// </summary>
-	public  partial class IfcWindowType : IfcBuildingElementType
-	{
-		[JsonProperty("predefinedType")]
-		public IfcWindowTypeEnum PredefinedType {get;set;} 
-		[JsonProperty("partitioningType")]
-		public IfcWindowTypePartitioningEnum PartitioningType {get;set;} 
-		[JsonProperty("parameterTakesPrecedence")]
-		public bool ParameterTakesPrecedence {get;set;} // optional
-		[JsonProperty("userDefinedPartitioningType")]
-		public IfcLabel UserDefinedPartitioningType {get;set;} // optional
-
-		public IfcWindowType(IfcWindowTypeEnum predefinedType
-				,IfcWindowTypePartitioningEnum partitioningType
-				) : base()
-		{
-			PredefinedType = predefinedType;
-			PartitioningType = partitioningType;
-
-		}
-
-		public static new IfcWindowType FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcWindowType>(json);
-		}
-
-		public static new IfcWindowType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcworkcalendar.htm"/>
-	/// </summary>
-	public  partial class IfcWorkCalendar : IfcControl
-	{
-		[JsonProperty("workingTimes")]
-		public List<IfcWorkTime> WorkingTimes {get;set;} // optional
-		[JsonProperty("exceptionTimes")]
-		public List<IfcWorkTime> ExceptionTimes {get;set;} // optional
-		[JsonProperty("predefinedType")]
-		public IfcWorkCalendarTypeEnum PredefinedType {get;set;} // optional
-
-		public IfcWorkCalendar() : base()
-		{
-			WorkingTimes = new List<IfcWorkTime>();
-			ExceptionTimes = new List<IfcWorkTime>();
-
-		}
-
-		public static new IfcWorkCalendar FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcWorkCalendar>(json);
-		}
-
-		public static new IfcWorkCalendar FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcworkcontrol.htm"/>
-	/// </summary>
-	public abstract partial class IfcWorkControl : IfcControl
-	{
-		[JsonProperty("creationDate")]
-		public IfcDateTime CreationDate {get;set;} 
-		[JsonProperty("creators")]
-		public List<IfcPerson> Creators {get;set;} // optional
-		[JsonProperty("purpose")]
-		public IfcLabel Purpose {get;set;} // optional
-		[JsonProperty("duration")]
-		public IfcDuration Duration {get;set;} // optional
-		[JsonProperty("totalFloat")]
-		public IfcDuration TotalFloat {get;set;} // optional
-		[JsonProperty("startTime")]
-		public IfcDateTime StartTime {get;set;} 
-		[JsonProperty("finishTime")]
-		public IfcDateTime FinishTime {get;set;} // optional
-
-		public IfcWorkControl(IfcDateTime creationDate
-				,IfcDateTime startTime
-				) : base()
-		{
-			CreationDate = creationDate;
-			StartTime = startTime;
-			Creators = new List<IfcPerson>();
-
-		}
-
-		public static new IfcWorkControl FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcWorkControl>(json);
-		}
-
-		public static new IfcWorkControl FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcworkplan.htm"/>
 	/// </summary>
 	public  partial class IfcWorkPlan : IfcWorkControl
 	{
-		[JsonProperty("predefinedType")]
-		public IfcWorkPlanTypeEnum PredefinedType {get;set;} // optional
+		public IfcWorkPlanTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcWorkPlan(IfcDateTime creationDate
-				,IfcDateTime startTime
-				) : base(creationDate
-					,startTime
-					)
+		public IfcWorkPlan(IfcDateTime creationDate,IfcDateTime startTime,IfcGloballyUniqueId globalId):base(creationDate,startTime,globalId)
 		{
+
 
 		}
 
@@ -28802,15 +25677,11 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcWorkSchedule : IfcWorkControl
 	{
-		[JsonProperty("predefinedType")]
-		public IfcWorkScheduleTypeEnum PredefinedType {get;set;} // optional
+		public IfcWorkScheduleTypeEnum PredefinedType{get;set;} // optional
 
-		public IfcWorkSchedule(IfcDateTime creationDate
-				,IfcDateTime startTime
-				) : base(creationDate
-					,startTime
-					)
+		public IfcWorkSchedule(IfcDateTime creationDate,IfcDateTime startTime,IfcGloballyUniqueId globalId):base(creationDate,startTime,globalId)
 		{
+
 
 		}
 
@@ -28824,105 +25695,4 @@ namespace IFC4
 			throw new NotImplementedException();
 		}
 	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcworktime.htm"/>
-	/// </summary>
-	public  partial class IfcWorkTime : IfcSchedulingTime
-	{
-		[JsonProperty("recurrencePattern")]
-		public IfcRecurrencePattern RecurrencePattern {get;set;} // optional
-		[JsonProperty("start")]
-		public IfcDate Start {get;set;} // optional
-		[JsonProperty("finish")]
-		public IfcDate Finish {get;set;} // optional
-
-		public IfcWorkTime() : base()
-		{
-
-		}
-
-		public static new IfcWorkTime FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcWorkTime>(json);
-		}
-
-		public static new IfcWorkTime FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifczshapeprofiledef.htm"/>
-	/// </summary>
-	public  partial class IfcZShapeProfileDef : IfcParameterizedProfileDef
-	{
-		[JsonProperty("depth")]
-		public IfcPositiveLengthMeasure Depth {get;set;} 
-		[JsonProperty("flangeWidth")]
-		public IfcPositiveLengthMeasure FlangeWidth {get;set;} 
-		[JsonProperty("webThickness")]
-		public IfcPositiveLengthMeasure WebThickness {get;set;} 
-		[JsonProperty("flangeThickness")]
-		public IfcPositiveLengthMeasure FlangeThickness {get;set;} 
-		[JsonProperty("filletRadius")]
-		public IfcNonNegativeLengthMeasure FilletRadius {get;set;} // optional
-		[JsonProperty("edgeRadius")]
-		public IfcNonNegativeLengthMeasure EdgeRadius {get;set;} // optional
-
-		public IfcZShapeProfileDef(IfcPositiveLengthMeasure depth
-				,IfcPositiveLengthMeasure flangeWidth
-				,IfcPositiveLengthMeasure webThickness
-				,IfcPositiveLengthMeasure flangeThickness
-				,IfcProfileTypeEnum profileType
-				,List<IfcExternalReferenceRelationship> hasExternalReference
-				,List<IfcProfileProperties> hasProperties
-				) : base(profileType
-					,hasExternalReference
-					,hasProperties
-					)
-		{
-			Depth = depth;
-			FlangeWidth = flangeWidth;
-			WebThickness = webThickness;
-			FlangeThickness = flangeThickness;
-
-		}
-
-		public static new IfcZShapeProfileDef FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcZShapeProfileDef>(json);
-		}
-
-		public static new IfcZShapeProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
-	/// <summary>
-	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifczone.htm"/>
-	/// </summary>
-	public  partial class IfcZone : IfcSystem
-	{
-		[JsonProperty("longName")]
-		public IfcLabel LongName {get;set;} // optional
-
-		public IfcZone() : base()
-		{
-
-		}
-
-		public static new IfcZone FromJSON(string json)
-		{
-			return JsonConvert.DeserializeObject<IfcZone>(json);
-		}
-
-		public static new IfcZone FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
-	}
-
 }

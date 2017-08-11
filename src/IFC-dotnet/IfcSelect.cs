@@ -7,11 +7,6 @@ using System.Collections.Generic;
 
 namespace IFC4
 {
-	public abstract class Select : IfcBase
-	{
-		[JsonProperty("value")]
-		public dynamic Value {get;protected set;}
-	}
 	
 	public abstract class IfcSelect<T1,T2> : Select
 	{

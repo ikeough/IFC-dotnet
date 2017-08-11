@@ -12,7 +12,9 @@ namespace test
 		[Fact]
 		public void SerializeProject()
 		{
-			var p1 = new IfcProject();
+			var id = new IfcGloballyUniqueId("12345");
+
+			var p1 = new IfcProject(id);
 			p1.Name = "Test Project";
 			p1.Description = "A test of IFC-dotnet.";
 			
