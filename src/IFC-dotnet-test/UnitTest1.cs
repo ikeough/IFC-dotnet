@@ -3,6 +3,7 @@ using System.IO;
 using System.Text;
 using System.Xml.Serialization;
 using Xunit;
+using Xunit.Abstractions;
 using IFC4;
 using Newtonsoft.Json;
 using Antlr4.Runtime;
@@ -12,6 +13,13 @@ namespace test
 {
 	public class UnitTest1
 	{
+		private readonly ITestOutputHelper output;
+
+		public UnitTest1(ITestOutputHelper output)
+		{
+			this.output = output;
+		}
+
 		[Fact]
 		public void SerializeProject()
 		{
@@ -31,7 +39,7 @@ namespace test
 		[Fact]
 		public void CanOpenSTEPFile()
 		{
-			var stepPath = "example.ifc";
+			var stepPath = "../../../example.ifc";
 			using (FileStream fs = new FileStream(stepPath, FileMode.Open))
 			{
 				var input = new AntlrInputStream(fs);
@@ -47,6 +55,7 @@ namespace test
 				var listener = new STEP.STEPListener();
 				walker.Walk(listener, tree);
 
+				output.WriteLine("ARGH!!!!!");
 				//var outPath = Path.Combine(outputDir, "IFC.cs");
 				//File.WriteAllText(outPath,sb.ToString());
 			}
