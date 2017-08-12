@@ -1,32 +1,37 @@
 grammar STEP;
 
 author
-	: value
+	: AnyString
 	;
 
 authorisation
-	: value
+	: AnyString
 	;
 
 collection
 	: '(' collectionValue (',' collectionValue)* ')'
+	| '()'
 	;
 
 collectionValue
-	: value
+	: RealLiteral
+	| IntegerLiteral
+	| StringLiteral
+	| AnyString
 	| Id
 	;
 
 constructor
-	: TypeRef '(' parameter? (',' parameter)* ')' ';'
+	: TypeRef '(' parameter? (',' parameter)* ')'
 	;
 
 data
-	: instance*
+	: DATA ';' instance* ENDSEC ';'
 	;
 
 description
-	: '(' value ')'
+	: AnyString
+	| collection
 	;
 
 file
@@ -38,7 +43,7 @@ fileDescription
 	;
 
 fileName
-	: FILE_NAME '(' name ',' timeStamp ',' author ',' organization ',' preprocessor_version ',' originating_system ',' authorisation ')' ';'
+	: FILE_NAME '(' name ',' timeStamp ',' (author|collection) ',' (organization|collection) ',' preprocessor_version ',' originating_system ',' authorisation ')' ';'
 	;
 
 filePath
@@ -46,7 +51,7 @@ filePath
 	;
 
 fileSchema
-	: FILE_SCHEMA '(' '(' value ')' ')' ';'
+	: FILE_SCHEMA '(' '(' AnyString ')' ')' ';'
 	;
 
 header
@@ -54,7 +59,7 @@ header
 	;
 
 implementation
-	: value
+	: AnyString
 	;
 
 instance
@@ -62,55 +67,53 @@ instance
 	;
 
 name
-	: value
+	: AnyString
 	| filePath
 	;
 
 originating_system
-	: value
+	: AnyString
 	;
 
 organization
-	: value
+	: AnyString
 	;
 
 parameter
-	: collection
-	| value
+	: constructor
+	| collection
 	| Undefined
 	| StringLiteral
 	| Derived
-	| EnumBoolLogical
+	| Enum
+	| BoolLogical
+	| RealLiteral
+	| AnyString
+	| Id
+	| IntegerLiteral
 	;
 
 preprocessor_version
-	: value
+	: AnyString
 	;
 
 timeStamp
 	: DateTime
 	;
 
-value
-	: '\'' .*? '\''
-	;
-
-viewDefinition
-	: 'ViewDefinition' '[' viewDefinitionType ']'
-	;
-
-viewDefinitionType
-	: 'CoordinationView'
-	| 'QuantityTakeOffAddOnView'
-	;
-
 // Lexer
 
+fragment
 Digit
 	: [0-9]
 	;
 
+fragment
 Digits
+	: Digit Digit*
+	;
+
+IntegerLiteral
 	: Digit Digit*
 	;
 
@@ -123,22 +126,31 @@ CapitalLetter
 	;
 
 DateTime
-	: Digits '-' Digits '-' Digits 'T' Digits ':' Digits ':' Digits
+	: '\'' Digits '-' Digits '-' Digits 'T' Digits ':' Digits ':' Digits '\''
 	;
 
 Derived
 	: '*'
 	;
 
-EnumBoolLogical
-	: '.' [A-Z]([A-Z]|'_')* '.'
+Enum
+	: '.' [A-Z]([A-Z]|[0-9]|'_')* '.'
 	;
 
-ENDSEC : 'ENDSEC';
-FILE_DESCRIPTION : 'FILE_DESCRIPTION';
-FILE_NAME : 'FILE_NAME';
-FILE_SCHEMA : 'FILE_SCHEMA';
-HEADER : 'HEADER';
+BoolLogical
+	: '.' ('TRUE'|'FALSE'|'UNKNOWN') '.'
+	;
+
+RealLiteral
+	: '-'? Digits '.' Digits* (('e'|'E') '-'? Digits)? // IFC: Scientific 'E' was not supported.
+	;
+
+DATA : 'DATA' ; 
+ENDSEC : 'ENDSEC' ;
+FILE_DESCRIPTION : 'FILE_DESCRIPTION' ;
+FILE_NAME : 'FILE_NAME' ;
+FILE_SCHEMA : 'FILE_SCHEMA' ;
+HEADER : 'HEADER' ;
 Id 
 	: '#' Digits 
 	;
@@ -156,11 +168,15 @@ StringLiteral
 	;
 
 TypeRef
-	: CapitalLetter CapitalLetter*
+	: CapitalLetter (CapitalLetter|Digit)*
 	;
 	
 Undefined 
 	: '$' 
+	;
+
+AnyString
+	: '\'' .*? '\''
 	;
 
 NewlineChar 

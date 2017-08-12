@@ -241,35 +241,5 @@ public interface ISTEPListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitTimeStamp([NotNull] STEPParser.TimeStampContext context);
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="STEPParser.value"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterValue([NotNull] STEPParser.ValueContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="STEPParser.value"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitValue([NotNull] STEPParser.ValueContext context);
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="STEPParser.viewDefinition"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterViewDefinition([NotNull] STEPParser.ViewDefinitionContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="STEPParser.viewDefinition"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitViewDefinition([NotNull] STEPParser.ViewDefinitionContext context);
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="STEPParser.viewDefinitionType"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void EnterViewDefinitionType([NotNull] STEPParser.ViewDefinitionTypeContext context);
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="STEPParser.viewDefinitionType"/>.
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	void ExitViewDefinitionType([NotNull] STEPParser.ViewDefinitionTypeContext context);
 }
 } // namespace STEP

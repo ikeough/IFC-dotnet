@@ -287,42 +287,6 @@ public partial class STEPBaseListener : ISTEPListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitTimeStamp([NotNull] STEPParser.TimeStampContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="STEPParser.value"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterValue([NotNull] STEPParser.ValueContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="STEPParser.value"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitValue([NotNull] STEPParser.ValueContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="STEPParser.viewDefinition"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterViewDefinition([NotNull] STEPParser.ViewDefinitionContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="STEPParser.viewDefinition"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitViewDefinition([NotNull] STEPParser.ViewDefinitionContext context) { }
-	/// <summary>
-	/// Enter a parse tree produced by <see cref="STEPParser.viewDefinitionType"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void EnterViewDefinitionType([NotNull] STEPParser.ViewDefinitionTypeContext context) { }
-	/// <summary>
-	/// Exit a parse tree produced by <see cref="STEPParser.viewDefinitionType"/>.
-	/// <para>The default implementation does nothing.</para>
-	/// </summary>
-	/// <param name="context">The parse tree.</param>
-	public virtual void ExitViewDefinitionType([NotNull] STEPParser.ViewDefinitionTypeContext context) { }
 
 	/// <inheritdoc/>
 	/// <remarks>The default implementation does nothing.</remarks>
