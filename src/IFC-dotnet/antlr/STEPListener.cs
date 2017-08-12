@@ -132,6 +132,16 @@ public interface ISTEPListener : IParseTreeListener {
 	/// <param name="context">The parse tree.</param>
 	void ExitFileName([NotNull] STEPParser.FileNameContext context);
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="STEPParser.filePath"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterFilePath([NotNull] STEPParser.FilePathContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="STEPParser.filePath"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitFilePath([NotNull] STEPParser.FilePathContext context);
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="STEPParser.fileSchema"/>.
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
@@ -241,5 +251,25 @@ public interface ISTEPListener : IParseTreeListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	void ExitValue([NotNull] STEPParser.ValueContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="STEPParser.viewDefinition"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterViewDefinition([NotNull] STEPParser.ViewDefinitionContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="STEPParser.viewDefinition"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitViewDefinition([NotNull] STEPParser.ViewDefinitionContext context);
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="STEPParser.viewDefinitionType"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void EnterViewDefinitionType([NotNull] STEPParser.ViewDefinitionTypeContext context);
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="STEPParser.viewDefinitionType"/>.
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	void ExitViewDefinitionType([NotNull] STEPParser.ViewDefinitionTypeContext context);
 }
 } // namespace STEP

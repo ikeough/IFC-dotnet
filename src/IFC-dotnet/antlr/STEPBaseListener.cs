@@ -156,6 +156,18 @@ public partial class STEPBaseListener : ISTEPListener {
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitFileName([NotNull] STEPParser.FileNameContext context) { }
 	/// <summary>
+	/// Enter a parse tree produced by <see cref="STEPParser.filePath"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterFilePath([NotNull] STEPParser.FilePathContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="STEPParser.filePath"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitFilePath([NotNull] STEPParser.FilePathContext context) { }
+	/// <summary>
 	/// Enter a parse tree produced by <see cref="STEPParser.fileSchema"/>.
 	/// <para>The default implementation does nothing.</para>
 	/// </summary>
@@ -287,6 +299,30 @@ public partial class STEPBaseListener : ISTEPListener {
 	/// </summary>
 	/// <param name="context">The parse tree.</param>
 	public virtual void ExitValue([NotNull] STEPParser.ValueContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="STEPParser.viewDefinition"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterViewDefinition([NotNull] STEPParser.ViewDefinitionContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="STEPParser.viewDefinition"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitViewDefinition([NotNull] STEPParser.ViewDefinitionContext context) { }
+	/// <summary>
+	/// Enter a parse tree produced by <see cref="STEPParser.viewDefinitionType"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void EnterViewDefinitionType([NotNull] STEPParser.ViewDefinitionTypeContext context) { }
+	/// <summary>
+	/// Exit a parse tree produced by <see cref="STEPParser.viewDefinitionType"/>.
+	/// <para>The default implementation does nothing.</para>
+	/// </summary>
+	/// <param name="context">The parse tree.</param>
+	public virtual void ExitViewDefinitionType([NotNull] STEPParser.ViewDefinitionTypeContext context) { }
 
 	/// <inheritdoc/>
 	/// <remarks>The default implementation does nothing.</remarks>

@@ -41,12 +41,16 @@ fileName
 	: FILE_NAME '(' name ',' timeStamp ',' author ',' organization ',' preprocessor_version ',' originating_system ',' authorisation ')' ';'
 	;
 
+filePath
+	: '\'' Letter* '.' Letter* '\''
+	;
+
 fileSchema
 	: FILE_SCHEMA '(' '(' value ')' ')' ';'
 	;
 
 header
-	: HEADER fileDescription fileName fileSchema END_SEC ';'
+	: HEADER ';' fileDescription fileName fileSchema ENDSEC ';'
 	;
 
 implementation
@@ -59,6 +63,7 @@ instance
 
 name
 	: value
+	| filePath
 	;
 
 originating_system
@@ -81,11 +86,20 @@ preprocessor_version
 	;
 
 timeStamp
-	: value
+	: DateTime
 	;
 
 value
 	: '\'' .*? '\''
+	;
+
+viewDefinition
+	: 'ViewDefinition' '[' viewDefinitionType ']'
+	;
+
+viewDefinitionType
+	: 'CoordinationView'
+	| 'QuantityTakeOffAddOnView'
 	;
 
 // Lexer
@@ -104,6 +118,10 @@ Letter
 
 CapitalLetter
 	: [A-Z]
+	;
+
+DateTime
+	: Digits '-' Digits '-' Digits 'T' Digits ':' Digits ':' Digits
 	;
 
 ENDSEC : 'ENDSEC';
