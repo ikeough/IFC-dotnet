@@ -79,6 +79,8 @@ parameter
 	| value
 	| Undefined
 	| StringLiteral
+	| Derived
+	| EnumBoolLogical
 	;
 
 preprocessor_version
@@ -122,6 +124,14 @@ CapitalLetter
 
 DateTime
 	: Digits '-' Digits '-' Digits 'T' Digits ':' Digits ':' Digits
+	;
+
+Derived
+	: '*'
+	;
+
+EnumBoolLogical
+	: '.' [A-Z]([A-Z]|'_')* '.'
 	;
 
 ENDSEC : 'ENDSEC';
