@@ -78,11 +78,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAbsorbedDoseMeasure>(json);
 		}
-
-		public static IfcAbsorbedDoseMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -105,11 +100,6 @@ namespace IFC4
 		public static IfcAccelerationMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAccelerationMeasure>(json);
-		}
-
-		public static IfcAccelerationMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -134,11 +124,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAmountOfSubstanceMeasure>(json);
 		}
-
-		public static IfcAmountOfSubstanceMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -161,11 +146,6 @@ namespace IFC4
 		public static IfcAngularVelocityMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAngularVelocityMeasure>(json);
-		}
-
-		public static IfcAngularVelocityMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -190,11 +170,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAreaDensityMeasure>(json);
 		}
-
-		public static IfcAreaDensityMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -217,11 +192,6 @@ namespace IFC4
 		public static IfcAreaMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAreaMeasure>(json);
-		}
-
-		public static IfcAreaMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -246,11 +216,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBoolean>(json);
 		}
-
-		public static IfcBoolean FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -273,11 +238,6 @@ namespace IFC4
 		public static IfcBoxAlignment FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBoxAlignment>(json);
-		}
-
-		public static IfcBoxAlignment FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -302,11 +262,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCardinalPointReference>(json);
 		}
-
-		public static IfcCardinalPointReference FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -329,11 +284,6 @@ namespace IFC4
 		public static IfcComplexNumber FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcComplexNumber>(json);
-		}
-
-		public static IfcComplexNumber FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -358,11 +308,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCompoundPlaneAngleMeasure>(json);
 		}
-
-		public static IfcCompoundPlaneAngleMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -385,11 +330,6 @@ namespace IFC4
 		public static IfcContextDependentMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcContextDependentMeasure>(json);
-		}
-
-		public static IfcContextDependentMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -414,11 +354,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCountMeasure>(json);
 		}
-
-		public static IfcCountMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -441,11 +376,6 @@ namespace IFC4
 		public static IfcCurvatureMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCurvatureMeasure>(json);
-		}
-
-		public static IfcCurvatureMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -470,11 +400,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDate>(json);
 		}
-
-		public static IfcDate FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -497,11 +422,6 @@ namespace IFC4
 		public static IfcDateTime FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDateTime>(json);
-		}
-
-		public static IfcDateTime FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -526,11 +446,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDayInMonthNumber>(json);
 		}
-
-		public static IfcDayInMonthNumber FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -553,11 +468,6 @@ namespace IFC4
 		public static IfcDayInWeekNumber FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDayInWeekNumber>(json);
-		}
-
-		public static IfcDayInWeekNumber FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -582,11 +492,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDescriptiveMeasure>(json);
 		}
-
-		public static IfcDescriptiveMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -609,11 +514,6 @@ namespace IFC4
 		public static IfcDimensionCount FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDimensionCount>(json);
-		}
-
-		public static IfcDimensionCount FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -638,11 +538,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDoseEquivalentMeasure>(json);
 		}
-
-		public static IfcDoseEquivalentMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -665,11 +560,6 @@ namespace IFC4
 		public static IfcDuration FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDuration>(json);
-		}
-
-		public static IfcDuration FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -694,11 +584,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDynamicViscosityMeasure>(json);
 		}
-
-		public static IfcDynamicViscosityMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -721,11 +606,6 @@ namespace IFC4
 		public static IfcElectricCapacitanceMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElectricCapacitanceMeasure>(json);
-		}
-
-		public static IfcElectricCapacitanceMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -750,11 +630,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElectricChargeMeasure>(json);
 		}
-
-		public static IfcElectricChargeMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -777,11 +652,6 @@ namespace IFC4
 		public static IfcElectricConductanceMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElectricConductanceMeasure>(json);
-		}
-
-		public static IfcElectricConductanceMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -806,11 +676,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElectricCurrentMeasure>(json);
 		}
-
-		public static IfcElectricCurrentMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -833,11 +698,6 @@ namespace IFC4
 		public static IfcElectricResistanceMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElectricResistanceMeasure>(json);
-		}
-
-		public static IfcElectricResistanceMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -862,11 +722,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElectricVoltageMeasure>(json);
 		}
-
-		public static IfcElectricVoltageMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -889,11 +744,6 @@ namespace IFC4
 		public static IfcEnergyMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcEnergyMeasure>(json);
-		}
-
-		public static IfcEnergyMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -918,11 +768,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFontStyle>(json);
 		}
-
-		public static IfcFontStyle FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -945,11 +790,6 @@ namespace IFC4
 		public static IfcFontVariant FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFontVariant>(json);
-		}
-
-		public static IfcFontVariant FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -974,11 +814,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFontWeight>(json);
 		}
-
-		public static IfcFontWeight FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -1001,11 +836,6 @@ namespace IFC4
 		public static IfcForceMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcForceMeasure>(json);
-		}
-
-		public static IfcForceMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -1030,11 +860,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFrequencyMeasure>(json);
 		}
-
-		public static IfcFrequencyMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -1057,11 +882,6 @@ namespace IFC4
 		public static IfcGloballyUniqueId FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcGloballyUniqueId>(json);
-		}
-
-		public static IfcGloballyUniqueId FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -1086,11 +906,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcHeatFluxDensityMeasure>(json);
 		}
-
-		public static IfcHeatFluxDensityMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -1113,11 +928,6 @@ namespace IFC4
 		public static IfcHeatingValueMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcHeatingValueMeasure>(json);
-		}
-
-		public static IfcHeatingValueMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -1142,11 +952,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcIdentifier>(json);
 		}
-
-		public static IfcIdentifier FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -1169,11 +974,6 @@ namespace IFC4
 		public static IfcIlluminanceMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcIlluminanceMeasure>(json);
-		}
-
-		public static IfcIlluminanceMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -1198,11 +998,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcInductanceMeasure>(json);
 		}
-
-		public static IfcInductanceMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -1225,11 +1020,6 @@ namespace IFC4
 		public static IfcInteger FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcInteger>(json);
-		}
-
-		public static IfcInteger FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -1254,11 +1044,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcIntegerCountRateMeasure>(json);
 		}
-
-		public static IfcIntegerCountRateMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -1281,11 +1066,6 @@ namespace IFC4
 		public static IfcIonConcentrationMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcIonConcentrationMeasure>(json);
-		}
-
-		public static IfcIonConcentrationMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -1310,11 +1090,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcIsothermalMoistureCapacityMeasure>(json);
 		}
-
-		public static IfcIsothermalMoistureCapacityMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -1337,11 +1112,6 @@ namespace IFC4
 		public static IfcKinematicViscosityMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcKinematicViscosityMeasure>(json);
-		}
-
-		public static IfcKinematicViscosityMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -1366,11 +1136,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLabel>(json);
 		}
-
-		public static IfcLabel FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -1393,11 +1158,6 @@ namespace IFC4
 		public static IfcLanguageId FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLanguageId>(json);
-		}
-
-		public static IfcLanguageId FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -1422,11 +1182,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLengthMeasure>(json);
 		}
-
-		public static IfcLengthMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -1449,11 +1204,6 @@ namespace IFC4
 		public static IfcLinearForceMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLinearForceMeasure>(json);
-		}
-
-		public static IfcLinearForceMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -1478,11 +1228,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLinearMomentMeasure>(json);
 		}
-
-		public static IfcLinearMomentMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -1505,11 +1250,6 @@ namespace IFC4
 		public static IfcLinearStiffnessMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLinearStiffnessMeasure>(json);
-		}
-
-		public static IfcLinearStiffnessMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -1534,11 +1274,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLinearVelocityMeasure>(json);
 		}
-
-		public static IfcLinearVelocityMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -1561,11 +1296,6 @@ namespace IFC4
 		public static IfcLogical FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLogical>(json);
-		}
-
-		public static IfcLogical FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -1590,11 +1320,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLuminousFluxMeasure>(json);
 		}
-
-		public static IfcLuminousFluxMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -1617,11 +1342,6 @@ namespace IFC4
 		public static IfcLuminousIntensityDistributionMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLuminousIntensityDistributionMeasure>(json);
-		}
-
-		public static IfcLuminousIntensityDistributionMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -1646,11 +1366,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLuminousIntensityMeasure>(json);
 		}
-
-		public static IfcLuminousIntensityMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -1673,11 +1388,6 @@ namespace IFC4
 		public static IfcMagneticFluxDensityMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMagneticFluxDensityMeasure>(json);
-		}
-
-		public static IfcMagneticFluxDensityMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -1702,11 +1412,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMagneticFluxMeasure>(json);
 		}
-
-		public static IfcMagneticFluxMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -1729,11 +1434,6 @@ namespace IFC4
 		public static IfcMassDensityMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMassDensityMeasure>(json);
-		}
-
-		public static IfcMassDensityMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -1758,11 +1458,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMassFlowRateMeasure>(json);
 		}
-
-		public static IfcMassFlowRateMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -1785,11 +1480,6 @@ namespace IFC4
 		public static IfcMassMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMassMeasure>(json);
-		}
-
-		public static IfcMassMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -1814,11 +1504,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMassPerLengthMeasure>(json);
 		}
-
-		public static IfcMassPerLengthMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -1841,11 +1526,6 @@ namespace IFC4
 		public static IfcModulusOfElasticityMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcModulusOfElasticityMeasure>(json);
-		}
-
-		public static IfcModulusOfElasticityMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -1870,11 +1550,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcModulusOfLinearSubgradeReactionMeasure>(json);
 		}
-
-		public static IfcModulusOfLinearSubgradeReactionMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -1897,11 +1572,6 @@ namespace IFC4
 		public static IfcModulusOfRotationalSubgradeReactionMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcModulusOfRotationalSubgradeReactionMeasure>(json);
-		}
-
-		public static IfcModulusOfRotationalSubgradeReactionMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -1926,11 +1596,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcModulusOfSubgradeReactionMeasure>(json);
 		}
-
-		public static IfcModulusOfSubgradeReactionMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -1953,11 +1618,6 @@ namespace IFC4
 		public static IfcMoistureDiffusivityMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMoistureDiffusivityMeasure>(json);
-		}
-
-		public static IfcMoistureDiffusivityMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -1982,11 +1642,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMolecularWeightMeasure>(json);
 		}
-
-		public static IfcMolecularWeightMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -2009,11 +1664,6 @@ namespace IFC4
 		public static IfcMomentOfInertiaMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMomentOfInertiaMeasure>(json);
-		}
-
-		public static IfcMomentOfInertiaMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -2038,11 +1688,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMonetaryMeasure>(json);
 		}
-
-		public static IfcMonetaryMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -2065,11 +1710,6 @@ namespace IFC4
 		public static IfcMonthInYearNumber FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMonthInYearNumber>(json);
-		}
-
-		public static IfcMonthInYearNumber FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -2094,11 +1734,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcNonNegativeLengthMeasure>(json);
 		}
-
-		public static IfcNonNegativeLengthMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -2121,11 +1756,6 @@ namespace IFC4
 		public static IfcNormalisedRatioMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcNormalisedRatioMeasure>(json);
-		}
-
-		public static IfcNormalisedRatioMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -2150,11 +1780,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcNumericMeasure>(json);
 		}
-
-		public static IfcNumericMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -2177,11 +1802,6 @@ namespace IFC4
 		public static IfcPHMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPHMeasure>(json);
-		}
-
-		public static IfcPHMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -2206,11 +1826,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcParameterValue>(json);
 		}
-
-		public static IfcParameterValue FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -2233,11 +1848,6 @@ namespace IFC4
 		public static IfcPlanarForceMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPlanarForceMeasure>(json);
-		}
-
-		public static IfcPlanarForceMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -2262,11 +1872,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPlaneAngleMeasure>(json);
 		}
-
-		public static IfcPlaneAngleMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -2289,11 +1894,6 @@ namespace IFC4
 		public static IfcPositiveLengthMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPositiveLengthMeasure>(json);
-		}
-
-		public static IfcPositiveLengthMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -2318,11 +1918,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPositivePlaneAngleMeasure>(json);
 		}
-
-		public static IfcPositivePlaneAngleMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -2345,11 +1940,6 @@ namespace IFC4
 		public static IfcPositiveRatioMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPositiveRatioMeasure>(json);
-		}
-
-		public static IfcPositiveRatioMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -2374,11 +1964,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPowerMeasure>(json);
 		}
-
-		public static IfcPowerMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -2401,11 +1986,6 @@ namespace IFC4
 		public static IfcPresentableText FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPresentableText>(json);
-		}
-
-		public static IfcPresentableText FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -2430,11 +2010,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPressureMeasure>(json);
 		}
-
-		public static IfcPressureMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -2457,11 +2032,6 @@ namespace IFC4
 		public static IfcPropertySetDefinitionSet FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPropertySetDefinitionSet>(json);
-		}
-
-		public static IfcPropertySetDefinitionSet FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -2486,11 +2056,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRadioActivityMeasure>(json);
 		}
-
-		public static IfcRadioActivityMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -2513,11 +2078,6 @@ namespace IFC4
 		public static IfcRatioMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRatioMeasure>(json);
-		}
-
-		public static IfcRatioMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -2542,11 +2102,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcReal>(json);
 		}
-
-		public static IfcReal FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -2569,11 +2124,6 @@ namespace IFC4
 		public static IfcRotationalFrequencyMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRotationalFrequencyMeasure>(json);
-		}
-
-		public static IfcRotationalFrequencyMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -2598,11 +2148,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRotationalMassMeasure>(json);
 		}
-
-		public static IfcRotationalMassMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -2625,11 +2170,6 @@ namespace IFC4
 		public static IfcRotationalStiffnessMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRotationalStiffnessMeasure>(json);
-		}
-
-		public static IfcRotationalStiffnessMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -2654,11 +2194,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSectionModulusMeasure>(json);
 		}
-
-		public static IfcSectionModulusMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -2681,11 +2216,6 @@ namespace IFC4
 		public static IfcSectionalAreaIntegralMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSectionalAreaIntegralMeasure>(json);
-		}
-
-		public static IfcSectionalAreaIntegralMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -2710,11 +2240,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcShearModulusMeasure>(json);
 		}
-
-		public static IfcShearModulusMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -2737,11 +2262,6 @@ namespace IFC4
 		public static IfcSolidAngleMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSolidAngleMeasure>(json);
-		}
-
-		public static IfcSolidAngleMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -2766,11 +2286,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSoundPowerLevelMeasure>(json);
 		}
-
-		public static IfcSoundPowerLevelMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -2793,11 +2308,6 @@ namespace IFC4
 		public static IfcSoundPowerMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSoundPowerMeasure>(json);
-		}
-
-		public static IfcSoundPowerMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -2822,11 +2332,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSoundPressureLevelMeasure>(json);
 		}
-
-		public static IfcSoundPressureLevelMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -2849,11 +2354,6 @@ namespace IFC4
 		public static IfcSoundPressureMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSoundPressureMeasure>(json);
-		}
-
-		public static IfcSoundPressureMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -2878,11 +2378,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSpecificHeatCapacityMeasure>(json);
 		}
-
-		public static IfcSpecificHeatCapacityMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -2905,11 +2400,6 @@ namespace IFC4
 		public static IfcSpecularExponent FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSpecularExponent>(json);
-		}
-
-		public static IfcSpecularExponent FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -2934,11 +2424,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSpecularRoughness>(json);
 		}
-
-		public static IfcSpecularRoughness FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -2961,11 +2446,6 @@ namespace IFC4
 		public static IfcTemperatureGradientMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTemperatureGradientMeasure>(json);
-		}
-
-		public static IfcTemperatureGradientMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -2990,11 +2470,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTemperatureRateOfChangeMeasure>(json);
 		}
-
-		public static IfcTemperatureRateOfChangeMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -3017,11 +2492,6 @@ namespace IFC4
 		public static IfcText FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcText>(json);
-		}
-
-		public static IfcText FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -3046,11 +2516,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTextAlignment>(json);
 		}
-
-		public static IfcTextAlignment FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -3073,11 +2538,6 @@ namespace IFC4
 		public static IfcTextDecoration FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTextDecoration>(json);
-		}
-
-		public static IfcTextDecoration FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -3102,11 +2562,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTextFontName>(json);
 		}
-
-		public static IfcTextFontName FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -3129,11 +2584,6 @@ namespace IFC4
 		public static IfcTextTransformation FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTextTransformation>(json);
-		}
-
-		public static IfcTextTransformation FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -3158,11 +2608,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcThermalAdmittanceMeasure>(json);
 		}
-
-		public static IfcThermalAdmittanceMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -3185,11 +2630,6 @@ namespace IFC4
 		public static IfcThermalConductivityMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcThermalConductivityMeasure>(json);
-		}
-
-		public static IfcThermalConductivityMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -3214,11 +2654,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcThermalExpansionCoefficientMeasure>(json);
 		}
-
-		public static IfcThermalExpansionCoefficientMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -3241,11 +2676,6 @@ namespace IFC4
 		public static IfcThermalResistanceMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcThermalResistanceMeasure>(json);
-		}
-
-		public static IfcThermalResistanceMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -3270,11 +2700,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcThermalTransmittanceMeasure>(json);
 		}
-
-		public static IfcThermalTransmittanceMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -3297,11 +2722,6 @@ namespace IFC4
 		public static IfcThermodynamicTemperatureMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcThermodynamicTemperatureMeasure>(json);
-		}
-
-		public static IfcThermodynamicTemperatureMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -3326,11 +2746,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTime>(json);
 		}
-
-		public static IfcTime FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -3353,11 +2768,6 @@ namespace IFC4
 		public static IfcTimeMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTimeMeasure>(json);
-		}
-
-		public static IfcTimeMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -3382,11 +2792,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTimeStamp>(json);
 		}
-
-		public static IfcTimeStamp FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -3409,11 +2814,6 @@ namespace IFC4
 		public static IfcTorqueMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTorqueMeasure>(json);
-		}
-
-		public static IfcTorqueMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -3438,11 +2838,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcURIReference>(json);
 		}
-
-		public static IfcURIReference FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -3465,11 +2860,6 @@ namespace IFC4
 		public static IfcVaporPermeabilityMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcVaporPermeabilityMeasure>(json);
-		}
-
-		public static IfcVaporPermeabilityMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -3494,11 +2884,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcVolumeMeasure>(json);
 		}
-
-		public static IfcVolumeMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -3521,11 +2906,6 @@ namespace IFC4
 		public static IfcVolumetricFlowRateMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcVolumetricFlowRateMeasure>(json);
-		}
-
-		public static IfcVolumetricFlowRateMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -3550,11 +2930,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcWarpingConstantMeasure>(json);
 		}
-
-		public static IfcWarpingConstantMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -3577,11 +2952,6 @@ namespace IFC4
 		public static IfcWarpingMomentMeasure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcWarpingMomentMeasure>(json);
-		}
-
-		public static IfcWarpingMomentMeasure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -4628,11 +3998,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcActorSelect>(json);
 		}
-
-		public static IfcActorSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -4648,11 +4013,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAppliedValueSelect>(json);
 		}
-
-		public static IfcAppliedValueSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -4667,11 +4027,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAxis2Placement>(json);
 		}
-
-		public static IfcAxis2Placement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -4685,11 +4040,6 @@ namespace IFC4
 		public static IfcBendingParameterSelect FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBendingParameterSelect>(json);
-		}
-
-		public static IfcBendingParameterSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -4707,11 +4057,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBooleanOperand>(json);
 		}
-
-		public static IfcBooleanOperand FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -4725,11 +4070,6 @@ namespace IFC4
 		public static IfcClassificationReferenceSelect FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcClassificationReferenceSelect>(json);
-		}
-
-		public static IfcClassificationReferenceSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -4745,11 +4085,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcClassificationSelect>(json);
 		}
-
-		public static IfcClassificationSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -4763,11 +4098,6 @@ namespace IFC4
 		public static IfcColour FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcColour>(json);
-		}
-
-		public static IfcColour FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -4783,11 +4113,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcColourOrFactor>(json);
 		}
-
-		public static IfcColourOrFactor FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -4801,11 +4126,6 @@ namespace IFC4
 		public static IfcCoordinateReferenceSystemSelect FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCoordinateReferenceSystemSelect>(json);
-		}
-
-		public static IfcCoordinateReferenceSystemSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -4821,11 +4141,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCsgSelect>(json);
 		}
-
-		public static IfcCsgSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -4839,11 +4154,6 @@ namespace IFC4
 		public static IfcCurveFontOrScaledCurveFontSelect FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCurveFontOrScaledCurveFontSelect>(json);
-		}
-
-		public static IfcCurveFontOrScaledCurveFontSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -4859,11 +4169,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCurveOnSurface>(json);
 		}
-
-		public static IfcCurveOnSurface FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -4877,11 +4182,6 @@ namespace IFC4
 		public static IfcCurveOrEdgeCurve FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCurveOrEdgeCurve>(json);
-		}
-
-		public static IfcCurveOrEdgeCurve FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -4897,11 +4197,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCurveStyleFontSelect>(json);
 		}
-
-		public static IfcCurveStyleFontSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -4915,11 +4210,6 @@ namespace IFC4
 		public static IfcDefinitionSelect FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDefinitionSelect>(json);
-		}
-
-		public static IfcDefinitionSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5004,11 +4294,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDerivedMeasureValue>(json);
 		}
-
-		public static IfcDerivedMeasureValue FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5022,11 +4307,6 @@ namespace IFC4
 		public static IfcDocumentSelect FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDocumentSelect>(json);
-		}
-
-		public static IfcDocumentSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5044,11 +4324,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFillStyleSelect>(json);
 		}
-
-		public static IfcFillStyleSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5064,11 +4339,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcGeometricSetSelect>(json);
 		}
-
-		public static IfcGeometricSetSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5082,11 +4352,6 @@ namespace IFC4
 		public static IfcGridPlacementDirectionSelect FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcGridPlacementDirectionSelect>(json);
-		}
-
-		public static IfcGridPlacementDirectionSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5102,11 +4367,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcHatchLineDistanceSelect>(json);
 		}
-
-		public static IfcHatchLineDistanceSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5120,11 +4380,6 @@ namespace IFC4
 		public static IfcLayeredItem FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLayeredItem>(json);
-		}
-
-		public static IfcLayeredItem FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5140,11 +4395,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLibrarySelect>(json);
 		}
-
-		public static IfcLibrarySelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5158,11 +4408,6 @@ namespace IFC4
 		public static IfcLightDistributionDataSourceSelect FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLightDistributionDataSourceSelect>(json);
-		}
-
-		public static IfcLightDistributionDataSourceSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5178,11 +4423,6 @@ namespace IFC4
 		public static IfcMaterialSelect FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialSelect>(json);
-		}
-
-		public static IfcMaterialSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5219,11 +4459,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMeasureValue>(json);
 		}
-
-		public static IfcMeasureValue FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5242,11 +4477,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMetricValueSelect>(json);
 		}
-
-		public static IfcMetricValueSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5260,11 +4490,6 @@ namespace IFC4
 		public static IfcModulusOfRotationalSubgradeReactionSelect FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcModulusOfRotationalSubgradeReactionSelect>(json);
-		}
-
-		public static IfcModulusOfRotationalSubgradeReactionSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5280,11 +4505,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcModulusOfSubgradeReactionSelect>(json);
 		}
-
-		public static IfcModulusOfSubgradeReactionSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5298,11 +4518,6 @@ namespace IFC4
 		public static IfcModulusOfTranslationalSubgradeReactionSelect FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcModulusOfTranslationalSubgradeReactionSelect>(json);
-		}
-
-		public static IfcModulusOfTranslationalSubgradeReactionSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5325,11 +4540,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcObjectReferenceSelect>(json);
 		}
-
-		public static IfcObjectReferenceSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5343,11 +4553,6 @@ namespace IFC4
 		public static IfcPointOrVertexPoint FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPointOrVertexPoint>(json);
-		}
-
-		public static IfcPointOrVertexPoint FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5366,11 +4571,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPresentationStyleSelect>(json);
 		}
-
-		public static IfcPresentationStyleSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5384,11 +4584,6 @@ namespace IFC4
 		public static IfcProcessSelect FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcProcessSelect>(json);
-		}
-
-		public static IfcProcessSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5404,11 +4599,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcProductRepresentationSelect>(json);
 		}
-
-		public static IfcProductRepresentationSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5423,11 +4613,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcProductSelect>(json);
 		}
-
-		public static IfcProductSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5441,11 +4626,6 @@ namespace IFC4
 		public static IfcPropertySetDefinitionSelect FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPropertySetDefinitionSelect>(json);
-		}
-
-		public static IfcPropertySetDefinitionSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5475,11 +4655,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcResourceObjectSelect>(json);
 		}
-
-		public static IfcResourceObjectSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5493,11 +4668,6 @@ namespace IFC4
 		public static IfcResourceSelect FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcResourceSelect>(json);
-		}
-
-		public static IfcResourceSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5513,11 +4683,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRotationalStiffnessSelect>(json);
 		}
-
-		public static IfcRotationalStiffnessSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5531,11 +4696,6 @@ namespace IFC4
 		public static IfcShell FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcShell>(json);
-		}
-
-		public static IfcShell FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5561,11 +4721,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSimpleValue>(json);
 		}
-
-		public static IfcSimpleValue FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5584,11 +4739,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSizeSelect>(json);
 		}
-
-		public static IfcSizeSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5602,11 +4752,6 @@ namespace IFC4
 		public static IfcSolidOrShell FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSolidOrShell>(json);
-		}
-
-		public static IfcSolidOrShell FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5622,11 +4767,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSpaceBoundarySelect>(json);
 		}
-
-		public static IfcSpaceBoundarySelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5640,11 +4780,6 @@ namespace IFC4
 		public static IfcSpecularHighlightSelect FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSpecularHighlightSelect>(json);
-		}
-
-		public static IfcSpecularHighlightSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5660,11 +4795,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralActivityAssignmentSelect>(json);
 		}
-
-		public static IfcStructuralActivityAssignmentSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5678,11 +4808,6 @@ namespace IFC4
 		public static IfcStyleAssignmentSelect FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStyleAssignmentSelect>(json);
-		}
-
-		public static IfcStyleAssignmentSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5698,11 +4823,6 @@ namespace IFC4
 		public static IfcSurfaceOrFaceSurface FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceOrFaceSurface>(json);
-		}
-
-		public static IfcSurfaceOrFaceSurface FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5721,11 +4841,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceStyleElementSelect>(json);
 		}
-
-		public static IfcSurfaceStyleElementSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5739,11 +4854,6 @@ namespace IFC4
 		public static IfcTextFontSelect FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTextFontSelect>(json);
-		}
-
-		public static IfcTextFontSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5759,11 +4869,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTimeOrRatioSelect>(json);
 		}
-
-		public static IfcTimeOrRatioSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5778,11 +4883,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTranslationalStiffnessSelect>(json);
 		}
-
-		public static IfcTranslationalStiffnessSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5796,11 +4896,6 @@ namespace IFC4
 		public static IfcTrimmingSelect FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTrimmingSelect>(json);
-		}
-
-		public static IfcTrimmingSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5817,11 +4912,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcUnit>(json);
 		}
-
-		public static IfcUnit FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5837,11 +4927,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcValue>(json);
 		}
-
-		public static IfcValue FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 	/// <summary>
@@ -5855,11 +4940,6 @@ namespace IFC4
 		public static IfcVectorOrDirection FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcVectorOrDirection>(json);
-		}
-
-		public static IfcVectorOrDirection FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5875,11 +4955,6 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcWarpingStiffnessSelect>(json);
 		}
-
-		public static IfcWarpingStiffnessSelect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
-		}
 	}
 
 
@@ -5892,20 +4967,27 @@ namespace IFC4
 		public IfcLabel Status{get;set;} // optional
 		public IfcText LongDescription{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcActionRequest with all required attributes.
+		/// </summary>
 		public IfcActionRequest(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcActionRequest with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcActionRequest(IfcActionRequestTypeEnum predefinedType,IfcLabel status,IfcText longDescription,IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			Status = status;
+			LongDescription = longDescription;
 
 		}
-
 		public static new IfcActionRequest FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcActionRequest>(json);
-		}
-
-		public static new IfcActionRequest FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5916,20 +4998,25 @@ namespace IFC4
 	{
 		public IfcIdentifier Identification{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcControl with all required attributes.
+		/// </summary>
 		public IfcControl(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcControl with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcControl(IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		{
+			Identification = identification;
 
 		}
-
 		public static new IfcControl FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcControl>(json);
-		}
-
-		public static new IfcControl FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5940,21 +5027,26 @@ namespace IFC4
 	{
 		public IfcActorSelect TheActor{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcActor with all required attributes.
+		/// </summary>
 		public IfcActor(IfcActorSelect theActor,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			TheActor = theActor;
 
+		}
+		/// <summary>
+		/// Construct a IfcActor with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcActor(IfcActorSelect theActor,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		{
+			TheActor = theActor;
 
 		}
-
 		public static new IfcActor FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcActor>(json);
-		}
-
-		public static new IfcActor FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5965,20 +5057,25 @@ namespace IFC4
 	{
 		public IfcOccupantTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcOccupant with all required attributes.
+		/// </summary>
 		public IfcOccupant(IfcActorSelect theActor,IfcGloballyUniqueId globalId):base(theActor,globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcOccupant with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcOccupant(IfcOccupantTypeEnum predefinedType,IfcActorSelect theActor,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(theActor,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcOccupant FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcOccupant>(json);
-		}
-
-		public static new IfcOccupant FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -5989,20 +5086,25 @@ namespace IFC4
 	{
 		public IfcLabel ObjectType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcObject with all required attributes.
+		/// </summary>
 		public IfcObject(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcObject with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcObject(IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			ObjectType = objectType;
 
 		}
-
 		public static new IfcObject FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcObject>(json);
-		}
-
-		public static new IfcObject FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6015,21 +5117,28 @@ namespace IFC4
 		public IfcLabel UserDefinedRole{get;set;} // optional
 		public IfcText Description{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcActorRole with all required attributes.
+		/// </summary>
 		public IfcActorRole(IfcRoleEnum role):base()
 		{
 			Role = role;
 
+		}
+		/// <summary>
+		/// Construct a IfcActorRole with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcActorRole(IfcRoleEnum role,IfcLabel userDefinedRole,IfcText description):base()
+		{
+			Role = role;
+			UserDefinedRole = userDefinedRole;
+			Description = description;
 
 		}
-
 		public static  IfcActorRole FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcActorRole>(json);
-		}
-
-		public static  IfcActorRole FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6040,20 +5149,25 @@ namespace IFC4
 	{
 		public IfcActuatorTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcActuator with all required attributes.
+		/// </summary>
 		public IfcActuator(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcActuator with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcActuator(IfcActuatorTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcActuator FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcActuator>(json);
-		}
-
-		public static new IfcActuator FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6062,21 +5176,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDistributionControlElement : IfcDistributionElement
 	{
-
+		/// <summary>
+		/// Construct a IfcDistributionControlElement with all required attributes.
+		/// </summary>
 		public IfcDistributionControlElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcDistributionControlElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDistributionControlElement(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcDistributionControlElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionControlElement>(json);
-		}
-
-		public static new IfcDistributionControlElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6087,21 +5204,26 @@ namespace IFC4
 	{
 		public IfcActuatorTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcActuatorType with all required attributes.
+		/// </summary>
 		public IfcActuatorType(IfcActuatorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcActuatorType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcActuatorType(IfcActuatorTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcActuatorType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcActuatorType>(json);
-		}
-
-		public static new IfcActuatorType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6110,21 +5232,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcDistributionControlElementType : IfcDistributionElementType
 	{
-
+		/// <summary>
+		/// Construct a IfcDistributionControlElementType with all required attributes.
+		/// </summary>
 		public IfcDistributionControlElementType(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcDistributionControlElementType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDistributionControlElementType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcDistributionControlElementType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionControlElementType>(json);
-		}
-
-		public static new IfcDistributionControlElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6137,20 +5262,27 @@ namespace IFC4
 		public IfcText Description{get;set;} // optional
 		public IfcLabel UserDefinedPurpose{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcAddress with all required attributes.
+		/// </summary>
 		public IfcAddress():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcAddress with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcAddress(IfcAddressTypeEnum purpose,IfcText description,IfcLabel userDefinedPurpose):base()
+		{
+			Purpose = purpose;
+			Description = description;
+			UserDefinedPurpose = userDefinedPurpose;
 
 		}
-
 		public static  IfcAddress FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAddress>(json);
-		}
-
-		public static  IfcAddress FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6167,21 +5299,32 @@ namespace IFC4
 		public IfcLabel PostalCode{get;set;} // optional
 		public IfcLabel Country{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPostalAddress with all required attributes.
+		/// </summary>
 		public IfcPostalAddress():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPostalAddress with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPostalAddress(IfcLabel internalLocation,List<IfcLabel> addressLines,IfcLabel postalBox,IfcLabel town,IfcLabel region,IfcLabel postalCode,IfcLabel country,IfcAddressTypeEnum purpose,IfcText description,IfcLabel userDefinedPurpose):base(purpose,description,userDefinedPurpose)
+		{
+			InternalLocation = internalLocation;
+			AddressLines = addressLines;
+			PostalBox = postalBox;
+			Town = town;
+			Region = region;
+			PostalCode = postalCode;
+			Country = country;
 			AddressLines = new List<IfcLabel>();
 
 		}
-
 		public static new IfcPostalAddress FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPostalAddress>(json);
-		}
-
-		public static new IfcPostalAddress FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6197,24 +5340,34 @@ namespace IFC4
 		public IfcURIReference WWWHomePageURL{get;set;} // optional
 		public List<IfcURIReference> MessagingIDs{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTelecomAddress with all required attributes.
+		/// </summary>
 		public IfcTelecomAddress():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcTelecomAddress with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTelecomAddress(List<IfcLabel> telephoneNumbers,List<IfcLabel> facsimileNumbers,IfcLabel pagerNumber,List<IfcLabel> electronicMailAddresses,IfcURIReference wWWHomePageURL,List<IfcURIReference> messagingIDs,IfcAddressTypeEnum purpose,IfcText description,IfcLabel userDefinedPurpose):base(purpose,description,userDefinedPurpose)
+		{
+			TelephoneNumbers = telephoneNumbers;
+			FacsimileNumbers = facsimileNumbers;
+			PagerNumber = pagerNumber;
+			ElectronicMailAddresses = electronicMailAddresses;
+			WWWHomePageURL = wWWHomePageURL;
+			MessagingIDs = messagingIDs;
 			TelephoneNumbers = new List<IfcLabel>();
 			FacsimileNumbers = new List<IfcLabel>();
 			ElectronicMailAddresses = new List<IfcLabel>();
 			MessagingIDs = new List<IfcURIReference>();
 
 		}
-
 		public static new IfcTelecomAddress FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTelecomAddress>(json);
-		}
-
-		public static new IfcTelecomAddress FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6223,21 +5376,17 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcAdvancedBrep : IfcManifoldSolidBrep
 	{
-
+		/// <summary>
+		/// Construct a IfcAdvancedBrep with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcAdvancedBrep(IfcClosedShell outer):base(outer)
 		{
 
-
 		}
-
 		public static new IfcAdvancedBrep FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAdvancedBrep>(json);
-		}
-
-		public static new IfcAdvancedBrep FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6248,21 +5397,19 @@ namespace IFC4
 	{
 		public List<IfcClosedShell> Voids{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcAdvancedBrepWithVoids with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcAdvancedBrepWithVoids(List<IfcClosedShell> voids,IfcClosedShell outer):base(outer)
 		{
 			Voids = voids;
-
+			Voids = new List<IfcClosedShell>();
 
 		}
-
 		public static new IfcAdvancedBrepWithVoids FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAdvancedBrepWithVoids>(json);
-		}
-
-		public static new IfcAdvancedBrepWithVoids FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6273,21 +5420,18 @@ namespace IFC4
 	{
 		public IfcClosedShell Outer{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcManifoldSolidBrep with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcManifoldSolidBrep(IfcClosedShell outer):base()
 		{
 			Outer = outer;
 
-
 		}
-
 		public static new IfcManifoldSolidBrep FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcManifoldSolidBrep>(json);
-		}
-
-		public static new IfcManifoldSolidBrep FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6296,21 +5440,17 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcAdvancedFace : IfcFaceSurface
 	{
-
+		/// <summary>
+		/// Construct a IfcAdvancedFace with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcAdvancedFace(IfcSurface faceSurface,bool sameSense,List<IfcFaceBound> bounds):base(faceSurface,sameSense,bounds)
 		{
 
-
 		}
-
 		public static new IfcAdvancedFace FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAdvancedFace>(json);
-		}
-
-		public static new IfcAdvancedFace FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6322,22 +5462,19 @@ namespace IFC4
 		public IfcSurface FaceSurface{get;set;} 
 		public bool SameSense{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcFaceSurface with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcFaceSurface(IfcSurface faceSurface,bool sameSense,List<IfcFaceBound> bounds):base(bounds)
 		{
 			FaceSurface = faceSurface;
 			SameSense = sameSense;
 
-
 		}
-
 		public static new IfcFaceSurface FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFaceSurface>(json);
-		}
-
-		public static new IfcFaceSurface FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6348,20 +5485,25 @@ namespace IFC4
 	{
 		public IfcAirTerminalTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcAirTerminal with all required attributes.
+		/// </summary>
 		public IfcAirTerminal(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcAirTerminal with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcAirTerminal(IfcAirTerminalTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcAirTerminal FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAirTerminal>(json);
-		}
-
-		public static new IfcAirTerminal FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6370,21 +5512,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFlowTerminal : IfcDistributionFlowElement
 	{
-
+		/// <summary>
+		/// Construct a IfcFlowTerminal with all required attributes.
+		/// </summary>
 		public IfcFlowTerminal(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFlowTerminal with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFlowTerminal(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcFlowTerminal FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFlowTerminal>(json);
-		}
-
-		public static new IfcFlowTerminal FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6395,20 +5540,25 @@ namespace IFC4
 	{
 		public IfcAirTerminalBoxTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcAirTerminalBox with all required attributes.
+		/// </summary>
 		public IfcAirTerminalBox(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcAirTerminalBox with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcAirTerminalBox(IfcAirTerminalBoxTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcAirTerminalBox FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAirTerminalBox>(json);
-		}
-
-		public static new IfcAirTerminalBox FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6417,21 +5567,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFlowController : IfcDistributionFlowElement
 	{
-
+		/// <summary>
+		/// Construct a IfcFlowController with all required attributes.
+		/// </summary>
 		public IfcFlowController(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFlowController with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFlowController(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcFlowController FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFlowController>(json);
-		}
-
-		public static new IfcFlowController FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6442,21 +5595,26 @@ namespace IFC4
 	{
 		public IfcAirTerminalBoxTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcAirTerminalBoxType with all required attributes.
+		/// </summary>
 		public IfcAirTerminalBoxType(IfcAirTerminalBoxTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcAirTerminalBoxType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcAirTerminalBoxType(IfcAirTerminalBoxTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcAirTerminalBoxType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAirTerminalBoxType>(json);
-		}
-
-		public static new IfcAirTerminalBoxType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6465,21 +5623,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcFlowControllerType : IfcDistributionFlowElementType
 	{
-
+		/// <summary>
+		/// Construct a IfcFlowControllerType with all required attributes.
+		/// </summary>
 		public IfcFlowControllerType(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFlowControllerType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFlowControllerType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcFlowControllerType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFlowControllerType>(json);
-		}
-
-		public static new IfcFlowControllerType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6490,21 +5651,26 @@ namespace IFC4
 	{
 		public IfcAirTerminalTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcAirTerminalType with all required attributes.
+		/// </summary>
 		public IfcAirTerminalType(IfcAirTerminalTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcAirTerminalType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcAirTerminalType(IfcAirTerminalTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcAirTerminalType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAirTerminalType>(json);
-		}
-
-		public static new IfcAirTerminalType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6513,21 +5679,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcFlowTerminalType : IfcDistributionFlowElementType
 	{
-
+		/// <summary>
+		/// Construct a IfcFlowTerminalType with all required attributes.
+		/// </summary>
 		public IfcFlowTerminalType(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFlowTerminalType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFlowTerminalType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcFlowTerminalType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFlowTerminalType>(json);
-		}
-
-		public static new IfcFlowTerminalType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6538,20 +5707,25 @@ namespace IFC4
 	{
 		public IfcAirToAirHeatRecoveryTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcAirToAirHeatRecovery with all required attributes.
+		/// </summary>
 		public IfcAirToAirHeatRecovery(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcAirToAirHeatRecovery with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcAirToAirHeatRecovery(IfcAirToAirHeatRecoveryTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcAirToAirHeatRecovery FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAirToAirHeatRecovery>(json);
-		}
-
-		public static new IfcAirToAirHeatRecovery FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6560,21 +5734,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcEnergyConversionDevice : IfcDistributionFlowElement
 	{
-
+		/// <summary>
+		/// Construct a IfcEnergyConversionDevice with all required attributes.
+		/// </summary>
 		public IfcEnergyConversionDevice(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcEnergyConversionDevice with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcEnergyConversionDevice(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcEnergyConversionDevice FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcEnergyConversionDevice>(json);
-		}
-
-		public static new IfcEnergyConversionDevice FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6585,21 +5762,26 @@ namespace IFC4
 	{
 		public IfcAirToAirHeatRecoveryTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcAirToAirHeatRecoveryType with all required attributes.
+		/// </summary>
 		public IfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcAirToAirHeatRecoveryType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcAirToAirHeatRecoveryType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAirToAirHeatRecoveryType>(json);
-		}
-
-		public static new IfcAirToAirHeatRecoveryType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6608,21 +5790,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcEnergyConversionDeviceType : IfcDistributionFlowElementType
 	{
-
+		/// <summary>
+		/// Construct a IfcEnergyConversionDeviceType with all required attributes.
+		/// </summary>
 		public IfcEnergyConversionDeviceType(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcEnergyConversionDeviceType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcEnergyConversionDeviceType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcEnergyConversionDeviceType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcEnergyConversionDeviceType>(json);
-		}
-
-		public static new IfcEnergyConversionDeviceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6633,20 +5818,25 @@ namespace IFC4
 	{
 		public IfcAlarmTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcAlarm with all required attributes.
+		/// </summary>
 		public IfcAlarm(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcAlarm with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcAlarm(IfcAlarmTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcAlarm FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAlarm>(json);
-		}
-
-		public static new IfcAlarm FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6657,21 +5847,26 @@ namespace IFC4
 	{
 		public IfcAlarmTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcAlarmType with all required attributes.
+		/// </summary>
 		public IfcAlarmType(IfcAlarmTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcAlarmType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcAlarmType(IfcAlarmTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcAlarmType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAlarmType>(json);
-		}
-
-		public static new IfcAlarmType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6680,21 +5875,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcAnnotation : IfcProduct
 	{
-
+		/// <summary>
+		/// Construct a IfcAnnotation with all required attributes.
+		/// </summary>
 		public IfcAnnotation(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcAnnotation with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcAnnotation(IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcAnnotation FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAnnotation>(json);
-		}
-
-		public static new IfcAnnotation FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6706,20 +5904,26 @@ namespace IFC4
 		public IfcObjectPlacement ObjectPlacement{get;set;} // optional
 		public IfcProductRepresentation Representation{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcProduct with all required attributes.
+		/// </summary>
 		public IfcProduct(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcProduct with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcProduct(IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		{
+			ObjectPlacement = objectPlacement;
+			Representation = representation;
 
 		}
-
 		public static new IfcProduct FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcProduct>(json);
-		}
-
-		public static new IfcProduct FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6731,22 +5935,28 @@ namespace IFC4
 		public IfcCurve OuterBoundary{get;set;} 
 		public List<IfcCurve> InnerBoundaries{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcAnnotationFillArea with all required attributes.
+		/// </summary>
 		public IfcAnnotationFillArea(IfcCurve outerBoundary):base()
 		{
 			OuterBoundary = outerBoundary;
 
+		}
+		/// <summary>
+		/// Construct a IfcAnnotationFillArea with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcAnnotationFillArea(IfcCurve outerBoundary,List<IfcCurve> innerBoundaries):base()
+		{
+			OuterBoundary = outerBoundary;
+			InnerBoundaries = innerBoundaries;
 			InnerBoundaries = new List<IfcCurve>();
 
 		}
-
 		public static new IfcAnnotationFillArea FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAnnotationFillArea>(json);
-		}
-
-		public static new IfcAnnotationFillArea FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6755,21 +5965,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcGeometricRepresentationItem : IfcRepresentationItem
 	{
-
+		/// <summary>
+		/// Construct a IfcGeometricRepresentationItem with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcGeometricRepresentationItem():base()
 		{
 
-
 		}
-
 		public static new IfcGeometricRepresentationItem FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcGeometricRepresentationItem>(json);
-		}
-
-		public static new IfcGeometricRepresentationItem FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6783,6 +5989,10 @@ namespace IFC4
 		public IfcLabel ApplicationFullName{get;set;} 
 		public IfcIdentifier ApplicationIdentifier{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcApplication with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcApplication(IfcOrganization applicationDeveloper,IfcLabel version,IfcLabel applicationFullName,IfcIdentifier applicationIdentifier):base()
 		{
 			ApplicationDeveloper = applicationDeveloper;
@@ -6790,17 +6000,10 @@ namespace IFC4
 			ApplicationFullName = applicationFullName;
 			ApplicationIdentifier = applicationIdentifier;
 
-
 		}
-
 		public static  IfcApplication FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcApplication>(json);
-		}
-
-		public static  IfcApplication FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6820,21 +6023,35 @@ namespace IFC4
 		public IfcArithmeticOperatorEnum ArithmeticOperator{get;set;} // optional
 		public List<IfcAppliedValue> Components{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcAppliedValue with all required attributes.
+		/// </summary>
 		public IfcAppliedValue():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcAppliedValue with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcAppliedValue(IfcLabel name,IfcText description,IfcAppliedValueSelect appliedValue,IfcMeasureWithUnit unitBasis,IfcDate applicableDate,IfcDate fixedUntilDate,IfcLabel category,IfcLabel condition,IfcArithmeticOperatorEnum arithmeticOperator,List<IfcAppliedValue> components):base()
+		{
+			Name = name;
+			Description = description;
+			AppliedValue = appliedValue;
+			UnitBasis = unitBasis;
+			ApplicableDate = applicableDate;
+			FixedUntilDate = fixedUntilDate;
+			Category = category;
+			Condition = condition;
+			ArithmeticOperator = arithmeticOperator;
+			Components = components;
 			Components = new List<IfcAppliedValue>();
 
 		}
-
 		public static  IfcAppliedValue FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAppliedValue>(json);
-		}
-
-		public static  IfcAppliedValue FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6843,21 +6060,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCostValue : IfcAppliedValue
 	{
-
+		/// <summary>
+		/// Construct a IfcCostValue with all required attributes.
+		/// </summary>
 		public IfcCostValue():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCostValue with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCostValue(IfcLabel name,IfcText description,IfcAppliedValueSelect appliedValue,IfcMeasureWithUnit unitBasis,IfcDate applicableDate,IfcDate fixedUntilDate,IfcLabel category,IfcLabel condition,IfcArithmeticOperatorEnum arithmeticOperator,List<IfcAppliedValue> components):base(name,description,appliedValue,unitBasis,applicableDate,fixedUntilDate,category,condition,arithmeticOperator,components)
+		{
 
 		}
-
 		public static new IfcCostValue FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCostValue>(json);
-		}
-
-		public static new IfcCostValue FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6876,20 +6096,33 @@ namespace IFC4
 		public IfcActorSelect RequestingApproval{get;set;} // optional
 		public IfcActorSelect GivingApproval{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcApproval with all required attributes.
+		/// </summary>
 		public IfcApproval():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcApproval with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcApproval(IfcIdentifier identifier,IfcLabel name,IfcText description,IfcDateTime timeOfApproval,IfcLabel status,IfcLabel level,IfcText qualifier,IfcActorSelect requestingApproval,IfcActorSelect givingApproval):base()
+		{
+			Identifier = identifier;
+			Name = name;
+			Description = description;
+			TimeOfApproval = timeOfApproval;
+			Status = status;
+			Level = level;
+			Qualifier = qualifier;
+			RequestingApproval = requestingApproval;
+			GivingApproval = givingApproval;
 
 		}
-
 		public static  IfcApproval FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcApproval>(json);
-		}
-
-		public static  IfcApproval FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6901,22 +6134,30 @@ namespace IFC4
 		public IfcApproval RelatingApproval{get;set;} 
 		public List<IfcApproval> RelatedApprovals{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcApprovalRelationship with all required attributes.
+		/// </summary>
 		public IfcApprovalRelationship(IfcApproval relatingApproval,List<IfcApproval> relatedApprovals):base()
 		{
 			RelatingApproval = relatingApproval;
 			RelatedApprovals = relatedApprovals;
-
+			RelatedApprovals = new List<IfcApproval>();
 
 		}
+		/// <summary>
+		/// Construct a IfcApprovalRelationship with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcApprovalRelationship(IfcApproval relatingApproval,List<IfcApproval> relatedApprovals,IfcLabel name,IfcText description):base(name,description)
+		{
+			RelatingApproval = relatingApproval;
+			RelatedApprovals = relatedApprovals;
+			RelatedApprovals = new List<IfcApproval>();
 
+		}
 		public static new IfcApprovalRelationship FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcApprovalRelationship>(json);
-		}
-
-		public static new IfcApprovalRelationship FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6928,20 +6169,26 @@ namespace IFC4
 		public IfcLabel Name{get;set;} // optional
 		public IfcText Description{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcResourceLevelRelationship with all required attributes.
+		/// </summary>
 		public IfcResourceLevelRelationship():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcResourceLevelRelationship with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcResourceLevelRelationship(IfcLabel name,IfcText description):base()
+		{
+			Name = name;
+			Description = description;
 
 		}
-
 		public static  IfcResourceLevelRelationship FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcResourceLevelRelationship>(json);
-		}
-
-		public static  IfcResourceLevelRelationship FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6952,21 +6199,26 @@ namespace IFC4
 	{
 		public IfcCurve OuterCurve{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcArbitraryClosedProfileDef with all required attributes.
+		/// </summary>
 		public IfcArbitraryClosedProfileDef(IfcCurve outerCurve,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			OuterCurve = outerCurve;
 
+		}
+		/// <summary>
+		/// Construct a IfcArbitraryClosedProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcArbitraryClosedProfileDef(IfcCurve outerCurve,IfcProfileTypeEnum profileType,IfcLabel profileName):base(profileType,profileName)
+		{
+			OuterCurve = outerCurve;
 
 		}
-
 		public static new IfcArbitraryClosedProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcArbitraryClosedProfileDef>(json);
-		}
-
-		public static new IfcArbitraryClosedProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -6977,21 +6229,28 @@ namespace IFC4
 	{
 		public List<IfcCurve> InnerCurves{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcArbitraryProfileDefWithVoids with all required attributes.
+		/// </summary>
 		public IfcArbitraryProfileDefWithVoids(List<IfcCurve> innerCurves,IfcCurve outerCurve,IfcProfileTypeEnum profileType):base(outerCurve,profileType)
 		{
 			InnerCurves = innerCurves;
-
+			InnerCurves = new List<IfcCurve>();
 
 		}
+		/// <summary>
+		/// Construct a IfcArbitraryProfileDefWithVoids with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcArbitraryProfileDefWithVoids(List<IfcCurve> innerCurves,IfcCurve outerCurve,IfcProfileTypeEnum profileType,IfcLabel profileName):base(outerCurve,profileType,profileName)
+		{
+			InnerCurves = innerCurves;
+			InnerCurves = new List<IfcCurve>();
 
+		}
 		public static new IfcArbitraryProfileDefWithVoids FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcArbitraryProfileDefWithVoids>(json);
-		}
-
-		public static new IfcArbitraryProfileDefWithVoids FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7003,21 +6262,27 @@ namespace IFC4
 		public IfcProfileTypeEnum ProfileType{get;set;} 
 		public IfcLabel ProfileName{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcProfileDef with all required attributes.
+		/// </summary>
 		public IfcProfileDef(IfcProfileTypeEnum profileType):base()
 		{
 			ProfileType = profileType;
 
+		}
+		/// <summary>
+		/// Construct a IfcProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName):base()
+		{
+			ProfileType = profileType;
+			ProfileName = profileName;
 
 		}
-
 		public static  IfcProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcProfileDef>(json);
-		}
-
-		public static  IfcProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7028,21 +6293,26 @@ namespace IFC4
 	{
 		public IfcBoundedCurve Curve{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcArbitraryOpenProfileDef with all required attributes.
+		/// </summary>
 		public IfcArbitraryOpenProfileDef(IfcBoundedCurve curve,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			Curve = curve;
 
+		}
+		/// <summary>
+		/// Construct a IfcArbitraryOpenProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcArbitraryOpenProfileDef(IfcBoundedCurve curve,IfcProfileTypeEnum profileType,IfcLabel profileName):base(profileType,profileName)
+		{
+			Curve = curve;
 
 		}
-
 		public static new IfcArbitraryOpenProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcArbitraryOpenProfileDef>(json);
-		}
-
-		public static new IfcArbitraryOpenProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7053,21 +6323,26 @@ namespace IFC4
 	{
 		public IfcPositiveLengthMeasure Thickness{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCenterLineProfileDef with all required attributes.
+		/// </summary>
 		public IfcCenterLineProfileDef(IfcPositiveLengthMeasure thickness,IfcBoundedCurve curve,IfcProfileTypeEnum profileType):base(curve,profileType)
 		{
 			Thickness = thickness;
 
+		}
+		/// <summary>
+		/// Construct a IfcCenterLineProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCenterLineProfileDef(IfcPositiveLengthMeasure thickness,IfcBoundedCurve curve,IfcProfileTypeEnum profileType,IfcLabel profileName):base(curve,profileType,profileName)
+		{
+			Thickness = thickness;
 
 		}
-
 		public static new IfcCenterLineProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCenterLineProfileDef>(json);
-		}
-
-		public static new IfcCenterLineProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7086,20 +6361,33 @@ namespace IFC4
 		public IfcDate IncorporationDate{get;set;} // optional
 		public IfcCostValue DepreciatedValue{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcAsset with all required attributes.
+		/// </summary>
 		public IfcAsset(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcAsset with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcAsset(IfcIdentifier identification,IfcCostValue originalValue,IfcCostValue currentValue,IfcCostValue totalReplacementCost,IfcActorSelect owner,IfcActorSelect user,IfcPerson responsiblePerson,IfcDate incorporationDate,IfcCostValue depreciatedValue,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		{
+			Identification = identification;
+			OriginalValue = originalValue;
+			CurrentValue = currentValue;
+			TotalReplacementCost = totalReplacementCost;
+			Owner = owner;
+			User = user;
+			ResponsiblePerson = responsiblePerson;
+			IncorporationDate = incorporationDate;
+			DepreciatedValue = depreciatedValue;
 
 		}
-
 		public static new IfcAsset FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAsset>(json);
-		}
-
-		public static new IfcAsset FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7108,21 +6396,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcGroup : IfcObject
 	{
-
+		/// <summary>
+		/// Construct a IfcGroup with all required attributes.
+		/// </summary>
 		public IfcGroup(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcGroup with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcGroup(IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcGroup FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcGroup>(json);
-		}
-
-		public static new IfcGroup FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7144,6 +6435,9 @@ namespace IFC4
 		public IfcNonNegativeLengthMeasure TopFlangeEdgeRadius{get;set;} // optional
 		public IfcPlaneAngleMeasure TopFlangeSlope{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcAsymmetricIShapeProfileDef with all required attributes.
+		/// </summary>
 		public IfcAsymmetricIShapeProfileDef(IfcPositiveLengthMeasure bottomFlangeWidth,IfcPositiveLengthMeasure overallDepth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure bottomFlangeThickness,IfcPositiveLengthMeasure topFlangeWidth,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			BottomFlangeWidth = bottomFlangeWidth;
@@ -7152,17 +6446,30 @@ namespace IFC4
 			BottomFlangeThickness = bottomFlangeThickness;
 			TopFlangeWidth = topFlangeWidth;
 
+		}
+		/// <summary>
+		/// Construct a IfcAsymmetricIShapeProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcAsymmetricIShapeProfileDef(IfcPositiveLengthMeasure bottomFlangeWidth,IfcPositiveLengthMeasure overallDepth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure bottomFlangeThickness,IfcNonNegativeLengthMeasure bottomFlangeFilletRadius,IfcPositiveLengthMeasure topFlangeWidth,IfcPositiveLengthMeasure topFlangeThickness,IfcNonNegativeLengthMeasure topFlangeFilletRadius,IfcNonNegativeLengthMeasure bottomFlangeEdgeRadius,IfcPlaneAngleMeasure bottomFlangeSlope,IfcNonNegativeLengthMeasure topFlangeEdgeRadius,IfcPlaneAngleMeasure topFlangeSlope,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		{
+			BottomFlangeWidth = bottomFlangeWidth;
+			OverallDepth = overallDepth;
+			WebThickness = webThickness;
+			BottomFlangeThickness = bottomFlangeThickness;
+			BottomFlangeFilletRadius = bottomFlangeFilletRadius;
+			TopFlangeWidth = topFlangeWidth;
+			TopFlangeThickness = topFlangeThickness;
+			TopFlangeFilletRadius = topFlangeFilletRadius;
+			BottomFlangeEdgeRadius = bottomFlangeEdgeRadius;
+			BottomFlangeSlope = bottomFlangeSlope;
+			TopFlangeEdgeRadius = topFlangeEdgeRadius;
+			TopFlangeSlope = topFlangeSlope;
 
 		}
-
 		public static new IfcAsymmetricIShapeProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAsymmetricIShapeProfileDef>(json);
-		}
-
-		public static new IfcAsymmetricIShapeProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7173,20 +6480,25 @@ namespace IFC4
 	{
 		public IfcAxis2Placement2D Position{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcParameterizedProfileDef with all required attributes.
+		/// </summary>
 		public IfcParameterizedProfileDef(IfcProfileTypeEnum profileType):base(profileType)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcParameterizedProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcParameterizedProfileDef(IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(profileType,profileName)
+		{
+			Position = position;
 
 		}
-
 		public static new IfcParameterizedProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcParameterizedProfileDef>(json);
-		}
-
-		public static new IfcParameterizedProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7197,20 +6509,25 @@ namespace IFC4
 	{
 		public IfcAudioVisualApplianceTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcAudioVisualAppliance with all required attributes.
+		/// </summary>
 		public IfcAudioVisualAppliance(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcAudioVisualAppliance with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcAudioVisualAppliance(IfcAudioVisualApplianceTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcAudioVisualAppliance FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAudioVisualAppliance>(json);
-		}
-
-		public static new IfcAudioVisualAppliance FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7221,21 +6538,26 @@ namespace IFC4
 	{
 		public IfcAudioVisualApplianceTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcAudioVisualApplianceType with all required attributes.
+		/// </summary>
 		public IfcAudioVisualApplianceType(IfcAudioVisualApplianceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcAudioVisualApplianceType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcAudioVisualApplianceType(IfcAudioVisualApplianceTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcAudioVisualApplianceType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAudioVisualApplianceType>(json);
-		}
-
-		public static new IfcAudioVisualApplianceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7246,20 +6568,25 @@ namespace IFC4
 	{
 		public IfcDirection Axis{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcAxis1Placement with all required attributes.
+		/// </summary>
 		public IfcAxis1Placement(IfcCartesianPoint location):base(location)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcAxis1Placement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcAxis1Placement(IfcDirection axis,IfcCartesianPoint location):base(location)
+		{
+			Axis = axis;
 
 		}
-
 		public static new IfcAxis1Placement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAxis1Placement>(json);
-		}
-
-		public static new IfcAxis1Placement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7270,21 +6597,18 @@ namespace IFC4
 	{
 		public IfcCartesianPoint Location{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcPlacement with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcPlacement(IfcCartesianPoint location):base()
 		{
 			Location = location;
 
-
 		}
-
 		public static new IfcPlacement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPlacement>(json);
-		}
-
-		public static new IfcPlacement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7295,20 +6619,25 @@ namespace IFC4
 	{
 		public IfcDirection RefDirection{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcAxis2Placement2D with all required attributes.
+		/// </summary>
 		public IfcAxis2Placement2D(IfcCartesianPoint location):base(location)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcAxis2Placement2D with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcAxis2Placement2D(IfcDirection refDirection,IfcCartesianPoint location):base(location)
+		{
+			RefDirection = refDirection;
 
 		}
-
 		public static new IfcAxis2Placement2D FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAxis2Placement2D>(json);
-		}
-
-		public static new IfcAxis2Placement2D FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7320,20 +6649,26 @@ namespace IFC4
 		public IfcDirection Axis{get;set;} // optional
 		public IfcDirection RefDirection{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcAxis2Placement3D with all required attributes.
+		/// </summary>
 		public IfcAxis2Placement3D(IfcCartesianPoint location):base(location)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcAxis2Placement3D with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcAxis2Placement3D(IfcDirection axis,IfcDirection refDirection,IfcCartesianPoint location):base(location)
+		{
+			Axis = axis;
+			RefDirection = refDirection;
 
 		}
-
 		public static new IfcAxis2Placement3D FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAxis2Placement3D>(json);
-		}
-
-		public static new IfcAxis2Placement3D FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7348,6 +6683,10 @@ namespace IFC4
 		public bool? ClosedCurve{get;set;} 
 		public bool? SelfIntersect{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcBSplineCurve with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcBSplineCurve(int degree,List<IfcCartesianPoint> controlPointsList,IfcBSplineCurveForm curveForm,bool? closedCurve,bool? selfIntersect):base()
 		{
 			Degree = degree;
@@ -7355,18 +6694,12 @@ namespace IFC4
 			CurveForm = curveForm;
 			ClosedCurve = closedCurve;
 			SelfIntersect = selfIntersect;
-
+			ControlPointsList = new List<IfcCartesianPoint>();
 
 		}
-
 		public static new IfcBSplineCurve FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBSplineCurve>(json);
-		}
-
-		public static new IfcBSplineCurve FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7379,23 +6712,22 @@ namespace IFC4
 		public List<IfcParameterValue> Knots{get;set;} 
 		public IfcKnotType KnotSpec{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcBSplineCurveWithKnots with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcBSplineCurveWithKnots(List<int> knotMultiplicities,List<IfcParameterValue> knots,IfcKnotType knotSpec,int degree,List<IfcCartesianPoint> controlPointsList,IfcBSplineCurveForm curveForm,bool? closedCurve,bool? selfIntersect):base(degree,controlPointsList,curveForm,closedCurve,selfIntersect)
 		{
 			KnotMultiplicities = knotMultiplicities;
 			Knots = knots;
 			KnotSpec = knotSpec;
-
+			KnotMultiplicities = new List<int>();
+			Knots = new List<IfcParameterValue>();
 
 		}
-
 		public static new IfcBSplineCurveWithKnots FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBSplineCurveWithKnots>(json);
-		}
-
-		public static new IfcBSplineCurveWithKnots FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7404,21 +6736,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcBoundedCurve : IfcCurve
 	{
-
+		/// <summary>
+		/// Construct a IfcBoundedCurve with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcBoundedCurve():base()
 		{
 
-
 		}
-
 		public static new IfcBoundedCurve FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBoundedCurve>(json);
-		}
-
-		public static new IfcBoundedCurve FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7429,21 +6757,19 @@ namespace IFC4
 	{
 		public List<double> WeightsData{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRationalBSplineCurveWithKnots with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcRationalBSplineCurveWithKnots(List<double> weightsData,List<int> knotMultiplicities,List<IfcParameterValue> knots,IfcKnotType knotSpec,int degree,List<IfcCartesianPoint> controlPointsList,IfcBSplineCurveForm curveForm,bool? closedCurve,bool? selfIntersect):base(knotMultiplicities,knots,knotSpec,degree,controlPointsList,curveForm,closedCurve,selfIntersect)
 		{
 			WeightsData = weightsData;
-
+			WeightsData = new List<double>();
 
 		}
-
 		public static new IfcRationalBSplineCurveWithKnots FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRationalBSplineCurveWithKnots>(json);
-		}
-
-		public static new IfcRationalBSplineCurveWithKnots FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7460,6 +6786,10 @@ namespace IFC4
 		public bool? VClosed{get;set;} 
 		public bool? SelfIntersect{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcBSplineSurface with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcBSplineSurface(int uDegree,int vDegree,List<List<IfcCartesianPoint>> controlPointsList,IfcBSplineSurfaceForm surfaceForm,bool? uClosed,bool? vClosed,bool? selfIntersect):base()
 		{
 			UDegree = uDegree;
@@ -7469,18 +6799,12 @@ namespace IFC4
 			UClosed = uClosed;
 			VClosed = vClosed;
 			SelfIntersect = selfIntersect;
-
+			ControlPointsList = new List<List<IfcCartesianPoint>>();
 
 		}
-
 		public static new IfcBSplineSurface FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBSplineSurface>(json);
-		}
-
-		public static new IfcBSplineSurface FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7495,6 +6819,10 @@ namespace IFC4
 		public List<IfcParameterValue> VKnots{get;set;} 
 		public IfcKnotType KnotSpec{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcBSplineSurfaceWithKnots with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcBSplineSurfaceWithKnots(List<int> uMultiplicities,List<int> vMultiplicities,List<IfcParameterValue> uKnots,List<IfcParameterValue> vKnots,IfcKnotType knotSpec,int uDegree,int vDegree,List<List<IfcCartesianPoint>> controlPointsList,IfcBSplineSurfaceForm surfaceForm,bool? uClosed,bool? vClosed,bool? selfIntersect):base(uDegree,vDegree,controlPointsList,surfaceForm,uClosed,vClosed,selfIntersect)
 		{
 			UMultiplicities = uMultiplicities;
@@ -7502,18 +6830,15 @@ namespace IFC4
 			UKnots = uKnots;
 			VKnots = vKnots;
 			KnotSpec = knotSpec;
-
+			UMultiplicities = new List<int>();
+			VMultiplicities = new List<int>();
+			UKnots = new List<IfcParameterValue>();
+			VKnots = new List<IfcParameterValue>();
 
 		}
-
 		public static new IfcBSplineSurfaceWithKnots FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBSplineSurfaceWithKnots>(json);
-		}
-
-		public static new IfcBSplineSurfaceWithKnots FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7522,21 +6847,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcBoundedSurface : IfcSurface
 	{
-
+		/// <summary>
+		/// Construct a IfcBoundedSurface with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcBoundedSurface():base()
 		{
 
-
 		}
-
 		public static new IfcBoundedSurface FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBoundedSurface>(json);
-		}
-
-		public static new IfcBoundedSurface FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7547,21 +6868,19 @@ namespace IFC4
 	{
 		public List<List<double>> WeightsData{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRationalBSplineSurfaceWithKnots with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcRationalBSplineSurfaceWithKnots(List<List<double>> weightsData,List<int> uMultiplicities,List<int> vMultiplicities,List<IfcParameterValue> uKnots,List<IfcParameterValue> vKnots,IfcKnotType knotSpec,int uDegree,int vDegree,List<List<IfcCartesianPoint>> controlPointsList,IfcBSplineSurfaceForm surfaceForm,bool? uClosed,bool? vClosed,bool? selfIntersect):base(uMultiplicities,vMultiplicities,uKnots,vKnots,knotSpec,uDegree,vDegree,controlPointsList,surfaceForm,uClosed,vClosed,selfIntersect)
 		{
 			WeightsData = weightsData;
-
+			WeightsData = new List<List<double>>();
 
 		}
-
 		public static new IfcRationalBSplineSurfaceWithKnots FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRationalBSplineSurfaceWithKnots>(json);
-		}
-
-		public static new IfcRationalBSplineSurfaceWithKnots FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7572,20 +6891,25 @@ namespace IFC4
 	{
 		public IfcBeamTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcBeam with all required attributes.
+		/// </summary>
 		public IfcBeam(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcBeam with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBeam(IfcBeamTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcBeam FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBeam>(json);
-		}
-
-		public static new IfcBeam FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7594,21 +6918,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcBeamStandardCase : IfcBeam
 	{
-
+		/// <summary>
+		/// Construct a IfcBeamStandardCase with all required attributes.
+		/// </summary>
 		public IfcBeamStandardCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcBeamStandardCase with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBeamStandardCase(IfcBeamTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcBeamStandardCase FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBeamStandardCase>(json);
-		}
-
-		public static new IfcBeamStandardCase FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7617,21 +6944,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcBuildingElement : IfcElement
 	{
-
+		/// <summary>
+		/// Construct a IfcBuildingElement with all required attributes.
+		/// </summary>
 		public IfcBuildingElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcBuildingElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBuildingElement(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcBuildingElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBuildingElement>(json);
-		}
-
-		public static new IfcBuildingElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7642,21 +6972,26 @@ namespace IFC4
 	{
 		public IfcBeamTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcBeamType with all required attributes.
+		/// </summary>
 		public IfcBeamType(IfcBeamTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcBeamType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBeamType(IfcBeamTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcBeamType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBeamType>(json);
-		}
-
-		public static new IfcBeamType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7665,21 +7000,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcBuildingElementType : IfcElementType
 	{
-
+		/// <summary>
+		/// Construct a IfcBuildingElementType with all required attributes.
+		/// </summary>
 		public IfcBuildingElementType(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcBuildingElementType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBuildingElementType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcBuildingElementType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBuildingElementType>(json);
-		}
-
-		public static new IfcBuildingElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7691,22 +7029,28 @@ namespace IFC4
 		public IfcIdentifier RasterFormat{get;set;} 
 		public byte[] RasterCode{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcBlobTexture with all required attributes.
+		/// </summary>
 		public IfcBlobTexture(IfcIdentifier rasterFormat,byte[] rasterCode,bool repeatS,bool repeatT):base(repeatS,repeatT)
 		{
 			RasterFormat = rasterFormat;
 			RasterCode = rasterCode;
 
+		}
+		/// <summary>
+		/// Construct a IfcBlobTexture with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBlobTexture(IfcIdentifier rasterFormat,byte[] rasterCode,bool repeatS,bool repeatT,IfcIdentifier mode,IfcCartesianTransformationOperator2D textureTransform,List<IfcIdentifier> parameter):base(repeatS,repeatT,mode,textureTransform,parameter)
+		{
+			RasterFormat = rasterFormat;
+			RasterCode = rasterCode;
 
 		}
-
 		public static new IfcBlobTexture FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBlobTexture>(json);
-		}
-
-		public static new IfcBlobTexture FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7721,23 +7065,32 @@ namespace IFC4
 		public IfcCartesianTransformationOperator2D TextureTransform{get;set;} // optional
 		public List<IfcIdentifier> Parameter{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSurfaceTexture with all required attributes.
+		/// </summary>
 		public IfcSurfaceTexture(bool repeatS,bool repeatT):base()
 		{
 			RepeatS = repeatS;
 			RepeatT = repeatT;
 
+		}
+		/// <summary>
+		/// Construct a IfcSurfaceTexture with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSurfaceTexture(bool repeatS,bool repeatT,IfcIdentifier mode,IfcCartesianTransformationOperator2D textureTransform,List<IfcIdentifier> parameter):base()
+		{
+			RepeatS = repeatS;
+			RepeatT = repeatT;
+			Mode = mode;
+			TextureTransform = textureTransform;
+			Parameter = parameter;
 			Parameter = new List<IfcIdentifier>();
 
 		}
-
 		public static new IfcSurfaceTexture FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceTexture>(json);
-		}
-
-		public static new IfcSurfaceTexture FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7750,23 +7103,20 @@ namespace IFC4
 		public IfcPositiveLengthMeasure YLength{get;set;} 
 		public IfcPositiveLengthMeasure ZLength{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcBlock with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcBlock(IfcPositiveLengthMeasure xLength,IfcPositiveLengthMeasure yLength,IfcPositiveLengthMeasure zLength,IfcAxis2Placement3D position):base(position)
 		{
 			XLength = xLength;
 			YLength = yLength;
 			ZLength = zLength;
 
-
 		}
-
 		public static new IfcBlock FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBlock>(json);
-		}
-
-		public static new IfcBlock FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7777,21 +7127,18 @@ namespace IFC4
 	{
 		public IfcAxis2Placement3D Position{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCsgPrimitive3D with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcCsgPrimitive3D(IfcAxis2Placement3D position):base()
 		{
 			Position = position;
 
-
 		}
-
 		public static new IfcCsgPrimitive3D FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCsgPrimitive3D>(json);
-		}
-
-		public static new IfcCsgPrimitive3D FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7802,20 +7149,25 @@ namespace IFC4
 	{
 		public IfcBoilerTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcBoiler with all required attributes.
+		/// </summary>
 		public IfcBoiler(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcBoiler with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBoiler(IfcBoilerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcBoiler FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBoiler>(json);
-		}
-
-		public static new IfcBoiler FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7826,21 +7178,26 @@ namespace IFC4
 	{
 		public IfcBoilerTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcBoilerType with all required attributes.
+		/// </summary>
 		public IfcBoilerType(IfcBoilerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcBoilerType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBoilerType(IfcBoilerTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcBoilerType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBoilerType>(json);
-		}
-
-		public static new IfcBoilerType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7849,21 +7206,17 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcBooleanClippingResult : IfcBooleanResult
 	{
-
+		/// <summary>
+		/// Construct a IfcBooleanClippingResult with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcBooleanClippingResult(IfcBooleanOperator op,IfcBooleanOperand firstOperand,IfcBooleanOperand secondOperand):base(op,firstOperand,secondOperand)
 		{
 
-
 		}
-
 		public static new IfcBooleanClippingResult FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBooleanClippingResult>(json);
-		}
-
-		public static new IfcBooleanClippingResult FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7876,23 +7229,20 @@ namespace IFC4
 		public IfcBooleanOperand FirstOperand{get;set;} 
 		public IfcBooleanOperand SecondOperand{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcBooleanResult with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcBooleanResult(IfcBooleanOperator op,IfcBooleanOperand firstOperand,IfcBooleanOperand secondOperand):base()
 		{
 			Operator = op;
 			FirstOperand = firstOperand;
 			SecondOperand = secondOperand;
 
-
 		}
-
 		public static new IfcBooleanResult FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBooleanResult>(json);
-		}
-
-		public static new IfcBooleanResult FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7903,20 +7253,25 @@ namespace IFC4
 	{
 		public IfcLabel Name{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcBoundaryCondition with all required attributes.
+		/// </summary>
 		public IfcBoundaryCondition():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcBoundaryCondition with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBoundaryCondition(IfcLabel name):base()
+		{
+			Name = name;
 
 		}
-
 		public static  IfcBoundaryCondition FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBoundaryCondition>(json);
-		}
-
-		public static  IfcBoundaryCondition FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7932,20 +7287,30 @@ namespace IFC4
 		public IfcModulusOfRotationalSubgradeReactionSelect RotationalStiffnessByLengthY{get;set;} // optional
 		public IfcModulusOfRotationalSubgradeReactionSelect RotationalStiffnessByLengthZ{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcBoundaryEdgeCondition with all required attributes.
+		/// </summary>
 		public IfcBoundaryEdgeCondition():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcBoundaryEdgeCondition with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBoundaryEdgeCondition(IfcModulusOfTranslationalSubgradeReactionSelect translationalStiffnessByLengthX,IfcModulusOfTranslationalSubgradeReactionSelect translationalStiffnessByLengthY,IfcModulusOfTranslationalSubgradeReactionSelect translationalStiffnessByLengthZ,IfcModulusOfRotationalSubgradeReactionSelect rotationalStiffnessByLengthX,IfcModulusOfRotationalSubgradeReactionSelect rotationalStiffnessByLengthY,IfcModulusOfRotationalSubgradeReactionSelect rotationalStiffnessByLengthZ,IfcLabel name):base(name)
+		{
+			TranslationalStiffnessByLengthX = translationalStiffnessByLengthX;
+			TranslationalStiffnessByLengthY = translationalStiffnessByLengthY;
+			TranslationalStiffnessByLengthZ = translationalStiffnessByLengthZ;
+			RotationalStiffnessByLengthX = rotationalStiffnessByLengthX;
+			RotationalStiffnessByLengthY = rotationalStiffnessByLengthY;
+			RotationalStiffnessByLengthZ = rotationalStiffnessByLengthZ;
 
 		}
-
 		public static new IfcBoundaryEdgeCondition FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBoundaryEdgeCondition>(json);
-		}
-
-		public static new IfcBoundaryEdgeCondition FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7958,20 +7323,27 @@ namespace IFC4
 		public IfcModulusOfSubgradeReactionSelect TranslationalStiffnessByAreaY{get;set;} // optional
 		public IfcModulusOfSubgradeReactionSelect TranslationalStiffnessByAreaZ{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcBoundaryFaceCondition with all required attributes.
+		/// </summary>
 		public IfcBoundaryFaceCondition():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcBoundaryFaceCondition with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBoundaryFaceCondition(IfcModulusOfSubgradeReactionSelect translationalStiffnessByAreaX,IfcModulusOfSubgradeReactionSelect translationalStiffnessByAreaY,IfcModulusOfSubgradeReactionSelect translationalStiffnessByAreaZ,IfcLabel name):base(name)
+		{
+			TranslationalStiffnessByAreaX = translationalStiffnessByAreaX;
+			TranslationalStiffnessByAreaY = translationalStiffnessByAreaY;
+			TranslationalStiffnessByAreaZ = translationalStiffnessByAreaZ;
 
 		}
-
 		public static new IfcBoundaryFaceCondition FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBoundaryFaceCondition>(json);
-		}
-
-		public static new IfcBoundaryFaceCondition FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -7987,20 +7359,30 @@ namespace IFC4
 		public IfcRotationalStiffnessSelect RotationalStiffnessY{get;set;} // optional
 		public IfcRotationalStiffnessSelect RotationalStiffnessZ{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcBoundaryNodeCondition with all required attributes.
+		/// </summary>
 		public IfcBoundaryNodeCondition():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcBoundaryNodeCondition with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBoundaryNodeCondition(IfcTranslationalStiffnessSelect translationalStiffnessX,IfcTranslationalStiffnessSelect translationalStiffnessY,IfcTranslationalStiffnessSelect translationalStiffnessZ,IfcRotationalStiffnessSelect rotationalStiffnessX,IfcRotationalStiffnessSelect rotationalStiffnessY,IfcRotationalStiffnessSelect rotationalStiffnessZ,IfcLabel name):base(name)
+		{
+			TranslationalStiffnessX = translationalStiffnessX;
+			TranslationalStiffnessY = translationalStiffnessY;
+			TranslationalStiffnessZ = translationalStiffnessZ;
+			RotationalStiffnessX = rotationalStiffnessX;
+			RotationalStiffnessY = rotationalStiffnessY;
+			RotationalStiffnessZ = rotationalStiffnessZ;
 
 		}
-
 		public static new IfcBoundaryNodeCondition FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBoundaryNodeCondition>(json);
-		}
-
-		public static new IfcBoundaryNodeCondition FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8009,21 +7391,17 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcBoundaryCurve : IfcCompositeCurveOnSurface
 	{
-
+		/// <summary>
+		/// Construct a IfcBoundaryCurve with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcBoundaryCurve(List<IfcCompositeCurveSegment> segments,bool? selfIntersect):base(segments,selfIntersect)
 		{
 
-
 		}
-
 		public static new IfcBoundaryCurve FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBoundaryCurve>(json);
-		}
-
-		public static new IfcBoundaryCurve FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8032,21 +7410,17 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcOuterBoundaryCurve : IfcBoundaryCurve
 	{
-
+		/// <summary>
+		/// Construct a IfcOuterBoundaryCurve with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcOuterBoundaryCurve(List<IfcCompositeCurveSegment> segments,bool? selfIntersect):base(segments,selfIntersect)
 		{
 
-
 		}
-
 		public static new IfcOuterBoundaryCurve FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcOuterBoundaryCurve>(json);
-		}
-
-		public static new IfcOuterBoundaryCurve FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8055,21 +7429,17 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCompositeCurveOnSurface : IfcCompositeCurve
 	{
-
+		/// <summary>
+		/// Construct a IfcCompositeCurveOnSurface with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcCompositeCurveOnSurface(List<IfcCompositeCurveSegment> segments,bool? selfIntersect):base(segments,selfIntersect)
 		{
 
-
 		}
-
 		public static new IfcCompositeCurveOnSurface FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCompositeCurveOnSurface>(json);
-		}
-
-		public static new IfcCompositeCurveOnSurface FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8080,20 +7450,25 @@ namespace IFC4
 	{
 		public IfcWarpingStiffnessSelect WarpingStiffness{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcBoundaryNodeConditionWarping with all required attributes.
+		/// </summary>
 		public IfcBoundaryNodeConditionWarping():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcBoundaryNodeConditionWarping with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBoundaryNodeConditionWarping(IfcWarpingStiffnessSelect warpingStiffness,IfcTranslationalStiffnessSelect translationalStiffnessX,IfcTranslationalStiffnessSelect translationalStiffnessY,IfcTranslationalStiffnessSelect translationalStiffnessZ,IfcRotationalStiffnessSelect rotationalStiffnessX,IfcRotationalStiffnessSelect rotationalStiffnessY,IfcRotationalStiffnessSelect rotationalStiffnessZ,IfcLabel name):base(translationalStiffnessX,translationalStiffnessY,translationalStiffnessZ,rotationalStiffnessX,rotationalStiffnessY,rotationalStiffnessZ,name)
+		{
+			WarpingStiffness = warpingStiffness;
 
 		}
-
 		public static new IfcBoundaryNodeConditionWarping FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBoundaryNodeConditionWarping>(json);
-		}
-
-		public static new IfcBoundaryNodeConditionWarping FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8105,22 +7480,20 @@ namespace IFC4
 		public List<IfcCompositeCurveSegment> Segments{get;set;} 
 		public bool? SelfIntersect{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCompositeCurve with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcCompositeCurve(List<IfcCompositeCurveSegment> segments,bool? selfIntersect):base()
 		{
 			Segments = segments;
 			SelfIntersect = selfIntersect;
-
+			Segments = new List<IfcCompositeCurveSegment>();
 
 		}
-
 		public static new IfcCompositeCurve FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCompositeCurve>(json);
-		}
-
-		public static new IfcCompositeCurve FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8131,21 +7504,19 @@ namespace IFC4
 	{
 		public List<IfcCartesianPoint> Points{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcPolyline with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcPolyline(List<IfcCartesianPoint> points):base()
 		{
 			Points = points;
-
+			Points = new List<IfcCartesianPoint>();
 
 		}
-
 		public static new IfcPolyline FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPolyline>(json);
-		}
-
-		public static new IfcPolyline FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8160,6 +7531,10 @@ namespace IFC4
 		public bool SenseAgreement{get;set;} 
 		public IfcTrimmingPreference MasterRepresentation{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcTrimmedCurve with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcTrimmedCurve(IfcCurve basisCurve,List<IfcTrimmingSelect> trim1,List<IfcTrimmingSelect> trim2,bool senseAgreement,IfcTrimmingPreference masterRepresentation):base()
 		{
 			BasisCurve = basisCurve;
@@ -8167,18 +7542,13 @@ namespace IFC4
 			Trim2 = trim2;
 			SenseAgreement = senseAgreement;
 			MasterRepresentation = masterRepresentation;
-
+			Trim1 = new List<IfcTrimmingSelect>();
+			Trim2 = new List<IfcTrimmingSelect>();
 
 		}
-
 		public static new IfcTrimmedCurve FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTrimmedCurve>(json);
-		}
-
-		public static new IfcTrimmedCurve FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8187,21 +7557,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcCurve : IfcGeometricRepresentationItem
 	{
-
+		/// <summary>
+		/// Construct a IfcCurve with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcCurve():base()
 		{
 
-
 		}
-
 		public static new IfcCurve FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCurve>(json);
-		}
-
-		public static new IfcCurve FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8214,23 +7580,21 @@ namespace IFC4
 		public IfcCurve OuterBoundary{get;set;} 
 		public List<IfcCurve> InnerBoundaries{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCurveBoundedPlane with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcCurveBoundedPlane(IfcPlane basisSurface,IfcCurve outerBoundary,List<IfcCurve> innerBoundaries):base()
 		{
 			BasisSurface = basisSurface;
 			OuterBoundary = outerBoundary;
 			InnerBoundaries = innerBoundaries;
-
+			InnerBoundaries = new List<IfcCurve>();
 
 		}
-
 		public static new IfcCurveBoundedPlane FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCurveBoundedPlane>(json);
-		}
-
-		public static new IfcCurveBoundedPlane FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8243,23 +7607,21 @@ namespace IFC4
 		public List<IfcBoundaryCurve> Boundaries{get;set;} 
 		public bool ImplicitOuter{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCurveBoundedSurface with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcCurveBoundedSurface(IfcSurface basisSurface,List<IfcBoundaryCurve> boundaries,bool implicitOuter):base()
 		{
 			BasisSurface = basisSurface;
 			Boundaries = boundaries;
 			ImplicitOuter = implicitOuter;
-
+			Boundaries = new List<IfcBoundaryCurve>();
 
 		}
-
 		public static new IfcCurveBoundedSurface FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCurveBoundedSurface>(json);
-		}
-
-		public static new IfcCurveBoundedSurface FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8276,6 +7638,10 @@ namespace IFC4
 		public bool Usense{get;set;} 
 		public bool Vsense{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRectangularTrimmedSurface with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcRectangularTrimmedSurface(IfcSurface basisSurface,IfcParameterValue u1,IfcParameterValue v1,IfcParameterValue u2,IfcParameterValue v2,bool usense,bool vsense):base()
 		{
 			BasisSurface = basisSurface;
@@ -8286,17 +7652,10 @@ namespace IFC4
 			Usense = usense;
 			Vsense = vsense;
 
-
 		}
-
 		public static new IfcRectangularTrimmedSurface FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRectangularTrimmedSurface>(json);
-		}
-
-		public static new IfcRectangularTrimmedSurface FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8305,21 +7664,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcSurface : IfcGeometricRepresentationItem
 	{
-
+		/// <summary>
+		/// Construct a IfcSurface with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcSurface():base()
 		{
 
-
 		}
-
 		public static new IfcSurface FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSurface>(json);
-		}
-
-		public static new IfcSurface FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8333,6 +7688,10 @@ namespace IFC4
 		public IfcPositiveLengthMeasure YDim{get;set;} 
 		public IfcPositiveLengthMeasure ZDim{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcBoundingBox with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcBoundingBox(IfcCartesianPoint corner,IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim,IfcPositiveLengthMeasure zDim):base()
 		{
 			Corner = corner;
@@ -8340,17 +7699,10 @@ namespace IFC4
 			YDim = yDim;
 			ZDim = zDim;
 
-
 		}
-
 		public static new IfcBoundingBox FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBoundingBox>(json);
-		}
-
-		public static new IfcBoundingBox FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8361,21 +7713,18 @@ namespace IFC4
 	{
 		public IfcBoundingBox Enclosure{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcBoxedHalfSpace with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcBoxedHalfSpace(IfcBoundingBox enclosure,IfcSurface baseSurface,bool agreementFlag):base(baseSurface,agreementFlag)
 		{
 			Enclosure = enclosure;
 
-
 		}
-
 		public static new IfcBoxedHalfSpace FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBoxedHalfSpace>(json);
-		}
-
-		public static new IfcBoxedHalfSpace FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8387,22 +7736,19 @@ namespace IFC4
 		public IfcSurface BaseSurface{get;set;} 
 		public bool AgreementFlag{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcHalfSpaceSolid with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcHalfSpaceSolid(IfcSurface baseSurface,bool agreementFlag):base()
 		{
 			BaseSurface = baseSurface;
 			AgreementFlag = agreementFlag;
 
-
 		}
-
 		public static new IfcHalfSpaceSolid FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcHalfSpaceSolid>(json);
-		}
-
-		public static new IfcHalfSpaceSolid FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8415,20 +7761,27 @@ namespace IFC4
 		public IfcLengthMeasure ElevationOfTerrain{get;set;} // optional
 		public IfcPostalAddress BuildingAddress{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcBuilding with all required attributes.
+		/// </summary>
 		public IfcBuilding(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcBuilding with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBuilding(IfcLengthMeasure elevationOfRefHeight,IfcLengthMeasure elevationOfTerrain,IfcPostalAddress buildingAddress,IfcElementCompositionEnum compositionType,IfcLabel longName,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(compositionType,longName,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			ElevationOfRefHeight = elevationOfRefHeight;
+			ElevationOfTerrain = elevationOfTerrain;
+			BuildingAddress = buildingAddress;
 
 		}
-
 		public static new IfcBuilding FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBuilding>(json);
-		}
-
-		public static new IfcBuilding FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8439,20 +7792,25 @@ namespace IFC4
 	{
 		public IfcElementCompositionEnum CompositionType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSpatialStructureElement with all required attributes.
+		/// </summary>
 		public IfcSpatialStructureElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSpatialStructureElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSpatialStructureElement(IfcElementCompositionEnum compositionType,IfcLabel longName,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(longName,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			CompositionType = compositionType;
 
 		}
-
 		public static new IfcSpatialStructureElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSpatialStructureElement>(json);
-		}
-
-		public static new IfcSpatialStructureElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8463,20 +7821,25 @@ namespace IFC4
 	{
 		public IfcBuildingElementProxyTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcBuildingElementProxy with all required attributes.
+		/// </summary>
 		public IfcBuildingElementProxy(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcBuildingElementProxy with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBuildingElementProxy(IfcBuildingElementProxyTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcBuildingElementProxy FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBuildingElementProxy>(json);
-		}
-
-		public static new IfcBuildingElementProxy FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8487,20 +7850,25 @@ namespace IFC4
 	{
 		public IfcChimneyTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcChimney with all required attributes.
+		/// </summary>
 		public IfcChimney(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcChimney with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcChimney(IfcChimneyTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcChimney FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcChimney>(json);
-		}
-
-		public static new IfcChimney FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8511,20 +7879,25 @@ namespace IFC4
 	{
 		public IfcColumnTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcColumn with all required attributes.
+		/// </summary>
 		public IfcColumn(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcColumn with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcColumn(IfcColumnTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcColumn FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcColumn>(json);
-		}
-
-		public static new IfcColumn FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8535,20 +7908,25 @@ namespace IFC4
 	{
 		public IfcCoveringTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCovering with all required attributes.
+		/// </summary>
 		public IfcCovering(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCovering with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCovering(IfcCoveringTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCovering FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCovering>(json);
-		}
-
-		public static new IfcCovering FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8559,20 +7937,25 @@ namespace IFC4
 	{
 		public IfcCurtainWallTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCurtainWall with all required attributes.
+		/// </summary>
 		public IfcCurtainWall(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCurtainWall with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCurtainWall(IfcCurtainWallTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCurtainWall FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCurtainWall>(json);
-		}
-
-		public static new IfcCurtainWall FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8587,20 +7970,29 @@ namespace IFC4
 		public IfcDoorTypeOperationEnum OperationType{get;set;} // optional
 		public IfcLabel UserDefinedOperationType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcDoor with all required attributes.
+		/// </summary>
 		public IfcDoor(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcDoor with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDoor(IfcPositiveLengthMeasure overallHeight,IfcPositiveLengthMeasure overallWidth,IfcDoorTypeEnum predefinedType,IfcDoorTypeOperationEnum operationType,IfcLabel userDefinedOperationType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			OverallHeight = overallHeight;
+			OverallWidth = overallWidth;
+			PredefinedType = predefinedType;
+			OperationType = operationType;
+			UserDefinedOperationType = userDefinedOperationType;
 
 		}
-
 		public static new IfcDoor FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDoor>(json);
-		}
-
-		public static new IfcDoor FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8611,20 +8003,25 @@ namespace IFC4
 	{
 		public IfcFootingTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcFooting with all required attributes.
+		/// </summary>
 		public IfcFooting(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFooting with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFooting(IfcFootingTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcFooting FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFooting>(json);
-		}
-
-		public static new IfcFooting FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8635,20 +8032,25 @@ namespace IFC4
 	{
 		public IfcMemberTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcMember with all required attributes.
+		/// </summary>
 		public IfcMember(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcMember with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMember(IfcMemberTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcMember FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMember>(json);
-		}
-
-		public static new IfcMember FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8660,20 +8062,26 @@ namespace IFC4
 		public IfcPileTypeEnum PredefinedType{get;set;} // optional
 		public IfcPileConstructionEnum ConstructionType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPile with all required attributes.
+		/// </summary>
 		public IfcPile(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPile with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPile(IfcPileTypeEnum predefinedType,IfcPileConstructionEnum constructionType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			ConstructionType = constructionType;
 
 		}
-
 		public static new IfcPile FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPile>(json);
-		}
-
-		public static new IfcPile FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8684,20 +8092,25 @@ namespace IFC4
 	{
 		public IfcPlateTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPlate with all required attributes.
+		/// </summary>
 		public IfcPlate(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPlate with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPlate(IfcPlateTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcPlate FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPlate>(json);
-		}
-
-		public static new IfcPlate FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8708,20 +8121,25 @@ namespace IFC4
 	{
 		public IfcRailingTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcRailing with all required attributes.
+		/// </summary>
 		public IfcRailing(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcRailing with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRailing(IfcRailingTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcRailing FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRailing>(json);
-		}
-
-		public static new IfcRailing FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8732,20 +8150,25 @@ namespace IFC4
 	{
 		public IfcRampTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcRamp with all required attributes.
+		/// </summary>
 		public IfcRamp(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcRamp with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRamp(IfcRampTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcRamp FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRamp>(json);
-		}
-
-		public static new IfcRamp FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8756,20 +8179,25 @@ namespace IFC4
 	{
 		public IfcRampFlightTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcRampFlight with all required attributes.
+		/// </summary>
 		public IfcRampFlight(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcRampFlight with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRampFlight(IfcRampFlightTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcRampFlight FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRampFlight>(json);
-		}
-
-		public static new IfcRampFlight FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8780,20 +8208,25 @@ namespace IFC4
 	{
 		public IfcRoofTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcRoof with all required attributes.
+		/// </summary>
 		public IfcRoof(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcRoof with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRoof(IfcRoofTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcRoof FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRoof>(json);
-		}
-
-		public static new IfcRoof FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8804,20 +8237,25 @@ namespace IFC4
 	{
 		public IfcShadingDeviceTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcShadingDevice with all required attributes.
+		/// </summary>
 		public IfcShadingDevice(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcShadingDevice with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcShadingDevice(IfcShadingDeviceTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcShadingDevice FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcShadingDevice>(json);
-		}
-
-		public static new IfcShadingDevice FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8828,20 +8266,25 @@ namespace IFC4
 	{
 		public IfcSlabTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSlab with all required attributes.
+		/// </summary>
 		public IfcSlab(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSlab with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSlab(IfcSlabTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcSlab FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSlab>(json);
-		}
-
-		public static new IfcSlab FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8852,20 +8295,25 @@ namespace IFC4
 	{
 		public IfcStairTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcStair with all required attributes.
+		/// </summary>
 		public IfcStair(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStair with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStair(IfcStairTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcStair FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStair>(json);
-		}
-
-		public static new IfcStair FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8880,20 +8328,29 @@ namespace IFC4
 		public IfcPositiveLengthMeasure TreadLength{get;set;} // optional
 		public IfcStairFlightTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcStairFlight with all required attributes.
+		/// </summary>
 		public IfcStairFlight(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStairFlight with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStairFlight(int numberOfRiser,int numberOfTreads,IfcPositiveLengthMeasure riserHeight,IfcPositiveLengthMeasure treadLength,IfcStairFlightTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			NumberOfRiser = numberOfRiser;
+			NumberOfTreads = numberOfTreads;
+			RiserHeight = riserHeight;
+			TreadLength = treadLength;
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcStairFlight FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStairFlight>(json);
-		}
-
-		public static new IfcStairFlight FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8904,20 +8361,25 @@ namespace IFC4
 	{
 		public IfcWallTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcWall with all required attributes.
+		/// </summary>
 		public IfcWall(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcWall with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcWall(IfcWallTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcWall FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcWall>(json);
-		}
-
-		public static new IfcWall FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8932,20 +8394,29 @@ namespace IFC4
 		public IfcWindowTypePartitioningEnum PartitioningType{get;set;} // optional
 		public IfcLabel UserDefinedPartitioningType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcWindow with all required attributes.
+		/// </summary>
 		public IfcWindow(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcWindow with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcWindow(IfcPositiveLengthMeasure overallHeight,IfcPositiveLengthMeasure overallWidth,IfcWindowTypeEnum predefinedType,IfcWindowTypePartitioningEnum partitioningType,IfcLabel userDefinedPartitioningType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			OverallHeight = overallHeight;
+			OverallWidth = overallWidth;
+			PredefinedType = predefinedType;
+			PartitioningType = partitioningType;
+			UserDefinedPartitioningType = userDefinedPartitioningType;
 
 		}
-
 		public static new IfcWindow FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcWindow>(json);
-		}
-
-		public static new IfcWindow FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8956,20 +8427,25 @@ namespace IFC4
 	{
 		public IfcIdentifier Tag{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcElement with all required attributes.
+		/// </summary>
 		public IfcElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcElement(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			Tag = tag;
 
 		}
-
 		public static new IfcElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElement>(json);
-		}
-
-		public static new IfcElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -8980,20 +8456,25 @@ namespace IFC4
 	{
 		public IfcBuildingElementPartTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcBuildingElementPart with all required attributes.
+		/// </summary>
 		public IfcBuildingElementPart(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcBuildingElementPart with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBuildingElementPart(IfcBuildingElementPartTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcBuildingElementPart FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBuildingElementPart>(json);
-		}
-
-		public static new IfcBuildingElementPart FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9002,21 +8483,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcElementComponent : IfcElement
 	{
-
+		/// <summary>
+		/// Construct a IfcElementComponent with all required attributes.
+		/// </summary>
 		public IfcElementComponent(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcElementComponent with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcElementComponent(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcElementComponent FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElementComponent>(json);
-		}
-
-		public static new IfcElementComponent FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9027,21 +8511,26 @@ namespace IFC4
 	{
 		public IfcBuildingElementPartTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcBuildingElementPartType with all required attributes.
+		/// </summary>
 		public IfcBuildingElementPartType(IfcBuildingElementPartTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcBuildingElementPartType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBuildingElementPartType(IfcBuildingElementPartTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcBuildingElementPartType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBuildingElementPartType>(json);
-		}
-
-		public static new IfcBuildingElementPartType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9050,21 +8539,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcElementComponentType : IfcElementType
 	{
-
+		/// <summary>
+		/// Construct a IfcElementComponentType with all required attributes.
+		/// </summary>
 		public IfcElementComponentType(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcElementComponentType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcElementComponentType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcElementComponentType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElementComponentType>(json);
-		}
-
-		public static new IfcElementComponentType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9075,21 +8567,26 @@ namespace IFC4
 	{
 		public IfcBuildingElementProxyTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcBuildingElementProxyType with all required attributes.
+		/// </summary>
 		public IfcBuildingElementProxyType(IfcBuildingElementProxyTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcBuildingElementProxyType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBuildingElementProxyType(IfcBuildingElementProxyTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcBuildingElementProxyType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBuildingElementProxyType>(json);
-		}
-
-		public static new IfcBuildingElementProxyType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9100,21 +8597,26 @@ namespace IFC4
 	{
 		public IfcChimneyTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcChimneyType with all required attributes.
+		/// </summary>
 		public IfcChimneyType(IfcChimneyTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcChimneyType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcChimneyType(IfcChimneyTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcChimneyType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcChimneyType>(json);
-		}
-
-		public static new IfcChimneyType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9125,21 +8627,26 @@ namespace IFC4
 	{
 		public IfcColumnTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcColumnType with all required attributes.
+		/// </summary>
 		public IfcColumnType(IfcColumnTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcColumnType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcColumnType(IfcColumnTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcColumnType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcColumnType>(json);
-		}
-
-		public static new IfcColumnType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9150,21 +8657,26 @@ namespace IFC4
 	{
 		public IfcCoveringTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCoveringType with all required attributes.
+		/// </summary>
 		public IfcCoveringType(IfcCoveringTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcCoveringType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCoveringType(IfcCoveringTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCoveringType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCoveringType>(json);
-		}
-
-		public static new IfcCoveringType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9175,21 +8687,26 @@ namespace IFC4
 	{
 		public IfcCurtainWallTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCurtainWallType with all required attributes.
+		/// </summary>
 		public IfcCurtainWallType(IfcCurtainWallTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcCurtainWallType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCurtainWallType(IfcCurtainWallTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCurtainWallType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCurtainWallType>(json);
-		}
-
-		public static new IfcCurtainWallType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9203,22 +8720,30 @@ namespace IFC4
 		public bool ParameterTakesPrecedence{get;set;} // optional
 		public IfcLabel UserDefinedOperationType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcDoorType with all required attributes.
+		/// </summary>
 		public IfcDoorType(IfcDoorTypeEnum predefinedType,IfcDoorTypeOperationEnum operationType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 			OperationType = operationType;
 
+		}
+		/// <summary>
+		/// Construct a IfcDoorType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDoorType(IfcDoorTypeEnum predefinedType,IfcDoorTypeOperationEnum operationType,bool parameterTakesPrecedence,IfcLabel userDefinedOperationType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			OperationType = operationType;
+			ParameterTakesPrecedence = parameterTakesPrecedence;
+			UserDefinedOperationType = userDefinedOperationType;
 
 		}
-
 		public static new IfcDoorType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDoorType>(json);
-		}
-
-		public static new IfcDoorType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9229,21 +8754,26 @@ namespace IFC4
 	{
 		public IfcFootingTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcFootingType with all required attributes.
+		/// </summary>
 		public IfcFootingType(IfcFootingTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcFootingType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFootingType(IfcFootingTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcFootingType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFootingType>(json);
-		}
-
-		public static new IfcFootingType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9254,21 +8784,26 @@ namespace IFC4
 	{
 		public IfcMemberTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcMemberType with all required attributes.
+		/// </summary>
 		public IfcMemberType(IfcMemberTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcMemberType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMemberType(IfcMemberTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcMemberType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMemberType>(json);
-		}
-
-		public static new IfcMemberType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9279,21 +8814,26 @@ namespace IFC4
 	{
 		public IfcPileTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcPileType with all required attributes.
+		/// </summary>
 		public IfcPileType(IfcPileTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcPileType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPileType(IfcPileTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcPileType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPileType>(json);
-		}
-
-		public static new IfcPileType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9304,21 +8844,26 @@ namespace IFC4
 	{
 		public IfcPlateTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcPlateType with all required attributes.
+		/// </summary>
 		public IfcPlateType(IfcPlateTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcPlateType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPlateType(IfcPlateTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcPlateType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPlateType>(json);
-		}
-
-		public static new IfcPlateType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9329,21 +8874,26 @@ namespace IFC4
 	{
 		public IfcRailingTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRailingType with all required attributes.
+		/// </summary>
 		public IfcRailingType(IfcRailingTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcRailingType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRailingType(IfcRailingTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcRailingType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRailingType>(json);
-		}
-
-		public static new IfcRailingType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9354,21 +8904,26 @@ namespace IFC4
 	{
 		public IfcRampFlightTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRampFlightType with all required attributes.
+		/// </summary>
 		public IfcRampFlightType(IfcRampFlightTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcRampFlightType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRampFlightType(IfcRampFlightTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcRampFlightType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRampFlightType>(json);
-		}
-
-		public static new IfcRampFlightType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9379,21 +8934,26 @@ namespace IFC4
 	{
 		public IfcRampTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRampType with all required attributes.
+		/// </summary>
 		public IfcRampType(IfcRampTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcRampType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRampType(IfcRampTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcRampType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRampType>(json);
-		}
-
-		public static new IfcRampType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9404,21 +8964,26 @@ namespace IFC4
 	{
 		public IfcRoofTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRoofType with all required attributes.
+		/// </summary>
 		public IfcRoofType(IfcRoofTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcRoofType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRoofType(IfcRoofTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcRoofType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRoofType>(json);
-		}
-
-		public static new IfcRoofType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9429,21 +8994,26 @@ namespace IFC4
 	{
 		public IfcShadingDeviceTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcShadingDeviceType with all required attributes.
+		/// </summary>
 		public IfcShadingDeviceType(IfcShadingDeviceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcShadingDeviceType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcShadingDeviceType(IfcShadingDeviceTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcShadingDeviceType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcShadingDeviceType>(json);
-		}
-
-		public static new IfcShadingDeviceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9454,21 +9024,26 @@ namespace IFC4
 	{
 		public IfcSlabTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcSlabType with all required attributes.
+		/// </summary>
 		public IfcSlabType(IfcSlabTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcSlabType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSlabType(IfcSlabTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcSlabType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSlabType>(json);
-		}
-
-		public static new IfcSlabType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9479,21 +9054,26 @@ namespace IFC4
 	{
 		public IfcStairFlightTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcStairFlightType with all required attributes.
+		/// </summary>
 		public IfcStairFlightType(IfcStairFlightTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcStairFlightType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStairFlightType(IfcStairFlightTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcStairFlightType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStairFlightType>(json);
-		}
-
-		public static new IfcStairFlightType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9504,21 +9084,26 @@ namespace IFC4
 	{
 		public IfcStairTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcStairType with all required attributes.
+		/// </summary>
 		public IfcStairType(IfcStairTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcStairType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStairType(IfcStairTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcStairType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStairType>(json);
-		}
-
-		public static new IfcStairType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9529,21 +9114,26 @@ namespace IFC4
 	{
 		public IfcWallTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcWallType with all required attributes.
+		/// </summary>
 		public IfcWallType(IfcWallTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcWallType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcWallType(IfcWallTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcWallType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcWallType>(json);
-		}
-
-		public static new IfcWallType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9557,22 +9147,30 @@ namespace IFC4
 		public bool ParameterTakesPrecedence{get;set;} // optional
 		public IfcLabel UserDefinedPartitioningType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcWindowType with all required attributes.
+		/// </summary>
 		public IfcWindowType(IfcWindowTypeEnum predefinedType,IfcWindowTypePartitioningEnum partitioningType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 			PartitioningType = partitioningType;
 
+		}
+		/// <summary>
+		/// Construct a IfcWindowType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcWindowType(IfcWindowTypeEnum predefinedType,IfcWindowTypePartitioningEnum partitioningType,bool parameterTakesPrecedence,IfcLabel userDefinedPartitioningType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			PartitioningType = partitioningType;
+			ParameterTakesPrecedence = parameterTakesPrecedence;
+			UserDefinedPartitioningType = userDefinedPartitioningType;
 
 		}
-
 		public static new IfcWindowType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcWindowType>(json);
-		}
-
-		public static new IfcWindowType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9583,20 +9181,25 @@ namespace IFC4
 	{
 		public IfcLabel ElementType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcElementType with all required attributes.
+		/// </summary>
 		public IfcElementType(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcElementType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcElementType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			ElementType = elementType;
 
 		}
-
 		public static new IfcElementType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElementType>(json);
-		}
-
-		public static new IfcElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9607,20 +9210,25 @@ namespace IFC4
 	{
 		public IfcLengthMeasure Elevation{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcBuildingStorey with all required attributes.
+		/// </summary>
 		public IfcBuildingStorey(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcBuildingStorey with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBuildingStorey(IfcLengthMeasure elevation,IfcElementCompositionEnum compositionType,IfcLabel longName,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(compositionType,longName,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			Elevation = elevation;
 
 		}
-
 		public static new IfcBuildingStorey FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBuildingStorey>(json);
-		}
-
-		public static new IfcBuildingStorey FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9631,20 +9239,25 @@ namespace IFC4
 	{
 		public IfcBuildingSystemTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcBuildingSystem with all required attributes.
+		/// </summary>
 		public IfcBuildingSystem(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcBuildingSystem with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBuildingSystem(IfcBuildingSystemTypeEnum predefinedType,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcBuildingSystem FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBuildingSystem>(json);
-		}
-
-		public static new IfcBuildingSystem FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9653,21 +9266,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcSystem : IfcGroup
 	{
-
+		/// <summary>
+		/// Construct a IfcSystem with all required attributes.
+		/// </summary>
 		public IfcSystem(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSystem with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSystem(IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcSystem FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSystem>(json);
-		}
-
-		public static new IfcSystem FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9678,20 +9294,25 @@ namespace IFC4
 	{
 		public IfcBurnerTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcBurner with all required attributes.
+		/// </summary>
 		public IfcBurner(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcBurner with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBurner(IfcBurnerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcBurner FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBurner>(json);
-		}
-
-		public static new IfcBurner FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9702,21 +9323,26 @@ namespace IFC4
 	{
 		public IfcBurnerTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcBurnerType with all required attributes.
+		/// </summary>
 		public IfcBurnerType(IfcBurnerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcBurnerType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcBurnerType(IfcBurnerTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcBurnerType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcBurnerType>(json);
-		}
-
-		public static new IfcBurnerType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9731,6 +9357,9 @@ namespace IFC4
 		public IfcPositiveLengthMeasure Girth{get;set;} 
 		public IfcNonNegativeLengthMeasure InternalFilletRadius{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCShapeProfileDef with all required attributes.
+		/// </summary>
 		public IfcCShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure width,IfcPositiveLengthMeasure wallThickness,IfcPositiveLengthMeasure girth,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			Depth = depth;
@@ -9738,17 +9367,23 @@ namespace IFC4
 			WallThickness = wallThickness;
 			Girth = girth;
 
+		}
+		/// <summary>
+		/// Construct a IfcCShapeProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure width,IfcPositiveLengthMeasure wallThickness,IfcPositiveLengthMeasure girth,IfcNonNegativeLengthMeasure internalFilletRadius,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		{
+			Depth = depth;
+			Width = width;
+			WallThickness = wallThickness;
+			Girth = girth;
+			InternalFilletRadius = internalFilletRadius;
 
 		}
-
 		public static new IfcCShapeProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCShapeProfileDef>(json);
-		}
-
-		public static new IfcCShapeProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9759,20 +9394,25 @@ namespace IFC4
 	{
 		public IfcCableCarrierFittingTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCableCarrierFitting with all required attributes.
+		/// </summary>
 		public IfcCableCarrierFitting(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCableCarrierFitting with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCableCarrierFitting(IfcCableCarrierFittingTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCableCarrierFitting FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCableCarrierFitting>(json);
-		}
-
-		public static new IfcCableCarrierFitting FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9781,21 +9421,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFlowFitting : IfcDistributionFlowElement
 	{
-
+		/// <summary>
+		/// Construct a IfcFlowFitting with all required attributes.
+		/// </summary>
 		public IfcFlowFitting(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFlowFitting with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFlowFitting(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcFlowFitting FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFlowFitting>(json);
-		}
-
-		public static new IfcFlowFitting FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9806,21 +9449,26 @@ namespace IFC4
 	{
 		public IfcCableCarrierFittingTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCableCarrierFittingType with all required attributes.
+		/// </summary>
 		public IfcCableCarrierFittingType(IfcCableCarrierFittingTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcCableCarrierFittingType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCableCarrierFittingType(IfcCableCarrierFittingTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCableCarrierFittingType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCableCarrierFittingType>(json);
-		}
-
-		public static new IfcCableCarrierFittingType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9829,21 +9477,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcFlowFittingType : IfcDistributionFlowElementType
 	{
-
+		/// <summary>
+		/// Construct a IfcFlowFittingType with all required attributes.
+		/// </summary>
 		public IfcFlowFittingType(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFlowFittingType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFlowFittingType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcFlowFittingType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFlowFittingType>(json);
-		}
-
-		public static new IfcFlowFittingType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9854,20 +9505,25 @@ namespace IFC4
 	{
 		public IfcCableCarrierSegmentTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCableCarrierSegment with all required attributes.
+		/// </summary>
 		public IfcCableCarrierSegment(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCableCarrierSegment with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCableCarrierSegment(IfcCableCarrierSegmentTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCableCarrierSegment FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCableCarrierSegment>(json);
-		}
-
-		public static new IfcCableCarrierSegment FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9876,21 +9532,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFlowSegment : IfcDistributionFlowElement
 	{
-
+		/// <summary>
+		/// Construct a IfcFlowSegment with all required attributes.
+		/// </summary>
 		public IfcFlowSegment(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFlowSegment with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFlowSegment(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcFlowSegment FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFlowSegment>(json);
-		}
-
-		public static new IfcFlowSegment FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9901,21 +9560,26 @@ namespace IFC4
 	{
 		public IfcCableCarrierSegmentTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCableCarrierSegmentType with all required attributes.
+		/// </summary>
 		public IfcCableCarrierSegmentType(IfcCableCarrierSegmentTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcCableCarrierSegmentType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCableCarrierSegmentType(IfcCableCarrierSegmentTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCableCarrierSegmentType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCableCarrierSegmentType>(json);
-		}
-
-		public static new IfcCableCarrierSegmentType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9924,21 +9588,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcFlowSegmentType : IfcDistributionFlowElementType
 	{
-
+		/// <summary>
+		/// Construct a IfcFlowSegmentType with all required attributes.
+		/// </summary>
 		public IfcFlowSegmentType(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFlowSegmentType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFlowSegmentType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcFlowSegmentType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFlowSegmentType>(json);
-		}
-
-		public static new IfcFlowSegmentType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9949,20 +9616,25 @@ namespace IFC4
 	{
 		public IfcCableFittingTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCableFitting with all required attributes.
+		/// </summary>
 		public IfcCableFitting(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCableFitting with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCableFitting(IfcCableFittingTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCableFitting FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCableFitting>(json);
-		}
-
-		public static new IfcCableFitting FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9973,21 +9645,26 @@ namespace IFC4
 	{
 		public IfcCableFittingTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCableFittingType with all required attributes.
+		/// </summary>
 		public IfcCableFittingType(IfcCableFittingTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcCableFittingType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCableFittingType(IfcCableFittingTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCableFittingType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCableFittingType>(json);
-		}
-
-		public static new IfcCableFittingType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -9998,20 +9675,25 @@ namespace IFC4
 	{
 		public IfcCableSegmentTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCableSegment with all required attributes.
+		/// </summary>
 		public IfcCableSegment(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCableSegment with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCableSegment(IfcCableSegmentTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCableSegment FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCableSegment>(json);
-		}
-
-		public static new IfcCableSegment FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10022,21 +9704,26 @@ namespace IFC4
 	{
 		public IfcCableSegmentTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCableSegmentType with all required attributes.
+		/// </summary>
 		public IfcCableSegmentType(IfcCableSegmentTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcCableSegmentType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCableSegmentType(IfcCableSegmentTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCableSegmentType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCableSegmentType>(json);
-		}
-
-		public static new IfcCableSegmentType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10047,21 +9734,19 @@ namespace IFC4
 	{
 		public List<IfcLengthMeasure> Coordinates{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCartesianPoint with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcCartesianPoint(List<IfcLengthMeasure> coordinates):base()
 		{
 			Coordinates = coordinates;
-
+			Coordinates = new List<IfcLengthMeasure>();
 
 		}
-
 		public static new IfcCartesianPoint FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCartesianPoint>(json);
-		}
-
-		public static new IfcCartesianPoint FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10070,21 +9755,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcPoint : IfcGeometricRepresentationItem
 	{
-
+		/// <summary>
+		/// Construct a IfcPoint with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcPoint():base()
 		{
 
-
 		}
-
 		public static new IfcPoint FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPoint>(json);
-		}
-
-		public static new IfcPoint FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10093,21 +9774,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcCartesianPointList : IfcGeometricRepresentationItem
 	{
-
+		/// <summary>
+		/// Construct a IfcCartesianPointList with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcCartesianPointList():base()
 		{
 
-
 		}
-
 		public static new IfcCartesianPointList FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCartesianPointList>(json);
-		}
-
-		public static new IfcCartesianPointList FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10118,21 +9795,19 @@ namespace IFC4
 	{
 		public List<List<IfcLengthMeasure>> CoordList{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCartesianPointList3D with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcCartesianPointList3D(List<List<IfcLengthMeasure>> coordList):base()
 		{
 			CoordList = coordList;
-
+			CoordList = new List<List<IfcLengthMeasure>>();
 
 		}
-
 		public static new IfcCartesianPointList3D FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCartesianPointList3D>(json);
-		}
-
-		public static new IfcCartesianPointList3D FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10146,21 +9821,29 @@ namespace IFC4
 		public IfcCartesianPoint LocalOrigin{get;set;} 
 		public double Scale{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCartesianTransformationOperator with all required attributes.
+		/// </summary>
 		public IfcCartesianTransformationOperator(IfcCartesianPoint localOrigin):base()
 		{
 			LocalOrigin = localOrigin;
 
+		}
+		/// <summary>
+		/// Construct a IfcCartesianTransformationOperator with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCartesianTransformationOperator(IfcDirection axis1,IfcDirection axis2,IfcCartesianPoint localOrigin,double scale):base()
+		{
+			Axis1 = axis1;
+			Axis2 = axis2;
+			LocalOrigin = localOrigin;
+			Scale = scale;
 
 		}
-
 		public static new IfcCartesianTransformationOperator FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCartesianTransformationOperator>(json);
-		}
-
-		public static new IfcCartesianTransformationOperator FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10169,21 +9852,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCartesianTransformationOperator2D : IfcCartesianTransformationOperator
 	{
-
+		/// <summary>
+		/// Construct a IfcCartesianTransformationOperator2D with all required attributes.
+		/// </summary>
 		public IfcCartesianTransformationOperator2D(IfcCartesianPoint localOrigin):base(localOrigin)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCartesianTransformationOperator2D with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCartesianTransformationOperator2D(IfcDirection axis1,IfcDirection axis2,IfcCartesianPoint localOrigin,double scale):base(axis1,axis2,localOrigin,scale)
+		{
 
 		}
-
 		public static new IfcCartesianTransformationOperator2D FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCartesianTransformationOperator2D>(json);
-		}
-
-		public static new IfcCartesianTransformationOperator2D FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10194,20 +9880,25 @@ namespace IFC4
 	{
 		public IfcDirection Axis3{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCartesianTransformationOperator3D with all required attributes.
+		/// </summary>
 		public IfcCartesianTransformationOperator3D(IfcCartesianPoint localOrigin):base(localOrigin)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCartesianTransformationOperator3D with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCartesianTransformationOperator3D(IfcDirection axis3,IfcDirection axis1,IfcDirection axis2,IfcCartesianPoint localOrigin,double scale):base(axis1,axis2,localOrigin,scale)
+		{
+			Axis3 = axis3;
 
 		}
-
 		public static new IfcCartesianTransformationOperator3D FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCartesianTransformationOperator3D>(json);
-		}
-
-		public static new IfcCartesianTransformationOperator3D FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10218,20 +9909,25 @@ namespace IFC4
 	{
 		public double Scale2{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCartesianTransformationOperator2DnonUniform with all required attributes.
+		/// </summary>
 		public IfcCartesianTransformationOperator2DnonUniform(IfcCartesianPoint localOrigin):base(localOrigin)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCartesianTransformationOperator2DnonUniform with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCartesianTransformationOperator2DnonUniform(double scale2,IfcDirection axis1,IfcDirection axis2,IfcCartesianPoint localOrigin,double scale):base(axis1,axis2,localOrigin,scale)
+		{
+			Scale2 = scale2;
 
 		}
-
 		public static new IfcCartesianTransformationOperator2DnonUniform FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCartesianTransformationOperator2DnonUniform>(json);
-		}
-
-		public static new IfcCartesianTransformationOperator2DnonUniform FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10243,20 +9939,26 @@ namespace IFC4
 		public double Scale2{get;set;} // optional
 		public double Scale3{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCartesianTransformationOperator3DnonUniform with all required attributes.
+		/// </summary>
 		public IfcCartesianTransformationOperator3DnonUniform(IfcCartesianPoint localOrigin):base(localOrigin)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCartesianTransformationOperator3DnonUniform with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCartesianTransformationOperator3DnonUniform(double scale2,double scale3,IfcDirection axis3,IfcDirection axis1,IfcDirection axis2,IfcCartesianPoint localOrigin,double scale):base(axis3,axis1,axis2,localOrigin,scale)
+		{
+			Scale2 = scale2;
+			Scale3 = scale3;
 
 		}
-
 		public static new IfcCartesianTransformationOperator3DnonUniform FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCartesianTransformationOperator3DnonUniform>(json);
-		}
-
-		public static new IfcCartesianTransformationOperator3DnonUniform FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10267,20 +9969,25 @@ namespace IFC4
 	{
 		public IfcChillerTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcChiller with all required attributes.
+		/// </summary>
 		public IfcChiller(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcChiller with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcChiller(IfcChillerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcChiller FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcChiller>(json);
-		}
-
-		public static new IfcChiller FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10291,21 +9998,26 @@ namespace IFC4
 	{
 		public IfcChillerTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcChillerType with all required attributes.
+		/// </summary>
 		public IfcChillerType(IfcChillerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcChillerType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcChillerType(IfcChillerTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcChillerType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcChillerType>(json);
-		}
-
-		public static new IfcChillerType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10316,21 +10028,18 @@ namespace IFC4
 	{
 		public IfcPositiveLengthMeasure Radius{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCircle with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcCircle(IfcPositiveLengthMeasure radius,IfcAxis2Placement position):base(position)
 		{
 			Radius = radius;
 
-
 		}
-
 		public static new IfcCircle FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCircle>(json);
-		}
-
-		public static new IfcCircle FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10341,21 +10050,18 @@ namespace IFC4
 	{
 		public IfcAxis2Placement Position{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcConic with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcConic(IfcAxis2Placement position):base()
 		{
 			Position = position;
 
-
 		}
-
 		public static new IfcConic FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcConic>(json);
-		}
-
-		public static new IfcConic FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10366,21 +10072,26 @@ namespace IFC4
 	{
 		public IfcPositiveLengthMeasure WallThickness{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCircleHollowProfileDef with all required attributes.
+		/// </summary>
 		public IfcCircleHollowProfileDef(IfcPositiveLengthMeasure wallThickness,IfcPositiveLengthMeasure radius,IfcProfileTypeEnum profileType):base(radius,profileType)
 		{
 			WallThickness = wallThickness;
 
+		}
+		/// <summary>
+		/// Construct a IfcCircleHollowProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCircleHollowProfileDef(IfcPositiveLengthMeasure wallThickness,IfcPositiveLengthMeasure radius,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(radius,position,profileType,profileName)
+		{
+			WallThickness = wallThickness;
 
 		}
-
 		public static new IfcCircleHollowProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCircleHollowProfileDef>(json);
-		}
-
-		public static new IfcCircleHollowProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10391,21 +10102,26 @@ namespace IFC4
 	{
 		public IfcPositiveLengthMeasure Radius{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCircleProfileDef with all required attributes.
+		/// </summary>
 		public IfcCircleProfileDef(IfcPositiveLengthMeasure radius,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			Radius = radius;
 
+		}
+		/// <summary>
+		/// Construct a IfcCircleProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCircleProfileDef(IfcPositiveLengthMeasure radius,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		{
+			Radius = radius;
 
 		}
-
 		public static new IfcCircleProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCircleProfileDef>(json);
-		}
-
-		public static new IfcCircleProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10414,21 +10130,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCivilElement : IfcElement
 	{
-
+		/// <summary>
+		/// Construct a IfcCivilElement with all required attributes.
+		/// </summary>
 		public IfcCivilElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCivilElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCivilElement(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcCivilElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCivilElement>(json);
-		}
-
-		public static new IfcCivilElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10437,21 +10156,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcCivilElementType : IfcElementType
 	{
-
+		/// <summary>
+		/// Construct a IfcCivilElementType with all required attributes.
+		/// </summary>
 		public IfcCivilElementType(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCivilElementType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCivilElementType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcCivilElementType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCivilElementType>(json);
-		}
-
-		public static new IfcCivilElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10468,22 +10190,33 @@ namespace IFC4
 		public IfcURIReference Location{get;set;} // optional
 		public List<IfcIdentifier> ReferenceTokens{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcClassification with all required attributes.
+		/// </summary>
 		public IfcClassification(IfcLabel name):base()
 		{
 			Name = name;
 
+		}
+		/// <summary>
+		/// Construct a IfcClassification with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcClassification(IfcLabel source,IfcLabel edition,IfcDate editionDate,IfcLabel name,IfcText description,IfcURIReference location,List<IfcIdentifier> referenceTokens):base()
+		{
+			Source = source;
+			Edition = edition;
+			EditionDate = editionDate;
+			Name = name;
+			Description = description;
+			Location = location;
+			ReferenceTokens = referenceTokens;
 			ReferenceTokens = new List<IfcIdentifier>();
 
 		}
-
 		public static new IfcClassification FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcClassification>(json);
-		}
-
-		public static new IfcClassification FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10492,21 +10225,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcExternalInformation : IfcBase
 	{
-
+		/// <summary>
+		/// Construct a IfcExternalInformation with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcExternalInformation():base()
 		{
 
-
 		}
-
 		public static  IfcExternalInformation FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcExternalInformation>(json);
-		}
-
-		public static  IfcExternalInformation FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10519,20 +10248,27 @@ namespace IFC4
 		public IfcText Description{get;set;} // optional
 		public IfcIdentifier Sort{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcClassificationReference with all required attributes.
+		/// </summary>
 		public IfcClassificationReference():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcClassificationReference with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcClassificationReference(IfcClassificationReferenceSelect referencedSource,IfcText description,IfcIdentifier sort,IfcURIReference location,IfcIdentifier identification,IfcLabel name):base(location,identification,name)
+		{
+			ReferencedSource = referencedSource;
+			Description = description;
+			Sort = sort;
 
 		}
-
 		public static new IfcClassificationReference FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcClassificationReference>(json);
-		}
-
-		public static new IfcClassificationReference FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10545,20 +10281,27 @@ namespace IFC4
 		public IfcIdentifier Identification{get;set;} // optional
 		public IfcLabel Name{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcExternalReference with all required attributes.
+		/// </summary>
 		public IfcExternalReference():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcExternalReference with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcExternalReference(IfcURIReference location,IfcIdentifier identification,IfcLabel name):base()
+		{
+			Location = location;
+			Identification = identification;
+			Name = name;
 
 		}
-
 		public static  IfcExternalReference FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcExternalReference>(json);
-		}
-
-		public static  IfcExternalReference FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10567,21 +10310,17 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcClosedShell : IfcConnectedFaceSet
 	{
-
+		/// <summary>
+		/// Construct a IfcClosedShell with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcClosedShell(List<IfcFace> cfsFaces):base(cfsFaces)
 		{
 
-
 		}
-
 		public static new IfcClosedShell FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcClosedShell>(json);
-		}
-
-		public static new IfcClosedShell FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10592,21 +10331,19 @@ namespace IFC4
 	{
 		public List<IfcFace> CfsFaces{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcConnectedFaceSet with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcConnectedFaceSet(List<IfcFace> cfsFaces):base()
 		{
 			CfsFaces = cfsFaces;
-
+			CfsFaces = new List<IfcFace>();
 
 		}
-
 		public static new IfcConnectedFaceSet FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcConnectedFaceSet>(json);
-		}
-
-		public static new IfcConnectedFaceSet FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10617,20 +10354,25 @@ namespace IFC4
 	{
 		public IfcCoilTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCoil with all required attributes.
+		/// </summary>
 		public IfcCoil(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCoil with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCoil(IfcCoilTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCoil FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCoil>(json);
-		}
-
-		public static new IfcCoil FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10641,21 +10383,26 @@ namespace IFC4
 	{
 		public IfcCoilTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCoilType with all required attributes.
+		/// </summary>
 		public IfcCoilType(IfcCoilTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcCoilType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCoilType(IfcCoilTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCoilType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCoilType>(json);
-		}
-
-		public static new IfcCoilType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10668,23 +10415,30 @@ namespace IFC4
 		public IfcNormalisedRatioMeasure Green{get;set;} 
 		public IfcNormalisedRatioMeasure Blue{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcColourRgb with all required attributes.
+		/// </summary>
 		public IfcColourRgb(IfcNormalisedRatioMeasure red,IfcNormalisedRatioMeasure green,IfcNormalisedRatioMeasure blue):base()
 		{
 			Red = red;
 			Green = green;
 			Blue = blue;
 
+		}
+		/// <summary>
+		/// Construct a IfcColourRgb with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcColourRgb(IfcNormalisedRatioMeasure red,IfcNormalisedRatioMeasure green,IfcNormalisedRatioMeasure blue,IfcLabel name):base(name)
+		{
+			Red = red;
+			Green = green;
+			Blue = blue;
 
 		}
-
 		public static new IfcColourRgb FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcColourRgb>(json);
-		}
-
-		public static new IfcColourRgb FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10695,20 +10449,25 @@ namespace IFC4
 	{
 		public IfcLabel Name{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcColourSpecification with all required attributes.
+		/// </summary>
 		public IfcColourSpecification():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcColourSpecification with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcColourSpecification(IfcLabel name):base()
+		{
+			Name = name;
 
 		}
-
 		public static new IfcColourSpecification FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcColourSpecification>(json);
-		}
-
-		public static new IfcColourSpecification FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10719,21 +10478,19 @@ namespace IFC4
 	{
 		public List<List<IfcNormalisedRatioMeasure>> ColourList{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcColourRgbList with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcColourRgbList(List<List<IfcNormalisedRatioMeasure>> colourList):base()
 		{
 			ColourList = colourList;
-
+			ColourList = new List<List<IfcNormalisedRatioMeasure>>();
 
 		}
-
 		public static new IfcColourRgbList FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcColourRgbList>(json);
-		}
-
-		public static new IfcColourRgbList FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10742,21 +10499,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcPresentationItem : IfcBase
 	{
-
+		/// <summary>
+		/// Construct a IfcPresentationItem with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcPresentationItem():base()
 		{
 
-
 		}
-
 		public static  IfcPresentationItem FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPresentationItem>(json);
-		}
-
-		public static  IfcPresentationItem FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10765,21 +10518,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcColumnStandardCase : IfcColumn
 	{
-
+		/// <summary>
+		/// Construct a IfcColumnStandardCase with all required attributes.
+		/// </summary>
 		public IfcColumnStandardCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcColumnStandardCase with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcColumnStandardCase(IfcColumnTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcColumnStandardCase FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcColumnStandardCase>(json);
-		}
-
-		public static new IfcColumnStandardCase FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10790,20 +10546,25 @@ namespace IFC4
 	{
 		public IfcCommunicationsApplianceTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCommunicationsAppliance with all required attributes.
+		/// </summary>
 		public IfcCommunicationsAppliance(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCommunicationsAppliance with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCommunicationsAppliance(IfcCommunicationsApplianceTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCommunicationsAppliance FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCommunicationsAppliance>(json);
-		}
-
-		public static new IfcCommunicationsAppliance FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10814,21 +10575,26 @@ namespace IFC4
 	{
 		public IfcCommunicationsApplianceTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCommunicationsApplianceType with all required attributes.
+		/// </summary>
 		public IfcCommunicationsApplianceType(IfcCommunicationsApplianceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcCommunicationsApplianceType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCommunicationsApplianceType(IfcCommunicationsApplianceTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCommunicationsApplianceType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCommunicationsApplianceType>(json);
-		}
-
-		public static new IfcCommunicationsApplianceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10840,22 +10606,30 @@ namespace IFC4
 		public IfcIdentifier UsageName{get;set;} 
 		public List<IfcProperty> HasProperties{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcComplexProperty with all required attributes.
+		/// </summary>
 		public IfcComplexProperty(IfcIdentifier usageName,List<IfcProperty> hasProperties,IfcIdentifier name):base(name)
 		{
 			UsageName = usageName;
 			HasProperties = hasProperties;
-
+			HasProperties = new List<IfcProperty>();
 
 		}
+		/// <summary>
+		/// Construct a IfcComplexProperty with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcComplexProperty(IfcIdentifier usageName,List<IfcProperty> hasProperties,IfcIdentifier name,IfcText description):base(name,description)
+		{
+			UsageName = usageName;
+			HasProperties = hasProperties;
+			HasProperties = new List<IfcProperty>();
 
+		}
 		public static new IfcComplexProperty FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcComplexProperty>(json);
-		}
-
-		public static new IfcComplexProperty FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10867,21 +10641,27 @@ namespace IFC4
 		public IfcIdentifier Name{get;set;} 
 		public IfcText Description{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcProperty with all required attributes.
+		/// </summary>
 		public IfcProperty(IfcIdentifier name):base()
 		{
 			Name = name;
 
+		}
+		/// <summary>
+		/// Construct a IfcProperty with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcProperty(IfcIdentifier name,IfcText description):base()
+		{
+			Name = name;
+			Description = description;
 
 		}
-
 		public static new IfcProperty FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcProperty>(json);
-		}
-
-		public static new IfcProperty FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10894,21 +10674,28 @@ namespace IFC4
 		public IfcComplexPropertyTemplateTypeEnum TemplateType{get;set;} // optional
 		public List<IfcPropertyTemplate> HasPropertyTemplates{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcComplexPropertyTemplate with all required attributes.
+		/// </summary>
 		public IfcComplexPropertyTemplate(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcComplexPropertyTemplate with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcComplexPropertyTemplate(IfcLabel usageName,IfcComplexPropertyTemplateTypeEnum templateType,List<IfcPropertyTemplate> hasPropertyTemplates,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			UsageName = usageName;
+			TemplateType = templateType;
+			HasPropertyTemplates = hasPropertyTemplates;
 			HasPropertyTemplates = new List<IfcPropertyTemplate>();
 
 		}
-
 		public static new IfcComplexPropertyTemplate FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcComplexPropertyTemplate>(json);
-		}
-
-		public static new IfcComplexPropertyTemplate FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10917,21 +10704,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcPropertyTemplate : IfcPropertyTemplateDefinition
 	{
-
+		/// <summary>
+		/// Construct a IfcPropertyTemplate with all required attributes.
+		/// </summary>
 		public IfcPropertyTemplate(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPropertyTemplate with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPropertyTemplate(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcPropertyTemplate FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyTemplate>(json);
-		}
-
-		public static new IfcPropertyTemplate FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10944,23 +10734,20 @@ namespace IFC4
 		public bool SameSense{get;set;} 
 		public IfcCurve ParentCurve{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCompositeCurveSegment with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcCompositeCurveSegment(IfcTransitionCode transition,bool sameSense,IfcCurve parentCurve):base()
 		{
 			Transition = transition;
 			SameSense = sameSense;
 			ParentCurve = parentCurve;
 
-
 		}
-
 		public static new IfcCompositeCurveSegment FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCompositeCurveSegment>(json);
-		}
-
-		public static new IfcCompositeCurveSegment FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10971,21 +10758,18 @@ namespace IFC4
 	{
 		public IfcParameterValue ParamLength{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcReparametrisedCompositeCurveSegment with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcReparametrisedCompositeCurveSegment(IfcParameterValue paramLength,IfcTransitionCode transition,bool sameSense,IfcCurve parentCurve):base(transition,sameSense,parentCurve)
 		{
 			ParamLength = paramLength;
 
-
 		}
-
 		public static new IfcReparametrisedCompositeCurveSegment FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcReparametrisedCompositeCurveSegment>(json);
-		}
-
-		public static new IfcReparametrisedCompositeCurveSegment FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -10997,21 +10781,29 @@ namespace IFC4
 		public List<IfcProfileDef> Profiles{get;set;} 
 		public IfcLabel Label{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCompositeProfileDef with all required attributes.
+		/// </summary>
 		public IfcCompositeProfileDef(List<IfcProfileDef> profiles,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			Profiles = profiles;
-
+			Profiles = new List<IfcProfileDef>();
 
 		}
+		/// <summary>
+		/// Construct a IfcCompositeProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCompositeProfileDef(List<IfcProfileDef> profiles,IfcLabel label,IfcProfileTypeEnum profileType,IfcLabel profileName):base(profileType,profileName)
+		{
+			Profiles = profiles;
+			Label = label;
+			Profiles = new List<IfcProfileDef>();
 
+		}
 		public static new IfcCompositeProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCompositeProfileDef>(json);
-		}
-
-		public static new IfcCompositeProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11022,20 +10814,25 @@ namespace IFC4
 	{
 		public IfcCompressorTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCompressor with all required attributes.
+		/// </summary>
 		public IfcCompressor(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCompressor with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCompressor(IfcCompressorTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCompressor FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCompressor>(json);
-		}
-
-		public static new IfcCompressor FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11044,21 +10841,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFlowMovingDevice : IfcDistributionFlowElement
 	{
-
+		/// <summary>
+		/// Construct a IfcFlowMovingDevice with all required attributes.
+		/// </summary>
 		public IfcFlowMovingDevice(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFlowMovingDevice with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFlowMovingDevice(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcFlowMovingDevice FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFlowMovingDevice>(json);
-		}
-
-		public static new IfcFlowMovingDevice FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11069,21 +10869,26 @@ namespace IFC4
 	{
 		public IfcCompressorTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCompressorType with all required attributes.
+		/// </summary>
 		public IfcCompressorType(IfcCompressorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcCompressorType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCompressorType(IfcCompressorTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCompressorType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCompressorType>(json);
-		}
-
-		public static new IfcCompressorType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11092,21 +10897,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcFlowMovingDeviceType : IfcDistributionFlowElementType
 	{
-
+		/// <summary>
+		/// Construct a IfcFlowMovingDeviceType with all required attributes.
+		/// </summary>
 		public IfcFlowMovingDeviceType(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFlowMovingDeviceType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFlowMovingDeviceType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcFlowMovingDeviceType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFlowMovingDeviceType>(json);
-		}
-
-		public static new IfcFlowMovingDeviceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11117,20 +10925,25 @@ namespace IFC4
 	{
 		public IfcCondenserTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCondenser with all required attributes.
+		/// </summary>
 		public IfcCondenser(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCondenser with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCondenser(IfcCondenserTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCondenser FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCondenser>(json);
-		}
-
-		public static new IfcCondenser FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11141,21 +10954,26 @@ namespace IFC4
 	{
 		public IfcCondenserTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCondenserType with all required attributes.
+		/// </summary>
 		public IfcCondenserType(IfcCondenserTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcCondenserType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCondenserType(IfcCondenserTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCondenserType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCondenserType>(json);
-		}
-
-		public static new IfcCondenserType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11167,22 +10985,19 @@ namespace IFC4
 		public IfcPositiveLengthMeasure SemiAxis1{get;set;} 
 		public IfcPositiveLengthMeasure SemiAxis2{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcEllipse with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcEllipse(IfcPositiveLengthMeasure semiAxis1,IfcPositiveLengthMeasure semiAxis2,IfcAxis2Placement position):base(position)
 		{
 			SemiAxis1 = semiAxis1;
 			SemiAxis2 = semiAxis2;
 
-
 		}
-
 		public static new IfcEllipse FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcEllipse>(json);
-		}
-
-		public static new IfcEllipse FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11191,21 +11006,17 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcOpenShell : IfcConnectedFaceSet
 	{
-
+		/// <summary>
+		/// Construct a IfcOpenShell with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcOpenShell(List<IfcFace> cfsFaces):base(cfsFaces)
 		{
 
-
 		}
-
 		public static new IfcOpenShell FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcOpenShell>(json);
-		}
-
-		public static new IfcOpenShell FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11214,21 +11025,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcTopologicalRepresentationItem : IfcRepresentationItem
 	{
-
+		/// <summary>
+		/// Construct a IfcTopologicalRepresentationItem with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcTopologicalRepresentationItem():base()
 		{
 
-
 		}
-
 		public static new IfcTopologicalRepresentationItem FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTopologicalRepresentationItem>(json);
-		}
-
-		public static new IfcTopologicalRepresentationItem FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11240,21 +11047,27 @@ namespace IFC4
 		public IfcCurveOrEdgeCurve CurveOnRelatingElement{get;set;} 
 		public IfcCurveOrEdgeCurve CurveOnRelatedElement{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcConnectionCurveGeometry with all required attributes.
+		/// </summary>
 		public IfcConnectionCurveGeometry(IfcCurveOrEdgeCurve curveOnRelatingElement):base()
 		{
 			CurveOnRelatingElement = curveOnRelatingElement;
 
+		}
+		/// <summary>
+		/// Construct a IfcConnectionCurveGeometry with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcConnectionCurveGeometry(IfcCurveOrEdgeCurve curveOnRelatingElement,IfcCurveOrEdgeCurve curveOnRelatedElement):base()
+		{
+			CurveOnRelatingElement = curveOnRelatingElement;
+			CurveOnRelatedElement = curveOnRelatedElement;
 
 		}
-
 		public static new IfcConnectionCurveGeometry FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcConnectionCurveGeometry>(json);
-		}
-
-		public static new IfcConnectionCurveGeometry FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11263,21 +11076,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcConnectionGeometry : IfcBase
 	{
-
+		/// <summary>
+		/// Construct a IfcConnectionGeometry with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcConnectionGeometry():base()
 		{
 
-
 		}
-
 		public static  IfcConnectionGeometry FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcConnectionGeometry>(json);
-		}
-
-		public static  IfcConnectionGeometry FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11289,21 +11098,27 @@ namespace IFC4
 		public IfcPointOrVertexPoint PointOnRelatingElement{get;set;} 
 		public IfcPointOrVertexPoint PointOnRelatedElement{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcConnectionPointGeometry with all required attributes.
+		/// </summary>
 		public IfcConnectionPointGeometry(IfcPointOrVertexPoint pointOnRelatingElement):base()
 		{
 			PointOnRelatingElement = pointOnRelatingElement;
 
+		}
+		/// <summary>
+		/// Construct a IfcConnectionPointGeometry with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcConnectionPointGeometry(IfcPointOrVertexPoint pointOnRelatingElement,IfcPointOrVertexPoint pointOnRelatedElement):base()
+		{
+			PointOnRelatingElement = pointOnRelatingElement;
+			PointOnRelatedElement = pointOnRelatedElement;
 
 		}
-
 		public static new IfcConnectionPointGeometry FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcConnectionPointGeometry>(json);
-		}
-
-		public static new IfcConnectionPointGeometry FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11315,21 +11130,27 @@ namespace IFC4
 		public IfcSurfaceOrFaceSurface SurfaceOnRelatingElement{get;set;} 
 		public IfcSurfaceOrFaceSurface SurfaceOnRelatedElement{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcConnectionSurfaceGeometry with all required attributes.
+		/// </summary>
 		public IfcConnectionSurfaceGeometry(IfcSurfaceOrFaceSurface surfaceOnRelatingElement):base()
 		{
 			SurfaceOnRelatingElement = surfaceOnRelatingElement;
 
+		}
+		/// <summary>
+		/// Construct a IfcConnectionSurfaceGeometry with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcConnectionSurfaceGeometry(IfcSurfaceOrFaceSurface surfaceOnRelatingElement,IfcSurfaceOrFaceSurface surfaceOnRelatedElement):base()
+		{
+			SurfaceOnRelatingElement = surfaceOnRelatingElement;
+			SurfaceOnRelatedElement = surfaceOnRelatedElement;
 
 		}
-
 		public static new IfcConnectionSurfaceGeometry FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcConnectionSurfaceGeometry>(json);
-		}
-
-		public static new IfcConnectionSurfaceGeometry FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11341,21 +11162,27 @@ namespace IFC4
 		public IfcSolidOrShell VolumeOnRelatingElement{get;set;} 
 		public IfcSolidOrShell VolumeOnRelatedElement{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcConnectionVolumeGeometry with all required attributes.
+		/// </summary>
 		public IfcConnectionVolumeGeometry(IfcSolidOrShell volumeOnRelatingElement):base()
 		{
 			VolumeOnRelatingElement = volumeOnRelatingElement;
 
+		}
+		/// <summary>
+		/// Construct a IfcConnectionVolumeGeometry with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcConnectionVolumeGeometry(IfcSolidOrShell volumeOnRelatingElement,IfcSolidOrShell volumeOnRelatedElement):base()
+		{
+			VolumeOnRelatingElement = volumeOnRelatingElement;
+			VolumeOnRelatedElement = volumeOnRelatedElement;
 
 		}
-
 		public static new IfcConnectionVolumeGeometry FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcConnectionVolumeGeometry>(json);
-		}
-
-		public static new IfcConnectionVolumeGeometry FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11368,20 +11195,27 @@ namespace IFC4
 		public IfcLengthMeasure EccentricityInY{get;set;} // optional
 		public IfcLengthMeasure EccentricityInZ{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcConnectionPointEccentricity with all required attributes.
+		/// </summary>
 		public IfcConnectionPointEccentricity(IfcPointOrVertexPoint pointOnRelatingElement):base(pointOnRelatingElement)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcConnectionPointEccentricity with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcConnectionPointEccentricity(IfcLengthMeasure eccentricityInX,IfcLengthMeasure eccentricityInY,IfcLengthMeasure eccentricityInZ,IfcPointOrVertexPoint pointOnRelatingElement,IfcPointOrVertexPoint pointOnRelatedElement):base(pointOnRelatingElement,pointOnRelatedElement)
+		{
+			EccentricityInX = eccentricityInX;
+			EccentricityInY = eccentricityInY;
+			EccentricityInZ = eccentricityInZ;
 
 		}
-
 		public static new IfcConnectionPointEccentricity FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcConnectionPointEccentricity>(json);
-		}
-
-		public static new IfcConnectionPointEccentricity FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11398,22 +11232,33 @@ namespace IFC4
 		public IfcDateTime CreationTime{get;set;} // optional
 		public IfcLabel UserDefinedGrade{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcConstraint with all required attributes.
+		/// </summary>
 		public IfcConstraint(IfcLabel name,IfcConstraintEnum constraintGrade):base()
 		{
 			Name = name;
 			ConstraintGrade = constraintGrade;
 
+		}
+		/// <summary>
+		/// Construct a IfcConstraint with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcConstraint(IfcLabel name,IfcText description,IfcConstraintEnum constraintGrade,IfcLabel constraintSource,IfcActorSelect creatingActor,IfcDateTime creationTime,IfcLabel userDefinedGrade):base()
+		{
+			Name = name;
+			Description = description;
+			ConstraintGrade = constraintGrade;
+			ConstraintSource = constraintSource;
+			CreatingActor = creatingActor;
+			CreationTime = creationTime;
+			UserDefinedGrade = userDefinedGrade;
 
 		}
-
 		public static  IfcConstraint FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcConstraint>(json);
-		}
-
-		public static  IfcConstraint FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11427,22 +11272,30 @@ namespace IFC4
 		public IfcMetricValueSelect DataValue{get;set;} 
 		public IfcReference ReferencePath{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcMetric with all required attributes.
+		/// </summary>
 		public IfcMetric(IfcBenchmarkEnum benchmark,IfcMetricValueSelect dataValue,IfcLabel name,IfcConstraintEnum constraintGrade):base(name,constraintGrade)
 		{
 			Benchmark = benchmark;
 			DataValue = dataValue;
 
+		}
+		/// <summary>
+		/// Construct a IfcMetric with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMetric(IfcBenchmarkEnum benchmark,IfcLabel valueSource,IfcMetricValueSelect dataValue,IfcReference referencePath,IfcLabel name,IfcText description,IfcConstraintEnum constraintGrade,IfcLabel constraintSource,IfcActorSelect creatingActor,IfcDateTime creationTime,IfcLabel userDefinedGrade):base(name,description,constraintGrade,constraintSource,creatingActor,creationTime,userDefinedGrade)
+		{
+			Benchmark = benchmark;
+			ValueSource = valueSource;
+			DataValue = dataValue;
+			ReferencePath = referencePath;
 
 		}
-
 		public static new IfcMetric FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMetric>(json);
-		}
-
-		public static new IfcMetric FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11456,22 +11309,30 @@ namespace IFC4
 		public IfcObjectiveEnum ObjectiveQualifier{get;set;} 
 		public IfcLabel UserDefinedQualifier{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcObjective with all required attributes.
+		/// </summary>
 		public IfcObjective(IfcObjectiveEnum objectiveQualifier,IfcLabel name,IfcConstraintEnum constraintGrade):base(name,constraintGrade)
 		{
 			ObjectiveQualifier = objectiveQualifier;
 
+		}
+		/// <summary>
+		/// Construct a IfcObjective with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcObjective(List<IfcConstraint> benchmarkValues,IfcLogicalOperatorEnum logicalAggregator,IfcObjectiveEnum objectiveQualifier,IfcLabel userDefinedQualifier,IfcLabel name,IfcText description,IfcConstraintEnum constraintGrade,IfcLabel constraintSource,IfcActorSelect creatingActor,IfcDateTime creationTime,IfcLabel userDefinedGrade):base(name,description,constraintGrade,constraintSource,creatingActor,creationTime,userDefinedGrade)
+		{
+			BenchmarkValues = benchmarkValues;
+			LogicalAggregator = logicalAggregator;
+			ObjectiveQualifier = objectiveQualifier;
+			UserDefinedQualifier = userDefinedQualifier;
 			BenchmarkValues = new List<IfcConstraint>();
 
 		}
-
 		public static new IfcObjective FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcObjective>(json);
-		}
-
-		public static new IfcObjective FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11482,20 +11343,25 @@ namespace IFC4
 	{
 		public IfcConstructionEquipmentResourceTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcConstructionEquipmentResource with all required attributes.
+		/// </summary>
 		public IfcConstructionEquipmentResource(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcConstructionEquipmentResource with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcConstructionEquipmentResource(IfcConstructionEquipmentResourceTypeEnum predefinedType,IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(usage,baseCosts,baseQuantity,identification,longDescription,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcConstructionEquipmentResource FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcConstructionEquipmentResource>(json);
-		}
-
-		public static new IfcConstructionEquipmentResource FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11508,21 +11374,28 @@ namespace IFC4
 		public List<IfcAppliedValue> BaseCosts{get;set;} // optional
 		public IfcPhysicalQuantity BaseQuantity{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcConstructionResource with all required attributes.
+		/// </summary>
 		public IfcConstructionResource(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcConstructionResource with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcConstructionResource(IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,longDescription,objectType,globalId,ownerHistory,name,description)
+		{
+			Usage = usage;
+			BaseCosts = baseCosts;
+			BaseQuantity = baseQuantity;
 			BaseCosts = new List<IfcAppliedValue>();
 
 		}
-
 		public static new IfcConstructionResource FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcConstructionResource>(json);
-		}
-
-		public static new IfcConstructionResource FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11533,21 +11406,26 @@ namespace IFC4
 	{
 		public IfcConstructionEquipmentResourceTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcConstructionEquipmentResourceType with all required attributes.
+		/// </summary>
 		public IfcConstructionEquipmentResourceType(IfcConstructionEquipmentResourceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcConstructionEquipmentResourceType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcConstructionEquipmentResourceType(IfcConstructionEquipmentResourceTypeEnum predefinedType,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(baseCosts,baseQuantity,identification,longDescription,resourceType,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcConstructionEquipmentResourceType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcConstructionEquipmentResourceType>(json);
-		}
-
-		public static new IfcConstructionEquipmentResourceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11559,21 +11437,27 @@ namespace IFC4
 		public List<IfcAppliedValue> BaseCosts{get;set;} // optional
 		public IfcPhysicalQuantity BaseQuantity{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcConstructionResourceType with all required attributes.
+		/// </summary>
 		public IfcConstructionResourceType(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcConstructionResourceType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcConstructionResourceType(List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,longDescription,resourceType,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			BaseCosts = baseCosts;
+			BaseQuantity = baseQuantity;
 			BaseCosts = new List<IfcAppliedValue>();
 
 		}
-
 		public static new IfcConstructionResourceType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcConstructionResourceType>(json);
-		}
-
-		public static new IfcConstructionResourceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11584,20 +11468,25 @@ namespace IFC4
 	{
 		public IfcConstructionMaterialResourceTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcConstructionMaterialResource with all required attributes.
+		/// </summary>
 		public IfcConstructionMaterialResource(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcConstructionMaterialResource with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcConstructionMaterialResource(IfcConstructionMaterialResourceTypeEnum predefinedType,IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(usage,baseCosts,baseQuantity,identification,longDescription,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcConstructionMaterialResource FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcConstructionMaterialResource>(json);
-		}
-
-		public static new IfcConstructionMaterialResource FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11608,21 +11497,26 @@ namespace IFC4
 	{
 		public IfcConstructionMaterialResourceTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcConstructionMaterialResourceType with all required attributes.
+		/// </summary>
 		public IfcConstructionMaterialResourceType(IfcConstructionMaterialResourceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcConstructionMaterialResourceType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcConstructionMaterialResourceType(IfcConstructionMaterialResourceTypeEnum predefinedType,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(baseCosts,baseQuantity,identification,longDescription,resourceType,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcConstructionMaterialResourceType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcConstructionMaterialResourceType>(json);
-		}
-
-		public static new IfcConstructionMaterialResourceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11633,20 +11527,25 @@ namespace IFC4
 	{
 		public IfcConstructionProductResourceTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcConstructionProductResource with all required attributes.
+		/// </summary>
 		public IfcConstructionProductResource(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcConstructionProductResource with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcConstructionProductResource(IfcConstructionProductResourceTypeEnum predefinedType,IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(usage,baseCosts,baseQuantity,identification,longDescription,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcConstructionProductResource FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcConstructionProductResource>(json);
-		}
-
-		public static new IfcConstructionProductResource FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11657,21 +11556,26 @@ namespace IFC4
 	{
 		public IfcConstructionProductResourceTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcConstructionProductResourceType with all required attributes.
+		/// </summary>
 		public IfcConstructionProductResourceType(IfcConstructionProductResourceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcConstructionProductResourceType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcConstructionProductResourceType(IfcConstructionProductResourceTypeEnum predefinedType,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(baseCosts,baseQuantity,identification,longDescription,resourceType,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcConstructionProductResourceType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcConstructionProductResourceType>(json);
-		}
-
-		public static new IfcConstructionProductResourceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11682,20 +11586,25 @@ namespace IFC4
 	{
 		public IfcCrewResourceTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCrewResource with all required attributes.
+		/// </summary>
 		public IfcCrewResource(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCrewResource with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCrewResource(IfcCrewResourceTypeEnum predefinedType,IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(usage,baseCosts,baseQuantity,identification,longDescription,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCrewResource FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCrewResource>(json);
-		}
-
-		public static new IfcCrewResource FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11706,20 +11615,25 @@ namespace IFC4
 	{
 		public IfcLaborResourceTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcLaborResource with all required attributes.
+		/// </summary>
 		public IfcLaborResource(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcLaborResource with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcLaborResource(IfcLaborResourceTypeEnum predefinedType,IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(usage,baseCosts,baseQuantity,identification,longDescription,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcLaborResource FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLaborResource>(json);
-		}
-
-		public static new IfcLaborResource FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11730,20 +11644,25 @@ namespace IFC4
 	{
 		public IfcSubContractResourceTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSubContractResource with all required attributes.
+		/// </summary>
 		public IfcSubContractResource(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSubContractResource with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSubContractResource(IfcSubContractResourceTypeEnum predefinedType,IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(usage,baseCosts,baseQuantity,identification,longDescription,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcSubContractResource FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSubContractResource>(json);
-		}
-
-		public static new IfcSubContractResource FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11755,20 +11674,26 @@ namespace IFC4
 		public IfcIdentifier Identification{get;set;} // optional
 		public IfcText LongDescription{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcResource with all required attributes.
+		/// </summary>
 		public IfcResource(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcResource with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcResource(IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		{
+			Identification = identification;
+			LongDescription = longDescription;
 
 		}
-
 		public static new IfcResource FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcResource>(json);
-		}
-
-		public static new IfcResource FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11779,21 +11704,26 @@ namespace IFC4
 	{
 		public IfcCrewResourceTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCrewResourceType with all required attributes.
+		/// </summary>
 		public IfcCrewResourceType(IfcCrewResourceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcCrewResourceType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCrewResourceType(IfcCrewResourceTypeEnum predefinedType,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(baseCosts,baseQuantity,identification,longDescription,resourceType,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCrewResourceType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCrewResourceType>(json);
-		}
-
-		public static new IfcCrewResourceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11804,21 +11734,26 @@ namespace IFC4
 	{
 		public IfcLaborResourceTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcLaborResourceType with all required attributes.
+		/// </summary>
 		public IfcLaborResourceType(IfcLaborResourceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcLaborResourceType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcLaborResourceType(IfcLaborResourceTypeEnum predefinedType,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(baseCosts,baseQuantity,identification,longDescription,resourceType,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcLaborResourceType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLaborResourceType>(json);
-		}
-
-		public static new IfcLaborResourceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11829,21 +11764,26 @@ namespace IFC4
 	{
 		public IfcSubContractResourceTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcSubContractResourceType with all required attributes.
+		/// </summary>
 		public IfcSubContractResourceType(IfcSubContractResourceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcSubContractResourceType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSubContractResourceType(IfcSubContractResourceTypeEnum predefinedType,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(baseCosts,baseQuantity,identification,longDescription,resourceType,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcSubContractResourceType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSubContractResourceType>(json);
-		}
-
-		public static new IfcSubContractResourceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11856,20 +11796,27 @@ namespace IFC4
 		public IfcText LongDescription{get;set;} // optional
 		public IfcLabel ResourceType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTypeResource with all required attributes.
+		/// </summary>
 		public IfcTypeResource(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcTypeResource with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTypeResource(IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			Identification = identification;
+			LongDescription = longDescription;
+			ResourceType = resourceType;
 
 		}
-
 		public static new IfcTypeResource FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTypeResource>(json);
-		}
-
-		public static new IfcTypeResource FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11884,21 +11831,30 @@ namespace IFC4
 		public List<IfcRepresentationContext> RepresentationContexts{get;set;} // optional
 		public IfcUnitAssignment UnitsInContext{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcContext with all required attributes.
+		/// </summary>
 		public IfcContext(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcContext with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcContext(IfcLabel objectType,IfcLabel longName,IfcLabel phase,List<IfcRepresentationContext> representationContexts,IfcUnitAssignment unitsInContext,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			ObjectType = objectType;
+			LongName = longName;
+			Phase = phase;
+			RepresentationContexts = representationContexts;
+			UnitsInContext = unitsInContext;
 			RepresentationContexts = new List<IfcRepresentationContext>();
 
 		}
-
 		public static new IfcContext FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcContext>(json);
-		}
-
-		public static new IfcContext FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11907,21 +11863,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcProject : IfcContext
 	{
-
+		/// <summary>
+		/// Construct a IfcProject with all required attributes.
+		/// </summary>
 		public IfcProject(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcProject with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcProject(IfcLabel objectType,IfcLabel longName,IfcLabel phase,List<IfcRepresentationContext> representationContexts,IfcUnitAssignment unitsInContext,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,longName,phase,representationContexts,unitsInContext,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcProject FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcProject>(json);
-		}
-
-		public static new IfcProject FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11930,21 +11889,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcProjectLibrary : IfcContext
 	{
-
+		/// <summary>
+		/// Construct a IfcProjectLibrary with all required attributes.
+		/// </summary>
 		public IfcProjectLibrary(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcProjectLibrary with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcProjectLibrary(IfcLabel objectType,IfcLabel longName,IfcLabel phase,List<IfcRepresentationContext> representationContexts,IfcUnitAssignment unitsInContext,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,longName,phase,representationContexts,unitsInContext,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcProjectLibrary FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcProjectLibrary>(json);
-		}
-
-		public static new IfcProjectLibrary FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11953,21 +11915,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcObjectDefinition : IfcRoot
 	{
-
+		/// <summary>
+		/// Construct a IfcObjectDefinition with all required attributes.
+		/// </summary>
 		public IfcObjectDefinition(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcObjectDefinition with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcObjectDefinition(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcObjectDefinition FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcObjectDefinition>(json);
-		}
-
-		public static new IfcObjectDefinition FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -11978,21 +11943,18 @@ namespace IFC4
 	{
 		public IfcLabel Name{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcContextDependentUnit with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcContextDependentUnit(IfcLabel name,IfcDimensionalExponents dimensions,IfcUnitEnum unitType):base(dimensions,unitType)
 		{
 			Name = name;
 
-
 		}
-
 		public static new IfcContextDependentUnit FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcContextDependentUnit>(json);
-		}
-
-		public static new IfcContextDependentUnit FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12004,22 +11966,19 @@ namespace IFC4
 		public IfcDimensionalExponents Dimensions{get;set;} 
 		public IfcUnitEnum UnitType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcNamedUnit with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcNamedUnit(IfcDimensionalExponents dimensions,IfcUnitEnum unitType):base()
 		{
 			Dimensions = dimensions;
 			UnitType = unitType;
 
-
 		}
-
 		public static  IfcNamedUnit FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcNamedUnit>(json);
-		}
-
-		public static  IfcNamedUnit FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12032,22 +11991,29 @@ namespace IFC4
 		public List<IfcCostValue> CostValues{get;set;} // optional
 		public List<IfcPhysicalQuantity> CostQuantities{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCostItem with all required attributes.
+		/// </summary>
 		public IfcCostItem(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCostItem with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCostItem(IfcCostItemTypeEnum predefinedType,List<IfcCostValue> costValues,List<IfcPhysicalQuantity> costQuantities,IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			CostValues = costValues;
+			CostQuantities = costQuantities;
 			CostValues = new List<IfcCostValue>();
 			CostQuantities = new List<IfcPhysicalQuantity>();
 
 		}
-
 		public static new IfcCostItem FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCostItem>(json);
-		}
-
-		public static new IfcCostItem FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12061,20 +12027,28 @@ namespace IFC4
 		public IfcDateTime SubmittedOn{get;set;} // optional
 		public IfcDateTime UpdateDate{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCostSchedule with all required attributes.
+		/// </summary>
 		public IfcCostSchedule(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCostSchedule with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCostSchedule(IfcCostScheduleTypeEnum predefinedType,IfcLabel status,IfcDateTime submittedOn,IfcDateTime updateDate,IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			Status = status;
+			SubmittedOn = submittedOn;
+			UpdateDate = updateDate;
 
 		}
-
 		public static new IfcCostSchedule FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCostSchedule>(json);
-		}
-
-		public static new IfcCostSchedule FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12086,21 +12060,27 @@ namespace IFC4
 		public IfcLabel LifeCyclePhase{get;set;} 
 		public IfcPerformanceHistoryTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPerformanceHistory with all required attributes.
+		/// </summary>
 		public IfcPerformanceHistory(IfcLabel lifeCyclePhase,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			LifeCyclePhase = lifeCyclePhase;
 
+		}
+		/// <summary>
+		/// Construct a IfcPerformanceHistory with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPerformanceHistory(IfcLabel lifeCyclePhase,IfcPerformanceHistoryTypeEnum predefinedType,IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,objectType,globalId,ownerHistory,name,description)
+		{
+			LifeCyclePhase = lifeCyclePhase;
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcPerformanceHistory FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPerformanceHistory>(json);
-		}
-
-		public static new IfcPerformanceHistory FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12113,20 +12093,27 @@ namespace IFC4
 		public IfcLabel Status{get;set;} // optional
 		public IfcText LongDescription{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPermit with all required attributes.
+		/// </summary>
 		public IfcPermit(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPermit with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPermit(IfcPermitTypeEnum predefinedType,IfcLabel status,IfcText longDescription,IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			Status = status;
+			LongDescription = longDescription;
 
 		}
-
 		public static new IfcPermit FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPermit>(json);
-		}
-
-		public static new IfcPermit FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12139,20 +12126,27 @@ namespace IFC4
 		public IfcLabel Status{get;set;} // optional
 		public IfcText LongDescription{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcProjectOrder with all required attributes.
+		/// </summary>
 		public IfcProjectOrder(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcProjectOrder with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcProjectOrder(IfcProjectOrderTypeEnum predefinedType,IfcLabel status,IfcText longDescription,IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			Status = status;
+			LongDescription = longDescription;
 
 		}
-
 		public static new IfcProjectOrder FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcProjectOrder>(json);
-		}
-
-		public static new IfcProjectOrder FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12165,22 +12159,29 @@ namespace IFC4
 		public List<IfcWorkTime> ExceptionTimes{get;set;} // optional
 		public IfcWorkCalendarTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcWorkCalendar with all required attributes.
+		/// </summary>
 		public IfcWorkCalendar(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcWorkCalendar with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcWorkCalendar(List<IfcWorkTime> workingTimes,List<IfcWorkTime> exceptionTimes,IfcWorkCalendarTypeEnum predefinedType,IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,objectType,globalId,ownerHistory,name,description)
+		{
+			WorkingTimes = workingTimes;
+			ExceptionTimes = exceptionTimes;
+			PredefinedType = predefinedType;
 			WorkingTimes = new List<IfcWorkTime>();
 			ExceptionTimes = new List<IfcWorkTime>();
 
 		}
-
 		public static new IfcWorkCalendar FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcWorkCalendar>(json);
-		}
-
-		public static new IfcWorkCalendar FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12197,23 +12198,34 @@ namespace IFC4
 		public IfcDateTime StartTime{get;set;} 
 		public IfcDateTime FinishTime{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcWorkControl with all required attributes.
+		/// </summary>
 		public IfcWorkControl(IfcDateTime creationDate,IfcDateTime startTime,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			CreationDate = creationDate;
 			StartTime = startTime;
 
+		}
+		/// <summary>
+		/// Construct a IfcWorkControl with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcWorkControl(IfcDateTime creationDate,List<IfcPerson> creators,IfcLabel purpose,IfcDuration duration,IfcDuration totalFloat,IfcDateTime startTime,IfcDateTime finishTime,IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,objectType,globalId,ownerHistory,name,description)
+		{
+			CreationDate = creationDate;
+			Creators = creators;
+			Purpose = purpose;
+			Duration = duration;
+			TotalFloat = totalFloat;
+			StartTime = startTime;
+			FinishTime = finishTime;
 			Creators = new List<IfcPerson>();
 
 		}
-
 		public static new IfcWorkControl FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcWorkControl>(json);
-		}
-
-		public static new IfcWorkControl FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12224,20 +12236,25 @@ namespace IFC4
 	{
 		public IfcControllerTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcController with all required attributes.
+		/// </summary>
 		public IfcController(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcController with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcController(IfcControllerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcController FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcController>(json);
-		}
-
-		public static new IfcController FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12248,21 +12265,26 @@ namespace IFC4
 	{
 		public IfcControllerTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcControllerType with all required attributes.
+		/// </summary>
 		public IfcControllerType(IfcControllerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcControllerType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcControllerType(IfcControllerTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcControllerType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcControllerType>(json);
-		}
-
-		public static new IfcControllerType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12274,22 +12296,19 @@ namespace IFC4
 		public IfcLabel Name{get;set;} 
 		public IfcMeasureWithUnit ConversionFactor{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcConversionBasedUnit with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcConversionBasedUnit(IfcLabel name,IfcMeasureWithUnit conversionFactor,IfcDimensionalExponents dimensions,IfcUnitEnum unitType):base(dimensions,unitType)
 		{
 			Name = name;
 			ConversionFactor = conversionFactor;
 
-
 		}
-
 		public static new IfcConversionBasedUnit FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcConversionBasedUnit>(json);
-		}
-
-		public static new IfcConversionBasedUnit FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12300,21 +12319,18 @@ namespace IFC4
 	{
 		public IfcReal ConversionOffset{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcConversionBasedUnitWithOffset with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcConversionBasedUnitWithOffset(IfcReal conversionOffset,IfcLabel name,IfcMeasureWithUnit conversionFactor,IfcDimensionalExponents dimensions,IfcUnitEnum unitType):base(name,conversionFactor,dimensions,unitType)
 		{
 			ConversionOffset = conversionOffset;
 
-
 		}
-
 		public static new IfcConversionBasedUnitWithOffset FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcConversionBasedUnitWithOffset>(json);
-		}
-
-		public static new IfcConversionBasedUnitWithOffset FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12325,20 +12341,25 @@ namespace IFC4
 	{
 		public IfcCooledBeamTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCooledBeam with all required attributes.
+		/// </summary>
 		public IfcCooledBeam(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCooledBeam with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCooledBeam(IfcCooledBeamTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCooledBeam FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCooledBeam>(json);
-		}
-
-		public static new IfcCooledBeam FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12349,21 +12370,26 @@ namespace IFC4
 	{
 		public IfcCooledBeamTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCooledBeamType with all required attributes.
+		/// </summary>
 		public IfcCooledBeamType(IfcCooledBeamTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcCooledBeamType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCooledBeamType(IfcCooledBeamTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCooledBeamType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCooledBeamType>(json);
-		}
-
-		public static new IfcCooledBeamType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12374,20 +12400,25 @@ namespace IFC4
 	{
 		public IfcCoolingTowerTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCoolingTower with all required attributes.
+		/// </summary>
 		public IfcCoolingTower(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCoolingTower with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCoolingTower(IfcCoolingTowerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCoolingTower FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCoolingTower>(json);
-		}
-
-		public static new IfcCoolingTower FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12398,21 +12429,26 @@ namespace IFC4
 	{
 		public IfcCoolingTowerTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCoolingTowerType with all required attributes.
+		/// </summary>
 		public IfcCoolingTowerType(IfcCoolingTowerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcCoolingTowerType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCoolingTowerType(IfcCoolingTowerTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcCoolingTowerType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCoolingTowerType>(json);
-		}
-
-		public static new IfcCoolingTowerType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12424,22 +12460,19 @@ namespace IFC4
 		public IfcCoordinateReferenceSystemSelect SourceCRS{get;set;} 
 		public IfcCoordinateReferenceSystem TargetCRS{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCoordinateOperation with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcCoordinateOperation(IfcCoordinateReferenceSystemSelect sourceCRS,IfcCoordinateReferenceSystem targetCRS):base()
 		{
 			SourceCRS = sourceCRS;
 			TargetCRS = targetCRS;
 
-
 		}
-
 		public static  IfcCoordinateOperation FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCoordinateOperation>(json);
-		}
-
-		public static  IfcCoordinateOperation FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12455,23 +12488,33 @@ namespace IFC4
 		public IfcReal XAxisOrdinate{get;set;} // optional
 		public IfcReal Scale{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcMapConversion with all required attributes.
+		/// </summary>
 		public IfcMapConversion(IfcLengthMeasure eastings,IfcLengthMeasure northings,IfcLengthMeasure orthogonalHeight,IfcCoordinateReferenceSystemSelect sourceCRS,IfcCoordinateReferenceSystem targetCRS):base(sourceCRS,targetCRS)
 		{
 			Eastings = eastings;
 			Northings = northings;
 			OrthogonalHeight = orthogonalHeight;
 
+		}
+		/// <summary>
+		/// Construct a IfcMapConversion with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMapConversion(IfcLengthMeasure eastings,IfcLengthMeasure northings,IfcLengthMeasure orthogonalHeight,IfcReal xAxisAbscissa,IfcReal xAxisOrdinate,IfcReal scale,IfcCoordinateReferenceSystemSelect sourceCRS,IfcCoordinateReferenceSystem targetCRS):base(sourceCRS,targetCRS)
+		{
+			Eastings = eastings;
+			Northings = northings;
+			OrthogonalHeight = orthogonalHeight;
+			XAxisAbscissa = xAxisAbscissa;
+			XAxisOrdinate = xAxisOrdinate;
+			Scale = scale;
 
 		}
-
 		public static new IfcMapConversion FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMapConversion>(json);
-		}
-
-		public static new IfcMapConversion FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12485,21 +12528,29 @@ namespace IFC4
 		public IfcIdentifier GeodeticDatum{get;set;} 
 		public IfcIdentifier VerticalDatum{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCoordinateReferenceSystem with all required attributes.
+		/// </summary>
 		public IfcCoordinateReferenceSystem(IfcIdentifier geodeticDatum):base()
 		{
 			GeodeticDatum = geodeticDatum;
 
+		}
+		/// <summary>
+		/// Construct a IfcCoordinateReferenceSystem with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCoordinateReferenceSystem(IfcLabel name,IfcText description,IfcIdentifier geodeticDatum,IfcIdentifier verticalDatum):base()
+		{
+			Name = name;
+			Description = description;
+			GeodeticDatum = geodeticDatum;
+			VerticalDatum = verticalDatum;
 
 		}
-
 		public static  IfcCoordinateReferenceSystem FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCoordinateReferenceSystem>(json);
-		}
-
-		public static  IfcCoordinateReferenceSystem FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12512,20 +12563,27 @@ namespace IFC4
 		public IfcIdentifier MapZone{get;set;} // optional
 		public IfcNamedUnit MapUnit{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcProjectedCRS with all required attributes.
+		/// </summary>
 		public IfcProjectedCRS(IfcIdentifier geodeticDatum):base(geodeticDatum)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcProjectedCRS with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcProjectedCRS(IfcIdentifier mapProjection,IfcIdentifier mapZone,IfcNamedUnit mapUnit,IfcLabel name,IfcText description,IfcIdentifier geodeticDatum,IfcIdentifier verticalDatum):base(name,description,geodeticDatum,verticalDatum)
+		{
+			MapProjection = mapProjection;
+			MapZone = mapZone;
+			MapUnit = mapUnit;
 
 		}
-
 		public static new IfcProjectedCRS FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcProjectedCRS>(json);
-		}
-
-		public static new IfcProjectedCRS FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12538,23 +12596,20 @@ namespace IFC4
 		public IfcPositiveLengthMeasure YLength{get;set;} 
 		public IfcPositiveLengthMeasure Height{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRectangularPyramid with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcRectangularPyramid(IfcPositiveLengthMeasure xLength,IfcPositiveLengthMeasure yLength,IfcPositiveLengthMeasure height,IfcAxis2Placement3D position):base(position)
 		{
 			XLength = xLength;
 			YLength = yLength;
 			Height = height;
 
-
 		}
-
 		public static new IfcRectangularPyramid FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRectangularPyramid>(json);
-		}
-
-		public static new IfcRectangularPyramid FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12566,22 +12621,19 @@ namespace IFC4
 		public IfcPositiveLengthMeasure Height{get;set;} 
 		public IfcPositiveLengthMeasure BottomRadius{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRightCircularCone with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcRightCircularCone(IfcPositiveLengthMeasure height,IfcPositiveLengthMeasure bottomRadius,IfcAxis2Placement3D position):base(position)
 		{
 			Height = height;
 			BottomRadius = bottomRadius;
 
-
 		}
-
 		public static new IfcRightCircularCone FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRightCircularCone>(json);
-		}
-
-		public static new IfcRightCircularCone FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12593,22 +12645,19 @@ namespace IFC4
 		public IfcPositiveLengthMeasure Height{get;set;} 
 		public IfcPositiveLengthMeasure Radius{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRightCircularCylinder with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcRightCircularCylinder(IfcPositiveLengthMeasure height,IfcPositiveLengthMeasure radius,IfcAxis2Placement3D position):base(position)
 		{
 			Height = height;
 			Radius = radius;
 
-
 		}
-
 		public static new IfcRightCircularCylinder FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRightCircularCylinder>(json);
-		}
-
-		public static new IfcRightCircularCylinder FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12619,21 +12668,18 @@ namespace IFC4
 	{
 		public IfcPositiveLengthMeasure Radius{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcSphere with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcSphere(IfcPositiveLengthMeasure radius,IfcAxis2Placement3D position):base(position)
 		{
 			Radius = radius;
 
-
 		}
-
 		public static new IfcSphere FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSphere>(json);
-		}
-
-		public static new IfcSphere FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12644,21 +12690,18 @@ namespace IFC4
 	{
 		public IfcCsgSelect TreeRootExpression{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCsgSolid with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcCsgSolid(IfcCsgSelect treeRootExpression):base()
 		{
 			TreeRootExpression = treeRootExpression;
 
-
 		}
-
 		public static new IfcCsgSolid FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCsgSolid>(json);
-		}
-
-		public static new IfcCsgSolid FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12667,21 +12710,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcSolidModel : IfcGeometricRepresentationItem
 	{
-
+		/// <summary>
+		/// Construct a IfcSolidModel with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcSolidModel():base()
 		{
 
-
 		}
-
 		public static new IfcSolidModel FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSolidModel>(json);
-		}
-
-		public static new IfcSolidModel FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12696,23 +12735,32 @@ namespace IFC4
 		public IfcDateTime RateDateTime{get;set;} // optional
 		public IfcLibraryInformation RateSource{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCurrencyRelationship with all required attributes.
+		/// </summary>
 		public IfcCurrencyRelationship(IfcMonetaryUnit relatingMonetaryUnit,IfcMonetaryUnit relatedMonetaryUnit,IfcPositiveRatioMeasure exchangeRate):base()
 		{
 			RelatingMonetaryUnit = relatingMonetaryUnit;
 			RelatedMonetaryUnit = relatedMonetaryUnit;
 			ExchangeRate = exchangeRate;
 
+		}
+		/// <summary>
+		/// Construct a IfcCurrencyRelationship with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCurrencyRelationship(IfcMonetaryUnit relatingMonetaryUnit,IfcMonetaryUnit relatedMonetaryUnit,IfcPositiveRatioMeasure exchangeRate,IfcDateTime rateDateTime,IfcLibraryInformation rateSource,IfcLabel name,IfcText description):base(name,description)
+		{
+			RelatingMonetaryUnit = relatingMonetaryUnit;
+			RelatedMonetaryUnit = relatedMonetaryUnit;
+			ExchangeRate = exchangeRate;
+			RateDateTime = rateDateTime;
+			RateSource = rateSource;
 
 		}
-
 		public static new IfcCurrencyRelationship FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCurrencyRelationship>(json);
-		}
-
-		public static new IfcCurrencyRelationship FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12724,22 +12772,19 @@ namespace IFC4
 		public IfcCartesianPoint Pnt{get;set;} 
 		public IfcVector Dir{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcLine with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcLine(IfcCartesianPoint pnt,IfcVector dir):base()
 		{
 			Pnt = pnt;
 			Dir = dir;
 
-
 		}
-
 		public static new IfcLine FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLine>(json);
-		}
-
-		public static new IfcLine FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12752,23 +12797,20 @@ namespace IFC4
 		public IfcLengthMeasure Distance{get;set;} 
 		public bool? SelfIntersect{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcOffsetCurve2D with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcOffsetCurve2D(IfcCurve basisCurve,IfcLengthMeasure distance,bool? selfIntersect):base()
 		{
 			BasisCurve = basisCurve;
 			Distance = distance;
 			SelfIntersect = selfIntersect;
 
-
 		}
-
 		public static new IfcOffsetCurve2D FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcOffsetCurve2D>(json);
-		}
-
-		public static new IfcOffsetCurve2D FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12782,6 +12824,10 @@ namespace IFC4
 		public bool? SelfIntersect{get;set;} 
 		public IfcDirection RefDirection{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcOffsetCurve3D with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcOffsetCurve3D(IfcCurve basisCurve,IfcLengthMeasure distance,bool? selfIntersect,IfcDirection refDirection):base()
 		{
 			BasisCurve = basisCurve;
@@ -12789,17 +12835,10 @@ namespace IFC4
 			SelfIntersect = selfIntersect;
 			RefDirection = refDirection;
 
-
 		}
-
 		public static new IfcOffsetCurve3D FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcOffsetCurve3D>(json);
-		}
-
-		public static new IfcOffsetCurve3D FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12811,22 +12850,19 @@ namespace IFC4
 		public IfcSurface BasisSurface{get;set;} 
 		public IfcCurve ReferenceCurve{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcPcurve with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcPcurve(IfcSurface basisSurface,IfcCurve referenceCurve):base()
 		{
 			BasisSurface = basisSurface;
 			ReferenceCurve = referenceCurve;
 
-
 		}
-
 		public static new IfcPcurve FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPcurve>(json);
-		}
-
-		public static new IfcPcurve FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12840,20 +12876,28 @@ namespace IFC4
 		public IfcColour CurveColour{get;set;} // optional
 		public bool ModelOrDraughting{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcCurveStyle with all required attributes.
+		/// </summary>
 		public IfcCurveStyle():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcCurveStyle with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCurveStyle(IfcCurveFontOrScaledCurveFontSelect curveFont,IfcSizeSelect curveWidth,IfcColour curveColour,bool modelOrDraughting,IfcLabel name):base(name)
+		{
+			CurveFont = curveFont;
+			CurveWidth = curveWidth;
+			CurveColour = curveColour;
+			ModelOrDraughting = modelOrDraughting;
 
 		}
-
 		public static new IfcCurveStyle FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCurveStyle>(json);
-		}
-
-		public static new IfcCurveStyle FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12864,20 +12908,25 @@ namespace IFC4
 	{
 		public IfcLabel Name{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPresentationStyle with all required attributes.
+		/// </summary>
 		public IfcPresentationStyle():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPresentationStyle with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPresentationStyle(IfcLabel name):base()
+		{
+			Name = name;
 
 		}
-
 		public static  IfcPresentationStyle FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPresentationStyle>(json);
-		}
-
-		public static  IfcPresentationStyle FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12889,21 +12938,29 @@ namespace IFC4
 		public IfcLabel Name{get;set;} // optional
 		public List<IfcCurveStyleFontPattern> PatternList{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCurveStyleFont with all required attributes.
+		/// </summary>
 		public IfcCurveStyleFont(List<IfcCurveStyleFontPattern> patternList):base()
 		{
 			PatternList = patternList;
-
+			PatternList = new List<IfcCurveStyleFontPattern>();
 
 		}
+		/// <summary>
+		/// Construct a IfcCurveStyleFont with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCurveStyleFont(IfcLabel name,List<IfcCurveStyleFontPattern> patternList):base()
+		{
+			Name = name;
+			PatternList = patternList;
+			PatternList = new List<IfcCurveStyleFontPattern>();
 
+		}
 		public static new IfcCurveStyleFont FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCurveStyleFont>(json);
-		}
-
-		public static new IfcCurveStyleFont FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12916,22 +12973,29 @@ namespace IFC4
 		public IfcCurveStyleFontSelect CurveFont{get;set;} 
 		public IfcPositiveRatioMeasure CurveFontScaling{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCurveStyleFontAndScaling with all required attributes.
+		/// </summary>
 		public IfcCurveStyleFontAndScaling(IfcCurveStyleFontSelect curveFont,IfcPositiveRatioMeasure curveFontScaling):base()
 		{
 			CurveFont = curveFont;
 			CurveFontScaling = curveFontScaling;
 
+		}
+		/// <summary>
+		/// Construct a IfcCurveStyleFontAndScaling with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcCurveStyleFontAndScaling(IfcLabel name,IfcCurveStyleFontSelect curveFont,IfcPositiveRatioMeasure curveFontScaling):base()
+		{
+			Name = name;
+			CurveFont = curveFont;
+			CurveFontScaling = curveFontScaling;
 
 		}
-
 		public static new IfcCurveStyleFontAndScaling FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCurveStyleFontAndScaling>(json);
-		}
-
-		public static new IfcCurveStyleFontAndScaling FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12943,22 +13007,19 @@ namespace IFC4
 		public IfcLengthMeasure VisibleSegmentLength{get;set;} 
 		public IfcPositiveLengthMeasure InvisibleSegmentLength{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCurveStyleFontPattern with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcCurveStyleFontPattern(IfcLengthMeasure visibleSegmentLength,IfcPositiveLengthMeasure invisibleSegmentLength):base()
 		{
 			VisibleSegmentLength = visibleSegmentLength;
 			InvisibleSegmentLength = invisibleSegmentLength;
 
-
 		}
-
 		public static new IfcCurveStyleFontPattern FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCurveStyleFontPattern>(json);
-		}
-
-		public static new IfcCurveStyleFontPattern FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12969,21 +13030,18 @@ namespace IFC4
 	{
 		public IfcPositiveLengthMeasure Radius{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcCylindricalSurface with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcCylindricalSurface(IfcPositiveLengthMeasure radius,IfcAxis2Placement3D position):base(position)
 		{
 			Radius = radius;
 
-
 		}
-
 		public static new IfcCylindricalSurface FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCylindricalSurface>(json);
-		}
-
-		public static new IfcCylindricalSurface FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -12994,21 +13052,18 @@ namespace IFC4
 	{
 		public IfcAxis2Placement3D Position{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcElementarySurface with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcElementarySurface(IfcAxis2Placement3D position):base()
 		{
 			Position = position;
 
-
 		}
-
 		public static new IfcElementarySurface FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElementarySurface>(json);
-		}
-
-		public static new IfcElementarySurface FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13019,20 +13074,25 @@ namespace IFC4
 	{
 		public IfcDamperTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcDamper with all required attributes.
+		/// </summary>
 		public IfcDamper(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcDamper with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDamper(IfcDamperTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcDamper FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDamper>(json);
-		}
-
-		public static new IfcDamper FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13043,21 +13103,26 @@ namespace IFC4
 	{
 		public IfcDamperTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcDamperType with all required attributes.
+		/// </summary>
 		public IfcDamperType(IfcDamperTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcDamperType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDamperType(IfcDamperTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcDamperType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDamperType>(json);
-		}
-
-		public static new IfcDamperType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13070,22 +13135,29 @@ namespace IFC4
 		public IfcCartesianTransformationOperator2D Operator{get;set;} 
 		public IfcLabel Label{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcDerivedProfileDef with all required attributes.
+		/// </summary>
 		public IfcDerivedProfileDef(IfcProfileDef parentProfile,IfcCartesianTransformationOperator2D op,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			ParentProfile = parentProfile;
 			Operator = op;
 
+		}
+		/// <summary>
+		/// Construct a IfcDerivedProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDerivedProfileDef(IfcProfileDef parentProfile,IfcCartesianTransformationOperator2D op,IfcLabel label,IfcProfileTypeEnum profileType,IfcLabel profileName):base(profileType,profileName)
+		{
+			ParentProfile = parentProfile;
+			Operator = op;
+			Label = label;
 
 		}
-
 		public static new IfcDerivedProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDerivedProfileDef>(json);
-		}
-
-		public static new IfcDerivedProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13094,21 +13166,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcMirroredProfileDef : IfcDerivedProfileDef
 	{
-
+		/// <summary>
+		/// Construct a IfcMirroredProfileDef with all required attributes.
+		/// </summary>
 		public IfcMirroredProfileDef(IfcProfileDef parentProfile,IfcCartesianTransformationOperator2D op,IfcProfileTypeEnum profileType):base(parentProfile,op,profileType)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcMirroredProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMirroredProfileDef(IfcProfileDef parentProfile,IfcCartesianTransformationOperator2D op,IfcLabel label,IfcProfileTypeEnum profileType,IfcLabel profileName):base(parentProfile,op,label,profileType,profileName)
+		{
 
 		}
-
 		public static new IfcMirroredProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMirroredProfileDef>(json);
-		}
-
-		public static new IfcMirroredProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13121,22 +13196,31 @@ namespace IFC4
 		public IfcDerivedUnitEnum UnitType{get;set;} 
 		public IfcLabel UserDefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcDerivedUnit with all required attributes.
+		/// </summary>
 		public IfcDerivedUnit(List<IfcDerivedUnitElement> elements,IfcDerivedUnitEnum unitType):base()
 		{
 			Elements = elements;
 			UnitType = unitType;
-
+			Elements = new List<IfcDerivedUnitElement>();
 
 		}
+		/// <summary>
+		/// Construct a IfcDerivedUnit with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDerivedUnit(List<IfcDerivedUnitElement> elements,IfcDerivedUnitEnum unitType,IfcLabel userDefinedType):base()
+		{
+			Elements = elements;
+			UnitType = unitType;
+			UserDefinedType = userDefinedType;
+			Elements = new List<IfcDerivedUnitElement>();
 
+		}
 		public static  IfcDerivedUnit FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDerivedUnit>(json);
-		}
-
-		public static  IfcDerivedUnit FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13148,22 +13232,19 @@ namespace IFC4
 		public IfcNamedUnit Unit{get;set;} 
 		public int Exponent{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcDerivedUnitElement with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcDerivedUnitElement(IfcNamedUnit unit,int exponent):base()
 		{
 			Unit = unit;
 			Exponent = exponent;
 
-
 		}
-
 		public static  IfcDerivedUnitElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDerivedUnitElement>(json);
-		}
-
-		public static  IfcDerivedUnitElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13180,6 +13261,10 @@ namespace IFC4
 		public int AmountOfSubstanceExponent{get;set;} 
 		public int LuminousIntensityExponent{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcDimensionalExponents with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcDimensionalExponents(int lengthExponent,int massExponent,int timeExponent,int electricCurrentExponent,int thermodynamicTemperatureExponent,int amountOfSubstanceExponent,int luminousIntensityExponent):base()
 		{
 			LengthExponent = lengthExponent;
@@ -13190,17 +13275,10 @@ namespace IFC4
 			AmountOfSubstanceExponent = amountOfSubstanceExponent;
 			LuminousIntensityExponent = luminousIntensityExponent;
 
-
 		}
-
 		public static  IfcDimensionalExponents FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDimensionalExponents>(json);
-		}
-
-		public static  IfcDimensionalExponents FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13211,21 +13289,19 @@ namespace IFC4
 	{
 		public List<double> DirectionRatios{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcDirection with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcDirection(List<double> directionRatios):base()
 		{
 			DirectionRatios = directionRatios;
-
+			DirectionRatios = new List<double>();
 
 		}
-
 		public static new IfcDirection FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDirection>(json);
-		}
-
-		public static new IfcDirection FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13236,20 +13312,25 @@ namespace IFC4
 	{
 		public IfcDiscreteAccessoryTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcDiscreteAccessory with all required attributes.
+		/// </summary>
 		public IfcDiscreteAccessory(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcDiscreteAccessory with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDiscreteAccessory(IfcDiscreteAccessoryTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcDiscreteAccessory FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDiscreteAccessory>(json);
-		}
-
-		public static new IfcDiscreteAccessory FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13260,21 +13341,26 @@ namespace IFC4
 	{
 		public IfcDiscreteAccessoryTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcDiscreteAccessoryType with all required attributes.
+		/// </summary>
 		public IfcDiscreteAccessoryType(IfcDiscreteAccessoryTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcDiscreteAccessoryType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDiscreteAccessoryType(IfcDiscreteAccessoryTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcDiscreteAccessoryType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDiscreteAccessoryType>(json);
-		}
-
-		public static new IfcDiscreteAccessoryType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13285,20 +13371,25 @@ namespace IFC4
 	{
 		public IfcDistributionChamberElementTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcDistributionChamberElement with all required attributes.
+		/// </summary>
 		public IfcDistributionChamberElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcDistributionChamberElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDistributionChamberElement(IfcDistributionChamberElementTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcDistributionChamberElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionChamberElement>(json);
-		}
-
-		public static new IfcDistributionChamberElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13307,21 +13398,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDistributionFlowElement : IfcDistributionElement
 	{
-
+		/// <summary>
+		/// Construct a IfcDistributionFlowElement with all required attributes.
+		/// </summary>
 		public IfcDistributionFlowElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcDistributionFlowElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDistributionFlowElement(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcDistributionFlowElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionFlowElement>(json);
-		}
-
-		public static new IfcDistributionFlowElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13332,21 +13426,26 @@ namespace IFC4
 	{
 		public IfcDistributionChamberElementTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcDistributionChamberElementType with all required attributes.
+		/// </summary>
 		public IfcDistributionChamberElementType(IfcDistributionChamberElementTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcDistributionChamberElementType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDistributionChamberElementType(IfcDistributionChamberElementTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcDistributionChamberElementType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionChamberElementType>(json);
-		}
-
-		public static new IfcDistributionChamberElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13355,21 +13454,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcDistributionFlowElementType : IfcDistributionElementType
 	{
-
+		/// <summary>
+		/// Construct a IfcDistributionFlowElementType with all required attributes.
+		/// </summary>
 		public IfcDistributionFlowElementType(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcDistributionFlowElementType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDistributionFlowElementType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcDistributionFlowElementType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionFlowElementType>(json);
-		}
-
-		public static new IfcDistributionFlowElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13378,21 +13480,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDistributionCircuit : IfcDistributionSystem
 	{
-
+		/// <summary>
+		/// Construct a IfcDistributionCircuit with all required attributes.
+		/// </summary>
 		public IfcDistributionCircuit(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcDistributionCircuit with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDistributionCircuit(IfcLabel longName,IfcDistributionSystemEnum predefinedType,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(longName,predefinedType,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcDistributionCircuit FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionCircuit>(json);
-		}
-
-		public static new IfcDistributionCircuit FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13404,20 +13509,26 @@ namespace IFC4
 		public IfcLabel LongName{get;set;} // optional
 		public IfcDistributionSystemEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcDistributionSystem with all required attributes.
+		/// </summary>
 		public IfcDistributionSystem(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcDistributionSystem with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDistributionSystem(IfcLabel longName,IfcDistributionSystemEnum predefinedType,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		{
+			LongName = longName;
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcDistributionSystem FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionSystem>(json);
-		}
-
-		public static new IfcDistributionSystem FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13428,20 +13539,25 @@ namespace IFC4
 	{
 		public IfcFlowInstrumentTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcFlowInstrument with all required attributes.
+		/// </summary>
 		public IfcFlowInstrument(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFlowInstrument with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFlowInstrument(IfcFlowInstrumentTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcFlowInstrument FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFlowInstrument>(json);
-		}
-
-		public static new IfcFlowInstrument FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13452,20 +13568,25 @@ namespace IFC4
 	{
 		public IfcProtectiveDeviceTrippingUnitTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcProtectiveDeviceTrippingUnit with all required attributes.
+		/// </summary>
 		public IfcProtectiveDeviceTrippingUnit(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcProtectiveDeviceTrippingUnit with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcProtectiveDeviceTrippingUnit(IfcProtectiveDeviceTrippingUnitTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcProtectiveDeviceTrippingUnit FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcProtectiveDeviceTrippingUnit>(json);
-		}
-
-		public static new IfcProtectiveDeviceTrippingUnit FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13476,20 +13597,25 @@ namespace IFC4
 	{
 		public IfcSensorTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSensor with all required attributes.
+		/// </summary>
 		public IfcSensor(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSensor with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSensor(IfcSensorTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcSensor FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSensor>(json);
-		}
-
-		public static new IfcSensor FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13500,20 +13626,25 @@ namespace IFC4
 	{
 		public IfcUnitaryControlElementTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcUnitaryControlElement with all required attributes.
+		/// </summary>
 		public IfcUnitaryControlElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcUnitaryControlElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcUnitaryControlElement(IfcUnitaryControlElementTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcUnitaryControlElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcUnitaryControlElement>(json);
-		}
-
-		public static new IfcUnitaryControlElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13522,21 +13653,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDistributionElement : IfcElement
 	{
-
+		/// <summary>
+		/// Construct a IfcDistributionElement with all required attributes.
+		/// </summary>
 		public IfcDistributionElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcDistributionElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDistributionElement(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcDistributionElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionElement>(json);
-		}
-
-		public static new IfcDistributionElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13547,21 +13681,26 @@ namespace IFC4
 	{
 		public IfcFlowInstrumentTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcFlowInstrumentType with all required attributes.
+		/// </summary>
 		public IfcFlowInstrumentType(IfcFlowInstrumentTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcFlowInstrumentType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFlowInstrumentType(IfcFlowInstrumentTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcFlowInstrumentType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFlowInstrumentType>(json);
-		}
-
-		public static new IfcFlowInstrumentType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13572,21 +13711,26 @@ namespace IFC4
 	{
 		public IfcProtectiveDeviceTrippingUnitTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcProtectiveDeviceTrippingUnitType with all required attributes.
+		/// </summary>
 		public IfcProtectiveDeviceTrippingUnitType(IfcProtectiveDeviceTrippingUnitTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcProtectiveDeviceTrippingUnitType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcProtectiveDeviceTrippingUnitType(IfcProtectiveDeviceTrippingUnitTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcProtectiveDeviceTrippingUnitType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcProtectiveDeviceTrippingUnitType>(json);
-		}
-
-		public static new IfcProtectiveDeviceTrippingUnitType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13597,21 +13741,26 @@ namespace IFC4
 	{
 		public IfcSensorTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcSensorType with all required attributes.
+		/// </summary>
 		public IfcSensorType(IfcSensorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcSensorType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSensorType(IfcSensorTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcSensorType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSensorType>(json);
-		}
-
-		public static new IfcSensorType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13622,21 +13771,26 @@ namespace IFC4
 	{
 		public IfcUnitaryControlElementTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcUnitaryControlElementType with all required attributes.
+		/// </summary>
 		public IfcUnitaryControlElementType(IfcUnitaryControlElementTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcUnitaryControlElementType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcUnitaryControlElementType(IfcUnitaryControlElementTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcUnitaryControlElementType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcUnitaryControlElementType>(json);
-		}
-
-		public static new IfcUnitaryControlElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13645,21 +13799,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDistributionElementType : IfcElementType
 	{
-
+		/// <summary>
+		/// Construct a IfcDistributionElementType with all required attributes.
+		/// </summary>
 		public IfcDistributionElementType(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcDistributionElementType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDistributionElementType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcDistributionElementType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionElementType>(json);
-		}
-
-		public static new IfcDistributionElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13668,21 +13825,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFlowStorageDevice : IfcDistributionFlowElement
 	{
-
+		/// <summary>
+		/// Construct a IfcFlowStorageDevice with all required attributes.
+		/// </summary>
 		public IfcFlowStorageDevice(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFlowStorageDevice with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFlowStorageDevice(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcFlowStorageDevice FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFlowStorageDevice>(json);
-		}
-
-		public static new IfcFlowStorageDevice FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13691,21 +13851,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFlowTreatmentDevice : IfcDistributionFlowElement
 	{
-
+		/// <summary>
+		/// Construct a IfcFlowTreatmentDevice with all required attributes.
+		/// </summary>
 		public IfcFlowTreatmentDevice(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFlowTreatmentDevice with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFlowTreatmentDevice(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcFlowTreatmentDevice FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFlowTreatmentDevice>(json);
-		}
-
-		public static new IfcFlowTreatmentDevice FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13714,21 +13877,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcFlowStorageDeviceType : IfcDistributionFlowElementType
 	{
-
+		/// <summary>
+		/// Construct a IfcFlowStorageDeviceType with all required attributes.
+		/// </summary>
 		public IfcFlowStorageDeviceType(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFlowStorageDeviceType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFlowStorageDeviceType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcFlowStorageDeviceType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFlowStorageDeviceType>(json);
-		}
-
-		public static new IfcFlowStorageDeviceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13737,21 +13903,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcFlowTreatmentDeviceType : IfcDistributionFlowElementType
 	{
-
+		/// <summary>
+		/// Construct a IfcFlowTreatmentDeviceType with all required attributes.
+		/// </summary>
 		public IfcFlowTreatmentDeviceType(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFlowTreatmentDeviceType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFlowTreatmentDeviceType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcFlowTreatmentDeviceType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFlowTreatmentDeviceType>(json);
-		}
-
-		public static new IfcFlowTreatmentDeviceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13764,20 +13933,27 @@ namespace IFC4
 		public IfcDistributionPortTypeEnum PredefinedType{get;set;} // optional
 		public IfcDistributionSystemEnum SystemType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcDistributionPort with all required attributes.
+		/// </summary>
 		public IfcDistributionPort(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcDistributionPort with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDistributionPort(IfcFlowDirectionEnum flowDirection,IfcDistributionPortTypeEnum predefinedType,IfcDistributionSystemEnum systemType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			FlowDirection = flowDirection;
+			PredefinedType = predefinedType;
+			SystemType = systemType;
 
 		}
-
 		public static new IfcDistributionPort FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionPort>(json);
-		}
-
-		public static new IfcDistributionPort FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13786,21 +13962,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcPort : IfcProduct
 	{
-
+		/// <summary>
+		/// Construct a IfcPort with all required attributes.
+		/// </summary>
 		public IfcPort(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPort with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPort(IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcPort FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPort>(json);
-		}
-
-		public static new IfcPort FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13827,23 +14006,44 @@ namespace IFC4
 		public IfcDocumentConfidentialityEnum Confidentiality{get;set;} // optional
 		public IfcDocumentStatusEnum Status{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcDocumentInformation with all required attributes.
+		/// </summary>
 		public IfcDocumentInformation(IfcIdentifier identification,IfcLabel name):base()
 		{
 			Identification = identification;
 			Name = name;
 
+		}
+		/// <summary>
+		/// Construct a IfcDocumentInformation with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDocumentInformation(IfcIdentifier identification,IfcLabel name,IfcText description,IfcURIReference location,IfcText purpose,IfcText intendedUse,IfcText scope,IfcLabel revision,IfcActorSelect documentOwner,List<IfcActorSelect> editors,IfcDateTime creationTime,IfcDateTime lastRevisionTime,IfcIdentifier electronicFormat,IfcDate validFrom,IfcDate validUntil,IfcDocumentConfidentialityEnum confidentiality,IfcDocumentStatusEnum status):base()
+		{
+			Identification = identification;
+			Name = name;
+			Description = description;
+			Location = location;
+			Purpose = purpose;
+			IntendedUse = intendedUse;
+			Scope = scope;
+			Revision = revision;
+			DocumentOwner = documentOwner;
+			Editors = editors;
+			CreationTime = creationTime;
+			LastRevisionTime = lastRevisionTime;
+			ElectronicFormat = electronicFormat;
+			ValidFrom = validFrom;
+			ValidUntil = validUntil;
+			Confidentiality = confidentiality;
+			Status = status;
 			Editors = new List<IfcActorSelect>();
 
 		}
-
 		public static new IfcDocumentInformation FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDocumentInformation>(json);
-		}
-
-		public static new IfcDocumentInformation FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13856,22 +14056,31 @@ namespace IFC4
 		public List<IfcDocumentInformation> RelatedDocuments{get;set;} 
 		public IfcLabel RelationshipType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcDocumentInformationRelationship with all required attributes.
+		/// </summary>
 		public IfcDocumentInformationRelationship(IfcDocumentInformation relatingDocument,List<IfcDocumentInformation> relatedDocuments):base()
 		{
 			RelatingDocument = relatingDocument;
 			RelatedDocuments = relatedDocuments;
-
+			RelatedDocuments = new List<IfcDocumentInformation>();
 
 		}
+		/// <summary>
+		/// Construct a IfcDocumentInformationRelationship with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDocumentInformationRelationship(IfcDocumentInformation relatingDocument,List<IfcDocumentInformation> relatedDocuments,IfcLabel relationshipType,IfcLabel name,IfcText description):base(name,description)
+		{
+			RelatingDocument = relatingDocument;
+			RelatedDocuments = relatedDocuments;
+			RelationshipType = relationshipType;
+			RelatedDocuments = new List<IfcDocumentInformation>();
 
+		}
 		public static new IfcDocumentInformationRelationship FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDocumentInformationRelationship>(json);
-		}
-
-		public static new IfcDocumentInformationRelationship FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13883,20 +14092,26 @@ namespace IFC4
 		public IfcText Description{get;set;} // optional
 		public IfcDocumentInformation ReferencedDocument{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcDocumentReference with all required attributes.
+		/// </summary>
 		public IfcDocumentReference():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcDocumentReference with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDocumentReference(IfcText description,IfcDocumentInformation referencedDocument,IfcURIReference location,IfcIdentifier identification,IfcLabel name):base(location,identification,name)
+		{
+			Description = description;
+			ReferencedDocument = referencedDocument;
 
 		}
-
 		public static new IfcDocumentReference FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDocumentReference>(json);
-		}
-
-		public static new IfcDocumentReference FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13905,21 +14120,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDoorStandardCase : IfcDoor
 	{
-
+		/// <summary>
+		/// Construct a IfcDoorStandardCase with all required attributes.
+		/// </summary>
 		public IfcDoorStandardCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcDoorStandardCase with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDoorStandardCase(IfcPositiveLengthMeasure overallHeight,IfcPositiveLengthMeasure overallWidth,IfcDoorTypeEnum predefinedType,IfcDoorTypeOperationEnum operationType,IfcLabel userDefinedOperationType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(overallHeight,overallWidth,predefinedType,operationType,userDefinedOperationType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcDoorStandardCase FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDoorStandardCase>(json);
-		}
-
-		public static new IfcDoorStandardCase FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13942,20 +14160,37 @@ namespace IFC4
 		public IfcLengthMeasure LiningToPanelOffsetX{get;set;} // optional
 		public IfcLengthMeasure LiningToPanelOffsetY{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcDoorLiningProperties with all required attributes.
+		/// </summary>
 		public IfcDoorLiningProperties(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcDoorLiningProperties with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDoorLiningProperties(IfcPositiveLengthMeasure liningDepth,IfcNonNegativeLengthMeasure liningThickness,IfcPositiveLengthMeasure thresholdDepth,IfcNonNegativeLengthMeasure thresholdThickness,IfcNonNegativeLengthMeasure transomThickness,IfcLengthMeasure transomOffset,IfcLengthMeasure liningOffset,IfcLengthMeasure thresholdOffset,IfcPositiveLengthMeasure casingThickness,IfcPositiveLengthMeasure casingDepth,IfcShapeAspect shapeAspectStyle,IfcLengthMeasure liningToPanelOffsetX,IfcLengthMeasure liningToPanelOffsetY,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			LiningDepth = liningDepth;
+			LiningThickness = liningThickness;
+			ThresholdDepth = thresholdDepth;
+			ThresholdThickness = thresholdThickness;
+			TransomThickness = transomThickness;
+			TransomOffset = transomOffset;
+			LiningOffset = liningOffset;
+			ThresholdOffset = thresholdOffset;
+			CasingThickness = casingThickness;
+			CasingDepth = casingDepth;
+			ShapeAspectStyle = shapeAspectStyle;
+			LiningToPanelOffsetX = liningToPanelOffsetX;
+			LiningToPanelOffsetY = liningToPanelOffsetY;
 
 		}
-
 		public static new IfcDoorLiningProperties FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDoorLiningProperties>(json);
-		}
-
-		public static new IfcDoorLiningProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13964,21 +14199,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcPreDefinedPropertySet : IfcPropertySetDefinition
 	{
-
+		/// <summary>
+		/// Construct a IfcPreDefinedPropertySet with all required attributes.
+		/// </summary>
 		public IfcPreDefinedPropertySet(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPreDefinedPropertySet with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPreDefinedPropertySet(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcPreDefinedPropertySet FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPreDefinedPropertySet>(json);
-		}
-
-		public static new IfcPreDefinedPropertySet FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -13993,22 +14231,31 @@ namespace IFC4
 		public IfcDoorPanelPositionEnum PanelPosition{get;set;} 
 		public IfcShapeAspect ShapeAspectStyle{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcDoorPanelProperties with all required attributes.
+		/// </summary>
 		public IfcDoorPanelProperties(IfcDoorPanelOperationEnum panelOperation,IfcDoorPanelPositionEnum panelPosition,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PanelOperation = panelOperation;
 			PanelPosition = panelPosition;
 
+		}
+		/// <summary>
+		/// Construct a IfcDoorPanelProperties with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDoorPanelProperties(IfcPositiveLengthMeasure panelDepth,IfcDoorPanelOperationEnum panelOperation,IfcNormalisedRatioMeasure panelWidth,IfcDoorPanelPositionEnum panelPosition,IfcShapeAspect shapeAspectStyle,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			PanelDepth = panelDepth;
+			PanelOperation = panelOperation;
+			PanelWidth = panelWidth;
+			PanelPosition = panelPosition;
+			ShapeAspectStyle = shapeAspectStyle;
 
 		}
-
 		public static new IfcDoorPanelProperties FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDoorPanelProperties>(json);
-		}
-
-		public static new IfcDoorPanelProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14022,6 +14269,9 @@ namespace IFC4
 		public bool ParameterTakesPrecedence{get;set;} 
 		public bool Sizeable{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcDoorStyle with all required attributes.
+		/// </summary>
 		public IfcDoorStyle(IfcDoorStyleOperationEnum operationType,IfcDoorStyleConstructionEnum constructionType,bool parameterTakesPrecedence,bool sizeable,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			OperationType = operationType;
@@ -14029,17 +14279,22 @@ namespace IFC4
 			ParameterTakesPrecedence = parameterTakesPrecedence;
 			Sizeable = sizeable;
 
+		}
+		/// <summary>
+		/// Construct a IfcDoorStyle with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDoorStyle(IfcDoorStyleOperationEnum operationType,IfcDoorStyleConstructionEnum constructionType,bool parameterTakesPrecedence,bool sizeable,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			OperationType = operationType;
+			ConstructionType = constructionType;
+			ParameterTakesPrecedence = parameterTakesPrecedence;
+			Sizeable = sizeable;
 
 		}
-
 		public static new IfcDoorStyle FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDoorStyle>(json);
-		}
-
-		public static new IfcDoorStyle FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14051,21 +14306,27 @@ namespace IFC4
 		public List<IfcRepresentationMap> RepresentationMaps{get;set;} // optional
 		public IfcLabel Tag{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTypeProduct with all required attributes.
+		/// </summary>
 		public IfcTypeProduct(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcTypeProduct with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTypeProduct(List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			RepresentationMaps = representationMaps;
+			Tag = tag;
 			RepresentationMaps = new List<IfcRepresentationMap>();
 
 		}
-
 		public static new IfcTypeProduct FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTypeProduct>(json);
-		}
-
-		public static new IfcTypeProduct FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14074,21 +14335,17 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDraughtingPreDefinedColour : IfcPreDefinedColour
 	{
-
+		/// <summary>
+		/// Construct a IfcDraughtingPreDefinedColour with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcDraughtingPreDefinedColour(IfcLabel name):base(name)
 		{
 
-
 		}
-
 		public static new IfcDraughtingPreDefinedColour FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDraughtingPreDefinedColour>(json);
-		}
-
-		public static new IfcDraughtingPreDefinedColour FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14097,21 +14354,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcPreDefinedColour : IfcPreDefinedItem
 	{
-
+		/// <summary>
+		/// Construct a IfcPreDefinedColour with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcPreDefinedColour(IfcLabel name):base(name)
 		{
 
-
 		}
-
 		public static new IfcPreDefinedColour FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPreDefinedColour>(json);
-		}
-
-		public static new IfcPreDefinedColour FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14120,21 +14373,17 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcDraughtingPreDefinedCurveFont : IfcPreDefinedCurveFont
 	{
-
+		/// <summary>
+		/// Construct a IfcDraughtingPreDefinedCurveFont with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcDraughtingPreDefinedCurveFont(IfcLabel name):base(name)
 		{
 
-
 		}
-
 		public static new IfcDraughtingPreDefinedCurveFont FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDraughtingPreDefinedCurveFont>(json);
-		}
-
-		public static new IfcDraughtingPreDefinedCurveFont FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14143,21 +14392,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcPreDefinedCurveFont : IfcPreDefinedItem
 	{
-
+		/// <summary>
+		/// Construct a IfcPreDefinedCurveFont with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcPreDefinedCurveFont(IfcLabel name):base(name)
 		{
 
-
 		}
-
 		public static new IfcPreDefinedCurveFont FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPreDefinedCurveFont>(json);
-		}
-
-		public static new IfcPreDefinedCurveFont FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14168,20 +14413,25 @@ namespace IFC4
 	{
 		public IfcDuctFittingTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcDuctFitting with all required attributes.
+		/// </summary>
 		public IfcDuctFitting(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcDuctFitting with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDuctFitting(IfcDuctFittingTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcDuctFitting FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDuctFitting>(json);
-		}
-
-		public static new IfcDuctFitting FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14192,21 +14442,26 @@ namespace IFC4
 	{
 		public IfcDuctFittingTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcDuctFittingType with all required attributes.
+		/// </summary>
 		public IfcDuctFittingType(IfcDuctFittingTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcDuctFittingType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDuctFittingType(IfcDuctFittingTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcDuctFittingType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDuctFittingType>(json);
-		}
-
-		public static new IfcDuctFittingType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14217,20 +14472,25 @@ namespace IFC4
 	{
 		public IfcDuctSegmentTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcDuctSegment with all required attributes.
+		/// </summary>
 		public IfcDuctSegment(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcDuctSegment with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDuctSegment(IfcDuctSegmentTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcDuctSegment FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDuctSegment>(json);
-		}
-
-		public static new IfcDuctSegment FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14241,21 +14501,26 @@ namespace IFC4
 	{
 		public IfcDuctSegmentTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcDuctSegmentType with all required attributes.
+		/// </summary>
 		public IfcDuctSegmentType(IfcDuctSegmentTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcDuctSegmentType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDuctSegmentType(IfcDuctSegmentTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcDuctSegmentType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDuctSegmentType>(json);
-		}
-
-		public static new IfcDuctSegmentType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14266,20 +14531,25 @@ namespace IFC4
 	{
 		public IfcDuctSilencerTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcDuctSilencer with all required attributes.
+		/// </summary>
 		public IfcDuctSilencer(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcDuctSilencer with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDuctSilencer(IfcDuctSilencerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcDuctSilencer FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDuctSilencer>(json);
-		}
-
-		public static new IfcDuctSilencer FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14290,21 +14560,26 @@ namespace IFC4
 	{
 		public IfcDuctSilencerTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcDuctSilencerType with all required attributes.
+		/// </summary>
 		public IfcDuctSilencerType(IfcDuctSilencerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcDuctSilencerType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcDuctSilencerType(IfcDuctSilencerTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcDuctSilencerType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcDuctSilencerType>(json);
-		}
-
-		public static new IfcDuctSilencerType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14316,22 +14591,19 @@ namespace IFC4
 		public IfcVertex EdgeStart{get;set;} 
 		public IfcVertex EdgeEnd{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcEdge with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcEdge(IfcVertex edgeStart,IfcVertex edgeEnd):base()
 		{
 			EdgeStart = edgeStart;
 			EdgeEnd = edgeEnd;
 
-
 		}
-
 		public static new IfcEdge FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcEdge>(json);
-		}
-
-		public static new IfcEdge FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14343,22 +14615,19 @@ namespace IFC4
 		public IfcCurve EdgeGeometry{get;set;} 
 		public bool SameSense{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcEdgeCurve with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcEdgeCurve(IfcCurve edgeGeometry,bool sameSense,IfcVertex edgeStart,IfcVertex edgeEnd):base(edgeStart,edgeEnd)
 		{
 			EdgeGeometry = edgeGeometry;
 			SameSense = sameSense;
 
-
 		}
-
 		public static new IfcEdgeCurve FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcEdgeCurve>(json);
-		}
-
-		public static new IfcEdgeCurve FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14370,22 +14639,19 @@ namespace IFC4
 		public IfcEdge EdgeElement{get;set;} 
 		public bool Orientation{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcOrientedEdge with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcOrientedEdge(IfcEdge edgeElement,bool orientation,IfcVertex edgeStart,IfcVertex edgeEnd):base(edgeStart,edgeEnd)
 		{
 			EdgeElement = edgeElement;
 			Orientation = orientation;
 
-
 		}
-
 		public static new IfcOrientedEdge FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcOrientedEdge>(json);
-		}
-
-		public static new IfcOrientedEdge FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14396,21 +14662,18 @@ namespace IFC4
 	{
 		public IfcEdge ParentEdge{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcSubedge with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcSubedge(IfcEdge parentEdge,IfcVertex edgeStart,IfcVertex edgeEnd):base(edgeStart,edgeEnd)
 		{
 			ParentEdge = parentEdge;
 
-
 		}
-
 		public static new IfcSubedge FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSubedge>(json);
-		}
-
-		public static new IfcSubedge FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14421,21 +14684,19 @@ namespace IFC4
 	{
 		public List<IfcOrientedEdge> EdgeList{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcEdgeLoop with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcEdgeLoop(List<IfcOrientedEdge> edgeList):base()
 		{
 			EdgeList = edgeList;
-
+			EdgeList = new List<IfcOrientedEdge>();
 
 		}
-
 		public static new IfcEdgeLoop FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcEdgeLoop>(json);
-		}
-
-		public static new IfcEdgeLoop FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14444,21 +14705,17 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcLoop : IfcTopologicalRepresentationItem
 	{
-
+		/// <summary>
+		/// Construct a IfcLoop with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcLoop():base()
 		{
 
-
 		}
-
 		public static new IfcLoop FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLoop>(json);
-		}
-
-		public static new IfcLoop FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14469,20 +14726,25 @@ namespace IFC4
 	{
 		public IfcElectricApplianceTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcElectricAppliance with all required attributes.
+		/// </summary>
 		public IfcElectricAppliance(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcElectricAppliance with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcElectricAppliance(IfcElectricApplianceTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcElectricAppliance FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElectricAppliance>(json);
-		}
-
-		public static new IfcElectricAppliance FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14493,21 +14755,26 @@ namespace IFC4
 	{
 		public IfcElectricApplianceTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcElectricApplianceType with all required attributes.
+		/// </summary>
 		public IfcElectricApplianceType(IfcElectricApplianceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcElectricApplianceType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcElectricApplianceType(IfcElectricApplianceTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcElectricApplianceType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElectricApplianceType>(json);
-		}
-
-		public static new IfcElectricApplianceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14518,20 +14785,25 @@ namespace IFC4
 	{
 		public IfcElectricDistributionBoardTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcElectricDistributionBoard with all required attributes.
+		/// </summary>
 		public IfcElectricDistributionBoard(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcElectricDistributionBoard with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcElectricDistributionBoard(IfcElectricDistributionBoardTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcElectricDistributionBoard FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElectricDistributionBoard>(json);
-		}
-
-		public static new IfcElectricDistributionBoard FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14542,21 +14814,26 @@ namespace IFC4
 	{
 		public IfcElectricDistributionBoardTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcElectricDistributionBoardType with all required attributes.
+		/// </summary>
 		public IfcElectricDistributionBoardType(IfcElectricDistributionBoardTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcElectricDistributionBoardType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcElectricDistributionBoardType(IfcElectricDistributionBoardTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcElectricDistributionBoardType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElectricDistributionBoardType>(json);
-		}
-
-		public static new IfcElectricDistributionBoardType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14567,20 +14844,25 @@ namespace IFC4
 	{
 		public IfcElectricFlowStorageDeviceTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcElectricFlowStorageDevice with all required attributes.
+		/// </summary>
 		public IfcElectricFlowStorageDevice(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcElectricFlowStorageDevice with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcElectricFlowStorageDevice(IfcElectricFlowStorageDeviceTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcElectricFlowStorageDevice FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElectricFlowStorageDevice>(json);
-		}
-
-		public static new IfcElectricFlowStorageDevice FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14591,21 +14873,26 @@ namespace IFC4
 	{
 		public IfcElectricFlowStorageDeviceTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcElectricFlowStorageDeviceType with all required attributes.
+		/// </summary>
 		public IfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcElectricFlowStorageDeviceType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcElectricFlowStorageDeviceType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElectricFlowStorageDeviceType>(json);
-		}
-
-		public static new IfcElectricFlowStorageDeviceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14616,20 +14903,25 @@ namespace IFC4
 	{
 		public IfcElectricGeneratorTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcElectricGenerator with all required attributes.
+		/// </summary>
 		public IfcElectricGenerator(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcElectricGenerator with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcElectricGenerator(IfcElectricGeneratorTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcElectricGenerator FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElectricGenerator>(json);
-		}
-
-		public static new IfcElectricGenerator FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14640,21 +14932,26 @@ namespace IFC4
 	{
 		public IfcElectricGeneratorTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcElectricGeneratorType with all required attributes.
+		/// </summary>
 		public IfcElectricGeneratorType(IfcElectricGeneratorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcElectricGeneratorType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcElectricGeneratorType(IfcElectricGeneratorTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcElectricGeneratorType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElectricGeneratorType>(json);
-		}
-
-		public static new IfcElectricGeneratorType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14665,20 +14962,25 @@ namespace IFC4
 	{
 		public IfcElectricMotorTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcElectricMotor with all required attributes.
+		/// </summary>
 		public IfcElectricMotor(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcElectricMotor with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcElectricMotor(IfcElectricMotorTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcElectricMotor FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElectricMotor>(json);
-		}
-
-		public static new IfcElectricMotor FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14689,21 +14991,26 @@ namespace IFC4
 	{
 		public IfcElectricMotorTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcElectricMotorType with all required attributes.
+		/// </summary>
 		public IfcElectricMotorType(IfcElectricMotorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcElectricMotorType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcElectricMotorType(IfcElectricMotorTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcElectricMotorType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElectricMotorType>(json);
-		}
-
-		public static new IfcElectricMotorType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14714,20 +15021,25 @@ namespace IFC4
 	{
 		public IfcElectricTimeControlTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcElectricTimeControl with all required attributes.
+		/// </summary>
 		public IfcElectricTimeControl(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcElectricTimeControl with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcElectricTimeControl(IfcElectricTimeControlTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcElectricTimeControl FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElectricTimeControl>(json);
-		}
-
-		public static new IfcElectricTimeControl FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14738,21 +15050,26 @@ namespace IFC4
 	{
 		public IfcElectricTimeControlTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcElectricTimeControlType with all required attributes.
+		/// </summary>
 		public IfcElectricTimeControlType(IfcElectricTimeControlTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcElectricTimeControlType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcElectricTimeControlType(IfcElectricTimeControlTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcElectricTimeControlType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElectricTimeControlType>(json);
-		}
-
-		public static new IfcElectricTimeControlType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14764,20 +15081,26 @@ namespace IFC4
 		public IfcAssemblyPlaceEnum AssemblyPlace{get;set;} // optional
 		public IfcElementAssemblyTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcElementAssembly with all required attributes.
+		/// </summary>
 		public IfcElementAssembly(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcElementAssembly with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcElementAssembly(IfcAssemblyPlaceEnum assemblyPlace,IfcElementAssemblyTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			AssemblyPlace = assemblyPlace;
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcElementAssembly FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElementAssembly>(json);
-		}
-
-		public static new IfcElementAssembly FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14786,21 +15109,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcFeatureElement : IfcElement
 	{
-
+		/// <summary>
+		/// Construct a IfcFeatureElement with all required attributes.
+		/// </summary>
 		public IfcFeatureElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFeatureElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFeatureElement(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcFeatureElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFeatureElement>(json);
-		}
-
-		public static new IfcFeatureElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14809,21 +15135,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFurnishingElement : IfcElement
 	{
-
+		/// <summary>
+		/// Construct a IfcFurnishingElement with all required attributes.
+		/// </summary>
 		public IfcFurnishingElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFurnishingElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFurnishingElement(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcFurnishingElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFurnishingElement>(json);
-		}
-
-		public static new IfcFurnishingElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14834,20 +15163,25 @@ namespace IFC4
 	{
 		public IfcGeographicElementTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcGeographicElement with all required attributes.
+		/// </summary>
 		public IfcGeographicElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcGeographicElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcGeographicElement(IfcGeographicElementTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcGeographicElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcGeographicElement>(json);
-		}
-
-		public static new IfcGeographicElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14858,20 +15192,25 @@ namespace IFC4
 	{
 		public IfcTransportElementTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTransportElement with all required attributes.
+		/// </summary>
 		public IfcTransportElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcTransportElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTransportElement(IfcTransportElementTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcTransportElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTransportElement>(json);
-		}
-
-		public static new IfcTransportElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14880,21 +15219,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcVirtualElement : IfcElement
 	{
-
+		/// <summary>
+		/// Construct a IfcVirtualElement with all required attributes.
+		/// </summary>
 		public IfcVirtualElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcVirtualElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcVirtualElement(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcVirtualElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcVirtualElement>(json);
-		}
-
-		public static new IfcVirtualElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14905,21 +15247,26 @@ namespace IFC4
 	{
 		public IfcElementAssemblyTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcElementAssemblyType with all required attributes.
+		/// </summary>
 		public IfcElementAssemblyType(IfcElementAssemblyTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcElementAssemblyType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcElementAssemblyType(IfcElementAssemblyTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcElementAssemblyType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElementAssemblyType>(json);
-		}
-
-		public static new IfcElementAssemblyType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14930,20 +15277,25 @@ namespace IFC4
 	{
 		public IfcFastenerTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcFastener with all required attributes.
+		/// </summary>
 		public IfcFastener(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFastener with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFastener(IfcFastenerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcFastener FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFastener>(json);
-		}
-
-		public static new IfcFastener FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14956,20 +15308,27 @@ namespace IFC4
 		public IfcPositiveLengthMeasure NominalLength{get;set;} // optional
 		public IfcMechanicalFastenerTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcMechanicalFastener with all required attributes.
+		/// </summary>
 		public IfcMechanicalFastener(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcMechanicalFastener with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMechanicalFastener(IfcPositiveLengthMeasure nominalDiameter,IfcPositiveLengthMeasure nominalLength,IfcMechanicalFastenerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			NominalDiameter = nominalDiameter;
+			NominalLength = nominalLength;
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcMechanicalFastener FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMechanicalFastener>(json);
-		}
-
-		public static new IfcMechanicalFastener FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -14980,20 +15339,25 @@ namespace IFC4
 	{
 		public IfcLabel SteelGrade{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcReinforcingElement with all required attributes.
+		/// </summary>
 		public IfcReinforcingElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcReinforcingElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcReinforcingElement(IfcLabel steelGrade,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			SteelGrade = steelGrade;
 
 		}
-
 		public static new IfcReinforcingElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcReinforcingElement>(json);
-		}
-
-		public static new IfcReinforcingElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15004,20 +15368,25 @@ namespace IFC4
 	{
 		public IfcVibrationIsolatorTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcVibrationIsolator with all required attributes.
+		/// </summary>
 		public IfcVibrationIsolator(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcVibrationIsolator with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcVibrationIsolator(IfcVibrationIsolatorTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcVibrationIsolator FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcVibrationIsolator>(json);
-		}
-
-		public static new IfcVibrationIsolator FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15028,21 +15397,26 @@ namespace IFC4
 	{
 		public IfcFastenerTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcFastenerType with all required attributes.
+		/// </summary>
 		public IfcFastenerType(IfcFastenerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcFastenerType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFastenerType(IfcFastenerTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcFastenerType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFastenerType>(json);
-		}
-
-		public static new IfcFastenerType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15055,21 +15429,28 @@ namespace IFC4
 		public IfcPositiveLengthMeasure NominalDiameter{get;set;} // optional
 		public IfcPositiveLengthMeasure NominalLength{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcMechanicalFastenerType with all required attributes.
+		/// </summary>
 		public IfcMechanicalFastenerType(IfcMechanicalFastenerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcMechanicalFastenerType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMechanicalFastenerType(IfcMechanicalFastenerTypeEnum predefinedType,IfcPositiveLengthMeasure nominalDiameter,IfcPositiveLengthMeasure nominalLength,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			NominalDiameter = nominalDiameter;
+			NominalLength = nominalLength;
 
 		}
-
 		public static new IfcMechanicalFastenerType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMechanicalFastenerType>(json);
-		}
-
-		public static new IfcMechanicalFastenerType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15078,21 +15459,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcReinforcingElementType : IfcElementComponentType
 	{
-
+		/// <summary>
+		/// Construct a IfcReinforcingElementType with all required attributes.
+		/// </summary>
 		public IfcReinforcingElementType(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcReinforcingElementType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcReinforcingElementType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcReinforcingElementType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcReinforcingElementType>(json);
-		}
-
-		public static new IfcReinforcingElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15103,21 +15487,26 @@ namespace IFC4
 	{
 		public IfcVibrationIsolatorTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcVibrationIsolatorType with all required attributes.
+		/// </summary>
 		public IfcVibrationIsolatorType(IfcVibrationIsolatorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcVibrationIsolatorType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcVibrationIsolatorType(IfcVibrationIsolatorTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcVibrationIsolatorType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcVibrationIsolatorType>(json);
-		}
-
-		public static new IfcVibrationIsolatorType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15129,21 +15518,29 @@ namespace IFC4
 		public IfcLabel MethodOfMeasurement{get;set;} // optional
 		public List<IfcPhysicalQuantity> Quantities{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcElementQuantity with all required attributes.
+		/// </summary>
 		public IfcElementQuantity(List<IfcPhysicalQuantity> quantities,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			Quantities = quantities;
-
+			Quantities = new List<IfcPhysicalQuantity>();
 
 		}
+		/// <summary>
+		/// Construct a IfcElementQuantity with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcElementQuantity(IfcLabel methodOfMeasurement,List<IfcPhysicalQuantity> quantities,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			MethodOfMeasurement = methodOfMeasurement;
+			Quantities = quantities;
+			Quantities = new List<IfcPhysicalQuantity>();
 
+		}
 		public static new IfcElementQuantity FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcElementQuantity>(json);
-		}
-
-		public static new IfcElementQuantity FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15152,21 +15549,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcQuantitySet : IfcPropertySetDefinition
 	{
-
+		/// <summary>
+		/// Construct a IfcQuantitySet with all required attributes.
+		/// </summary>
 		public IfcQuantitySet(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcQuantitySet with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcQuantitySet(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcQuantitySet FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcQuantitySet>(json);
-		}
-
-		public static new IfcQuantitySet FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15175,21 +15575,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFurnishingElementType : IfcElementType
 	{
-
+		/// <summary>
+		/// Construct a IfcFurnishingElementType with all required attributes.
+		/// </summary>
 		public IfcFurnishingElementType(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFurnishingElementType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFurnishingElementType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcFurnishingElementType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFurnishingElementType>(json);
-		}
-
-		public static new IfcFurnishingElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15200,21 +15603,26 @@ namespace IFC4
 	{
 		public IfcGeographicElementTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcGeographicElementType with all required attributes.
+		/// </summary>
 		public IfcGeographicElementType(IfcGeographicElementTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcGeographicElementType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcGeographicElementType(IfcGeographicElementTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcGeographicElementType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcGeographicElementType>(json);
-		}
-
-		public static new IfcGeographicElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15225,21 +15633,26 @@ namespace IFC4
 	{
 		public IfcTransportElementTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcTransportElementType with all required attributes.
+		/// </summary>
 		public IfcTransportElementType(IfcTransportElementTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcTransportElementType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTransportElementType(IfcTransportElementTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcTransportElementType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTransportElementType>(json);
-		}
-
-		public static new IfcTransportElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15248,21 +15661,17 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcPlane : IfcElementarySurface
 	{
-
+		/// <summary>
+		/// Construct a IfcPlane with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcPlane(IfcAxis2Placement3D position):base(position)
 		{
 
-
 		}
-
 		public static new IfcPlane FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPlane>(json);
-		}
-
-		public static new IfcPlane FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15274,22 +15683,28 @@ namespace IFC4
 		public IfcPositiveLengthMeasure SemiAxis1{get;set;} 
 		public IfcPositiveLengthMeasure SemiAxis2{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcEllipseProfileDef with all required attributes.
+		/// </summary>
 		public IfcEllipseProfileDef(IfcPositiveLengthMeasure semiAxis1,IfcPositiveLengthMeasure semiAxis2,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			SemiAxis1 = semiAxis1;
 			SemiAxis2 = semiAxis2;
 
+		}
+		/// <summary>
+		/// Construct a IfcEllipseProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcEllipseProfileDef(IfcPositiveLengthMeasure semiAxis1,IfcPositiveLengthMeasure semiAxis2,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		{
+			SemiAxis1 = semiAxis1;
+			SemiAxis2 = semiAxis2;
 
 		}
-
 		public static new IfcEllipseProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcEllipseProfileDef>(json);
-		}
-
-		public static new IfcEllipseProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15300,20 +15715,25 @@ namespace IFC4
 	{
 		public IfcEngineTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcEngine with all required attributes.
+		/// </summary>
 		public IfcEngine(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcEngine with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcEngine(IfcEngineTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcEngine FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcEngine>(json);
-		}
-
-		public static new IfcEngine FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15324,20 +15744,25 @@ namespace IFC4
 	{
 		public IfcEvaporativeCoolerTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcEvaporativeCooler with all required attributes.
+		/// </summary>
 		public IfcEvaporativeCooler(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcEvaporativeCooler with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcEvaporativeCooler(IfcEvaporativeCoolerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcEvaporativeCooler FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcEvaporativeCooler>(json);
-		}
-
-		public static new IfcEvaporativeCooler FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15348,20 +15773,25 @@ namespace IFC4
 	{
 		public IfcEvaporatorTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcEvaporator with all required attributes.
+		/// </summary>
 		public IfcEvaporator(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcEvaporator with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcEvaporator(IfcEvaporatorTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcEvaporator FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcEvaporator>(json);
-		}
-
-		public static new IfcEvaporator FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15372,20 +15802,25 @@ namespace IFC4
 	{
 		public IfcHeatExchangerTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcHeatExchanger with all required attributes.
+		/// </summary>
 		public IfcHeatExchanger(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcHeatExchanger with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcHeatExchanger(IfcHeatExchangerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcHeatExchanger FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcHeatExchanger>(json);
-		}
-
-		public static new IfcHeatExchanger FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15396,20 +15831,25 @@ namespace IFC4
 	{
 		public IfcHumidifierTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcHumidifier with all required attributes.
+		/// </summary>
 		public IfcHumidifier(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcHumidifier with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcHumidifier(IfcHumidifierTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcHumidifier FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcHumidifier>(json);
-		}
-
-		public static new IfcHumidifier FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15420,20 +15860,25 @@ namespace IFC4
 	{
 		public IfcMotorConnectionTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcMotorConnection with all required attributes.
+		/// </summary>
 		public IfcMotorConnection(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcMotorConnection with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMotorConnection(IfcMotorConnectionTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcMotorConnection FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMotorConnection>(json);
-		}
-
-		public static new IfcMotorConnection FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15444,20 +15889,25 @@ namespace IFC4
 	{
 		public IfcSolarDeviceTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSolarDevice with all required attributes.
+		/// </summary>
 		public IfcSolarDevice(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSolarDevice with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSolarDevice(IfcSolarDeviceTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcSolarDevice FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSolarDevice>(json);
-		}
-
-		public static new IfcSolarDevice FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15468,20 +15918,25 @@ namespace IFC4
 	{
 		public IfcTransformerTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTransformer with all required attributes.
+		/// </summary>
 		public IfcTransformer(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcTransformer with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTransformer(IfcTransformerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcTransformer FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTransformer>(json);
-		}
-
-		public static new IfcTransformer FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15492,20 +15947,25 @@ namespace IFC4
 	{
 		public IfcTubeBundleTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTubeBundle with all required attributes.
+		/// </summary>
 		public IfcTubeBundle(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcTubeBundle with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTubeBundle(IfcTubeBundleTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcTubeBundle FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTubeBundle>(json);
-		}
-
-		public static new IfcTubeBundle FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15516,20 +15976,25 @@ namespace IFC4
 	{
 		public IfcUnitaryEquipmentTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcUnitaryEquipment with all required attributes.
+		/// </summary>
 		public IfcUnitaryEquipment(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcUnitaryEquipment with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcUnitaryEquipment(IfcUnitaryEquipmentTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcUnitaryEquipment FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcUnitaryEquipment>(json);
-		}
-
-		public static new IfcUnitaryEquipment FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15540,21 +16005,26 @@ namespace IFC4
 	{
 		public IfcEngineTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcEngineType with all required attributes.
+		/// </summary>
 		public IfcEngineType(IfcEngineTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcEngineType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcEngineType(IfcEngineTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcEngineType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcEngineType>(json);
-		}
-
-		public static new IfcEngineType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15565,21 +16035,26 @@ namespace IFC4
 	{
 		public IfcEvaporativeCoolerTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcEvaporativeCoolerType with all required attributes.
+		/// </summary>
 		public IfcEvaporativeCoolerType(IfcEvaporativeCoolerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcEvaporativeCoolerType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcEvaporativeCoolerType(IfcEvaporativeCoolerTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcEvaporativeCoolerType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcEvaporativeCoolerType>(json);
-		}
-
-		public static new IfcEvaporativeCoolerType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15590,21 +16065,26 @@ namespace IFC4
 	{
 		public IfcEvaporatorTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcEvaporatorType with all required attributes.
+		/// </summary>
 		public IfcEvaporatorType(IfcEvaporatorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcEvaporatorType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcEvaporatorType(IfcEvaporatorTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcEvaporatorType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcEvaporatorType>(json);
-		}
-
-		public static new IfcEvaporatorType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15615,21 +16095,26 @@ namespace IFC4
 	{
 		public IfcHeatExchangerTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcHeatExchangerType with all required attributes.
+		/// </summary>
 		public IfcHeatExchangerType(IfcHeatExchangerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcHeatExchangerType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcHeatExchangerType(IfcHeatExchangerTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcHeatExchangerType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcHeatExchangerType>(json);
-		}
-
-		public static new IfcHeatExchangerType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15640,21 +16125,26 @@ namespace IFC4
 	{
 		public IfcHumidifierTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcHumidifierType with all required attributes.
+		/// </summary>
 		public IfcHumidifierType(IfcHumidifierTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcHumidifierType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcHumidifierType(IfcHumidifierTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcHumidifierType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcHumidifierType>(json);
-		}
-
-		public static new IfcHumidifierType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15665,21 +16155,26 @@ namespace IFC4
 	{
 		public IfcMotorConnectionTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcMotorConnectionType with all required attributes.
+		/// </summary>
 		public IfcMotorConnectionType(IfcMotorConnectionTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcMotorConnectionType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMotorConnectionType(IfcMotorConnectionTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcMotorConnectionType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMotorConnectionType>(json);
-		}
-
-		public static new IfcMotorConnectionType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15690,21 +16185,26 @@ namespace IFC4
 	{
 		public IfcSolarDeviceTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcSolarDeviceType with all required attributes.
+		/// </summary>
 		public IfcSolarDeviceType(IfcSolarDeviceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcSolarDeviceType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSolarDeviceType(IfcSolarDeviceTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcSolarDeviceType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSolarDeviceType>(json);
-		}
-
-		public static new IfcSolarDeviceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15715,21 +16215,26 @@ namespace IFC4
 	{
 		public IfcTransformerTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcTransformerType with all required attributes.
+		/// </summary>
 		public IfcTransformerType(IfcTransformerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcTransformerType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTransformerType(IfcTransformerTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcTransformerType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTransformerType>(json);
-		}
-
-		public static new IfcTransformerType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15740,21 +16245,26 @@ namespace IFC4
 	{
 		public IfcTubeBundleTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcTubeBundleType with all required attributes.
+		/// </summary>
 		public IfcTubeBundleType(IfcTubeBundleTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcTubeBundleType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTubeBundleType(IfcTubeBundleTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcTubeBundleType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTubeBundleType>(json);
-		}
-
-		public static new IfcTubeBundleType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15765,21 +16275,26 @@ namespace IFC4
 	{
 		public IfcUnitaryEquipmentTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcUnitaryEquipmentType with all required attributes.
+		/// </summary>
 		public IfcUnitaryEquipmentType(IfcUnitaryEquipmentTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcUnitaryEquipmentType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcUnitaryEquipmentType(IfcUnitaryEquipmentTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcUnitaryEquipmentType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcUnitaryEquipmentType>(json);
-		}
-
-		public static new IfcUnitaryEquipmentType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15793,20 +16308,28 @@ namespace IFC4
 		public IfcLabel UserDefinedEventTriggerType{get;set;} // optional
 		public IfcEventTime EventOccurenceTime{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcEvent with all required attributes.
+		/// </summary>
 		public IfcEvent(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcEvent with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcEvent(IfcEventTypeEnum predefinedType,IfcEventTriggerTypeEnum eventTriggerType,IfcLabel userDefinedEventTriggerType,IfcEventTime eventOccurenceTime,IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,longDescription,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			EventTriggerType = eventTriggerType;
+			UserDefinedEventTriggerType = userDefinedEventTriggerType;
+			EventOccurenceTime = eventOccurenceTime;
 
 		}
-
 		public static new IfcEvent FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcEvent>(json);
-		}
-
-		public static new IfcEvent FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15818,20 +16341,26 @@ namespace IFC4
 		public IfcIdentifier Identification{get;set;} // optional
 		public IfcText LongDescription{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcProcess with all required attributes.
+		/// </summary>
 		public IfcProcess(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcProcess with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcProcess(IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		{
+			Identification = identification;
+			LongDescription = longDescription;
 
 		}
-
 		public static new IfcProcess FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcProcess>(json);
-		}
-
-		public static new IfcProcess FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15845,20 +16374,28 @@ namespace IFC4
 		public IfcDateTime LateDate{get;set;} // optional
 		public IfcDateTime ScheduleDate{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcEventTime with all required attributes.
+		/// </summary>
 		public IfcEventTime():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcEventTime with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcEventTime(IfcDateTime actualDate,IfcDateTime earlyDate,IfcDateTime lateDate,IfcDateTime scheduleDate,IfcLabel name,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin):base(name,dataOrigin,userDefinedDataOrigin)
+		{
+			ActualDate = actualDate;
+			EarlyDate = earlyDate;
+			LateDate = lateDate;
+			ScheduleDate = scheduleDate;
 
 		}
-
 		public static new IfcEventTime FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcEventTime>(json);
-		}
-
-		public static new IfcEventTime FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15871,20 +16408,27 @@ namespace IFC4
 		public IfcDataOriginEnum DataOrigin{get;set;} // optional
 		public IfcLabel UserDefinedDataOrigin{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSchedulingTime with all required attributes.
+		/// </summary>
 		public IfcSchedulingTime():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSchedulingTime with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSchedulingTime(IfcLabel name,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin):base()
+		{
+			Name = name;
+			DataOrigin = dataOrigin;
+			UserDefinedDataOrigin = userDefinedDataOrigin;
 
 		}
-
 		public static  IfcSchedulingTime FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSchedulingTime>(json);
-		}
-
-		public static  IfcSchedulingTime FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15897,22 +16441,29 @@ namespace IFC4
 		public IfcEventTriggerTypeEnum EventTriggerType{get;set;} 
 		public IfcLabel UserDefinedEventTriggerType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcEventType with all required attributes.
+		/// </summary>
 		public IfcEventType(IfcEventTypeEnum predefinedType,IfcEventTriggerTypeEnum eventTriggerType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 			EventTriggerType = eventTriggerType;
 
+		}
+		/// <summary>
+		/// Construct a IfcEventType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcEventType(IfcEventTypeEnum predefinedType,IfcEventTriggerTypeEnum eventTriggerType,IfcLabel userDefinedEventTriggerType,IfcIdentifier identification,IfcText longDescription,IfcLabel processType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,longDescription,processType,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			EventTriggerType = eventTriggerType;
+			UserDefinedEventTriggerType = userDefinedEventTriggerType;
 
 		}
-
 		public static new IfcEventType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcEventType>(json);
-		}
-
-		public static new IfcEventType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15925,20 +16476,27 @@ namespace IFC4
 		public IfcText LongDescription{get;set;} // optional
 		public IfcLabel ProcessType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTypeProcess with all required attributes.
+		/// </summary>
 		public IfcTypeProcess(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcTypeProcess with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTypeProcess(IfcIdentifier identification,IfcText longDescription,IfcLabel processType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			Identification = identification;
+			LongDescription = longDescription;
+			ProcessType = processType;
 
 		}
-
 		public static new IfcTypeProcess FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTypeProcess>(json);
-		}
-
-		public static new IfcTypeProcess FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15951,21 +16509,30 @@ namespace IFC4
 		public IfcText Description{get;set;} // optional
 		public List<IfcProperty> Properties{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcExtendedProperties with all required attributes.
+		/// </summary>
 		public IfcExtendedProperties(List<IfcProperty> properties):base()
 		{
 			Properties = properties;
-
+			Properties = new List<IfcProperty>();
 
 		}
+		/// <summary>
+		/// Construct a IfcExtendedProperties with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcExtendedProperties(IfcIdentifier name,IfcText description,List<IfcProperty> properties):base()
+		{
+			Name = name;
+			Description = description;
+			Properties = properties;
+			Properties = new List<IfcProperty>();
 
+		}
 		public static new IfcExtendedProperties FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcExtendedProperties>(json);
-		}
-
-		public static new IfcExtendedProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -15976,21 +16543,26 @@ namespace IFC4
 	{
 		public IfcMaterialDefinition Material{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcMaterialProperties with all required attributes.
+		/// </summary>
 		public IfcMaterialProperties(IfcMaterialDefinition material,List<IfcProperty> properties):base(properties)
 		{
 			Material = material;
 
+		}
+		/// <summary>
+		/// Construct a IfcMaterialProperties with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMaterialProperties(IfcMaterialDefinition material,IfcIdentifier name,IfcText description,List<IfcProperty> properties):base(name,description,properties)
+		{
+			Material = material;
 
 		}
-
 		public static new IfcMaterialProperties FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialProperties>(json);
-		}
-
-		public static new IfcMaterialProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16001,21 +16573,26 @@ namespace IFC4
 	{
 		public IfcProfileDef ProfileDefinition{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcProfileProperties with all required attributes.
+		/// </summary>
 		public IfcProfileProperties(IfcProfileDef profileDefinition,List<IfcProperty> properties):base(properties)
 		{
 			ProfileDefinition = profileDefinition;
 
+		}
+		/// <summary>
+		/// Construct a IfcProfileProperties with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcProfileProperties(IfcProfileDef profileDefinition,IfcIdentifier name,IfcText description,List<IfcProperty> properties):base(name,description,properties)
+		{
+			ProfileDefinition = profileDefinition;
 
 		}
-
 		public static new IfcProfileProperties FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcProfileProperties>(json);
-		}
-
-		public static new IfcProfileProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16024,21 +16601,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcPropertyAbstraction : IfcBase
 	{
-
+		/// <summary>
+		/// Construct a IfcPropertyAbstraction with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcPropertyAbstraction():base()
 		{
 
-
 		}
-
 		public static  IfcPropertyAbstraction FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyAbstraction>(json);
-		}
-
-		public static  IfcPropertyAbstraction FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16054,21 +16627,31 @@ namespace IFC4
 		public IfcURIReference Location{get;set;} // optional
 		public IfcText Description{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcLibraryInformation with all required attributes.
+		/// </summary>
 		public IfcLibraryInformation(IfcLabel name):base()
 		{
 			Name = name;
 
+		}
+		/// <summary>
+		/// Construct a IfcLibraryInformation with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcLibraryInformation(IfcLabel name,IfcLabel version,IfcActorSelect publisher,IfcDateTime versionDate,IfcURIReference location,IfcText description):base()
+		{
+			Name = name;
+			Version = version;
+			Publisher = publisher;
+			VersionDate = versionDate;
+			Location = location;
+			Description = description;
 
 		}
-
 		public static new IfcLibraryInformation FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLibraryInformation>(json);
-		}
-
-		public static new IfcLibraryInformation FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16077,21 +16660,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcExternallyDefinedHatchStyle : IfcExternalReference
 	{
-
+		/// <summary>
+		/// Construct a IfcExternallyDefinedHatchStyle with all required attributes.
+		/// </summary>
 		public IfcExternallyDefinedHatchStyle():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcExternallyDefinedHatchStyle with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcExternallyDefinedHatchStyle(IfcURIReference location,IfcIdentifier identification,IfcLabel name):base(location,identification,name)
+		{
 
 		}
-
 		public static new IfcExternallyDefinedHatchStyle FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcExternallyDefinedHatchStyle>(json);
-		}
-
-		public static new IfcExternallyDefinedHatchStyle FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16100,21 +16686,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcExternallyDefinedSurfaceStyle : IfcExternalReference
 	{
-
+		/// <summary>
+		/// Construct a IfcExternallyDefinedSurfaceStyle with all required attributes.
+		/// </summary>
 		public IfcExternallyDefinedSurfaceStyle():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcExternallyDefinedSurfaceStyle with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcExternallyDefinedSurfaceStyle(IfcURIReference location,IfcIdentifier identification,IfcLabel name):base(location,identification,name)
+		{
 
 		}
-
 		public static new IfcExternallyDefinedSurfaceStyle FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcExternallyDefinedSurfaceStyle>(json);
-		}
-
-		public static new IfcExternallyDefinedSurfaceStyle FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16123,21 +16712,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcExternallyDefinedTextFont : IfcExternalReference
 	{
-
+		/// <summary>
+		/// Construct a IfcExternallyDefinedTextFont with all required attributes.
+		/// </summary>
 		public IfcExternallyDefinedTextFont():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcExternallyDefinedTextFont with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcExternallyDefinedTextFont(IfcURIReference location,IfcIdentifier identification,IfcLabel name):base(location,identification,name)
+		{
 
 		}
-
 		public static new IfcExternallyDefinedTextFont FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcExternallyDefinedTextFont>(json);
-		}
-
-		public static new IfcExternallyDefinedTextFont FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16150,20 +16742,27 @@ namespace IFC4
 		public IfcLanguageId Language{get;set;} // optional
 		public IfcLibraryInformation ReferencedLibrary{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcLibraryReference with all required attributes.
+		/// </summary>
 		public IfcLibraryReference():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcLibraryReference with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcLibraryReference(IfcText description,IfcLanguageId language,IfcLibraryInformation referencedLibrary,IfcURIReference location,IfcIdentifier identification,IfcLabel name):base(location,identification,name)
+		{
+			Description = description;
+			Language = language;
+			ReferencedLibrary = referencedLibrary;
 
 		}
-
 		public static new IfcLibraryReference FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLibraryReference>(json);
-		}
-
-		public static new IfcLibraryReference FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16175,22 +16774,30 @@ namespace IFC4
 		public IfcExternalReference RelatingReference{get;set;} 
 		public List<IfcResourceObjectSelect> RelatedResourceObjects{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcExternalReferenceRelationship with all required attributes.
+		/// </summary>
 		public IfcExternalReferenceRelationship(IfcExternalReference relatingReference,List<IfcResourceObjectSelect> relatedResourceObjects):base()
 		{
 			RelatingReference = relatingReference;
 			RelatedResourceObjects = relatedResourceObjects;
-
+			RelatedResourceObjects = new List<IfcResourceObjectSelect>();
 
 		}
+		/// <summary>
+		/// Construct a IfcExternalReferenceRelationship with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcExternalReferenceRelationship(IfcExternalReference relatingReference,List<IfcResourceObjectSelect> relatedResourceObjects,IfcLabel name,IfcText description):base(name,description)
+		{
+			RelatingReference = relatingReference;
+			RelatedResourceObjects = relatedResourceObjects;
+			RelatedResourceObjects = new List<IfcResourceObjectSelect>();
 
+		}
 		public static new IfcExternalReferenceRelationship FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcExternalReferenceRelationship>(json);
-		}
-
-		public static new IfcExternalReferenceRelationship FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16201,20 +16808,25 @@ namespace IFC4
 	{
 		public IfcExternalSpatialElementTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcExternalSpatialElement with all required attributes.
+		/// </summary>
 		public IfcExternalSpatialElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcExternalSpatialElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcExternalSpatialElement(IfcExternalSpatialElementTypeEnum predefinedType,IfcLabel longName,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(longName,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcExternalSpatialElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcExternalSpatialElement>(json);
-		}
-
-		public static new IfcExternalSpatialElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16223,21 +16835,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcExternalSpatialStructureElement : IfcSpatialElement
 	{
-
+		/// <summary>
+		/// Construct a IfcExternalSpatialStructureElement with all required attributes.
+		/// </summary>
 		public IfcExternalSpatialStructureElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcExternalSpatialStructureElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcExternalSpatialStructureElement(IfcLabel longName,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(longName,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcExternalSpatialStructureElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcExternalSpatialStructureElement>(json);
-		}
-
-		public static new IfcExternalSpatialStructureElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16248,20 +16863,25 @@ namespace IFC4
 	{
 		public IfcLabel LongName{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSpatialElement with all required attributes.
+		/// </summary>
 		public IfcSpatialElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSpatialElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSpatialElement(IfcLabel longName,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			LongName = longName;
 
 		}
-
 		public static new IfcSpatialElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSpatialElement>(json);
-		}
-
-		public static new IfcSpatialElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16273,22 +16893,28 @@ namespace IFC4
 		public IfcDirection ExtrudedDirection{get;set;} 
 		public IfcPositiveLengthMeasure Depth{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcExtrudedAreaSolid with all required attributes.
+		/// </summary>
 		public IfcExtrudedAreaSolid(IfcDirection extrudedDirection,IfcPositiveLengthMeasure depth,IfcProfileDef sweptArea):base(sweptArea)
 		{
 			ExtrudedDirection = extrudedDirection;
 			Depth = depth;
 
+		}
+		/// <summary>
+		/// Construct a IfcExtrudedAreaSolid with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcExtrudedAreaSolid(IfcDirection extrudedDirection,IfcPositiveLengthMeasure depth,IfcProfileDef sweptArea,IfcAxis2Placement3D position):base(sweptArea,position)
+		{
+			ExtrudedDirection = extrudedDirection;
+			Depth = depth;
 
 		}
-
 		public static new IfcExtrudedAreaSolid FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcExtrudedAreaSolid>(json);
-		}
-
-		public static new IfcExtrudedAreaSolid FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16299,21 +16925,26 @@ namespace IFC4
 	{
 		public IfcProfileDef EndSweptArea{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcExtrudedAreaSolidTapered with all required attributes.
+		/// </summary>
 		public IfcExtrudedAreaSolidTapered(IfcProfileDef endSweptArea,IfcDirection extrudedDirection,IfcPositiveLengthMeasure depth,IfcProfileDef sweptArea):base(extrudedDirection,depth,sweptArea)
 		{
 			EndSweptArea = endSweptArea;
 
+		}
+		/// <summary>
+		/// Construct a IfcExtrudedAreaSolidTapered with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcExtrudedAreaSolidTapered(IfcProfileDef endSweptArea,IfcDirection extrudedDirection,IfcPositiveLengthMeasure depth,IfcProfileDef sweptArea,IfcAxis2Placement3D position):base(extrudedDirection,depth,sweptArea,position)
+		{
+			EndSweptArea = endSweptArea;
 
 		}
-
 		public static new IfcExtrudedAreaSolidTapered FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcExtrudedAreaSolidTapered>(json);
-		}
-
-		public static new IfcExtrudedAreaSolidTapered FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16325,21 +16956,27 @@ namespace IFC4
 		public IfcProfileDef SweptArea{get;set;} 
 		public IfcAxis2Placement3D Position{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSweptAreaSolid with all required attributes.
+		/// </summary>
 		public IfcSweptAreaSolid(IfcProfileDef sweptArea):base()
 		{
 			SweptArea = sweptArea;
 
+		}
+		/// <summary>
+		/// Construct a IfcSweptAreaSolid with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSweptAreaSolid(IfcProfileDef sweptArea,IfcAxis2Placement3D position):base()
+		{
+			SweptArea = sweptArea;
+			Position = position;
 
 		}
-
 		public static new IfcSweptAreaSolid FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSweptAreaSolid>(json);
-		}
-
-		public static new IfcSweptAreaSolid FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16350,21 +16987,19 @@ namespace IFC4
 	{
 		public List<IfcFaceBound> Bounds{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcFace with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcFace(List<IfcFaceBound> bounds):base()
 		{
 			Bounds = bounds;
-
+			Bounds = new List<IfcFaceBound>();
 
 		}
-
 		public static new IfcFace FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFace>(json);
-		}
-
-		public static new IfcFace FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16375,21 +17010,19 @@ namespace IFC4
 	{
 		public List<IfcConnectedFaceSet> FbsmFaces{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcFaceBasedSurfaceModel with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcFaceBasedSurfaceModel(List<IfcConnectedFaceSet> fbsmFaces):base()
 		{
 			FbsmFaces = fbsmFaces;
-
+			FbsmFaces = new List<IfcConnectedFaceSet>();
 
 		}
-
 		public static new IfcFaceBasedSurfaceModel FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFaceBasedSurfaceModel>(json);
-		}
-
-		public static new IfcFaceBasedSurfaceModel FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16401,22 +17034,19 @@ namespace IFC4
 		public IfcLoop Bound{get;set;} 
 		public bool Orientation{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcFaceBound with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcFaceBound(IfcLoop bound,bool orientation):base()
 		{
 			Bound = bound;
 			Orientation = orientation;
 
-
 		}
-
 		public static new IfcFaceBound FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFaceBound>(json);
-		}
-
-		public static new IfcFaceBound FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16425,21 +17055,17 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFaceOuterBound : IfcFaceBound
 	{
-
+		/// <summary>
+		/// Construct a IfcFaceOuterBound with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcFaceOuterBound(IfcLoop bound,bool orientation):base(bound,orientation)
 		{
 
-
 		}
-
 		public static new IfcFaceOuterBound FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFaceOuterBound>(json);
-		}
-
-		public static new IfcFaceOuterBound FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16448,21 +17074,17 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcFacetedBrep : IfcManifoldSolidBrep
 	{
-
+		/// <summary>
+		/// Construct a IfcFacetedBrep with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcFacetedBrep(IfcClosedShell outer):base(outer)
 		{
 
-
 		}
-
 		public static new IfcFacetedBrep FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFacetedBrep>(json);
-		}
-
-		public static new IfcFacetedBrep FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16473,21 +17095,19 @@ namespace IFC4
 	{
 		public List<IfcClosedShell> Voids{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcFacetedBrepWithVoids with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcFacetedBrepWithVoids(List<IfcClosedShell> voids,IfcClosedShell outer):base(outer)
 		{
 			Voids = voids;
-
+			Voids = new List<IfcClosedShell>();
 
 		}
-
 		public static new IfcFacetedBrepWithVoids FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFacetedBrepWithVoids>(json);
-		}
-
-		public static new IfcFacetedBrepWithVoids FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16503,20 +17123,30 @@ namespace IFC4
 		public IfcForceMeasure CompressionFailureY{get;set;} // optional
 		public IfcForceMeasure CompressionFailureZ{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcFailureConnectionCondition with all required attributes.
+		/// </summary>
 		public IfcFailureConnectionCondition():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFailureConnectionCondition with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFailureConnectionCondition(IfcForceMeasure tensionFailureX,IfcForceMeasure tensionFailureY,IfcForceMeasure tensionFailureZ,IfcForceMeasure compressionFailureX,IfcForceMeasure compressionFailureY,IfcForceMeasure compressionFailureZ,IfcLabel name):base(name)
+		{
+			TensionFailureX = tensionFailureX;
+			TensionFailureY = tensionFailureY;
+			TensionFailureZ = tensionFailureZ;
+			CompressionFailureX = compressionFailureX;
+			CompressionFailureY = compressionFailureY;
+			CompressionFailureZ = compressionFailureZ;
 
 		}
-
 		public static new IfcFailureConnectionCondition FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFailureConnectionCondition>(json);
-		}
-
-		public static new IfcFailureConnectionCondition FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16527,20 +17157,25 @@ namespace IFC4
 	{
 		public IfcLabel Name{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcStructuralConnectionCondition with all required attributes.
+		/// </summary>
 		public IfcStructuralConnectionCondition():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralConnectionCondition with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralConnectionCondition(IfcLabel name):base()
+		{
+			Name = name;
 
 		}
-
 		public static  IfcStructuralConnectionCondition FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralConnectionCondition>(json);
-		}
-
-		public static  IfcStructuralConnectionCondition FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16551,20 +17186,25 @@ namespace IFC4
 	{
 		public IfcFanTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcFan with all required attributes.
+		/// </summary>
 		public IfcFan(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFan with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFan(IfcFanTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcFan FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFan>(json);
-		}
-
-		public static new IfcFan FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16575,21 +17215,26 @@ namespace IFC4
 	{
 		public IfcFanTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcFanType with all required attributes.
+		/// </summary>
 		public IfcFanType(IfcFanTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcFanType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFanType(IfcFanTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcFanType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFanType>(json);
-		}
-
-		public static new IfcFanType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16598,21 +17243,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcFeatureElementAddition : IfcFeatureElement
 	{
-
+		/// <summary>
+		/// Construct a IfcFeatureElementAddition with all required attributes.
+		/// </summary>
 		public IfcFeatureElementAddition(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFeatureElementAddition with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFeatureElementAddition(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcFeatureElementAddition FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFeatureElementAddition>(json);
-		}
-
-		public static new IfcFeatureElementAddition FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16621,21 +17269,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcFeatureElementSubtraction : IfcFeatureElement
 	{
-
+		/// <summary>
+		/// Construct a IfcFeatureElementSubtraction with all required attributes.
+		/// </summary>
 		public IfcFeatureElementSubtraction(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFeatureElementSubtraction with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFeatureElementSubtraction(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcFeatureElementSubtraction FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFeatureElementSubtraction>(json);
-		}
-
-		public static new IfcFeatureElementSubtraction FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16646,20 +17297,25 @@ namespace IFC4
 	{
 		public IfcSurfaceFeatureTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSurfaceFeature with all required attributes.
+		/// </summary>
 		public IfcSurfaceFeature(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSurfaceFeature with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSurfaceFeature(IfcSurfaceFeatureTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcSurfaceFeature FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceFeature>(json);
-		}
-
-		public static new IfcSurfaceFeature FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16670,20 +17326,25 @@ namespace IFC4
 	{
 		public IfcProjectionElementTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcProjectionElement with all required attributes.
+		/// </summary>
 		public IfcProjectionElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcProjectionElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcProjectionElement(IfcProjectionElementTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcProjectionElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcProjectionElement>(json);
-		}
-
-		public static new IfcProjectionElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16694,20 +17355,25 @@ namespace IFC4
 	{
 		public IfcOpeningElementTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcOpeningElement with all required attributes.
+		/// </summary>
 		public IfcOpeningElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcOpeningElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcOpeningElement(IfcOpeningElementTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcOpeningElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcOpeningElement>(json);
-		}
-
-		public static new IfcOpeningElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16718,20 +17384,25 @@ namespace IFC4
 	{
 		public IfcVoidingFeatureTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcVoidingFeature with all required attributes.
+		/// </summary>
 		public IfcVoidingFeature(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcVoidingFeature with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcVoidingFeature(IfcVoidingFeatureTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcVoidingFeature FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcVoidingFeature>(json);
-		}
-
-		public static new IfcVoidingFeature FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16743,21 +17414,29 @@ namespace IFC4
 		public List<IfcFillStyleSelect> FillStyles{get;set;} 
 		public bool ModelorDraughting{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcFillAreaStyle with all required attributes.
+		/// </summary>
 		public IfcFillAreaStyle(List<IfcFillStyleSelect> fillStyles):base()
 		{
 			FillStyles = fillStyles;
-
+			FillStyles = new List<IfcFillStyleSelect>();
 
 		}
+		/// <summary>
+		/// Construct a IfcFillAreaStyle with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFillAreaStyle(List<IfcFillStyleSelect> fillStyles,bool modelorDraughting,IfcLabel name):base(name)
+		{
+			FillStyles = fillStyles;
+			ModelorDraughting = modelorDraughting;
+			FillStyles = new List<IfcFillStyleSelect>();
 
+		}
 		public static new IfcFillAreaStyle FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFillAreaStyle>(json);
-		}
-
-		public static new IfcFillAreaStyle FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16772,23 +17451,32 @@ namespace IFC4
 		public IfcCartesianPoint PatternStart{get;set;} // optional
 		public IfcPlaneAngleMeasure HatchLineAngle{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcFillAreaStyleHatching with all required attributes.
+		/// </summary>
 		public IfcFillAreaStyleHatching(IfcCurveStyle hatchLineAppearance,IfcHatchLineDistanceSelect startOfNextHatchLine,IfcPlaneAngleMeasure hatchLineAngle):base()
 		{
 			HatchLineAppearance = hatchLineAppearance;
 			StartOfNextHatchLine = startOfNextHatchLine;
 			HatchLineAngle = hatchLineAngle;
 
+		}
+		/// <summary>
+		/// Construct a IfcFillAreaStyleHatching with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFillAreaStyleHatching(IfcCurveStyle hatchLineAppearance,IfcHatchLineDistanceSelect startOfNextHatchLine,IfcCartesianPoint pointOfReferenceHatchLine,IfcCartesianPoint patternStart,IfcPlaneAngleMeasure hatchLineAngle):base()
+		{
+			HatchLineAppearance = hatchLineAppearance;
+			StartOfNextHatchLine = startOfNextHatchLine;
+			PointOfReferenceHatchLine = pointOfReferenceHatchLine;
+			PatternStart = patternStart;
+			HatchLineAngle = hatchLineAngle;
 
 		}
-
 		public static new IfcFillAreaStyleHatching FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFillAreaStyleHatching>(json);
-		}
-
-		public static new IfcFillAreaStyleHatching FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16801,23 +17489,22 @@ namespace IFC4
 		public List<IfcStyledItem> Tiles{get;set;} 
 		public IfcPositiveRatioMeasure TilingScale{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcFillAreaStyleTiles with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcFillAreaStyleTiles(List<IfcVector> tilingPattern,List<IfcStyledItem> tiles,IfcPositiveRatioMeasure tilingScale):base()
 		{
 			TilingPattern = tilingPattern;
 			Tiles = tiles;
 			TilingScale = tilingScale;
-
+			TilingPattern = new List<IfcVector>();
+			Tiles = new List<IfcStyledItem>();
 
 		}
-
 		public static new IfcFillAreaStyleTiles FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFillAreaStyleTiles>(json);
-		}
-
-		public static new IfcFillAreaStyleTiles FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16828,20 +17515,25 @@ namespace IFC4
 	{
 		public IfcFilterTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcFilter with all required attributes.
+		/// </summary>
 		public IfcFilter(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFilter with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFilter(IfcFilterTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcFilter FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFilter>(json);
-		}
-
-		public static new IfcFilter FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16852,21 +17544,26 @@ namespace IFC4
 	{
 		public IfcFilterTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcFilterType with all required attributes.
+		/// </summary>
 		public IfcFilterType(IfcFilterTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcFilterType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFilterType(IfcFilterTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcFilterType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFilterType>(json);
-		}
-
-		public static new IfcFilterType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16877,20 +17574,25 @@ namespace IFC4
 	{
 		public IfcFireSuppressionTerminalTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcFireSuppressionTerminal with all required attributes.
+		/// </summary>
 		public IfcFireSuppressionTerminal(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFireSuppressionTerminal with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFireSuppressionTerminal(IfcFireSuppressionTerminalTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcFireSuppressionTerminal FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFireSuppressionTerminal>(json);
-		}
-
-		public static new IfcFireSuppressionTerminal FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16901,21 +17603,26 @@ namespace IFC4
 	{
 		public IfcFireSuppressionTerminalTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcFireSuppressionTerminalType with all required attributes.
+		/// </summary>
 		public IfcFireSuppressionTerminalType(IfcFireSuppressionTerminalTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcFireSuppressionTerminalType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFireSuppressionTerminalType(IfcFireSuppressionTerminalTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcFireSuppressionTerminalType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFireSuppressionTerminalType>(json);
-		}
-
-		public static new IfcFireSuppressionTerminalType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16929,22 +17636,30 @@ namespace IFC4
 		public IfcParameterValue EndParam{get;set;} // optional
 		public IfcDirection FixedReference{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcFixedReferenceSweptAreaSolid with all required attributes.
+		/// </summary>
 		public IfcFixedReferenceSweptAreaSolid(IfcCurve directrix,IfcDirection fixedReference,IfcProfileDef sweptArea):base(sweptArea)
 		{
 			Directrix = directrix;
 			FixedReference = fixedReference;
 
+		}
+		/// <summary>
+		/// Construct a IfcFixedReferenceSweptAreaSolid with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFixedReferenceSweptAreaSolid(IfcCurve directrix,IfcParameterValue startParam,IfcParameterValue endParam,IfcDirection fixedReference,IfcProfileDef sweptArea,IfcAxis2Placement3D position):base(sweptArea,position)
+		{
+			Directrix = directrix;
+			StartParam = startParam;
+			EndParam = endParam;
+			FixedReference = fixedReference;
 
 		}
-
 		public static new IfcFixedReferenceSweptAreaSolid FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFixedReferenceSweptAreaSolid>(json);
-		}
-
-		public static new IfcFixedReferenceSweptAreaSolid FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16955,20 +17670,25 @@ namespace IFC4
 	{
 		public IfcFlowMeterTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcFlowMeter with all required attributes.
+		/// </summary>
 		public IfcFlowMeter(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFlowMeter with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFlowMeter(IfcFlowMeterTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcFlowMeter FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFlowMeter>(json);
-		}
-
-		public static new IfcFlowMeter FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -16979,20 +17699,25 @@ namespace IFC4
 	{
 		public IfcProtectiveDeviceTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcProtectiveDevice with all required attributes.
+		/// </summary>
 		public IfcProtectiveDevice(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcProtectiveDevice with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcProtectiveDevice(IfcProtectiveDeviceTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcProtectiveDevice FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcProtectiveDevice>(json);
-		}
-
-		public static new IfcProtectiveDevice FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17003,20 +17728,25 @@ namespace IFC4
 	{
 		public IfcSwitchingDeviceTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSwitchingDevice with all required attributes.
+		/// </summary>
 		public IfcSwitchingDevice(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSwitchingDevice with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSwitchingDevice(IfcSwitchingDeviceTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcSwitchingDevice FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSwitchingDevice>(json);
-		}
-
-		public static new IfcSwitchingDevice FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17027,20 +17757,25 @@ namespace IFC4
 	{
 		public IfcValveTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcValve with all required attributes.
+		/// </summary>
 		public IfcValve(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcValve with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcValve(IfcValveTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcValve FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcValve>(json);
-		}
-
-		public static new IfcValve FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17051,21 +17786,26 @@ namespace IFC4
 	{
 		public IfcFlowMeterTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcFlowMeterType with all required attributes.
+		/// </summary>
 		public IfcFlowMeterType(IfcFlowMeterTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcFlowMeterType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFlowMeterType(IfcFlowMeterTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcFlowMeterType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFlowMeterType>(json);
-		}
-
-		public static new IfcFlowMeterType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17076,21 +17816,26 @@ namespace IFC4
 	{
 		public IfcProtectiveDeviceTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcProtectiveDeviceType with all required attributes.
+		/// </summary>
 		public IfcProtectiveDeviceType(IfcProtectiveDeviceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcProtectiveDeviceType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcProtectiveDeviceType(IfcProtectiveDeviceTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcProtectiveDeviceType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcProtectiveDeviceType>(json);
-		}
-
-		public static new IfcProtectiveDeviceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17101,21 +17846,26 @@ namespace IFC4
 	{
 		public IfcSwitchingDeviceTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcSwitchingDeviceType with all required attributes.
+		/// </summary>
 		public IfcSwitchingDeviceType(IfcSwitchingDeviceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcSwitchingDeviceType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSwitchingDeviceType(IfcSwitchingDeviceTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcSwitchingDeviceType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSwitchingDeviceType>(json);
-		}
-
-		public static new IfcSwitchingDeviceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17126,21 +17876,26 @@ namespace IFC4
 	{
 		public IfcValveTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcValveType with all required attributes.
+		/// </summary>
 		public IfcValveType(IfcValveTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcValveType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcValveType(IfcValveTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcValveType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcValveType>(json);
-		}
-
-		public static new IfcValveType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17151,20 +17906,25 @@ namespace IFC4
 	{
 		public IfcJunctionBoxTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcJunctionBox with all required attributes.
+		/// </summary>
 		public IfcJunctionBox(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcJunctionBox with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcJunctionBox(IfcJunctionBoxTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcJunctionBox FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcJunctionBox>(json);
-		}
-
-		public static new IfcJunctionBox FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17175,20 +17935,25 @@ namespace IFC4
 	{
 		public IfcPipeFittingTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPipeFitting with all required attributes.
+		/// </summary>
 		public IfcPipeFitting(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPipeFitting with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPipeFitting(IfcPipeFittingTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcPipeFitting FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPipeFitting>(json);
-		}
-
-		public static new IfcPipeFitting FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17199,21 +17964,26 @@ namespace IFC4
 	{
 		public IfcJunctionBoxTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcJunctionBoxType with all required attributes.
+		/// </summary>
 		public IfcJunctionBoxType(IfcJunctionBoxTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcJunctionBoxType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcJunctionBoxType(IfcJunctionBoxTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcJunctionBoxType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcJunctionBoxType>(json);
-		}
-
-		public static new IfcJunctionBoxType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17224,21 +17994,26 @@ namespace IFC4
 	{
 		public IfcPipeFittingTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcPipeFittingType with all required attributes.
+		/// </summary>
 		public IfcPipeFittingType(IfcPipeFittingTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcPipeFittingType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPipeFittingType(IfcPipeFittingTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcPipeFittingType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPipeFittingType>(json);
-		}
-
-		public static new IfcPipeFittingType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17249,20 +18024,25 @@ namespace IFC4
 	{
 		public IfcPumpTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPump with all required attributes.
+		/// </summary>
 		public IfcPump(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPump with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPump(IfcPumpTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcPump FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPump>(json);
-		}
-
-		public static new IfcPump FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17273,21 +18053,26 @@ namespace IFC4
 	{
 		public IfcPumpTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcPumpType with all required attributes.
+		/// </summary>
 		public IfcPumpType(IfcPumpTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcPumpType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPumpType(IfcPumpTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcPumpType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPumpType>(json);
-		}
-
-		public static new IfcPumpType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17298,20 +18083,25 @@ namespace IFC4
 	{
 		public IfcPipeSegmentTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPipeSegment with all required attributes.
+		/// </summary>
 		public IfcPipeSegment(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPipeSegment with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPipeSegment(IfcPipeSegmentTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcPipeSegment FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPipeSegment>(json);
-		}
-
-		public static new IfcPipeSegment FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17322,21 +18112,26 @@ namespace IFC4
 	{
 		public IfcPipeSegmentTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcPipeSegmentType with all required attributes.
+		/// </summary>
 		public IfcPipeSegmentType(IfcPipeSegmentTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcPipeSegmentType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPipeSegmentType(IfcPipeSegmentTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcPipeSegmentType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPipeSegmentType>(json);
-		}
-
-		public static new IfcPipeSegmentType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17347,20 +18142,25 @@ namespace IFC4
 	{
 		public IfcTankTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTank with all required attributes.
+		/// </summary>
 		public IfcTank(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcTank with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTank(IfcTankTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcTank FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTank>(json);
-		}
-
-		public static new IfcTank FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17371,21 +18171,26 @@ namespace IFC4
 	{
 		public IfcTankTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcTankType with all required attributes.
+		/// </summary>
 		public IfcTankType(IfcTankTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcTankType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTankType(IfcTankTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcTankType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTankType>(json);
-		}
-
-		public static new IfcTankType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17396,20 +18201,25 @@ namespace IFC4
 	{
 		public IfcLampTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcLamp with all required attributes.
+		/// </summary>
 		public IfcLamp(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcLamp with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcLamp(IfcLampTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcLamp FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLamp>(json);
-		}
-
-		public static new IfcLamp FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17420,20 +18230,25 @@ namespace IFC4
 	{
 		public IfcLightFixtureTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcLightFixture with all required attributes.
+		/// </summary>
 		public IfcLightFixture(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcLightFixture with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcLightFixture(IfcLightFixtureTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcLightFixture FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLightFixture>(json);
-		}
-
-		public static new IfcLightFixture FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17444,20 +18259,25 @@ namespace IFC4
 	{
 		public IfcMedicalDeviceTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcMedicalDevice with all required attributes.
+		/// </summary>
 		public IfcMedicalDevice(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcMedicalDevice with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMedicalDevice(IfcMedicalDeviceTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcMedicalDevice FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMedicalDevice>(json);
-		}
-
-		public static new IfcMedicalDevice FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17468,20 +18288,25 @@ namespace IFC4
 	{
 		public IfcOutletTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcOutlet with all required attributes.
+		/// </summary>
 		public IfcOutlet(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcOutlet with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcOutlet(IfcOutletTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcOutlet FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcOutlet>(json);
-		}
-
-		public static new IfcOutlet FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17492,20 +18317,25 @@ namespace IFC4
 	{
 		public IfcSanitaryTerminalTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSanitaryTerminal with all required attributes.
+		/// </summary>
 		public IfcSanitaryTerminal(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSanitaryTerminal with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSanitaryTerminal(IfcSanitaryTerminalTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcSanitaryTerminal FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSanitaryTerminal>(json);
-		}
-
-		public static new IfcSanitaryTerminal FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17516,20 +18346,25 @@ namespace IFC4
 	{
 		public IfcSpaceHeaterTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSpaceHeater with all required attributes.
+		/// </summary>
 		public IfcSpaceHeater(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSpaceHeater with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSpaceHeater(IfcSpaceHeaterTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcSpaceHeater FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSpaceHeater>(json);
-		}
-
-		public static new IfcSpaceHeater FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17540,20 +18375,25 @@ namespace IFC4
 	{
 		public IfcStackTerminalTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcStackTerminal with all required attributes.
+		/// </summary>
 		public IfcStackTerminal(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStackTerminal with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStackTerminal(IfcStackTerminalTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcStackTerminal FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStackTerminal>(json);
-		}
-
-		public static new IfcStackTerminal FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17564,20 +18404,25 @@ namespace IFC4
 	{
 		public IfcWasteTerminalTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcWasteTerminal with all required attributes.
+		/// </summary>
 		public IfcWasteTerminal(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcWasteTerminal with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcWasteTerminal(IfcWasteTerminalTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcWasteTerminal FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcWasteTerminal>(json);
-		}
-
-		public static new IfcWasteTerminal FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17588,21 +18433,26 @@ namespace IFC4
 	{
 		public IfcLampTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcLampType with all required attributes.
+		/// </summary>
 		public IfcLampType(IfcLampTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcLampType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcLampType(IfcLampTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcLampType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLampType>(json);
-		}
-
-		public static new IfcLampType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17613,21 +18463,26 @@ namespace IFC4
 	{
 		public IfcLightFixtureTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcLightFixtureType with all required attributes.
+		/// </summary>
 		public IfcLightFixtureType(IfcLightFixtureTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcLightFixtureType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcLightFixtureType(IfcLightFixtureTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcLightFixtureType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLightFixtureType>(json);
-		}
-
-		public static new IfcLightFixtureType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17638,21 +18493,26 @@ namespace IFC4
 	{
 		public IfcMedicalDeviceTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcMedicalDeviceType with all required attributes.
+		/// </summary>
 		public IfcMedicalDeviceType(IfcMedicalDeviceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcMedicalDeviceType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMedicalDeviceType(IfcMedicalDeviceTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcMedicalDeviceType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMedicalDeviceType>(json);
-		}
-
-		public static new IfcMedicalDeviceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17663,21 +18523,26 @@ namespace IFC4
 	{
 		public IfcOutletTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcOutletType with all required attributes.
+		/// </summary>
 		public IfcOutletType(IfcOutletTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcOutletType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcOutletType(IfcOutletTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcOutletType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcOutletType>(json);
-		}
-
-		public static new IfcOutletType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17688,21 +18553,26 @@ namespace IFC4
 	{
 		public IfcSanitaryTerminalTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcSanitaryTerminalType with all required attributes.
+		/// </summary>
 		public IfcSanitaryTerminalType(IfcSanitaryTerminalTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcSanitaryTerminalType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSanitaryTerminalType(IfcSanitaryTerminalTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcSanitaryTerminalType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSanitaryTerminalType>(json);
-		}
-
-		public static new IfcSanitaryTerminalType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17713,21 +18583,26 @@ namespace IFC4
 	{
 		public IfcSpaceHeaterTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcSpaceHeaterType with all required attributes.
+		/// </summary>
 		public IfcSpaceHeaterType(IfcSpaceHeaterTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcSpaceHeaterType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSpaceHeaterType(IfcSpaceHeaterTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcSpaceHeaterType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSpaceHeaterType>(json);
-		}
-
-		public static new IfcSpaceHeaterType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17738,21 +18613,26 @@ namespace IFC4
 	{
 		public IfcStackTerminalTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcStackTerminalType with all required attributes.
+		/// </summary>
 		public IfcStackTerminalType(IfcStackTerminalTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcStackTerminalType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStackTerminalType(IfcStackTerminalTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcStackTerminalType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStackTerminalType>(json);
-		}
-
-		public static new IfcStackTerminalType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17763,21 +18643,26 @@ namespace IFC4
 	{
 		public IfcWasteTerminalTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcWasteTerminalType with all required attributes.
+		/// </summary>
 		public IfcWasteTerminalType(IfcWasteTerminalTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcWasteTerminalType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcWasteTerminalType(IfcWasteTerminalTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcWasteTerminalType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcWasteTerminalType>(json);
-		}
-
-		public static new IfcWasteTerminalType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17788,20 +18673,25 @@ namespace IFC4
 	{
 		public IfcInterceptorTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcInterceptor with all required attributes.
+		/// </summary>
 		public IfcInterceptor(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcInterceptor with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcInterceptor(IfcInterceptorTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcInterceptor FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcInterceptor>(json);
-		}
-
-		public static new IfcInterceptor FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17812,21 +18702,26 @@ namespace IFC4
 	{
 		public IfcInterceptorTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcInterceptorType with all required attributes.
+		/// </summary>
 		public IfcInterceptorType(IfcInterceptorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcInterceptorType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcInterceptorType(IfcInterceptorTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcInterceptorType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcInterceptorType>(json);
-		}
-
-		public static new IfcInterceptorType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17837,20 +18732,25 @@ namespace IFC4
 	{
 		public IfcFurnitureTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcFurniture with all required attributes.
+		/// </summary>
 		public IfcFurniture(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcFurniture with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFurniture(IfcFurnitureTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcFurniture FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFurniture>(json);
-		}
-
-		public static new IfcFurniture FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17861,20 +18761,25 @@ namespace IFC4
 	{
 		public IfcSystemFurnitureElementTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSystemFurnitureElement with all required attributes.
+		/// </summary>
 		public IfcSystemFurnitureElement(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSystemFurnitureElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSystemFurnitureElement(IfcSystemFurnitureElementTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcSystemFurnitureElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSystemFurnitureElement>(json);
-		}
-
-		public static new IfcSystemFurnitureElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17886,21 +18791,27 @@ namespace IFC4
 		public IfcAssemblyPlaceEnum AssemblyPlace{get;set;} 
 		public IfcFurnitureTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcFurnitureType with all required attributes.
+		/// </summary>
 		public IfcFurnitureType(IfcAssemblyPlaceEnum assemblyPlace,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			AssemblyPlace = assemblyPlace;
 
+		}
+		/// <summary>
+		/// Construct a IfcFurnitureType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcFurnitureType(IfcAssemblyPlaceEnum assemblyPlace,IfcFurnitureTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			AssemblyPlace = assemblyPlace;
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcFurnitureType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcFurnitureType>(json);
-		}
-
-		public static new IfcFurnitureType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17911,20 +18822,25 @@ namespace IFC4
 	{
 		public IfcSystemFurnitureElementTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSystemFurnitureElementType with all required attributes.
+		/// </summary>
 		public IfcSystemFurnitureElementType(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSystemFurnitureElementType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSystemFurnitureElementType(IfcSystemFurnitureElementTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcSystemFurnitureElementType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSystemFurnitureElementType>(json);
-		}
-
-		public static new IfcSystemFurnitureElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17933,21 +18849,17 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcGeometricCurveSet : IfcGeometricSet
 	{
-
+		/// <summary>
+		/// Construct a IfcGeometricCurveSet with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcGeometricCurveSet(List<IfcGeometricSetSelect> elements):base(elements)
 		{
 
-
 		}
-
 		public static new IfcGeometricCurveSet FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcGeometricCurveSet>(json);
-		}
-
-		public static new IfcGeometricCurveSet FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17958,21 +18870,19 @@ namespace IFC4
 	{
 		public List<IfcGeometricSetSelect> Elements{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcGeometricSet with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcGeometricSet(List<IfcGeometricSetSelect> elements):base()
 		{
 			Elements = elements;
-
+			Elements = new List<IfcGeometricSetSelect>();
 
 		}
-
 		public static new IfcGeometricSet FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcGeometricSet>(json);
-		}
-
-		public static new IfcGeometricSet FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -17986,22 +18896,30 @@ namespace IFC4
 		public IfcAxis2Placement WorldCoordinateSystem{get;set;} 
 		public IfcDirection TrueNorth{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcGeometricRepresentationContext with all required attributes.
+		/// </summary>
 		public IfcGeometricRepresentationContext(IfcDimensionCount coordinateSpaceDimension,IfcAxis2Placement worldCoordinateSystem):base()
 		{
 			CoordinateSpaceDimension = coordinateSpaceDimension;
 			WorldCoordinateSystem = worldCoordinateSystem;
 
+		}
+		/// <summary>
+		/// Construct a IfcGeometricRepresentationContext with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcGeometricRepresentationContext(IfcDimensionCount coordinateSpaceDimension,double precision,IfcAxis2Placement worldCoordinateSystem,IfcDirection trueNorth,IfcLabel contextIdentifier,IfcLabel contextType):base(contextIdentifier,contextType)
+		{
+			CoordinateSpaceDimension = coordinateSpaceDimension;
+			Precision = precision;
+			WorldCoordinateSystem = worldCoordinateSystem;
+			TrueNorth = trueNorth;
 
 		}
-
 		public static new IfcGeometricRepresentationContext FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcGeometricRepresentationContext>(json);
-		}
-
-		public static new IfcGeometricRepresentationContext FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18015,22 +18933,30 @@ namespace IFC4
 		public IfcGeometricProjectionEnum TargetView{get;set;} 
 		public IfcLabel UserDefinedTargetView{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcGeometricRepresentationSubContext with all required attributes.
+		/// </summary>
 		public IfcGeometricRepresentationSubContext(IfcGeometricRepresentationContext parentContext,IfcGeometricProjectionEnum targetView,IfcDimensionCount coordinateSpaceDimension,IfcAxis2Placement worldCoordinateSystem):base(coordinateSpaceDimension,worldCoordinateSystem)
 		{
 			ParentContext = parentContext;
 			TargetView = targetView;
 
+		}
+		/// <summary>
+		/// Construct a IfcGeometricRepresentationSubContext with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcGeometricRepresentationSubContext(IfcGeometricRepresentationContext parentContext,IfcPositiveRatioMeasure targetScale,IfcGeometricProjectionEnum targetView,IfcLabel userDefinedTargetView,IfcDimensionCount coordinateSpaceDimension,double precision,IfcAxis2Placement worldCoordinateSystem,IfcDirection trueNorth,IfcLabel contextIdentifier,IfcLabel contextType):base(coordinateSpaceDimension,precision,worldCoordinateSystem,trueNorth,contextIdentifier,contextType)
+		{
+			ParentContext = parentContext;
+			TargetScale = targetScale;
+			TargetView = targetView;
+			UserDefinedTargetView = userDefinedTargetView;
 
 		}
-
 		public static new IfcGeometricRepresentationSubContext FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcGeometricRepresentationSubContext>(json);
-		}
-
-		public static new IfcGeometricRepresentationSubContext FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18042,20 +18968,26 @@ namespace IFC4
 		public IfcLabel ContextIdentifier{get;set;} // optional
 		public IfcLabel ContextType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcRepresentationContext with all required attributes.
+		/// </summary>
 		public IfcRepresentationContext():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcRepresentationContext with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRepresentationContext(IfcLabel contextIdentifier,IfcLabel contextType):base()
+		{
+			ContextIdentifier = contextIdentifier;
+			ContextType = contextType;
 
 		}
-
 		public static  IfcRepresentationContext FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRepresentationContext>(json);
-		}
-
-		public static  IfcRepresentationContext FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18069,21 +19001,29 @@ namespace IFC4
 		public IfcNormalisedRatioMeasure AmbientIntensity{get;set;} // optional
 		public IfcNormalisedRatioMeasure Intensity{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcLightSource with all required attributes.
+		/// </summary>
 		public IfcLightSource(IfcColourRgb lightColour):base()
 		{
 			LightColour = lightColour;
 
+		}
+		/// <summary>
+		/// Construct a IfcLightSource with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcLightSource(IfcLabel name,IfcColourRgb lightColour,IfcNormalisedRatioMeasure ambientIntensity,IfcNormalisedRatioMeasure intensity):base()
+		{
+			Name = name;
+			LightColour = lightColour;
+			AmbientIntensity = ambientIntensity;
+			Intensity = intensity;
 
 		}
-
 		public static new IfcLightSource FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLightSource>(json);
-		}
-
-		public static new IfcLightSource FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18095,22 +19035,19 @@ namespace IFC4
 		public IfcLengthMeasure SizeInX{get;set;} 
 		public IfcLengthMeasure SizeInY{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcPlanarExtent with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcPlanarExtent(IfcLengthMeasure sizeInX,IfcLengthMeasure sizeInY):base()
 		{
 			SizeInX = sizeInX;
 			SizeInY = sizeInY;
 
-
 		}
-
 		public static new IfcPlanarExtent FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPlanarExtent>(json);
-		}
-
-		public static new IfcPlanarExtent FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18123,23 +19060,22 @@ namespace IFC4
 		public List<IfcProfileDef> CrossSections{get;set;} 
 		public List<IfcAxis2Placement3D> CrossSectionPositions{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcSectionedSpine with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcSectionedSpine(IfcCompositeCurve spineCurve,List<IfcProfileDef> crossSections,List<IfcAxis2Placement3D> crossSectionPositions):base()
 		{
 			SpineCurve = spineCurve;
 			CrossSections = crossSections;
 			CrossSectionPositions = crossSectionPositions;
-
+			CrossSections = new List<IfcProfileDef>();
+			CrossSectionPositions = new List<IfcAxis2Placement3D>();
 
 		}
-
 		public static new IfcSectionedSpine FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSectionedSpine>(json);
-		}
-
-		public static new IfcSectionedSpine FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18150,21 +19086,19 @@ namespace IFC4
 	{
 		public List<IfcShell> SbsmBoundary{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcShellBasedSurfaceModel with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcShellBasedSurfaceModel(List<IfcShell> sbsmBoundary):base()
 		{
 			SbsmBoundary = sbsmBoundary;
-
+			SbsmBoundary = new List<IfcShell>();
 
 		}
-
 		public static new IfcShellBasedSurfaceModel FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcShellBasedSurfaceModel>(json);
-		}
-
-		public static new IfcShellBasedSurfaceModel FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18173,21 +19107,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcTessellatedItem : IfcGeometricRepresentationItem
 	{
-
+		/// <summary>
+		/// Construct a IfcTessellatedItem with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcTessellatedItem():base()
 		{
 
-
 		}
-
 		public static new IfcTessellatedItem FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTessellatedItem>(json);
-		}
-
-		public static new IfcTessellatedItem FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18200,23 +19130,20 @@ namespace IFC4
 		public IfcAxis2Placement Placement{get;set;} 
 		public IfcTextPath Path{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcTextLiteral with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcTextLiteral(IfcPresentableText literal,IfcAxis2Placement placement,IfcTextPath path):base()
 		{
 			Literal = literal;
 			Placement = placement;
 			Path = path;
 
-
 		}
-
 		public static new IfcTextLiteral FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTextLiteral>(json);
-		}
-
-		public static new IfcTextLiteral FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18228,22 +19155,19 @@ namespace IFC4
 		public IfcDirection Orientation{get;set;} 
 		public IfcLengthMeasure Magnitude{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcVector with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcVector(IfcDirection orientation,IfcLengthMeasure magnitude):base()
 		{
 			Orientation = orientation;
 			Magnitude = magnitude;
 
-
 		}
-
 		public static new IfcVector FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcVector>(json);
-		}
-
-		public static new IfcVector FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18252,21 +19176,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcRepresentationItem : IfcBase
 	{
-
+		/// <summary>
+		/// Construct a IfcRepresentationItem with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcRepresentationItem():base()
 		{
 
-
 		}
-
 		public static  IfcRepresentationItem FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRepresentationItem>(json);
-		}
-
-		public static  IfcRepresentationItem FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18280,23 +19200,35 @@ namespace IFC4
 		public List<IfcGridAxis> WAxes{get;set;} // optional
 		public IfcGridTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcGrid with all required attributes.
+		/// </summary>
 		public IfcGrid(List<IfcGridAxis> uAxes,List<IfcGridAxis> vAxes,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			UAxes = uAxes;
 			VAxes = vAxes;
+			UAxes = new List<IfcGridAxis>();
+			VAxes = new List<IfcGridAxis>();
 
+		}
+		/// <summary>
+		/// Construct a IfcGrid with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcGrid(List<IfcGridAxis> uAxes,List<IfcGridAxis> vAxes,List<IfcGridAxis> wAxes,IfcGridTypeEnum predefinedType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			UAxes = uAxes;
+			VAxes = vAxes;
+			WAxes = wAxes;
+			PredefinedType = predefinedType;
+			UAxes = new List<IfcGridAxis>();
+			VAxes = new List<IfcGridAxis>();
 			WAxes = new List<IfcGridAxis>();
 
 		}
-
 		public static new IfcGrid FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcGrid>(json);
-		}
-
-		public static new IfcGrid FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18309,22 +19241,29 @@ namespace IFC4
 		public IfcCurve AxisCurve{get;set;} 
 		public IfcBoolean SameSense{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcGridAxis with all required attributes.
+		/// </summary>
 		public IfcGridAxis(IfcCurve axisCurve,IfcBoolean sameSense):base()
 		{
 			AxisCurve = axisCurve;
 			SameSense = sameSense;
 
+		}
+		/// <summary>
+		/// Construct a IfcGridAxis with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcGridAxis(IfcLabel axisTag,IfcCurve axisCurve,IfcBoolean sameSense):base()
+		{
+			AxisTag = axisTag;
+			AxisCurve = axisCurve;
+			SameSense = sameSense;
 
 		}
-
 		public static  IfcGridAxis FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcGridAxis>(json);
-		}
-
-		public static  IfcGridAxis FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18336,21 +19275,27 @@ namespace IFC4
 		public IfcVirtualGridIntersection PlacementLocation{get;set;} 
 		public IfcGridPlacementDirectionSelect PlacementRefDirection{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcGridPlacement with all required attributes.
+		/// </summary>
 		public IfcGridPlacement(IfcVirtualGridIntersection placementLocation):base()
 		{
 			PlacementLocation = placementLocation;
 
+		}
+		/// <summary>
+		/// Construct a IfcGridPlacement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcGridPlacement(IfcVirtualGridIntersection placementLocation,IfcGridPlacementDirectionSelect placementRefDirection):base()
+		{
+			PlacementLocation = placementLocation;
+			PlacementRefDirection = placementRefDirection;
 
 		}
-
 		public static new IfcGridPlacement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcGridPlacement>(json);
-		}
-
-		public static new IfcGridPlacement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18359,21 +19304,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcObjectPlacement : IfcBase
 	{
-
+		/// <summary>
+		/// Construct a IfcObjectPlacement with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcObjectPlacement():base()
 		{
 
-
 		}
-
 		public static  IfcObjectPlacement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcObjectPlacement>(json);
-		}
-
-		public static  IfcObjectPlacement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18389,21 +19330,31 @@ namespace IFC4
 		public IfcCostValue CurrentValue{get;set;} // optional
 		public IfcCostValue OriginalValue{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcInventory with all required attributes.
+		/// </summary>
 		public IfcInventory(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcInventory with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcInventory(IfcInventoryTypeEnum predefinedType,IfcActorSelect jurisdiction,List<IfcPerson> responsiblePersons,IfcDate lastUpdateDate,IfcCostValue currentValue,IfcCostValue originalValue,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			Jurisdiction = jurisdiction;
+			ResponsiblePersons = responsiblePersons;
+			LastUpdateDate = lastUpdateDate;
+			CurrentValue = currentValue;
+			OriginalValue = originalValue;
 			ResponsiblePersons = new List<IfcPerson>();
 
 		}
-
 		public static new IfcInventory FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcInventory>(json);
-		}
-
-		public static new IfcInventory FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18418,23 +19369,32 @@ namespace IFC4
 		public IfcRatioMeasure Coefficient{get;set;} // optional
 		public IfcLabel Purpose{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcStructuralLoadGroup with all required attributes.
+		/// </summary>
 		public IfcStructuralLoadGroup(IfcLoadGroupTypeEnum predefinedType,IfcActionTypeEnum actionType,IfcActionSourceTypeEnum actionSource,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 			ActionType = actionType;
 			ActionSource = actionSource;
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralLoadGroup with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralLoadGroup(IfcLoadGroupTypeEnum predefinedType,IfcActionTypeEnum actionType,IfcActionSourceTypeEnum actionSource,IfcRatioMeasure coefficient,IfcLabel purpose,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			ActionType = actionType;
+			ActionSource = actionSource;
+			Coefficient = coefficient;
+			Purpose = purpose;
 
 		}
-
 		public static new IfcStructuralLoadGroup FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadGroup>(json);
-		}
-
-		public static new IfcStructuralLoadGroup FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18447,22 +19407,29 @@ namespace IFC4
 		public IfcStructuralLoadGroup ResultForLoadGroup{get;set;} // optional
 		public bool IsLinear{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcStructuralResultGroup with all required attributes.
+		/// </summary>
 		public IfcStructuralResultGroup(IfcAnalysisTheoryTypeEnum theoryType,bool isLinear,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			TheoryType = theoryType;
 			IsLinear = isLinear;
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralResultGroup with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralResultGroup(IfcAnalysisTheoryTypeEnum theoryType,IfcStructuralLoadGroup resultForLoadGroup,bool isLinear,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		{
+			TheoryType = theoryType;
+			ResultForLoadGroup = resultForLoadGroup;
+			IsLinear = isLinear;
 
 		}
-
 		public static new IfcStructuralResultGroup FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralResultGroup>(json);
-		}
-
-		public static new IfcStructuralResultGroup FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18474,22 +19441,19 @@ namespace IFC4
 		public IfcAxis2Placement3D Position{get;set;} 
 		public IfcBoundedCurve PolygonalBoundary{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcPolygonalBoundedHalfSpace with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcPolygonalBoundedHalfSpace(IfcAxis2Placement3D position,IfcBoundedCurve polygonalBoundary,IfcSurface baseSurface,bool agreementFlag):base(baseSurface,agreementFlag)
 		{
 			Position = position;
 			PolygonalBoundary = polygonalBoundary;
 
-
 		}
-
 		public static new IfcPolygonalBoundedHalfSpace FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPolygonalBoundedHalfSpace>(json);
-		}
-
-		public static new IfcPolygonalBoundedHalfSpace FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18506,6 +19470,9 @@ namespace IFC4
 		public IfcNonNegativeLengthMeasure FlangeEdgeRadius{get;set;} // optional
 		public IfcPlaneAngleMeasure FlangeSlope{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcIShapeProfileDef with all required attributes.
+		/// </summary>
 		public IfcIShapeProfileDef(IfcPositiveLengthMeasure overallWidth,IfcPositiveLengthMeasure overallDepth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			OverallWidth = overallWidth;
@@ -18513,17 +19480,25 @@ namespace IFC4
 			WebThickness = webThickness;
 			FlangeThickness = flangeThickness;
 
+		}
+		/// <summary>
+		/// Construct a IfcIShapeProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcIShapeProfileDef(IfcPositiveLengthMeasure overallWidth,IfcPositiveLengthMeasure overallDepth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcNonNegativeLengthMeasure filletRadius,IfcNonNegativeLengthMeasure flangeEdgeRadius,IfcPlaneAngleMeasure flangeSlope,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		{
+			OverallWidth = overallWidth;
+			OverallDepth = overallDepth;
+			WebThickness = webThickness;
+			FlangeThickness = flangeThickness;
+			FilletRadius = filletRadius;
+			FlangeEdgeRadius = flangeEdgeRadius;
+			FlangeSlope = flangeSlope;
 
 		}
-
 		public static new IfcIShapeProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcIShapeProfileDef>(json);
-		}
-
-		public static new IfcIShapeProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18534,21 +19509,26 @@ namespace IFC4
 	{
 		public IfcURIReference URLReference{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcImageTexture with all required attributes.
+		/// </summary>
 		public IfcImageTexture(IfcURIReference uRLReference,bool repeatS,bool repeatT):base(repeatS,repeatT)
 		{
 			URLReference = uRLReference;
 
+		}
+		/// <summary>
+		/// Construct a IfcImageTexture with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcImageTexture(IfcURIReference uRLReference,bool repeatS,bool repeatT,IfcIdentifier mode,IfcCartesianTransformationOperator2D textureTransform,List<IfcIdentifier> parameter):base(repeatS,repeatT,mode,textureTransform,parameter)
+		{
+			URLReference = uRLReference;
 
 		}
-
 		public static new IfcImageTexture FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcImageTexture>(json);
-		}
-
-		public static new IfcImageTexture FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18562,23 +19542,33 @@ namespace IFC4
 		public IfcColourRgbList Colours{get;set;} 
 		public List<int> ColourIndex{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcIndexedColourMap with all required attributes.
+		/// </summary>
 		public IfcIndexedColourMap(IfcTessellatedFaceSet mappedTo,IfcColourRgbList colours,List<int> colourIndex):base()
 		{
 			MappedTo = mappedTo;
 			Colours = colours;
 			ColourIndex = colourIndex;
-
+			ColourIndex = new List<int>();
 
 		}
+		/// <summary>
+		/// Construct a IfcIndexedColourMap with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcIndexedColourMap(IfcTessellatedFaceSet mappedTo,IfcSurfaceStyleShading overrides,IfcColourRgbList colours,List<int> colourIndex):base()
+		{
+			MappedTo = mappedTo;
+			Overrides = overrides;
+			Colours = colours;
+			ColourIndex = colourIndex;
+			ColourIndex = new List<int>();
 
+		}
 		public static new IfcIndexedColourMap FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcIndexedColourMap>(json);
-		}
-
-		public static new IfcIndexedColourMap FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18590,22 +19580,19 @@ namespace IFC4
 		public IfcTessellatedFaceSet MappedTo{get;set;} 
 		public IfcTextureVertexList TexCoords{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcIndexedTextureMap with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcIndexedTextureMap(IfcTessellatedFaceSet mappedTo,IfcTextureVertexList texCoords,List<IfcSurfaceTexture> maps):base(maps)
 		{
 			MappedTo = mappedTo;
 			TexCoords = texCoords;
 
-
 		}
-
 		public static new IfcIndexedTextureMap FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcIndexedTextureMap>(json);
-		}
-
-		public static new IfcIndexedTextureMap FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18616,21 +19603,26 @@ namespace IFC4
 	{
 		public List<List<int>> TexCoordIndex{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcIndexedTriangleTextureMap with all required attributes.
+		/// </summary>
 		public IfcIndexedTriangleTextureMap(IfcTessellatedFaceSet mappedTo,IfcTextureVertexList texCoords,List<IfcSurfaceTexture> maps):base(mappedTo,texCoords,maps)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcIndexedTriangleTextureMap with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcIndexedTriangleTextureMap(List<List<int>> texCoordIndex,IfcTessellatedFaceSet mappedTo,IfcTextureVertexList texCoords,List<IfcSurfaceTexture> maps):base(mappedTo,texCoords,maps)
+		{
+			TexCoordIndex = texCoordIndex;
 			TexCoordIndex = new List<List<int>>();
 
 		}
-
 		public static new IfcIndexedTriangleTextureMap FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcIndexedTriangleTextureMap>(json);
-		}
-
-		public static new IfcIndexedTriangleTextureMap FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18641,21 +19633,19 @@ namespace IFC4
 	{
 		public List<IfcSurfaceTexture> Maps{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcTextureCoordinate with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcTextureCoordinate(List<IfcSurfaceTexture> maps):base()
 		{
 			Maps = maps;
-
+			Maps = new List<IfcSurfaceTexture>();
 
 		}
-
 		public static new IfcTextureCoordinate FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTextureCoordinate>(json);
-		}
-
-		public static new IfcTextureCoordinate FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18666,21 +19656,28 @@ namespace IFC4
 	{
 		public List<IfcIrregularTimeSeriesValue> Values{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcIrregularTimeSeries with all required attributes.
+		/// </summary>
 		public IfcIrregularTimeSeries(List<IfcIrregularTimeSeriesValue> values,IfcLabel name,IfcDateTime startTime,IfcDateTime endTime,IfcTimeSeriesDataTypeEnum timeSeriesDataType,IfcDataOriginEnum dataOrigin):base(name,startTime,endTime,timeSeriesDataType,dataOrigin)
 		{
 			Values = values;
-
+			Values = new List<IfcIrregularTimeSeriesValue>();
 
 		}
+		/// <summary>
+		/// Construct a IfcIrregularTimeSeries with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcIrregularTimeSeries(List<IfcIrregularTimeSeriesValue> values,IfcLabel name,IfcText description,IfcDateTime startTime,IfcDateTime endTime,IfcTimeSeriesDataTypeEnum timeSeriesDataType,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin,IfcUnit unit):base(name,description,startTime,endTime,timeSeriesDataType,dataOrigin,userDefinedDataOrigin,unit)
+		{
+			Values = values;
+			Values = new List<IfcIrregularTimeSeriesValue>();
 
+		}
 		public static new IfcIrregularTimeSeries FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcIrregularTimeSeries>(json);
-		}
-
-		public static new IfcIrregularTimeSeries FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18698,6 +19695,9 @@ namespace IFC4
 		public IfcLabel UserDefinedDataOrigin{get;set;} // optional
 		public IfcUnit Unit{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTimeSeries with all required attributes.
+		/// </summary>
 		public IfcTimeSeries(IfcLabel name,IfcDateTime startTime,IfcDateTime endTime,IfcTimeSeriesDataTypeEnum timeSeriesDataType,IfcDataOriginEnum dataOrigin):base()
 		{
 			Name = name;
@@ -18706,17 +19706,26 @@ namespace IFC4
 			TimeSeriesDataType = timeSeriesDataType;
 			DataOrigin = dataOrigin;
 
+		}
+		/// <summary>
+		/// Construct a IfcTimeSeries with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTimeSeries(IfcLabel name,IfcText description,IfcDateTime startTime,IfcDateTime endTime,IfcTimeSeriesDataTypeEnum timeSeriesDataType,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin,IfcUnit unit):base()
+		{
+			Name = name;
+			Description = description;
+			StartTime = startTime;
+			EndTime = endTime;
+			TimeSeriesDataType = timeSeriesDataType;
+			DataOrigin = dataOrigin;
+			UserDefinedDataOrigin = userDefinedDataOrigin;
+			Unit = unit;
 
 		}
-
 		public static  IfcTimeSeries FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTimeSeries>(json);
-		}
-
-		public static  IfcTimeSeries FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18728,22 +19737,20 @@ namespace IFC4
 		public IfcDateTime TimeStamp{get;set;} 
 		public List<IfcValue> ListValues{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcIrregularTimeSeriesValue with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcIrregularTimeSeriesValue(IfcDateTime timeStamp,List<IfcValue> listValues):base()
 		{
 			TimeStamp = timeStamp;
 			ListValues = listValues;
-
+			ListValues = new List<IfcValue>();
 
 		}
-
 		public static  IfcIrregularTimeSeriesValue FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcIrregularTimeSeriesValue>(json);
-		}
-
-		public static  IfcIrregularTimeSeriesValue FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18759,22 +19766,32 @@ namespace IFC4
 		public IfcNonNegativeLengthMeasure EdgeRadius{get;set;} // optional
 		public IfcPlaneAngleMeasure LegSlope{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcLShapeProfileDef with all required attributes.
+		/// </summary>
 		public IfcLShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure thickness,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			Depth = depth;
 			Thickness = thickness;
 
+		}
+		/// <summary>
+		/// Construct a IfcLShapeProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcLShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure width,IfcPositiveLengthMeasure thickness,IfcNonNegativeLengthMeasure filletRadius,IfcNonNegativeLengthMeasure edgeRadius,IfcPlaneAngleMeasure legSlope,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		{
+			Depth = depth;
+			Width = width;
+			Thickness = thickness;
+			FilletRadius = filletRadius;
+			EdgeRadius = edgeRadius;
+			LegSlope = legSlope;
 
 		}
-
 		public static new IfcLShapeProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLShapeProfileDef>(json);
-		}
-
-		public static new IfcLShapeProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18786,22 +19803,28 @@ namespace IFC4
 		public IfcTimeOrRatioSelect LagValue{get;set;} 
 		public IfcTaskDurationEnum DurationType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcLagTime with all required attributes.
+		/// </summary>
 		public IfcLagTime(IfcTimeOrRatioSelect lagValue,IfcTaskDurationEnum durationType):base()
 		{
 			LagValue = lagValue;
 			DurationType = durationType;
 
+		}
+		/// <summary>
+		/// Construct a IfcLagTime with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcLagTime(IfcTimeOrRatioSelect lagValue,IfcTaskDurationEnum durationType,IfcLabel name,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin):base(name,dataOrigin,userDefinedDataOrigin)
+		{
+			LagValue = lagValue;
+			DurationType = durationType;
 
 		}
-
 		public static new IfcLagTime FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLagTime>(json);
-		}
-
-		public static new IfcLagTime FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18814,23 +19837,22 @@ namespace IFC4
 		public List<IfcPlaneAngleMeasure> SecondaryPlaneAngle{get;set;} 
 		public List<IfcLuminousIntensityDistributionMeasure> LuminousIntensity{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcLightDistributionData with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcLightDistributionData(IfcPlaneAngleMeasure mainPlaneAngle,List<IfcPlaneAngleMeasure> secondaryPlaneAngle,List<IfcLuminousIntensityDistributionMeasure> luminousIntensity):base()
 		{
 			MainPlaneAngle = mainPlaneAngle;
 			SecondaryPlaneAngle = secondaryPlaneAngle;
 			LuminousIntensity = luminousIntensity;
-
+			SecondaryPlaneAngle = new List<IfcPlaneAngleMeasure>();
+			LuminousIntensity = new List<IfcLuminousIntensityDistributionMeasure>();
 
 		}
-
 		public static  IfcLightDistributionData FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLightDistributionData>(json);
-		}
-
-		public static  IfcLightDistributionData FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18842,22 +19864,20 @@ namespace IFC4
 		public IfcLightDistributionCurveEnum LightDistributionCurve{get;set;} 
 		public List<IfcLightDistributionData> DistributionData{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcLightIntensityDistribution with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcLightIntensityDistribution(IfcLightDistributionCurveEnum lightDistributionCurve,List<IfcLightDistributionData> distributionData):base()
 		{
 			LightDistributionCurve = lightDistributionCurve;
 			DistributionData = distributionData;
-
+			DistributionData = new List<IfcLightDistributionData>();
 
 		}
-
 		public static  IfcLightIntensityDistribution FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLightIntensityDistribution>(json);
-		}
-
-		public static  IfcLightIntensityDistribution FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18866,21 +19886,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcLightSourceAmbient : IfcLightSource
 	{
-
+		/// <summary>
+		/// Construct a IfcLightSourceAmbient with all required attributes.
+		/// </summary>
 		public IfcLightSourceAmbient(IfcColourRgb lightColour):base(lightColour)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcLightSourceAmbient with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcLightSourceAmbient(IfcLabel name,IfcColourRgb lightColour,IfcNormalisedRatioMeasure ambientIntensity,IfcNormalisedRatioMeasure intensity):base(name,lightColour,ambientIntensity,intensity)
+		{
 
 		}
-
 		public static new IfcLightSourceAmbient FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLightSourceAmbient>(json);
-		}
-
-		public static new IfcLightSourceAmbient FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18891,21 +19914,26 @@ namespace IFC4
 	{
 		public IfcDirection Orientation{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcLightSourceDirectional with all required attributes.
+		/// </summary>
 		public IfcLightSourceDirectional(IfcDirection orientation,IfcColourRgb lightColour):base(lightColour)
 		{
 			Orientation = orientation;
 
+		}
+		/// <summary>
+		/// Construct a IfcLightSourceDirectional with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcLightSourceDirectional(IfcDirection orientation,IfcLabel name,IfcColourRgb lightColour,IfcNormalisedRatioMeasure ambientIntensity,IfcNormalisedRatioMeasure intensity):base(name,lightColour,ambientIntensity,intensity)
+		{
+			Orientation = orientation;
 
 		}
-
 		public static new IfcLightSourceDirectional FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLightSourceDirectional>(json);
-		}
-
-		public static new IfcLightSourceDirectional FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18921,6 +19949,9 @@ namespace IFC4
 		public IfcLightEmissionSourceEnum LightEmissionSource{get;set;} 
 		public IfcLightDistributionDataSourceSelect LightDistributionDataSource{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcLightSourceGoniometric with all required attributes.
+		/// </summary>
 		public IfcLightSourceGoniometric(IfcAxis2Placement3D position,IfcThermodynamicTemperatureMeasure colourTemperature,IfcLuminousFluxMeasure luminousFlux,IfcLightEmissionSourceEnum lightEmissionSource,IfcLightDistributionDataSourceSelect lightDistributionDataSource,IfcColourRgb lightColour):base(lightColour)
 		{
 			Position = position;
@@ -18929,17 +19960,24 @@ namespace IFC4
 			LightEmissionSource = lightEmissionSource;
 			LightDistributionDataSource = lightDistributionDataSource;
 
+		}
+		/// <summary>
+		/// Construct a IfcLightSourceGoniometric with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcLightSourceGoniometric(IfcAxis2Placement3D position,IfcColourRgb colourAppearance,IfcThermodynamicTemperatureMeasure colourTemperature,IfcLuminousFluxMeasure luminousFlux,IfcLightEmissionSourceEnum lightEmissionSource,IfcLightDistributionDataSourceSelect lightDistributionDataSource,IfcLabel name,IfcColourRgb lightColour,IfcNormalisedRatioMeasure ambientIntensity,IfcNormalisedRatioMeasure intensity):base(name,lightColour,ambientIntensity,intensity)
+		{
+			Position = position;
+			ColourAppearance = colourAppearance;
+			ColourTemperature = colourTemperature;
+			LuminousFlux = luminousFlux;
+			LightEmissionSource = lightEmissionSource;
+			LightDistributionDataSource = lightDistributionDataSource;
 
 		}
-
 		public static new IfcLightSourceGoniometric FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLightSourceGoniometric>(json);
-		}
-
-		public static new IfcLightSourceGoniometric FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18954,6 +19992,9 @@ namespace IFC4
 		public IfcReal DistanceAttenuation{get;set;} 
 		public IfcReal QuadricAttenuation{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcLightSourcePositional with all required attributes.
+		/// </summary>
 		public IfcLightSourcePositional(IfcCartesianPoint position,IfcPositiveLengthMeasure radius,IfcReal constantAttenuation,IfcReal distanceAttenuation,IfcReal quadricAttenuation,IfcColourRgb lightColour):base(lightColour)
 		{
 			Position = position;
@@ -18962,17 +20003,23 @@ namespace IFC4
 			DistanceAttenuation = distanceAttenuation;
 			QuadricAttenuation = quadricAttenuation;
 
+		}
+		/// <summary>
+		/// Construct a IfcLightSourcePositional with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcLightSourcePositional(IfcCartesianPoint position,IfcPositiveLengthMeasure radius,IfcReal constantAttenuation,IfcReal distanceAttenuation,IfcReal quadricAttenuation,IfcLabel name,IfcColourRgb lightColour,IfcNormalisedRatioMeasure ambientIntensity,IfcNormalisedRatioMeasure intensity):base(name,lightColour,ambientIntensity,intensity)
+		{
+			Position = position;
+			Radius = radius;
+			ConstantAttenuation = constantAttenuation;
+			DistanceAttenuation = distanceAttenuation;
+			QuadricAttenuation = quadricAttenuation;
 
 		}
-
 		public static new IfcLightSourcePositional FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLightSourcePositional>(json);
-		}
-
-		public static new IfcLightSourcePositional FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -18986,23 +20033,31 @@ namespace IFC4
 		public IfcPositivePlaneAngleMeasure SpreadAngle{get;set;} 
 		public IfcPositivePlaneAngleMeasure BeamWidthAngle{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcLightSourceSpot with all required attributes.
+		/// </summary>
 		public IfcLightSourceSpot(IfcDirection orientation,IfcPositivePlaneAngleMeasure spreadAngle,IfcPositivePlaneAngleMeasure beamWidthAngle,IfcCartesianPoint position,IfcPositiveLengthMeasure radius,IfcReal constantAttenuation,IfcReal distanceAttenuation,IfcReal quadricAttenuation,IfcColourRgb lightColour):base(position,radius,constantAttenuation,distanceAttenuation,quadricAttenuation,lightColour)
 		{
 			Orientation = orientation;
 			SpreadAngle = spreadAngle;
 			BeamWidthAngle = beamWidthAngle;
 
+		}
+		/// <summary>
+		/// Construct a IfcLightSourceSpot with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcLightSourceSpot(IfcDirection orientation,IfcReal concentrationExponent,IfcPositivePlaneAngleMeasure spreadAngle,IfcPositivePlaneAngleMeasure beamWidthAngle,IfcCartesianPoint position,IfcPositiveLengthMeasure radius,IfcReal constantAttenuation,IfcReal distanceAttenuation,IfcReal quadricAttenuation,IfcLabel name,IfcColourRgb lightColour,IfcNormalisedRatioMeasure ambientIntensity,IfcNormalisedRatioMeasure intensity):base(position,radius,constantAttenuation,distanceAttenuation,quadricAttenuation,name,lightColour,ambientIntensity,intensity)
+		{
+			Orientation = orientation;
+			ConcentrationExponent = concentrationExponent;
+			SpreadAngle = spreadAngle;
+			BeamWidthAngle = beamWidthAngle;
 
 		}
-
 		public static new IfcLightSourceSpot FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLightSourceSpot>(json);
-		}
-
-		public static new IfcLightSourceSpot FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19014,21 +20069,27 @@ namespace IFC4
 		public IfcObjectPlacement PlacementRelTo{get;set;} // optional
 		public IfcAxis2Placement RelativePlacement{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcLocalPlacement with all required attributes.
+		/// </summary>
 		public IfcLocalPlacement(IfcAxis2Placement relativePlacement):base()
 		{
 			RelativePlacement = relativePlacement;
 
+		}
+		/// <summary>
+		/// Construct a IfcLocalPlacement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcLocalPlacement(IfcObjectPlacement placementRelTo,IfcAxis2Placement relativePlacement):base()
+		{
+			PlacementRelTo = placementRelTo;
+			RelativePlacement = relativePlacement;
 
 		}
-
 		public static new IfcLocalPlacement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcLocalPlacement>(json);
-		}
-
-		public static new IfcLocalPlacement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19039,21 +20100,19 @@ namespace IFC4
 	{
 		public List<IfcCartesianPoint> Polygon{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcPolyLoop with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcPolyLoop(List<IfcCartesianPoint> polygon):base()
 		{
 			Polygon = polygon;
-
+			Polygon = new List<IfcCartesianPoint>();
 
 		}
-
 		public static new IfcPolyLoop FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPolyLoop>(json);
-		}
-
-		public static new IfcPolyLoop FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19064,21 +20123,18 @@ namespace IFC4
 	{
 		public IfcVertex LoopVertex{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcVertexLoop with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcVertexLoop(IfcVertex loopVertex):base()
 		{
 			LoopVertex = loopVertex;
 
-
 		}
-
 		public static new IfcVertexLoop FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcVertexLoop>(json);
-		}
-
-		public static new IfcVertexLoop FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19090,22 +20146,19 @@ namespace IFC4
 		public IfcRepresentationMap MappingSource{get;set;} 
 		public IfcCartesianTransformationOperator MappingTarget{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcMappedItem with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcMappedItem(IfcRepresentationMap mappingSource,IfcCartesianTransformationOperator mappingTarget):base()
 		{
 			MappingSource = mappingSource;
 			MappingTarget = mappingTarget;
 
-
 		}
-
 		public static new IfcMappedItem FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMappedItem>(json);
-		}
-
-		public static new IfcMappedItem FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19118,21 +20171,28 @@ namespace IFC4
 		public IfcText Description{get;set;} // optional
 		public IfcLabel Category{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcMaterial with all required attributes.
+		/// </summary>
 		public IfcMaterial(IfcLabel name):base()
 		{
 			Name = name;
 
+		}
+		/// <summary>
+		/// Construct a IfcMaterial with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMaterial(IfcLabel name,IfcText description,IfcLabel category):base()
+		{
+			Name = name;
+			Description = description;
+			Category = category;
 
 		}
-
 		public static new IfcMaterial FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMaterial>(json);
-		}
-
-		public static new IfcMaterial FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19141,21 +20201,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcMaterialDefinition : IfcBase
 	{
-
+		/// <summary>
+		/// Construct a IfcMaterialDefinition with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcMaterialDefinition():base()
 		{
 
-
 		}
-
 		public static  IfcMaterialDefinition FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialDefinition>(json);
-		}
-
-		public static  IfcMaterialDefinition FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19167,22 +20223,20 @@ namespace IFC4
 		public List<IfcClassificationSelect> MaterialClassifications{get;set;} 
 		public IfcMaterial ClassifiedMaterial{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcMaterialClassificationRelationship with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcMaterialClassificationRelationship(List<IfcClassificationSelect> materialClassifications,IfcMaterial classifiedMaterial):base()
 		{
 			MaterialClassifications = materialClassifications;
 			ClassifiedMaterial = classifiedMaterial;
-
+			MaterialClassifications = new List<IfcClassificationSelect>();
 
 		}
-
 		public static  IfcMaterialClassificationRelationship FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialClassificationRelationship>(json);
-		}
-
-		public static  IfcMaterialClassificationRelationship FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19197,21 +20251,30 @@ namespace IFC4
 		public IfcNormalisedRatioMeasure Fraction{get;set;} // optional
 		public IfcLabel Category{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcMaterialConstituent with all required attributes.
+		/// </summary>
 		public IfcMaterialConstituent(IfcMaterial material):base()
 		{
 			Material = material;
 
+		}
+		/// <summary>
+		/// Construct a IfcMaterialConstituent with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMaterialConstituent(IfcLabel name,IfcText description,IfcMaterial material,IfcNormalisedRatioMeasure fraction,IfcLabel category):base()
+		{
+			Name = name;
+			Description = description;
+			Material = material;
+			Fraction = fraction;
+			Category = category;
 
 		}
-
 		public static new IfcMaterialConstituent FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialConstituent>(json);
-		}
-
-		public static new IfcMaterialConstituent FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19224,21 +20287,28 @@ namespace IFC4
 		public IfcText Description{get;set;} // optional
 		public List<IfcMaterialConstituent> MaterialConstituents{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcMaterialConstituentSet with all required attributes.
+		/// </summary>
 		public IfcMaterialConstituentSet():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcMaterialConstituentSet with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMaterialConstituentSet(IfcLabel name,IfcText description,List<IfcMaterialConstituent> materialConstituents):base()
+		{
+			Name = name;
+			Description = description;
+			MaterialConstituents = materialConstituents;
 			MaterialConstituents = new List<IfcMaterialConstituent>();
 
 		}
-
 		public static new IfcMaterialConstituentSet FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialConstituentSet>(json);
-		}
-
-		public static new IfcMaterialConstituentSet FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19255,21 +20325,32 @@ namespace IFC4
 		public IfcLabel Category{get;set;} // optional
 		public IfcNormalisedRatioMeasure Priority{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcMaterialLayer with all required attributes.
+		/// </summary>
 		public IfcMaterialLayer(IfcNonNegativeLengthMeasure layerThickness):base()
 		{
 			LayerThickness = layerThickness;
 
+		}
+		/// <summary>
+		/// Construct a IfcMaterialLayer with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMaterialLayer(IfcMaterial material,IfcNonNegativeLengthMeasure layerThickness,IfcLogical isVentilated,IfcLabel name,IfcText description,IfcLabel category,IfcNormalisedRatioMeasure priority):base()
+		{
+			Material = material;
+			LayerThickness = layerThickness;
+			IsVentilated = isVentilated;
+			Name = name;
+			Description = description;
+			Category = category;
+			Priority = priority;
 
 		}
-
 		public static new IfcMaterialLayer FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialLayer>(json);
-		}
-
-		public static new IfcMaterialLayer FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19282,21 +20363,30 @@ namespace IFC4
 		public IfcLabel LayerSetName{get;set;} // optional
 		public IfcText Description{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcMaterialLayerSet with all required attributes.
+		/// </summary>
 		public IfcMaterialLayerSet(List<IfcMaterialLayer> materialLayers):base()
 		{
 			MaterialLayers = materialLayers;
-
+			MaterialLayers = new List<IfcMaterialLayer>();
 
 		}
+		/// <summary>
+		/// Construct a IfcMaterialLayerSet with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMaterialLayerSet(List<IfcMaterialLayer> materialLayers,IfcLabel layerSetName,IfcText description):base()
+		{
+			MaterialLayers = materialLayers;
+			LayerSetName = layerSetName;
+			Description = description;
+			MaterialLayers = new List<IfcMaterialLayer>();
 
+		}
 		public static new IfcMaterialLayerSet FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialLayerSet>(json);
-		}
-
-		public static new IfcMaterialLayerSet FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19312,21 +20402,31 @@ namespace IFC4
 		public IfcNormalisedRatioMeasure Priority{get;set;} // optional
 		public IfcLabel Category{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcMaterialProfile with all required attributes.
+		/// </summary>
 		public IfcMaterialProfile(IfcProfileDef profile):base()
 		{
 			Profile = profile;
 
+		}
+		/// <summary>
+		/// Construct a IfcMaterialProfile with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMaterialProfile(IfcLabel name,IfcText description,IfcMaterial material,IfcProfileDef profile,IfcNormalisedRatioMeasure priority,IfcLabel category):base()
+		{
+			Name = name;
+			Description = description;
+			Material = material;
+			Profile = profile;
+			Priority = priority;
+			Category = category;
 
 		}
-
 		public static new IfcMaterialProfile FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialProfile>(json);
-		}
-
-		public static new IfcMaterialProfile FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19340,21 +20440,31 @@ namespace IFC4
 		public List<IfcMaterialProfile> MaterialProfiles{get;set;} 
 		public IfcCompositeProfileDef CompositeProfile{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcMaterialProfileSet with all required attributes.
+		/// </summary>
 		public IfcMaterialProfileSet(List<IfcMaterialProfile> materialProfiles):base()
 		{
 			MaterialProfiles = materialProfiles;
-
+			MaterialProfiles = new List<IfcMaterialProfile>();
 
 		}
+		/// <summary>
+		/// Construct a IfcMaterialProfileSet with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMaterialProfileSet(IfcLabel name,IfcText description,List<IfcMaterialProfile> materialProfiles,IfcCompositeProfileDef compositeProfile):base()
+		{
+			Name = name;
+			Description = description;
+			MaterialProfiles = materialProfiles;
+			CompositeProfile = compositeProfile;
+			MaterialProfiles = new List<IfcMaterialProfile>();
 
+		}
 		public static new IfcMaterialProfileSet FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialProfileSet>(json);
-		}
-
-		public static new IfcMaterialProfileSet FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19365,21 +20475,26 @@ namespace IFC4
 	{
 		public IfcMaterial RepresentedMaterial{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcMaterialDefinitionRepresentation with all required attributes.
+		/// </summary>
 		public IfcMaterialDefinitionRepresentation(IfcMaterial representedMaterial,List<IfcRepresentation> representations):base(representations)
 		{
 			RepresentedMaterial = representedMaterial;
 
+		}
+		/// <summary>
+		/// Construct a IfcMaterialDefinitionRepresentation with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMaterialDefinitionRepresentation(IfcMaterial representedMaterial,IfcLabel name,IfcText description,List<IfcRepresentation> representations):base(name,description,representations)
+		{
+			RepresentedMaterial = representedMaterial;
 
 		}
-
 		public static new IfcMaterialDefinitionRepresentation FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialDefinitionRepresentation>(json);
-		}
-
-		public static new IfcMaterialDefinitionRepresentation FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19392,21 +20507,30 @@ namespace IFC4
 		public IfcText Description{get;set;} // optional
 		public List<IfcRepresentation> Representations{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcProductRepresentation with all required attributes.
+		/// </summary>
 		public IfcProductRepresentation(List<IfcRepresentation> representations):base()
 		{
 			Representations = representations;
-
+			Representations = new List<IfcRepresentation>();
 
 		}
+		/// <summary>
+		/// Construct a IfcProductRepresentation with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcProductRepresentation(IfcLabel name,IfcText description,List<IfcRepresentation> representations):base()
+		{
+			Name = name;
+			Description = description;
+			Representations = representations;
+			Representations = new List<IfcRepresentation>();
 
+		}
 		public static  IfcProductRepresentation FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcProductRepresentation>(json);
-		}
-
-		public static  IfcProductRepresentation FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19418,22 +20542,30 @@ namespace IFC4
 		public IfcLayerSetDirectionEnum OffsetDirection{get;set;} 
 		public List<IfcLengthMeasure> OffsetValues{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcMaterialLayerWithOffsets with all required attributes.
+		/// </summary>
 		public IfcMaterialLayerWithOffsets(IfcLayerSetDirectionEnum offsetDirection,List<IfcLengthMeasure> offsetValues,IfcNonNegativeLengthMeasure layerThickness):base(layerThickness)
 		{
 			OffsetDirection = offsetDirection;
 			OffsetValues = offsetValues;
-
+			OffsetValues = new List<IfcLengthMeasure>();
 
 		}
+		/// <summary>
+		/// Construct a IfcMaterialLayerWithOffsets with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMaterialLayerWithOffsets(IfcLayerSetDirectionEnum offsetDirection,List<IfcLengthMeasure> offsetValues,IfcMaterial material,IfcNonNegativeLengthMeasure layerThickness,IfcLogical isVentilated,IfcLabel name,IfcText description,IfcLabel category,IfcNormalisedRatioMeasure priority):base(material,layerThickness,isVentilated,name,description,category,priority)
+		{
+			OffsetDirection = offsetDirection;
+			OffsetValues = offsetValues;
+			OffsetValues = new List<IfcLengthMeasure>();
 
+		}
 		public static new IfcMaterialLayerWithOffsets FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialLayerWithOffsets>(json);
-		}
-
-		public static new IfcMaterialLayerWithOffsets FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19448,6 +20580,9 @@ namespace IFC4
 		public IfcLengthMeasure OffsetFromReferenceLine{get;set;} 
 		public IfcPositiveLengthMeasure ReferenceExtent{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcMaterialLayerSetUsage with all required attributes.
+		/// </summary>
 		public IfcMaterialLayerSetUsage(IfcMaterialLayerSet forLayerSet,IfcLayerSetDirectionEnum layerSetDirection,IfcDirectionSenseEnum directionSense,IfcLengthMeasure offsetFromReferenceLine):base()
 		{
 			ForLayerSet = forLayerSet;
@@ -19455,17 +20590,23 @@ namespace IFC4
 			DirectionSense = directionSense;
 			OffsetFromReferenceLine = offsetFromReferenceLine;
 
+		}
+		/// <summary>
+		/// Construct a IfcMaterialLayerSetUsage with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMaterialLayerSetUsage(IfcMaterialLayerSet forLayerSet,IfcLayerSetDirectionEnum layerSetDirection,IfcDirectionSenseEnum directionSense,IfcLengthMeasure offsetFromReferenceLine,IfcPositiveLengthMeasure referenceExtent):base()
+		{
+			ForLayerSet = forLayerSet;
+			LayerSetDirection = layerSetDirection;
+			DirectionSense = directionSense;
+			OffsetFromReferenceLine = offsetFromReferenceLine;
+			ReferenceExtent = referenceExtent;
 
 		}
-
 		public static new IfcMaterialLayerSetUsage FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialLayerSetUsage>(json);
-		}
-
-		public static new IfcMaterialLayerSetUsage FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19474,21 +20615,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcMaterialUsageDefinition : IfcBase
 	{
-
+		/// <summary>
+		/// Construct a IfcMaterialUsageDefinition with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcMaterialUsageDefinition():base()
 		{
 
-
 		}
-
 		public static  IfcMaterialUsageDefinition FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialUsageDefinition>(json);
-		}
-
-		public static  IfcMaterialUsageDefinition FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19499,21 +20636,19 @@ namespace IFC4
 	{
 		public List<IfcMaterial> Materials{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcMaterialList with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcMaterialList(List<IfcMaterial> materials):base()
 		{
 			Materials = materials;
-
+			Materials = new List<IfcMaterial>();
 
 		}
-
 		public static  IfcMaterialList FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialList>(json);
-		}
-
-		public static  IfcMaterialList FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19524,21 +20659,28 @@ namespace IFC4
 	{
 		public List<IfcLengthMeasure> OffsetValues{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcMaterialProfileWithOffsets with all required attributes.
+		/// </summary>
 		public IfcMaterialProfileWithOffsets(List<IfcLengthMeasure> offsetValues,IfcProfileDef profile):base(profile)
 		{
 			OffsetValues = offsetValues;
-
+			OffsetValues = new List<IfcLengthMeasure>();
 
 		}
+		/// <summary>
+		/// Construct a IfcMaterialProfileWithOffsets with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMaterialProfileWithOffsets(List<IfcLengthMeasure> offsetValues,IfcLabel name,IfcText description,IfcMaterial material,IfcProfileDef profile,IfcNormalisedRatioMeasure priority,IfcLabel category):base(name,description,material,profile,priority,category)
+		{
+			OffsetValues = offsetValues;
+			OffsetValues = new List<IfcLengthMeasure>();
 
+		}
 		public static new IfcMaterialProfileWithOffsets FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialProfileWithOffsets>(json);
-		}
-
-		public static new IfcMaterialProfileWithOffsets FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19551,21 +20693,28 @@ namespace IFC4
 		public IfcCardinalPointReference CardinalPoint{get;set;} // optional
 		public IfcPositiveLengthMeasure ReferenceExtent{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcMaterialProfileSetUsage with all required attributes.
+		/// </summary>
 		public IfcMaterialProfileSetUsage(IfcMaterialProfileSet forProfileSet):base()
 		{
 			ForProfileSet = forProfileSet;
 
+		}
+		/// <summary>
+		/// Construct a IfcMaterialProfileSetUsage with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMaterialProfileSetUsage(IfcMaterialProfileSet forProfileSet,IfcCardinalPointReference cardinalPoint,IfcPositiveLengthMeasure referenceExtent):base()
+		{
+			ForProfileSet = forProfileSet;
+			CardinalPoint = cardinalPoint;
+			ReferenceExtent = referenceExtent;
 
 		}
-
 		public static new IfcMaterialProfileSetUsage FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialProfileSetUsage>(json);
-		}
-
-		public static new IfcMaterialProfileSetUsage FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19577,21 +20726,27 @@ namespace IFC4
 		public IfcMaterialProfileSet ForProfileEndSet{get;set;} 
 		public IfcCardinalPointReference CardinalEndPoint{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcMaterialProfileSetUsageTapering with all required attributes.
+		/// </summary>
 		public IfcMaterialProfileSetUsageTapering(IfcMaterialProfileSet forProfileEndSet,IfcMaterialProfileSet forProfileSet):base(forProfileSet)
 		{
 			ForProfileEndSet = forProfileEndSet;
 
+		}
+		/// <summary>
+		/// Construct a IfcMaterialProfileSetUsageTapering with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMaterialProfileSetUsageTapering(IfcMaterialProfileSet forProfileEndSet,IfcCardinalPointReference cardinalEndPoint,IfcMaterialProfileSet forProfileSet,IfcCardinalPointReference cardinalPoint,IfcPositiveLengthMeasure referenceExtent):base(forProfileSet,cardinalPoint,referenceExtent)
+		{
+			ForProfileEndSet = forProfileEndSet;
+			CardinalEndPoint = cardinalEndPoint;
 
 		}
-
 		public static new IfcMaterialProfileSetUsageTapering FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialProfileSetUsageTapering>(json);
-		}
-
-		public static new IfcMaterialProfileSetUsageTapering FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19604,22 +20759,31 @@ namespace IFC4
 		public List<IfcMaterial> RelatedMaterials{get;set;} 
 		public IfcLabel Expression{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcMaterialRelationship with all required attributes.
+		/// </summary>
 		public IfcMaterialRelationship(IfcMaterial relatingMaterial,List<IfcMaterial> relatedMaterials):base()
 		{
 			RelatingMaterial = relatingMaterial;
 			RelatedMaterials = relatedMaterials;
-
+			RelatedMaterials = new List<IfcMaterial>();
 
 		}
+		/// <summary>
+		/// Construct a IfcMaterialRelationship with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMaterialRelationship(IfcMaterial relatingMaterial,List<IfcMaterial> relatedMaterials,IfcLabel expression,IfcLabel name,IfcText description):base(name,description)
+		{
+			RelatingMaterial = relatingMaterial;
+			RelatedMaterials = relatedMaterials;
+			Expression = expression;
+			RelatedMaterials = new List<IfcMaterial>();
 
+		}
 		public static new IfcMaterialRelationship FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialRelationship>(json);
-		}
-
-		public static new IfcMaterialRelationship FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19631,22 +20795,19 @@ namespace IFC4
 		public IfcValue ValueComponent{get;set;} 
 		public IfcUnit UnitComponent{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcMeasureWithUnit with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcMeasureWithUnit(IfcValue valueComponent,IfcUnit unitComponent):base()
 		{
 			ValueComponent = valueComponent;
 			UnitComponent = unitComponent;
 
-
 		}
-
 		public static  IfcMeasureWithUnit FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMeasureWithUnit>(json);
-		}
-
-		public static  IfcMeasureWithUnit FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19655,21 +20816,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcMemberStandardCase : IfcMember
 	{
-
+		/// <summary>
+		/// Construct a IfcMemberStandardCase with all required attributes.
+		/// </summary>
 		public IfcMemberStandardCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcMemberStandardCase with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcMemberStandardCase(IfcMemberTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcMemberStandardCase FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMemberStandardCase>(json);
-		}
-
-		public static new IfcMemberStandardCase FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19680,21 +20844,18 @@ namespace IFC4
 	{
 		public IfcLabel Currency{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcMonetaryUnit with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcMonetaryUnit(IfcLabel currency):base()
 		{
 			Currency = currency;
 
-
 		}
-
 		public static  IfcMonetaryUnit FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMonetaryUnit>(json);
-		}
-
-		public static  IfcMonetaryUnit FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19706,21 +20867,27 @@ namespace IFC4
 		public IfcSIPrefix Prefix{get;set;} // optional
 		public IfcSIUnitName Name{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcSIUnit with all required attributes.
+		/// </summary>
 		public IfcSIUnit(IfcSIUnitName name,IfcDimensionalExponents dimensions,IfcUnitEnum unitType):base(dimensions,unitType)
 		{
 			Name = name;
 
+		}
+		/// <summary>
+		/// Construct a IfcSIUnit with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSIUnit(IfcSIPrefix prefix,IfcSIUnitName name,IfcDimensionalExponents dimensions,IfcUnitEnum unitType):base(dimensions,unitType)
+		{
+			Prefix = prefix;
+			Name = name;
 
 		}
-
 		public static new IfcSIUnit FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSIUnit>(json);
-		}
-
-		public static new IfcSIUnit FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19732,21 +20899,27 @@ namespace IFC4
 		public IfcIdentifier ApplicableOccurrence{get;set;} // optional
 		public List<IfcPropertySetDefinition> HasPropertySets{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTypeObject with all required attributes.
+		/// </summary>
 		public IfcTypeObject(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcTypeObject with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTypeObject(IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			ApplicableOccurrence = applicableOccurrence;
+			HasPropertySets = hasPropertySets;
 			HasPropertySets = new List<IfcPropertySetDefinition>();
 
 		}
-
 		public static new IfcTypeObject FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTypeObject>(json);
-		}
-
-		public static new IfcTypeObject FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19760,21 +20933,29 @@ namespace IFC4
 		public IfcLabel Name{get;set;} // optional
 		public IfcText Description{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcRoot with all required attributes.
+		/// </summary>
 		public IfcRoot(IfcGloballyUniqueId globalId):base()
 		{
 			GlobalId = globalId;
 
+		}
+		/// <summary>
+		/// Construct a IfcRoot with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRoot(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base()
+		{
+			GlobalId = globalId;
+			OwnerHistory = ownerHistory;
+			Name = name;
+			Description = description;
 
 		}
-
 		public static  IfcRoot FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRoot>(json);
-		}
-
-		public static  IfcRoot FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19783,21 +20964,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcOpeningStandardCase : IfcOpeningElement
 	{
-
+		/// <summary>
+		/// Construct a IfcOpeningStandardCase with all required attributes.
+		/// </summary>
 		public IfcOpeningStandardCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcOpeningStandardCase with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcOpeningStandardCase(IfcOpeningElementTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcOpeningStandardCase FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcOpeningStandardCase>(json);
-		}
-
-		public static new IfcOpeningStandardCase FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19812,23 +20996,32 @@ namespace IFC4
 		public List<IfcActorRole> Roles{get;set;} // optional
 		public List<IfcAddress> Addresses{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcOrganization with all required attributes.
+		/// </summary>
 		public IfcOrganization(IfcLabel name):base()
 		{
 			Name = name;
 
+		}
+		/// <summary>
+		/// Construct a IfcOrganization with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcOrganization(IfcIdentifier identification,IfcLabel name,IfcText description,List<IfcActorRole> roles,List<IfcAddress> addresses):base()
+		{
+			Identification = identification;
+			Name = name;
+			Description = description;
+			Roles = roles;
+			Addresses = addresses;
 			Roles = new List<IfcActorRole>();
 			Addresses = new List<IfcAddress>();
 
 		}
-
 		public static  IfcOrganization FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcOrganization>(json);
-		}
-
-		public static  IfcOrganization FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19840,22 +21033,30 @@ namespace IFC4
 		public IfcOrganization RelatingOrganization{get;set;} 
 		public List<IfcOrganization> RelatedOrganizations{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcOrganizationRelationship with all required attributes.
+		/// </summary>
 		public IfcOrganizationRelationship(IfcOrganization relatingOrganization,List<IfcOrganization> relatedOrganizations):base()
 		{
 			RelatingOrganization = relatingOrganization;
 			RelatedOrganizations = relatedOrganizations;
-
+			RelatedOrganizations = new List<IfcOrganization>();
 
 		}
+		/// <summary>
+		/// Construct a IfcOrganizationRelationship with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcOrganizationRelationship(IfcOrganization relatingOrganization,List<IfcOrganization> relatedOrganizations,IfcLabel name,IfcText description):base(name,description)
+		{
+			RelatingOrganization = relatingOrganization;
+			RelatedOrganizations = relatedOrganizations;
+			RelatedOrganizations = new List<IfcOrganization>();
 
+		}
 		public static new IfcOrganizationRelationship FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcOrganizationRelationship>(json);
-		}
-
-		public static new IfcOrganizationRelationship FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19873,23 +21074,35 @@ namespace IFC4
 		public IfcApplication LastModifyingApplication{get;set;} // optional
 		public IfcTimeStamp CreationDate{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcOwnerHistory with all required attributes.
+		/// </summary>
 		public IfcOwnerHistory(IfcPersonAndOrganization owningUser,IfcApplication owningApplication,IfcTimeStamp creationDate):base()
 		{
 			OwningUser = owningUser;
 			OwningApplication = owningApplication;
 			CreationDate = creationDate;
 
+		}
+		/// <summary>
+		/// Construct a IfcOwnerHistory with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcOwnerHistory(IfcPersonAndOrganization owningUser,IfcApplication owningApplication,IfcStateEnum state,IfcChangeActionEnum changeAction,IfcTimeStamp lastModifiedDate,IfcPersonAndOrganization lastModifyingUser,IfcApplication lastModifyingApplication,IfcTimeStamp creationDate):base()
+		{
+			OwningUser = owningUser;
+			OwningApplication = owningApplication;
+			State = state;
+			ChangeAction = changeAction;
+			LastModifiedDate = lastModifiedDate;
+			LastModifyingUser = lastModifyingUser;
+			LastModifyingApplication = lastModifyingApplication;
+			CreationDate = creationDate;
 
 		}
-
 		public static  IfcOwnerHistory FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcOwnerHistory>(json);
-		}
-
-		public static  IfcOwnerHistory FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19901,22 +21114,28 @@ namespace IFC4
 		public IfcPositiveLengthMeasure XDim{get;set;} 
 		public IfcPositiveLengthMeasure YDim{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRectangleProfileDef with all required attributes.
+		/// </summary>
 		public IfcRectangleProfileDef(IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			XDim = xDim;
 			YDim = yDim;
 
+		}
+		/// <summary>
+		/// Construct a IfcRectangleProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRectangleProfileDef(IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		{
+			XDim = xDim;
+			YDim = yDim;
 
 		}
-
 		public static new IfcRectangleProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRectangleProfileDef>(json);
-		}
-
-		public static new IfcRectangleProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19935,6 +21154,9 @@ namespace IFC4
 		public IfcPlaneAngleMeasure WebSlope{get;set;} // optional
 		public IfcPlaneAngleMeasure FlangeSlope{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTShapeProfileDef with all required attributes.
+		/// </summary>
 		public IfcTShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure flangeWidth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			Depth = depth;
@@ -19942,17 +21164,27 @@ namespace IFC4
 			WebThickness = webThickness;
 			FlangeThickness = flangeThickness;
 
+		}
+		/// <summary>
+		/// Construct a IfcTShapeProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure flangeWidth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcNonNegativeLengthMeasure filletRadius,IfcNonNegativeLengthMeasure flangeEdgeRadius,IfcNonNegativeLengthMeasure webEdgeRadius,IfcPlaneAngleMeasure webSlope,IfcPlaneAngleMeasure flangeSlope,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		{
+			Depth = depth;
+			FlangeWidth = flangeWidth;
+			WebThickness = webThickness;
+			FlangeThickness = flangeThickness;
+			FilletRadius = filletRadius;
+			FlangeEdgeRadius = flangeEdgeRadius;
+			WebEdgeRadius = webEdgeRadius;
+			WebSlope = webSlope;
+			FlangeSlope = flangeSlope;
 
 		}
-
 		public static new IfcTShapeProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTShapeProfileDef>(json);
-		}
-
-		public static new IfcTShapeProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -19966,6 +21198,9 @@ namespace IFC4
 		public IfcPositiveLengthMeasure YDim{get;set;} 
 		public IfcLengthMeasure TopXOffset{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcTrapeziumProfileDef with all required attributes.
+		/// </summary>
 		public IfcTrapeziumProfileDef(IfcPositiveLengthMeasure bottomXDim,IfcPositiveLengthMeasure topXDim,IfcPositiveLengthMeasure yDim,IfcLengthMeasure topXOffset,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			BottomXDim = bottomXDim;
@@ -19973,17 +21208,22 @@ namespace IFC4
 			YDim = yDim;
 			TopXOffset = topXOffset;
 
+		}
+		/// <summary>
+		/// Construct a IfcTrapeziumProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTrapeziumProfileDef(IfcPositiveLengthMeasure bottomXDim,IfcPositiveLengthMeasure topXDim,IfcPositiveLengthMeasure yDim,IfcLengthMeasure topXOffset,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		{
+			BottomXDim = bottomXDim;
+			TopXDim = topXDim;
+			YDim = yDim;
+			TopXOffset = topXOffset;
 
 		}
-
 		public static new IfcTrapeziumProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTrapeziumProfileDef>(json);
-		}
-
-		public static new IfcTrapeziumProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20000,6 +21240,9 @@ namespace IFC4
 		public IfcNonNegativeLengthMeasure EdgeRadius{get;set;} // optional
 		public IfcPlaneAngleMeasure FlangeSlope{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcUShapeProfileDef with all required attributes.
+		/// </summary>
 		public IfcUShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure flangeWidth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			Depth = depth;
@@ -20007,17 +21250,25 @@ namespace IFC4
 			WebThickness = webThickness;
 			FlangeThickness = flangeThickness;
 
+		}
+		/// <summary>
+		/// Construct a IfcUShapeProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcUShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure flangeWidth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcNonNegativeLengthMeasure filletRadius,IfcNonNegativeLengthMeasure edgeRadius,IfcPlaneAngleMeasure flangeSlope,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		{
+			Depth = depth;
+			FlangeWidth = flangeWidth;
+			WebThickness = webThickness;
+			FlangeThickness = flangeThickness;
+			FilletRadius = filletRadius;
+			EdgeRadius = edgeRadius;
+			FlangeSlope = flangeSlope;
 
 		}
-
 		public static new IfcUShapeProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcUShapeProfileDef>(json);
-		}
-
-		public static new IfcUShapeProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20033,6 +21284,9 @@ namespace IFC4
 		public IfcNonNegativeLengthMeasure FilletRadius{get;set;} // optional
 		public IfcNonNegativeLengthMeasure EdgeRadius{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcZShapeProfileDef with all required attributes.
+		/// </summary>
 		public IfcZShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure flangeWidth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcProfileTypeEnum profileType):base(profileType)
 		{
 			Depth = depth;
@@ -20040,17 +21294,24 @@ namespace IFC4
 			WebThickness = webThickness;
 			FlangeThickness = flangeThickness;
 
+		}
+		/// <summary>
+		/// Construct a IfcZShapeProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcZShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure flangeWidth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcNonNegativeLengthMeasure filletRadius,IfcNonNegativeLengthMeasure edgeRadius,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		{
+			Depth = depth;
+			FlangeWidth = flangeWidth;
+			WebThickness = webThickness;
+			FlangeThickness = flangeThickness;
+			FilletRadius = filletRadius;
+			EdgeRadius = edgeRadius;
 
 		}
-
 		public static new IfcZShapeProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcZShapeProfileDef>(json);
-		}
-
-		public static new IfcZShapeProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20061,21 +21322,19 @@ namespace IFC4
 	{
 		public List<IfcOrientedEdge> EdgeList{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcPath with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcPath(List<IfcOrientedEdge> edgeList):base()
 		{
 			EdgeList = edgeList;
-
+			EdgeList = new List<IfcOrientedEdge>();
 
 		}
-
 		public static new IfcPath FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPath>(json);
-		}
-
-		public static new IfcPath FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20090,22 +21349,31 @@ namespace IFC4
 		public IfcPositiveLengthMeasure FrameThickness{get;set;} // optional
 		public IfcShapeAspect ShapeAspectStyle{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPermeableCoveringProperties with all required attributes.
+		/// </summary>
 		public IfcPermeableCoveringProperties(IfcPermeableCoveringOperationEnum operationType,IfcWindowPanelPositionEnum panelPosition,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			OperationType = operationType;
 			PanelPosition = panelPosition;
 
+		}
+		/// <summary>
+		/// Construct a IfcPermeableCoveringProperties with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPermeableCoveringProperties(IfcPermeableCoveringOperationEnum operationType,IfcWindowPanelPositionEnum panelPosition,IfcPositiveLengthMeasure frameDepth,IfcPositiveLengthMeasure frameThickness,IfcShapeAspect shapeAspectStyle,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			OperationType = operationType;
+			PanelPosition = panelPosition;
+			FrameDepth = frameDepth;
+			FrameThickness = frameThickness;
+			ShapeAspectStyle = shapeAspectStyle;
 
 		}
-
 		public static new IfcPermeableCoveringProperties FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPermeableCoveringProperties>(json);
-		}
-
-		public static new IfcPermeableCoveringProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20123,9 +21391,27 @@ namespace IFC4
 		public List<IfcActorRole> Roles{get;set;} // optional
 		public List<IfcAddress> Addresses{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPerson with all required attributes.
+		/// </summary>
 		public IfcPerson():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPerson with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPerson(IfcIdentifier identification,IfcLabel familyName,IfcLabel givenName,List<IfcLabel> middleNames,List<IfcLabel> prefixTitles,List<IfcLabel> suffixTitles,List<IfcActorRole> roles,List<IfcAddress> addresses):base()
+		{
+			Identification = identification;
+			FamilyName = familyName;
+			GivenName = givenName;
+			MiddleNames = middleNames;
+			PrefixTitles = prefixTitles;
+			SuffixTitles = suffixTitles;
+			Roles = roles;
+			Addresses = addresses;
 			MiddleNames = new List<IfcLabel>();
 			PrefixTitles = new List<IfcLabel>();
 			SuffixTitles = new List<IfcLabel>();
@@ -20133,15 +21419,9 @@ namespace IFC4
 			Addresses = new List<IfcAddress>();
 
 		}
-
 		public static  IfcPerson FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPerson>(json);
-		}
-
-		public static  IfcPerson FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20154,23 +21434,30 @@ namespace IFC4
 		public IfcOrganization TheOrganization{get;set;} 
 		public List<IfcActorRole> Roles{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPersonAndOrganization with all required attributes.
+		/// </summary>
 		public IfcPersonAndOrganization(IfcPerson thePerson,IfcOrganization theOrganization):base()
 		{
 			ThePerson = thePerson;
 			TheOrganization = theOrganization;
 
+		}
+		/// <summary>
+		/// Construct a IfcPersonAndOrganization with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPersonAndOrganization(IfcPerson thePerson,IfcOrganization theOrganization,List<IfcActorRole> roles):base()
+		{
+			ThePerson = thePerson;
+			TheOrganization = theOrganization;
+			Roles = roles;
 			Roles = new List<IfcActorRole>();
 
 		}
-
 		public static  IfcPersonAndOrganization FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPersonAndOrganization>(json);
-		}
-
-		public static  IfcPersonAndOrganization FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20184,22 +21471,32 @@ namespace IFC4
 		public IfcLabel Quality{get;set;} // optional
 		public IfcLabel Usage{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPhysicalComplexQuantity with all required attributes.
+		/// </summary>
 		public IfcPhysicalComplexQuantity(List<IfcPhysicalQuantity> hasQuantities,IfcLabel discrimination,IfcLabel name):base(name)
 		{
 			HasQuantities = hasQuantities;
 			Discrimination = discrimination;
-
+			HasQuantities = new List<IfcPhysicalQuantity>();
 
 		}
+		/// <summary>
+		/// Construct a IfcPhysicalComplexQuantity with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPhysicalComplexQuantity(List<IfcPhysicalQuantity> hasQuantities,IfcLabel discrimination,IfcLabel quality,IfcLabel usage,IfcLabel name,IfcText description):base(name,description)
+		{
+			HasQuantities = hasQuantities;
+			Discrimination = discrimination;
+			Quality = quality;
+			Usage = usage;
+			HasQuantities = new List<IfcPhysicalQuantity>();
 
+		}
 		public static new IfcPhysicalComplexQuantity FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPhysicalComplexQuantity>(json);
-		}
-
-		public static new IfcPhysicalComplexQuantity FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20211,21 +21508,27 @@ namespace IFC4
 		public IfcLabel Name{get;set;} 
 		public IfcText Description{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPhysicalQuantity with all required attributes.
+		/// </summary>
 		public IfcPhysicalQuantity(IfcLabel name):base()
 		{
 			Name = name;
 
+		}
+		/// <summary>
+		/// Construct a IfcPhysicalQuantity with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPhysicalQuantity(IfcLabel name,IfcText description):base()
+		{
+			Name = name;
+			Description = description;
 
 		}
-
 		public static  IfcPhysicalQuantity FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPhysicalQuantity>(json);
-		}
-
-		public static  IfcPhysicalQuantity FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20236,20 +21539,25 @@ namespace IFC4
 	{
 		public IfcNamedUnit Unit{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPhysicalSimpleQuantity with all required attributes.
+		/// </summary>
 		public IfcPhysicalSimpleQuantity(IfcLabel name):base(name)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPhysicalSimpleQuantity with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPhysicalSimpleQuantity(IfcNamedUnit unit,IfcLabel name,IfcText description):base(name,description)
+		{
+			Unit = unit;
 
 		}
-
 		public static new IfcPhysicalSimpleQuantity FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPhysicalSimpleQuantity>(json);
-		}
-
-		public static new IfcPhysicalSimpleQuantity FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20261,21 +21569,27 @@ namespace IFC4
 		public IfcAreaMeasure AreaValue{get;set;} 
 		public IfcLabel Formula{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcQuantityArea with all required attributes.
+		/// </summary>
 		public IfcQuantityArea(IfcAreaMeasure areaValue,IfcLabel name):base(name)
 		{
 			AreaValue = areaValue;
 
+		}
+		/// <summary>
+		/// Construct a IfcQuantityArea with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcQuantityArea(IfcAreaMeasure areaValue,IfcLabel formula,IfcNamedUnit unit,IfcLabel name,IfcText description):base(unit,name,description)
+		{
+			AreaValue = areaValue;
+			Formula = formula;
 
 		}
-
 		public static new IfcQuantityArea FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcQuantityArea>(json);
-		}
-
-		public static new IfcQuantityArea FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20287,21 +21601,27 @@ namespace IFC4
 		public IfcCountMeasure CountValue{get;set;} 
 		public IfcLabel Formula{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcQuantityCount with all required attributes.
+		/// </summary>
 		public IfcQuantityCount(IfcCountMeasure countValue,IfcLabel name):base(name)
 		{
 			CountValue = countValue;
 
+		}
+		/// <summary>
+		/// Construct a IfcQuantityCount with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcQuantityCount(IfcCountMeasure countValue,IfcLabel formula,IfcNamedUnit unit,IfcLabel name,IfcText description):base(unit,name,description)
+		{
+			CountValue = countValue;
+			Formula = formula;
 
 		}
-
 		public static new IfcQuantityCount FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcQuantityCount>(json);
-		}
-
-		public static new IfcQuantityCount FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20313,21 +21633,27 @@ namespace IFC4
 		public IfcLengthMeasure LengthValue{get;set;} 
 		public IfcLabel Formula{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcQuantityLength with all required attributes.
+		/// </summary>
 		public IfcQuantityLength(IfcLengthMeasure lengthValue,IfcLabel name):base(name)
 		{
 			LengthValue = lengthValue;
 
+		}
+		/// <summary>
+		/// Construct a IfcQuantityLength with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcQuantityLength(IfcLengthMeasure lengthValue,IfcLabel formula,IfcNamedUnit unit,IfcLabel name,IfcText description):base(unit,name,description)
+		{
+			LengthValue = lengthValue;
+			Formula = formula;
 
 		}
-
 		public static new IfcQuantityLength FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcQuantityLength>(json);
-		}
-
-		public static new IfcQuantityLength FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20339,21 +21665,27 @@ namespace IFC4
 		public IfcTimeMeasure TimeValue{get;set;} 
 		public IfcLabel Formula{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcQuantityTime with all required attributes.
+		/// </summary>
 		public IfcQuantityTime(IfcTimeMeasure timeValue,IfcLabel name):base(name)
 		{
 			TimeValue = timeValue;
 
+		}
+		/// <summary>
+		/// Construct a IfcQuantityTime with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcQuantityTime(IfcTimeMeasure timeValue,IfcLabel formula,IfcNamedUnit unit,IfcLabel name,IfcText description):base(unit,name,description)
+		{
+			TimeValue = timeValue;
+			Formula = formula;
 
 		}
-
 		public static new IfcQuantityTime FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcQuantityTime>(json);
-		}
-
-		public static new IfcQuantityTime FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20365,21 +21697,27 @@ namespace IFC4
 		public IfcVolumeMeasure VolumeValue{get;set;} 
 		public IfcLabel Formula{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcQuantityVolume with all required attributes.
+		/// </summary>
 		public IfcQuantityVolume(IfcVolumeMeasure volumeValue,IfcLabel name):base(name)
 		{
 			VolumeValue = volumeValue;
 
+		}
+		/// <summary>
+		/// Construct a IfcQuantityVolume with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcQuantityVolume(IfcVolumeMeasure volumeValue,IfcLabel formula,IfcNamedUnit unit,IfcLabel name,IfcText description):base(unit,name,description)
+		{
+			VolumeValue = volumeValue;
+			Formula = formula;
 
 		}
-
 		public static new IfcQuantityVolume FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcQuantityVolume>(json);
-		}
-
-		public static new IfcQuantityVolume FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20391,21 +21729,27 @@ namespace IFC4
 		public IfcMassMeasure WeightValue{get;set;} 
 		public IfcLabel Formula{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcQuantityWeight with all required attributes.
+		/// </summary>
 		public IfcQuantityWeight(IfcMassMeasure weightValue,IfcLabel name):base(name)
 		{
 			WeightValue = weightValue;
 
+		}
+		/// <summary>
+		/// Construct a IfcQuantityWeight with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcQuantityWeight(IfcMassMeasure weightValue,IfcLabel formula,IfcNamedUnit unit,IfcLabel name,IfcText description):base(unit,name,description)
+		{
+			WeightValue = weightValue;
+			Formula = formula;
 
 		}
-
 		public static new IfcQuantityWeight FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcQuantityWeight>(json);
-		}
-
-		public static new IfcQuantityWeight FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20419,24 +21763,34 @@ namespace IFC4
 		public IfcInteger ColourComponents{get;set;} 
 		public List<byte[]> Pixel{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcPixelTexture with all required attributes.
+		/// </summary>
 		public IfcPixelTexture(IfcInteger width,IfcInteger height,IfcInteger colourComponents,List<byte[]> pixel,bool repeatS,bool repeatT):base(repeatS,repeatT)
 		{
 			Width = width;
 			Height = height;
 			ColourComponents = colourComponents;
 			Pixel = pixel;
-
+			Pixel = new List<byte[]>();
 
 		}
+		/// <summary>
+		/// Construct a IfcPixelTexture with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPixelTexture(IfcInteger width,IfcInteger height,IfcInteger colourComponents,List<byte[]> pixel,bool repeatS,bool repeatT,IfcIdentifier mode,IfcCartesianTransformationOperator2D textureTransform,List<IfcIdentifier> parameter):base(repeatS,repeatT,mode,textureTransform,parameter)
+		{
+			Width = width;
+			Height = height;
+			ColourComponents = colourComponents;
+			Pixel = pixel;
+			Pixel = new List<byte[]>();
 
+		}
 		public static new IfcPixelTexture FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPixelTexture>(json);
-		}
-
-		public static new IfcPixelTexture FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20447,21 +21801,18 @@ namespace IFC4
 	{
 		public IfcAxis2Placement Placement{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcPlanarBox with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcPlanarBox(IfcAxis2Placement placement,IfcLengthMeasure sizeInX,IfcLengthMeasure sizeInY):base(sizeInX,sizeInY)
 		{
 			Placement = placement;
 
-
 		}
-
 		public static new IfcPlanarBox FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPlanarBox>(json);
-		}
-
-		public static new IfcPlanarBox FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20470,21 +21821,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcPlateStandardCase : IfcPlate
 	{
-
+		/// <summary>
+		/// Construct a IfcPlateStandardCase with all required attributes.
+		/// </summary>
 		public IfcPlateStandardCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPlateStandardCase with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPlateStandardCase(IfcPlateTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcPlateStandardCase FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPlateStandardCase>(json);
-		}
-
-		public static new IfcPlateStandardCase FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20496,22 +21850,19 @@ namespace IFC4
 		public IfcCurve BasisCurve{get;set;} 
 		public IfcParameterValue PointParameter{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcPointOnCurve with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcPointOnCurve(IfcCurve basisCurve,IfcParameterValue pointParameter):base()
 		{
 			BasisCurve = basisCurve;
 			PointParameter = pointParameter;
 
-
 		}
-
 		public static new IfcPointOnCurve FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPointOnCurve>(json);
-		}
-
-		public static new IfcPointOnCurve FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20524,23 +21875,20 @@ namespace IFC4
 		public IfcParameterValue PointParameterU{get;set;} 
 		public IfcParameterValue PointParameterV{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcPointOnSurface with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcPointOnSurface(IfcSurface basisSurface,IfcParameterValue pointParameterU,IfcParameterValue pointParameterV):base()
 		{
 			BasisSurface = basisSurface;
 			PointParameterU = pointParameterU;
 			PointParameterV = pointParameterV;
 
-
 		}
-
 		public static new IfcPointOnSurface FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPointOnSurface>(json);
-		}
-
-		public static new IfcPointOnSurface FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20551,21 +21899,18 @@ namespace IFC4
 	{
 		public IfcLabel Name{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcPreDefinedItem with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcPreDefinedItem(IfcLabel name):base()
 		{
 			Name = name;
 
-
 		}
-
 		public static new IfcPreDefinedItem FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPreDefinedItem>(json);
-		}
-
-		public static new IfcPreDefinedItem FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20574,21 +21919,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcPreDefinedTextFont : IfcPreDefinedItem
 	{
-
+		/// <summary>
+		/// Construct a IfcPreDefinedTextFont with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcPreDefinedTextFont(IfcLabel name):base(name)
 		{
 
-
 		}
-
 		public static new IfcPreDefinedTextFont FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPreDefinedTextFont>(json);
-		}
-
-		public static new IfcPreDefinedTextFont FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20597,21 +21938,17 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcPreDefinedProperties : IfcPropertyAbstraction
 	{
-
+		/// <summary>
+		/// Construct a IfcPreDefinedProperties with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcPreDefinedProperties():base()
 		{
 
-
 		}
-
 		public static new IfcPreDefinedProperties FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPreDefinedProperties>(json);
-		}
-
-		public static new IfcPreDefinedProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20627,22 +21964,32 @@ namespace IFC4
 		public IfcPositiveLengthMeasure NominalBarDiameter{get;set;} // optional
 		public IfcCountMeasure BarCount{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcReinforcementBarProperties with all required attributes.
+		/// </summary>
 		public IfcReinforcementBarProperties(IfcAreaMeasure totalCrossSectionArea,IfcLabel steelGrade):base()
 		{
 			TotalCrossSectionArea = totalCrossSectionArea;
 			SteelGrade = steelGrade;
 
+		}
+		/// <summary>
+		/// Construct a IfcReinforcementBarProperties with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcReinforcementBarProperties(IfcAreaMeasure totalCrossSectionArea,IfcLabel steelGrade,IfcReinforcingBarSurfaceEnum barSurface,IfcLengthMeasure effectiveDepth,IfcPositiveLengthMeasure nominalBarDiameter,IfcCountMeasure barCount):base()
+		{
+			TotalCrossSectionArea = totalCrossSectionArea;
+			SteelGrade = steelGrade;
+			BarSurface = barSurface;
+			EffectiveDepth = effectiveDepth;
+			NominalBarDiameter = nominalBarDiameter;
+			BarCount = barCount;
 
 		}
-
 		public static new IfcReinforcementBarProperties FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcReinforcementBarProperties>(json);
-		}
-
-		public static new IfcReinforcementBarProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20655,22 +22002,29 @@ namespace IFC4
 		public IfcProfileDef StartProfile{get;set;} 
 		public IfcProfileDef EndProfile{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSectionProperties with all required attributes.
+		/// </summary>
 		public IfcSectionProperties(IfcSectionTypeEnum sectionType,IfcProfileDef startProfile):base()
 		{
 			SectionType = sectionType;
 			StartProfile = startProfile;
 
+		}
+		/// <summary>
+		/// Construct a IfcSectionProperties with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSectionProperties(IfcSectionTypeEnum sectionType,IfcProfileDef startProfile,IfcProfileDef endProfile):base()
+		{
+			SectionType = sectionType;
+			StartProfile = startProfile;
+			EndProfile = endProfile;
 
 		}
-
 		public static new IfcSectionProperties FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSectionProperties>(json);
-		}
-
-		public static new IfcSectionProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20686,6 +22040,9 @@ namespace IFC4
 		public IfcSectionProperties SectionDefinition{get;set;} 
 		public List<IfcReinforcementBarProperties> CrossSectionReinforcementDefinitions{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcSectionReinforcementProperties with all required attributes.
+		/// </summary>
 		public IfcSectionReinforcementProperties(IfcLengthMeasure longitudinalStartPosition,IfcLengthMeasure longitudinalEndPosition,IfcReinforcingBarRoleEnum reinforcementRole,IfcSectionProperties sectionDefinition,List<IfcReinforcementBarProperties> crossSectionReinforcementDefinitions):base()
 		{
 			LongitudinalStartPosition = longitudinalStartPosition;
@@ -20693,18 +22050,27 @@ namespace IFC4
 			ReinforcementRole = reinforcementRole;
 			SectionDefinition = sectionDefinition;
 			CrossSectionReinforcementDefinitions = crossSectionReinforcementDefinitions;
-
+			CrossSectionReinforcementDefinitions = new List<IfcReinforcementBarProperties>();
 
 		}
+		/// <summary>
+		/// Construct a IfcSectionReinforcementProperties with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSectionReinforcementProperties(IfcLengthMeasure longitudinalStartPosition,IfcLengthMeasure longitudinalEndPosition,IfcLengthMeasure transversePosition,IfcReinforcingBarRoleEnum reinforcementRole,IfcSectionProperties sectionDefinition,List<IfcReinforcementBarProperties> crossSectionReinforcementDefinitions):base()
+		{
+			LongitudinalStartPosition = longitudinalStartPosition;
+			LongitudinalEndPosition = longitudinalEndPosition;
+			TransversePosition = transversePosition;
+			ReinforcementRole = reinforcementRole;
+			SectionDefinition = sectionDefinition;
+			CrossSectionReinforcementDefinitions = crossSectionReinforcementDefinitions;
+			CrossSectionReinforcementDefinitions = new List<IfcReinforcementBarProperties>();
 
+		}
 		public static new IfcSectionReinforcementProperties FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSectionReinforcementProperties>(json);
-		}
-
-		public static new IfcSectionReinforcementProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20716,21 +22082,29 @@ namespace IFC4
 		public IfcLabel DefinitionType{get;set;} // optional
 		public List<IfcSectionReinforcementProperties> ReinforcementSectionDefinitions{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcReinforcementDefinitionProperties with all required attributes.
+		/// </summary>
 		public IfcReinforcementDefinitionProperties(List<IfcSectionReinforcementProperties> reinforcementSectionDefinitions,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			ReinforcementSectionDefinitions = reinforcementSectionDefinitions;
-
+			ReinforcementSectionDefinitions = new List<IfcSectionReinforcementProperties>();
 
 		}
+		/// <summary>
+		/// Construct a IfcReinforcementDefinitionProperties with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcReinforcementDefinitionProperties(IfcLabel definitionType,List<IfcSectionReinforcementProperties> reinforcementSectionDefinitions,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			DefinitionType = definitionType;
+			ReinforcementSectionDefinitions = reinforcementSectionDefinitions;
+			ReinforcementSectionDefinitions = new List<IfcSectionReinforcementProperties>();
 
+		}
 		public static new IfcReinforcementDefinitionProperties FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcReinforcementDefinitionProperties>(json);
-		}
-
-		public static new IfcReinforcementDefinitionProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20752,20 +22126,36 @@ namespace IFC4
 		public IfcLengthMeasure LiningToPanelOffsetX{get;set;} // optional
 		public IfcLengthMeasure LiningToPanelOffsetY{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcWindowLiningProperties with all required attributes.
+		/// </summary>
 		public IfcWindowLiningProperties(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcWindowLiningProperties with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcWindowLiningProperties(IfcPositiveLengthMeasure liningDepth,IfcNonNegativeLengthMeasure liningThickness,IfcNonNegativeLengthMeasure transomThickness,IfcNonNegativeLengthMeasure mullionThickness,IfcNormalisedRatioMeasure firstTransomOffset,IfcNormalisedRatioMeasure secondTransomOffset,IfcNormalisedRatioMeasure firstMullionOffset,IfcNormalisedRatioMeasure secondMullionOffset,IfcShapeAspect shapeAspectStyle,IfcLengthMeasure liningOffset,IfcLengthMeasure liningToPanelOffsetX,IfcLengthMeasure liningToPanelOffsetY,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			LiningDepth = liningDepth;
+			LiningThickness = liningThickness;
+			TransomThickness = transomThickness;
+			MullionThickness = mullionThickness;
+			FirstTransomOffset = firstTransomOffset;
+			SecondTransomOffset = secondTransomOffset;
+			FirstMullionOffset = firstMullionOffset;
+			SecondMullionOffset = secondMullionOffset;
+			ShapeAspectStyle = shapeAspectStyle;
+			LiningOffset = liningOffset;
+			LiningToPanelOffsetX = liningToPanelOffsetX;
+			LiningToPanelOffsetY = liningToPanelOffsetY;
 
 		}
-
 		public static new IfcWindowLiningProperties FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcWindowLiningProperties>(json);
-		}
-
-		public static new IfcWindowLiningProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20780,22 +22170,31 @@ namespace IFC4
 		public IfcPositiveLengthMeasure FrameThickness{get;set;} // optional
 		public IfcShapeAspect ShapeAspectStyle{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcWindowPanelProperties with all required attributes.
+		/// </summary>
 		public IfcWindowPanelProperties(IfcWindowPanelOperationEnum operationType,IfcWindowPanelPositionEnum panelPosition,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			OperationType = operationType;
 			PanelPosition = panelPosition;
 
+		}
+		/// <summary>
+		/// Construct a IfcWindowPanelProperties with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcWindowPanelProperties(IfcWindowPanelOperationEnum operationType,IfcWindowPanelPositionEnum panelPosition,IfcPositiveLengthMeasure frameDepth,IfcPositiveLengthMeasure frameThickness,IfcShapeAspect shapeAspectStyle,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			OperationType = operationType;
+			PanelPosition = panelPosition;
+			FrameDepth = frameDepth;
+			FrameThickness = frameThickness;
+			ShapeAspectStyle = shapeAspectStyle;
 
 		}
-
 		public static new IfcWindowPanelProperties FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcWindowPanelProperties>(json);
-		}
-
-		public static new IfcWindowPanelProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20804,21 +22203,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcPropertySetDefinition : IfcPropertyDefinition
 	{
-
+		/// <summary>
+		/// Construct a IfcPropertySetDefinition with all required attributes.
+		/// </summary>
 		public IfcPropertySetDefinition(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPropertySetDefinition with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPropertySetDefinition(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcPropertySetDefinition FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPropertySetDefinition>(json);
-		}
-
-		public static new IfcPropertySetDefinition FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20833,22 +22235,33 @@ namespace IFC4
 		public IfcFontWeight FontWeight{get;set;} // optional
 		public IfcSizeSelect FontSize{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcTextStyleFontModel with all required attributes.
+		/// </summary>
 		public IfcTextStyleFontModel(List<IfcTextFontName> fontFamily,IfcSizeSelect fontSize,IfcLabel name):base(name)
 		{
 			FontFamily = fontFamily;
 			FontSize = fontSize;
-
+			FontFamily = new List<IfcTextFontName>();
 
 		}
+		/// <summary>
+		/// Construct a IfcTextStyleFontModel with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTextStyleFontModel(List<IfcTextFontName> fontFamily,IfcFontStyle fontStyle,IfcFontVariant fontVariant,IfcFontWeight fontWeight,IfcSizeSelect fontSize,IfcLabel name):base(name)
+		{
+			FontFamily = fontFamily;
+			FontStyle = fontStyle;
+			FontVariant = fontVariant;
+			FontWeight = fontWeight;
+			FontSize = fontSize;
+			FontFamily = new List<IfcTextFontName>();
 
+		}
 		public static new IfcTextStyleFontModel FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTextStyleFontModel>(json);
-		}
-
-		public static new IfcTextStyleFontModel FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20862,6 +22275,10 @@ namespace IFC4
 		public IfcColourRgb TransmissionColour{get;set;} 
 		public IfcColourRgb ReflectanceColour{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcSurfaceStyleLighting with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcSurfaceStyleLighting(IfcColourRgb diffuseTransmissionColour,IfcColourRgb diffuseReflectionColour,IfcColourRgb transmissionColour,IfcColourRgb reflectanceColour):base()
 		{
 			DiffuseTransmissionColour = diffuseTransmissionColour;
@@ -20869,17 +22286,10 @@ namespace IFC4
 			TransmissionColour = transmissionColour;
 			ReflectanceColour = reflectanceColour;
 
-
 		}
-
 		public static new IfcSurfaceStyleLighting FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceStyleLighting>(json);
-		}
-
-		public static new IfcSurfaceStyleLighting FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20891,20 +22301,26 @@ namespace IFC4
 		public IfcReal RefractionIndex{get;set;} // optional
 		public IfcReal DispersionFactor{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSurfaceStyleRefraction with all required attributes.
+		/// </summary>
 		public IfcSurfaceStyleRefraction():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSurfaceStyleRefraction with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSurfaceStyleRefraction(IfcReal refractionIndex,IfcReal dispersionFactor):base()
+		{
+			RefractionIndex = refractionIndex;
+			DispersionFactor = dispersionFactor;
 
 		}
-
 		public static new IfcSurfaceStyleRefraction FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceStyleRefraction>(json);
-		}
-
-		public static new IfcSurfaceStyleRefraction FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20915,21 +22331,18 @@ namespace IFC4
 	{
 		public IfcColourRgb SurfaceColour{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcSurfaceStyleShading with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcSurfaceStyleShading(IfcColourRgb surfaceColour):base()
 		{
 			SurfaceColour = surfaceColour;
 
-
 		}
-
 		public static new IfcSurfaceStyleShading FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceStyleShading>(json);
-		}
-
-		public static new IfcSurfaceStyleShading FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20940,21 +22353,19 @@ namespace IFC4
 	{
 		public List<IfcSurfaceTexture> Textures{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcSurfaceStyleWithTextures with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcSurfaceStyleWithTextures(List<IfcSurfaceTexture> textures):base()
 		{
 			Textures = textures;
-
+			Textures = new List<IfcSurfaceTexture>();
 
 		}
-
 		public static new IfcSurfaceStyleWithTextures FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceStyleWithTextures>(json);
-		}
-
-		public static new IfcSurfaceStyleWithTextures FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20966,21 +22377,27 @@ namespace IFC4
 		public IfcColour Colour{get;set;} 
 		public IfcColour BackgroundColour{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTextStyleForDefinedFont with all required attributes.
+		/// </summary>
 		public IfcTextStyleForDefinedFont(IfcColour colour):base()
 		{
 			Colour = colour;
 
+		}
+		/// <summary>
+		/// Construct a IfcTextStyleForDefinedFont with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTextStyleForDefinedFont(IfcColour colour,IfcColour backgroundColour):base()
+		{
+			Colour = colour;
+			BackgroundColour = backgroundColour;
 
 		}
-
 		public static new IfcTextStyleForDefinedFont FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTextStyleForDefinedFont>(json);
-		}
-
-		public static new IfcTextStyleForDefinedFont FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -20997,20 +22414,31 @@ namespace IFC4
 		public IfcTextTransformation TextTransform{get;set;} // optional
 		public IfcSizeSelect LineHeight{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTextStyleTextModel with all required attributes.
+		/// </summary>
 		public IfcTextStyleTextModel():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcTextStyleTextModel with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTextStyleTextModel(IfcSizeSelect textIndent,IfcTextAlignment textAlign,IfcTextDecoration textDecoration,IfcSizeSelect letterSpacing,IfcSizeSelect wordSpacing,IfcTextTransformation textTransform,IfcSizeSelect lineHeight):base()
+		{
+			TextIndent = textIndent;
+			TextAlign = textAlign;
+			TextDecoration = textDecoration;
+			LetterSpacing = letterSpacing;
+			WordSpacing = wordSpacing;
+			TextTransform = textTransform;
+			LineHeight = lineHeight;
 
 		}
-
 		public static new IfcTextStyleTextModel FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTextStyleTextModel>(json);
-		}
-
-		public static new IfcTextStyleTextModel FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21021,21 +22449,19 @@ namespace IFC4
 	{
 		public List<IfcParameterValue> Coordinates{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcTextureVertex with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcTextureVertex(List<IfcParameterValue> coordinates):base()
 		{
 			Coordinates = coordinates;
-
+			Coordinates = new List<IfcParameterValue>();
 
 		}
-
 		public static new IfcTextureVertex FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTextureVertex>(json);
-		}
-
-		public static new IfcTextureVertex FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21046,21 +22472,19 @@ namespace IFC4
 	{
 		public List<List<IfcParameterValue>> TexCoordsList{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcTextureVertexList with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcTextureVertexList(List<List<IfcParameterValue>> texCoordsList):base()
 		{
 			TexCoordsList = texCoordsList;
-
+			TexCoordsList = new List<List<IfcParameterValue>>();
 
 		}
-
 		public static new IfcTextureVertexList FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTextureVertexList>(json);
-		}
-
-		public static new IfcTextureVertexList FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21074,22 +22498,32 @@ namespace IFC4
 		public List<IfcLayeredItem> AssignedItems{get;set;} 
 		public IfcIdentifier Identifier{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPresentationLayerAssignment with all required attributes.
+		/// </summary>
 		public IfcPresentationLayerAssignment(IfcLabel name,List<IfcLayeredItem> assignedItems):base()
 		{
 			Name = name;
 			AssignedItems = assignedItems;
-
+			AssignedItems = new List<IfcLayeredItem>();
 
 		}
+		/// <summary>
+		/// Construct a IfcPresentationLayerAssignment with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPresentationLayerAssignment(IfcLabel name,IfcText description,List<IfcLayeredItem> assignedItems,IfcIdentifier identifier):base()
+		{
+			Name = name;
+			Description = description;
+			AssignedItems = assignedItems;
+			Identifier = identifier;
+			AssignedItems = new List<IfcLayeredItem>();
 
+		}
 		public static  IfcPresentationLayerAssignment FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPresentationLayerAssignment>(json);
-		}
-
-		public static  IfcPresentationLayerAssignment FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21103,24 +22537,34 @@ namespace IFC4
 		public bool? LayerBlocked{get;set;} 
 		public List<IfcPresentationStyle> LayerStyles{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcPresentationLayerWithStyle with all required attributes.
+		/// </summary>
 		public IfcPresentationLayerWithStyle(bool? layerOn,bool? layerFrozen,bool? layerBlocked,List<IfcPresentationStyle> layerStyles,IfcLabel name,List<IfcLayeredItem> assignedItems):base(name,assignedItems)
 		{
 			LayerOn = layerOn;
 			LayerFrozen = layerFrozen;
 			LayerBlocked = layerBlocked;
 			LayerStyles = layerStyles;
-
+			LayerStyles = new List<IfcPresentationStyle>();
 
 		}
+		/// <summary>
+		/// Construct a IfcPresentationLayerWithStyle with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPresentationLayerWithStyle(bool? layerOn,bool? layerFrozen,bool? layerBlocked,List<IfcPresentationStyle> layerStyles,IfcLabel name,IfcText description,List<IfcLayeredItem> assignedItems,IfcIdentifier identifier):base(name,description,assignedItems,identifier)
+		{
+			LayerOn = layerOn;
+			LayerFrozen = layerFrozen;
+			LayerBlocked = layerBlocked;
+			LayerStyles = layerStyles;
+			LayerStyles = new List<IfcPresentationStyle>();
 
+		}
 		public static new IfcPresentationLayerWithStyle FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPresentationLayerWithStyle>(json);
-		}
-
-		public static new IfcPresentationLayerWithStyle FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21132,22 +22576,30 @@ namespace IFC4
 		public IfcSurfaceSide Side{get;set;} 
 		public List<IfcSurfaceStyleElementSelect> Styles{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcSurfaceStyle with all required attributes.
+		/// </summary>
 		public IfcSurfaceStyle(IfcSurfaceSide side,List<IfcSurfaceStyleElementSelect> styles):base()
 		{
 			Side = side;
 			Styles = styles;
-
+			Styles = new List<IfcSurfaceStyleElementSelect>();
 
 		}
+		/// <summary>
+		/// Construct a IfcSurfaceStyle with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSurfaceStyle(IfcSurfaceSide side,List<IfcSurfaceStyleElementSelect> styles,IfcLabel name):base(name)
+		{
+			Side = side;
+			Styles = styles;
+			Styles = new List<IfcSurfaceStyleElementSelect>();
 
+		}
 		public static new IfcSurfaceStyle FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceStyle>(json);
-		}
-
-		public static new IfcSurfaceStyle FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21161,21 +22613,29 @@ namespace IFC4
 		public IfcTextFontSelect TextFontStyle{get;set;} 
 		public bool ModelOrDraughting{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTextStyle with all required attributes.
+		/// </summary>
 		public IfcTextStyle(IfcTextFontSelect textFontStyle):base()
 		{
 			TextFontStyle = textFontStyle;
 
+		}
+		/// <summary>
+		/// Construct a IfcTextStyle with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTextStyle(IfcTextStyleForDefinedFont textCharacterAppearance,IfcTextStyleTextModel textStyle,IfcTextFontSelect textFontStyle,bool modelOrDraughting,IfcLabel name):base(name)
+		{
+			TextCharacterAppearance = textCharacterAppearance;
+			TextStyle = textStyle;
+			TextFontStyle = textFontStyle;
+			ModelOrDraughting = modelOrDraughting;
 
 		}
-
 		public static new IfcTextStyle FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTextStyle>(json);
-		}
-
-		public static new IfcTextStyle FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21186,21 +22646,19 @@ namespace IFC4
 	{
 		public List<IfcPresentationStyleSelect> Styles{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcPresentationStyleAssignment with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcPresentationStyleAssignment(List<IfcPresentationStyleSelect> styles):base()
 		{
 			Styles = styles;
-
+			Styles = new List<IfcPresentationStyleSelect>();
 
 		}
-
 		public static  IfcPresentationStyleAssignment FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPresentationStyleAssignment>(json);
-		}
-
-		public static  IfcPresentationStyleAssignment FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21211,20 +22669,25 @@ namespace IFC4
 	{
 		public IfcProcedureTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcProcedure with all required attributes.
+		/// </summary>
 		public IfcProcedure(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcProcedure with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcProcedure(IfcProcedureTypeEnum predefinedType,IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,longDescription,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcProcedure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcProcedure>(json);
-		}
-
-		public static new IfcProcedure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21235,21 +22698,26 @@ namespace IFC4
 	{
 		public IfcProcedureTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcProcedureType with all required attributes.
+		/// </summary>
 		public IfcProcedureType(IfcProcedureTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcProcedureType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcProcedureType(IfcProcedureTypeEnum predefinedType,IfcIdentifier identification,IfcText longDescription,IfcLabel processType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,longDescription,processType,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcProcedureType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcProcedureType>(json);
-		}
-
-		public static new IfcProcedureType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21265,21 +22733,31 @@ namespace IFC4
 		public IfcTaskTime TaskTime{get;set;} // optional
 		public IfcTaskTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTask with all required attributes.
+		/// </summary>
 		public IfcTask(bool isMilestone,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			IsMilestone = isMilestone;
 
+		}
+		/// <summary>
+		/// Construct a IfcTask with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTask(IfcLabel status,IfcLabel workMethod,bool isMilestone,int priority,IfcTaskTime taskTime,IfcTaskTypeEnum predefinedType,IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,longDescription,objectType,globalId,ownerHistory,name,description)
+		{
+			Status = status;
+			WorkMethod = workMethod;
+			IsMilestone = isMilestone;
+			Priority = priority;
+			TaskTime = taskTime;
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcTask FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTask>(json);
-		}
-
-		public static new IfcTask FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21291,21 +22769,27 @@ namespace IFC4
 		public IfcObjectTypeEnum ProxyType{get;set;} 
 		public IfcLabel Tag{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcProxy with all required attributes.
+		/// </summary>
 		public IfcProxy(IfcObjectTypeEnum proxyType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			ProxyType = proxyType;
 
+		}
+		/// <summary>
+		/// Construct a IfcProxy with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcProxy(IfcObjectTypeEnum proxyType,IfcLabel tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			ProxyType = proxyType;
+			Tag = tag;
 
 		}
-
 		public static new IfcProxy FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcProxy>(json);
-		}
-
-		public static new IfcProxy FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21317,22 +22801,28 @@ namespace IFC4
 		public IfcStructuralLoad AppliedLoad{get;set;} 
 		public IfcGlobalOrLocalEnum GlobalOrLocal{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcStructuralActivity with all required attributes.
+		/// </summary>
 		public IfcStructuralActivity(IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			AppliedLoad = appliedLoad;
 			GlobalOrLocal = globalOrLocal;
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralActivity with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralActivity(IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			AppliedLoad = appliedLoad;
+			GlobalOrLocal = globalOrLocal;
 
 		}
-
 		public static new IfcStructuralActivity FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralActivity>(json);
-		}
-
-		public static new IfcStructuralActivity FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21341,21 +22831,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcStructuralItem : IfcProduct
 	{
-
+		/// <summary>
+		/// Construct a IfcStructuralItem with all required attributes.
+		/// </summary>
 		public IfcStructuralItem(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralItem with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralItem(IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcStructuralItem FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralItem>(json);
-		}
-
-		public static new IfcStructuralItem FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21364,21 +22857,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcProductDefinitionShape : IfcProductRepresentation
 	{
-
+		/// <summary>
+		/// Construct a IfcProductDefinitionShape with all required attributes.
+		/// </summary>
 		public IfcProductDefinitionShape(List<IfcRepresentation> representations):base(representations)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcProductDefinitionShape with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcProductDefinitionShape(IfcLabel name,IfcText description,List<IfcRepresentation> representations):base(name,description,representations)
+		{
 
 		}
-
 		public static new IfcProductDefinitionShape FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcProductDefinitionShape>(json);
-		}
-
-		public static new IfcProductDefinitionShape FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21387,21 +22883,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcSimpleProperty : IfcProperty
 	{
-
+		/// <summary>
+		/// Construct a IfcSimpleProperty with all required attributes.
+		/// </summary>
 		public IfcSimpleProperty(IfcIdentifier name):base(name)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSimpleProperty with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSimpleProperty(IfcIdentifier name,IfcText description):base(name,description)
+		{
 
 		}
-
 		public static new IfcSimpleProperty FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSimpleProperty>(json);
-		}
-
-		public static new IfcSimpleProperty FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21414,22 +22913,31 @@ namespace IFC4
 		public List<IfcValue> EnumerationValues{get;set;} 
 		public IfcUnit Unit{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPropertyEnumeration with all required attributes.
+		/// </summary>
 		public IfcPropertyEnumeration(IfcLabel name,List<IfcValue> enumerationValues):base()
 		{
 			Name = name;
 			EnumerationValues = enumerationValues;
-
+			EnumerationValues = new List<IfcValue>();
 
 		}
+		/// <summary>
+		/// Construct a IfcPropertyEnumeration with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPropertyEnumeration(IfcLabel name,List<IfcValue> enumerationValues,IfcUnit unit):base()
+		{
+			Name = name;
+			EnumerationValues = enumerationValues;
+			Unit = unit;
+			EnumerationValues = new List<IfcValue>();
 
+		}
 		public static new IfcPropertyEnumeration FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyEnumeration>(json);
-		}
-
-		public static new IfcPropertyEnumeration FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21443,20 +22951,28 @@ namespace IFC4
 		public IfcUnit Unit{get;set;} // optional
 		public IfcValue SetPointValue{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPropertyBoundedValue with all required attributes.
+		/// </summary>
 		public IfcPropertyBoundedValue(IfcIdentifier name):base(name)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPropertyBoundedValue with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPropertyBoundedValue(IfcValue upperBoundValue,IfcValue lowerBoundValue,IfcUnit unit,IfcValue setPointValue,IfcIdentifier name,IfcText description):base(name,description)
+		{
+			UpperBoundValue = upperBoundValue;
+			LowerBoundValue = lowerBoundValue;
+			Unit = unit;
+			SetPointValue = setPointValue;
 
 		}
-
 		public static new IfcPropertyBoundedValue FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyBoundedValue>(json);
-		}
-
-		public static new IfcPropertyBoundedValue FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21465,21 +22981,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcPropertyDefinition : IfcRoot
 	{
-
+		/// <summary>
+		/// Construct a IfcPropertyDefinition with all required attributes.
+		/// </summary>
 		public IfcPropertyDefinition(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPropertyDefinition with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPropertyDefinition(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcPropertyDefinition FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyDefinition>(json);
-		}
-
-		public static new IfcPropertyDefinition FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21488,21 +23007,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcPropertyTemplateDefinition : IfcPropertyDefinition
 	{
-
+		/// <summary>
+		/// Construct a IfcPropertyTemplateDefinition with all required attributes.
+		/// </summary>
 		public IfcPropertyTemplateDefinition(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPropertyTemplateDefinition with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPropertyTemplateDefinition(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcPropertyTemplateDefinition FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyTemplateDefinition>(json);
-		}
-
-		public static new IfcPropertyTemplateDefinition FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21515,22 +23037,29 @@ namespace IFC4
 		public IfcProperty DependantProperty{get;set;} 
 		public IfcText Expression{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPropertyDependencyRelationship with all required attributes.
+		/// </summary>
 		public IfcPropertyDependencyRelationship(IfcProperty dependingProperty,IfcProperty dependantProperty):base()
 		{
 			DependingProperty = dependingProperty;
 			DependantProperty = dependantProperty;
 
+		}
+		/// <summary>
+		/// Construct a IfcPropertyDependencyRelationship with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPropertyDependencyRelationship(IfcProperty dependingProperty,IfcProperty dependantProperty,IfcText expression,IfcLabel name,IfcText description):base(name,description)
+		{
+			DependingProperty = dependingProperty;
+			DependantProperty = dependantProperty;
+			Expression = expression;
 
 		}
-
 		public static new IfcPropertyDependencyRelationship FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyDependencyRelationship>(json);
-		}
-
-		public static new IfcPropertyDependencyRelationship FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21542,21 +23071,27 @@ namespace IFC4
 		public List<IfcValue> EnumerationValues{get;set;} // optional
 		public IfcPropertyEnumeration EnumerationReference{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPropertyEnumeratedValue with all required attributes.
+		/// </summary>
 		public IfcPropertyEnumeratedValue(IfcIdentifier name):base(name)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPropertyEnumeratedValue with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPropertyEnumeratedValue(List<IfcValue> enumerationValues,IfcPropertyEnumeration enumerationReference,IfcIdentifier name,IfcText description):base(name,description)
+		{
+			EnumerationValues = enumerationValues;
+			EnumerationReference = enumerationReference;
 			EnumerationValues = new List<IfcValue>();
 
 		}
-
 		public static new IfcPropertyEnumeratedValue FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyEnumeratedValue>(json);
-		}
-
-		public static new IfcPropertyEnumeratedValue FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21568,21 +23103,27 @@ namespace IFC4
 		public List<IfcValue> ListValues{get;set;} // optional
 		public IfcUnit Unit{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPropertyListValue with all required attributes.
+		/// </summary>
 		public IfcPropertyListValue(IfcIdentifier name):base(name)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPropertyListValue with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPropertyListValue(List<IfcValue> listValues,IfcUnit unit,IfcIdentifier name,IfcText description):base(name,description)
+		{
+			ListValues = listValues;
+			Unit = unit;
 			ListValues = new List<IfcValue>();
 
 		}
-
 		public static new IfcPropertyListValue FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyListValue>(json);
-		}
-
-		public static new IfcPropertyListValue FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21594,20 +23135,26 @@ namespace IFC4
 		public IfcText UsageName{get;set;} // optional
 		public IfcObjectReferenceSelect PropertyReference{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPropertyReferenceValue with all required attributes.
+		/// </summary>
 		public IfcPropertyReferenceValue(IfcIdentifier name):base(name)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPropertyReferenceValue with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPropertyReferenceValue(IfcText usageName,IfcObjectReferenceSelect propertyReference,IfcIdentifier name,IfcText description):base(name,description)
+		{
+			UsageName = usageName;
+			PropertyReference = propertyReference;
 
 		}
-
 		public static new IfcPropertyReferenceValue FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyReferenceValue>(json);
-		}
-
-		public static new IfcPropertyReferenceValue FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21618,21 +23165,28 @@ namespace IFC4
 	{
 		public List<IfcProperty> HasProperties{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcPropertySet with all required attributes.
+		/// </summary>
 		public IfcPropertySet(List<IfcProperty> hasProperties,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			HasProperties = hasProperties;
-
+			HasProperties = new List<IfcProperty>();
 
 		}
+		/// <summary>
+		/// Construct a IfcPropertySet with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPropertySet(List<IfcProperty> hasProperties,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			HasProperties = hasProperties;
+			HasProperties = new List<IfcProperty>();
 
+		}
 		public static new IfcPropertySet FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPropertySet>(json);
-		}
-
-		public static new IfcPropertySet FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21645,21 +23199,30 @@ namespace IFC4
 		public IfcIdentifier ApplicableEntity{get;set;} // optional
 		public List<IfcPropertyTemplate> HasPropertyTemplates{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcPropertySetTemplate with all required attributes.
+		/// </summary>
 		public IfcPropertySetTemplate(List<IfcPropertyTemplate> hasPropertyTemplates,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			HasPropertyTemplates = hasPropertyTemplates;
-
+			HasPropertyTemplates = new List<IfcPropertyTemplate>();
 
 		}
+		/// <summary>
+		/// Construct a IfcPropertySetTemplate with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPropertySetTemplate(IfcPropertySetTemplateTypeEnum templateType,IfcIdentifier applicableEntity,List<IfcPropertyTemplate> hasPropertyTemplates,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			TemplateType = templateType;
+			ApplicableEntity = applicableEntity;
+			HasPropertyTemplates = hasPropertyTemplates;
+			HasPropertyTemplates = new List<IfcPropertyTemplate>();
 
+		}
 		public static new IfcPropertySetTemplate FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPropertySetTemplate>(json);
-		}
-
-		public static new IfcPropertySetTemplate FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21671,20 +23234,26 @@ namespace IFC4
 		public IfcValue NominalValue{get;set;} // optional
 		public IfcUnit Unit{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPropertySingleValue with all required attributes.
+		/// </summary>
 		public IfcPropertySingleValue(IfcIdentifier name):base(name)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPropertySingleValue with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPropertySingleValue(IfcValue nominalValue,IfcUnit unit,IfcIdentifier name,IfcText description):base(name,description)
+		{
+			NominalValue = nominalValue;
+			Unit = unit;
 
 		}
-
 		public static new IfcPropertySingleValue FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPropertySingleValue>(json);
-		}
-
-		public static new IfcPropertySingleValue FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21700,22 +23269,32 @@ namespace IFC4
 		public IfcUnit DefinedUnit{get;set;} // optional
 		public IfcCurveInterpolationEnum CurveInterpolation{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcPropertyTableValue with all required attributes.
+		/// </summary>
 		public IfcPropertyTableValue(IfcIdentifier name):base(name)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcPropertyTableValue with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcPropertyTableValue(List<IfcValue> definingValues,List<IfcValue> definedValues,IfcText expression,IfcUnit definingUnit,IfcUnit definedUnit,IfcCurveInterpolationEnum curveInterpolation,IfcIdentifier name,IfcText description):base(name,description)
+		{
+			DefiningValues = definingValues;
+			DefinedValues = definedValues;
+			Expression = expression;
+			DefiningUnit = definingUnit;
+			DefinedUnit = definedUnit;
+			CurveInterpolation = curveInterpolation;
 			DefiningValues = new List<IfcValue>();
 			DefinedValues = new List<IfcValue>();
 
 		}
-
 		public static new IfcPropertyTableValue FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyTableValue>(json);
-		}
-
-		public static new IfcPropertyTableValue FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21733,20 +23312,32 @@ namespace IFC4
 		public IfcLabel Expression{get;set;} // optional
 		public IfcStateEnum AccessState{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSimplePropertyTemplate with all required attributes.
+		/// </summary>
 		public IfcSimplePropertyTemplate(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSimplePropertyTemplate with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSimplePropertyTemplate(IfcSimplePropertyTemplateTypeEnum templateType,IfcLabel primaryMeasureType,IfcLabel secondaryMeasureType,IfcPropertyEnumeration enumerators,IfcUnit primaryUnit,IfcUnit secondaryUnit,IfcLabel expression,IfcStateEnum accessState,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			TemplateType = templateType;
+			PrimaryMeasureType = primaryMeasureType;
+			SecondaryMeasureType = secondaryMeasureType;
+			Enumerators = enumerators;
+			PrimaryUnit = primaryUnit;
+			SecondaryUnit = secondaryUnit;
+			Expression = expression;
+			AccessState = accessState;
 
 		}
-
 		public static new IfcSimplePropertyTemplate FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSimplePropertyTemplate>(json);
-		}
-
-		public static new IfcSimplePropertyTemplate FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21759,21 +23350,28 @@ namespace IFC4
 		public IfcNonNegativeLengthMeasure InnerFilletRadius{get;set;} // optional
 		public IfcNonNegativeLengthMeasure OuterFilletRadius{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcRectangleHollowProfileDef with all required attributes.
+		/// </summary>
 		public IfcRectangleHollowProfileDef(IfcPositiveLengthMeasure wallThickness,IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim,IfcProfileTypeEnum profileType):base(xDim,yDim,profileType)
 		{
 			WallThickness = wallThickness;
 
+		}
+		/// <summary>
+		/// Construct a IfcRectangleHollowProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRectangleHollowProfileDef(IfcPositiveLengthMeasure wallThickness,IfcNonNegativeLengthMeasure innerFilletRadius,IfcNonNegativeLengthMeasure outerFilletRadius,IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(xDim,yDim,position,profileType,profileName)
+		{
+			WallThickness = wallThickness;
+			InnerFilletRadius = innerFilletRadius;
+			OuterFilletRadius = outerFilletRadius;
 
 		}
-
 		public static new IfcRectangleHollowProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRectangleHollowProfileDef>(json);
-		}
-
-		public static new IfcRectangleHollowProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21784,21 +23382,26 @@ namespace IFC4
 	{
 		public IfcPositiveLengthMeasure RoundingRadius{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRoundedRectangleProfileDef with all required attributes.
+		/// </summary>
 		public IfcRoundedRectangleProfileDef(IfcPositiveLengthMeasure roundingRadius,IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim,IfcProfileTypeEnum profileType):base(xDim,yDim,profileType)
 		{
 			RoundingRadius = roundingRadius;
 
+		}
+		/// <summary>
+		/// Construct a IfcRoundedRectangleProfileDef with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRoundedRectangleProfileDef(IfcPositiveLengthMeasure roundingRadius,IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(xDim,yDim,position,profileType,profileName)
+		{
+			RoundingRadius = roundingRadius;
 
 		}
-
 		public static new IfcRoundedRectangleProfileDef FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRoundedRectangleProfileDef>(json);
-		}
-
-		public static new IfcRoundedRectangleProfileDef FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21816,25 +23419,37 @@ namespace IFC4
 		public IfcInteger Occurrences{get;set;} // optional
 		public List<IfcTimePeriod> TimePeriods{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcRecurrencePattern with all required attributes.
+		/// </summary>
 		public IfcRecurrencePattern(IfcRecurrenceTypeEnum recurrenceType):base()
 		{
 			RecurrenceType = recurrenceType;
 
+		}
+		/// <summary>
+		/// Construct a IfcRecurrencePattern with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRecurrencePattern(IfcRecurrenceTypeEnum recurrenceType,List<IfcDayInMonthNumber> dayComponent,List<IfcDayInWeekNumber> weekdayComponent,List<IfcMonthInYearNumber> monthComponent,IfcInteger position,IfcInteger interval,IfcInteger occurrences,List<IfcTimePeriod> timePeriods):base()
+		{
+			RecurrenceType = recurrenceType;
+			DayComponent = dayComponent;
+			WeekdayComponent = weekdayComponent;
+			MonthComponent = monthComponent;
+			Position = position;
+			Interval = interval;
+			Occurrences = occurrences;
+			TimePeriods = timePeriods;
 			DayComponent = new List<IfcDayInMonthNumber>();
 			WeekdayComponent = new List<IfcDayInWeekNumber>();
 			MonthComponent = new List<IfcMonthInYearNumber>();
 			TimePeriods = new List<IfcTimePeriod>();
 
 		}
-
 		public static  IfcRecurrencePattern FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRecurrencePattern>(json);
-		}
-
-		public static  IfcRecurrencePattern FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21849,21 +23464,30 @@ namespace IFC4
 		public List<int> ListPositions{get;set;} // optional
 		public IfcReference InnerReference{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcReference with all required attributes.
+		/// </summary>
 		public IfcReference():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcReference with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcReference(IfcIdentifier typeIdentifier,IfcIdentifier attributeIdentifier,IfcLabel instanceName,List<int> listPositions,IfcReference innerReference):base()
+		{
+			TypeIdentifier = typeIdentifier;
+			AttributeIdentifier = attributeIdentifier;
+			InstanceName = instanceName;
+			ListPositions = listPositions;
+			InnerReference = innerReference;
 			ListPositions = new List<int>();
 
 		}
-
 		public static  IfcReference FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcReference>(json);
-		}
-
-		public static  IfcReference FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21875,22 +23499,30 @@ namespace IFC4
 		public IfcTimeMeasure TimeStep{get;set;} 
 		public List<IfcTimeSeriesValue> Values{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRegularTimeSeries with all required attributes.
+		/// </summary>
 		public IfcRegularTimeSeries(IfcTimeMeasure timeStep,List<IfcTimeSeriesValue> values,IfcLabel name,IfcDateTime startTime,IfcDateTime endTime,IfcTimeSeriesDataTypeEnum timeSeriesDataType,IfcDataOriginEnum dataOrigin):base(name,startTime,endTime,timeSeriesDataType,dataOrigin)
 		{
 			TimeStep = timeStep;
 			Values = values;
-
+			Values = new List<IfcTimeSeriesValue>();
 
 		}
+		/// <summary>
+		/// Construct a IfcRegularTimeSeries with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRegularTimeSeries(IfcTimeMeasure timeStep,List<IfcTimeSeriesValue> values,IfcLabel name,IfcText description,IfcDateTime startTime,IfcDateTime endTime,IfcTimeSeriesDataTypeEnum timeSeriesDataType,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin,IfcUnit unit):base(name,description,startTime,endTime,timeSeriesDataType,dataOrigin,userDefinedDataOrigin,unit)
+		{
+			TimeStep = timeStep;
+			Values = values;
+			Values = new List<IfcTimeSeriesValue>();
 
+		}
 		public static new IfcRegularTimeSeries FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRegularTimeSeries>(json);
-		}
-
-		public static new IfcRegularTimeSeries FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21905,20 +23537,29 @@ namespace IFC4
 		public IfcReinforcingBarTypeEnum PredefinedType{get;set;} // optional
 		public IfcReinforcingBarSurfaceEnum BarSurface{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcReinforcingBar with all required attributes.
+		/// </summary>
 		public IfcReinforcingBar(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcReinforcingBar with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcReinforcingBar(IfcPositiveLengthMeasure nominalDiameter,IfcAreaMeasure crossSectionArea,IfcPositiveLengthMeasure barLength,IfcReinforcingBarTypeEnum predefinedType,IfcReinforcingBarSurfaceEnum barSurface,IfcLabel steelGrade,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(steelGrade,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			NominalDiameter = nominalDiameter;
+			CrossSectionArea = crossSectionArea;
+			BarLength = barLength;
+			PredefinedType = predefinedType;
+			BarSurface = barSurface;
 
 		}
-
 		public static new IfcReinforcingBar FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcReinforcingBar>(json);
-		}
-
-		public static new IfcReinforcingBar FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21935,22 +23576,33 @@ namespace IFC4
 		public IfcLabel BendingShapeCode{get;set;} // optional
 		public List<IfcBendingParameterSelect> BendingParameters{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcReinforcingBarType with all required attributes.
+		/// </summary>
 		public IfcReinforcingBarType(IfcReinforcingBarTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcReinforcingBarType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcReinforcingBarType(IfcReinforcingBarTypeEnum predefinedType,IfcPositiveLengthMeasure nominalDiameter,IfcAreaMeasure crossSectionArea,IfcPositiveLengthMeasure barLength,IfcReinforcingBarSurfaceEnum barSurface,IfcLabel bendingShapeCode,List<IfcBendingParameterSelect> bendingParameters,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			NominalDiameter = nominalDiameter;
+			CrossSectionArea = crossSectionArea;
+			BarLength = barLength;
+			BarSurface = barSurface;
+			BendingShapeCode = bendingShapeCode;
+			BendingParameters = bendingParameters;
 			BendingParameters = new List<IfcBendingParameterSelect>();
 
 		}
-
 		public static new IfcReinforcingBarType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcReinforcingBarType>(json);
-		}
-
-		public static new IfcReinforcingBarType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -21969,20 +23621,33 @@ namespace IFC4
 		public IfcPositiveLengthMeasure TransverseBarSpacing{get;set;} // optional
 		public IfcReinforcingMeshTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcReinforcingMesh with all required attributes.
+		/// </summary>
 		public IfcReinforcingMesh(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcReinforcingMesh with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcReinforcingMesh(IfcPositiveLengthMeasure meshLength,IfcPositiveLengthMeasure meshWidth,IfcPositiveLengthMeasure longitudinalBarNominalDiameter,IfcPositiveLengthMeasure transverseBarNominalDiameter,IfcAreaMeasure longitudinalBarCrossSectionArea,IfcAreaMeasure transverseBarCrossSectionArea,IfcPositiveLengthMeasure longitudinalBarSpacing,IfcPositiveLengthMeasure transverseBarSpacing,IfcReinforcingMeshTypeEnum predefinedType,IfcLabel steelGrade,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(steelGrade,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			MeshLength = meshLength;
+			MeshWidth = meshWidth;
+			LongitudinalBarNominalDiameter = longitudinalBarNominalDiameter;
+			TransverseBarNominalDiameter = transverseBarNominalDiameter;
+			LongitudinalBarCrossSectionArea = longitudinalBarCrossSectionArea;
+			TransverseBarCrossSectionArea = transverseBarCrossSectionArea;
+			LongitudinalBarSpacing = longitudinalBarSpacing;
+			TransverseBarSpacing = transverseBarSpacing;
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcReinforcingMesh FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcReinforcingMesh>(json);
-		}
-
-		public static new IfcReinforcingMesh FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22000,20 +23665,32 @@ namespace IFC4
 		public IfcPositiveLengthMeasure AnchorageSlip{get;set;} // optional
 		public IfcPositiveLengthMeasure MinCurvatureRadius{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTendon with all required attributes.
+		/// </summary>
 		public IfcTendon(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcTendon with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTendon(IfcTendonTypeEnum predefinedType,IfcPositiveLengthMeasure nominalDiameter,IfcAreaMeasure crossSectionArea,IfcForceMeasure tensionForce,IfcPressureMeasure preStress,IfcNormalisedRatioMeasure frictionCoefficient,IfcPositiveLengthMeasure anchorageSlip,IfcPositiveLengthMeasure minCurvatureRadius,IfcLabel steelGrade,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(steelGrade,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			NominalDiameter = nominalDiameter;
+			CrossSectionArea = crossSectionArea;
+			TensionForce = tensionForce;
+			PreStress = preStress;
+			FrictionCoefficient = frictionCoefficient;
+			AnchorageSlip = anchorageSlip;
+			MinCurvatureRadius = minCurvatureRadius;
 
 		}
-
 		public static new IfcTendon FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTendon>(json);
-		}
-
-		public static new IfcTendon FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22024,20 +23701,25 @@ namespace IFC4
 	{
 		public IfcTendonAnchorTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTendonAnchor with all required attributes.
+		/// </summary>
 		public IfcTendonAnchor(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcTendonAnchor with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTendonAnchor(IfcTendonAnchorTypeEnum predefinedType,IfcLabel steelGrade,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(steelGrade,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcTendonAnchor FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTendonAnchor>(json);
-		}
-
-		public static new IfcTendonAnchor FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22058,22 +23740,37 @@ namespace IFC4
 		public IfcLabel BendingShapeCode{get;set;} // optional
 		public List<IfcBendingParameterSelect> BendingParameters{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcReinforcingMeshType with all required attributes.
+		/// </summary>
 		public IfcReinforcingMeshType(IfcReinforcingMeshTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcReinforcingMeshType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcReinforcingMeshType(IfcReinforcingMeshTypeEnum predefinedType,IfcPositiveLengthMeasure meshLength,IfcPositiveLengthMeasure meshWidth,IfcPositiveLengthMeasure longitudinalBarNominalDiameter,IfcPositiveLengthMeasure transverseBarNominalDiameter,IfcAreaMeasure longitudinalBarCrossSectionArea,IfcAreaMeasure transverseBarCrossSectionArea,IfcPositiveLengthMeasure longitudinalBarSpacing,IfcPositiveLengthMeasure transverseBarSpacing,IfcLabel bendingShapeCode,List<IfcBendingParameterSelect> bendingParameters,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			MeshLength = meshLength;
+			MeshWidth = meshWidth;
+			LongitudinalBarNominalDiameter = longitudinalBarNominalDiameter;
+			TransverseBarNominalDiameter = transverseBarNominalDiameter;
+			LongitudinalBarCrossSectionArea = longitudinalBarCrossSectionArea;
+			TransverseBarCrossSectionArea = transverseBarCrossSectionArea;
+			LongitudinalBarSpacing = longitudinalBarSpacing;
+			TransverseBarSpacing = transverseBarSpacing;
+			BendingShapeCode = bendingShapeCode;
+			BendingParameters = bendingParameters;
 			BendingParameters = new List<IfcBendingParameterSelect>();
 
 		}
-
 		public static new IfcReinforcingMeshType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcReinforcingMeshType>(json);
-		}
-
-		public static new IfcReinforcingMeshType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22084,21 +23781,26 @@ namespace IFC4
 	{
 		public IfcTendonAnchorTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcTendonAnchorType with all required attributes.
+		/// </summary>
 		public IfcTendonAnchorType(IfcTendonAnchorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcTendonAnchorType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTendonAnchorType(IfcTendonAnchorTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcTendonAnchorType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTendonAnchorType>(json);
-		}
-
-		public static new IfcTendonAnchorType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22112,21 +23814,29 @@ namespace IFC4
 		public IfcAreaMeasure CrossSectionArea{get;set;} // optional
 		public IfcPositiveLengthMeasure SheethDiameter{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTendonType with all required attributes.
+		/// </summary>
 		public IfcTendonType(IfcTendonTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcTendonType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTendonType(IfcTendonTypeEnum predefinedType,IfcPositiveLengthMeasure nominalDiameter,IfcAreaMeasure crossSectionArea,IfcPositiveLengthMeasure sheethDiameter,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			NominalDiameter = nominalDiameter;
+			CrossSectionArea = crossSectionArea;
+			SheethDiameter = sheethDiameter;
 
 		}
-
 		public static new IfcTendonType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTendonType>(json);
-		}
-
-		public static new IfcTendonType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22138,22 +23848,30 @@ namespace IFC4
 		public IfcObjectDefinition RelatingObject{get;set;} 
 		public List<IfcObjectDefinition> RelatedObjects{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelAggregates with all required attributes.
+		/// </summary>
 		public IfcRelAggregates(IfcObjectDefinition relatingObject,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingObject = relatingObject;
 			RelatedObjects = relatedObjects;
-
+			RelatedObjects = new List<IfcObjectDefinition>();
 
 		}
+		/// <summary>
+		/// Construct a IfcRelAggregates with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelAggregates(IfcObjectDefinition relatingObject,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatingObject = relatingObject;
+			RelatedObjects = relatedObjects;
+			RelatedObjects = new List<IfcObjectDefinition>();
 
+		}
 		public static new IfcRelAggregates FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelAggregates>(json);
-		}
-
-		public static new IfcRelAggregates FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22162,21 +23880,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcRelDecomposes : IfcRelationship
 	{
-
+		/// <summary>
+		/// Construct a IfcRelDecomposes with all required attributes.
+		/// </summary>
 		public IfcRelDecomposes(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcRelDecomposes with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelDecomposes(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcRelDecomposes FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelDecomposes>(json);
-		}
-
-		public static new IfcRelDecomposes FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22188,21 +23909,29 @@ namespace IFC4
 		public List<IfcObjectDefinition> RelatedObjects{get;set;} 
 		public IfcObjectTypeEnum RelatedObjectsType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcRelAssigns with all required attributes.
+		/// </summary>
 		public IfcRelAssigns(List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatedObjects = relatedObjects;
-
+			RelatedObjects = new List<IfcObjectDefinition>();
 
 		}
+		/// <summary>
+		/// Construct a IfcRelAssigns with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelAssigns(List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatedObjects = relatedObjects;
+			RelatedObjectsType = relatedObjectsType;
+			RelatedObjects = new List<IfcObjectDefinition>();
 
+		}
 		public static new IfcRelAssigns FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssigns>(json);
-		}
-
-		public static new IfcRelAssigns FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22214,21 +23943,27 @@ namespace IFC4
 		public IfcActor RelatingActor{get;set;} 
 		public IfcActorRole ActingRole{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcRelAssignsToActor with all required attributes.
+		/// </summary>
 		public IfcRelAssignsToActor(IfcActor relatingActor,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingActor = relatingActor;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelAssignsToActor with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelAssignsToActor(IfcActor relatingActor,IfcActorRole actingRole,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,relatedObjectsType,globalId,ownerHistory,name,description)
+		{
+			RelatingActor = relatingActor;
+			ActingRole = actingRole;
 
 		}
-
 		public static new IfcRelAssignsToActor FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssignsToActor>(json);
-		}
-
-		public static new IfcRelAssignsToActor FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22239,21 +23974,26 @@ namespace IFC4
 	{
 		public IfcControl RelatingControl{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelAssignsToControl with all required attributes.
+		/// </summary>
 		public IfcRelAssignsToControl(IfcControl relatingControl,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingControl = relatingControl;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelAssignsToControl with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelAssignsToControl(IfcControl relatingControl,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,relatedObjectsType,globalId,ownerHistory,name,description)
+		{
+			RelatingControl = relatingControl;
 
 		}
-
 		public static new IfcRelAssignsToControl FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssignsToControl>(json);
-		}
-
-		public static new IfcRelAssignsToControl FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22264,21 +24004,26 @@ namespace IFC4
 	{
 		public IfcGroup RelatingGroup{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelAssignsToGroup with all required attributes.
+		/// </summary>
 		public IfcRelAssignsToGroup(IfcGroup relatingGroup,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingGroup = relatingGroup;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelAssignsToGroup with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelAssignsToGroup(IfcGroup relatingGroup,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,relatedObjectsType,globalId,ownerHistory,name,description)
+		{
+			RelatingGroup = relatingGroup;
 
 		}
-
 		public static new IfcRelAssignsToGroup FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssignsToGroup>(json);
-		}
-
-		public static new IfcRelAssignsToGroup FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22290,21 +24035,27 @@ namespace IFC4
 		public IfcProcessSelect RelatingProcess{get;set;} 
 		public IfcMeasureWithUnit QuantityInProcess{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcRelAssignsToProcess with all required attributes.
+		/// </summary>
 		public IfcRelAssignsToProcess(IfcProcessSelect relatingProcess,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingProcess = relatingProcess;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelAssignsToProcess with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelAssignsToProcess(IfcProcessSelect relatingProcess,IfcMeasureWithUnit quantityInProcess,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,relatedObjectsType,globalId,ownerHistory,name,description)
+		{
+			RelatingProcess = relatingProcess;
+			QuantityInProcess = quantityInProcess;
 
 		}
-
 		public static new IfcRelAssignsToProcess FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssignsToProcess>(json);
-		}
-
-		public static new IfcRelAssignsToProcess FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22315,21 +24066,26 @@ namespace IFC4
 	{
 		public IfcProductSelect RelatingProduct{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelAssignsToProduct with all required attributes.
+		/// </summary>
 		public IfcRelAssignsToProduct(IfcProductSelect relatingProduct,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingProduct = relatingProduct;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelAssignsToProduct with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelAssignsToProduct(IfcProductSelect relatingProduct,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,relatedObjectsType,globalId,ownerHistory,name,description)
+		{
+			RelatingProduct = relatingProduct;
 
 		}
-
 		public static new IfcRelAssignsToProduct FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssignsToProduct>(json);
-		}
-
-		public static new IfcRelAssignsToProduct FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22340,21 +24096,26 @@ namespace IFC4
 	{
 		public IfcResourceSelect RelatingResource{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelAssignsToResource with all required attributes.
+		/// </summary>
 		public IfcRelAssignsToResource(IfcResourceSelect relatingResource,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingResource = relatingResource;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelAssignsToResource with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelAssignsToResource(IfcResourceSelect relatingResource,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,relatedObjectsType,globalId,ownerHistory,name,description)
+		{
+			RelatingResource = relatingResource;
 
 		}
-
 		public static new IfcRelAssignsToResource FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssignsToResource>(json);
-		}
-
-		public static new IfcRelAssignsToResource FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22363,21 +24124,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcRelationship : IfcRoot
 	{
-
+		/// <summary>
+		/// Construct a IfcRelationship with all required attributes.
+		/// </summary>
 		public IfcRelationship(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcRelationship with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelationship(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcRelationship FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelationship>(json);
-		}
-
-		public static new IfcRelationship FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22388,21 +24152,26 @@ namespace IFC4
 	{
 		public IfcRatioMeasure Factor{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelAssignsToGroupByFactor with all required attributes.
+		/// </summary>
 		public IfcRelAssignsToGroupByFactor(IfcRatioMeasure factor,IfcGroup relatingGroup,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(relatingGroup,relatedObjects,globalId)
 		{
 			Factor = factor;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelAssignsToGroupByFactor with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelAssignsToGroupByFactor(IfcRatioMeasure factor,IfcGroup relatingGroup,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatingGroup,relatedObjects,relatedObjectsType,globalId,ownerHistory,name,description)
+		{
+			Factor = factor;
 
 		}
-
 		public static new IfcRelAssignsToGroupByFactor FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssignsToGroupByFactor>(json);
-		}
-
-		public static new IfcRelAssignsToGroupByFactor FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22413,21 +24182,28 @@ namespace IFC4
 	{
 		public List<IfcDefinitionSelect> RelatedObjects{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelAssociates with all required attributes.
+		/// </summary>
 		public IfcRelAssociates(List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatedObjects = relatedObjects;
-
+			RelatedObjects = new List<IfcDefinitionSelect>();
 
 		}
+		/// <summary>
+		/// Construct a IfcRelAssociates with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelAssociates(List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatedObjects = relatedObjects;
+			RelatedObjects = new List<IfcDefinitionSelect>();
 
+		}
 		public static new IfcRelAssociates FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssociates>(json);
-		}
-
-		public static new IfcRelAssociates FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22438,21 +24214,26 @@ namespace IFC4
 	{
 		public IfcApproval RelatingApproval{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelAssociatesApproval with all required attributes.
+		/// </summary>
 		public IfcRelAssociatesApproval(IfcApproval relatingApproval,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingApproval = relatingApproval;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelAssociatesApproval with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelAssociatesApproval(IfcApproval relatingApproval,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,globalId,ownerHistory,name,description)
+		{
+			RelatingApproval = relatingApproval;
 
 		}
-
 		public static new IfcRelAssociatesApproval FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssociatesApproval>(json);
-		}
-
-		public static new IfcRelAssociatesApproval FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22463,21 +24244,26 @@ namespace IFC4
 	{
 		public IfcClassificationSelect RelatingClassification{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelAssociatesClassification with all required attributes.
+		/// </summary>
 		public IfcRelAssociatesClassification(IfcClassificationSelect relatingClassification,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingClassification = relatingClassification;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelAssociatesClassification with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelAssociatesClassification(IfcClassificationSelect relatingClassification,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,globalId,ownerHistory,name,description)
+		{
+			RelatingClassification = relatingClassification;
 
 		}
-
 		public static new IfcRelAssociatesClassification FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssociatesClassification>(json);
-		}
-
-		public static new IfcRelAssociatesClassification FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22489,21 +24275,27 @@ namespace IFC4
 		public IfcLabel Intent{get;set;} // optional
 		public IfcConstraint RelatingConstraint{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelAssociatesConstraint with all required attributes.
+		/// </summary>
 		public IfcRelAssociatesConstraint(IfcConstraint relatingConstraint,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingConstraint = relatingConstraint;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelAssociatesConstraint with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelAssociatesConstraint(IfcLabel intent,IfcConstraint relatingConstraint,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,globalId,ownerHistory,name,description)
+		{
+			Intent = intent;
+			RelatingConstraint = relatingConstraint;
 
 		}
-
 		public static new IfcRelAssociatesConstraint FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssociatesConstraint>(json);
-		}
-
-		public static new IfcRelAssociatesConstraint FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22514,21 +24306,26 @@ namespace IFC4
 	{
 		public IfcDocumentSelect RelatingDocument{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelAssociatesDocument with all required attributes.
+		/// </summary>
 		public IfcRelAssociatesDocument(IfcDocumentSelect relatingDocument,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingDocument = relatingDocument;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelAssociatesDocument with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelAssociatesDocument(IfcDocumentSelect relatingDocument,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,globalId,ownerHistory,name,description)
+		{
+			RelatingDocument = relatingDocument;
 
 		}
-
 		public static new IfcRelAssociatesDocument FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssociatesDocument>(json);
-		}
-
-		public static new IfcRelAssociatesDocument FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22539,21 +24336,26 @@ namespace IFC4
 	{
 		public IfcLibrarySelect RelatingLibrary{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelAssociatesLibrary with all required attributes.
+		/// </summary>
 		public IfcRelAssociatesLibrary(IfcLibrarySelect relatingLibrary,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingLibrary = relatingLibrary;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelAssociatesLibrary with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelAssociatesLibrary(IfcLibrarySelect relatingLibrary,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,globalId,ownerHistory,name,description)
+		{
+			RelatingLibrary = relatingLibrary;
 
 		}
-
 		public static new IfcRelAssociatesLibrary FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssociatesLibrary>(json);
-		}
-
-		public static new IfcRelAssociatesLibrary FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22564,21 +24366,26 @@ namespace IFC4
 	{
 		public IfcMaterialSelect RelatingMaterial{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelAssociatesMaterial with all required attributes.
+		/// </summary>
 		public IfcRelAssociatesMaterial(IfcMaterialSelect relatingMaterial,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
 		{
 			RelatingMaterial = relatingMaterial;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelAssociatesMaterial with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelAssociatesMaterial(IfcMaterialSelect relatingMaterial,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,globalId,ownerHistory,name,description)
+		{
+			RelatingMaterial = relatingMaterial;
 
 		}
-
 		public static new IfcRelAssociatesMaterial FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssociatesMaterial>(json);
-		}
-
-		public static new IfcRelAssociatesMaterial FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22587,21 +24394,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcRelConnects : IfcRelationship
 	{
-
+		/// <summary>
+		/// Construct a IfcRelConnects with all required attributes.
+		/// </summary>
 		public IfcRelConnects(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcRelConnects with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelConnects(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcRelConnects FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelConnects>(json);
-		}
-
-		public static new IfcRelConnects FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22614,22 +24424,29 @@ namespace IFC4
 		public IfcElement RelatingElement{get;set;} 
 		public IfcElement RelatedElement{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelConnectsElements with all required attributes.
+		/// </summary>
 		public IfcRelConnectsElements(IfcElement relatingElement,IfcElement relatedElement,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingElement = relatingElement;
 			RelatedElement = relatedElement;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelConnectsElements with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelConnectsElements(IfcConnectionGeometry connectionGeometry,IfcElement relatingElement,IfcElement relatedElement,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			ConnectionGeometry = connectionGeometry;
+			RelatingElement = relatingElement;
+			RelatedElement = relatedElement;
 
 		}
-
 		public static new IfcRelConnectsElements FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelConnectsElements>(json);
-		}
-
-		public static new IfcRelConnectsElements FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22641,22 +24458,28 @@ namespace IFC4
 		public IfcPort RelatingPort{get;set;} 
 		public IfcDistributionElement RelatedElement{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelConnectsPortToElement with all required attributes.
+		/// </summary>
 		public IfcRelConnectsPortToElement(IfcPort relatingPort,IfcDistributionElement relatedElement,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingPort = relatingPort;
 			RelatedElement = relatedElement;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelConnectsPortToElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelConnectsPortToElement(IfcPort relatingPort,IfcDistributionElement relatedElement,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatingPort = relatingPort;
+			RelatedElement = relatedElement;
 
 		}
-
 		public static new IfcRelConnectsPortToElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelConnectsPortToElement>(json);
-		}
-
-		public static new IfcRelConnectsPortToElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22669,22 +24492,29 @@ namespace IFC4
 		public IfcPort RelatedPort{get;set;} 
 		public IfcElement RealizingElement{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcRelConnectsPorts with all required attributes.
+		/// </summary>
 		public IfcRelConnectsPorts(IfcPort relatingPort,IfcPort relatedPort,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingPort = relatingPort;
 			RelatedPort = relatedPort;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelConnectsPorts with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelConnectsPorts(IfcPort relatingPort,IfcPort relatedPort,IfcElement realizingElement,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatingPort = relatingPort;
+			RelatedPort = relatedPort;
+			RealizingElement = realizingElement;
 
 		}
-
 		public static new IfcRelConnectsPorts FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelConnectsPorts>(json);
-		}
-
-		public static new IfcRelConnectsPorts FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22696,22 +24526,28 @@ namespace IFC4
 		public IfcStructuralActivityAssignmentSelect RelatingElement{get;set;} 
 		public IfcStructuralActivity RelatedStructuralActivity{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelConnectsStructuralActivity with all required attributes.
+		/// </summary>
 		public IfcRelConnectsStructuralActivity(IfcStructuralActivityAssignmentSelect relatingElement,IfcStructuralActivity relatedStructuralActivity,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingElement = relatingElement;
 			RelatedStructuralActivity = relatedStructuralActivity;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelConnectsStructuralActivity with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelConnectsStructuralActivity(IfcStructuralActivityAssignmentSelect relatingElement,IfcStructuralActivity relatedStructuralActivity,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatingElement = relatingElement;
+			RelatedStructuralActivity = relatedStructuralActivity;
 
 		}
-
 		public static new IfcRelConnectsStructuralActivity FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelConnectsStructuralActivity>(json);
-		}
-
-		public static new IfcRelConnectsStructuralActivity FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22727,22 +24563,32 @@ namespace IFC4
 		public IfcLengthMeasure SupportedLength{get;set;} // optional
 		public IfcAxis2Placement3D ConditionCoordinateSystem{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcRelConnectsStructuralMember with all required attributes.
+		/// </summary>
 		public IfcRelConnectsStructuralMember(IfcStructuralMember relatingStructuralMember,IfcStructuralConnection relatedStructuralConnection,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingStructuralMember = relatingStructuralMember;
 			RelatedStructuralConnection = relatedStructuralConnection;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelConnectsStructuralMember with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelConnectsStructuralMember(IfcStructuralMember relatingStructuralMember,IfcStructuralConnection relatedStructuralConnection,IfcBoundaryCondition appliedCondition,IfcStructuralConnectionCondition additionalConditions,IfcLengthMeasure supportedLength,IfcAxis2Placement3D conditionCoordinateSystem,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatingStructuralMember = relatingStructuralMember;
+			RelatedStructuralConnection = relatedStructuralConnection;
+			AppliedCondition = appliedCondition;
+			AdditionalConditions = additionalConditions;
+			SupportedLength = supportedLength;
+			ConditionCoordinateSystem = conditionCoordinateSystem;
 
 		}
-
 		public static new IfcRelConnectsStructuralMember FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelConnectsStructuralMember>(json);
-		}
-
-		public static new IfcRelConnectsStructuralMember FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22754,22 +24600,30 @@ namespace IFC4
 		public List<IfcProduct> RelatedElements{get;set;} 
 		public IfcSpatialElement RelatingStructure{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelContainedInSpatialStructure with all required attributes.
+		/// </summary>
 		public IfcRelContainedInSpatialStructure(List<IfcProduct> relatedElements,IfcSpatialElement relatingStructure,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatedElements = relatedElements;
 			RelatingStructure = relatingStructure;
-
+			RelatedElements = new List<IfcProduct>();
 
 		}
+		/// <summary>
+		/// Construct a IfcRelContainedInSpatialStructure with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelContainedInSpatialStructure(List<IfcProduct> relatedElements,IfcSpatialElement relatingStructure,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatedElements = relatedElements;
+			RelatingStructure = relatingStructure;
+			RelatedElements = new List<IfcProduct>();
 
+		}
 		public static new IfcRelContainedInSpatialStructure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelContainedInSpatialStructure>(json);
-		}
-
-		public static new IfcRelContainedInSpatialStructure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22781,22 +24635,30 @@ namespace IFC4
 		public IfcElement RelatingBuildingElement{get;set;} 
 		public List<IfcCovering> RelatedCoverings{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelCoversBldgElements with all required attributes.
+		/// </summary>
 		public IfcRelCoversBldgElements(IfcElement relatingBuildingElement,List<IfcCovering> relatedCoverings,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingBuildingElement = relatingBuildingElement;
 			RelatedCoverings = relatedCoverings;
-
+			RelatedCoverings = new List<IfcCovering>();
 
 		}
+		/// <summary>
+		/// Construct a IfcRelCoversBldgElements with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelCoversBldgElements(IfcElement relatingBuildingElement,List<IfcCovering> relatedCoverings,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatingBuildingElement = relatingBuildingElement;
+			RelatedCoverings = relatedCoverings;
+			RelatedCoverings = new List<IfcCovering>();
 
+		}
 		public static new IfcRelCoversBldgElements FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelCoversBldgElements>(json);
-		}
-
-		public static new IfcRelCoversBldgElements FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22808,22 +24670,30 @@ namespace IFC4
 		public IfcSpace RelatingSpace{get;set;} 
 		public List<IfcCovering> RelatedCoverings{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelCoversSpaces with all required attributes.
+		/// </summary>
 		public IfcRelCoversSpaces(IfcSpace relatingSpace,List<IfcCovering> relatedCoverings,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingSpace = relatingSpace;
 			RelatedCoverings = relatedCoverings;
-
+			RelatedCoverings = new List<IfcCovering>();
 
 		}
+		/// <summary>
+		/// Construct a IfcRelCoversSpaces with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelCoversSpaces(IfcSpace relatingSpace,List<IfcCovering> relatedCoverings,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatingSpace = relatingSpace;
+			RelatedCoverings = relatedCoverings;
+			RelatedCoverings = new List<IfcCovering>();
 
+		}
 		public static new IfcRelCoversSpaces FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelCoversSpaces>(json);
-		}
-
-		public static new IfcRelCoversSpaces FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22835,22 +24705,28 @@ namespace IFC4
 		public IfcOpeningElement RelatingOpeningElement{get;set;} 
 		public IfcElement RelatedBuildingElement{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelFillsElement with all required attributes.
+		/// </summary>
 		public IfcRelFillsElement(IfcOpeningElement relatingOpeningElement,IfcElement relatedBuildingElement,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingOpeningElement = relatingOpeningElement;
 			RelatedBuildingElement = relatedBuildingElement;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelFillsElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelFillsElement(IfcOpeningElement relatingOpeningElement,IfcElement relatedBuildingElement,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatingOpeningElement = relatingOpeningElement;
+			RelatedBuildingElement = relatedBuildingElement;
 
 		}
-
 		public static new IfcRelFillsElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelFillsElement>(json);
-		}
-
-		public static new IfcRelFillsElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22862,22 +24738,30 @@ namespace IFC4
 		public List<IfcDistributionControlElement> RelatedControlElements{get;set;} 
 		public IfcDistributionFlowElement RelatingFlowElement{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelFlowControlElements with all required attributes.
+		/// </summary>
 		public IfcRelFlowControlElements(List<IfcDistributionControlElement> relatedControlElements,IfcDistributionFlowElement relatingFlowElement,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatedControlElements = relatedControlElements;
 			RelatingFlowElement = relatingFlowElement;
-
+			RelatedControlElements = new List<IfcDistributionControlElement>();
 
 		}
+		/// <summary>
+		/// Construct a IfcRelFlowControlElements with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelFlowControlElements(List<IfcDistributionControlElement> relatedControlElements,IfcDistributionFlowElement relatingFlowElement,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatedControlElements = relatedControlElements;
+			RelatingFlowElement = relatingFlowElement;
+			RelatedControlElements = new List<IfcDistributionControlElement>();
 
+		}
 		public static new IfcRelFlowControlElements FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelFlowControlElements>(json);
-		}
-
-		public static new IfcRelFlowControlElements FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22892,23 +24776,32 @@ namespace IFC4
 		public IfcIdentifier InterferenceType{get;set;} // optional
 		public bool? ImpliedOrder{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelInterferesElements with all required attributes.
+		/// </summary>
 		public IfcRelInterferesElements(IfcElement relatingElement,IfcElement relatedElement,bool? impliedOrder,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingElement = relatingElement;
 			RelatedElement = relatedElement;
 			ImpliedOrder = impliedOrder;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelInterferesElements with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelInterferesElements(IfcElement relatingElement,IfcElement relatedElement,IfcConnectionGeometry interferenceGeometry,IfcIdentifier interferenceType,bool? impliedOrder,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatingElement = relatingElement;
+			RelatedElement = relatedElement;
+			InterferenceGeometry = interferenceGeometry;
+			InterferenceType = interferenceType;
+			ImpliedOrder = impliedOrder;
 
 		}
-
 		public static new IfcRelInterferesElements FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelInterferesElements>(json);
-		}
-
-		public static new IfcRelInterferesElements FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22920,22 +24813,30 @@ namespace IFC4
 		public List<IfcProduct> RelatedElements{get;set;} 
 		public IfcSpatialElement RelatingStructure{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelReferencedInSpatialStructure with all required attributes.
+		/// </summary>
 		public IfcRelReferencedInSpatialStructure(List<IfcProduct> relatedElements,IfcSpatialElement relatingStructure,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatedElements = relatedElements;
 			RelatingStructure = relatingStructure;
-
+			RelatedElements = new List<IfcProduct>();
 
 		}
+		/// <summary>
+		/// Construct a IfcRelReferencedInSpatialStructure with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelReferencedInSpatialStructure(List<IfcProduct> relatedElements,IfcSpatialElement relatingStructure,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatedElements = relatedElements;
+			RelatingStructure = relatingStructure;
+			RelatedElements = new List<IfcProduct>();
 
+		}
 		public static new IfcRelReferencedInSpatialStructure FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelReferencedInSpatialStructure>(json);
-		}
-
-		public static new IfcRelReferencedInSpatialStructure FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22950,22 +24851,31 @@ namespace IFC4
 		public IfcSequenceEnum SequenceType{get;set;} // optional
 		public IfcLabel UserDefinedSequenceType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcRelSequence with all required attributes.
+		/// </summary>
 		public IfcRelSequence(IfcProcess relatingProcess,IfcProcess relatedProcess,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingProcess = relatingProcess;
 			RelatedProcess = relatedProcess;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelSequence with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelSequence(IfcProcess relatingProcess,IfcProcess relatedProcess,IfcLagTime timeLag,IfcSequenceEnum sequenceType,IfcLabel userDefinedSequenceType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatingProcess = relatingProcess;
+			RelatedProcess = relatedProcess;
+			TimeLag = timeLag;
+			SequenceType = sequenceType;
+			UserDefinedSequenceType = userDefinedSequenceType;
 
 		}
-
 		public static new IfcRelSequence FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelSequence>(json);
-		}
-
-		public static new IfcRelSequence FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -22977,22 +24887,30 @@ namespace IFC4
 		public IfcSystem RelatingSystem{get;set;} 
 		public List<IfcSpatialElement> RelatedBuildings{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelServicesBuildings with all required attributes.
+		/// </summary>
 		public IfcRelServicesBuildings(IfcSystem relatingSystem,List<IfcSpatialElement> relatedBuildings,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingSystem = relatingSystem;
 			RelatedBuildings = relatedBuildings;
-
+			RelatedBuildings = new List<IfcSpatialElement>();
 
 		}
+		/// <summary>
+		/// Construct a IfcRelServicesBuildings with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelServicesBuildings(IfcSystem relatingSystem,List<IfcSpatialElement> relatedBuildings,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatingSystem = relatingSystem;
+			RelatedBuildings = relatedBuildings;
+			RelatedBuildings = new List<IfcSpatialElement>();
 
+		}
 		public static new IfcRelServicesBuildings FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelServicesBuildings>(json);
-		}
-
-		public static new IfcRelServicesBuildings FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23007,6 +24925,9 @@ namespace IFC4
 		public IfcPhysicalOrVirtualEnum PhysicalOrVirtualBoundary{get;set;} 
 		public IfcInternalOrExternalEnum InternalOrExternalBoundary{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelSpaceBoundary with all required attributes.
+		/// </summary>
 		public IfcRelSpaceBoundary(IfcSpaceBoundarySelect relatingSpace,IfcElement relatedBuildingElement,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary,IfcInternalOrExternalEnum internalOrExternalBoundary,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingSpace = relatingSpace;
@@ -23014,17 +24935,23 @@ namespace IFC4
 			PhysicalOrVirtualBoundary = physicalOrVirtualBoundary;
 			InternalOrExternalBoundary = internalOrExternalBoundary;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelSpaceBoundary with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelSpaceBoundary(IfcSpaceBoundarySelect relatingSpace,IfcElement relatedBuildingElement,IfcConnectionGeometry connectionGeometry,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary,IfcInternalOrExternalEnum internalOrExternalBoundary,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatingSpace = relatingSpace;
+			RelatedBuildingElement = relatedBuildingElement;
+			ConnectionGeometry = connectionGeometry;
+			PhysicalOrVirtualBoundary = physicalOrVirtualBoundary;
+			InternalOrExternalBoundary = internalOrExternalBoundary;
 
 		}
-
 		public static new IfcRelSpaceBoundary FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelSpaceBoundary>(json);
-		}
-
-		public static new IfcRelSpaceBoundary FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23038,24 +24965,36 @@ namespace IFC4
 		public IfcConnectionTypeEnum RelatedConnectionType{get;set;} 
 		public IfcConnectionTypeEnum RelatingConnectionType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelConnectsPathElements with all required attributes.
+		/// </summary>
 		public IfcRelConnectsPathElements(List<double> relatingPriorities,List<double> relatedPriorities,IfcConnectionTypeEnum relatedConnectionType,IfcConnectionTypeEnum relatingConnectionType,IfcElement relatingElement,IfcElement relatedElement,IfcGloballyUniqueId globalId):base(relatingElement,relatedElement,globalId)
 		{
 			RelatingPriorities = relatingPriorities;
 			RelatedPriorities = relatedPriorities;
 			RelatedConnectionType = relatedConnectionType;
 			RelatingConnectionType = relatingConnectionType;
-
+			RelatingPriorities = new List<double>();
+			RelatedPriorities = new List<double>();
 
 		}
+		/// <summary>
+		/// Construct a IfcRelConnectsPathElements with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelConnectsPathElements(List<double> relatingPriorities,List<double> relatedPriorities,IfcConnectionTypeEnum relatedConnectionType,IfcConnectionTypeEnum relatingConnectionType,IfcConnectionGeometry connectionGeometry,IfcElement relatingElement,IfcElement relatedElement,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(connectionGeometry,relatingElement,relatedElement,globalId,ownerHistory,name,description)
+		{
+			RelatingPriorities = relatingPriorities;
+			RelatedPriorities = relatedPriorities;
+			RelatedConnectionType = relatedConnectionType;
+			RelatingConnectionType = relatingConnectionType;
+			RelatingPriorities = new List<double>();
+			RelatedPriorities = new List<double>();
 
+		}
 		public static new IfcRelConnectsPathElements FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelConnectsPathElements>(json);
-		}
-
-		public static new IfcRelConnectsPathElements FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23067,21 +25006,29 @@ namespace IFC4
 		public List<IfcElement> RealizingElements{get;set;} 
 		public IfcLabel ConnectionType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcRelConnectsWithRealizingElements with all required attributes.
+		/// </summary>
 		public IfcRelConnectsWithRealizingElements(List<IfcElement> realizingElements,IfcElement relatingElement,IfcElement relatedElement,IfcGloballyUniqueId globalId):base(relatingElement,relatedElement,globalId)
 		{
 			RealizingElements = realizingElements;
-
+			RealizingElements = new List<IfcElement>();
 
 		}
+		/// <summary>
+		/// Construct a IfcRelConnectsWithRealizingElements with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelConnectsWithRealizingElements(List<IfcElement> realizingElements,IfcLabel connectionType,IfcConnectionGeometry connectionGeometry,IfcElement relatingElement,IfcElement relatedElement,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(connectionGeometry,relatingElement,relatedElement,globalId,ownerHistory,name,description)
+		{
+			RealizingElements = realizingElements;
+			ConnectionType = connectionType;
+			RealizingElements = new List<IfcElement>();
 
+		}
 		public static new IfcRelConnectsWithRealizingElements FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelConnectsWithRealizingElements>(json);
-		}
-
-		public static new IfcRelConnectsWithRealizingElements FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23092,21 +25039,26 @@ namespace IFC4
 	{
 		public IfcConnectionGeometry ConnectionConstraint{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelConnectsWithEccentricity with all required attributes.
+		/// </summary>
 		public IfcRelConnectsWithEccentricity(IfcConnectionGeometry connectionConstraint,IfcStructuralMember relatingStructuralMember,IfcStructuralConnection relatedStructuralConnection,IfcGloballyUniqueId globalId):base(relatingStructuralMember,relatedStructuralConnection,globalId)
 		{
 			ConnectionConstraint = connectionConstraint;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelConnectsWithEccentricity with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelConnectsWithEccentricity(IfcConnectionGeometry connectionConstraint,IfcStructuralMember relatingStructuralMember,IfcStructuralConnection relatedStructuralConnection,IfcBoundaryCondition appliedCondition,IfcStructuralConnectionCondition additionalConditions,IfcLengthMeasure supportedLength,IfcAxis2Placement3D conditionCoordinateSystem,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatingStructuralMember,relatedStructuralConnection,appliedCondition,additionalConditions,supportedLength,conditionCoordinateSystem,globalId,ownerHistory,name,description)
+		{
+			ConnectionConstraint = connectionConstraint;
 
 		}
-
 		public static new IfcRelConnectsWithEccentricity FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelConnectsWithEccentricity>(json);
-		}
-
-		public static new IfcRelConnectsWithEccentricity FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23118,22 +25070,30 @@ namespace IFC4
 		public IfcContext RelatingContext{get;set;} 
 		public List<IfcDefinitionSelect> RelatedDefinitions{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelDeclares with all required attributes.
+		/// </summary>
 		public IfcRelDeclares(IfcContext relatingContext,List<IfcDefinitionSelect> relatedDefinitions,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingContext = relatingContext;
 			RelatedDefinitions = relatedDefinitions;
-
+			RelatedDefinitions = new List<IfcDefinitionSelect>();
 
 		}
+		/// <summary>
+		/// Construct a IfcRelDeclares with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelDeclares(IfcContext relatingContext,List<IfcDefinitionSelect> relatedDefinitions,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatingContext = relatingContext;
+			RelatedDefinitions = relatedDefinitions;
+			RelatedDefinitions = new List<IfcDefinitionSelect>();
 
+		}
 		public static new IfcRelDeclares FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelDeclares>(json);
-		}
-
-		public static new IfcRelDeclares FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23145,22 +25105,30 @@ namespace IFC4
 		public IfcObjectDefinition RelatingObject{get;set;} 
 		public List<IfcObjectDefinition> RelatedObjects{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelNests with all required attributes.
+		/// </summary>
 		public IfcRelNests(IfcObjectDefinition relatingObject,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingObject = relatingObject;
 			RelatedObjects = relatedObjects;
-
+			RelatedObjects = new List<IfcObjectDefinition>();
 
 		}
+		/// <summary>
+		/// Construct a IfcRelNests with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelNests(IfcObjectDefinition relatingObject,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatingObject = relatingObject;
+			RelatedObjects = relatedObjects;
+			RelatedObjects = new List<IfcObjectDefinition>();
 
+		}
 		public static new IfcRelNests FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelNests>(json);
-		}
-
-		public static new IfcRelNests FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23172,22 +25140,28 @@ namespace IFC4
 		public IfcElement RelatingElement{get;set;} 
 		public IfcFeatureElementAddition RelatedFeatureElement{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelProjectsElement with all required attributes.
+		/// </summary>
 		public IfcRelProjectsElement(IfcElement relatingElement,IfcFeatureElementAddition relatedFeatureElement,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingElement = relatingElement;
 			RelatedFeatureElement = relatedFeatureElement;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelProjectsElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelProjectsElement(IfcElement relatingElement,IfcFeatureElementAddition relatedFeatureElement,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatingElement = relatingElement;
+			RelatedFeatureElement = relatedFeatureElement;
 
 		}
-
 		public static new IfcRelProjectsElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelProjectsElement>(json);
-		}
-
-		public static new IfcRelProjectsElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23199,22 +25173,28 @@ namespace IFC4
 		public IfcElement RelatingBuildingElement{get;set;} 
 		public IfcFeatureElementSubtraction RelatedOpeningElement{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelVoidsElement with all required attributes.
+		/// </summary>
 		public IfcRelVoidsElement(IfcElement relatingBuildingElement,IfcFeatureElementSubtraction relatedOpeningElement,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatingBuildingElement = relatingBuildingElement;
 			RelatedOpeningElement = relatedOpeningElement;
 
+		}
+		/// <summary>
+		/// Construct a IfcRelVoidsElement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelVoidsElement(IfcElement relatingBuildingElement,IfcFeatureElementSubtraction relatedOpeningElement,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatingBuildingElement = relatingBuildingElement;
+			RelatedOpeningElement = relatedOpeningElement;
 
 		}
-
 		public static new IfcRelVoidsElement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelVoidsElement>(json);
-		}
-
-		public static new IfcRelVoidsElement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23223,21 +25203,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcRelDefines : IfcRelationship
 	{
-
+		/// <summary>
+		/// Construct a IfcRelDefines with all required attributes.
+		/// </summary>
 		public IfcRelDefines(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcRelDefines with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelDefines(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcRelDefines FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelDefines>(json);
-		}
-
-		public static new IfcRelDefines FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23249,22 +25232,30 @@ namespace IFC4
 		public List<IfcObject> RelatedObjects{get;set;} 
 		public IfcObject RelatingObject{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelDefinesByObject with all required attributes.
+		/// </summary>
 		public IfcRelDefinesByObject(List<IfcObject> relatedObjects,IfcObject relatingObject,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatedObjects = relatedObjects;
 			RelatingObject = relatingObject;
-
+			RelatedObjects = new List<IfcObject>();
 
 		}
+		/// <summary>
+		/// Construct a IfcRelDefinesByObject with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelDefinesByObject(List<IfcObject> relatedObjects,IfcObject relatingObject,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatedObjects = relatedObjects;
+			RelatingObject = relatingObject;
+			RelatedObjects = new List<IfcObject>();
 
+		}
 		public static new IfcRelDefinesByObject FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelDefinesByObject>(json);
-		}
-
-		public static new IfcRelDefinesByObject FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23276,22 +25267,30 @@ namespace IFC4
 		public List<IfcObjectDefinition> RelatedObjects{get;set;} 
 		public IfcPropertySetDefinitionSelect RelatingPropertyDefinition{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelDefinesByProperties with all required attributes.
+		/// </summary>
 		public IfcRelDefinesByProperties(List<IfcObjectDefinition> relatedObjects,IfcPropertySetDefinitionSelect relatingPropertyDefinition,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatedObjects = relatedObjects;
 			RelatingPropertyDefinition = relatingPropertyDefinition;
-
+			RelatedObjects = new List<IfcObjectDefinition>();
 
 		}
+		/// <summary>
+		/// Construct a IfcRelDefinesByProperties with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelDefinesByProperties(List<IfcObjectDefinition> relatedObjects,IfcPropertySetDefinitionSelect relatingPropertyDefinition,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatedObjects = relatedObjects;
+			RelatingPropertyDefinition = relatingPropertyDefinition;
+			RelatedObjects = new List<IfcObjectDefinition>();
 
+		}
 		public static new IfcRelDefinesByProperties FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelDefinesByProperties>(json);
-		}
-
-		public static new IfcRelDefinesByProperties FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23303,22 +25302,30 @@ namespace IFC4
 		public List<IfcPropertySetDefinition> RelatedPropertySets{get;set;} 
 		public IfcPropertySetTemplate RelatingTemplate{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelDefinesByTemplate with all required attributes.
+		/// </summary>
 		public IfcRelDefinesByTemplate(List<IfcPropertySetDefinition> relatedPropertySets,IfcPropertySetTemplate relatingTemplate,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatedPropertySets = relatedPropertySets;
 			RelatingTemplate = relatingTemplate;
-
+			RelatedPropertySets = new List<IfcPropertySetDefinition>();
 
 		}
+		/// <summary>
+		/// Construct a IfcRelDefinesByTemplate with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelDefinesByTemplate(List<IfcPropertySetDefinition> relatedPropertySets,IfcPropertySetTemplate relatingTemplate,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatedPropertySets = relatedPropertySets;
+			RelatingTemplate = relatingTemplate;
+			RelatedPropertySets = new List<IfcPropertySetDefinition>();
 
+		}
 		public static new IfcRelDefinesByTemplate FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelDefinesByTemplate>(json);
-		}
-
-		public static new IfcRelDefinesByTemplate FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23330,22 +25337,30 @@ namespace IFC4
 		public List<IfcObject> RelatedObjects{get;set;} 
 		public IfcTypeObject RelatingType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRelDefinesByType with all required attributes.
+		/// </summary>
 		public IfcRelDefinesByType(List<IfcObject> relatedObjects,IfcTypeObject relatingType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			RelatedObjects = relatedObjects;
 			RelatingType = relatingType;
-
+			RelatedObjects = new List<IfcObject>();
 
 		}
+		/// <summary>
+		/// Construct a IfcRelDefinesByType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelDefinesByType(List<IfcObject> relatedObjects,IfcTypeObject relatingType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		{
+			RelatedObjects = relatedObjects;
+			RelatingType = relatingType;
+			RelatedObjects = new List<IfcObject>();
 
+		}
 		public static new IfcRelDefinesByType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelDefinesByType>(json);
-		}
-
-		public static new IfcRelDefinesByType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23356,20 +25371,25 @@ namespace IFC4
 	{
 		public IfcRelSpaceBoundary1stLevel ParentBoundary{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcRelSpaceBoundary1stLevel with all required attributes.
+		/// </summary>
 		public IfcRelSpaceBoundary1stLevel(IfcSpaceBoundarySelect relatingSpace,IfcElement relatedBuildingElement,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary,IfcInternalOrExternalEnum internalOrExternalBoundary,IfcGloballyUniqueId globalId):base(relatingSpace,relatedBuildingElement,physicalOrVirtualBoundary,internalOrExternalBoundary,globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcRelSpaceBoundary1stLevel with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelSpaceBoundary1stLevel(IfcRelSpaceBoundary1stLevel parentBoundary,IfcSpaceBoundarySelect relatingSpace,IfcElement relatedBuildingElement,IfcConnectionGeometry connectionGeometry,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary,IfcInternalOrExternalEnum internalOrExternalBoundary,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatingSpace,relatedBuildingElement,connectionGeometry,physicalOrVirtualBoundary,internalOrExternalBoundary,globalId,ownerHistory,name,description)
+		{
+			ParentBoundary = parentBoundary;
 
 		}
-
 		public static new IfcRelSpaceBoundary1stLevel FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelSpaceBoundary1stLevel>(json);
-		}
-
-		public static new IfcRelSpaceBoundary1stLevel FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23380,20 +25400,25 @@ namespace IFC4
 	{
 		public IfcRelSpaceBoundary2ndLevel CorrespondingBoundary{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcRelSpaceBoundary2ndLevel with all required attributes.
+		/// </summary>
 		public IfcRelSpaceBoundary2ndLevel(IfcSpaceBoundarySelect relatingSpace,IfcElement relatedBuildingElement,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary,IfcInternalOrExternalEnum internalOrExternalBoundary,IfcGloballyUniqueId globalId):base(relatingSpace,relatedBuildingElement,physicalOrVirtualBoundary,internalOrExternalBoundary,globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcRelSpaceBoundary2ndLevel with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRelSpaceBoundary2ndLevel(IfcRelSpaceBoundary2ndLevel correspondingBoundary,IfcRelSpaceBoundary1stLevel parentBoundary,IfcSpaceBoundarySelect relatingSpace,IfcElement relatedBuildingElement,IfcConnectionGeometry connectionGeometry,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary,IfcInternalOrExternalEnum internalOrExternalBoundary,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(parentBoundary,relatingSpace,relatedBuildingElement,connectionGeometry,physicalOrVirtualBoundary,internalOrExternalBoundary,globalId,ownerHistory,name,description)
+		{
+			CorrespondingBoundary = correspondingBoundary;
 
 		}
-
 		public static new IfcRelSpaceBoundary2ndLevel FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRelSpaceBoundary2ndLevel>(json);
-		}
-
-		public static new IfcRelSpaceBoundary2ndLevel FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23407,22 +25432,32 @@ namespace IFC4
 		public IfcLabel RepresentationType{get;set;} // optional
 		public List<IfcRepresentationItem> Items{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRepresentation with all required attributes.
+		/// </summary>
 		public IfcRepresentation(IfcRepresentationContext contextOfItems,List<IfcRepresentationItem> items):base()
 		{
 			ContextOfItems = contextOfItems;
 			Items = items;
-
+			Items = new List<IfcRepresentationItem>();
 
 		}
+		/// <summary>
+		/// Construct a IfcRepresentation with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRepresentation(IfcRepresentationContext contextOfItems,IfcLabel representationIdentifier,IfcLabel representationType,List<IfcRepresentationItem> items):base()
+		{
+			ContextOfItems = contextOfItems;
+			RepresentationIdentifier = representationIdentifier;
+			RepresentationType = representationType;
+			Items = items;
+			Items = new List<IfcRepresentationItem>();
 
+		}
 		public static  IfcRepresentation FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRepresentation>(json);
-		}
-
-		public static  IfcRepresentation FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23431,21 +25466,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcShapeModel : IfcRepresentation
 	{
-
+		/// <summary>
+		/// Construct a IfcShapeModel with all required attributes.
+		/// </summary>
 		public IfcShapeModel(IfcRepresentationContext contextOfItems,List<IfcRepresentationItem> items):base(contextOfItems,items)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcShapeModel with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcShapeModel(IfcRepresentationContext contextOfItems,IfcLabel representationIdentifier,IfcLabel representationType,List<IfcRepresentationItem> items):base(contextOfItems,representationIdentifier,representationType,items)
+		{
 
 		}
-
 		public static new IfcShapeModel FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcShapeModel>(json);
-		}
-
-		public static new IfcShapeModel FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23454,21 +25492,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcStyleModel : IfcRepresentation
 	{
-
+		/// <summary>
+		/// Construct a IfcStyleModel with all required attributes.
+		/// </summary>
 		public IfcStyleModel(IfcRepresentationContext contextOfItems,List<IfcRepresentationItem> items):base(contextOfItems,items)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStyleModel with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStyleModel(IfcRepresentationContext contextOfItems,IfcLabel representationIdentifier,IfcLabel representationType,List<IfcRepresentationItem> items):base(contextOfItems,representationIdentifier,representationType,items)
+		{
 
 		}
-
 		public static new IfcStyleModel FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStyleModel>(json);
-		}
-
-		public static new IfcStyleModel FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23481,21 +25522,30 @@ namespace IFC4
 		public List<IfcStyleAssignmentSelect> Styles{get;set;} 
 		public IfcLabel Name{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcStyledItem with all required attributes.
+		/// </summary>
 		public IfcStyledItem(List<IfcStyleAssignmentSelect> styles):base()
 		{
 			Styles = styles;
-
+			Styles = new List<IfcStyleAssignmentSelect>();
 
 		}
+		/// <summary>
+		/// Construct a IfcStyledItem with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStyledItem(IfcRepresentationItem item,List<IfcStyleAssignmentSelect> styles,IfcLabel name):base()
+		{
+			Item = item;
+			Styles = styles;
+			Name = name;
+			Styles = new List<IfcStyleAssignmentSelect>();
 
+		}
 		public static new IfcStyledItem FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStyledItem>(json);
-		}
-
-		public static new IfcStyledItem FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23507,22 +25557,19 @@ namespace IFC4
 		public IfcAxis2Placement MappingOrigin{get;set;} 
 		public IfcRepresentation MappedRepresentation{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRepresentationMap with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcRepresentationMap(IfcAxis2Placement mappingOrigin,IfcRepresentation mappedRepresentation):base()
 		{
 			MappingOrigin = mappingOrigin;
 			MappedRepresentation = mappedRepresentation;
 
-
 		}
-
 		public static  IfcRepresentationMap FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRepresentationMap>(json);
-		}
-
-		public static  IfcRepresentationMap FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23534,22 +25581,30 @@ namespace IFC4
 		public List<IfcResourceObjectSelect> RelatedResourceObjects{get;set;} 
 		public IfcApproval RelatingApproval{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcResourceApprovalRelationship with all required attributes.
+		/// </summary>
 		public IfcResourceApprovalRelationship(List<IfcResourceObjectSelect> relatedResourceObjects,IfcApproval relatingApproval):base()
 		{
 			RelatedResourceObjects = relatedResourceObjects;
 			RelatingApproval = relatingApproval;
-
+			RelatedResourceObjects = new List<IfcResourceObjectSelect>();
 
 		}
+		/// <summary>
+		/// Construct a IfcResourceApprovalRelationship with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcResourceApprovalRelationship(List<IfcResourceObjectSelect> relatedResourceObjects,IfcApproval relatingApproval,IfcLabel name,IfcText description):base(name,description)
+		{
+			RelatedResourceObjects = relatedResourceObjects;
+			RelatingApproval = relatingApproval;
+			RelatedResourceObjects = new List<IfcResourceObjectSelect>();
 
+		}
 		public static new IfcResourceApprovalRelationship FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcResourceApprovalRelationship>(json);
-		}
-
-		public static new IfcResourceApprovalRelationship FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23561,22 +25616,30 @@ namespace IFC4
 		public IfcConstraint RelatingConstraint{get;set;} 
 		public List<IfcResourceObjectSelect> RelatedResourceObjects{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcResourceConstraintRelationship with all required attributes.
+		/// </summary>
 		public IfcResourceConstraintRelationship(IfcConstraint relatingConstraint,List<IfcResourceObjectSelect> relatedResourceObjects):base()
 		{
 			RelatingConstraint = relatingConstraint;
 			RelatedResourceObjects = relatedResourceObjects;
-
+			RelatedResourceObjects = new List<IfcResourceObjectSelect>();
 
 		}
+		/// <summary>
+		/// Construct a IfcResourceConstraintRelationship with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcResourceConstraintRelationship(IfcConstraint relatingConstraint,List<IfcResourceObjectSelect> relatedResourceObjects,IfcLabel name,IfcText description):base(name,description)
+		{
+			RelatingConstraint = relatingConstraint;
+			RelatedResourceObjects = relatedResourceObjects;
+			RelatedResourceObjects = new List<IfcResourceObjectSelect>();
 
+		}
 		public static new IfcResourceConstraintRelationship FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcResourceConstraintRelationship>(json);
-		}
-
-		public static new IfcResourceConstraintRelationship FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23601,20 +25664,39 @@ namespace IFC4
 		public IfcPositiveRatioMeasure RemainingUsage{get;set;} // optional
 		public IfcPositiveRatioMeasure Completion{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcResourceTime with all required attributes.
+		/// </summary>
 		public IfcResourceTime():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcResourceTime with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcResourceTime(IfcDuration scheduleWork,IfcPositiveRatioMeasure scheduleUsage,IfcDateTime scheduleStart,IfcDateTime scheduleFinish,IfcLabel scheduleContour,IfcDuration levelingDelay,bool isOverAllocated,IfcDateTime statusTime,IfcDuration actualWork,IfcPositiveRatioMeasure actualUsage,IfcDateTime actualStart,IfcDateTime actualFinish,IfcDuration remainingWork,IfcPositiveRatioMeasure remainingUsage,IfcPositiveRatioMeasure completion,IfcLabel name,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin):base(name,dataOrigin,userDefinedDataOrigin)
+		{
+			ScheduleWork = scheduleWork;
+			ScheduleUsage = scheduleUsage;
+			ScheduleStart = scheduleStart;
+			ScheduleFinish = scheduleFinish;
+			ScheduleContour = scheduleContour;
+			LevelingDelay = levelingDelay;
+			IsOverAllocated = isOverAllocated;
+			StatusTime = statusTime;
+			ActualWork = actualWork;
+			ActualUsage = actualUsage;
+			ActualStart = actualStart;
+			ActualFinish = actualFinish;
+			RemainingWork = remainingWork;
+			RemainingUsage = remainingUsage;
+			Completion = completion;
 
 		}
-
 		public static new IfcResourceTime FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcResourceTime>(json);
-		}
-
-		public static new IfcResourceTime FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23626,22 +25708,28 @@ namespace IFC4
 		public IfcAxis1Placement Axis{get;set;} 
 		public IfcPlaneAngleMeasure Angle{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRevolvedAreaSolid with all required attributes.
+		/// </summary>
 		public IfcRevolvedAreaSolid(IfcAxis1Placement axis,IfcPlaneAngleMeasure angle,IfcProfileDef sweptArea):base(sweptArea)
 		{
 			Axis = axis;
 			Angle = angle;
 
+		}
+		/// <summary>
+		/// Construct a IfcRevolvedAreaSolid with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRevolvedAreaSolid(IfcAxis1Placement axis,IfcPlaneAngleMeasure angle,IfcProfileDef sweptArea,IfcAxis2Placement3D position):base(sweptArea,position)
+		{
+			Axis = axis;
+			Angle = angle;
 
 		}
-
 		public static new IfcRevolvedAreaSolid FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRevolvedAreaSolid>(json);
-		}
-
-		public static new IfcRevolvedAreaSolid FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23652,21 +25740,26 @@ namespace IFC4
 	{
 		public IfcProfileDef EndSweptArea{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcRevolvedAreaSolidTapered with all required attributes.
+		/// </summary>
 		public IfcRevolvedAreaSolidTapered(IfcProfileDef endSweptArea,IfcAxis1Placement axis,IfcPlaneAngleMeasure angle,IfcProfileDef sweptArea):base(axis,angle,sweptArea)
 		{
 			EndSweptArea = endSweptArea;
 
+		}
+		/// <summary>
+		/// Construct a IfcRevolvedAreaSolidTapered with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcRevolvedAreaSolidTapered(IfcProfileDef endSweptArea,IfcAxis1Placement axis,IfcPlaneAngleMeasure angle,IfcProfileDef sweptArea,IfcAxis2Placement3D position):base(axis,angle,sweptArea,position)
+		{
+			EndSweptArea = endSweptArea;
 
 		}
-
 		public static new IfcRevolvedAreaSolidTapered FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRevolvedAreaSolidTapered>(json);
-		}
-
-		public static new IfcRevolvedAreaSolidTapered FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23693,20 +25786,41 @@ namespace IFC4
 		public IfcDuration RemainingTime{get;set;} // optional
 		public IfcPositiveRatioMeasure Completion{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTaskTime with all required attributes.
+		/// </summary>
 		public IfcTaskTime():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcTaskTime with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTaskTime(IfcTaskDurationEnum durationType,IfcDuration scheduleDuration,IfcDateTime scheduleStart,IfcDateTime scheduleFinish,IfcDateTime earlyStart,IfcDateTime earlyFinish,IfcDateTime lateStart,IfcDateTime lateFinish,IfcDuration freeFloat,IfcDuration totalFloat,bool isCritical,IfcDateTime statusTime,IfcDuration actualDuration,IfcDateTime actualStart,IfcDateTime actualFinish,IfcDuration remainingTime,IfcPositiveRatioMeasure completion,IfcLabel name,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin):base(name,dataOrigin,userDefinedDataOrigin)
+		{
+			DurationType = durationType;
+			ScheduleDuration = scheduleDuration;
+			ScheduleStart = scheduleStart;
+			ScheduleFinish = scheduleFinish;
+			EarlyStart = earlyStart;
+			EarlyFinish = earlyFinish;
+			LateStart = lateStart;
+			LateFinish = lateFinish;
+			FreeFloat = freeFloat;
+			TotalFloat = totalFloat;
+			IsCritical = isCritical;
+			StatusTime = statusTime;
+			ActualDuration = actualDuration;
+			ActualStart = actualStart;
+			ActualFinish = actualFinish;
+			RemainingTime = remainingTime;
+			Completion = completion;
 
 		}
-
 		public static new IfcTaskTime FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTaskTime>(json);
-		}
-
-		public static new IfcTaskTime FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23719,20 +25833,27 @@ namespace IFC4
 		public IfcDate Start{get;set;} // optional
 		public IfcDate Finish{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcWorkTime with all required attributes.
+		/// </summary>
 		public IfcWorkTime():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcWorkTime with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcWorkTime(IfcRecurrencePattern recurrencePattern,IfcDate start,IfcDate finish,IfcLabel name,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin):base(name,dataOrigin,userDefinedDataOrigin)
+		{
+			RecurrencePattern = recurrencePattern;
+			Start = start;
+			Finish = finish;
 
 		}
-
 		public static new IfcWorkTime FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcWorkTime>(json);
-		}
-
-		public static new IfcWorkTime FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23747,22 +25868,33 @@ namespace IFC4
 		public bool? ProductDefinitional{get;set;} 
 		public IfcProductRepresentationSelect PartOfProductDefinitionShape{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcShapeAspect with all required attributes.
+		/// </summary>
 		public IfcShapeAspect(List<IfcShapeModel> shapeRepresentations,bool? productDefinitional):base()
 		{
 			ShapeRepresentations = shapeRepresentations;
 			ProductDefinitional = productDefinitional;
-
+			ShapeRepresentations = new List<IfcShapeModel>();
 
 		}
+		/// <summary>
+		/// Construct a IfcShapeAspect with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcShapeAspect(List<IfcShapeModel> shapeRepresentations,IfcLabel name,IfcText description,bool? productDefinitional,IfcProductRepresentationSelect partOfProductDefinitionShape):base()
+		{
+			ShapeRepresentations = shapeRepresentations;
+			Name = name;
+			Description = description;
+			ProductDefinitional = productDefinitional;
+			PartOfProductDefinitionShape = partOfProductDefinitionShape;
+			ShapeRepresentations = new List<IfcShapeModel>();
 
+		}
 		public static  IfcShapeAspect FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcShapeAspect>(json);
-		}
-
-		public static  IfcShapeAspect FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23771,21 +25903,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcShapeRepresentation : IfcShapeModel
 	{
-
+		/// <summary>
+		/// Construct a IfcShapeRepresentation with all required attributes.
+		/// </summary>
 		public IfcShapeRepresentation(IfcRepresentationContext contextOfItems,List<IfcRepresentationItem> items):base(contextOfItems,items)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcShapeRepresentation with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcShapeRepresentation(IfcRepresentationContext contextOfItems,IfcLabel representationIdentifier,IfcLabel representationType,List<IfcRepresentationItem> items):base(contextOfItems,representationIdentifier,representationType,items)
+		{
 
 		}
-
 		public static new IfcShapeRepresentation FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcShapeRepresentation>(json);
-		}
-
-		public static new IfcShapeRepresentation FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23794,21 +25929,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcTopologyRepresentation : IfcShapeModel
 	{
-
+		/// <summary>
+		/// Construct a IfcTopologyRepresentation with all required attributes.
+		/// </summary>
 		public IfcTopologyRepresentation(IfcRepresentationContext contextOfItems,List<IfcRepresentationItem> items):base(contextOfItems,items)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcTopologyRepresentation with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTopologyRepresentation(IfcRepresentationContext contextOfItems,IfcLabel representationIdentifier,IfcLabel representationType,List<IfcRepresentationItem> items):base(contextOfItems,representationIdentifier,representationType,items)
+		{
 
 		}
-
 		public static new IfcTopologyRepresentation FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTopologyRepresentation>(json);
-		}
-
-		public static new IfcTopologyRepresentation FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23823,20 +25961,29 @@ namespace IFC4
 		public IfcLabel LandTitleNumber{get;set;} // optional
 		public IfcPostalAddress SiteAddress{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSite with all required attributes.
+		/// </summary>
 		public IfcSite(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSite with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSite(IfcCompoundPlaneAngleMeasure refLatitude,IfcCompoundPlaneAngleMeasure refLongitude,IfcLengthMeasure refElevation,IfcLabel landTitleNumber,IfcPostalAddress siteAddress,IfcElementCompositionEnum compositionType,IfcLabel longName,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(compositionType,longName,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			RefLatitude = refLatitude;
+			RefLongitude = refLongitude;
+			RefElevation = refElevation;
+			LandTitleNumber = landTitleNumber;
+			SiteAddress = siteAddress;
 
 		}
-
 		public static new IfcSite FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSite>(json);
-		}
-
-		public static new IfcSite FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23845,21 +25992,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcSlabElementedCase : IfcSlab
 	{
-
+		/// <summary>
+		/// Construct a IfcSlabElementedCase with all required attributes.
+		/// </summary>
 		public IfcSlabElementedCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSlabElementedCase with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSlabElementedCase(IfcSlabTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcSlabElementedCase FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSlabElementedCase>(json);
-		}
-
-		public static new IfcSlabElementedCase FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23868,21 +26018,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcSlabStandardCase : IfcSlab
 	{
-
+		/// <summary>
+		/// Construct a IfcSlabStandardCase with all required attributes.
+		/// </summary>
 		public IfcSlabStandardCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSlabStandardCase with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSlabStandardCase(IfcSlabTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcSlabStandardCase FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSlabStandardCase>(json);
-		}
-
-		public static new IfcSlabStandardCase FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23895,20 +26048,27 @@ namespace IFC4
 		public IfcLengthMeasure SlippageY{get;set;} // optional
 		public IfcLengthMeasure SlippageZ{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSlippageConnectionCondition with all required attributes.
+		/// </summary>
 		public IfcSlippageConnectionCondition():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSlippageConnectionCondition with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSlippageConnectionCondition(IfcLengthMeasure slippageX,IfcLengthMeasure slippageY,IfcLengthMeasure slippageZ,IfcLabel name):base(name)
+		{
+			SlippageX = slippageX;
+			SlippageY = slippageY;
+			SlippageZ = slippageZ;
 
 		}
-
 		public static new IfcSlippageConnectionCondition FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSlippageConnectionCondition>(json);
-		}
-
-		public static new IfcSlippageConnectionCondition FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23923,22 +26083,31 @@ namespace IFC4
 		public IfcParameterValue StartParam{get;set;} // optional
 		public IfcParameterValue EndParam{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSweptDiskSolid with all required attributes.
+		/// </summary>
 		public IfcSweptDiskSolid(IfcCurve directrix,IfcPositiveLengthMeasure radius):base()
 		{
 			Directrix = directrix;
 			Radius = radius;
 
+		}
+		/// <summary>
+		/// Construct a IfcSweptDiskSolid with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSweptDiskSolid(IfcCurve directrix,IfcPositiveLengthMeasure radius,IfcPositiveLengthMeasure innerRadius,IfcParameterValue startParam,IfcParameterValue endParam):base()
+		{
+			Directrix = directrix;
+			Radius = radius;
+			InnerRadius = innerRadius;
+			StartParam = startParam;
+			EndParam = endParam;
 
 		}
-
 		public static new IfcSweptDiskSolid FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSweptDiskSolid>(json);
-		}
-
-		public static new IfcSweptDiskSolid FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23950,20 +26119,26 @@ namespace IFC4
 		public IfcSpaceTypeEnum PredefinedType{get;set;} // optional
 		public IfcLengthMeasure ElevationWithFlooring{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSpace with all required attributes.
+		/// </summary>
 		public IfcSpace(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSpace with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSpace(IfcSpaceTypeEnum predefinedType,IfcLengthMeasure elevationWithFlooring,IfcElementCompositionEnum compositionType,IfcLabel longName,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(compositionType,longName,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			ElevationWithFlooring = elevationWithFlooring;
 
 		}
-
 		public static new IfcSpace FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSpace>(json);
-		}
-
-		public static new IfcSpace FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23975,21 +26150,27 @@ namespace IFC4
 		public IfcSpaceTypeEnum PredefinedType{get;set;} 
 		public IfcLabel LongName{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSpaceType with all required attributes.
+		/// </summary>
 		public IfcSpaceType(IfcSpaceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcSpaceType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSpaceType(IfcSpaceTypeEnum predefinedType,IfcLabel longName,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			LongName = longName;
 
 		}
-
 		public static new IfcSpaceType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSpaceType>(json);
-		}
-
-		public static new IfcSpaceType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -23998,21 +26179,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcSpatialStructureElementType : IfcSpatialElementType
 	{
-
+		/// <summary>
+		/// Construct a IfcSpatialStructureElementType with all required attributes.
+		/// </summary>
 		public IfcSpatialStructureElementType(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSpatialStructureElementType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSpatialStructureElementType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcSpatialStructureElementType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSpatialStructureElementType>(json);
-		}
-
-		public static new IfcSpatialStructureElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24023,20 +26207,25 @@ namespace IFC4
 	{
 		public IfcSpatialZoneTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSpatialZone with all required attributes.
+		/// </summary>
 		public IfcSpatialZone(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSpatialZone with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSpatialZone(IfcSpatialZoneTypeEnum predefinedType,IfcLabel longName,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(longName,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcSpatialZone FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSpatialZone>(json);
-		}
-
-		public static new IfcSpatialZone FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24047,20 +26236,25 @@ namespace IFC4
 	{
 		public IfcLabel ElementType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSpatialElementType with all required attributes.
+		/// </summary>
 		public IfcSpatialElementType(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSpatialElementType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSpatialElementType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			ElementType = elementType;
 
 		}
-
 		public static new IfcSpatialElementType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSpatialElementType>(json);
-		}
-
-		public static new IfcSpatialElementType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24072,21 +26266,27 @@ namespace IFC4
 		public IfcSpatialZoneTypeEnum PredefinedType{get;set;} 
 		public IfcLabel LongName{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSpatialZoneType with all required attributes.
+		/// </summary>
 		public IfcSpatialZoneType(IfcSpatialZoneTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcSpatialZoneType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSpatialZoneType(IfcSpatialZoneTypeEnum predefinedType,IfcLabel longName,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			LongName = longName;
 
 		}
-
 		public static new IfcSpatialZoneType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSpatialZoneType>(json);
-		}
-
-		public static new IfcSpatialZoneType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24097,20 +26297,25 @@ namespace IFC4
 	{
 		public bool DestabilizingLoad{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcStructuralAction with all required attributes.
+		/// </summary>
 		public IfcStructuralAction(IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralAction with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralAction(bool destabilizingLoad,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(appliedLoad,globalOrLocal,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			DestabilizingLoad = destabilizingLoad;
 
 		}
-
 		public static new IfcStructuralAction FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralAction>(json);
-		}
-
-		public static new IfcStructuralAction FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24122,21 +26327,27 @@ namespace IFC4
 		public IfcProjectedOrTrueLengthEnum ProjectedOrTrue{get;set;} // optional
 		public IfcStructuralCurveActivityTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcStructuralCurveAction with all required attributes.
+		/// </summary>
 		public IfcStructuralCurveAction(IfcStructuralCurveActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralCurveAction with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralCurveAction(IfcProjectedOrTrueLengthEnum projectedOrTrue,IfcStructuralCurveActivityTypeEnum predefinedType,bool destabilizingLoad,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(destabilizingLoad,appliedLoad,globalOrLocal,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			ProjectedOrTrue = projectedOrTrue;
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcStructuralCurveAction FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralCurveAction>(json);
-		}
-
-		public static new IfcStructuralCurveAction FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24145,21 +26356,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcStructuralPointAction : IfcStructuralAction
 	{
-
+		/// <summary>
+		/// Construct a IfcStructuralPointAction with all required attributes.
+		/// </summary>
 		public IfcStructuralPointAction(IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralPointAction with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralPointAction(bool destabilizingLoad,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(destabilizingLoad,appliedLoad,globalOrLocal,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcStructuralPointAction FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralPointAction>(json);
-		}
-
-		public static new IfcStructuralPointAction FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24171,21 +26385,27 @@ namespace IFC4
 		public IfcProjectedOrTrueLengthEnum ProjectedOrTrue{get;set;} // optional
 		public IfcStructuralSurfaceActivityTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcStructuralSurfaceAction with all required attributes.
+		/// </summary>
 		public IfcStructuralSurfaceAction(IfcStructuralSurfaceActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralSurfaceAction with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralSurfaceAction(IfcProjectedOrTrueLengthEnum projectedOrTrue,IfcStructuralSurfaceActivityTypeEnum predefinedType,bool destabilizingLoad,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(destabilizingLoad,appliedLoad,globalOrLocal,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			ProjectedOrTrue = projectedOrTrue;
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcStructuralSurfaceAction FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralSurfaceAction>(json);
-		}
-
-		public static new IfcStructuralSurfaceAction FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24194,21 +26414,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcStructuralReaction : IfcStructuralActivity
 	{
-
+		/// <summary>
+		/// Construct a IfcStructuralReaction with all required attributes.
+		/// </summary>
 		public IfcStructuralReaction(IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralReaction with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralReaction(IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(appliedLoad,globalOrLocal,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcStructuralReaction FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralReaction>(json);
-		}
-
-		public static new IfcStructuralReaction FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24223,23 +26446,32 @@ namespace IFC4
 		public List<IfcStructuralResultGroup> HasResults{get;set;} // optional
 		public IfcObjectPlacement SharedPlacement{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcStructuralAnalysisModel with all required attributes.
+		/// </summary>
 		public IfcStructuralAnalysisModel(IfcAnalysisModelTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralAnalysisModel with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralAnalysisModel(IfcAnalysisModelTypeEnum predefinedType,IfcAxis2Placement3D orientationOf2DPlane,List<IfcStructuralLoadGroup> loadedBy,List<IfcStructuralResultGroup> hasResults,IfcObjectPlacement sharedPlacement,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			OrientationOf2DPlane = orientationOf2DPlane;
+			LoadedBy = loadedBy;
+			HasResults = hasResults;
+			SharedPlacement = sharedPlacement;
 			LoadedBy = new List<IfcStructuralLoadGroup>();
 			HasResults = new List<IfcStructuralResultGroup>();
 
 		}
-
 		public static new IfcStructuralAnalysisModel FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralAnalysisModel>(json);
-		}
-
-		public static new IfcStructuralAnalysisModel FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24250,20 +26482,25 @@ namespace IFC4
 	{
 		public IfcBoundaryCondition AppliedCondition{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcStructuralConnection with all required attributes.
+		/// </summary>
 		public IfcStructuralConnection(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralConnection with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralConnection(IfcBoundaryCondition appliedCondition,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			AppliedCondition = appliedCondition;
 
 		}
-
 		public static new IfcStructuralConnection FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralConnection>(json);
-		}
-
-		public static new IfcStructuralConnection FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24274,21 +26511,26 @@ namespace IFC4
 	{
 		public IfcDirection Axis{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcStructuralCurveConnection with all required attributes.
+		/// </summary>
 		public IfcStructuralCurveConnection(IfcDirection axis,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			Axis = axis;
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralCurveConnection with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralCurveConnection(IfcDirection axis,IfcBoundaryCondition appliedCondition,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(appliedCondition,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			Axis = axis;
 
 		}
-
 		public static new IfcStructuralCurveConnection FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralCurveConnection>(json);
-		}
-
-		public static new IfcStructuralCurveConnection FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24299,20 +26541,25 @@ namespace IFC4
 	{
 		public IfcAxis2Placement3D ConditionCoordinateSystem{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcStructuralPointConnection with all required attributes.
+		/// </summary>
 		public IfcStructuralPointConnection(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralPointConnection with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralPointConnection(IfcAxis2Placement3D conditionCoordinateSystem,IfcBoundaryCondition appliedCondition,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(appliedCondition,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			ConditionCoordinateSystem = conditionCoordinateSystem;
 
 		}
-
 		public static new IfcStructuralPointConnection FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralPointConnection>(json);
-		}
-
-		public static new IfcStructuralPointConnection FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24321,21 +26568,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcStructuralSurfaceConnection : IfcStructuralConnection
 	{
-
+		/// <summary>
+		/// Construct a IfcStructuralSurfaceConnection with all required attributes.
+		/// </summary>
 		public IfcStructuralSurfaceConnection(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralSurfaceConnection with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralSurfaceConnection(IfcBoundaryCondition appliedCondition,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(appliedCondition,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcStructuralSurfaceConnection FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralSurfaceConnection>(json);
-		}
-
-		public static new IfcStructuralSurfaceConnection FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24344,21 +26594,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcStructuralLinearAction : IfcStructuralCurveAction
 	{
-
+		/// <summary>
+		/// Construct a IfcStructuralLinearAction with all required attributes.
+		/// </summary>
 		public IfcStructuralLinearAction(IfcStructuralCurveActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(predefinedType,appliedLoad,globalOrLocal,globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralLinearAction with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralLinearAction(IfcProjectedOrTrueLengthEnum projectedOrTrue,IfcStructuralCurveActivityTypeEnum predefinedType,bool destabilizingLoad,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(projectedOrTrue,predefinedType,destabilizingLoad,appliedLoad,globalOrLocal,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcStructuralLinearAction FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLinearAction>(json);
-		}
-
-		public static new IfcStructuralLinearAction FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24370,22 +26623,28 @@ namespace IFC4
 		public IfcStructuralCurveMemberTypeEnum PredefinedType{get;set;} 
 		public IfcDirection Axis{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcStructuralCurveMember with all required attributes.
+		/// </summary>
 		public IfcStructuralCurveMember(IfcStructuralCurveMemberTypeEnum predefinedType,IfcDirection axis,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 			Axis = axis;
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralCurveMember with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralCurveMember(IfcStructuralCurveMemberTypeEnum predefinedType,IfcDirection axis,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			Axis = axis;
 
 		}
-
 		public static new IfcStructuralCurveMember FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralCurveMember>(json);
-		}
-
-		public static new IfcStructuralCurveMember FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24394,21 +26653,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcStructuralCurveMemberVarying : IfcStructuralCurveMember
 	{
-
+		/// <summary>
+		/// Construct a IfcStructuralCurveMemberVarying with all required attributes.
+		/// </summary>
 		public IfcStructuralCurveMemberVarying(IfcStructuralCurveMemberTypeEnum predefinedType,IfcDirection axis,IfcGloballyUniqueId globalId):base(predefinedType,axis,globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralCurveMemberVarying with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralCurveMemberVarying(IfcStructuralCurveMemberTypeEnum predefinedType,IfcDirection axis,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,axis,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcStructuralCurveMemberVarying FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralCurveMemberVarying>(json);
-		}
-
-		public static new IfcStructuralCurveMemberVarying FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24417,21 +26679,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcStructuralMember : IfcStructuralItem
 	{
-
+		/// <summary>
+		/// Construct a IfcStructuralMember with all required attributes.
+		/// </summary>
 		public IfcStructuralMember(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralMember with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralMember(IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcStructuralMember FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralMember>(json);
-		}
-
-		public static new IfcStructuralMember FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24442,21 +26707,26 @@ namespace IFC4
 	{
 		public IfcStructuralCurveActivityTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcStructuralCurveReaction with all required attributes.
+		/// </summary>
 		public IfcStructuralCurveReaction(IfcStructuralCurveActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralCurveReaction with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralCurveReaction(IfcStructuralCurveActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(appliedLoad,globalOrLocal,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcStructuralCurveReaction FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralCurveReaction>(json);
-		}
-
-		public static new IfcStructuralCurveReaction FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24467,20 +26737,25 @@ namespace IFC4
 	{
 		public IfcLabel Name{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcStructuralLoad with all required attributes.
+		/// </summary>
 		public IfcStructuralLoad():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralLoad with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralLoad(IfcLabel name):base()
+		{
+			Name = name;
 
 		}
-
 		public static  IfcStructuralLoad FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoad>(json);
-		}
-
-		public static  IfcStructuralLoad FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24492,22 +26767,30 @@ namespace IFC4
 		public List<IfcStructuralLoadOrResult> Values{get;set;} 
 		public List<List<IfcLengthMeasure>> Locations{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcStructuralLoadConfiguration with all required attributes.
+		/// </summary>
 		public IfcStructuralLoadConfiguration(List<IfcStructuralLoadOrResult> values):base()
 		{
 			Values = values;
+			Values = new List<IfcStructuralLoadOrResult>();
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralLoadConfiguration with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralLoadConfiguration(List<IfcStructuralLoadOrResult> values,List<List<IfcLengthMeasure>> locations,IfcLabel name):base(name)
+		{
+			Values = values;
+			Locations = locations;
+			Values = new List<IfcStructuralLoadOrResult>();
 			Locations = new List<List<IfcLengthMeasure>>();
 
 		}
-
 		public static new IfcStructuralLoadConfiguration FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadConfiguration>(json);
-		}
-
-		public static new IfcStructuralLoadConfiguration FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24516,21 +26799,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcStructuralLoadOrResult : IfcStructuralLoad
 	{
-
+		/// <summary>
+		/// Construct a IfcStructuralLoadOrResult with all required attributes.
+		/// </summary>
 		public IfcStructuralLoadOrResult():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralLoadOrResult with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralLoadOrResult(IfcLabel name):base(name)
+		{
 
 		}
-
 		public static new IfcStructuralLoadOrResult FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadOrResult>(json);
-		}
-
-		public static new IfcStructuralLoadOrResult FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24541,21 +26827,26 @@ namespace IFC4
 	{
 		public List<IfcRatioMeasure> SelfWeightCoefficients{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcStructuralLoadCase with all required attributes.
+		/// </summary>
 		public IfcStructuralLoadCase(IfcLoadGroupTypeEnum predefinedType,IfcActionTypeEnum actionType,IfcActionSourceTypeEnum actionSource,IfcGloballyUniqueId globalId):base(predefinedType,actionType,actionSource,globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralLoadCase with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralLoadCase(List<IfcRatioMeasure> selfWeightCoefficients,IfcLoadGroupTypeEnum predefinedType,IfcActionTypeEnum actionType,IfcActionSourceTypeEnum actionSource,IfcRatioMeasure coefficient,IfcLabel purpose,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,actionType,actionSource,coefficient,purpose,objectType,globalId,ownerHistory,name,description)
+		{
+			SelfWeightCoefficients = selfWeightCoefficients;
 			SelfWeightCoefficients = new List<IfcRatioMeasure>();
 
 		}
-
 		public static new IfcStructuralLoadCase FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadCase>(json);
-		}
-
-		public static new IfcStructuralLoadCase FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24571,20 +26862,30 @@ namespace IFC4
 		public IfcLinearMomentMeasure LinearMomentY{get;set;} // optional
 		public IfcLinearMomentMeasure LinearMomentZ{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcStructuralLoadLinearForce with all required attributes.
+		/// </summary>
 		public IfcStructuralLoadLinearForce():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralLoadLinearForce with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralLoadLinearForce(IfcLinearForceMeasure linearForceX,IfcLinearForceMeasure linearForceY,IfcLinearForceMeasure linearForceZ,IfcLinearMomentMeasure linearMomentX,IfcLinearMomentMeasure linearMomentY,IfcLinearMomentMeasure linearMomentZ,IfcLabel name):base(name)
+		{
+			LinearForceX = linearForceX;
+			LinearForceY = linearForceY;
+			LinearForceZ = linearForceZ;
+			LinearMomentX = linearMomentX;
+			LinearMomentY = linearMomentY;
+			LinearMomentZ = linearMomentZ;
 
 		}
-
 		public static new IfcStructuralLoadLinearForce FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadLinearForce>(json);
-		}
-
-		public static new IfcStructuralLoadLinearForce FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24593,21 +26894,24 @@ namespace IFC4
 	/// </summary>
 	public abstract partial class IfcStructuralLoadStatic : IfcStructuralLoadOrResult
 	{
-
+		/// <summary>
+		/// Construct a IfcStructuralLoadStatic with all required attributes.
+		/// </summary>
 		public IfcStructuralLoadStatic():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralLoadStatic with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralLoadStatic(IfcLabel name):base(name)
+		{
 
 		}
-
 		public static new IfcStructuralLoadStatic FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadStatic>(json);
-		}
-
-		public static new IfcStructuralLoadStatic FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24620,22 +26924,29 @@ namespace IFC4
 		public List<IfcLengthMeasure> SurfaceReinforcement2{get;set;} // optional
 		public IfcRatioMeasure ShearReinforcement{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSurfaceReinforcementArea with all required attributes.
+		/// </summary>
 		public IfcSurfaceReinforcementArea():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSurfaceReinforcementArea with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSurfaceReinforcementArea(List<IfcLengthMeasure> surfaceReinforcement1,List<IfcLengthMeasure> surfaceReinforcement2,IfcRatioMeasure shearReinforcement,IfcLabel name):base(name)
+		{
+			SurfaceReinforcement1 = surfaceReinforcement1;
+			SurfaceReinforcement2 = surfaceReinforcement2;
+			ShearReinforcement = shearReinforcement;
 			SurfaceReinforcement1 = new List<IfcLengthMeasure>();
 			SurfaceReinforcement2 = new List<IfcLengthMeasure>();
 
 		}
-
 		public static new IfcSurfaceReinforcementArea FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceReinforcementArea>(json);
-		}
-
-		public static new IfcSurfaceReinforcementArea FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24648,20 +26959,27 @@ namespace IFC4
 		public IfcPlanarForceMeasure PlanarForceY{get;set;} // optional
 		public IfcPlanarForceMeasure PlanarForceZ{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcStructuralLoadPlanarForce with all required attributes.
+		/// </summary>
 		public IfcStructuralLoadPlanarForce():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralLoadPlanarForce with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralLoadPlanarForce(IfcPlanarForceMeasure planarForceX,IfcPlanarForceMeasure planarForceY,IfcPlanarForceMeasure planarForceZ,IfcLabel name):base(name)
+		{
+			PlanarForceX = planarForceX;
+			PlanarForceY = planarForceY;
+			PlanarForceZ = planarForceZ;
 
 		}
-
 		public static new IfcStructuralLoadPlanarForce FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadPlanarForce>(json);
-		}
-
-		public static new IfcStructuralLoadPlanarForce FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24677,20 +26995,30 @@ namespace IFC4
 		public IfcPlaneAngleMeasure RotationalDisplacementRY{get;set;} // optional
 		public IfcPlaneAngleMeasure RotationalDisplacementRZ{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcStructuralLoadSingleDisplacement with all required attributes.
+		/// </summary>
 		public IfcStructuralLoadSingleDisplacement():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralLoadSingleDisplacement with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralLoadSingleDisplacement(IfcLengthMeasure displacementX,IfcLengthMeasure displacementY,IfcLengthMeasure displacementZ,IfcPlaneAngleMeasure rotationalDisplacementRX,IfcPlaneAngleMeasure rotationalDisplacementRY,IfcPlaneAngleMeasure rotationalDisplacementRZ,IfcLabel name):base(name)
+		{
+			DisplacementX = displacementX;
+			DisplacementY = displacementY;
+			DisplacementZ = displacementZ;
+			RotationalDisplacementRX = rotationalDisplacementRX;
+			RotationalDisplacementRY = rotationalDisplacementRY;
+			RotationalDisplacementRZ = rotationalDisplacementRZ;
 
 		}
-
 		public static new IfcStructuralLoadSingleDisplacement FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadSingleDisplacement>(json);
-		}
-
-		public static new IfcStructuralLoadSingleDisplacement FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24701,20 +27029,25 @@ namespace IFC4
 	{
 		public IfcCurvatureMeasure Distortion{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcStructuralLoadSingleDisplacementDistortion with all required attributes.
+		/// </summary>
 		public IfcStructuralLoadSingleDisplacementDistortion():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralLoadSingleDisplacementDistortion with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralLoadSingleDisplacementDistortion(IfcCurvatureMeasure distortion,IfcLengthMeasure displacementX,IfcLengthMeasure displacementY,IfcLengthMeasure displacementZ,IfcPlaneAngleMeasure rotationalDisplacementRX,IfcPlaneAngleMeasure rotationalDisplacementRY,IfcPlaneAngleMeasure rotationalDisplacementRZ,IfcLabel name):base(displacementX,displacementY,displacementZ,rotationalDisplacementRX,rotationalDisplacementRY,rotationalDisplacementRZ,name)
+		{
+			Distortion = distortion;
 
 		}
-
 		public static new IfcStructuralLoadSingleDisplacementDistortion FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadSingleDisplacementDistortion>(json);
-		}
-
-		public static new IfcStructuralLoadSingleDisplacementDistortion FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24730,20 +27063,30 @@ namespace IFC4
 		public IfcTorqueMeasure MomentY{get;set;} // optional
 		public IfcTorqueMeasure MomentZ{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcStructuralLoadSingleForce with all required attributes.
+		/// </summary>
 		public IfcStructuralLoadSingleForce():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralLoadSingleForce with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralLoadSingleForce(IfcForceMeasure forceX,IfcForceMeasure forceY,IfcForceMeasure forceZ,IfcTorqueMeasure momentX,IfcTorqueMeasure momentY,IfcTorqueMeasure momentZ,IfcLabel name):base(name)
+		{
+			ForceX = forceX;
+			ForceY = forceY;
+			ForceZ = forceZ;
+			MomentX = momentX;
+			MomentY = momentY;
+			MomentZ = momentZ;
 
 		}
-
 		public static new IfcStructuralLoadSingleForce FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadSingleForce>(json);
-		}
-
-		public static new IfcStructuralLoadSingleForce FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24754,20 +27097,25 @@ namespace IFC4
 	{
 		public IfcWarpingMomentMeasure WarpingMoment{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcStructuralLoadSingleForceWarping with all required attributes.
+		/// </summary>
 		public IfcStructuralLoadSingleForceWarping():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralLoadSingleForceWarping with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralLoadSingleForceWarping(IfcWarpingMomentMeasure warpingMoment,IfcForceMeasure forceX,IfcForceMeasure forceY,IfcForceMeasure forceZ,IfcTorqueMeasure momentX,IfcTorqueMeasure momentY,IfcTorqueMeasure momentZ,IfcLabel name):base(forceX,forceY,forceZ,momentX,momentY,momentZ,name)
+		{
+			WarpingMoment = warpingMoment;
 
 		}
-
 		public static new IfcStructuralLoadSingleForceWarping FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadSingleForceWarping>(json);
-		}
-
-		public static new IfcStructuralLoadSingleForceWarping FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24780,20 +27128,27 @@ namespace IFC4
 		public IfcThermodynamicTemperatureMeasure DeltaTY{get;set;} // optional
 		public IfcThermodynamicTemperatureMeasure DeltaTZ{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcStructuralLoadTemperature with all required attributes.
+		/// </summary>
 		public IfcStructuralLoadTemperature():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralLoadTemperature with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralLoadTemperature(IfcThermodynamicTemperatureMeasure deltaTConstant,IfcThermodynamicTemperatureMeasure deltaTY,IfcThermodynamicTemperatureMeasure deltaTZ,IfcLabel name):base(name)
+		{
+			DeltaTConstant = deltaTConstant;
+			DeltaTY = deltaTY;
+			DeltaTZ = deltaTZ;
 
 		}
-
 		public static new IfcStructuralLoadTemperature FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadTemperature>(json);
-		}
-
-		public static new IfcStructuralLoadTemperature FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24805,21 +27160,27 @@ namespace IFC4
 		public IfcStructuralSurfaceMemberTypeEnum PredefinedType{get;set;} 
 		public IfcPositiveLengthMeasure Thickness{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcStructuralSurfaceMember with all required attributes.
+		/// </summary>
 		public IfcStructuralSurfaceMember(IfcStructuralSurfaceMemberTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralSurfaceMember with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralSurfaceMember(IfcStructuralSurfaceMemberTypeEnum predefinedType,IfcPositiveLengthMeasure thickness,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			Thickness = thickness;
 
 		}
-
 		public static new IfcStructuralSurfaceMember FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralSurfaceMember>(json);
-		}
-
-		public static new IfcStructuralSurfaceMember FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24828,21 +27189,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcStructuralPlanarAction : IfcStructuralSurfaceAction
 	{
-
+		/// <summary>
+		/// Construct a IfcStructuralPlanarAction with all required attributes.
+		/// </summary>
 		public IfcStructuralPlanarAction(IfcStructuralSurfaceActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(predefinedType,appliedLoad,globalOrLocal,globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralPlanarAction with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralPlanarAction(IfcProjectedOrTrueLengthEnum projectedOrTrue,IfcStructuralSurfaceActivityTypeEnum predefinedType,bool destabilizingLoad,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(projectedOrTrue,predefinedType,destabilizingLoad,appliedLoad,globalOrLocal,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcStructuralPlanarAction FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralPlanarAction>(json);
-		}
-
-		public static new IfcStructuralPlanarAction FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24851,21 +27215,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcStructuralPointReaction : IfcStructuralReaction
 	{
-
+		/// <summary>
+		/// Construct a IfcStructuralPointReaction with all required attributes.
+		/// </summary>
 		public IfcStructuralPointReaction(IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralPointReaction with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralPointReaction(IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(appliedLoad,globalOrLocal,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcStructuralPointReaction FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralPointReaction>(json);
-		}
-
-		public static new IfcStructuralPointReaction FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24876,21 +27243,26 @@ namespace IFC4
 	{
 		public IfcStructuralSurfaceActivityTypeEnum PredefinedType{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcStructuralSurfaceReaction with all required attributes.
+		/// </summary>
 		public IfcStructuralSurfaceReaction(IfcStructuralSurfaceActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralSurfaceReaction with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralSurfaceReaction(IfcStructuralSurfaceActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(appliedLoad,globalOrLocal,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcStructuralSurfaceReaction FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralSurfaceReaction>(json);
-		}
-
-		public static new IfcStructuralSurfaceReaction FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24899,21 +27271,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcStructuralSurfaceMemberVarying : IfcStructuralSurfaceMember
 	{
-
+		/// <summary>
+		/// Construct a IfcStructuralSurfaceMemberVarying with all required attributes.
+		/// </summary>
 		public IfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMemberTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(predefinedType,globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStructuralSurfaceMemberVarying with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMemberTypeEnum predefinedType,IfcPositiveLengthMeasure thickness,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,thickness,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcStructuralSurfaceMemberVarying FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralSurfaceMemberVarying>(json);
-		}
-
-		public static new IfcStructuralSurfaceMemberVarying FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24922,21 +27297,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcStyledRepresentation : IfcStyleModel
 	{
-
+		/// <summary>
+		/// Construct a IfcStyledRepresentation with all required attributes.
+		/// </summary>
 		public IfcStyledRepresentation(IfcRepresentationContext contextOfItems,List<IfcRepresentationItem> items):base(contextOfItems,items)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcStyledRepresentation with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcStyledRepresentation(IfcRepresentationContext contextOfItems,IfcLabel representationIdentifier,IfcLabel representationType,List<IfcRepresentationItem> items):base(contextOfItems,representationIdentifier,representationType,items)
+		{
 
 		}
-
 		public static new IfcStyledRepresentation FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStyledRepresentation>(json);
-		}
-
-		public static new IfcStyledRepresentation FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24948,21 +27326,27 @@ namespace IFC4
 		public IfcProfileDef SweptCurve{get;set;} 
 		public IfcAxis2Placement3D Position{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSweptSurface with all required attributes.
+		/// </summary>
 		public IfcSweptSurface(IfcProfileDef sweptCurve):base()
 		{
 			SweptCurve = sweptCurve;
 
+		}
+		/// <summary>
+		/// Construct a IfcSweptSurface with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSweptSurface(IfcProfileDef sweptCurve,IfcAxis2Placement3D position):base()
+		{
+			SweptCurve = sweptCurve;
+			Position = position;
 
 		}
-
 		public static new IfcSweptSurface FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSweptSurface>(json);
-		}
-
-		public static new IfcSweptSurface FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -24976,22 +27360,30 @@ namespace IFC4
 		public IfcParameterValue EndParam{get;set;} // optional
 		public IfcSurface ReferenceSurface{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcSurfaceCurveSweptAreaSolid with all required attributes.
+		/// </summary>
 		public IfcSurfaceCurveSweptAreaSolid(IfcCurve directrix,IfcSurface referenceSurface,IfcProfileDef sweptArea):base(sweptArea)
 		{
 			Directrix = directrix;
 			ReferenceSurface = referenceSurface;
 
+		}
+		/// <summary>
+		/// Construct a IfcSurfaceCurveSweptAreaSolid with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSurfaceCurveSweptAreaSolid(IfcCurve directrix,IfcParameterValue startParam,IfcParameterValue endParam,IfcSurface referenceSurface,IfcProfileDef sweptArea,IfcAxis2Placement3D position):base(sweptArea,position)
+		{
+			Directrix = directrix;
+			StartParam = startParam;
+			EndParam = endParam;
+			ReferenceSurface = referenceSurface;
 
 		}
-
 		public static new IfcSurfaceCurveSweptAreaSolid FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceCurveSweptAreaSolid>(json);
-		}
-
-		public static new IfcSurfaceCurveSweptAreaSolid FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25003,22 +27395,28 @@ namespace IFC4
 		public IfcDirection ExtrudedDirection{get;set;} 
 		public IfcLengthMeasure Depth{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcSurfaceOfLinearExtrusion with all required attributes.
+		/// </summary>
 		public IfcSurfaceOfLinearExtrusion(IfcDirection extrudedDirection,IfcLengthMeasure depth,IfcProfileDef sweptCurve):base(sweptCurve)
 		{
 			ExtrudedDirection = extrudedDirection;
 			Depth = depth;
 
+		}
+		/// <summary>
+		/// Construct a IfcSurfaceOfLinearExtrusion with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSurfaceOfLinearExtrusion(IfcDirection extrudedDirection,IfcLengthMeasure depth,IfcProfileDef sweptCurve,IfcAxis2Placement3D position):base(sweptCurve,position)
+		{
+			ExtrudedDirection = extrudedDirection;
+			Depth = depth;
 
 		}
-
 		public static new IfcSurfaceOfLinearExtrusion FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceOfLinearExtrusion>(json);
-		}
-
-		public static new IfcSurfaceOfLinearExtrusion FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25029,21 +27427,26 @@ namespace IFC4
 	{
 		public IfcAxis1Placement AxisPosition{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcSurfaceOfRevolution with all required attributes.
+		/// </summary>
 		public IfcSurfaceOfRevolution(IfcAxis1Placement axisPosition,IfcProfileDef sweptCurve):base(sweptCurve)
 		{
 			AxisPosition = axisPosition;
 
+		}
+		/// <summary>
+		/// Construct a IfcSurfaceOfRevolution with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSurfaceOfRevolution(IfcAxis1Placement axisPosition,IfcProfileDef sweptCurve,IfcAxis2Placement3D position):base(sweptCurve,position)
+		{
+			AxisPosition = axisPosition;
 
 		}
-
 		public static new IfcSurfaceOfRevolution FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceOfRevolution>(json);
-		}
-
-		public static new IfcSurfaceOfRevolution FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25061,21 +27464,33 @@ namespace IFC4
 		public IfcSpecularHighlightSelect SpecularHighlight{get;set;} // optional
 		public IfcReflectanceMethodEnum ReflectanceMethod{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcSurfaceStyleRendering with all required attributes.
+		/// </summary>
 		public IfcSurfaceStyleRendering(IfcReflectanceMethodEnum reflectanceMethod,IfcColourRgb surfaceColour):base(surfaceColour)
 		{
 			ReflectanceMethod = reflectanceMethod;
 
+		}
+		/// <summary>
+		/// Construct a IfcSurfaceStyleRendering with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSurfaceStyleRendering(IfcNormalisedRatioMeasure transparency,IfcColourOrFactor diffuseColour,IfcColourOrFactor transmissionColour,IfcColourOrFactor diffuseTransmissionColour,IfcColourOrFactor reflectionColour,IfcColourOrFactor specularColour,IfcSpecularHighlightSelect specularHighlight,IfcReflectanceMethodEnum reflectanceMethod,IfcColourRgb surfaceColour):base(surfaceColour)
+		{
+			Transparency = transparency;
+			DiffuseColour = diffuseColour;
+			TransmissionColour = transmissionColour;
+			DiffuseTransmissionColour = diffuseTransmissionColour;
+			ReflectionColour = reflectionColour;
+			SpecularColour = specularColour;
+			SpecularHighlight = specularHighlight;
+			ReflectanceMethod = reflectanceMethod;
 
 		}
-
 		public static new IfcSurfaceStyleRendering FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceStyleRendering>(json);
-		}
-
-		public static new IfcSurfaceStyleRendering FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25086,20 +27501,25 @@ namespace IFC4
 	{
 		public IfcPositiveLengthMeasure FilletRadius{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcSweptDiskSolidPolygonal with all required attributes.
+		/// </summary>
 		public IfcSweptDiskSolidPolygonal(IfcCurve directrix,IfcPositiveLengthMeasure radius):base(directrix,radius)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcSweptDiskSolidPolygonal with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcSweptDiskSolidPolygonal(IfcPositiveLengthMeasure filletRadius,IfcCurve directrix,IfcPositiveLengthMeasure radius,IfcPositiveLengthMeasure innerRadius,IfcParameterValue startParam,IfcParameterValue endParam):base(directrix,radius,innerRadius,startParam,endParam)
+		{
+			FilletRadius = filletRadius;
 
 		}
-
 		public static new IfcSweptDiskSolidPolygonal FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSweptDiskSolidPolygonal>(json);
-		}
-
-		public static new IfcSweptDiskSolidPolygonal FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25110,20 +27530,25 @@ namespace IFC4
 	{
 		public IfcLabel LongName{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcZone with all required attributes.
+		/// </summary>
 		public IfcZone(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcZone with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcZone(IfcLabel longName,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		{
+			LongName = longName;
 
 		}
-
 		public static new IfcZone FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcZone>(json);
-		}
-
-		public static new IfcZone FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25136,22 +27561,29 @@ namespace IFC4
 		public List<IfcTableRow> Rows{get;set;} // optional
 		public List<IfcTableColumn> Columns{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTable with all required attributes.
+		/// </summary>
 		public IfcTable():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcTable with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTable(IfcLabel name,List<IfcTableRow> rows,List<IfcTableColumn> columns):base()
+		{
+			Name = name;
+			Rows = rows;
+			Columns = columns;
 			Rows = new List<IfcTableRow>();
 			Columns = new List<IfcTableColumn>();
 
 		}
-
 		public static  IfcTable FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTable>(json);
-		}
-
-		public static  IfcTable FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25166,20 +27598,29 @@ namespace IFC4
 		public IfcUnit Unit{get;set;} // optional
 		public IfcReference ReferencePath{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTableColumn with all required attributes.
+		/// </summary>
 		public IfcTableColumn():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcTableColumn with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTableColumn(IfcIdentifier identifier,IfcLabel name,IfcText description,IfcUnit unit,IfcReference referencePath):base()
+		{
+			Identifier = identifier;
+			Name = name;
+			Description = description;
+			Unit = unit;
+			ReferencePath = referencePath;
 
 		}
-
 		public static  IfcTableColumn FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTableColumn>(json);
-		}
-
-		public static  IfcTableColumn FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25191,21 +27632,27 @@ namespace IFC4
 		public List<IfcValue> RowCells{get;set;} // optional
 		public bool IsHeading{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTableRow with all required attributes.
+		/// </summary>
 		public IfcTableRow():base()
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcTableRow with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTableRow(List<IfcValue> rowCells,bool isHeading):base()
+		{
+			RowCells = rowCells;
+			IsHeading = isHeading;
 			RowCells = new List<IfcValue>();
 
 		}
-
 		public static  IfcTableRow FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTableRow>(json);
-		}
-
-		public static  IfcTableRow FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25216,21 +27663,26 @@ namespace IFC4
 	{
 		public IfcRecurrencePattern Recurrance{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcTaskTimeRecurring with all required attributes.
+		/// </summary>
 		public IfcTaskTimeRecurring(IfcRecurrencePattern recurrance):base()
 		{
 			Recurrance = recurrance;
 
+		}
+		/// <summary>
+		/// Construct a IfcTaskTimeRecurring with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTaskTimeRecurring(IfcRecurrencePattern recurrance,IfcTaskDurationEnum durationType,IfcDuration scheduleDuration,IfcDateTime scheduleStart,IfcDateTime scheduleFinish,IfcDateTime earlyStart,IfcDateTime earlyFinish,IfcDateTime lateStart,IfcDateTime lateFinish,IfcDuration freeFloat,IfcDuration totalFloat,bool isCritical,IfcDateTime statusTime,IfcDuration actualDuration,IfcDateTime actualStart,IfcDateTime actualFinish,IfcDuration remainingTime,IfcPositiveRatioMeasure completion,IfcLabel name,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin):base(durationType,scheduleDuration,scheduleStart,scheduleFinish,earlyStart,earlyFinish,lateStart,lateFinish,freeFloat,totalFloat,isCritical,statusTime,actualDuration,actualStart,actualFinish,remainingTime,completion,name,dataOrigin,userDefinedDataOrigin)
+		{
+			Recurrance = recurrance;
 
 		}
-
 		public static new IfcTaskTimeRecurring FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTaskTimeRecurring>(json);
-		}
-
-		public static new IfcTaskTimeRecurring FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25242,21 +27694,27 @@ namespace IFC4
 		public IfcTaskTypeEnum PredefinedType{get;set;} 
 		public IfcLabel WorkMethod{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTaskType with all required attributes.
+		/// </summary>
 		public IfcTaskType(IfcTaskTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
+		}
+		/// <summary>
+		/// Construct a IfcTaskType with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTaskType(IfcTaskTypeEnum predefinedType,IfcLabel workMethod,IfcIdentifier identification,IfcText longDescription,IfcLabel processType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,longDescription,processType,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
+			WorkMethod = workMethod;
 
 		}
-
 		public static new IfcTaskType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTaskType>(json);
-		}
-
-		public static new IfcTaskType FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25269,22 +27727,29 @@ namespace IFC4
 		public List<List<IfcParameterValue>> Normals{get;set;} // optional
 		public bool Closed{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTessellatedFaceSet with all required attributes.
+		/// </summary>
 		public IfcTessellatedFaceSet(IfcCartesianPointList3D coordinates):base()
 		{
 			Coordinates = coordinates;
 
+		}
+		/// <summary>
+		/// Construct a IfcTessellatedFaceSet with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTessellatedFaceSet(IfcCartesianPointList3D coordinates,List<List<IfcParameterValue>> normals,bool closed):base()
+		{
+			Coordinates = coordinates;
+			Normals = normals;
+			Closed = closed;
 			Normals = new List<List<IfcParameterValue>>();
 
 		}
-
 		public static new IfcTessellatedFaceSet FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTessellatedFaceSet>(json);
-		}
-
-		public static new IfcTessellatedFaceSet FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25296,22 +27761,30 @@ namespace IFC4
 		public List<List<int>> CoordIndex{get;set;} 
 		public List<List<int>> NormalIndex{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTriangulatedFaceSet with all required attributes.
+		/// </summary>
 		public IfcTriangulatedFaceSet(List<List<int>> coordIndex,IfcCartesianPointList3D coordinates):base(coordinates)
 		{
 			CoordIndex = coordIndex;
+			CoordIndex = new List<List<int>>();
 
+		}
+		/// <summary>
+		/// Construct a IfcTriangulatedFaceSet with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTriangulatedFaceSet(List<List<int>> coordIndex,List<List<int>> normalIndex,IfcCartesianPointList3D coordinates,List<List<IfcParameterValue>> normals,bool closed):base(coordinates,normals,closed)
+		{
+			CoordIndex = coordIndex;
+			NormalIndex = normalIndex;
+			CoordIndex = new List<List<int>>();
 			NormalIndex = new List<List<int>>();
 
 		}
-
 		public static new IfcTriangulatedFaceSet FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTriangulatedFaceSet>(json);
-		}
-
-		public static new IfcTriangulatedFaceSet FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25323,22 +27796,19 @@ namespace IFC4
 		public IfcPlanarExtent Extent{get;set;} 
 		public IfcBoxAlignment BoxAlignment{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcTextLiteralWithExtent with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcTextLiteralWithExtent(IfcPlanarExtent extent,IfcBoxAlignment boxAlignment,IfcPresentableText literal,IfcAxis2Placement placement,IfcTextPath path):base(literal,placement,path)
 		{
 			Extent = extent;
 			BoxAlignment = boxAlignment;
 
-
 		}
-
 		public static new IfcTextLiteralWithExtent FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTextLiteralWithExtent>(json);
-		}
-
-		public static new IfcTextLiteralWithExtent FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25350,22 +27820,28 @@ namespace IFC4
 		public IfcLabel Mode{get;set;} 
 		public List<IfcReal> Parameter{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcTextureCoordinateGenerator with all required attributes.
+		/// </summary>
 		public IfcTextureCoordinateGenerator(IfcLabel mode,List<IfcSurfaceTexture> maps):base(maps)
 		{
 			Mode = mode;
 
+		}
+		/// <summary>
+		/// Construct a IfcTextureCoordinateGenerator with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcTextureCoordinateGenerator(IfcLabel mode,List<IfcReal> parameter,List<IfcSurfaceTexture> maps):base(maps)
+		{
+			Mode = mode;
+			Parameter = parameter;
 			Parameter = new List<IfcReal>();
 
 		}
-
 		public static new IfcTextureCoordinateGenerator FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTextureCoordinateGenerator>(json);
-		}
-
-		public static new IfcTextureCoordinateGenerator FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25377,22 +27853,20 @@ namespace IFC4
 		public List<IfcTextureVertex> Vertices{get;set;} 
 		public IfcFace MappedTo{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcTextureMap with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcTextureMap(List<IfcTextureVertex> vertices,IfcFace mappedTo,List<IfcSurfaceTexture> maps):base(maps)
 		{
 			Vertices = vertices;
 			MappedTo = mappedTo;
-
+			Vertices = new List<IfcTextureVertex>();
 
 		}
-
 		public static new IfcTextureMap FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTextureMap>(json);
-		}
-
-		public static new IfcTextureMap FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25404,22 +27878,19 @@ namespace IFC4
 		public IfcTime StartTime{get;set;} 
 		public IfcTime EndTime{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcTimePeriod with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcTimePeriod(IfcTime startTime,IfcTime endTime):base()
 		{
 			StartTime = startTime;
 			EndTime = endTime;
 
-
 		}
-
 		public static  IfcTimePeriod FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTimePeriod>(json);
-		}
-
-		public static  IfcTimePeriod FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25430,21 +27901,19 @@ namespace IFC4
 	{
 		public List<IfcValue> ListValues{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcTimeSeriesValue with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcTimeSeriesValue(List<IfcValue> listValues):base()
 		{
 			ListValues = listValues;
-
+			ListValues = new List<IfcValue>();
 
 		}
-
 		public static  IfcTimeSeriesValue FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTimeSeriesValue>(json);
-		}
-
-		public static  IfcTimeSeriesValue FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25453,21 +27922,17 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcVertex : IfcTopologicalRepresentationItem
 	{
-
+		/// <summary>
+		/// Construct a IfcVertex with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcVertex():base()
 		{
 
-
 		}
-
 		public static new IfcVertex FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcVertex>(json);
-		}
-
-		public static new IfcVertex FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25481,6 +27946,9 @@ namespace IFC4
 		public bool ParameterTakesPrecedence{get;set;} 
 		public bool Sizeable{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcWindowStyle with all required attributes.
+		/// </summary>
 		public IfcWindowStyle(IfcWindowStyleConstructionEnum constructionType,IfcWindowStyleOperationEnum operationType,bool parameterTakesPrecedence,bool sizeable,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			ConstructionType = constructionType;
@@ -25488,17 +27956,22 @@ namespace IFC4
 			ParameterTakesPrecedence = parameterTakesPrecedence;
 			Sizeable = sizeable;
 
+		}
+		/// <summary>
+		/// Construct a IfcWindowStyle with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcWindowStyle(IfcWindowStyleConstructionEnum constructionType,IfcWindowStyleOperationEnum operationType,bool parameterTakesPrecedence,bool sizeable,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		{
+			ConstructionType = constructionType;
+			OperationType = operationType;
+			ParameterTakesPrecedence = parameterTakesPrecedence;
+			Sizeable = sizeable;
 
 		}
-
 		public static new IfcWindowStyle FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcWindowStyle>(json);
-		}
-
-		public static new IfcWindowStyle FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25509,21 +27982,19 @@ namespace IFC4
 	{
 		public List<IfcUnit> Units{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcUnitAssignment with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcUnitAssignment(List<IfcUnit> units):base()
 		{
 			Units = units;
-
+			Units = new List<IfcUnit>();
 
 		}
-
 		public static  IfcUnitAssignment FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcUnitAssignment>(json);
-		}
-
-		public static  IfcUnitAssignment FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25534,21 +28005,18 @@ namespace IFC4
 	{
 		public IfcPoint VertexGeometry{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcVertexPoint with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcVertexPoint(IfcPoint vertexGeometry):base()
 		{
 			VertexGeometry = vertexGeometry;
 
-
 		}
-
 		public static new IfcVertexPoint FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcVertexPoint>(json);
-		}
-
-		public static new IfcVertexPoint FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25560,22 +28028,21 @@ namespace IFC4
 		public List<IfcGridAxis> IntersectingAxes{get;set;} 
 		public List<IfcLengthMeasure> OffsetDistances{get;set;} 
 
+		/// <summary>
+		/// Construct a IfcVirtualGridIntersection with all required attributes.
+		/// </summary>
+		[JsonConstructor]
 		public IfcVirtualGridIntersection(List<IfcGridAxis> intersectingAxes,List<IfcLengthMeasure> offsetDistances):base()
 		{
 			IntersectingAxes = intersectingAxes;
 			OffsetDistances = offsetDistances;
-
+			IntersectingAxes = new List<IfcGridAxis>();
+			OffsetDistances = new List<IfcLengthMeasure>();
 
 		}
-
 		public static  IfcVirtualGridIntersection FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcVirtualGridIntersection>(json);
-		}
-
-		public static  IfcVirtualGridIntersection FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25584,21 +28051,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcWallElementedCase : IfcWall
 	{
-
+		/// <summary>
+		/// Construct a IfcWallElementedCase with all required attributes.
+		/// </summary>
 		public IfcWallElementedCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcWallElementedCase with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcWallElementedCase(IfcWallTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcWallElementedCase FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcWallElementedCase>(json);
-		}
-
-		public static new IfcWallElementedCase FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25607,21 +28077,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcWallStandardCase : IfcWall
 	{
-
+		/// <summary>
+		/// Construct a IfcWallStandardCase with all required attributes.
+		/// </summary>
 		public IfcWallStandardCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcWallStandardCase with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcWallStandardCase(IfcWallTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcWallStandardCase FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcWallStandardCase>(json);
-		}
-
-		public static new IfcWallStandardCase FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25630,21 +28103,24 @@ namespace IFC4
 	/// </summary>
 	public  partial class IfcWindowStandardCase : IfcWindow
 	{
-
+		/// <summary>
+		/// Construct a IfcWindowStandardCase with all required attributes.
+		/// </summary>
 		public IfcWindowStandardCase(IfcGloballyUniqueId globalId):base(globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcWindowStandardCase with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcWindowStandardCase(IfcPositiveLengthMeasure overallHeight,IfcPositiveLengthMeasure overallWidth,IfcWindowTypeEnum predefinedType,IfcWindowTypePartitioningEnum partitioningType,IfcLabel userDefinedPartitioningType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(overallHeight,overallWidth,predefinedType,partitioningType,userDefinedPartitioningType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		{
 
 		}
-
 		public static new IfcWindowStandardCase FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcWindowStandardCase>(json);
-		}
-
-		public static new IfcWindowStandardCase FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25655,20 +28131,25 @@ namespace IFC4
 	{
 		public IfcWorkPlanTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcWorkPlan with all required attributes.
+		/// </summary>
 		public IfcWorkPlan(IfcDateTime creationDate,IfcDateTime startTime,IfcGloballyUniqueId globalId):base(creationDate,startTime,globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcWorkPlan with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcWorkPlan(IfcWorkPlanTypeEnum predefinedType,IfcDateTime creationDate,List<IfcPerson> creators,IfcLabel purpose,IfcDuration duration,IfcDuration totalFloat,IfcDateTime startTime,IfcDateTime finishTime,IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(creationDate,creators,purpose,duration,totalFloat,startTime,finishTime,identification,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcWorkPlan FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcWorkPlan>(json);
-		}
-
-		public static new IfcWorkPlan FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 
@@ -25679,20 +28160,25 @@ namespace IFC4
 	{
 		public IfcWorkScheduleTypeEnum PredefinedType{get;set;} // optional
 
+		/// <summary>
+		/// Construct a IfcWorkSchedule with all required attributes.
+		/// </summary>
 		public IfcWorkSchedule(IfcDateTime creationDate,IfcDateTime startTime,IfcGloballyUniqueId globalId):base(creationDate,startTime,globalId)
 		{
 
+		}
+		/// <summary>
+		/// Construct a IfcWorkSchedule with required and optional attributes.
+		/// </summary>
+		[JsonConstructor]
+		public IfcWorkSchedule(IfcWorkScheduleTypeEnum predefinedType,IfcDateTime creationDate,List<IfcPerson> creators,IfcLabel purpose,IfcDuration duration,IfcDuration totalFloat,IfcDateTime startTime,IfcDateTime finishTime,IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(creationDate,creators,purpose,duration,totalFloat,startTime,finishTime,identification,objectType,globalId,ownerHistory,name,description)
+		{
+			PredefinedType = predefinedType;
 
 		}
-
 		public static new IfcWorkSchedule FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcWorkSchedule>(json);
-		}
-
-		public static new IfcWorkSchedule FromSTEP(string step)
-		{
-			throw new NotImplementedException();
 		}
 	}
 }

@@ -38,8 +38,8 @@ public partial class STEPParser : Parser {
 	protected static PredictionContextCache sharedContextCache = new PredictionContextCache();
 	public const int
 		T__0=1, T__1=2, T__2=3, T__3=4, T__4=5, T__5=6, T__6=7, T__7=8, IntegerLiteral=9, 
-		Letter=10, CapitalLetter=11, DateTime=12, Derived=13, Enum=14, BoolLogical=15, 
-		RealLiteral=16, DATA=17, ENDSEC=18, FILE_DESCRIPTION=19, FILE_NAME=20, 
+		Letter=10, CapitalLetter=11, DateTime=12, Derived=13, BoolLogical=14, 
+		Enum=15, RealLiteral=16, DATA=17, ENDSEC=18, FILE_DESCRIPTION=19, FILE_NAME=20, 
 		FILE_SCHEMA=21, HEADER=22, Id=23, ISO=24, ISO_END=25, StringLiteral=26, 
 		TypeRef=27, Undefined=28, AnyString=29, NewlineChar=30, WS=31, Comments=32;
 	public const int
@@ -64,7 +64,7 @@ public partial class STEPParser : Parser {
 	};
 	private static readonly string[] _SymbolicNames = {
 		null, null, null, null, null, null, null, null, null, "IntegerLiteral", 
-		"Letter", "CapitalLetter", "DateTime", "Derived", "Enum", "BoolLogical", 
+		"Letter", "CapitalLetter", "DateTime", "Derived", "BoolLogical", "Enum", 
 		"RealLiteral", "DATA", "ENDSEC", "FILE_DESCRIPTION", "FILE_NAME", "FILE_SCHEMA", 
 		"HEADER", "Id", "ISO", "ISO_END", "StringLiteral", "TypeRef", "Undefined", 
 		"AnyString", "NewlineChar", "WS", "Comments"
@@ -337,7 +337,7 @@ public partial class STEPParser : Parser {
 			State = 65;
 			ErrorHandler.Sync(this);
 			_la = TokenStream.LA(1);
-			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__3) | (1L << IntegerLiteral) | (1L << Derived) | (1L << Enum) | (1L << BoolLogical) | (1L << RealLiteral) | (1L << Id) | (1L << StringLiteral) | (1L << TypeRef) | (1L << Undefined) | (1L << AnyString))) != 0)) {
+			if ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__3) | (1L << IntegerLiteral) | (1L << Derived) | (1L << BoolLogical) | (1L << Enum) | (1L << RealLiteral) | (1L << Id) | (1L << StringLiteral) | (1L << TypeRef) | (1L << Undefined) | (1L << AnyString))) != 0)) {
 				{
 				State = 64; parameter();
 				}
@@ -1418,8 +1418,8 @@ public partial class STEPParser : Parser {
 		'\x2', '\x2', '\x2', '\xB1', '\xBD', '\x5', '\n', '\x6', '\x2', '\xB2', 
 		'\xBD', '\x5', '\x6', '\x4', '\x2', '\xB3', '\xBD', '\a', '\x1E', '\x2', 
 		'\x2', '\xB4', '\xBD', '\a', '\x1C', '\x2', '\x2', '\xB5', '\xBD', '\a', 
-		'\xF', '\x2', '\x2', '\xB6', '\xBD', '\a', '\x10', '\x2', '\x2', '\xB7', 
-		'\xBD', '\a', '\x11', '\x2', '\x2', '\xB8', '\xBD', '\a', '\x12', '\x2', 
+		'\xF', '\x2', '\x2', '\xB6', '\xBD', '\a', '\x11', '\x2', '\x2', '\xB7', 
+		'\xBD', '\a', '\x10', '\x2', '\x2', '\xB8', '\xBD', '\a', '\x12', '\x2', 
 		'\x2', '\xB9', '\xBD', '\a', '\x1F', '\x2', '\x2', '\xBA', '\xBD', '\a', 
 		'\x19', '\x2', '\x2', '\xBB', '\xBD', '\a', '\v', '\x2', '\x2', '\xBC', 
 		'\xB1', '\x3', '\x2', '\x2', '\x2', '\xBC', '\xB2', '\x3', '\x2', '\x2', 

@@ -133,12 +133,12 @@ Derived
 	: '*'
 	;
 
-Enum
-	: '.' [A-Z]([A-Z]|[0-9]|'_')* '.'
+BoolLogical
+	: '.' ('T'|'F'|'U') '.'
 	;
 
-BoolLogical
-	: '.' ('TRUE'|'FALSE'|'UNKNOWN') '.'
+Enum
+	: '.' [A-Z]([A-Z]|[0-9]|'_')* '.'
 	;
 
 RealLiteral
