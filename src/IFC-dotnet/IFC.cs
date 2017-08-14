@@ -5304,6 +5304,7 @@ namespace IFC4
 		/// </summary>
 		public IfcPostalAddress():base()
 		{
+			AddressLines = new List<IfcLabel>();
 
 		}
 		/// <summary>
@@ -5319,7 +5320,6 @@ namespace IFC4
 			Region = region;
 			PostalCode = postalCode;
 			Country = country;
-			AddressLines = new List<IfcLabel>();
 
 		}
 		public static new IfcPostalAddress FromJSON(string json)
@@ -5345,6 +5345,10 @@ namespace IFC4
 		/// </summary>
 		public IfcTelecomAddress():base()
 		{
+			TelephoneNumbers = new List<IfcLabel>();
+			FacsimileNumbers = new List<IfcLabel>();
+			ElectronicMailAddresses = new List<IfcLabel>();
+			MessagingIDs = new List<IfcURIReference>();
 
 		}
 		/// <summary>
@@ -5359,10 +5363,6 @@ namespace IFC4
 			ElectronicMailAddresses = electronicMailAddresses;
 			WWWHomePageURL = wWWHomePageURL;
 			MessagingIDs = messagingIDs;
-			TelephoneNumbers = new List<IfcLabel>();
-			FacsimileNumbers = new List<IfcLabel>();
-			ElectronicMailAddresses = new List<IfcLabel>();
-			MessagingIDs = new List<IfcURIReference>();
 
 		}
 		public static new IfcTelecomAddress FromJSON(string json)
@@ -5941,6 +5941,7 @@ namespace IFC4
 		public IfcAnnotationFillArea(IfcCurve outerBoundary):base()
 		{
 			OuterBoundary = outerBoundary;
+			InnerBoundaries = new List<IfcCurve>();
 
 		}
 		/// <summary>
@@ -5951,7 +5952,6 @@ namespace IFC4
 		{
 			OuterBoundary = outerBoundary;
 			InnerBoundaries = innerBoundaries;
-			InnerBoundaries = new List<IfcCurve>();
 
 		}
 		public static new IfcAnnotationFillArea FromJSON(string json)
@@ -6028,6 +6028,7 @@ namespace IFC4
 		/// </summary>
 		public IfcAppliedValue():base()
 		{
+			Components = new List<IfcAppliedValue>();
 
 		}
 		/// <summary>
@@ -6046,7 +6047,6 @@ namespace IFC4
 			Condition = condition;
 			ArithmeticOperator = arithmeticOperator;
 			Components = components;
-			Components = new List<IfcAppliedValue>();
 
 		}
 		public static  IfcAppliedValue FromJSON(string json)
@@ -7072,6 +7072,7 @@ namespace IFC4
 		{
 			RepeatS = repeatS;
 			RepeatT = repeatT;
+			Parameter = new List<IfcIdentifier>();
 
 		}
 		/// <summary>
@@ -7085,7 +7086,6 @@ namespace IFC4
 			Mode = mode;
 			TextureTransform = textureTransform;
 			Parameter = parameter;
-			Parameter = new List<IfcIdentifier>();
 
 		}
 		public static new IfcSurfaceTexture FromJSON(string json)
@@ -10196,6 +10196,7 @@ namespace IFC4
 		public IfcClassification(IfcLabel name):base()
 		{
 			Name = name;
+			ReferenceTokens = new List<IfcIdentifier>();
 
 		}
 		/// <summary>
@@ -10211,7 +10212,6 @@ namespace IFC4
 			Description = description;
 			Location = location;
 			ReferenceTokens = referenceTokens;
-			ReferenceTokens = new List<IfcIdentifier>();
 
 		}
 		public static new IfcClassification FromJSON(string json)
@@ -10679,6 +10679,7 @@ namespace IFC4
 		/// </summary>
 		public IfcComplexPropertyTemplate(IfcGloballyUniqueId globalId):base(globalId)
 		{
+			HasPropertyTemplates = new List<IfcPropertyTemplate>();
 
 		}
 		/// <summary>
@@ -10690,7 +10691,6 @@ namespace IFC4
 			UsageName = usageName;
 			TemplateType = templateType;
 			HasPropertyTemplates = hasPropertyTemplates;
-			HasPropertyTemplates = new List<IfcPropertyTemplate>();
 
 		}
 		public static new IfcComplexPropertyTemplate FromJSON(string json)
@@ -11315,6 +11315,7 @@ namespace IFC4
 		public IfcObjective(IfcObjectiveEnum objectiveQualifier,IfcLabel name,IfcConstraintEnum constraintGrade):base(name,constraintGrade)
 		{
 			ObjectiveQualifier = objectiveQualifier;
+			BenchmarkValues = new List<IfcConstraint>();
 
 		}
 		/// <summary>
@@ -11327,7 +11328,6 @@ namespace IFC4
 			LogicalAggregator = logicalAggregator;
 			ObjectiveQualifier = objectiveQualifier;
 			UserDefinedQualifier = userDefinedQualifier;
-			BenchmarkValues = new List<IfcConstraint>();
 
 		}
 		public static new IfcObjective FromJSON(string json)
@@ -11379,6 +11379,7 @@ namespace IFC4
 		/// </summary>
 		public IfcConstructionResource(IfcGloballyUniqueId globalId):base(globalId)
 		{
+			BaseCosts = new List<IfcAppliedValue>();
 
 		}
 		/// <summary>
@@ -11390,7 +11391,6 @@ namespace IFC4
 			Usage = usage;
 			BaseCosts = baseCosts;
 			BaseQuantity = baseQuantity;
-			BaseCosts = new List<IfcAppliedValue>();
 
 		}
 		public static new IfcConstructionResource FromJSON(string json)
@@ -11442,6 +11442,7 @@ namespace IFC4
 		/// </summary>
 		public IfcConstructionResourceType(IfcGloballyUniqueId globalId):base(globalId)
 		{
+			BaseCosts = new List<IfcAppliedValue>();
 
 		}
 		/// <summary>
@@ -11452,7 +11453,6 @@ namespace IFC4
 		{
 			BaseCosts = baseCosts;
 			BaseQuantity = baseQuantity;
-			BaseCosts = new List<IfcAppliedValue>();
 
 		}
 		public static new IfcConstructionResourceType FromJSON(string json)
@@ -11836,6 +11836,7 @@ namespace IFC4
 		/// </summary>
 		public IfcContext(IfcGloballyUniqueId globalId):base(globalId)
 		{
+			RepresentationContexts = new List<IfcRepresentationContext>();
 
 		}
 		/// <summary>
@@ -11849,7 +11850,6 @@ namespace IFC4
 			Phase = phase;
 			RepresentationContexts = representationContexts;
 			UnitsInContext = unitsInContext;
-			RepresentationContexts = new List<IfcRepresentationContext>();
 
 		}
 		public static new IfcContext FromJSON(string json)
@@ -11996,6 +11996,8 @@ namespace IFC4
 		/// </summary>
 		public IfcCostItem(IfcGloballyUniqueId globalId):base(globalId)
 		{
+			CostValues = new List<IfcCostValue>();
+			CostQuantities = new List<IfcPhysicalQuantity>();
 
 		}
 		/// <summary>
@@ -12007,8 +12009,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 			CostValues = costValues;
 			CostQuantities = costQuantities;
-			CostValues = new List<IfcCostValue>();
-			CostQuantities = new List<IfcPhysicalQuantity>();
 
 		}
 		public static new IfcCostItem FromJSON(string json)
@@ -12164,6 +12164,8 @@ namespace IFC4
 		/// </summary>
 		public IfcWorkCalendar(IfcGloballyUniqueId globalId):base(globalId)
 		{
+			WorkingTimes = new List<IfcWorkTime>();
+			ExceptionTimes = new List<IfcWorkTime>();
 
 		}
 		/// <summary>
@@ -12175,8 +12177,6 @@ namespace IFC4
 			WorkingTimes = workingTimes;
 			ExceptionTimes = exceptionTimes;
 			PredefinedType = predefinedType;
-			WorkingTimes = new List<IfcWorkTime>();
-			ExceptionTimes = new List<IfcWorkTime>();
 
 		}
 		public static new IfcWorkCalendar FromJSON(string json)
@@ -12205,6 +12205,7 @@ namespace IFC4
 		{
 			CreationDate = creationDate;
 			StartTime = startTime;
+			Creators = new List<IfcPerson>();
 
 		}
 		/// <summary>
@@ -12220,7 +12221,6 @@ namespace IFC4
 			TotalFloat = totalFloat;
 			StartTime = startTime;
 			FinishTime = finishTime;
-			Creators = new List<IfcPerson>();
 
 		}
 		public static new IfcWorkControl FromJSON(string json)
@@ -14013,6 +14013,7 @@ namespace IFC4
 		{
 			Identification = identification;
 			Name = name;
+			Editors = new List<IfcActorSelect>();
 
 		}
 		/// <summary>
@@ -14038,7 +14039,6 @@ namespace IFC4
 			ValidUntil = validUntil;
 			Confidentiality = confidentiality;
 			Status = status;
-			Editors = new List<IfcActorSelect>();
 
 		}
 		public static new IfcDocumentInformation FromJSON(string json)
@@ -14311,6 +14311,7 @@ namespace IFC4
 		/// </summary>
 		public IfcTypeProduct(IfcGloballyUniqueId globalId):base(globalId)
 		{
+			RepresentationMaps = new List<IfcRepresentationMap>();
 
 		}
 		/// <summary>
@@ -14321,7 +14322,6 @@ namespace IFC4
 		{
 			RepresentationMaps = representationMaps;
 			Tag = tag;
-			RepresentationMaps = new List<IfcRepresentationMap>();
 
 		}
 		public static new IfcTypeProduct FromJSON(string json)
@@ -19209,6 +19209,7 @@ namespace IFC4
 			VAxes = vAxes;
 			UAxes = new List<IfcGridAxis>();
 			VAxes = new List<IfcGridAxis>();
+			WAxes = new List<IfcGridAxis>();
 
 		}
 		/// <summary>
@@ -19223,7 +19224,6 @@ namespace IFC4
 			PredefinedType = predefinedType;
 			UAxes = new List<IfcGridAxis>();
 			VAxes = new List<IfcGridAxis>();
-			WAxes = new List<IfcGridAxis>();
 
 		}
 		public static new IfcGrid FromJSON(string json)
@@ -19335,6 +19335,7 @@ namespace IFC4
 		/// </summary>
 		public IfcInventory(IfcGloballyUniqueId globalId):base(globalId)
 		{
+			ResponsiblePersons = new List<IfcPerson>();
 
 		}
 		/// <summary>
@@ -19349,7 +19350,6 @@ namespace IFC4
 			LastUpdateDate = lastUpdateDate;
 			CurrentValue = currentValue;
 			OriginalValue = originalValue;
-			ResponsiblePersons = new List<IfcPerson>();
 
 		}
 		public static new IfcInventory FromJSON(string json)
@@ -19608,6 +19608,7 @@ namespace IFC4
 		/// </summary>
 		public IfcIndexedTriangleTextureMap(IfcTessellatedFaceSet mappedTo,IfcTextureVertexList texCoords,List<IfcSurfaceTexture> maps):base(mappedTo,texCoords,maps)
 		{
+			TexCoordIndex = new List<List<int>>();
 
 		}
 		/// <summary>
@@ -19617,7 +19618,6 @@ namespace IFC4
 		public IfcIndexedTriangleTextureMap(List<List<int>> texCoordIndex,IfcTessellatedFaceSet mappedTo,IfcTextureVertexList texCoords,List<IfcSurfaceTexture> maps):base(mappedTo,texCoords,maps)
 		{
 			TexCoordIndex = texCoordIndex;
-			TexCoordIndex = new List<List<int>>();
 
 		}
 		public static new IfcIndexedTriangleTextureMap FromJSON(string json)
@@ -20292,6 +20292,7 @@ namespace IFC4
 		/// </summary>
 		public IfcMaterialConstituentSet():base()
 		{
+			MaterialConstituents = new List<IfcMaterialConstituent>();
 
 		}
 		/// <summary>
@@ -20303,7 +20304,6 @@ namespace IFC4
 			Name = name;
 			Description = description;
 			MaterialConstituents = materialConstituents;
-			MaterialConstituents = new List<IfcMaterialConstituent>();
 
 		}
 		public static new IfcMaterialConstituentSet FromJSON(string json)
@@ -20904,6 +20904,7 @@ namespace IFC4
 		/// </summary>
 		public IfcTypeObject(IfcGloballyUniqueId globalId):base(globalId)
 		{
+			HasPropertySets = new List<IfcPropertySetDefinition>();
 
 		}
 		/// <summary>
@@ -20914,7 +20915,6 @@ namespace IFC4
 		{
 			ApplicableOccurrence = applicableOccurrence;
 			HasPropertySets = hasPropertySets;
-			HasPropertySets = new List<IfcPropertySetDefinition>();
 
 		}
 		public static new IfcTypeObject FromJSON(string json)
@@ -21002,6 +21002,8 @@ namespace IFC4
 		public IfcOrganization(IfcLabel name):base()
 		{
 			Name = name;
+			Roles = new List<IfcActorRole>();
+			Addresses = new List<IfcAddress>();
 
 		}
 		/// <summary>
@@ -21015,8 +21017,6 @@ namespace IFC4
 			Description = description;
 			Roles = roles;
 			Addresses = addresses;
-			Roles = new List<IfcActorRole>();
-			Addresses = new List<IfcAddress>();
 
 		}
 		public static  IfcOrganization FromJSON(string json)
@@ -21396,6 +21396,11 @@ namespace IFC4
 		/// </summary>
 		public IfcPerson():base()
 		{
+			MiddleNames = new List<IfcLabel>();
+			PrefixTitles = new List<IfcLabel>();
+			SuffixTitles = new List<IfcLabel>();
+			Roles = new List<IfcActorRole>();
+			Addresses = new List<IfcAddress>();
 
 		}
 		/// <summary>
@@ -21412,11 +21417,6 @@ namespace IFC4
 			SuffixTitles = suffixTitles;
 			Roles = roles;
 			Addresses = addresses;
-			MiddleNames = new List<IfcLabel>();
-			PrefixTitles = new List<IfcLabel>();
-			SuffixTitles = new List<IfcLabel>();
-			Roles = new List<IfcActorRole>();
-			Addresses = new List<IfcAddress>();
 
 		}
 		public static  IfcPerson FromJSON(string json)
@@ -21441,6 +21441,7 @@ namespace IFC4
 		{
 			ThePerson = thePerson;
 			TheOrganization = theOrganization;
+			Roles = new List<IfcActorRole>();
 
 		}
 		/// <summary>
@@ -21452,7 +21453,6 @@ namespace IFC4
 			ThePerson = thePerson;
 			TheOrganization = theOrganization;
 			Roles = roles;
-			Roles = new List<IfcActorRole>();
 
 		}
 		public static  IfcPersonAndOrganization FromJSON(string json)
@@ -23076,6 +23076,7 @@ namespace IFC4
 		/// </summary>
 		public IfcPropertyEnumeratedValue(IfcIdentifier name):base(name)
 		{
+			EnumerationValues = new List<IfcValue>();
 
 		}
 		/// <summary>
@@ -23086,7 +23087,6 @@ namespace IFC4
 		{
 			EnumerationValues = enumerationValues;
 			EnumerationReference = enumerationReference;
-			EnumerationValues = new List<IfcValue>();
 
 		}
 		public static new IfcPropertyEnumeratedValue FromJSON(string json)
@@ -23108,6 +23108,7 @@ namespace IFC4
 		/// </summary>
 		public IfcPropertyListValue(IfcIdentifier name):base(name)
 		{
+			ListValues = new List<IfcValue>();
 
 		}
 		/// <summary>
@@ -23118,7 +23119,6 @@ namespace IFC4
 		{
 			ListValues = listValues;
 			Unit = unit;
-			ListValues = new List<IfcValue>();
 
 		}
 		public static new IfcPropertyListValue FromJSON(string json)
@@ -23274,6 +23274,8 @@ namespace IFC4
 		/// </summary>
 		public IfcPropertyTableValue(IfcIdentifier name):base(name)
 		{
+			DefiningValues = new List<IfcValue>();
+			DefinedValues = new List<IfcValue>();
 
 		}
 		/// <summary>
@@ -23288,8 +23290,6 @@ namespace IFC4
 			DefiningUnit = definingUnit;
 			DefinedUnit = definedUnit;
 			CurveInterpolation = curveInterpolation;
-			DefiningValues = new List<IfcValue>();
-			DefinedValues = new List<IfcValue>();
 
 		}
 		public static new IfcPropertyTableValue FromJSON(string json)
@@ -23425,6 +23425,10 @@ namespace IFC4
 		public IfcRecurrencePattern(IfcRecurrenceTypeEnum recurrenceType):base()
 		{
 			RecurrenceType = recurrenceType;
+			DayComponent = new List<IfcDayInMonthNumber>();
+			WeekdayComponent = new List<IfcDayInWeekNumber>();
+			MonthComponent = new List<IfcMonthInYearNumber>();
+			TimePeriods = new List<IfcTimePeriod>();
 
 		}
 		/// <summary>
@@ -23441,10 +23445,6 @@ namespace IFC4
 			Interval = interval;
 			Occurrences = occurrences;
 			TimePeriods = timePeriods;
-			DayComponent = new List<IfcDayInMonthNumber>();
-			WeekdayComponent = new List<IfcDayInWeekNumber>();
-			MonthComponent = new List<IfcMonthInYearNumber>();
-			TimePeriods = new List<IfcTimePeriod>();
 
 		}
 		public static  IfcRecurrencePattern FromJSON(string json)
@@ -23469,6 +23469,7 @@ namespace IFC4
 		/// </summary>
 		public IfcReference():base()
 		{
+			ListPositions = new List<int>();
 
 		}
 		/// <summary>
@@ -23482,7 +23483,6 @@ namespace IFC4
 			InstanceName = instanceName;
 			ListPositions = listPositions;
 			InnerReference = innerReference;
-			ListPositions = new List<int>();
 
 		}
 		public static  IfcReference FromJSON(string json)
@@ -23582,6 +23582,7 @@ namespace IFC4
 		public IfcReinforcingBarType(IfcReinforcingBarTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+			BendingParameters = new List<IfcBendingParameterSelect>();
 
 		}
 		/// <summary>
@@ -23597,7 +23598,6 @@ namespace IFC4
 			BarSurface = barSurface;
 			BendingShapeCode = bendingShapeCode;
 			BendingParameters = bendingParameters;
-			BendingParameters = new List<IfcBendingParameterSelect>();
 
 		}
 		public static new IfcReinforcingBarType FromJSON(string json)
@@ -23746,6 +23746,7 @@ namespace IFC4
 		public IfcReinforcingMeshType(IfcReinforcingMeshTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+			BendingParameters = new List<IfcBendingParameterSelect>();
 
 		}
 		/// <summary>
@@ -23765,7 +23766,6 @@ namespace IFC4
 			TransverseBarSpacing = transverseBarSpacing;
 			BendingShapeCode = bendingShapeCode;
 			BendingParameters = bendingParameters;
-			BendingParameters = new List<IfcBendingParameterSelect>();
 
 		}
 		public static new IfcReinforcingMeshType FromJSON(string json)
@@ -26452,6 +26452,8 @@ namespace IFC4
 		public IfcStructuralAnalysisModel(IfcAnalysisModelTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
 		{
 			PredefinedType = predefinedType;
+			LoadedBy = new List<IfcStructuralLoadGroup>();
+			HasResults = new List<IfcStructuralResultGroup>();
 
 		}
 		/// <summary>
@@ -26465,8 +26467,6 @@ namespace IFC4
 			LoadedBy = loadedBy;
 			HasResults = hasResults;
 			SharedPlacement = sharedPlacement;
-			LoadedBy = new List<IfcStructuralLoadGroup>();
-			HasResults = new List<IfcStructuralResultGroup>();
 
 		}
 		public static new IfcStructuralAnalysisModel FromJSON(string json)
@@ -26774,6 +26774,7 @@ namespace IFC4
 		{
 			Values = values;
 			Values = new List<IfcStructuralLoadOrResult>();
+			Locations = new List<List<IfcLengthMeasure>>();
 
 		}
 		/// <summary>
@@ -26785,7 +26786,6 @@ namespace IFC4
 			Values = values;
 			Locations = locations;
 			Values = new List<IfcStructuralLoadOrResult>();
-			Locations = new List<List<IfcLengthMeasure>>();
 
 		}
 		public static new IfcStructuralLoadConfiguration FromJSON(string json)
@@ -26832,6 +26832,7 @@ namespace IFC4
 		/// </summary>
 		public IfcStructuralLoadCase(IfcLoadGroupTypeEnum predefinedType,IfcActionTypeEnum actionType,IfcActionSourceTypeEnum actionSource,IfcGloballyUniqueId globalId):base(predefinedType,actionType,actionSource,globalId)
 		{
+			SelfWeightCoefficients = new List<IfcRatioMeasure>();
 
 		}
 		/// <summary>
@@ -26841,7 +26842,6 @@ namespace IFC4
 		public IfcStructuralLoadCase(List<IfcRatioMeasure> selfWeightCoefficients,IfcLoadGroupTypeEnum predefinedType,IfcActionTypeEnum actionType,IfcActionSourceTypeEnum actionSource,IfcRatioMeasure coefficient,IfcLabel purpose,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,actionType,actionSource,coefficient,purpose,objectType,globalId,ownerHistory,name,description)
 		{
 			SelfWeightCoefficients = selfWeightCoefficients;
-			SelfWeightCoefficients = new List<IfcRatioMeasure>();
 
 		}
 		public static new IfcStructuralLoadCase FromJSON(string json)
@@ -26929,6 +26929,8 @@ namespace IFC4
 		/// </summary>
 		public IfcSurfaceReinforcementArea():base()
 		{
+			SurfaceReinforcement1 = new List<IfcLengthMeasure>();
+			SurfaceReinforcement2 = new List<IfcLengthMeasure>();
 
 		}
 		/// <summary>
@@ -26940,8 +26942,6 @@ namespace IFC4
 			SurfaceReinforcement1 = surfaceReinforcement1;
 			SurfaceReinforcement2 = surfaceReinforcement2;
 			ShearReinforcement = shearReinforcement;
-			SurfaceReinforcement1 = new List<IfcLengthMeasure>();
-			SurfaceReinforcement2 = new List<IfcLengthMeasure>();
 
 		}
 		public static new IfcSurfaceReinforcementArea FromJSON(string json)
@@ -27566,6 +27566,8 @@ namespace IFC4
 		/// </summary>
 		public IfcTable():base()
 		{
+			Rows = new List<IfcTableRow>();
+			Columns = new List<IfcTableColumn>();
 
 		}
 		/// <summary>
@@ -27577,8 +27579,6 @@ namespace IFC4
 			Name = name;
 			Rows = rows;
 			Columns = columns;
-			Rows = new List<IfcTableRow>();
-			Columns = new List<IfcTableColumn>();
 
 		}
 		public static  IfcTable FromJSON(string json)
@@ -27637,6 +27637,7 @@ namespace IFC4
 		/// </summary>
 		public IfcTableRow():base()
 		{
+			RowCells = new List<IfcValue>();
 
 		}
 		/// <summary>
@@ -27647,7 +27648,6 @@ namespace IFC4
 		{
 			RowCells = rowCells;
 			IsHeading = isHeading;
-			RowCells = new List<IfcValue>();
 
 		}
 		public static  IfcTableRow FromJSON(string json)
@@ -27733,6 +27733,7 @@ namespace IFC4
 		public IfcTessellatedFaceSet(IfcCartesianPointList3D coordinates):base()
 		{
 			Coordinates = coordinates;
+			Normals = new List<List<IfcParameterValue>>();
 
 		}
 		/// <summary>
@@ -27744,7 +27745,6 @@ namespace IFC4
 			Coordinates = coordinates;
 			Normals = normals;
 			Closed = closed;
-			Normals = new List<List<IfcParameterValue>>();
 
 		}
 		public static new IfcTessellatedFaceSet FromJSON(string json)
@@ -27768,6 +27768,7 @@ namespace IFC4
 		{
 			CoordIndex = coordIndex;
 			CoordIndex = new List<List<int>>();
+			NormalIndex = new List<List<int>>();
 
 		}
 		/// <summary>
@@ -27779,7 +27780,6 @@ namespace IFC4
 			CoordIndex = coordIndex;
 			NormalIndex = normalIndex;
 			CoordIndex = new List<List<int>>();
-			NormalIndex = new List<List<int>>();
 
 		}
 		public static new IfcTriangulatedFaceSet FromJSON(string json)
@@ -27826,6 +27826,7 @@ namespace IFC4
 		public IfcTextureCoordinateGenerator(IfcLabel mode,List<IfcSurfaceTexture> maps):base(maps)
 		{
 			Mode = mode;
+			Parameter = new List<IfcReal>();
 
 		}
 		/// <summary>
@@ -27836,7 +27837,6 @@ namespace IFC4
 		{
 			Mode = mode;
 			Parameter = parameter;
-			Parameter = new List<IfcReal>();
 
 		}
 		public static new IfcTextureCoordinateGenerator FromJSON(string json)
