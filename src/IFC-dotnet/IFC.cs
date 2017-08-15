@@ -4978,7 +4978,7 @@ namespace IFC4
 		/// Construct a IfcActionRequest with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcActionRequest(IfcActionRequestTypeEnum predefinedType,IfcLabel status,IfcText longDescription,IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,objectType,globalId,ownerHistory,name,description)
+		public IfcActionRequest(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcActionRequestTypeEnum predefinedType,IfcLabel status,IfcText longDescription):base(globalId,ownerHistory,name,description,objectType,identification)
 		{
 			PredefinedType = predefinedType;
 			Status = status;
@@ -5009,7 +5009,7 @@ namespace IFC4
 		/// Construct a IfcControl with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcControl(IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		public IfcControl(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification):base(globalId,ownerHistory,name,description,objectType)
 		{
 			Identification = identification;
 
@@ -5030,7 +5030,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcActor with all required attributes.
 		/// </summary>
-		public IfcActor(IfcActorSelect theActor,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcActor(IfcGloballyUniqueId globalId,IfcActorSelect theActor):base(globalId)
 		{
 			TheActor = theActor;
 
@@ -5039,7 +5039,7 @@ namespace IFC4
 		/// Construct a IfcActor with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcActor(IfcActorSelect theActor,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		public IfcActor(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcActorSelect theActor):base(globalId,ownerHistory,name,description,objectType)
 		{
 			TheActor = theActor;
 
@@ -5060,7 +5060,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcOccupant with all required attributes.
 		/// </summary>
-		public IfcOccupant(IfcActorSelect theActor,IfcGloballyUniqueId globalId):base(theActor,globalId)
+		public IfcOccupant(IfcGloballyUniqueId globalId,IfcActorSelect theActor):base(globalId,theActor)
 		{
 
 		}
@@ -5068,7 +5068,7 @@ namespace IFC4
 		/// Construct a IfcOccupant with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcOccupant(IfcOccupantTypeEnum predefinedType,IfcActorSelect theActor,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(theActor,objectType,globalId,ownerHistory,name,description)
+		public IfcOccupant(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcActorSelect theActor,IfcOccupantTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,theActor)
 		{
 			PredefinedType = predefinedType;
 
@@ -5097,7 +5097,7 @@ namespace IFC4
 		/// Construct a IfcObject with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcObject(IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcObject(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType):base(globalId,ownerHistory,name,description)
 		{
 			ObjectType = objectType;
 
@@ -5160,7 +5160,7 @@ namespace IFC4
 		/// Construct a IfcActuator with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcActuator(IfcActuatorTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcActuator(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcActuatorTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -5187,7 +5187,7 @@ namespace IFC4
 		/// Construct a IfcDistributionControlElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDistributionControlElement(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcDistributionControlElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 
 		}
@@ -5207,7 +5207,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcActuatorType with all required attributes.
 		/// </summary>
-		public IfcActuatorType(IfcActuatorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcActuatorType(IfcGloballyUniqueId globalId,IfcActuatorTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -5216,7 +5216,7 @@ namespace IFC4
 		/// Construct a IfcActuatorType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcActuatorType(IfcActuatorTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcActuatorType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcActuatorTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -5243,7 +5243,7 @@ namespace IFC4
 		/// Construct a IfcDistributionControlElementType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDistributionControlElementType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcDistributionControlElementType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 
 		}
@@ -5311,7 +5311,7 @@ namespace IFC4
 		/// Construct a IfcPostalAddress with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPostalAddress(IfcLabel internalLocation,List<IfcLabel> addressLines,IfcLabel postalBox,IfcLabel town,IfcLabel region,IfcLabel postalCode,IfcLabel country,IfcAddressTypeEnum purpose,IfcText description,IfcLabel userDefinedPurpose):base(purpose,description,userDefinedPurpose)
+		public IfcPostalAddress(IfcAddressTypeEnum purpose,IfcText description,IfcLabel userDefinedPurpose,IfcLabel internalLocation,List<IfcLabel> addressLines,IfcLabel postalBox,IfcLabel town,IfcLabel region,IfcLabel postalCode,IfcLabel country):base(purpose,description,userDefinedPurpose)
 		{
 			InternalLocation = internalLocation;
 			AddressLines = addressLines;
@@ -5355,7 +5355,7 @@ namespace IFC4
 		/// Construct a IfcTelecomAddress with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTelecomAddress(List<IfcLabel> telephoneNumbers,List<IfcLabel> facsimileNumbers,IfcLabel pagerNumber,List<IfcLabel> electronicMailAddresses,IfcURIReference wWWHomePageURL,List<IfcURIReference> messagingIDs,IfcAddressTypeEnum purpose,IfcText description,IfcLabel userDefinedPurpose):base(purpose,description,userDefinedPurpose)
+		public IfcTelecomAddress(IfcAddressTypeEnum purpose,IfcText description,IfcLabel userDefinedPurpose,List<IfcLabel> telephoneNumbers,List<IfcLabel> facsimileNumbers,IfcLabel pagerNumber,List<IfcLabel> electronicMailAddresses,IfcURIReference wWWHomePageURL,List<IfcURIReference> messagingIDs):base(purpose,description,userDefinedPurpose)
 		{
 			TelephoneNumbers = telephoneNumbers;
 			FacsimileNumbers = facsimileNumbers;
@@ -5401,7 +5401,7 @@ namespace IFC4
 		/// Construct a IfcAdvancedBrepWithVoids with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcAdvancedBrepWithVoids(List<IfcClosedShell> voids,IfcClosedShell outer):base(outer)
+		public IfcAdvancedBrepWithVoids(IfcClosedShell outer,List<IfcClosedShell> voids):base(outer)
 		{
 			Voids = voids;
 			Voids = new List<IfcClosedShell>();
@@ -5444,7 +5444,7 @@ namespace IFC4
 		/// Construct a IfcAdvancedFace with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcAdvancedFace(IfcSurface faceSurface,bool sameSense,List<IfcFaceBound> bounds):base(faceSurface,sameSense,bounds)
+		public IfcAdvancedFace(List<IfcFaceBound> bounds,IfcSurface faceSurface,bool sameSense):base(bounds,faceSurface,sameSense)
 		{
 
 		}
@@ -5466,7 +5466,7 @@ namespace IFC4
 		/// Construct a IfcFaceSurface with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFaceSurface(IfcSurface faceSurface,bool sameSense,List<IfcFaceBound> bounds):base(bounds)
+		public IfcFaceSurface(List<IfcFaceBound> bounds,IfcSurface faceSurface,bool sameSense):base(bounds)
 		{
 			FaceSurface = faceSurface;
 			SameSense = sameSense;
@@ -5496,7 +5496,7 @@ namespace IFC4
 		/// Construct a IfcAirTerminal with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcAirTerminal(IfcAirTerminalTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcAirTerminal(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcAirTerminalTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -5523,7 +5523,7 @@ namespace IFC4
 		/// Construct a IfcFlowTerminal with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFlowTerminal(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcFlowTerminal(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 
 		}
@@ -5551,7 +5551,7 @@ namespace IFC4
 		/// Construct a IfcAirTerminalBox with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcAirTerminalBox(IfcAirTerminalBoxTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcAirTerminalBox(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcAirTerminalBoxTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -5578,7 +5578,7 @@ namespace IFC4
 		/// Construct a IfcFlowController with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFlowController(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcFlowController(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 
 		}
@@ -5598,7 +5598,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcAirTerminalBoxType with all required attributes.
 		/// </summary>
-		public IfcAirTerminalBoxType(IfcAirTerminalBoxTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcAirTerminalBoxType(IfcGloballyUniqueId globalId,IfcAirTerminalBoxTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -5607,7 +5607,7 @@ namespace IFC4
 		/// Construct a IfcAirTerminalBoxType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcAirTerminalBoxType(IfcAirTerminalBoxTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcAirTerminalBoxType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcAirTerminalBoxTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -5634,7 +5634,7 @@ namespace IFC4
 		/// Construct a IfcFlowControllerType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFlowControllerType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcFlowControllerType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 
 		}
@@ -5654,7 +5654,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcAirTerminalType with all required attributes.
 		/// </summary>
-		public IfcAirTerminalType(IfcAirTerminalTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcAirTerminalType(IfcGloballyUniqueId globalId,IfcAirTerminalTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -5663,7 +5663,7 @@ namespace IFC4
 		/// Construct a IfcAirTerminalType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcAirTerminalType(IfcAirTerminalTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcAirTerminalType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcAirTerminalTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -5690,7 +5690,7 @@ namespace IFC4
 		/// Construct a IfcFlowTerminalType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFlowTerminalType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcFlowTerminalType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 
 		}
@@ -5718,7 +5718,7 @@ namespace IFC4
 		/// Construct a IfcAirToAirHeatRecovery with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcAirToAirHeatRecovery(IfcAirToAirHeatRecoveryTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcAirToAirHeatRecovery(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcAirToAirHeatRecoveryTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -5745,7 +5745,7 @@ namespace IFC4
 		/// Construct a IfcEnergyConversionDevice with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcEnergyConversionDevice(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcEnergyConversionDevice(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 
 		}
@@ -5765,7 +5765,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcAirToAirHeatRecoveryType with all required attributes.
 		/// </summary>
-		public IfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcAirToAirHeatRecoveryType(IfcGloballyUniqueId globalId,IfcAirToAirHeatRecoveryTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -5774,7 +5774,7 @@ namespace IFC4
 		/// Construct a IfcAirToAirHeatRecoveryType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcAirToAirHeatRecoveryType(IfcAirToAirHeatRecoveryTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcAirToAirHeatRecoveryType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcAirToAirHeatRecoveryTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -5801,7 +5801,7 @@ namespace IFC4
 		/// Construct a IfcEnergyConversionDeviceType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcEnergyConversionDeviceType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcEnergyConversionDeviceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 
 		}
@@ -5829,7 +5829,7 @@ namespace IFC4
 		/// Construct a IfcAlarm with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcAlarm(IfcAlarmTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcAlarm(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcAlarmTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -5850,7 +5850,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcAlarmType with all required attributes.
 		/// </summary>
-		public IfcAlarmType(IfcAlarmTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcAlarmType(IfcGloballyUniqueId globalId,IfcAlarmTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -5859,7 +5859,7 @@ namespace IFC4
 		/// Construct a IfcAlarmType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcAlarmType(IfcAlarmTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcAlarmType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcAlarmTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -5886,7 +5886,7 @@ namespace IFC4
 		/// Construct a IfcAnnotation with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcAnnotation(IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcAnnotation(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation)
 		{
 
 		}
@@ -5915,7 +5915,7 @@ namespace IFC4
 		/// Construct a IfcProduct with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcProduct(IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		public IfcProduct(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation):base(globalId,ownerHistory,name,description,objectType)
 		{
 			ObjectPlacement = objectPlacement;
 			Representation = representation;
@@ -6148,7 +6148,7 @@ namespace IFC4
 		/// Construct a IfcApprovalRelationship with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcApprovalRelationship(IfcApproval relatingApproval,List<IfcApproval> relatedApprovals,IfcLabel name,IfcText description):base(name,description)
+		public IfcApprovalRelationship(IfcLabel name,IfcText description,IfcApproval relatingApproval,List<IfcApproval> relatedApprovals):base(name,description)
 		{
 			RelatingApproval = relatingApproval;
 			RelatedApprovals = relatedApprovals;
@@ -6202,7 +6202,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcArbitraryClosedProfileDef with all required attributes.
 		/// </summary>
-		public IfcArbitraryClosedProfileDef(IfcCurve outerCurve,IfcProfileTypeEnum profileType):base(profileType)
+		public IfcArbitraryClosedProfileDef(IfcProfileTypeEnum profileType,IfcCurve outerCurve):base(profileType)
 		{
 			OuterCurve = outerCurve;
 
@@ -6211,7 +6211,7 @@ namespace IFC4
 		/// Construct a IfcArbitraryClosedProfileDef with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcArbitraryClosedProfileDef(IfcCurve outerCurve,IfcProfileTypeEnum profileType,IfcLabel profileName):base(profileType,profileName)
+		public IfcArbitraryClosedProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName,IfcCurve outerCurve):base(profileType,profileName)
 		{
 			OuterCurve = outerCurve;
 
@@ -6232,7 +6232,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcArbitraryProfileDefWithVoids with all required attributes.
 		/// </summary>
-		public IfcArbitraryProfileDefWithVoids(List<IfcCurve> innerCurves,IfcCurve outerCurve,IfcProfileTypeEnum profileType):base(outerCurve,profileType)
+		public IfcArbitraryProfileDefWithVoids(IfcProfileTypeEnum profileType,IfcCurve outerCurve,List<IfcCurve> innerCurves):base(profileType,outerCurve)
 		{
 			InnerCurves = innerCurves;
 			InnerCurves = new List<IfcCurve>();
@@ -6242,7 +6242,7 @@ namespace IFC4
 		/// Construct a IfcArbitraryProfileDefWithVoids with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcArbitraryProfileDefWithVoids(List<IfcCurve> innerCurves,IfcCurve outerCurve,IfcProfileTypeEnum profileType,IfcLabel profileName):base(outerCurve,profileType,profileName)
+		public IfcArbitraryProfileDefWithVoids(IfcProfileTypeEnum profileType,IfcLabel profileName,IfcCurve outerCurve,List<IfcCurve> innerCurves):base(profileType,profileName,outerCurve)
 		{
 			InnerCurves = innerCurves;
 			InnerCurves = new List<IfcCurve>();
@@ -6296,7 +6296,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcArbitraryOpenProfileDef with all required attributes.
 		/// </summary>
-		public IfcArbitraryOpenProfileDef(IfcBoundedCurve curve,IfcProfileTypeEnum profileType):base(profileType)
+		public IfcArbitraryOpenProfileDef(IfcProfileTypeEnum profileType,IfcBoundedCurve curve):base(profileType)
 		{
 			Curve = curve;
 
@@ -6305,7 +6305,7 @@ namespace IFC4
 		/// Construct a IfcArbitraryOpenProfileDef with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcArbitraryOpenProfileDef(IfcBoundedCurve curve,IfcProfileTypeEnum profileType,IfcLabel profileName):base(profileType,profileName)
+		public IfcArbitraryOpenProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName,IfcBoundedCurve curve):base(profileType,profileName)
 		{
 			Curve = curve;
 
@@ -6326,7 +6326,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcCenterLineProfileDef with all required attributes.
 		/// </summary>
-		public IfcCenterLineProfileDef(IfcPositiveLengthMeasure thickness,IfcBoundedCurve curve,IfcProfileTypeEnum profileType):base(curve,profileType)
+		public IfcCenterLineProfileDef(IfcProfileTypeEnum profileType,IfcBoundedCurve curve,IfcPositiveLengthMeasure thickness):base(profileType,curve)
 		{
 			Thickness = thickness;
 
@@ -6335,7 +6335,7 @@ namespace IFC4
 		/// Construct a IfcCenterLineProfileDef with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCenterLineProfileDef(IfcPositiveLengthMeasure thickness,IfcBoundedCurve curve,IfcProfileTypeEnum profileType,IfcLabel profileName):base(curve,profileType,profileName)
+		public IfcCenterLineProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName,IfcBoundedCurve curve,IfcPositiveLengthMeasure thickness):base(profileType,profileName,curve)
 		{
 			Thickness = thickness;
 
@@ -6372,7 +6372,7 @@ namespace IFC4
 		/// Construct a IfcAsset with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcAsset(IfcIdentifier identification,IfcCostValue originalValue,IfcCostValue currentValue,IfcCostValue totalReplacementCost,IfcActorSelect owner,IfcActorSelect user,IfcPerson responsiblePerson,IfcDate incorporationDate,IfcCostValue depreciatedValue,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		public IfcAsset(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcCostValue originalValue,IfcCostValue currentValue,IfcCostValue totalReplacementCost,IfcActorSelect owner,IfcActorSelect user,IfcPerson responsiblePerson,IfcDate incorporationDate,IfcCostValue depreciatedValue):base(globalId,ownerHistory,name,description,objectType)
 		{
 			Identification = identification;
 			OriginalValue = originalValue;
@@ -6407,7 +6407,7 @@ namespace IFC4
 		/// Construct a IfcGroup with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcGroup(IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		public IfcGroup(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType):base(globalId,ownerHistory,name,description,objectType)
 		{
 
 		}
@@ -6438,7 +6438,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcAsymmetricIShapeProfileDef with all required attributes.
 		/// </summary>
-		public IfcAsymmetricIShapeProfileDef(IfcPositiveLengthMeasure bottomFlangeWidth,IfcPositiveLengthMeasure overallDepth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure bottomFlangeThickness,IfcPositiveLengthMeasure topFlangeWidth,IfcProfileTypeEnum profileType):base(profileType)
+		public IfcAsymmetricIShapeProfileDef(IfcProfileTypeEnum profileType,IfcPositiveLengthMeasure bottomFlangeWidth,IfcPositiveLengthMeasure overallDepth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure bottomFlangeThickness,IfcPositiveLengthMeasure topFlangeWidth):base(profileType)
 		{
 			BottomFlangeWidth = bottomFlangeWidth;
 			OverallDepth = overallDepth;
@@ -6451,7 +6451,7 @@ namespace IFC4
 		/// Construct a IfcAsymmetricIShapeProfileDef with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcAsymmetricIShapeProfileDef(IfcPositiveLengthMeasure bottomFlangeWidth,IfcPositiveLengthMeasure overallDepth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure bottomFlangeThickness,IfcNonNegativeLengthMeasure bottomFlangeFilletRadius,IfcPositiveLengthMeasure topFlangeWidth,IfcPositiveLengthMeasure topFlangeThickness,IfcNonNegativeLengthMeasure topFlangeFilletRadius,IfcNonNegativeLengthMeasure bottomFlangeEdgeRadius,IfcPlaneAngleMeasure bottomFlangeSlope,IfcNonNegativeLengthMeasure topFlangeEdgeRadius,IfcPlaneAngleMeasure topFlangeSlope,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		public IfcAsymmetricIShapeProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName,IfcAxis2Placement2D position,IfcPositiveLengthMeasure bottomFlangeWidth,IfcPositiveLengthMeasure overallDepth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure bottomFlangeThickness,IfcNonNegativeLengthMeasure bottomFlangeFilletRadius,IfcPositiveLengthMeasure topFlangeWidth,IfcPositiveLengthMeasure topFlangeThickness,IfcNonNegativeLengthMeasure topFlangeFilletRadius,IfcNonNegativeLengthMeasure bottomFlangeEdgeRadius,IfcPlaneAngleMeasure bottomFlangeSlope,IfcNonNegativeLengthMeasure topFlangeEdgeRadius,IfcPlaneAngleMeasure topFlangeSlope):base(profileType,profileName,position)
 		{
 			BottomFlangeWidth = bottomFlangeWidth;
 			OverallDepth = overallDepth;
@@ -6491,7 +6491,7 @@ namespace IFC4
 		/// Construct a IfcParameterizedProfileDef with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcParameterizedProfileDef(IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(profileType,profileName)
+		public IfcParameterizedProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName,IfcAxis2Placement2D position):base(profileType,profileName)
 		{
 			Position = position;
 
@@ -6520,7 +6520,7 @@ namespace IFC4
 		/// Construct a IfcAudioVisualAppliance with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcAudioVisualAppliance(IfcAudioVisualApplianceTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcAudioVisualAppliance(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcAudioVisualApplianceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -6541,7 +6541,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcAudioVisualApplianceType with all required attributes.
 		/// </summary>
-		public IfcAudioVisualApplianceType(IfcAudioVisualApplianceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcAudioVisualApplianceType(IfcGloballyUniqueId globalId,IfcAudioVisualApplianceTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -6550,7 +6550,7 @@ namespace IFC4
 		/// Construct a IfcAudioVisualApplianceType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcAudioVisualApplianceType(IfcAudioVisualApplianceTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcAudioVisualApplianceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcAudioVisualApplianceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -6579,7 +6579,7 @@ namespace IFC4
 		/// Construct a IfcAxis1Placement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcAxis1Placement(IfcDirection axis,IfcCartesianPoint location):base(location)
+		public IfcAxis1Placement(IfcCartesianPoint location,IfcDirection axis):base(location)
 		{
 			Axis = axis;
 
@@ -6630,7 +6630,7 @@ namespace IFC4
 		/// Construct a IfcAxis2Placement2D with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcAxis2Placement2D(IfcDirection refDirection,IfcCartesianPoint location):base(location)
+		public IfcAxis2Placement2D(IfcCartesianPoint location,IfcDirection refDirection):base(location)
 		{
 			RefDirection = refDirection;
 
@@ -6660,7 +6660,7 @@ namespace IFC4
 		/// Construct a IfcAxis2Placement3D with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcAxis2Placement3D(IfcDirection axis,IfcDirection refDirection,IfcCartesianPoint location):base(location)
+		public IfcAxis2Placement3D(IfcCartesianPoint location,IfcDirection axis,IfcDirection refDirection):base(location)
 		{
 			Axis = axis;
 			RefDirection = refDirection;
@@ -6716,7 +6716,7 @@ namespace IFC4
 		/// Construct a IfcBSplineCurveWithKnots with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBSplineCurveWithKnots(List<int> knotMultiplicities,List<IfcParameterValue> knots,IfcKnotType knotSpec,int degree,List<IfcCartesianPoint> controlPointsList,IfcBSplineCurveForm curveForm,bool? closedCurve,bool? selfIntersect):base(degree,controlPointsList,curveForm,closedCurve,selfIntersect)
+		public IfcBSplineCurveWithKnots(int degree,List<IfcCartesianPoint> controlPointsList,IfcBSplineCurveForm curveForm,bool? closedCurve,bool? selfIntersect,List<int> knotMultiplicities,List<IfcParameterValue> knots,IfcKnotType knotSpec):base(degree,controlPointsList,curveForm,closedCurve,selfIntersect)
 		{
 			KnotMultiplicities = knotMultiplicities;
 			Knots = knots;
@@ -6761,7 +6761,7 @@ namespace IFC4
 		/// Construct a IfcRationalBSplineCurveWithKnots with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRationalBSplineCurveWithKnots(List<double> weightsData,List<int> knotMultiplicities,List<IfcParameterValue> knots,IfcKnotType knotSpec,int degree,List<IfcCartesianPoint> controlPointsList,IfcBSplineCurveForm curveForm,bool? closedCurve,bool? selfIntersect):base(knotMultiplicities,knots,knotSpec,degree,controlPointsList,curveForm,closedCurve,selfIntersect)
+		public IfcRationalBSplineCurveWithKnots(int degree,List<IfcCartesianPoint> controlPointsList,IfcBSplineCurveForm curveForm,bool? closedCurve,bool? selfIntersect,List<int> knotMultiplicities,List<IfcParameterValue> knots,IfcKnotType knotSpec,List<double> weightsData):base(degree,controlPointsList,curveForm,closedCurve,selfIntersect,knotMultiplicities,knots,knotSpec)
 		{
 			WeightsData = weightsData;
 			WeightsData = new List<double>();
@@ -6823,7 +6823,7 @@ namespace IFC4
 		/// Construct a IfcBSplineSurfaceWithKnots with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBSplineSurfaceWithKnots(List<int> uMultiplicities,List<int> vMultiplicities,List<IfcParameterValue> uKnots,List<IfcParameterValue> vKnots,IfcKnotType knotSpec,int uDegree,int vDegree,List<List<IfcCartesianPoint>> controlPointsList,IfcBSplineSurfaceForm surfaceForm,bool? uClosed,bool? vClosed,bool? selfIntersect):base(uDegree,vDegree,controlPointsList,surfaceForm,uClosed,vClosed,selfIntersect)
+		public IfcBSplineSurfaceWithKnots(int uDegree,int vDegree,List<List<IfcCartesianPoint>> controlPointsList,IfcBSplineSurfaceForm surfaceForm,bool? uClosed,bool? vClosed,bool? selfIntersect,List<int> uMultiplicities,List<int> vMultiplicities,List<IfcParameterValue> uKnots,List<IfcParameterValue> vKnots,IfcKnotType knotSpec):base(uDegree,vDegree,controlPointsList,surfaceForm,uClosed,vClosed,selfIntersect)
 		{
 			UMultiplicities = uMultiplicities;
 			VMultiplicities = vMultiplicities;
@@ -6872,7 +6872,7 @@ namespace IFC4
 		/// Construct a IfcRationalBSplineSurfaceWithKnots with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRationalBSplineSurfaceWithKnots(List<List<double>> weightsData,List<int> uMultiplicities,List<int> vMultiplicities,List<IfcParameterValue> uKnots,List<IfcParameterValue> vKnots,IfcKnotType knotSpec,int uDegree,int vDegree,List<List<IfcCartesianPoint>> controlPointsList,IfcBSplineSurfaceForm surfaceForm,bool? uClosed,bool? vClosed,bool? selfIntersect):base(uMultiplicities,vMultiplicities,uKnots,vKnots,knotSpec,uDegree,vDegree,controlPointsList,surfaceForm,uClosed,vClosed,selfIntersect)
+		public IfcRationalBSplineSurfaceWithKnots(int uDegree,int vDegree,List<List<IfcCartesianPoint>> controlPointsList,IfcBSplineSurfaceForm surfaceForm,bool? uClosed,bool? vClosed,bool? selfIntersect,List<int> uMultiplicities,List<int> vMultiplicities,List<IfcParameterValue> uKnots,List<IfcParameterValue> vKnots,IfcKnotType knotSpec,List<List<double>> weightsData):base(uDegree,vDegree,controlPointsList,surfaceForm,uClosed,vClosed,selfIntersect,uMultiplicities,vMultiplicities,uKnots,vKnots,knotSpec)
 		{
 			WeightsData = weightsData;
 			WeightsData = new List<List<double>>();
@@ -6902,7 +6902,7 @@ namespace IFC4
 		/// Construct a IfcBeam with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBeam(IfcBeamTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcBeam(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcBeamTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -6929,7 +6929,7 @@ namespace IFC4
 		/// Construct a IfcBeamStandardCase with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBeamStandardCase(IfcBeamTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcBeamStandardCase(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcBeamTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag,predefinedType)
 		{
 
 		}
@@ -6955,7 +6955,7 @@ namespace IFC4
 		/// Construct a IfcBuildingElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBuildingElement(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcBuildingElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 
 		}
@@ -6975,7 +6975,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcBeamType with all required attributes.
 		/// </summary>
-		public IfcBeamType(IfcBeamTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcBeamType(IfcGloballyUniqueId globalId,IfcBeamTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -6984,7 +6984,7 @@ namespace IFC4
 		/// Construct a IfcBeamType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBeamType(IfcBeamTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcBeamType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcBeamTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -7011,7 +7011,7 @@ namespace IFC4
 		/// Construct a IfcBuildingElementType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBuildingElementType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcBuildingElementType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 
 		}
@@ -7032,7 +7032,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcBlobTexture with all required attributes.
 		/// </summary>
-		public IfcBlobTexture(IfcIdentifier rasterFormat,byte[] rasterCode,bool repeatS,bool repeatT):base(repeatS,repeatT)
+		public IfcBlobTexture(bool repeatS,bool repeatT,IfcIdentifier rasterFormat,byte[] rasterCode):base(repeatS,repeatT)
 		{
 			RasterFormat = rasterFormat;
 			RasterCode = rasterCode;
@@ -7042,7 +7042,7 @@ namespace IFC4
 		/// Construct a IfcBlobTexture with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBlobTexture(IfcIdentifier rasterFormat,byte[] rasterCode,bool repeatS,bool repeatT,IfcIdentifier mode,IfcCartesianTransformationOperator2D textureTransform,List<IfcIdentifier> parameter):base(repeatS,repeatT,mode,textureTransform,parameter)
+		public IfcBlobTexture(bool repeatS,bool repeatT,IfcIdentifier mode,IfcCartesianTransformationOperator2D textureTransform,List<IfcIdentifier> parameter,IfcIdentifier rasterFormat,byte[] rasterCode):base(repeatS,repeatT,mode,textureTransform,parameter)
 		{
 			RasterFormat = rasterFormat;
 			RasterCode = rasterCode;
@@ -7107,7 +7107,7 @@ namespace IFC4
 		/// Construct a IfcBlock with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBlock(IfcPositiveLengthMeasure xLength,IfcPositiveLengthMeasure yLength,IfcPositiveLengthMeasure zLength,IfcAxis2Placement3D position):base(position)
+		public IfcBlock(IfcAxis2Placement3D position,IfcPositiveLengthMeasure xLength,IfcPositiveLengthMeasure yLength,IfcPositiveLengthMeasure zLength):base(position)
 		{
 			XLength = xLength;
 			YLength = yLength;
@@ -7160,7 +7160,7 @@ namespace IFC4
 		/// Construct a IfcBoiler with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBoiler(IfcBoilerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcBoiler(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcBoilerTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -7181,7 +7181,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcBoilerType with all required attributes.
 		/// </summary>
-		public IfcBoilerType(IfcBoilerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcBoilerType(IfcGloballyUniqueId globalId,IfcBoilerTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -7190,7 +7190,7 @@ namespace IFC4
 		/// Construct a IfcBoilerType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBoilerType(IfcBoilerTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcBoilerType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcBoilerTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -7298,7 +7298,7 @@ namespace IFC4
 		/// Construct a IfcBoundaryEdgeCondition with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBoundaryEdgeCondition(IfcModulusOfTranslationalSubgradeReactionSelect translationalStiffnessByLengthX,IfcModulusOfTranslationalSubgradeReactionSelect translationalStiffnessByLengthY,IfcModulusOfTranslationalSubgradeReactionSelect translationalStiffnessByLengthZ,IfcModulusOfRotationalSubgradeReactionSelect rotationalStiffnessByLengthX,IfcModulusOfRotationalSubgradeReactionSelect rotationalStiffnessByLengthY,IfcModulusOfRotationalSubgradeReactionSelect rotationalStiffnessByLengthZ,IfcLabel name):base(name)
+		public IfcBoundaryEdgeCondition(IfcLabel name,IfcModulusOfTranslationalSubgradeReactionSelect translationalStiffnessByLengthX,IfcModulusOfTranslationalSubgradeReactionSelect translationalStiffnessByLengthY,IfcModulusOfTranslationalSubgradeReactionSelect translationalStiffnessByLengthZ,IfcModulusOfRotationalSubgradeReactionSelect rotationalStiffnessByLengthX,IfcModulusOfRotationalSubgradeReactionSelect rotationalStiffnessByLengthY,IfcModulusOfRotationalSubgradeReactionSelect rotationalStiffnessByLengthZ):base(name)
 		{
 			TranslationalStiffnessByLengthX = translationalStiffnessByLengthX;
 			TranslationalStiffnessByLengthY = translationalStiffnessByLengthY;
@@ -7334,7 +7334,7 @@ namespace IFC4
 		/// Construct a IfcBoundaryFaceCondition with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBoundaryFaceCondition(IfcModulusOfSubgradeReactionSelect translationalStiffnessByAreaX,IfcModulusOfSubgradeReactionSelect translationalStiffnessByAreaY,IfcModulusOfSubgradeReactionSelect translationalStiffnessByAreaZ,IfcLabel name):base(name)
+		public IfcBoundaryFaceCondition(IfcLabel name,IfcModulusOfSubgradeReactionSelect translationalStiffnessByAreaX,IfcModulusOfSubgradeReactionSelect translationalStiffnessByAreaY,IfcModulusOfSubgradeReactionSelect translationalStiffnessByAreaZ):base(name)
 		{
 			TranslationalStiffnessByAreaX = translationalStiffnessByAreaX;
 			TranslationalStiffnessByAreaY = translationalStiffnessByAreaY;
@@ -7370,7 +7370,7 @@ namespace IFC4
 		/// Construct a IfcBoundaryNodeCondition with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBoundaryNodeCondition(IfcTranslationalStiffnessSelect translationalStiffnessX,IfcTranslationalStiffnessSelect translationalStiffnessY,IfcTranslationalStiffnessSelect translationalStiffnessZ,IfcRotationalStiffnessSelect rotationalStiffnessX,IfcRotationalStiffnessSelect rotationalStiffnessY,IfcRotationalStiffnessSelect rotationalStiffnessZ,IfcLabel name):base(name)
+		public IfcBoundaryNodeCondition(IfcLabel name,IfcTranslationalStiffnessSelect translationalStiffnessX,IfcTranslationalStiffnessSelect translationalStiffnessY,IfcTranslationalStiffnessSelect translationalStiffnessZ,IfcRotationalStiffnessSelect rotationalStiffnessX,IfcRotationalStiffnessSelect rotationalStiffnessY,IfcRotationalStiffnessSelect rotationalStiffnessZ):base(name)
 		{
 			TranslationalStiffnessX = translationalStiffnessX;
 			TranslationalStiffnessY = translationalStiffnessY;
@@ -7461,7 +7461,7 @@ namespace IFC4
 		/// Construct a IfcBoundaryNodeConditionWarping with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBoundaryNodeConditionWarping(IfcWarpingStiffnessSelect warpingStiffness,IfcTranslationalStiffnessSelect translationalStiffnessX,IfcTranslationalStiffnessSelect translationalStiffnessY,IfcTranslationalStiffnessSelect translationalStiffnessZ,IfcRotationalStiffnessSelect rotationalStiffnessX,IfcRotationalStiffnessSelect rotationalStiffnessY,IfcRotationalStiffnessSelect rotationalStiffnessZ,IfcLabel name):base(translationalStiffnessX,translationalStiffnessY,translationalStiffnessZ,rotationalStiffnessX,rotationalStiffnessY,rotationalStiffnessZ,name)
+		public IfcBoundaryNodeConditionWarping(IfcLabel name,IfcTranslationalStiffnessSelect translationalStiffnessX,IfcTranslationalStiffnessSelect translationalStiffnessY,IfcTranslationalStiffnessSelect translationalStiffnessZ,IfcRotationalStiffnessSelect rotationalStiffnessX,IfcRotationalStiffnessSelect rotationalStiffnessY,IfcRotationalStiffnessSelect rotationalStiffnessZ,IfcWarpingStiffnessSelect warpingStiffness):base(name,translationalStiffnessX,translationalStiffnessY,translationalStiffnessZ,rotationalStiffnessX,rotationalStiffnessY,rotationalStiffnessZ)
 		{
 			WarpingStiffness = warpingStiffness;
 
@@ -7717,7 +7717,7 @@ namespace IFC4
 		/// Construct a IfcBoxedHalfSpace with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBoxedHalfSpace(IfcBoundingBox enclosure,IfcSurface baseSurface,bool agreementFlag):base(baseSurface,agreementFlag)
+		public IfcBoxedHalfSpace(IfcSurface baseSurface,bool agreementFlag,IfcBoundingBox enclosure):base(baseSurface,agreementFlag)
 		{
 			Enclosure = enclosure;
 
@@ -7772,7 +7772,7 @@ namespace IFC4
 		/// Construct a IfcBuilding with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBuilding(IfcLengthMeasure elevationOfRefHeight,IfcLengthMeasure elevationOfTerrain,IfcPostalAddress buildingAddress,IfcElementCompositionEnum compositionType,IfcLabel longName,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(compositionType,longName,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcBuilding(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel longName,IfcElementCompositionEnum compositionType,IfcLengthMeasure elevationOfRefHeight,IfcLengthMeasure elevationOfTerrain,IfcPostalAddress buildingAddress):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,longName,compositionType)
 		{
 			ElevationOfRefHeight = elevationOfRefHeight;
 			ElevationOfTerrain = elevationOfTerrain;
@@ -7803,7 +7803,7 @@ namespace IFC4
 		/// Construct a IfcSpatialStructureElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSpatialStructureElement(IfcElementCompositionEnum compositionType,IfcLabel longName,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(longName,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcSpatialStructureElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel longName,IfcElementCompositionEnum compositionType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,longName)
 		{
 			CompositionType = compositionType;
 
@@ -7832,7 +7832,7 @@ namespace IFC4
 		/// Construct a IfcBuildingElementProxy with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBuildingElementProxy(IfcBuildingElementProxyTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcBuildingElementProxy(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcBuildingElementProxyTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -7861,7 +7861,7 @@ namespace IFC4
 		/// Construct a IfcChimney with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcChimney(IfcChimneyTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcChimney(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcChimneyTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -7890,7 +7890,7 @@ namespace IFC4
 		/// Construct a IfcColumn with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcColumn(IfcColumnTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcColumn(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcColumnTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -7919,7 +7919,7 @@ namespace IFC4
 		/// Construct a IfcCovering with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCovering(IfcCoveringTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcCovering(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcCoveringTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -7948,7 +7948,7 @@ namespace IFC4
 		/// Construct a IfcCurtainWall with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCurtainWall(IfcCurtainWallTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcCurtainWall(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcCurtainWallTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -7981,7 +7981,7 @@ namespace IFC4
 		/// Construct a IfcDoor with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDoor(IfcPositiveLengthMeasure overallHeight,IfcPositiveLengthMeasure overallWidth,IfcDoorTypeEnum predefinedType,IfcDoorTypeOperationEnum operationType,IfcLabel userDefinedOperationType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcDoor(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcPositiveLengthMeasure overallHeight,IfcPositiveLengthMeasure overallWidth,IfcDoorTypeEnum predefinedType,IfcDoorTypeOperationEnum operationType,IfcLabel userDefinedOperationType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			OverallHeight = overallHeight;
 			OverallWidth = overallWidth;
@@ -8014,7 +8014,7 @@ namespace IFC4
 		/// Construct a IfcFooting with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFooting(IfcFootingTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcFooting(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcFootingTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -8043,7 +8043,7 @@ namespace IFC4
 		/// Construct a IfcMember with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcMember(IfcMemberTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcMember(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcMemberTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -8073,7 +8073,7 @@ namespace IFC4
 		/// Construct a IfcPile with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPile(IfcPileTypeEnum predefinedType,IfcPileConstructionEnum constructionType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcPile(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcPileTypeEnum predefinedType,IfcPileConstructionEnum constructionType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 			ConstructionType = constructionType;
@@ -8103,7 +8103,7 @@ namespace IFC4
 		/// Construct a IfcPlate with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPlate(IfcPlateTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcPlate(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcPlateTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -8132,7 +8132,7 @@ namespace IFC4
 		/// Construct a IfcRailing with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRailing(IfcRailingTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcRailing(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcRailingTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -8161,7 +8161,7 @@ namespace IFC4
 		/// Construct a IfcRamp with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRamp(IfcRampTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcRamp(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcRampTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -8190,7 +8190,7 @@ namespace IFC4
 		/// Construct a IfcRampFlight with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRampFlight(IfcRampFlightTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcRampFlight(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcRampFlightTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -8219,7 +8219,7 @@ namespace IFC4
 		/// Construct a IfcRoof with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRoof(IfcRoofTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcRoof(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcRoofTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -8248,7 +8248,7 @@ namespace IFC4
 		/// Construct a IfcShadingDevice with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcShadingDevice(IfcShadingDeviceTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcShadingDevice(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcShadingDeviceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -8277,7 +8277,7 @@ namespace IFC4
 		/// Construct a IfcSlab with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSlab(IfcSlabTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcSlab(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcSlabTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -8306,7 +8306,7 @@ namespace IFC4
 		/// Construct a IfcStair with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStair(IfcStairTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStair(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcStairTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -8339,7 +8339,7 @@ namespace IFC4
 		/// Construct a IfcStairFlight with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStairFlight(int numberOfRiser,int numberOfTreads,IfcPositiveLengthMeasure riserHeight,IfcPositiveLengthMeasure treadLength,IfcStairFlightTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStairFlight(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,int numberOfRiser,int numberOfTreads,IfcPositiveLengthMeasure riserHeight,IfcPositiveLengthMeasure treadLength,IfcStairFlightTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			NumberOfRiser = numberOfRiser;
 			NumberOfTreads = numberOfTreads;
@@ -8372,7 +8372,7 @@ namespace IFC4
 		/// Construct a IfcWall with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcWall(IfcWallTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcWall(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcWallTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -8405,7 +8405,7 @@ namespace IFC4
 		/// Construct a IfcWindow with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcWindow(IfcPositiveLengthMeasure overallHeight,IfcPositiveLengthMeasure overallWidth,IfcWindowTypeEnum predefinedType,IfcWindowTypePartitioningEnum partitioningType,IfcLabel userDefinedPartitioningType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcWindow(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcPositiveLengthMeasure overallHeight,IfcPositiveLengthMeasure overallWidth,IfcWindowTypeEnum predefinedType,IfcWindowTypePartitioningEnum partitioningType,IfcLabel userDefinedPartitioningType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			OverallHeight = overallHeight;
 			OverallWidth = overallWidth;
@@ -8438,7 +8438,7 @@ namespace IFC4
 		/// Construct a IfcElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcElement(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation)
 		{
 			Tag = tag;
 
@@ -8467,7 +8467,7 @@ namespace IFC4
 		/// Construct a IfcBuildingElementPart with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBuildingElementPart(IfcBuildingElementPartTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcBuildingElementPart(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcBuildingElementPartTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -8494,7 +8494,7 @@ namespace IFC4
 		/// Construct a IfcElementComponent with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcElementComponent(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcElementComponent(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 
 		}
@@ -8514,7 +8514,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcBuildingElementPartType with all required attributes.
 		/// </summary>
-		public IfcBuildingElementPartType(IfcBuildingElementPartTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcBuildingElementPartType(IfcGloballyUniqueId globalId,IfcBuildingElementPartTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -8523,7 +8523,7 @@ namespace IFC4
 		/// Construct a IfcBuildingElementPartType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBuildingElementPartType(IfcBuildingElementPartTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcBuildingElementPartType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcBuildingElementPartTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -8550,7 +8550,7 @@ namespace IFC4
 		/// Construct a IfcElementComponentType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcElementComponentType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcElementComponentType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 
 		}
@@ -8570,7 +8570,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcBuildingElementProxyType with all required attributes.
 		/// </summary>
-		public IfcBuildingElementProxyType(IfcBuildingElementProxyTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcBuildingElementProxyType(IfcGloballyUniqueId globalId,IfcBuildingElementProxyTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -8579,7 +8579,7 @@ namespace IFC4
 		/// Construct a IfcBuildingElementProxyType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBuildingElementProxyType(IfcBuildingElementProxyTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcBuildingElementProxyType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcBuildingElementProxyTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -8600,7 +8600,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcChimneyType with all required attributes.
 		/// </summary>
-		public IfcChimneyType(IfcChimneyTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcChimneyType(IfcGloballyUniqueId globalId,IfcChimneyTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -8609,7 +8609,7 @@ namespace IFC4
 		/// Construct a IfcChimneyType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcChimneyType(IfcChimneyTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcChimneyType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcChimneyTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -8630,7 +8630,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcColumnType with all required attributes.
 		/// </summary>
-		public IfcColumnType(IfcColumnTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcColumnType(IfcGloballyUniqueId globalId,IfcColumnTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -8639,7 +8639,7 @@ namespace IFC4
 		/// Construct a IfcColumnType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcColumnType(IfcColumnTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcColumnType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcColumnTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -8660,7 +8660,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcCoveringType with all required attributes.
 		/// </summary>
-		public IfcCoveringType(IfcCoveringTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcCoveringType(IfcGloballyUniqueId globalId,IfcCoveringTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -8669,7 +8669,7 @@ namespace IFC4
 		/// Construct a IfcCoveringType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCoveringType(IfcCoveringTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcCoveringType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcCoveringTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -8690,7 +8690,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcCurtainWallType with all required attributes.
 		/// </summary>
-		public IfcCurtainWallType(IfcCurtainWallTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcCurtainWallType(IfcGloballyUniqueId globalId,IfcCurtainWallTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -8699,7 +8699,7 @@ namespace IFC4
 		/// Construct a IfcCurtainWallType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCurtainWallType(IfcCurtainWallTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcCurtainWallType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcCurtainWallTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -8723,7 +8723,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcDoorType with all required attributes.
 		/// </summary>
-		public IfcDoorType(IfcDoorTypeEnum predefinedType,IfcDoorTypeOperationEnum operationType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcDoorType(IfcGloballyUniqueId globalId,IfcDoorTypeEnum predefinedType,IfcDoorTypeOperationEnum operationType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 			OperationType = operationType;
@@ -8733,7 +8733,7 @@ namespace IFC4
 		/// Construct a IfcDoorType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDoorType(IfcDoorTypeEnum predefinedType,IfcDoorTypeOperationEnum operationType,bool parameterTakesPrecedence,IfcLabel userDefinedOperationType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcDoorType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcDoorTypeEnum predefinedType,IfcDoorTypeOperationEnum operationType,bool parameterTakesPrecedence,IfcLabel userDefinedOperationType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 			OperationType = operationType;
@@ -8757,7 +8757,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcFootingType with all required attributes.
 		/// </summary>
-		public IfcFootingType(IfcFootingTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcFootingType(IfcGloballyUniqueId globalId,IfcFootingTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -8766,7 +8766,7 @@ namespace IFC4
 		/// Construct a IfcFootingType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFootingType(IfcFootingTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcFootingType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcFootingTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -8787,7 +8787,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcMemberType with all required attributes.
 		/// </summary>
-		public IfcMemberType(IfcMemberTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcMemberType(IfcGloballyUniqueId globalId,IfcMemberTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -8796,7 +8796,7 @@ namespace IFC4
 		/// Construct a IfcMemberType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcMemberType(IfcMemberTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcMemberType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcMemberTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -8817,7 +8817,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcPileType with all required attributes.
 		/// </summary>
-		public IfcPileType(IfcPileTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcPileType(IfcGloballyUniqueId globalId,IfcPileTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -8826,7 +8826,7 @@ namespace IFC4
 		/// Construct a IfcPileType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPileType(IfcPileTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcPileType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcPileTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -8847,7 +8847,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcPlateType with all required attributes.
 		/// </summary>
-		public IfcPlateType(IfcPlateTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcPlateType(IfcGloballyUniqueId globalId,IfcPlateTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -8856,7 +8856,7 @@ namespace IFC4
 		/// Construct a IfcPlateType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPlateType(IfcPlateTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcPlateType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcPlateTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -8877,7 +8877,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRailingType with all required attributes.
 		/// </summary>
-		public IfcRailingType(IfcRailingTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRailingType(IfcGloballyUniqueId globalId,IfcRailingTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -8886,7 +8886,7 @@ namespace IFC4
 		/// Construct a IfcRailingType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRailingType(IfcRailingTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcRailingType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcRailingTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -8907,7 +8907,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRampFlightType with all required attributes.
 		/// </summary>
-		public IfcRampFlightType(IfcRampFlightTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRampFlightType(IfcGloballyUniqueId globalId,IfcRampFlightTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -8916,7 +8916,7 @@ namespace IFC4
 		/// Construct a IfcRampFlightType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRampFlightType(IfcRampFlightTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcRampFlightType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcRampFlightTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -8937,7 +8937,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRampType with all required attributes.
 		/// </summary>
-		public IfcRampType(IfcRampTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRampType(IfcGloballyUniqueId globalId,IfcRampTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -8946,7 +8946,7 @@ namespace IFC4
 		/// Construct a IfcRampType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRampType(IfcRampTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcRampType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcRampTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -8967,7 +8967,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRoofType with all required attributes.
 		/// </summary>
-		public IfcRoofType(IfcRoofTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRoofType(IfcGloballyUniqueId globalId,IfcRoofTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -8976,7 +8976,7 @@ namespace IFC4
 		/// Construct a IfcRoofType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRoofType(IfcRoofTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcRoofType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcRoofTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -8997,7 +8997,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcShadingDeviceType with all required attributes.
 		/// </summary>
-		public IfcShadingDeviceType(IfcShadingDeviceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcShadingDeviceType(IfcGloballyUniqueId globalId,IfcShadingDeviceTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -9006,7 +9006,7 @@ namespace IFC4
 		/// Construct a IfcShadingDeviceType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcShadingDeviceType(IfcShadingDeviceTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcShadingDeviceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcShadingDeviceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -9027,7 +9027,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcSlabType with all required attributes.
 		/// </summary>
-		public IfcSlabType(IfcSlabTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcSlabType(IfcGloballyUniqueId globalId,IfcSlabTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -9036,7 +9036,7 @@ namespace IFC4
 		/// Construct a IfcSlabType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSlabType(IfcSlabTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcSlabType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcSlabTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -9057,7 +9057,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStairFlightType with all required attributes.
 		/// </summary>
-		public IfcStairFlightType(IfcStairFlightTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcStairFlightType(IfcGloballyUniqueId globalId,IfcStairFlightTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -9066,7 +9066,7 @@ namespace IFC4
 		/// Construct a IfcStairFlightType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStairFlightType(IfcStairFlightTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcStairFlightType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcStairFlightTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -9087,7 +9087,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStairType with all required attributes.
 		/// </summary>
-		public IfcStairType(IfcStairTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcStairType(IfcGloballyUniqueId globalId,IfcStairTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -9096,7 +9096,7 @@ namespace IFC4
 		/// Construct a IfcStairType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStairType(IfcStairTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcStairType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcStairTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -9117,7 +9117,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcWallType with all required attributes.
 		/// </summary>
-		public IfcWallType(IfcWallTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcWallType(IfcGloballyUniqueId globalId,IfcWallTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -9126,7 +9126,7 @@ namespace IFC4
 		/// Construct a IfcWallType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcWallType(IfcWallTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcWallType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcWallTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -9150,7 +9150,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcWindowType with all required attributes.
 		/// </summary>
-		public IfcWindowType(IfcWindowTypeEnum predefinedType,IfcWindowTypePartitioningEnum partitioningType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcWindowType(IfcGloballyUniqueId globalId,IfcWindowTypeEnum predefinedType,IfcWindowTypePartitioningEnum partitioningType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 			PartitioningType = partitioningType;
@@ -9160,7 +9160,7 @@ namespace IFC4
 		/// Construct a IfcWindowType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcWindowType(IfcWindowTypeEnum predefinedType,IfcWindowTypePartitioningEnum partitioningType,bool parameterTakesPrecedence,IfcLabel userDefinedPartitioningType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcWindowType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcWindowTypeEnum predefinedType,IfcWindowTypePartitioningEnum partitioningType,bool parameterTakesPrecedence,IfcLabel userDefinedPartitioningType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 			PartitioningType = partitioningType;
@@ -9192,7 +9192,7 @@ namespace IFC4
 		/// Construct a IfcElementType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcElementType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcElementType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag)
 		{
 			ElementType = elementType;
 
@@ -9221,7 +9221,7 @@ namespace IFC4
 		/// Construct a IfcBuildingStorey with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBuildingStorey(IfcLengthMeasure elevation,IfcElementCompositionEnum compositionType,IfcLabel longName,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(compositionType,longName,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcBuildingStorey(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel longName,IfcElementCompositionEnum compositionType,IfcLengthMeasure elevation):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,longName,compositionType)
 		{
 			Elevation = elevation;
 
@@ -9250,7 +9250,7 @@ namespace IFC4
 		/// Construct a IfcBuildingSystem with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBuildingSystem(IfcBuildingSystemTypeEnum predefinedType,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		public IfcBuildingSystem(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcBuildingSystemTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType)
 		{
 			PredefinedType = predefinedType;
 
@@ -9277,7 +9277,7 @@ namespace IFC4
 		/// Construct a IfcSystem with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSystem(IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		public IfcSystem(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType):base(globalId,ownerHistory,name,description,objectType)
 		{
 
 		}
@@ -9305,7 +9305,7 @@ namespace IFC4
 		/// Construct a IfcBurner with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBurner(IfcBurnerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcBurner(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcBurnerTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -9326,7 +9326,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcBurnerType with all required attributes.
 		/// </summary>
-		public IfcBurnerType(IfcBurnerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcBurnerType(IfcGloballyUniqueId globalId,IfcBurnerTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -9335,7 +9335,7 @@ namespace IFC4
 		/// Construct a IfcBurnerType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcBurnerType(IfcBurnerTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcBurnerType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcBurnerTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -9360,7 +9360,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcCShapeProfileDef with all required attributes.
 		/// </summary>
-		public IfcCShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure width,IfcPositiveLengthMeasure wallThickness,IfcPositiveLengthMeasure girth,IfcProfileTypeEnum profileType):base(profileType)
+		public IfcCShapeProfileDef(IfcProfileTypeEnum profileType,IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure width,IfcPositiveLengthMeasure wallThickness,IfcPositiveLengthMeasure girth):base(profileType)
 		{
 			Depth = depth;
 			Width = width;
@@ -9372,7 +9372,7 @@ namespace IFC4
 		/// Construct a IfcCShapeProfileDef with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure width,IfcPositiveLengthMeasure wallThickness,IfcPositiveLengthMeasure girth,IfcNonNegativeLengthMeasure internalFilletRadius,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		public IfcCShapeProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName,IfcAxis2Placement2D position,IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure width,IfcPositiveLengthMeasure wallThickness,IfcPositiveLengthMeasure girth,IfcNonNegativeLengthMeasure internalFilletRadius):base(profileType,profileName,position)
 		{
 			Depth = depth;
 			Width = width;
@@ -9405,7 +9405,7 @@ namespace IFC4
 		/// Construct a IfcCableCarrierFitting with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCableCarrierFitting(IfcCableCarrierFittingTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcCableCarrierFitting(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcCableCarrierFittingTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -9432,7 +9432,7 @@ namespace IFC4
 		/// Construct a IfcFlowFitting with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFlowFitting(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcFlowFitting(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 
 		}
@@ -9452,7 +9452,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcCableCarrierFittingType with all required attributes.
 		/// </summary>
-		public IfcCableCarrierFittingType(IfcCableCarrierFittingTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcCableCarrierFittingType(IfcGloballyUniqueId globalId,IfcCableCarrierFittingTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -9461,7 +9461,7 @@ namespace IFC4
 		/// Construct a IfcCableCarrierFittingType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCableCarrierFittingType(IfcCableCarrierFittingTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcCableCarrierFittingType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcCableCarrierFittingTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -9488,7 +9488,7 @@ namespace IFC4
 		/// Construct a IfcFlowFittingType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFlowFittingType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcFlowFittingType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 
 		}
@@ -9516,7 +9516,7 @@ namespace IFC4
 		/// Construct a IfcCableCarrierSegment with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCableCarrierSegment(IfcCableCarrierSegmentTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcCableCarrierSegment(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcCableCarrierSegmentTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -9543,7 +9543,7 @@ namespace IFC4
 		/// Construct a IfcFlowSegment with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFlowSegment(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcFlowSegment(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 
 		}
@@ -9563,7 +9563,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcCableCarrierSegmentType with all required attributes.
 		/// </summary>
-		public IfcCableCarrierSegmentType(IfcCableCarrierSegmentTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcCableCarrierSegmentType(IfcGloballyUniqueId globalId,IfcCableCarrierSegmentTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -9572,7 +9572,7 @@ namespace IFC4
 		/// Construct a IfcCableCarrierSegmentType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCableCarrierSegmentType(IfcCableCarrierSegmentTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcCableCarrierSegmentType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcCableCarrierSegmentTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -9599,7 +9599,7 @@ namespace IFC4
 		/// Construct a IfcFlowSegmentType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFlowSegmentType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcFlowSegmentType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 
 		}
@@ -9627,7 +9627,7 @@ namespace IFC4
 		/// Construct a IfcCableFitting with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCableFitting(IfcCableFittingTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcCableFitting(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcCableFittingTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -9648,7 +9648,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcCableFittingType with all required attributes.
 		/// </summary>
-		public IfcCableFittingType(IfcCableFittingTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcCableFittingType(IfcGloballyUniqueId globalId,IfcCableFittingTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -9657,7 +9657,7 @@ namespace IFC4
 		/// Construct a IfcCableFittingType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCableFittingType(IfcCableFittingTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcCableFittingType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcCableFittingTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -9686,7 +9686,7 @@ namespace IFC4
 		/// Construct a IfcCableSegment with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCableSegment(IfcCableSegmentTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcCableSegment(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcCableSegmentTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -9707,7 +9707,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcCableSegmentType with all required attributes.
 		/// </summary>
-		public IfcCableSegmentType(IfcCableSegmentTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcCableSegmentType(IfcGloballyUniqueId globalId,IfcCableSegmentTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -9716,7 +9716,7 @@ namespace IFC4
 		/// Construct a IfcCableSegmentType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCableSegmentType(IfcCableSegmentTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcCableSegmentType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcCableSegmentTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -9891,7 +9891,7 @@ namespace IFC4
 		/// Construct a IfcCartesianTransformationOperator3D with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCartesianTransformationOperator3D(IfcDirection axis3,IfcDirection axis1,IfcDirection axis2,IfcCartesianPoint localOrigin,double scale):base(axis1,axis2,localOrigin,scale)
+		public IfcCartesianTransformationOperator3D(IfcDirection axis1,IfcDirection axis2,IfcCartesianPoint localOrigin,double scale,IfcDirection axis3):base(axis1,axis2,localOrigin,scale)
 		{
 			Axis3 = axis3;
 
@@ -9920,7 +9920,7 @@ namespace IFC4
 		/// Construct a IfcCartesianTransformationOperator2DnonUniform with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCartesianTransformationOperator2DnonUniform(double scale2,IfcDirection axis1,IfcDirection axis2,IfcCartesianPoint localOrigin,double scale):base(axis1,axis2,localOrigin,scale)
+		public IfcCartesianTransformationOperator2DnonUniform(IfcDirection axis1,IfcDirection axis2,IfcCartesianPoint localOrigin,double scale,double scale2):base(axis1,axis2,localOrigin,scale)
 		{
 			Scale2 = scale2;
 
@@ -9950,7 +9950,7 @@ namespace IFC4
 		/// Construct a IfcCartesianTransformationOperator3DnonUniform with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCartesianTransformationOperator3DnonUniform(double scale2,double scale3,IfcDirection axis3,IfcDirection axis1,IfcDirection axis2,IfcCartesianPoint localOrigin,double scale):base(axis3,axis1,axis2,localOrigin,scale)
+		public IfcCartesianTransformationOperator3DnonUniform(IfcDirection axis1,IfcDirection axis2,IfcCartesianPoint localOrigin,double scale,IfcDirection axis3,double scale2,double scale3):base(axis1,axis2,localOrigin,scale,axis3)
 		{
 			Scale2 = scale2;
 			Scale3 = scale3;
@@ -9980,7 +9980,7 @@ namespace IFC4
 		/// Construct a IfcChiller with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcChiller(IfcChillerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcChiller(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcChillerTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -10001,7 +10001,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcChillerType with all required attributes.
 		/// </summary>
-		public IfcChillerType(IfcChillerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcChillerType(IfcGloballyUniqueId globalId,IfcChillerTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -10010,7 +10010,7 @@ namespace IFC4
 		/// Construct a IfcChillerType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcChillerType(IfcChillerTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcChillerType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcChillerTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -10032,7 +10032,7 @@ namespace IFC4
 		/// Construct a IfcCircle with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCircle(IfcPositiveLengthMeasure radius,IfcAxis2Placement position):base(position)
+		public IfcCircle(IfcAxis2Placement position,IfcPositiveLengthMeasure radius):base(position)
 		{
 			Radius = radius;
 
@@ -10075,7 +10075,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcCircleHollowProfileDef with all required attributes.
 		/// </summary>
-		public IfcCircleHollowProfileDef(IfcPositiveLengthMeasure wallThickness,IfcPositiveLengthMeasure radius,IfcProfileTypeEnum profileType):base(radius,profileType)
+		public IfcCircleHollowProfileDef(IfcProfileTypeEnum profileType,IfcPositiveLengthMeasure radius,IfcPositiveLengthMeasure wallThickness):base(profileType,radius)
 		{
 			WallThickness = wallThickness;
 
@@ -10084,7 +10084,7 @@ namespace IFC4
 		/// Construct a IfcCircleHollowProfileDef with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCircleHollowProfileDef(IfcPositiveLengthMeasure wallThickness,IfcPositiveLengthMeasure radius,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(radius,position,profileType,profileName)
+		public IfcCircleHollowProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName,IfcAxis2Placement2D position,IfcPositiveLengthMeasure radius,IfcPositiveLengthMeasure wallThickness):base(profileType,profileName,position,radius)
 		{
 			WallThickness = wallThickness;
 
@@ -10105,7 +10105,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcCircleProfileDef with all required attributes.
 		/// </summary>
-		public IfcCircleProfileDef(IfcPositiveLengthMeasure radius,IfcProfileTypeEnum profileType):base(profileType)
+		public IfcCircleProfileDef(IfcProfileTypeEnum profileType,IfcPositiveLengthMeasure radius):base(profileType)
 		{
 			Radius = radius;
 
@@ -10114,7 +10114,7 @@ namespace IFC4
 		/// Construct a IfcCircleProfileDef with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCircleProfileDef(IfcPositiveLengthMeasure radius,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		public IfcCircleProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName,IfcAxis2Placement2D position,IfcPositiveLengthMeasure radius):base(profileType,profileName,position)
 		{
 			Radius = radius;
 
@@ -10141,7 +10141,7 @@ namespace IFC4
 		/// Construct a IfcCivilElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCivilElement(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcCivilElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 
 		}
@@ -10167,7 +10167,7 @@ namespace IFC4
 		/// Construct a IfcCivilElementType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCivilElementType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcCivilElementType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 
 		}
@@ -10259,7 +10259,7 @@ namespace IFC4
 		/// Construct a IfcClassificationReference with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcClassificationReference(IfcClassificationReferenceSelect referencedSource,IfcText description,IfcIdentifier sort,IfcURIReference location,IfcIdentifier identification,IfcLabel name):base(location,identification,name)
+		public IfcClassificationReference(IfcURIReference location,IfcIdentifier identification,IfcLabel name,IfcClassificationReferenceSelect referencedSource,IfcText description,IfcIdentifier sort):base(location,identification,name)
 		{
 			ReferencedSource = referencedSource;
 			Description = description;
@@ -10365,7 +10365,7 @@ namespace IFC4
 		/// Construct a IfcCoil with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCoil(IfcCoilTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcCoil(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcCoilTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -10386,7 +10386,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcCoilType with all required attributes.
 		/// </summary>
-		public IfcCoilType(IfcCoilTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcCoilType(IfcGloballyUniqueId globalId,IfcCoilTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -10395,7 +10395,7 @@ namespace IFC4
 		/// Construct a IfcCoilType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCoilType(IfcCoilTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcCoilType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcCoilTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -10429,7 +10429,7 @@ namespace IFC4
 		/// Construct a IfcColourRgb with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcColourRgb(IfcNormalisedRatioMeasure red,IfcNormalisedRatioMeasure green,IfcNormalisedRatioMeasure blue,IfcLabel name):base(name)
+		public IfcColourRgb(IfcLabel name,IfcNormalisedRatioMeasure red,IfcNormalisedRatioMeasure green,IfcNormalisedRatioMeasure blue):base(name)
 		{
 			Red = red;
 			Green = green;
@@ -10529,7 +10529,7 @@ namespace IFC4
 		/// Construct a IfcColumnStandardCase with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcColumnStandardCase(IfcColumnTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcColumnStandardCase(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcColumnTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag,predefinedType)
 		{
 
 		}
@@ -10557,7 +10557,7 @@ namespace IFC4
 		/// Construct a IfcCommunicationsAppliance with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCommunicationsAppliance(IfcCommunicationsApplianceTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcCommunicationsAppliance(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcCommunicationsApplianceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -10578,7 +10578,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcCommunicationsApplianceType with all required attributes.
 		/// </summary>
-		public IfcCommunicationsApplianceType(IfcCommunicationsApplianceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcCommunicationsApplianceType(IfcGloballyUniqueId globalId,IfcCommunicationsApplianceTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -10587,7 +10587,7 @@ namespace IFC4
 		/// Construct a IfcCommunicationsApplianceType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCommunicationsApplianceType(IfcCommunicationsApplianceTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcCommunicationsApplianceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcCommunicationsApplianceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -10609,7 +10609,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcComplexProperty with all required attributes.
 		/// </summary>
-		public IfcComplexProperty(IfcIdentifier usageName,List<IfcProperty> hasProperties,IfcIdentifier name):base(name)
+		public IfcComplexProperty(IfcIdentifier name,IfcIdentifier usageName,List<IfcProperty> hasProperties):base(name)
 		{
 			UsageName = usageName;
 			HasProperties = hasProperties;
@@ -10620,7 +10620,7 @@ namespace IFC4
 		/// Construct a IfcComplexProperty with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcComplexProperty(IfcIdentifier usageName,List<IfcProperty> hasProperties,IfcIdentifier name,IfcText description):base(name,description)
+		public IfcComplexProperty(IfcIdentifier name,IfcText description,IfcIdentifier usageName,List<IfcProperty> hasProperties):base(name,description)
 		{
 			UsageName = usageName;
 			HasProperties = hasProperties;
@@ -10686,7 +10686,7 @@ namespace IFC4
 		/// Construct a IfcComplexPropertyTemplate with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcComplexPropertyTemplate(IfcLabel usageName,IfcComplexPropertyTemplateTypeEnum templateType,List<IfcPropertyTemplate> hasPropertyTemplates,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcComplexPropertyTemplate(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel usageName,IfcComplexPropertyTemplateTypeEnum templateType,List<IfcPropertyTemplate> hasPropertyTemplates):base(globalId,ownerHistory,name,description)
 		{
 			UsageName = usageName;
 			TemplateType = templateType;
@@ -10762,7 +10762,7 @@ namespace IFC4
 		/// Construct a IfcReparametrisedCompositeCurveSegment with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcReparametrisedCompositeCurveSegment(IfcParameterValue paramLength,IfcTransitionCode transition,bool sameSense,IfcCurve parentCurve):base(transition,sameSense,parentCurve)
+		public IfcReparametrisedCompositeCurveSegment(IfcTransitionCode transition,bool sameSense,IfcCurve parentCurve,IfcParameterValue paramLength):base(transition,sameSense,parentCurve)
 		{
 			ParamLength = paramLength;
 
@@ -10784,7 +10784,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcCompositeProfileDef with all required attributes.
 		/// </summary>
-		public IfcCompositeProfileDef(List<IfcProfileDef> profiles,IfcProfileTypeEnum profileType):base(profileType)
+		public IfcCompositeProfileDef(IfcProfileTypeEnum profileType,List<IfcProfileDef> profiles):base(profileType)
 		{
 			Profiles = profiles;
 			Profiles = new List<IfcProfileDef>();
@@ -10794,7 +10794,7 @@ namespace IFC4
 		/// Construct a IfcCompositeProfileDef with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCompositeProfileDef(List<IfcProfileDef> profiles,IfcLabel label,IfcProfileTypeEnum profileType,IfcLabel profileName):base(profileType,profileName)
+		public IfcCompositeProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName,List<IfcProfileDef> profiles,IfcLabel label):base(profileType,profileName)
 		{
 			Profiles = profiles;
 			Label = label;
@@ -10825,7 +10825,7 @@ namespace IFC4
 		/// Construct a IfcCompressor with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCompressor(IfcCompressorTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcCompressor(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcCompressorTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -10852,7 +10852,7 @@ namespace IFC4
 		/// Construct a IfcFlowMovingDevice with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFlowMovingDevice(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcFlowMovingDevice(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 
 		}
@@ -10872,7 +10872,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcCompressorType with all required attributes.
 		/// </summary>
-		public IfcCompressorType(IfcCompressorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcCompressorType(IfcGloballyUniqueId globalId,IfcCompressorTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -10881,7 +10881,7 @@ namespace IFC4
 		/// Construct a IfcCompressorType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCompressorType(IfcCompressorTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcCompressorType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcCompressorTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -10908,7 +10908,7 @@ namespace IFC4
 		/// Construct a IfcFlowMovingDeviceType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFlowMovingDeviceType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcFlowMovingDeviceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 
 		}
@@ -10936,7 +10936,7 @@ namespace IFC4
 		/// Construct a IfcCondenser with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCondenser(IfcCondenserTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcCondenser(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcCondenserTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -10957,7 +10957,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcCondenserType with all required attributes.
 		/// </summary>
-		public IfcCondenserType(IfcCondenserTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcCondenserType(IfcGloballyUniqueId globalId,IfcCondenserTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -10966,7 +10966,7 @@ namespace IFC4
 		/// Construct a IfcCondenserType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCondenserType(IfcCondenserTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcCondenserType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcCondenserTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -10989,7 +10989,7 @@ namespace IFC4
 		/// Construct a IfcEllipse with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcEllipse(IfcPositiveLengthMeasure semiAxis1,IfcPositiveLengthMeasure semiAxis2,IfcAxis2Placement position):base(position)
+		public IfcEllipse(IfcAxis2Placement position,IfcPositiveLengthMeasure semiAxis1,IfcPositiveLengthMeasure semiAxis2):base(position)
 		{
 			SemiAxis1 = semiAxis1;
 			SemiAxis2 = semiAxis2;
@@ -11206,7 +11206,7 @@ namespace IFC4
 		/// Construct a IfcConnectionPointEccentricity with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcConnectionPointEccentricity(IfcLengthMeasure eccentricityInX,IfcLengthMeasure eccentricityInY,IfcLengthMeasure eccentricityInZ,IfcPointOrVertexPoint pointOnRelatingElement,IfcPointOrVertexPoint pointOnRelatedElement):base(pointOnRelatingElement,pointOnRelatedElement)
+		public IfcConnectionPointEccentricity(IfcPointOrVertexPoint pointOnRelatingElement,IfcPointOrVertexPoint pointOnRelatedElement,IfcLengthMeasure eccentricityInX,IfcLengthMeasure eccentricityInY,IfcLengthMeasure eccentricityInZ):base(pointOnRelatingElement,pointOnRelatedElement)
 		{
 			EccentricityInX = eccentricityInX;
 			EccentricityInY = eccentricityInY;
@@ -11275,7 +11275,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcMetric with all required attributes.
 		/// </summary>
-		public IfcMetric(IfcBenchmarkEnum benchmark,IfcMetricValueSelect dataValue,IfcLabel name,IfcConstraintEnum constraintGrade):base(name,constraintGrade)
+		public IfcMetric(IfcLabel name,IfcConstraintEnum constraintGrade,IfcBenchmarkEnum benchmark,IfcMetricValueSelect dataValue):base(name,constraintGrade)
 		{
 			Benchmark = benchmark;
 			DataValue = dataValue;
@@ -11285,7 +11285,7 @@ namespace IFC4
 		/// Construct a IfcMetric with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcMetric(IfcBenchmarkEnum benchmark,IfcLabel valueSource,IfcMetricValueSelect dataValue,IfcReference referencePath,IfcLabel name,IfcText description,IfcConstraintEnum constraintGrade,IfcLabel constraintSource,IfcActorSelect creatingActor,IfcDateTime creationTime,IfcLabel userDefinedGrade):base(name,description,constraintGrade,constraintSource,creatingActor,creationTime,userDefinedGrade)
+		public IfcMetric(IfcLabel name,IfcText description,IfcConstraintEnum constraintGrade,IfcLabel constraintSource,IfcActorSelect creatingActor,IfcDateTime creationTime,IfcLabel userDefinedGrade,IfcBenchmarkEnum benchmark,IfcLabel valueSource,IfcMetricValueSelect dataValue,IfcReference referencePath):base(name,description,constraintGrade,constraintSource,creatingActor,creationTime,userDefinedGrade)
 		{
 			Benchmark = benchmark;
 			ValueSource = valueSource;
@@ -11312,7 +11312,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcObjective with all required attributes.
 		/// </summary>
-		public IfcObjective(IfcObjectiveEnum objectiveQualifier,IfcLabel name,IfcConstraintEnum constraintGrade):base(name,constraintGrade)
+		public IfcObjective(IfcLabel name,IfcConstraintEnum constraintGrade,IfcObjectiveEnum objectiveQualifier):base(name,constraintGrade)
 		{
 			ObjectiveQualifier = objectiveQualifier;
 			BenchmarkValues = new List<IfcConstraint>();
@@ -11322,7 +11322,7 @@ namespace IFC4
 		/// Construct a IfcObjective with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcObjective(List<IfcConstraint> benchmarkValues,IfcLogicalOperatorEnum logicalAggregator,IfcObjectiveEnum objectiveQualifier,IfcLabel userDefinedQualifier,IfcLabel name,IfcText description,IfcConstraintEnum constraintGrade,IfcLabel constraintSource,IfcActorSelect creatingActor,IfcDateTime creationTime,IfcLabel userDefinedGrade):base(name,description,constraintGrade,constraintSource,creatingActor,creationTime,userDefinedGrade)
+		public IfcObjective(IfcLabel name,IfcText description,IfcConstraintEnum constraintGrade,IfcLabel constraintSource,IfcActorSelect creatingActor,IfcDateTime creationTime,IfcLabel userDefinedGrade,List<IfcConstraint> benchmarkValues,IfcLogicalOperatorEnum logicalAggregator,IfcObjectiveEnum objectiveQualifier,IfcLabel userDefinedQualifier):base(name,description,constraintGrade,constraintSource,creatingActor,creationTime,userDefinedGrade)
 		{
 			BenchmarkValues = benchmarkValues;
 			LogicalAggregator = logicalAggregator;
@@ -11354,7 +11354,7 @@ namespace IFC4
 		/// Construct a IfcConstructionEquipmentResource with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcConstructionEquipmentResource(IfcConstructionEquipmentResourceTypeEnum predefinedType,IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(usage,baseCosts,baseQuantity,identification,longDescription,objectType,globalId,ownerHistory,name,description)
+		public IfcConstructionEquipmentResource(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcText longDescription,IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcConstructionEquipmentResourceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,identification,longDescription,usage,baseCosts,baseQuantity)
 		{
 			PredefinedType = predefinedType;
 
@@ -11386,7 +11386,7 @@ namespace IFC4
 		/// Construct a IfcConstructionResource with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcConstructionResource(IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,longDescription,objectType,globalId,ownerHistory,name,description)
+		public IfcConstructionResource(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcText longDescription,IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity):base(globalId,ownerHistory,name,description,objectType,identification,longDescription)
 		{
 			Usage = usage;
 			BaseCosts = baseCosts;
@@ -11409,7 +11409,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcConstructionEquipmentResourceType with all required attributes.
 		/// </summary>
-		public IfcConstructionEquipmentResourceType(IfcConstructionEquipmentResourceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcConstructionEquipmentResourceType(IfcGloballyUniqueId globalId,IfcConstructionEquipmentResourceTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -11418,7 +11418,7 @@ namespace IFC4
 		/// Construct a IfcConstructionEquipmentResourceType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcConstructionEquipmentResourceType(IfcConstructionEquipmentResourceTypeEnum predefinedType,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(baseCosts,baseQuantity,identification,longDescription,resourceType,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcConstructionEquipmentResourceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcConstructionEquipmentResourceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,identification,longDescription,resourceType,baseCosts,baseQuantity)
 		{
 			PredefinedType = predefinedType;
 
@@ -11449,7 +11449,7 @@ namespace IFC4
 		/// Construct a IfcConstructionResourceType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcConstructionResourceType(List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,longDescription,resourceType,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcConstructionResourceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,identification,longDescription,resourceType)
 		{
 			BaseCosts = baseCosts;
 			BaseQuantity = baseQuantity;
@@ -11479,7 +11479,7 @@ namespace IFC4
 		/// Construct a IfcConstructionMaterialResource with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcConstructionMaterialResource(IfcConstructionMaterialResourceTypeEnum predefinedType,IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(usage,baseCosts,baseQuantity,identification,longDescription,objectType,globalId,ownerHistory,name,description)
+		public IfcConstructionMaterialResource(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcText longDescription,IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcConstructionMaterialResourceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,identification,longDescription,usage,baseCosts,baseQuantity)
 		{
 			PredefinedType = predefinedType;
 
@@ -11500,7 +11500,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcConstructionMaterialResourceType with all required attributes.
 		/// </summary>
-		public IfcConstructionMaterialResourceType(IfcConstructionMaterialResourceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcConstructionMaterialResourceType(IfcGloballyUniqueId globalId,IfcConstructionMaterialResourceTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -11509,7 +11509,7 @@ namespace IFC4
 		/// Construct a IfcConstructionMaterialResourceType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcConstructionMaterialResourceType(IfcConstructionMaterialResourceTypeEnum predefinedType,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(baseCosts,baseQuantity,identification,longDescription,resourceType,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcConstructionMaterialResourceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcConstructionMaterialResourceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,identification,longDescription,resourceType,baseCosts,baseQuantity)
 		{
 			PredefinedType = predefinedType;
 
@@ -11538,7 +11538,7 @@ namespace IFC4
 		/// Construct a IfcConstructionProductResource with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcConstructionProductResource(IfcConstructionProductResourceTypeEnum predefinedType,IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(usage,baseCosts,baseQuantity,identification,longDescription,objectType,globalId,ownerHistory,name,description)
+		public IfcConstructionProductResource(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcText longDescription,IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcConstructionProductResourceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,identification,longDescription,usage,baseCosts,baseQuantity)
 		{
 			PredefinedType = predefinedType;
 
@@ -11559,7 +11559,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcConstructionProductResourceType with all required attributes.
 		/// </summary>
-		public IfcConstructionProductResourceType(IfcConstructionProductResourceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcConstructionProductResourceType(IfcGloballyUniqueId globalId,IfcConstructionProductResourceTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -11568,7 +11568,7 @@ namespace IFC4
 		/// Construct a IfcConstructionProductResourceType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcConstructionProductResourceType(IfcConstructionProductResourceTypeEnum predefinedType,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(baseCosts,baseQuantity,identification,longDescription,resourceType,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcConstructionProductResourceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcConstructionProductResourceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,identification,longDescription,resourceType,baseCosts,baseQuantity)
 		{
 			PredefinedType = predefinedType;
 
@@ -11597,7 +11597,7 @@ namespace IFC4
 		/// Construct a IfcCrewResource with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCrewResource(IfcCrewResourceTypeEnum predefinedType,IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(usage,baseCosts,baseQuantity,identification,longDescription,objectType,globalId,ownerHistory,name,description)
+		public IfcCrewResource(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcText longDescription,IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcCrewResourceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,identification,longDescription,usage,baseCosts,baseQuantity)
 		{
 			PredefinedType = predefinedType;
 
@@ -11626,7 +11626,7 @@ namespace IFC4
 		/// Construct a IfcLaborResource with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcLaborResource(IfcLaborResourceTypeEnum predefinedType,IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(usage,baseCosts,baseQuantity,identification,longDescription,objectType,globalId,ownerHistory,name,description)
+		public IfcLaborResource(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcText longDescription,IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcLaborResourceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,identification,longDescription,usage,baseCosts,baseQuantity)
 		{
 			PredefinedType = predefinedType;
 
@@ -11655,7 +11655,7 @@ namespace IFC4
 		/// Construct a IfcSubContractResource with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSubContractResource(IfcSubContractResourceTypeEnum predefinedType,IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(usage,baseCosts,baseQuantity,identification,longDescription,objectType,globalId,ownerHistory,name,description)
+		public IfcSubContractResource(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcText longDescription,IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcSubContractResourceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,identification,longDescription,usage,baseCosts,baseQuantity)
 		{
 			PredefinedType = predefinedType;
 
@@ -11685,7 +11685,7 @@ namespace IFC4
 		/// Construct a IfcResource with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcResource(IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		public IfcResource(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcText longDescription):base(globalId,ownerHistory,name,description,objectType)
 		{
 			Identification = identification;
 			LongDescription = longDescription;
@@ -11707,7 +11707,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcCrewResourceType with all required attributes.
 		/// </summary>
-		public IfcCrewResourceType(IfcCrewResourceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcCrewResourceType(IfcGloballyUniqueId globalId,IfcCrewResourceTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -11716,7 +11716,7 @@ namespace IFC4
 		/// Construct a IfcCrewResourceType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCrewResourceType(IfcCrewResourceTypeEnum predefinedType,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(baseCosts,baseQuantity,identification,longDescription,resourceType,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcCrewResourceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcCrewResourceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,identification,longDescription,resourceType,baseCosts,baseQuantity)
 		{
 			PredefinedType = predefinedType;
 
@@ -11737,7 +11737,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcLaborResourceType with all required attributes.
 		/// </summary>
-		public IfcLaborResourceType(IfcLaborResourceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcLaborResourceType(IfcGloballyUniqueId globalId,IfcLaborResourceTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -11746,7 +11746,7 @@ namespace IFC4
 		/// Construct a IfcLaborResourceType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcLaborResourceType(IfcLaborResourceTypeEnum predefinedType,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(baseCosts,baseQuantity,identification,longDescription,resourceType,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcLaborResourceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcLaborResourceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,identification,longDescription,resourceType,baseCosts,baseQuantity)
 		{
 			PredefinedType = predefinedType;
 
@@ -11767,7 +11767,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcSubContractResourceType with all required attributes.
 		/// </summary>
-		public IfcSubContractResourceType(IfcSubContractResourceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcSubContractResourceType(IfcGloballyUniqueId globalId,IfcSubContractResourceTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -11776,7 +11776,7 @@ namespace IFC4
 		/// Construct a IfcSubContractResourceType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSubContractResourceType(IfcSubContractResourceTypeEnum predefinedType,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(baseCosts,baseQuantity,identification,longDescription,resourceType,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcSubContractResourceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity,IfcSubContractResourceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,identification,longDescription,resourceType,baseCosts,baseQuantity)
 		{
 			PredefinedType = predefinedType;
 
@@ -11807,7 +11807,7 @@ namespace IFC4
 		/// Construct a IfcTypeResource with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTypeResource(IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcTypeResource(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets)
 		{
 			Identification = identification;
 			LongDescription = longDescription;
@@ -11843,7 +11843,7 @@ namespace IFC4
 		/// Construct a IfcContext with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcContext(IfcLabel objectType,IfcLabel longName,IfcLabel phase,List<IfcRepresentationContext> representationContexts,IfcUnitAssignment unitsInContext,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcContext(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcLabel longName,IfcLabel phase,List<IfcRepresentationContext> representationContexts,IfcUnitAssignment unitsInContext):base(globalId,ownerHistory,name,description)
 		{
 			ObjectType = objectType;
 			LongName = longName;
@@ -11874,7 +11874,7 @@ namespace IFC4
 		/// Construct a IfcProject with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcProject(IfcLabel objectType,IfcLabel longName,IfcLabel phase,List<IfcRepresentationContext> representationContexts,IfcUnitAssignment unitsInContext,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,longName,phase,representationContexts,unitsInContext,globalId,ownerHistory,name,description)
+		public IfcProject(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcLabel longName,IfcLabel phase,List<IfcRepresentationContext> representationContexts,IfcUnitAssignment unitsInContext):base(globalId,ownerHistory,name,description,objectType,longName,phase,representationContexts,unitsInContext)
 		{
 
 		}
@@ -11900,7 +11900,7 @@ namespace IFC4
 		/// Construct a IfcProjectLibrary with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcProjectLibrary(IfcLabel objectType,IfcLabel longName,IfcLabel phase,List<IfcRepresentationContext> representationContexts,IfcUnitAssignment unitsInContext,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,longName,phase,representationContexts,unitsInContext,globalId,ownerHistory,name,description)
+		public IfcProjectLibrary(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcLabel longName,IfcLabel phase,List<IfcRepresentationContext> representationContexts,IfcUnitAssignment unitsInContext):base(globalId,ownerHistory,name,description,objectType,longName,phase,representationContexts,unitsInContext)
 		{
 
 		}
@@ -11947,7 +11947,7 @@ namespace IFC4
 		/// Construct a IfcContextDependentUnit with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcContextDependentUnit(IfcLabel name,IfcDimensionalExponents dimensions,IfcUnitEnum unitType):base(dimensions,unitType)
+		public IfcContextDependentUnit(IfcDimensionalExponents dimensions,IfcUnitEnum unitType,IfcLabel name):base(dimensions,unitType)
 		{
 			Name = name;
 
@@ -12004,7 +12004,7 @@ namespace IFC4
 		/// Construct a IfcCostItem with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCostItem(IfcCostItemTypeEnum predefinedType,List<IfcCostValue> costValues,List<IfcPhysicalQuantity> costQuantities,IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,objectType,globalId,ownerHistory,name,description)
+		public IfcCostItem(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcCostItemTypeEnum predefinedType,List<IfcCostValue> costValues,List<IfcPhysicalQuantity> costQuantities):base(globalId,ownerHistory,name,description,objectType,identification)
 		{
 			PredefinedType = predefinedType;
 			CostValues = costValues;
@@ -12038,7 +12038,7 @@ namespace IFC4
 		/// Construct a IfcCostSchedule with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCostSchedule(IfcCostScheduleTypeEnum predefinedType,IfcLabel status,IfcDateTime submittedOn,IfcDateTime updateDate,IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,objectType,globalId,ownerHistory,name,description)
+		public IfcCostSchedule(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcCostScheduleTypeEnum predefinedType,IfcLabel status,IfcDateTime submittedOn,IfcDateTime updateDate):base(globalId,ownerHistory,name,description,objectType,identification)
 		{
 			PredefinedType = predefinedType;
 			Status = status;
@@ -12063,7 +12063,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcPerformanceHistory with all required attributes.
 		/// </summary>
-		public IfcPerformanceHistory(IfcLabel lifeCyclePhase,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcPerformanceHistory(IfcGloballyUniqueId globalId,IfcLabel lifeCyclePhase):base(globalId)
 		{
 			LifeCyclePhase = lifeCyclePhase;
 
@@ -12072,7 +12072,7 @@ namespace IFC4
 		/// Construct a IfcPerformanceHistory with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPerformanceHistory(IfcLabel lifeCyclePhase,IfcPerformanceHistoryTypeEnum predefinedType,IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,objectType,globalId,ownerHistory,name,description)
+		public IfcPerformanceHistory(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcLabel lifeCyclePhase,IfcPerformanceHistoryTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,identification)
 		{
 			LifeCyclePhase = lifeCyclePhase;
 			PredefinedType = predefinedType;
@@ -12104,7 +12104,7 @@ namespace IFC4
 		/// Construct a IfcPermit with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPermit(IfcPermitTypeEnum predefinedType,IfcLabel status,IfcText longDescription,IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,objectType,globalId,ownerHistory,name,description)
+		public IfcPermit(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcPermitTypeEnum predefinedType,IfcLabel status,IfcText longDescription):base(globalId,ownerHistory,name,description,objectType,identification)
 		{
 			PredefinedType = predefinedType;
 			Status = status;
@@ -12137,7 +12137,7 @@ namespace IFC4
 		/// Construct a IfcProjectOrder with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcProjectOrder(IfcProjectOrderTypeEnum predefinedType,IfcLabel status,IfcText longDescription,IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,objectType,globalId,ownerHistory,name,description)
+		public IfcProjectOrder(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcProjectOrderTypeEnum predefinedType,IfcLabel status,IfcText longDescription):base(globalId,ownerHistory,name,description,objectType,identification)
 		{
 			PredefinedType = predefinedType;
 			Status = status;
@@ -12172,7 +12172,7 @@ namespace IFC4
 		/// Construct a IfcWorkCalendar with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcWorkCalendar(List<IfcWorkTime> workingTimes,List<IfcWorkTime> exceptionTimes,IfcWorkCalendarTypeEnum predefinedType,IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,objectType,globalId,ownerHistory,name,description)
+		public IfcWorkCalendar(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,List<IfcWorkTime> workingTimes,List<IfcWorkTime> exceptionTimes,IfcWorkCalendarTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,identification)
 		{
 			WorkingTimes = workingTimes;
 			ExceptionTimes = exceptionTimes;
@@ -12201,7 +12201,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcWorkControl with all required attributes.
 		/// </summary>
-		public IfcWorkControl(IfcDateTime creationDate,IfcDateTime startTime,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcWorkControl(IfcGloballyUniqueId globalId,IfcDateTime creationDate,IfcDateTime startTime):base(globalId)
 		{
 			CreationDate = creationDate;
 			StartTime = startTime;
@@ -12212,7 +12212,7 @@ namespace IFC4
 		/// Construct a IfcWorkControl with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcWorkControl(IfcDateTime creationDate,List<IfcPerson> creators,IfcLabel purpose,IfcDuration duration,IfcDuration totalFloat,IfcDateTime startTime,IfcDateTime finishTime,IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,objectType,globalId,ownerHistory,name,description)
+		public IfcWorkControl(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcDateTime creationDate,List<IfcPerson> creators,IfcLabel purpose,IfcDuration duration,IfcDuration totalFloat,IfcDateTime startTime,IfcDateTime finishTime):base(globalId,ownerHistory,name,description,objectType,identification)
 		{
 			CreationDate = creationDate;
 			Creators = creators;
@@ -12247,7 +12247,7 @@ namespace IFC4
 		/// Construct a IfcController with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcController(IfcControllerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcController(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcControllerTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -12268,7 +12268,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcControllerType with all required attributes.
 		/// </summary>
-		public IfcControllerType(IfcControllerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcControllerType(IfcGloballyUniqueId globalId,IfcControllerTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -12277,7 +12277,7 @@ namespace IFC4
 		/// Construct a IfcControllerType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcControllerType(IfcControllerTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcControllerType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcControllerTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -12300,7 +12300,7 @@ namespace IFC4
 		/// Construct a IfcConversionBasedUnit with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcConversionBasedUnit(IfcLabel name,IfcMeasureWithUnit conversionFactor,IfcDimensionalExponents dimensions,IfcUnitEnum unitType):base(dimensions,unitType)
+		public IfcConversionBasedUnit(IfcDimensionalExponents dimensions,IfcUnitEnum unitType,IfcLabel name,IfcMeasureWithUnit conversionFactor):base(dimensions,unitType)
 		{
 			Name = name;
 			ConversionFactor = conversionFactor;
@@ -12323,7 +12323,7 @@ namespace IFC4
 		/// Construct a IfcConversionBasedUnitWithOffset with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcConversionBasedUnitWithOffset(IfcReal conversionOffset,IfcLabel name,IfcMeasureWithUnit conversionFactor,IfcDimensionalExponents dimensions,IfcUnitEnum unitType):base(name,conversionFactor,dimensions,unitType)
+		public IfcConversionBasedUnitWithOffset(IfcDimensionalExponents dimensions,IfcUnitEnum unitType,IfcLabel name,IfcMeasureWithUnit conversionFactor,IfcReal conversionOffset):base(dimensions,unitType,name,conversionFactor)
 		{
 			ConversionOffset = conversionOffset;
 
@@ -12352,7 +12352,7 @@ namespace IFC4
 		/// Construct a IfcCooledBeam with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCooledBeam(IfcCooledBeamTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcCooledBeam(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcCooledBeamTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -12373,7 +12373,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcCooledBeamType with all required attributes.
 		/// </summary>
-		public IfcCooledBeamType(IfcCooledBeamTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcCooledBeamType(IfcGloballyUniqueId globalId,IfcCooledBeamTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -12382,7 +12382,7 @@ namespace IFC4
 		/// Construct a IfcCooledBeamType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCooledBeamType(IfcCooledBeamTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcCooledBeamType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcCooledBeamTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -12411,7 +12411,7 @@ namespace IFC4
 		/// Construct a IfcCoolingTower with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCoolingTower(IfcCoolingTowerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcCoolingTower(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcCoolingTowerTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -12432,7 +12432,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcCoolingTowerType with all required attributes.
 		/// </summary>
-		public IfcCoolingTowerType(IfcCoolingTowerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcCoolingTowerType(IfcGloballyUniqueId globalId,IfcCoolingTowerTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -12441,7 +12441,7 @@ namespace IFC4
 		/// Construct a IfcCoolingTowerType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCoolingTowerType(IfcCoolingTowerTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcCoolingTowerType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcCoolingTowerTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -12491,7 +12491,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcMapConversion with all required attributes.
 		/// </summary>
-		public IfcMapConversion(IfcLengthMeasure eastings,IfcLengthMeasure northings,IfcLengthMeasure orthogonalHeight,IfcCoordinateReferenceSystemSelect sourceCRS,IfcCoordinateReferenceSystem targetCRS):base(sourceCRS,targetCRS)
+		public IfcMapConversion(IfcCoordinateReferenceSystemSelect sourceCRS,IfcCoordinateReferenceSystem targetCRS,IfcLengthMeasure eastings,IfcLengthMeasure northings,IfcLengthMeasure orthogonalHeight):base(sourceCRS,targetCRS)
 		{
 			Eastings = eastings;
 			Northings = northings;
@@ -12502,7 +12502,7 @@ namespace IFC4
 		/// Construct a IfcMapConversion with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcMapConversion(IfcLengthMeasure eastings,IfcLengthMeasure northings,IfcLengthMeasure orthogonalHeight,IfcReal xAxisAbscissa,IfcReal xAxisOrdinate,IfcReal scale,IfcCoordinateReferenceSystemSelect sourceCRS,IfcCoordinateReferenceSystem targetCRS):base(sourceCRS,targetCRS)
+		public IfcMapConversion(IfcCoordinateReferenceSystemSelect sourceCRS,IfcCoordinateReferenceSystem targetCRS,IfcLengthMeasure eastings,IfcLengthMeasure northings,IfcLengthMeasure orthogonalHeight,IfcReal xAxisAbscissa,IfcReal xAxisOrdinate,IfcReal scale):base(sourceCRS,targetCRS)
 		{
 			Eastings = eastings;
 			Northings = northings;
@@ -12574,7 +12574,7 @@ namespace IFC4
 		/// Construct a IfcProjectedCRS with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcProjectedCRS(IfcIdentifier mapProjection,IfcIdentifier mapZone,IfcNamedUnit mapUnit,IfcLabel name,IfcText description,IfcIdentifier geodeticDatum,IfcIdentifier verticalDatum):base(name,description,geodeticDatum,verticalDatum)
+		public IfcProjectedCRS(IfcLabel name,IfcText description,IfcIdentifier geodeticDatum,IfcIdentifier verticalDatum,IfcIdentifier mapProjection,IfcIdentifier mapZone,IfcNamedUnit mapUnit):base(name,description,geodeticDatum,verticalDatum)
 		{
 			MapProjection = mapProjection;
 			MapZone = mapZone;
@@ -12600,7 +12600,7 @@ namespace IFC4
 		/// Construct a IfcRectangularPyramid with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRectangularPyramid(IfcPositiveLengthMeasure xLength,IfcPositiveLengthMeasure yLength,IfcPositiveLengthMeasure height,IfcAxis2Placement3D position):base(position)
+		public IfcRectangularPyramid(IfcAxis2Placement3D position,IfcPositiveLengthMeasure xLength,IfcPositiveLengthMeasure yLength,IfcPositiveLengthMeasure height):base(position)
 		{
 			XLength = xLength;
 			YLength = yLength;
@@ -12625,7 +12625,7 @@ namespace IFC4
 		/// Construct a IfcRightCircularCone with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRightCircularCone(IfcPositiveLengthMeasure height,IfcPositiveLengthMeasure bottomRadius,IfcAxis2Placement3D position):base(position)
+		public IfcRightCircularCone(IfcAxis2Placement3D position,IfcPositiveLengthMeasure height,IfcPositiveLengthMeasure bottomRadius):base(position)
 		{
 			Height = height;
 			BottomRadius = bottomRadius;
@@ -12649,7 +12649,7 @@ namespace IFC4
 		/// Construct a IfcRightCircularCylinder with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRightCircularCylinder(IfcPositiveLengthMeasure height,IfcPositiveLengthMeasure radius,IfcAxis2Placement3D position):base(position)
+		public IfcRightCircularCylinder(IfcAxis2Placement3D position,IfcPositiveLengthMeasure height,IfcPositiveLengthMeasure radius):base(position)
 		{
 			Height = height;
 			Radius = radius;
@@ -12672,7 +12672,7 @@ namespace IFC4
 		/// Construct a IfcSphere with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSphere(IfcPositiveLengthMeasure radius,IfcAxis2Placement3D position):base(position)
+		public IfcSphere(IfcAxis2Placement3D position,IfcPositiveLengthMeasure radius):base(position)
 		{
 			Radius = radius;
 
@@ -12749,7 +12749,7 @@ namespace IFC4
 		/// Construct a IfcCurrencyRelationship with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCurrencyRelationship(IfcMonetaryUnit relatingMonetaryUnit,IfcMonetaryUnit relatedMonetaryUnit,IfcPositiveRatioMeasure exchangeRate,IfcDateTime rateDateTime,IfcLibraryInformation rateSource,IfcLabel name,IfcText description):base(name,description)
+		public IfcCurrencyRelationship(IfcLabel name,IfcText description,IfcMonetaryUnit relatingMonetaryUnit,IfcMonetaryUnit relatedMonetaryUnit,IfcPositiveRatioMeasure exchangeRate,IfcDateTime rateDateTime,IfcLibraryInformation rateSource):base(name,description)
 		{
 			RelatingMonetaryUnit = relatingMonetaryUnit;
 			RelatedMonetaryUnit = relatedMonetaryUnit;
@@ -12887,7 +12887,7 @@ namespace IFC4
 		/// Construct a IfcCurveStyle with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCurveStyle(IfcCurveFontOrScaledCurveFontSelect curveFont,IfcSizeSelect curveWidth,IfcColour curveColour,bool modelOrDraughting,IfcLabel name):base(name)
+		public IfcCurveStyle(IfcLabel name,IfcCurveFontOrScaledCurveFontSelect curveFont,IfcSizeSelect curveWidth,IfcColour curveColour,bool modelOrDraughting):base(name)
 		{
 			CurveFont = curveFont;
 			CurveWidth = curveWidth;
@@ -13034,7 +13034,7 @@ namespace IFC4
 		/// Construct a IfcCylindricalSurface with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcCylindricalSurface(IfcPositiveLengthMeasure radius,IfcAxis2Placement3D position):base(position)
+		public IfcCylindricalSurface(IfcAxis2Placement3D position,IfcPositiveLengthMeasure radius):base(position)
 		{
 			Radius = radius;
 
@@ -13085,7 +13085,7 @@ namespace IFC4
 		/// Construct a IfcDamper with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDamper(IfcDamperTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcDamper(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcDamperTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -13106,7 +13106,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcDamperType with all required attributes.
 		/// </summary>
-		public IfcDamperType(IfcDamperTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcDamperType(IfcGloballyUniqueId globalId,IfcDamperTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -13115,7 +13115,7 @@ namespace IFC4
 		/// Construct a IfcDamperType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDamperType(IfcDamperTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcDamperType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcDamperTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -13138,7 +13138,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcDerivedProfileDef with all required attributes.
 		/// </summary>
-		public IfcDerivedProfileDef(IfcProfileDef parentProfile,IfcCartesianTransformationOperator2D op,IfcProfileTypeEnum profileType):base(profileType)
+		public IfcDerivedProfileDef(IfcProfileTypeEnum profileType,IfcProfileDef parentProfile,IfcCartesianTransformationOperator2D op):base(profileType)
 		{
 			ParentProfile = parentProfile;
 			Operator = op;
@@ -13148,7 +13148,7 @@ namespace IFC4
 		/// Construct a IfcDerivedProfileDef with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDerivedProfileDef(IfcProfileDef parentProfile,IfcCartesianTransformationOperator2D op,IfcLabel label,IfcProfileTypeEnum profileType,IfcLabel profileName):base(profileType,profileName)
+		public IfcDerivedProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName,IfcProfileDef parentProfile,IfcCartesianTransformationOperator2D op,IfcLabel label):base(profileType,profileName)
 		{
 			ParentProfile = parentProfile;
 			Operator = op;
@@ -13169,7 +13169,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcMirroredProfileDef with all required attributes.
 		/// </summary>
-		public IfcMirroredProfileDef(IfcProfileDef parentProfile,IfcCartesianTransformationOperator2D op,IfcProfileTypeEnum profileType):base(parentProfile,op,profileType)
+		public IfcMirroredProfileDef(IfcProfileTypeEnum profileType,IfcProfileDef parentProfile,IfcCartesianTransformationOperator2D op):base(profileType,parentProfile,op)
 		{
 
 		}
@@ -13177,7 +13177,7 @@ namespace IFC4
 		/// Construct a IfcMirroredProfileDef with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcMirroredProfileDef(IfcProfileDef parentProfile,IfcCartesianTransformationOperator2D op,IfcLabel label,IfcProfileTypeEnum profileType,IfcLabel profileName):base(parentProfile,op,label,profileType,profileName)
+		public IfcMirroredProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName,IfcProfileDef parentProfile,IfcCartesianTransformationOperator2D op,IfcLabel label):base(profileType,profileName,parentProfile,op,label)
 		{
 
 		}
@@ -13323,7 +13323,7 @@ namespace IFC4
 		/// Construct a IfcDiscreteAccessory with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDiscreteAccessory(IfcDiscreteAccessoryTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcDiscreteAccessory(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcDiscreteAccessoryTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -13344,7 +13344,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcDiscreteAccessoryType with all required attributes.
 		/// </summary>
-		public IfcDiscreteAccessoryType(IfcDiscreteAccessoryTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcDiscreteAccessoryType(IfcGloballyUniqueId globalId,IfcDiscreteAccessoryTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -13353,7 +13353,7 @@ namespace IFC4
 		/// Construct a IfcDiscreteAccessoryType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDiscreteAccessoryType(IfcDiscreteAccessoryTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcDiscreteAccessoryType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcDiscreteAccessoryTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -13382,7 +13382,7 @@ namespace IFC4
 		/// Construct a IfcDistributionChamberElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDistributionChamberElement(IfcDistributionChamberElementTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcDistributionChamberElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcDistributionChamberElementTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -13409,7 +13409,7 @@ namespace IFC4
 		/// Construct a IfcDistributionFlowElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDistributionFlowElement(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcDistributionFlowElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 
 		}
@@ -13429,7 +13429,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcDistributionChamberElementType with all required attributes.
 		/// </summary>
-		public IfcDistributionChamberElementType(IfcDistributionChamberElementTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcDistributionChamberElementType(IfcGloballyUniqueId globalId,IfcDistributionChamberElementTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -13438,7 +13438,7 @@ namespace IFC4
 		/// Construct a IfcDistributionChamberElementType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDistributionChamberElementType(IfcDistributionChamberElementTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcDistributionChamberElementType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcDistributionChamberElementTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -13465,7 +13465,7 @@ namespace IFC4
 		/// Construct a IfcDistributionFlowElementType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDistributionFlowElementType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcDistributionFlowElementType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 
 		}
@@ -13491,7 +13491,7 @@ namespace IFC4
 		/// Construct a IfcDistributionCircuit with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDistributionCircuit(IfcLabel longName,IfcDistributionSystemEnum predefinedType,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(longName,predefinedType,objectType,globalId,ownerHistory,name,description)
+		public IfcDistributionCircuit(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcLabel longName,IfcDistributionSystemEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,longName,predefinedType)
 		{
 
 		}
@@ -13520,7 +13520,7 @@ namespace IFC4
 		/// Construct a IfcDistributionSystem with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDistributionSystem(IfcLabel longName,IfcDistributionSystemEnum predefinedType,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		public IfcDistributionSystem(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcLabel longName,IfcDistributionSystemEnum predefinedType):base(globalId,ownerHistory,name,description,objectType)
 		{
 			LongName = longName;
 			PredefinedType = predefinedType;
@@ -13550,7 +13550,7 @@ namespace IFC4
 		/// Construct a IfcFlowInstrument with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFlowInstrument(IfcFlowInstrumentTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcFlowInstrument(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcFlowInstrumentTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -13579,7 +13579,7 @@ namespace IFC4
 		/// Construct a IfcProtectiveDeviceTrippingUnit with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcProtectiveDeviceTrippingUnit(IfcProtectiveDeviceTrippingUnitTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcProtectiveDeviceTrippingUnit(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcProtectiveDeviceTrippingUnitTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -13608,7 +13608,7 @@ namespace IFC4
 		/// Construct a IfcSensor with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSensor(IfcSensorTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcSensor(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcSensorTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -13637,7 +13637,7 @@ namespace IFC4
 		/// Construct a IfcUnitaryControlElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcUnitaryControlElement(IfcUnitaryControlElementTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcUnitaryControlElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcUnitaryControlElementTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -13664,7 +13664,7 @@ namespace IFC4
 		/// Construct a IfcDistributionElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDistributionElement(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcDistributionElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 
 		}
@@ -13684,7 +13684,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcFlowInstrumentType with all required attributes.
 		/// </summary>
-		public IfcFlowInstrumentType(IfcFlowInstrumentTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcFlowInstrumentType(IfcGloballyUniqueId globalId,IfcFlowInstrumentTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -13693,7 +13693,7 @@ namespace IFC4
 		/// Construct a IfcFlowInstrumentType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFlowInstrumentType(IfcFlowInstrumentTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcFlowInstrumentType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcFlowInstrumentTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -13714,7 +13714,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcProtectiveDeviceTrippingUnitType with all required attributes.
 		/// </summary>
-		public IfcProtectiveDeviceTrippingUnitType(IfcProtectiveDeviceTrippingUnitTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcProtectiveDeviceTrippingUnitType(IfcGloballyUniqueId globalId,IfcProtectiveDeviceTrippingUnitTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -13723,7 +13723,7 @@ namespace IFC4
 		/// Construct a IfcProtectiveDeviceTrippingUnitType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcProtectiveDeviceTrippingUnitType(IfcProtectiveDeviceTrippingUnitTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcProtectiveDeviceTrippingUnitType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcProtectiveDeviceTrippingUnitTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -13744,7 +13744,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcSensorType with all required attributes.
 		/// </summary>
-		public IfcSensorType(IfcSensorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcSensorType(IfcGloballyUniqueId globalId,IfcSensorTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -13753,7 +13753,7 @@ namespace IFC4
 		/// Construct a IfcSensorType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSensorType(IfcSensorTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcSensorType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcSensorTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -13774,7 +13774,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcUnitaryControlElementType with all required attributes.
 		/// </summary>
-		public IfcUnitaryControlElementType(IfcUnitaryControlElementTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcUnitaryControlElementType(IfcGloballyUniqueId globalId,IfcUnitaryControlElementTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -13783,7 +13783,7 @@ namespace IFC4
 		/// Construct a IfcUnitaryControlElementType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcUnitaryControlElementType(IfcUnitaryControlElementTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcUnitaryControlElementType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcUnitaryControlElementTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -13810,7 +13810,7 @@ namespace IFC4
 		/// Construct a IfcDistributionElementType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDistributionElementType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcDistributionElementType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 
 		}
@@ -13836,7 +13836,7 @@ namespace IFC4
 		/// Construct a IfcFlowStorageDevice with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFlowStorageDevice(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcFlowStorageDevice(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 
 		}
@@ -13862,7 +13862,7 @@ namespace IFC4
 		/// Construct a IfcFlowTreatmentDevice with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFlowTreatmentDevice(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcFlowTreatmentDevice(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 
 		}
@@ -13888,7 +13888,7 @@ namespace IFC4
 		/// Construct a IfcFlowStorageDeviceType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFlowStorageDeviceType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcFlowStorageDeviceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 
 		}
@@ -13914,7 +13914,7 @@ namespace IFC4
 		/// Construct a IfcFlowTreatmentDeviceType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFlowTreatmentDeviceType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcFlowTreatmentDeviceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 
 		}
@@ -13944,7 +13944,7 @@ namespace IFC4
 		/// Construct a IfcDistributionPort with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDistributionPort(IfcFlowDirectionEnum flowDirection,IfcDistributionPortTypeEnum predefinedType,IfcDistributionSystemEnum systemType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcDistributionPort(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcFlowDirectionEnum flowDirection,IfcDistributionPortTypeEnum predefinedType,IfcDistributionSystemEnum systemType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation)
 		{
 			FlowDirection = flowDirection;
 			PredefinedType = predefinedType;
@@ -13973,7 +13973,7 @@ namespace IFC4
 		/// Construct a IfcPort with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPort(IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcPort(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation)
 		{
 
 		}
@@ -14070,7 +14070,7 @@ namespace IFC4
 		/// Construct a IfcDocumentInformationRelationship with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDocumentInformationRelationship(IfcDocumentInformation relatingDocument,List<IfcDocumentInformation> relatedDocuments,IfcLabel relationshipType,IfcLabel name,IfcText description):base(name,description)
+		public IfcDocumentInformationRelationship(IfcLabel name,IfcText description,IfcDocumentInformation relatingDocument,List<IfcDocumentInformation> relatedDocuments,IfcLabel relationshipType):base(name,description)
 		{
 			RelatingDocument = relatingDocument;
 			RelatedDocuments = relatedDocuments;
@@ -14103,7 +14103,7 @@ namespace IFC4
 		/// Construct a IfcDocumentReference with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDocumentReference(IfcText description,IfcDocumentInformation referencedDocument,IfcURIReference location,IfcIdentifier identification,IfcLabel name):base(location,identification,name)
+		public IfcDocumentReference(IfcURIReference location,IfcIdentifier identification,IfcLabel name,IfcText description,IfcDocumentInformation referencedDocument):base(location,identification,name)
 		{
 			Description = description;
 			ReferencedDocument = referencedDocument;
@@ -14131,7 +14131,7 @@ namespace IFC4
 		/// Construct a IfcDoorStandardCase with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDoorStandardCase(IfcPositiveLengthMeasure overallHeight,IfcPositiveLengthMeasure overallWidth,IfcDoorTypeEnum predefinedType,IfcDoorTypeOperationEnum operationType,IfcLabel userDefinedOperationType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(overallHeight,overallWidth,predefinedType,operationType,userDefinedOperationType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcDoorStandardCase(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcPositiveLengthMeasure overallHeight,IfcPositiveLengthMeasure overallWidth,IfcDoorTypeEnum predefinedType,IfcDoorTypeOperationEnum operationType,IfcLabel userDefinedOperationType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag,overallHeight,overallWidth,predefinedType,operationType,userDefinedOperationType)
 		{
 
 		}
@@ -14171,7 +14171,7 @@ namespace IFC4
 		/// Construct a IfcDoorLiningProperties with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDoorLiningProperties(IfcPositiveLengthMeasure liningDepth,IfcNonNegativeLengthMeasure liningThickness,IfcPositiveLengthMeasure thresholdDepth,IfcNonNegativeLengthMeasure thresholdThickness,IfcNonNegativeLengthMeasure transomThickness,IfcLengthMeasure transomOffset,IfcLengthMeasure liningOffset,IfcLengthMeasure thresholdOffset,IfcPositiveLengthMeasure casingThickness,IfcPositiveLengthMeasure casingDepth,IfcShapeAspect shapeAspectStyle,IfcLengthMeasure liningToPanelOffsetX,IfcLengthMeasure liningToPanelOffsetY,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcDoorLiningProperties(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcPositiveLengthMeasure liningDepth,IfcNonNegativeLengthMeasure liningThickness,IfcPositiveLengthMeasure thresholdDepth,IfcNonNegativeLengthMeasure thresholdThickness,IfcNonNegativeLengthMeasure transomThickness,IfcLengthMeasure transomOffset,IfcLengthMeasure liningOffset,IfcLengthMeasure thresholdOffset,IfcPositiveLengthMeasure casingThickness,IfcPositiveLengthMeasure casingDepth,IfcShapeAspect shapeAspectStyle,IfcLengthMeasure liningToPanelOffsetX,IfcLengthMeasure liningToPanelOffsetY):base(globalId,ownerHistory,name,description)
 		{
 			LiningDepth = liningDepth;
 			LiningThickness = liningThickness;
@@ -14234,7 +14234,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcDoorPanelProperties with all required attributes.
 		/// </summary>
-		public IfcDoorPanelProperties(IfcDoorPanelOperationEnum panelOperation,IfcDoorPanelPositionEnum panelPosition,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcDoorPanelProperties(IfcGloballyUniqueId globalId,IfcDoorPanelOperationEnum panelOperation,IfcDoorPanelPositionEnum panelPosition):base(globalId)
 		{
 			PanelOperation = panelOperation;
 			PanelPosition = panelPosition;
@@ -14244,7 +14244,7 @@ namespace IFC4
 		/// Construct a IfcDoorPanelProperties with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDoorPanelProperties(IfcPositiveLengthMeasure panelDepth,IfcDoorPanelOperationEnum panelOperation,IfcNormalisedRatioMeasure panelWidth,IfcDoorPanelPositionEnum panelPosition,IfcShapeAspect shapeAspectStyle,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcDoorPanelProperties(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcPositiveLengthMeasure panelDepth,IfcDoorPanelOperationEnum panelOperation,IfcNormalisedRatioMeasure panelWidth,IfcDoorPanelPositionEnum panelPosition,IfcShapeAspect shapeAspectStyle):base(globalId,ownerHistory,name,description)
 		{
 			PanelDepth = panelDepth;
 			PanelOperation = panelOperation;
@@ -14272,7 +14272,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcDoorStyle with all required attributes.
 		/// </summary>
-		public IfcDoorStyle(IfcDoorStyleOperationEnum operationType,IfcDoorStyleConstructionEnum constructionType,bool parameterTakesPrecedence,bool sizeable,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcDoorStyle(IfcGloballyUniqueId globalId,IfcDoorStyleOperationEnum operationType,IfcDoorStyleConstructionEnum constructionType,bool parameterTakesPrecedence,bool sizeable):base(globalId)
 		{
 			OperationType = operationType;
 			ConstructionType = constructionType;
@@ -14284,7 +14284,7 @@ namespace IFC4
 		/// Construct a IfcDoorStyle with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDoorStyle(IfcDoorStyleOperationEnum operationType,IfcDoorStyleConstructionEnum constructionType,bool parameterTakesPrecedence,bool sizeable,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcDoorStyle(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcDoorStyleOperationEnum operationType,IfcDoorStyleConstructionEnum constructionType,bool parameterTakesPrecedence,bool sizeable):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag)
 		{
 			OperationType = operationType;
 			ConstructionType = constructionType;
@@ -14318,7 +14318,7 @@ namespace IFC4
 		/// Construct a IfcTypeProduct with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTypeProduct(List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcTypeProduct(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets)
 		{
 			RepresentationMaps = representationMaps;
 			Tag = tag;
@@ -14424,7 +14424,7 @@ namespace IFC4
 		/// Construct a IfcDuctFitting with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDuctFitting(IfcDuctFittingTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcDuctFitting(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcDuctFittingTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -14445,7 +14445,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcDuctFittingType with all required attributes.
 		/// </summary>
-		public IfcDuctFittingType(IfcDuctFittingTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcDuctFittingType(IfcGloballyUniqueId globalId,IfcDuctFittingTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -14454,7 +14454,7 @@ namespace IFC4
 		/// Construct a IfcDuctFittingType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDuctFittingType(IfcDuctFittingTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcDuctFittingType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcDuctFittingTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -14483,7 +14483,7 @@ namespace IFC4
 		/// Construct a IfcDuctSegment with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDuctSegment(IfcDuctSegmentTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcDuctSegment(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcDuctSegmentTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -14504,7 +14504,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcDuctSegmentType with all required attributes.
 		/// </summary>
-		public IfcDuctSegmentType(IfcDuctSegmentTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcDuctSegmentType(IfcGloballyUniqueId globalId,IfcDuctSegmentTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -14513,7 +14513,7 @@ namespace IFC4
 		/// Construct a IfcDuctSegmentType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDuctSegmentType(IfcDuctSegmentTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcDuctSegmentType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcDuctSegmentTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -14542,7 +14542,7 @@ namespace IFC4
 		/// Construct a IfcDuctSilencer with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDuctSilencer(IfcDuctSilencerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcDuctSilencer(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcDuctSilencerTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -14563,7 +14563,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcDuctSilencerType with all required attributes.
 		/// </summary>
-		public IfcDuctSilencerType(IfcDuctSilencerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcDuctSilencerType(IfcGloballyUniqueId globalId,IfcDuctSilencerTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -14572,7 +14572,7 @@ namespace IFC4
 		/// Construct a IfcDuctSilencerType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcDuctSilencerType(IfcDuctSilencerTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcDuctSilencerType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcDuctSilencerTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -14619,7 +14619,7 @@ namespace IFC4
 		/// Construct a IfcEdgeCurve with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcEdgeCurve(IfcCurve edgeGeometry,bool sameSense,IfcVertex edgeStart,IfcVertex edgeEnd):base(edgeStart,edgeEnd)
+		public IfcEdgeCurve(IfcVertex edgeStart,IfcVertex edgeEnd,IfcCurve edgeGeometry,bool sameSense):base(edgeStart,edgeEnd)
 		{
 			EdgeGeometry = edgeGeometry;
 			SameSense = sameSense;
@@ -14643,7 +14643,7 @@ namespace IFC4
 		/// Construct a IfcOrientedEdge with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcOrientedEdge(IfcEdge edgeElement,bool orientation,IfcVertex edgeStart,IfcVertex edgeEnd):base(edgeStart,edgeEnd)
+		public IfcOrientedEdge(IfcVertex edgeStart,IfcVertex edgeEnd,IfcEdge edgeElement,bool orientation):base(edgeStart,edgeEnd)
 		{
 			EdgeElement = edgeElement;
 			Orientation = orientation;
@@ -14666,7 +14666,7 @@ namespace IFC4
 		/// Construct a IfcSubedge with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSubedge(IfcEdge parentEdge,IfcVertex edgeStart,IfcVertex edgeEnd):base(edgeStart,edgeEnd)
+		public IfcSubedge(IfcVertex edgeStart,IfcVertex edgeEnd,IfcEdge parentEdge):base(edgeStart,edgeEnd)
 		{
 			ParentEdge = parentEdge;
 
@@ -14737,7 +14737,7 @@ namespace IFC4
 		/// Construct a IfcElectricAppliance with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcElectricAppliance(IfcElectricApplianceTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcElectricAppliance(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcElectricApplianceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -14758,7 +14758,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcElectricApplianceType with all required attributes.
 		/// </summary>
-		public IfcElectricApplianceType(IfcElectricApplianceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcElectricApplianceType(IfcGloballyUniqueId globalId,IfcElectricApplianceTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -14767,7 +14767,7 @@ namespace IFC4
 		/// Construct a IfcElectricApplianceType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcElectricApplianceType(IfcElectricApplianceTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcElectricApplianceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcElectricApplianceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -14796,7 +14796,7 @@ namespace IFC4
 		/// Construct a IfcElectricDistributionBoard with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcElectricDistributionBoard(IfcElectricDistributionBoardTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcElectricDistributionBoard(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcElectricDistributionBoardTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -14817,7 +14817,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcElectricDistributionBoardType with all required attributes.
 		/// </summary>
-		public IfcElectricDistributionBoardType(IfcElectricDistributionBoardTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcElectricDistributionBoardType(IfcGloballyUniqueId globalId,IfcElectricDistributionBoardTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -14826,7 +14826,7 @@ namespace IFC4
 		/// Construct a IfcElectricDistributionBoardType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcElectricDistributionBoardType(IfcElectricDistributionBoardTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcElectricDistributionBoardType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcElectricDistributionBoardTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -14855,7 +14855,7 @@ namespace IFC4
 		/// Construct a IfcElectricFlowStorageDevice with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcElectricFlowStorageDevice(IfcElectricFlowStorageDeviceTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcElectricFlowStorageDevice(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcElectricFlowStorageDeviceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -14876,7 +14876,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcElectricFlowStorageDeviceType with all required attributes.
 		/// </summary>
-		public IfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcElectricFlowStorageDeviceType(IfcGloballyUniqueId globalId,IfcElectricFlowStorageDeviceTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -14885,7 +14885,7 @@ namespace IFC4
 		/// Construct a IfcElectricFlowStorageDeviceType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcElectricFlowStorageDeviceType(IfcElectricFlowStorageDeviceTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcElectricFlowStorageDeviceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcElectricFlowStorageDeviceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -14914,7 +14914,7 @@ namespace IFC4
 		/// Construct a IfcElectricGenerator with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcElectricGenerator(IfcElectricGeneratorTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcElectricGenerator(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcElectricGeneratorTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -14935,7 +14935,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcElectricGeneratorType with all required attributes.
 		/// </summary>
-		public IfcElectricGeneratorType(IfcElectricGeneratorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcElectricGeneratorType(IfcGloballyUniqueId globalId,IfcElectricGeneratorTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -14944,7 +14944,7 @@ namespace IFC4
 		/// Construct a IfcElectricGeneratorType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcElectricGeneratorType(IfcElectricGeneratorTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcElectricGeneratorType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcElectricGeneratorTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -14973,7 +14973,7 @@ namespace IFC4
 		/// Construct a IfcElectricMotor with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcElectricMotor(IfcElectricMotorTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcElectricMotor(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcElectricMotorTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -14994,7 +14994,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcElectricMotorType with all required attributes.
 		/// </summary>
-		public IfcElectricMotorType(IfcElectricMotorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcElectricMotorType(IfcGloballyUniqueId globalId,IfcElectricMotorTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -15003,7 +15003,7 @@ namespace IFC4
 		/// Construct a IfcElectricMotorType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcElectricMotorType(IfcElectricMotorTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcElectricMotorType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcElectricMotorTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -15032,7 +15032,7 @@ namespace IFC4
 		/// Construct a IfcElectricTimeControl with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcElectricTimeControl(IfcElectricTimeControlTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcElectricTimeControl(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcElectricTimeControlTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -15053,7 +15053,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcElectricTimeControlType with all required attributes.
 		/// </summary>
-		public IfcElectricTimeControlType(IfcElectricTimeControlTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcElectricTimeControlType(IfcGloballyUniqueId globalId,IfcElectricTimeControlTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -15062,7 +15062,7 @@ namespace IFC4
 		/// Construct a IfcElectricTimeControlType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcElectricTimeControlType(IfcElectricTimeControlTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcElectricTimeControlType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcElectricTimeControlTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -15092,7 +15092,7 @@ namespace IFC4
 		/// Construct a IfcElementAssembly with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcElementAssembly(IfcAssemblyPlaceEnum assemblyPlace,IfcElementAssemblyTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcElementAssembly(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcAssemblyPlaceEnum assemblyPlace,IfcElementAssemblyTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			AssemblyPlace = assemblyPlace;
 			PredefinedType = predefinedType;
@@ -15120,7 +15120,7 @@ namespace IFC4
 		/// Construct a IfcFeatureElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFeatureElement(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcFeatureElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 
 		}
@@ -15146,7 +15146,7 @@ namespace IFC4
 		/// Construct a IfcFurnishingElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFurnishingElement(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcFurnishingElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 
 		}
@@ -15174,7 +15174,7 @@ namespace IFC4
 		/// Construct a IfcGeographicElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcGeographicElement(IfcGeographicElementTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcGeographicElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcGeographicElementTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -15203,7 +15203,7 @@ namespace IFC4
 		/// Construct a IfcTransportElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTransportElement(IfcTransportElementTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcTransportElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcTransportElementTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -15230,7 +15230,7 @@ namespace IFC4
 		/// Construct a IfcVirtualElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcVirtualElement(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcVirtualElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 
 		}
@@ -15250,7 +15250,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcElementAssemblyType with all required attributes.
 		/// </summary>
-		public IfcElementAssemblyType(IfcElementAssemblyTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcElementAssemblyType(IfcGloballyUniqueId globalId,IfcElementAssemblyTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -15259,7 +15259,7 @@ namespace IFC4
 		/// Construct a IfcElementAssemblyType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcElementAssemblyType(IfcElementAssemblyTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcElementAssemblyType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcElementAssemblyTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -15288,7 +15288,7 @@ namespace IFC4
 		/// Construct a IfcFastener with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFastener(IfcFastenerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcFastener(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcFastenerTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -15319,7 +15319,7 @@ namespace IFC4
 		/// Construct a IfcMechanicalFastener with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcMechanicalFastener(IfcPositiveLengthMeasure nominalDiameter,IfcPositiveLengthMeasure nominalLength,IfcMechanicalFastenerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcMechanicalFastener(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcPositiveLengthMeasure nominalDiameter,IfcPositiveLengthMeasure nominalLength,IfcMechanicalFastenerTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			NominalDiameter = nominalDiameter;
 			NominalLength = nominalLength;
@@ -15350,7 +15350,7 @@ namespace IFC4
 		/// Construct a IfcReinforcingElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcReinforcingElement(IfcLabel steelGrade,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcReinforcingElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcLabel steelGrade):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			SteelGrade = steelGrade;
 
@@ -15379,7 +15379,7 @@ namespace IFC4
 		/// Construct a IfcVibrationIsolator with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcVibrationIsolator(IfcVibrationIsolatorTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcVibrationIsolator(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcVibrationIsolatorTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -15400,7 +15400,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcFastenerType with all required attributes.
 		/// </summary>
-		public IfcFastenerType(IfcFastenerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcFastenerType(IfcGloballyUniqueId globalId,IfcFastenerTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -15409,7 +15409,7 @@ namespace IFC4
 		/// Construct a IfcFastenerType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFastenerType(IfcFastenerTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcFastenerType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcFastenerTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -15432,7 +15432,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcMechanicalFastenerType with all required attributes.
 		/// </summary>
-		public IfcMechanicalFastenerType(IfcMechanicalFastenerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcMechanicalFastenerType(IfcGloballyUniqueId globalId,IfcMechanicalFastenerTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -15441,7 +15441,7 @@ namespace IFC4
 		/// Construct a IfcMechanicalFastenerType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcMechanicalFastenerType(IfcMechanicalFastenerTypeEnum predefinedType,IfcPositiveLengthMeasure nominalDiameter,IfcPositiveLengthMeasure nominalLength,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcMechanicalFastenerType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcMechanicalFastenerTypeEnum predefinedType,IfcPositiveLengthMeasure nominalDiameter,IfcPositiveLengthMeasure nominalLength):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 			NominalDiameter = nominalDiameter;
@@ -15470,7 +15470,7 @@ namespace IFC4
 		/// Construct a IfcReinforcingElementType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcReinforcingElementType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcReinforcingElementType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 
 		}
@@ -15490,7 +15490,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcVibrationIsolatorType with all required attributes.
 		/// </summary>
-		public IfcVibrationIsolatorType(IfcVibrationIsolatorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcVibrationIsolatorType(IfcGloballyUniqueId globalId,IfcVibrationIsolatorTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -15499,7 +15499,7 @@ namespace IFC4
 		/// Construct a IfcVibrationIsolatorType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcVibrationIsolatorType(IfcVibrationIsolatorTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcVibrationIsolatorType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcVibrationIsolatorTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -15521,7 +15521,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcElementQuantity with all required attributes.
 		/// </summary>
-		public IfcElementQuantity(List<IfcPhysicalQuantity> quantities,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcElementQuantity(IfcGloballyUniqueId globalId,List<IfcPhysicalQuantity> quantities):base(globalId)
 		{
 			Quantities = quantities;
 			Quantities = new List<IfcPhysicalQuantity>();
@@ -15531,7 +15531,7 @@ namespace IFC4
 		/// Construct a IfcElementQuantity with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcElementQuantity(IfcLabel methodOfMeasurement,List<IfcPhysicalQuantity> quantities,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcElementQuantity(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel methodOfMeasurement,List<IfcPhysicalQuantity> quantities):base(globalId,ownerHistory,name,description)
 		{
 			MethodOfMeasurement = methodOfMeasurement;
 			Quantities = quantities;
@@ -15586,7 +15586,7 @@ namespace IFC4
 		/// Construct a IfcFurnishingElementType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFurnishingElementType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcFurnishingElementType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 
 		}
@@ -15606,7 +15606,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcGeographicElementType with all required attributes.
 		/// </summary>
-		public IfcGeographicElementType(IfcGeographicElementTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcGeographicElementType(IfcGloballyUniqueId globalId,IfcGeographicElementTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -15615,7 +15615,7 @@ namespace IFC4
 		/// Construct a IfcGeographicElementType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcGeographicElementType(IfcGeographicElementTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcGeographicElementType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcGeographicElementTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -15636,7 +15636,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcTransportElementType with all required attributes.
 		/// </summary>
-		public IfcTransportElementType(IfcTransportElementTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcTransportElementType(IfcGloballyUniqueId globalId,IfcTransportElementTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -15645,7 +15645,7 @@ namespace IFC4
 		/// Construct a IfcTransportElementType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTransportElementType(IfcTransportElementTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcTransportElementType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcTransportElementTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -15686,7 +15686,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcEllipseProfileDef with all required attributes.
 		/// </summary>
-		public IfcEllipseProfileDef(IfcPositiveLengthMeasure semiAxis1,IfcPositiveLengthMeasure semiAxis2,IfcProfileTypeEnum profileType):base(profileType)
+		public IfcEllipseProfileDef(IfcProfileTypeEnum profileType,IfcPositiveLengthMeasure semiAxis1,IfcPositiveLengthMeasure semiAxis2):base(profileType)
 		{
 			SemiAxis1 = semiAxis1;
 			SemiAxis2 = semiAxis2;
@@ -15696,7 +15696,7 @@ namespace IFC4
 		/// Construct a IfcEllipseProfileDef with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcEllipseProfileDef(IfcPositiveLengthMeasure semiAxis1,IfcPositiveLengthMeasure semiAxis2,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		public IfcEllipseProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName,IfcAxis2Placement2D position,IfcPositiveLengthMeasure semiAxis1,IfcPositiveLengthMeasure semiAxis2):base(profileType,profileName,position)
 		{
 			SemiAxis1 = semiAxis1;
 			SemiAxis2 = semiAxis2;
@@ -15726,7 +15726,7 @@ namespace IFC4
 		/// Construct a IfcEngine with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcEngine(IfcEngineTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcEngine(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcEngineTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -15755,7 +15755,7 @@ namespace IFC4
 		/// Construct a IfcEvaporativeCooler with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcEvaporativeCooler(IfcEvaporativeCoolerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcEvaporativeCooler(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcEvaporativeCoolerTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -15784,7 +15784,7 @@ namespace IFC4
 		/// Construct a IfcEvaporator with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcEvaporator(IfcEvaporatorTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcEvaporator(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcEvaporatorTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -15813,7 +15813,7 @@ namespace IFC4
 		/// Construct a IfcHeatExchanger with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcHeatExchanger(IfcHeatExchangerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcHeatExchanger(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcHeatExchangerTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -15842,7 +15842,7 @@ namespace IFC4
 		/// Construct a IfcHumidifier with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcHumidifier(IfcHumidifierTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcHumidifier(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcHumidifierTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -15871,7 +15871,7 @@ namespace IFC4
 		/// Construct a IfcMotorConnection with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcMotorConnection(IfcMotorConnectionTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcMotorConnection(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcMotorConnectionTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -15900,7 +15900,7 @@ namespace IFC4
 		/// Construct a IfcSolarDevice with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSolarDevice(IfcSolarDeviceTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcSolarDevice(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcSolarDeviceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -15929,7 +15929,7 @@ namespace IFC4
 		/// Construct a IfcTransformer with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTransformer(IfcTransformerTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcTransformer(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcTransformerTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -15958,7 +15958,7 @@ namespace IFC4
 		/// Construct a IfcTubeBundle with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTubeBundle(IfcTubeBundleTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcTubeBundle(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcTubeBundleTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -15987,7 +15987,7 @@ namespace IFC4
 		/// Construct a IfcUnitaryEquipment with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcUnitaryEquipment(IfcUnitaryEquipmentTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcUnitaryEquipment(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcUnitaryEquipmentTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -16008,7 +16008,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcEngineType with all required attributes.
 		/// </summary>
-		public IfcEngineType(IfcEngineTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcEngineType(IfcGloballyUniqueId globalId,IfcEngineTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -16017,7 +16017,7 @@ namespace IFC4
 		/// Construct a IfcEngineType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcEngineType(IfcEngineTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcEngineType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcEngineTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -16038,7 +16038,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcEvaporativeCoolerType with all required attributes.
 		/// </summary>
-		public IfcEvaporativeCoolerType(IfcEvaporativeCoolerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcEvaporativeCoolerType(IfcGloballyUniqueId globalId,IfcEvaporativeCoolerTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -16047,7 +16047,7 @@ namespace IFC4
 		/// Construct a IfcEvaporativeCoolerType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcEvaporativeCoolerType(IfcEvaporativeCoolerTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcEvaporativeCoolerType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcEvaporativeCoolerTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -16068,7 +16068,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcEvaporatorType with all required attributes.
 		/// </summary>
-		public IfcEvaporatorType(IfcEvaporatorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcEvaporatorType(IfcGloballyUniqueId globalId,IfcEvaporatorTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -16077,7 +16077,7 @@ namespace IFC4
 		/// Construct a IfcEvaporatorType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcEvaporatorType(IfcEvaporatorTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcEvaporatorType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcEvaporatorTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -16098,7 +16098,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcHeatExchangerType with all required attributes.
 		/// </summary>
-		public IfcHeatExchangerType(IfcHeatExchangerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcHeatExchangerType(IfcGloballyUniqueId globalId,IfcHeatExchangerTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -16107,7 +16107,7 @@ namespace IFC4
 		/// Construct a IfcHeatExchangerType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcHeatExchangerType(IfcHeatExchangerTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcHeatExchangerType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcHeatExchangerTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -16128,7 +16128,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcHumidifierType with all required attributes.
 		/// </summary>
-		public IfcHumidifierType(IfcHumidifierTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcHumidifierType(IfcGloballyUniqueId globalId,IfcHumidifierTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -16137,7 +16137,7 @@ namespace IFC4
 		/// Construct a IfcHumidifierType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcHumidifierType(IfcHumidifierTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcHumidifierType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcHumidifierTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -16158,7 +16158,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcMotorConnectionType with all required attributes.
 		/// </summary>
-		public IfcMotorConnectionType(IfcMotorConnectionTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcMotorConnectionType(IfcGloballyUniqueId globalId,IfcMotorConnectionTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -16167,7 +16167,7 @@ namespace IFC4
 		/// Construct a IfcMotorConnectionType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcMotorConnectionType(IfcMotorConnectionTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcMotorConnectionType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcMotorConnectionTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -16188,7 +16188,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcSolarDeviceType with all required attributes.
 		/// </summary>
-		public IfcSolarDeviceType(IfcSolarDeviceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcSolarDeviceType(IfcGloballyUniqueId globalId,IfcSolarDeviceTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -16197,7 +16197,7 @@ namespace IFC4
 		/// Construct a IfcSolarDeviceType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSolarDeviceType(IfcSolarDeviceTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcSolarDeviceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcSolarDeviceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -16218,7 +16218,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcTransformerType with all required attributes.
 		/// </summary>
-		public IfcTransformerType(IfcTransformerTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcTransformerType(IfcGloballyUniqueId globalId,IfcTransformerTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -16227,7 +16227,7 @@ namespace IFC4
 		/// Construct a IfcTransformerType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTransformerType(IfcTransformerTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcTransformerType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcTransformerTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -16248,7 +16248,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcTubeBundleType with all required attributes.
 		/// </summary>
-		public IfcTubeBundleType(IfcTubeBundleTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcTubeBundleType(IfcGloballyUniqueId globalId,IfcTubeBundleTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -16257,7 +16257,7 @@ namespace IFC4
 		/// Construct a IfcTubeBundleType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTubeBundleType(IfcTubeBundleTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcTubeBundleType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcTubeBundleTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -16278,7 +16278,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcUnitaryEquipmentType with all required attributes.
 		/// </summary>
-		public IfcUnitaryEquipmentType(IfcUnitaryEquipmentTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcUnitaryEquipmentType(IfcGloballyUniqueId globalId,IfcUnitaryEquipmentTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -16287,7 +16287,7 @@ namespace IFC4
 		/// Construct a IfcUnitaryEquipmentType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcUnitaryEquipmentType(IfcUnitaryEquipmentTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcUnitaryEquipmentType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcUnitaryEquipmentTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -16319,7 +16319,7 @@ namespace IFC4
 		/// Construct a IfcEvent with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcEvent(IfcEventTypeEnum predefinedType,IfcEventTriggerTypeEnum eventTriggerType,IfcLabel userDefinedEventTriggerType,IfcEventTime eventOccurenceTime,IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,longDescription,objectType,globalId,ownerHistory,name,description)
+		public IfcEvent(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcText longDescription,IfcEventTypeEnum predefinedType,IfcEventTriggerTypeEnum eventTriggerType,IfcLabel userDefinedEventTriggerType,IfcEventTime eventOccurenceTime):base(globalId,ownerHistory,name,description,objectType,identification,longDescription)
 		{
 			PredefinedType = predefinedType;
 			EventTriggerType = eventTriggerType;
@@ -16352,7 +16352,7 @@ namespace IFC4
 		/// Construct a IfcProcess with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcProcess(IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		public IfcProcess(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcText longDescription):base(globalId,ownerHistory,name,description,objectType)
 		{
 			Identification = identification;
 			LongDescription = longDescription;
@@ -16385,7 +16385,7 @@ namespace IFC4
 		/// Construct a IfcEventTime with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcEventTime(IfcDateTime actualDate,IfcDateTime earlyDate,IfcDateTime lateDate,IfcDateTime scheduleDate,IfcLabel name,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin):base(name,dataOrigin,userDefinedDataOrigin)
+		public IfcEventTime(IfcLabel name,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin,IfcDateTime actualDate,IfcDateTime earlyDate,IfcDateTime lateDate,IfcDateTime scheduleDate):base(name,dataOrigin,userDefinedDataOrigin)
 		{
 			ActualDate = actualDate;
 			EarlyDate = earlyDate;
@@ -16444,7 +16444,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcEventType with all required attributes.
 		/// </summary>
-		public IfcEventType(IfcEventTypeEnum predefinedType,IfcEventTriggerTypeEnum eventTriggerType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcEventType(IfcGloballyUniqueId globalId,IfcEventTypeEnum predefinedType,IfcEventTriggerTypeEnum eventTriggerType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 			EventTriggerType = eventTriggerType;
@@ -16454,7 +16454,7 @@ namespace IFC4
 		/// Construct a IfcEventType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcEventType(IfcEventTypeEnum predefinedType,IfcEventTriggerTypeEnum eventTriggerType,IfcLabel userDefinedEventTriggerType,IfcIdentifier identification,IfcText longDescription,IfcLabel processType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,longDescription,processType,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcEventType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcIdentifier identification,IfcText longDescription,IfcLabel processType,IfcEventTypeEnum predefinedType,IfcEventTriggerTypeEnum eventTriggerType,IfcLabel userDefinedEventTriggerType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,identification,longDescription,processType)
 		{
 			PredefinedType = predefinedType;
 			EventTriggerType = eventTriggerType;
@@ -16487,7 +16487,7 @@ namespace IFC4
 		/// Construct a IfcTypeProcess with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTypeProcess(IfcIdentifier identification,IfcText longDescription,IfcLabel processType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcTypeProcess(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcIdentifier identification,IfcText longDescription,IfcLabel processType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets)
 		{
 			Identification = identification;
 			LongDescription = longDescription;
@@ -16546,7 +16546,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcMaterialProperties with all required attributes.
 		/// </summary>
-		public IfcMaterialProperties(IfcMaterialDefinition material,List<IfcProperty> properties):base(properties)
+		public IfcMaterialProperties(List<IfcProperty> properties,IfcMaterialDefinition material):base(properties)
 		{
 			Material = material;
 
@@ -16555,7 +16555,7 @@ namespace IFC4
 		/// Construct a IfcMaterialProperties with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcMaterialProperties(IfcMaterialDefinition material,IfcIdentifier name,IfcText description,List<IfcProperty> properties):base(name,description,properties)
+		public IfcMaterialProperties(IfcIdentifier name,IfcText description,List<IfcProperty> properties,IfcMaterialDefinition material):base(name,description,properties)
 		{
 			Material = material;
 
@@ -16576,7 +16576,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcProfileProperties with all required attributes.
 		/// </summary>
-		public IfcProfileProperties(IfcProfileDef profileDefinition,List<IfcProperty> properties):base(properties)
+		public IfcProfileProperties(List<IfcProperty> properties,IfcProfileDef profileDefinition):base(properties)
 		{
 			ProfileDefinition = profileDefinition;
 
@@ -16585,7 +16585,7 @@ namespace IFC4
 		/// Construct a IfcProfileProperties with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcProfileProperties(IfcProfileDef profileDefinition,IfcIdentifier name,IfcText description,List<IfcProperty> properties):base(name,description,properties)
+		public IfcProfileProperties(IfcIdentifier name,IfcText description,List<IfcProperty> properties,IfcProfileDef profileDefinition):base(name,description,properties)
 		{
 			ProfileDefinition = profileDefinition;
 
@@ -16753,7 +16753,7 @@ namespace IFC4
 		/// Construct a IfcLibraryReference with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcLibraryReference(IfcText description,IfcLanguageId language,IfcLibraryInformation referencedLibrary,IfcURIReference location,IfcIdentifier identification,IfcLabel name):base(location,identification,name)
+		public IfcLibraryReference(IfcURIReference location,IfcIdentifier identification,IfcLabel name,IfcText description,IfcLanguageId language,IfcLibraryInformation referencedLibrary):base(location,identification,name)
 		{
 			Description = description;
 			Language = language;
@@ -16788,7 +16788,7 @@ namespace IFC4
 		/// Construct a IfcExternalReferenceRelationship with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcExternalReferenceRelationship(IfcExternalReference relatingReference,List<IfcResourceObjectSelect> relatedResourceObjects,IfcLabel name,IfcText description):base(name,description)
+		public IfcExternalReferenceRelationship(IfcLabel name,IfcText description,IfcExternalReference relatingReference,List<IfcResourceObjectSelect> relatedResourceObjects):base(name,description)
 		{
 			RelatingReference = relatingReference;
 			RelatedResourceObjects = relatedResourceObjects;
@@ -16819,7 +16819,7 @@ namespace IFC4
 		/// Construct a IfcExternalSpatialElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcExternalSpatialElement(IfcExternalSpatialElementTypeEnum predefinedType,IfcLabel longName,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(longName,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcExternalSpatialElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel longName,IfcExternalSpatialElementTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,longName)
 		{
 			PredefinedType = predefinedType;
 
@@ -16846,7 +16846,7 @@ namespace IFC4
 		/// Construct a IfcExternalSpatialStructureElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcExternalSpatialStructureElement(IfcLabel longName,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(longName,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcExternalSpatialStructureElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel longName):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,longName)
 		{
 
 		}
@@ -16874,7 +16874,7 @@ namespace IFC4
 		/// Construct a IfcSpatialElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSpatialElement(IfcLabel longName,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcSpatialElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel longName):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation)
 		{
 			LongName = longName;
 
@@ -16896,7 +16896,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcExtrudedAreaSolid with all required attributes.
 		/// </summary>
-		public IfcExtrudedAreaSolid(IfcDirection extrudedDirection,IfcPositiveLengthMeasure depth,IfcProfileDef sweptArea):base(sweptArea)
+		public IfcExtrudedAreaSolid(IfcProfileDef sweptArea,IfcDirection extrudedDirection,IfcPositiveLengthMeasure depth):base(sweptArea)
 		{
 			ExtrudedDirection = extrudedDirection;
 			Depth = depth;
@@ -16906,7 +16906,7 @@ namespace IFC4
 		/// Construct a IfcExtrudedAreaSolid with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcExtrudedAreaSolid(IfcDirection extrudedDirection,IfcPositiveLengthMeasure depth,IfcProfileDef sweptArea,IfcAxis2Placement3D position):base(sweptArea,position)
+		public IfcExtrudedAreaSolid(IfcProfileDef sweptArea,IfcAxis2Placement3D position,IfcDirection extrudedDirection,IfcPositiveLengthMeasure depth):base(sweptArea,position)
 		{
 			ExtrudedDirection = extrudedDirection;
 			Depth = depth;
@@ -16928,7 +16928,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcExtrudedAreaSolidTapered with all required attributes.
 		/// </summary>
-		public IfcExtrudedAreaSolidTapered(IfcProfileDef endSweptArea,IfcDirection extrudedDirection,IfcPositiveLengthMeasure depth,IfcProfileDef sweptArea):base(extrudedDirection,depth,sweptArea)
+		public IfcExtrudedAreaSolidTapered(IfcProfileDef sweptArea,IfcDirection extrudedDirection,IfcPositiveLengthMeasure depth,IfcProfileDef endSweptArea):base(sweptArea,extrudedDirection,depth)
 		{
 			EndSweptArea = endSweptArea;
 
@@ -16937,7 +16937,7 @@ namespace IFC4
 		/// Construct a IfcExtrudedAreaSolidTapered with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcExtrudedAreaSolidTapered(IfcProfileDef endSweptArea,IfcDirection extrudedDirection,IfcPositiveLengthMeasure depth,IfcProfileDef sweptArea,IfcAxis2Placement3D position):base(extrudedDirection,depth,sweptArea,position)
+		public IfcExtrudedAreaSolidTapered(IfcProfileDef sweptArea,IfcAxis2Placement3D position,IfcDirection extrudedDirection,IfcPositiveLengthMeasure depth,IfcProfileDef endSweptArea):base(sweptArea,position,extrudedDirection,depth)
 		{
 			EndSweptArea = endSweptArea;
 
@@ -17099,7 +17099,7 @@ namespace IFC4
 		/// Construct a IfcFacetedBrepWithVoids with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFacetedBrepWithVoids(List<IfcClosedShell> voids,IfcClosedShell outer):base(outer)
+		public IfcFacetedBrepWithVoids(IfcClosedShell outer,List<IfcClosedShell> voids):base(outer)
 		{
 			Voids = voids;
 			Voids = new List<IfcClosedShell>();
@@ -17134,7 +17134,7 @@ namespace IFC4
 		/// Construct a IfcFailureConnectionCondition with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFailureConnectionCondition(IfcForceMeasure tensionFailureX,IfcForceMeasure tensionFailureY,IfcForceMeasure tensionFailureZ,IfcForceMeasure compressionFailureX,IfcForceMeasure compressionFailureY,IfcForceMeasure compressionFailureZ,IfcLabel name):base(name)
+		public IfcFailureConnectionCondition(IfcLabel name,IfcForceMeasure tensionFailureX,IfcForceMeasure tensionFailureY,IfcForceMeasure tensionFailureZ,IfcForceMeasure compressionFailureX,IfcForceMeasure compressionFailureY,IfcForceMeasure compressionFailureZ):base(name)
 		{
 			TensionFailureX = tensionFailureX;
 			TensionFailureY = tensionFailureY;
@@ -17197,7 +17197,7 @@ namespace IFC4
 		/// Construct a IfcFan with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFan(IfcFanTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcFan(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcFanTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -17218,7 +17218,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcFanType with all required attributes.
 		/// </summary>
-		public IfcFanType(IfcFanTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcFanType(IfcGloballyUniqueId globalId,IfcFanTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -17227,7 +17227,7 @@ namespace IFC4
 		/// Construct a IfcFanType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFanType(IfcFanTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcFanType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcFanTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -17254,7 +17254,7 @@ namespace IFC4
 		/// Construct a IfcFeatureElementAddition with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFeatureElementAddition(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcFeatureElementAddition(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 
 		}
@@ -17280,7 +17280,7 @@ namespace IFC4
 		/// Construct a IfcFeatureElementSubtraction with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFeatureElementSubtraction(IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcFeatureElementSubtraction(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 
 		}
@@ -17308,7 +17308,7 @@ namespace IFC4
 		/// Construct a IfcSurfaceFeature with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSurfaceFeature(IfcSurfaceFeatureTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcSurfaceFeature(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcSurfaceFeatureTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -17337,7 +17337,7 @@ namespace IFC4
 		/// Construct a IfcProjectionElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcProjectionElement(IfcProjectionElementTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcProjectionElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcProjectionElementTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -17366,7 +17366,7 @@ namespace IFC4
 		/// Construct a IfcOpeningElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcOpeningElement(IfcOpeningElementTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcOpeningElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcOpeningElementTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -17395,7 +17395,7 @@ namespace IFC4
 		/// Construct a IfcVoidingFeature with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcVoidingFeature(IfcVoidingFeatureTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcVoidingFeature(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcVoidingFeatureTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -17427,7 +17427,7 @@ namespace IFC4
 		/// Construct a IfcFillAreaStyle with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFillAreaStyle(List<IfcFillStyleSelect> fillStyles,bool modelorDraughting,IfcLabel name):base(name)
+		public IfcFillAreaStyle(IfcLabel name,List<IfcFillStyleSelect> fillStyles,bool modelorDraughting):base(name)
 		{
 			FillStyles = fillStyles;
 			ModelorDraughting = modelorDraughting;
@@ -17526,7 +17526,7 @@ namespace IFC4
 		/// Construct a IfcFilter with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFilter(IfcFilterTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcFilter(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcFilterTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -17547,7 +17547,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcFilterType with all required attributes.
 		/// </summary>
-		public IfcFilterType(IfcFilterTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcFilterType(IfcGloballyUniqueId globalId,IfcFilterTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -17556,7 +17556,7 @@ namespace IFC4
 		/// Construct a IfcFilterType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFilterType(IfcFilterTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcFilterType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcFilterTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -17585,7 +17585,7 @@ namespace IFC4
 		/// Construct a IfcFireSuppressionTerminal with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFireSuppressionTerminal(IfcFireSuppressionTerminalTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcFireSuppressionTerminal(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcFireSuppressionTerminalTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -17606,7 +17606,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcFireSuppressionTerminalType with all required attributes.
 		/// </summary>
-		public IfcFireSuppressionTerminalType(IfcFireSuppressionTerminalTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcFireSuppressionTerminalType(IfcGloballyUniqueId globalId,IfcFireSuppressionTerminalTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -17615,7 +17615,7 @@ namespace IFC4
 		/// Construct a IfcFireSuppressionTerminalType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFireSuppressionTerminalType(IfcFireSuppressionTerminalTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcFireSuppressionTerminalType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcFireSuppressionTerminalTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -17639,7 +17639,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcFixedReferenceSweptAreaSolid with all required attributes.
 		/// </summary>
-		public IfcFixedReferenceSweptAreaSolid(IfcCurve directrix,IfcDirection fixedReference,IfcProfileDef sweptArea):base(sweptArea)
+		public IfcFixedReferenceSweptAreaSolid(IfcProfileDef sweptArea,IfcCurve directrix,IfcDirection fixedReference):base(sweptArea)
 		{
 			Directrix = directrix;
 			FixedReference = fixedReference;
@@ -17649,7 +17649,7 @@ namespace IFC4
 		/// Construct a IfcFixedReferenceSweptAreaSolid with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFixedReferenceSweptAreaSolid(IfcCurve directrix,IfcParameterValue startParam,IfcParameterValue endParam,IfcDirection fixedReference,IfcProfileDef sweptArea,IfcAxis2Placement3D position):base(sweptArea,position)
+		public IfcFixedReferenceSweptAreaSolid(IfcProfileDef sweptArea,IfcAxis2Placement3D position,IfcCurve directrix,IfcParameterValue startParam,IfcParameterValue endParam,IfcDirection fixedReference):base(sweptArea,position)
 		{
 			Directrix = directrix;
 			StartParam = startParam;
@@ -17681,7 +17681,7 @@ namespace IFC4
 		/// Construct a IfcFlowMeter with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFlowMeter(IfcFlowMeterTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcFlowMeter(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcFlowMeterTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -17710,7 +17710,7 @@ namespace IFC4
 		/// Construct a IfcProtectiveDevice with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcProtectiveDevice(IfcProtectiveDeviceTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcProtectiveDevice(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcProtectiveDeviceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -17739,7 +17739,7 @@ namespace IFC4
 		/// Construct a IfcSwitchingDevice with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSwitchingDevice(IfcSwitchingDeviceTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcSwitchingDevice(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcSwitchingDeviceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -17768,7 +17768,7 @@ namespace IFC4
 		/// Construct a IfcValve with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcValve(IfcValveTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcValve(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcValveTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -17789,7 +17789,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcFlowMeterType with all required attributes.
 		/// </summary>
-		public IfcFlowMeterType(IfcFlowMeterTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcFlowMeterType(IfcGloballyUniqueId globalId,IfcFlowMeterTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -17798,7 +17798,7 @@ namespace IFC4
 		/// Construct a IfcFlowMeterType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFlowMeterType(IfcFlowMeterTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcFlowMeterType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcFlowMeterTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -17819,7 +17819,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcProtectiveDeviceType with all required attributes.
 		/// </summary>
-		public IfcProtectiveDeviceType(IfcProtectiveDeviceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcProtectiveDeviceType(IfcGloballyUniqueId globalId,IfcProtectiveDeviceTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -17828,7 +17828,7 @@ namespace IFC4
 		/// Construct a IfcProtectiveDeviceType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcProtectiveDeviceType(IfcProtectiveDeviceTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcProtectiveDeviceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcProtectiveDeviceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -17849,7 +17849,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcSwitchingDeviceType with all required attributes.
 		/// </summary>
-		public IfcSwitchingDeviceType(IfcSwitchingDeviceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcSwitchingDeviceType(IfcGloballyUniqueId globalId,IfcSwitchingDeviceTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -17858,7 +17858,7 @@ namespace IFC4
 		/// Construct a IfcSwitchingDeviceType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSwitchingDeviceType(IfcSwitchingDeviceTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcSwitchingDeviceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcSwitchingDeviceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -17879,7 +17879,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcValveType with all required attributes.
 		/// </summary>
-		public IfcValveType(IfcValveTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcValveType(IfcGloballyUniqueId globalId,IfcValveTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -17888,7 +17888,7 @@ namespace IFC4
 		/// Construct a IfcValveType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcValveType(IfcValveTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcValveType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcValveTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -17917,7 +17917,7 @@ namespace IFC4
 		/// Construct a IfcJunctionBox with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcJunctionBox(IfcJunctionBoxTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcJunctionBox(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcJunctionBoxTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -17946,7 +17946,7 @@ namespace IFC4
 		/// Construct a IfcPipeFitting with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPipeFitting(IfcPipeFittingTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcPipeFitting(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcPipeFittingTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -17967,7 +17967,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcJunctionBoxType with all required attributes.
 		/// </summary>
-		public IfcJunctionBoxType(IfcJunctionBoxTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcJunctionBoxType(IfcGloballyUniqueId globalId,IfcJunctionBoxTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -17976,7 +17976,7 @@ namespace IFC4
 		/// Construct a IfcJunctionBoxType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcJunctionBoxType(IfcJunctionBoxTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcJunctionBoxType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcJunctionBoxTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -17997,7 +17997,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcPipeFittingType with all required attributes.
 		/// </summary>
-		public IfcPipeFittingType(IfcPipeFittingTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcPipeFittingType(IfcGloballyUniqueId globalId,IfcPipeFittingTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -18006,7 +18006,7 @@ namespace IFC4
 		/// Construct a IfcPipeFittingType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPipeFittingType(IfcPipeFittingTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcPipeFittingType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcPipeFittingTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -18035,7 +18035,7 @@ namespace IFC4
 		/// Construct a IfcPump with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPump(IfcPumpTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcPump(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcPumpTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -18056,7 +18056,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcPumpType with all required attributes.
 		/// </summary>
-		public IfcPumpType(IfcPumpTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcPumpType(IfcGloballyUniqueId globalId,IfcPumpTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -18065,7 +18065,7 @@ namespace IFC4
 		/// Construct a IfcPumpType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPumpType(IfcPumpTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcPumpType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcPumpTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -18094,7 +18094,7 @@ namespace IFC4
 		/// Construct a IfcPipeSegment with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPipeSegment(IfcPipeSegmentTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcPipeSegment(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcPipeSegmentTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -18115,7 +18115,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcPipeSegmentType with all required attributes.
 		/// </summary>
-		public IfcPipeSegmentType(IfcPipeSegmentTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcPipeSegmentType(IfcGloballyUniqueId globalId,IfcPipeSegmentTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -18124,7 +18124,7 @@ namespace IFC4
 		/// Construct a IfcPipeSegmentType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPipeSegmentType(IfcPipeSegmentTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcPipeSegmentType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcPipeSegmentTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -18153,7 +18153,7 @@ namespace IFC4
 		/// Construct a IfcTank with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTank(IfcTankTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcTank(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcTankTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -18174,7 +18174,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcTankType with all required attributes.
 		/// </summary>
-		public IfcTankType(IfcTankTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcTankType(IfcGloballyUniqueId globalId,IfcTankTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -18183,7 +18183,7 @@ namespace IFC4
 		/// Construct a IfcTankType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTankType(IfcTankTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcTankType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcTankTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -18212,7 +18212,7 @@ namespace IFC4
 		/// Construct a IfcLamp with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcLamp(IfcLampTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcLamp(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcLampTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -18241,7 +18241,7 @@ namespace IFC4
 		/// Construct a IfcLightFixture with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcLightFixture(IfcLightFixtureTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcLightFixture(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcLightFixtureTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -18270,7 +18270,7 @@ namespace IFC4
 		/// Construct a IfcMedicalDevice with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcMedicalDevice(IfcMedicalDeviceTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcMedicalDevice(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcMedicalDeviceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -18299,7 +18299,7 @@ namespace IFC4
 		/// Construct a IfcOutlet with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcOutlet(IfcOutletTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcOutlet(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcOutletTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -18328,7 +18328,7 @@ namespace IFC4
 		/// Construct a IfcSanitaryTerminal with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSanitaryTerminal(IfcSanitaryTerminalTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcSanitaryTerminal(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcSanitaryTerminalTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -18357,7 +18357,7 @@ namespace IFC4
 		/// Construct a IfcSpaceHeater with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSpaceHeater(IfcSpaceHeaterTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcSpaceHeater(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcSpaceHeaterTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -18386,7 +18386,7 @@ namespace IFC4
 		/// Construct a IfcStackTerminal with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStackTerminal(IfcStackTerminalTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStackTerminal(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcStackTerminalTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -18415,7 +18415,7 @@ namespace IFC4
 		/// Construct a IfcWasteTerminal with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcWasteTerminal(IfcWasteTerminalTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcWasteTerminal(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcWasteTerminalTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -18436,7 +18436,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcLampType with all required attributes.
 		/// </summary>
-		public IfcLampType(IfcLampTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcLampType(IfcGloballyUniqueId globalId,IfcLampTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -18445,7 +18445,7 @@ namespace IFC4
 		/// Construct a IfcLampType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcLampType(IfcLampTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcLampType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcLampTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -18466,7 +18466,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcLightFixtureType with all required attributes.
 		/// </summary>
-		public IfcLightFixtureType(IfcLightFixtureTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcLightFixtureType(IfcGloballyUniqueId globalId,IfcLightFixtureTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -18475,7 +18475,7 @@ namespace IFC4
 		/// Construct a IfcLightFixtureType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcLightFixtureType(IfcLightFixtureTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcLightFixtureType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcLightFixtureTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -18496,7 +18496,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcMedicalDeviceType with all required attributes.
 		/// </summary>
-		public IfcMedicalDeviceType(IfcMedicalDeviceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcMedicalDeviceType(IfcGloballyUniqueId globalId,IfcMedicalDeviceTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -18505,7 +18505,7 @@ namespace IFC4
 		/// Construct a IfcMedicalDeviceType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcMedicalDeviceType(IfcMedicalDeviceTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcMedicalDeviceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcMedicalDeviceTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -18526,7 +18526,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcOutletType with all required attributes.
 		/// </summary>
-		public IfcOutletType(IfcOutletTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcOutletType(IfcGloballyUniqueId globalId,IfcOutletTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -18535,7 +18535,7 @@ namespace IFC4
 		/// Construct a IfcOutletType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcOutletType(IfcOutletTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcOutletType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcOutletTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -18556,7 +18556,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcSanitaryTerminalType with all required attributes.
 		/// </summary>
-		public IfcSanitaryTerminalType(IfcSanitaryTerminalTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcSanitaryTerminalType(IfcGloballyUniqueId globalId,IfcSanitaryTerminalTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -18565,7 +18565,7 @@ namespace IFC4
 		/// Construct a IfcSanitaryTerminalType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSanitaryTerminalType(IfcSanitaryTerminalTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcSanitaryTerminalType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcSanitaryTerminalTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -18586,7 +18586,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcSpaceHeaterType with all required attributes.
 		/// </summary>
-		public IfcSpaceHeaterType(IfcSpaceHeaterTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcSpaceHeaterType(IfcGloballyUniqueId globalId,IfcSpaceHeaterTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -18595,7 +18595,7 @@ namespace IFC4
 		/// Construct a IfcSpaceHeaterType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSpaceHeaterType(IfcSpaceHeaterTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcSpaceHeaterType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcSpaceHeaterTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -18616,7 +18616,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStackTerminalType with all required attributes.
 		/// </summary>
-		public IfcStackTerminalType(IfcStackTerminalTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcStackTerminalType(IfcGloballyUniqueId globalId,IfcStackTerminalTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -18625,7 +18625,7 @@ namespace IFC4
 		/// Construct a IfcStackTerminalType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStackTerminalType(IfcStackTerminalTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcStackTerminalType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcStackTerminalTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -18646,7 +18646,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcWasteTerminalType with all required attributes.
 		/// </summary>
-		public IfcWasteTerminalType(IfcWasteTerminalTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcWasteTerminalType(IfcGloballyUniqueId globalId,IfcWasteTerminalTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -18655,7 +18655,7 @@ namespace IFC4
 		/// Construct a IfcWasteTerminalType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcWasteTerminalType(IfcWasteTerminalTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcWasteTerminalType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcWasteTerminalTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -18684,7 +18684,7 @@ namespace IFC4
 		/// Construct a IfcInterceptor with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcInterceptor(IfcInterceptorTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcInterceptor(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcInterceptorTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -18705,7 +18705,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcInterceptorType with all required attributes.
 		/// </summary>
-		public IfcInterceptorType(IfcInterceptorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcInterceptorType(IfcGloballyUniqueId globalId,IfcInterceptorTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -18714,7 +18714,7 @@ namespace IFC4
 		/// Construct a IfcInterceptorType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcInterceptorType(IfcInterceptorTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcInterceptorType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcInterceptorTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -18743,7 +18743,7 @@ namespace IFC4
 		/// Construct a IfcFurniture with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFurniture(IfcFurnitureTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcFurniture(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcFurnitureTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -18772,7 +18772,7 @@ namespace IFC4
 		/// Construct a IfcSystemFurnitureElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSystemFurnitureElement(IfcSystemFurnitureElementTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcSystemFurnitureElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcSystemFurnitureElementTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag)
 		{
 			PredefinedType = predefinedType;
 
@@ -18794,7 +18794,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcFurnitureType with all required attributes.
 		/// </summary>
-		public IfcFurnitureType(IfcAssemblyPlaceEnum assemblyPlace,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcFurnitureType(IfcGloballyUniqueId globalId,IfcAssemblyPlaceEnum assemblyPlace):base(globalId)
 		{
 			AssemblyPlace = assemblyPlace;
 
@@ -18803,7 +18803,7 @@ namespace IFC4
 		/// Construct a IfcFurnitureType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcFurnitureType(IfcAssemblyPlaceEnum assemblyPlace,IfcFurnitureTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcFurnitureType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcAssemblyPlaceEnum assemblyPlace,IfcFurnitureTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			AssemblyPlace = assemblyPlace;
 			PredefinedType = predefinedType;
@@ -18833,7 +18833,7 @@ namespace IFC4
 		/// Construct a IfcSystemFurnitureElementType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSystemFurnitureElementType(IfcSystemFurnitureElementTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcSystemFurnitureElementType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcSystemFurnitureElementTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -18909,7 +18909,7 @@ namespace IFC4
 		/// Construct a IfcGeometricRepresentationContext with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcGeometricRepresentationContext(IfcDimensionCount coordinateSpaceDimension,double precision,IfcAxis2Placement worldCoordinateSystem,IfcDirection trueNorth,IfcLabel contextIdentifier,IfcLabel contextType):base(contextIdentifier,contextType)
+		public IfcGeometricRepresentationContext(IfcLabel contextIdentifier,IfcLabel contextType,IfcDimensionCount coordinateSpaceDimension,double precision,IfcAxis2Placement worldCoordinateSystem,IfcDirection trueNorth):base(contextIdentifier,contextType)
 		{
 			CoordinateSpaceDimension = coordinateSpaceDimension;
 			Precision = precision;
@@ -18936,7 +18936,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcGeometricRepresentationSubContext with all required attributes.
 		/// </summary>
-		public IfcGeometricRepresentationSubContext(IfcGeometricRepresentationContext parentContext,IfcGeometricProjectionEnum targetView,IfcDimensionCount coordinateSpaceDimension,IfcAxis2Placement worldCoordinateSystem):base(coordinateSpaceDimension,worldCoordinateSystem)
+		public IfcGeometricRepresentationSubContext(IfcDimensionCount coordinateSpaceDimension,IfcAxis2Placement worldCoordinateSystem,IfcGeometricRepresentationContext parentContext,IfcGeometricProjectionEnum targetView):base(coordinateSpaceDimension,worldCoordinateSystem)
 		{
 			ParentContext = parentContext;
 			TargetView = targetView;
@@ -18946,7 +18946,7 @@ namespace IFC4
 		/// Construct a IfcGeometricRepresentationSubContext with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcGeometricRepresentationSubContext(IfcGeometricRepresentationContext parentContext,IfcPositiveRatioMeasure targetScale,IfcGeometricProjectionEnum targetView,IfcLabel userDefinedTargetView,IfcDimensionCount coordinateSpaceDimension,double precision,IfcAxis2Placement worldCoordinateSystem,IfcDirection trueNorth,IfcLabel contextIdentifier,IfcLabel contextType):base(coordinateSpaceDimension,precision,worldCoordinateSystem,trueNorth,contextIdentifier,contextType)
+		public IfcGeometricRepresentationSubContext(IfcLabel contextIdentifier,IfcLabel contextType,IfcDimensionCount coordinateSpaceDimension,double precision,IfcAxis2Placement worldCoordinateSystem,IfcDirection trueNorth,IfcGeometricRepresentationContext parentContext,IfcPositiveRatioMeasure targetScale,IfcGeometricProjectionEnum targetView,IfcLabel userDefinedTargetView):base(contextIdentifier,contextType,coordinateSpaceDimension,precision,worldCoordinateSystem,trueNorth)
 		{
 			ParentContext = parentContext;
 			TargetScale = targetScale;
@@ -19203,7 +19203,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcGrid with all required attributes.
 		/// </summary>
-		public IfcGrid(List<IfcGridAxis> uAxes,List<IfcGridAxis> vAxes,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcGrid(IfcGloballyUniqueId globalId,List<IfcGridAxis> uAxes,List<IfcGridAxis> vAxes):base(globalId)
 		{
 			UAxes = uAxes;
 			VAxes = vAxes;
@@ -19216,7 +19216,7 @@ namespace IFC4
 		/// Construct a IfcGrid with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcGrid(List<IfcGridAxis> uAxes,List<IfcGridAxis> vAxes,List<IfcGridAxis> wAxes,IfcGridTypeEnum predefinedType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcGrid(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,List<IfcGridAxis> uAxes,List<IfcGridAxis> vAxes,List<IfcGridAxis> wAxes,IfcGridTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation)
 		{
 			UAxes = uAxes;
 			VAxes = vAxes;
@@ -19342,7 +19342,7 @@ namespace IFC4
 		/// Construct a IfcInventory with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcInventory(IfcInventoryTypeEnum predefinedType,IfcActorSelect jurisdiction,List<IfcPerson> responsiblePersons,IfcDate lastUpdateDate,IfcCostValue currentValue,IfcCostValue originalValue,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		public IfcInventory(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcInventoryTypeEnum predefinedType,IfcActorSelect jurisdiction,List<IfcPerson> responsiblePersons,IfcDate lastUpdateDate,IfcCostValue currentValue,IfcCostValue originalValue):base(globalId,ownerHistory,name,description,objectType)
 		{
 			PredefinedType = predefinedType;
 			Jurisdiction = jurisdiction;
@@ -19372,7 +19372,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStructuralLoadGroup with all required attributes.
 		/// </summary>
-		public IfcStructuralLoadGroup(IfcLoadGroupTypeEnum predefinedType,IfcActionTypeEnum actionType,IfcActionSourceTypeEnum actionSource,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcStructuralLoadGroup(IfcGloballyUniqueId globalId,IfcLoadGroupTypeEnum predefinedType,IfcActionTypeEnum actionType,IfcActionSourceTypeEnum actionSource):base(globalId)
 		{
 			PredefinedType = predefinedType;
 			ActionType = actionType;
@@ -19383,7 +19383,7 @@ namespace IFC4
 		/// Construct a IfcStructuralLoadGroup with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralLoadGroup(IfcLoadGroupTypeEnum predefinedType,IfcActionTypeEnum actionType,IfcActionSourceTypeEnum actionSource,IfcRatioMeasure coefficient,IfcLabel purpose,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralLoadGroup(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcLoadGroupTypeEnum predefinedType,IfcActionTypeEnum actionType,IfcActionSourceTypeEnum actionSource,IfcRatioMeasure coefficient,IfcLabel purpose):base(globalId,ownerHistory,name,description,objectType)
 		{
 			PredefinedType = predefinedType;
 			ActionType = actionType;
@@ -19410,7 +19410,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStructuralResultGroup with all required attributes.
 		/// </summary>
-		public IfcStructuralResultGroup(IfcAnalysisTheoryTypeEnum theoryType,bool isLinear,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcStructuralResultGroup(IfcGloballyUniqueId globalId,IfcAnalysisTheoryTypeEnum theoryType,bool isLinear):base(globalId)
 		{
 			TheoryType = theoryType;
 			IsLinear = isLinear;
@@ -19420,7 +19420,7 @@ namespace IFC4
 		/// Construct a IfcStructuralResultGroup with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralResultGroup(IfcAnalysisTheoryTypeEnum theoryType,IfcStructuralLoadGroup resultForLoadGroup,bool isLinear,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralResultGroup(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcAnalysisTheoryTypeEnum theoryType,IfcStructuralLoadGroup resultForLoadGroup,bool isLinear):base(globalId,ownerHistory,name,description,objectType)
 		{
 			TheoryType = theoryType;
 			ResultForLoadGroup = resultForLoadGroup;
@@ -19445,7 +19445,7 @@ namespace IFC4
 		/// Construct a IfcPolygonalBoundedHalfSpace with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPolygonalBoundedHalfSpace(IfcAxis2Placement3D position,IfcBoundedCurve polygonalBoundary,IfcSurface baseSurface,bool agreementFlag):base(baseSurface,agreementFlag)
+		public IfcPolygonalBoundedHalfSpace(IfcSurface baseSurface,bool agreementFlag,IfcAxis2Placement3D position,IfcBoundedCurve polygonalBoundary):base(baseSurface,agreementFlag)
 		{
 			Position = position;
 			PolygonalBoundary = polygonalBoundary;
@@ -19473,7 +19473,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcIShapeProfileDef with all required attributes.
 		/// </summary>
-		public IfcIShapeProfileDef(IfcPositiveLengthMeasure overallWidth,IfcPositiveLengthMeasure overallDepth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcProfileTypeEnum profileType):base(profileType)
+		public IfcIShapeProfileDef(IfcProfileTypeEnum profileType,IfcPositiveLengthMeasure overallWidth,IfcPositiveLengthMeasure overallDepth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness):base(profileType)
 		{
 			OverallWidth = overallWidth;
 			OverallDepth = overallDepth;
@@ -19485,7 +19485,7 @@ namespace IFC4
 		/// Construct a IfcIShapeProfileDef with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcIShapeProfileDef(IfcPositiveLengthMeasure overallWidth,IfcPositiveLengthMeasure overallDepth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcNonNegativeLengthMeasure filletRadius,IfcNonNegativeLengthMeasure flangeEdgeRadius,IfcPlaneAngleMeasure flangeSlope,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		public IfcIShapeProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName,IfcAxis2Placement2D position,IfcPositiveLengthMeasure overallWidth,IfcPositiveLengthMeasure overallDepth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcNonNegativeLengthMeasure filletRadius,IfcNonNegativeLengthMeasure flangeEdgeRadius,IfcPlaneAngleMeasure flangeSlope):base(profileType,profileName,position)
 		{
 			OverallWidth = overallWidth;
 			OverallDepth = overallDepth;
@@ -19512,7 +19512,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcImageTexture with all required attributes.
 		/// </summary>
-		public IfcImageTexture(IfcURIReference uRLReference,bool repeatS,bool repeatT):base(repeatS,repeatT)
+		public IfcImageTexture(bool repeatS,bool repeatT,IfcURIReference uRLReference):base(repeatS,repeatT)
 		{
 			URLReference = uRLReference;
 
@@ -19521,7 +19521,7 @@ namespace IFC4
 		/// Construct a IfcImageTexture with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcImageTexture(IfcURIReference uRLReference,bool repeatS,bool repeatT,IfcIdentifier mode,IfcCartesianTransformationOperator2D textureTransform,List<IfcIdentifier> parameter):base(repeatS,repeatT,mode,textureTransform,parameter)
+		public IfcImageTexture(bool repeatS,bool repeatT,IfcIdentifier mode,IfcCartesianTransformationOperator2D textureTransform,List<IfcIdentifier> parameter,IfcURIReference uRLReference):base(repeatS,repeatT,mode,textureTransform,parameter)
 		{
 			URLReference = uRLReference;
 
@@ -19584,7 +19584,7 @@ namespace IFC4
 		/// Construct a IfcIndexedTextureMap with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcIndexedTextureMap(IfcTessellatedFaceSet mappedTo,IfcTextureVertexList texCoords,List<IfcSurfaceTexture> maps):base(maps)
+		public IfcIndexedTextureMap(List<IfcSurfaceTexture> maps,IfcTessellatedFaceSet mappedTo,IfcTextureVertexList texCoords):base(maps)
 		{
 			MappedTo = mappedTo;
 			TexCoords = texCoords;
@@ -19606,7 +19606,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcIndexedTriangleTextureMap with all required attributes.
 		/// </summary>
-		public IfcIndexedTriangleTextureMap(IfcTessellatedFaceSet mappedTo,IfcTextureVertexList texCoords,List<IfcSurfaceTexture> maps):base(mappedTo,texCoords,maps)
+		public IfcIndexedTriangleTextureMap(List<IfcSurfaceTexture> maps,IfcTessellatedFaceSet mappedTo,IfcTextureVertexList texCoords):base(maps,mappedTo,texCoords)
 		{
 			TexCoordIndex = new List<List<int>>();
 
@@ -19615,7 +19615,7 @@ namespace IFC4
 		/// Construct a IfcIndexedTriangleTextureMap with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcIndexedTriangleTextureMap(List<List<int>> texCoordIndex,IfcTessellatedFaceSet mappedTo,IfcTextureVertexList texCoords,List<IfcSurfaceTexture> maps):base(mappedTo,texCoords,maps)
+		public IfcIndexedTriangleTextureMap(List<IfcSurfaceTexture> maps,IfcTessellatedFaceSet mappedTo,IfcTextureVertexList texCoords,List<List<int>> texCoordIndex):base(maps,mappedTo,texCoords)
 		{
 			TexCoordIndex = texCoordIndex;
 
@@ -19659,7 +19659,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcIrregularTimeSeries with all required attributes.
 		/// </summary>
-		public IfcIrregularTimeSeries(List<IfcIrregularTimeSeriesValue> values,IfcLabel name,IfcDateTime startTime,IfcDateTime endTime,IfcTimeSeriesDataTypeEnum timeSeriesDataType,IfcDataOriginEnum dataOrigin):base(name,startTime,endTime,timeSeriesDataType,dataOrigin)
+		public IfcIrregularTimeSeries(IfcLabel name,IfcDateTime startTime,IfcDateTime endTime,IfcTimeSeriesDataTypeEnum timeSeriesDataType,IfcDataOriginEnum dataOrigin,List<IfcIrregularTimeSeriesValue> values):base(name,startTime,endTime,timeSeriesDataType,dataOrigin)
 		{
 			Values = values;
 			Values = new List<IfcIrregularTimeSeriesValue>();
@@ -19669,7 +19669,7 @@ namespace IFC4
 		/// Construct a IfcIrregularTimeSeries with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcIrregularTimeSeries(List<IfcIrregularTimeSeriesValue> values,IfcLabel name,IfcText description,IfcDateTime startTime,IfcDateTime endTime,IfcTimeSeriesDataTypeEnum timeSeriesDataType,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin,IfcUnit unit):base(name,description,startTime,endTime,timeSeriesDataType,dataOrigin,userDefinedDataOrigin,unit)
+		public IfcIrregularTimeSeries(IfcLabel name,IfcText description,IfcDateTime startTime,IfcDateTime endTime,IfcTimeSeriesDataTypeEnum timeSeriesDataType,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin,IfcUnit unit,List<IfcIrregularTimeSeriesValue> values):base(name,description,startTime,endTime,timeSeriesDataType,dataOrigin,userDefinedDataOrigin,unit)
 		{
 			Values = values;
 			Values = new List<IfcIrregularTimeSeriesValue>();
@@ -19769,7 +19769,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcLShapeProfileDef with all required attributes.
 		/// </summary>
-		public IfcLShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure thickness,IfcProfileTypeEnum profileType):base(profileType)
+		public IfcLShapeProfileDef(IfcProfileTypeEnum profileType,IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure thickness):base(profileType)
 		{
 			Depth = depth;
 			Thickness = thickness;
@@ -19779,7 +19779,7 @@ namespace IFC4
 		/// Construct a IfcLShapeProfileDef with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcLShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure width,IfcPositiveLengthMeasure thickness,IfcNonNegativeLengthMeasure filletRadius,IfcNonNegativeLengthMeasure edgeRadius,IfcPlaneAngleMeasure legSlope,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		public IfcLShapeProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName,IfcAxis2Placement2D position,IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure width,IfcPositiveLengthMeasure thickness,IfcNonNegativeLengthMeasure filletRadius,IfcNonNegativeLengthMeasure edgeRadius,IfcPlaneAngleMeasure legSlope):base(profileType,profileName,position)
 		{
 			Depth = depth;
 			Width = width;
@@ -19816,7 +19816,7 @@ namespace IFC4
 		/// Construct a IfcLagTime with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcLagTime(IfcTimeOrRatioSelect lagValue,IfcTaskDurationEnum durationType,IfcLabel name,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin):base(name,dataOrigin,userDefinedDataOrigin)
+		public IfcLagTime(IfcLabel name,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin,IfcTimeOrRatioSelect lagValue,IfcTaskDurationEnum durationType):base(name,dataOrigin,userDefinedDataOrigin)
 		{
 			LagValue = lagValue;
 			DurationType = durationType;
@@ -19917,7 +19917,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcLightSourceDirectional with all required attributes.
 		/// </summary>
-		public IfcLightSourceDirectional(IfcDirection orientation,IfcColourRgb lightColour):base(lightColour)
+		public IfcLightSourceDirectional(IfcColourRgb lightColour,IfcDirection orientation):base(lightColour)
 		{
 			Orientation = orientation;
 
@@ -19926,7 +19926,7 @@ namespace IFC4
 		/// Construct a IfcLightSourceDirectional with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcLightSourceDirectional(IfcDirection orientation,IfcLabel name,IfcColourRgb lightColour,IfcNormalisedRatioMeasure ambientIntensity,IfcNormalisedRatioMeasure intensity):base(name,lightColour,ambientIntensity,intensity)
+		public IfcLightSourceDirectional(IfcLabel name,IfcColourRgb lightColour,IfcNormalisedRatioMeasure ambientIntensity,IfcNormalisedRatioMeasure intensity,IfcDirection orientation):base(name,lightColour,ambientIntensity,intensity)
 		{
 			Orientation = orientation;
 
@@ -19952,7 +19952,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcLightSourceGoniometric with all required attributes.
 		/// </summary>
-		public IfcLightSourceGoniometric(IfcAxis2Placement3D position,IfcThermodynamicTemperatureMeasure colourTemperature,IfcLuminousFluxMeasure luminousFlux,IfcLightEmissionSourceEnum lightEmissionSource,IfcLightDistributionDataSourceSelect lightDistributionDataSource,IfcColourRgb lightColour):base(lightColour)
+		public IfcLightSourceGoniometric(IfcColourRgb lightColour,IfcAxis2Placement3D position,IfcThermodynamicTemperatureMeasure colourTemperature,IfcLuminousFluxMeasure luminousFlux,IfcLightEmissionSourceEnum lightEmissionSource,IfcLightDistributionDataSourceSelect lightDistributionDataSource):base(lightColour)
 		{
 			Position = position;
 			ColourTemperature = colourTemperature;
@@ -19965,7 +19965,7 @@ namespace IFC4
 		/// Construct a IfcLightSourceGoniometric with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcLightSourceGoniometric(IfcAxis2Placement3D position,IfcColourRgb colourAppearance,IfcThermodynamicTemperatureMeasure colourTemperature,IfcLuminousFluxMeasure luminousFlux,IfcLightEmissionSourceEnum lightEmissionSource,IfcLightDistributionDataSourceSelect lightDistributionDataSource,IfcLabel name,IfcColourRgb lightColour,IfcNormalisedRatioMeasure ambientIntensity,IfcNormalisedRatioMeasure intensity):base(name,lightColour,ambientIntensity,intensity)
+		public IfcLightSourceGoniometric(IfcLabel name,IfcColourRgb lightColour,IfcNormalisedRatioMeasure ambientIntensity,IfcNormalisedRatioMeasure intensity,IfcAxis2Placement3D position,IfcColourRgb colourAppearance,IfcThermodynamicTemperatureMeasure colourTemperature,IfcLuminousFluxMeasure luminousFlux,IfcLightEmissionSourceEnum lightEmissionSource,IfcLightDistributionDataSourceSelect lightDistributionDataSource):base(name,lightColour,ambientIntensity,intensity)
 		{
 			Position = position;
 			ColourAppearance = colourAppearance;
@@ -19995,7 +19995,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcLightSourcePositional with all required attributes.
 		/// </summary>
-		public IfcLightSourcePositional(IfcCartesianPoint position,IfcPositiveLengthMeasure radius,IfcReal constantAttenuation,IfcReal distanceAttenuation,IfcReal quadricAttenuation,IfcColourRgb lightColour):base(lightColour)
+		public IfcLightSourcePositional(IfcColourRgb lightColour,IfcCartesianPoint position,IfcPositiveLengthMeasure radius,IfcReal constantAttenuation,IfcReal distanceAttenuation,IfcReal quadricAttenuation):base(lightColour)
 		{
 			Position = position;
 			Radius = radius;
@@ -20008,7 +20008,7 @@ namespace IFC4
 		/// Construct a IfcLightSourcePositional with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcLightSourcePositional(IfcCartesianPoint position,IfcPositiveLengthMeasure radius,IfcReal constantAttenuation,IfcReal distanceAttenuation,IfcReal quadricAttenuation,IfcLabel name,IfcColourRgb lightColour,IfcNormalisedRatioMeasure ambientIntensity,IfcNormalisedRatioMeasure intensity):base(name,lightColour,ambientIntensity,intensity)
+		public IfcLightSourcePositional(IfcLabel name,IfcColourRgb lightColour,IfcNormalisedRatioMeasure ambientIntensity,IfcNormalisedRatioMeasure intensity,IfcCartesianPoint position,IfcPositiveLengthMeasure radius,IfcReal constantAttenuation,IfcReal distanceAttenuation,IfcReal quadricAttenuation):base(name,lightColour,ambientIntensity,intensity)
 		{
 			Position = position;
 			Radius = radius;
@@ -20036,7 +20036,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcLightSourceSpot with all required attributes.
 		/// </summary>
-		public IfcLightSourceSpot(IfcDirection orientation,IfcPositivePlaneAngleMeasure spreadAngle,IfcPositivePlaneAngleMeasure beamWidthAngle,IfcCartesianPoint position,IfcPositiveLengthMeasure radius,IfcReal constantAttenuation,IfcReal distanceAttenuation,IfcReal quadricAttenuation,IfcColourRgb lightColour):base(position,radius,constantAttenuation,distanceAttenuation,quadricAttenuation,lightColour)
+		public IfcLightSourceSpot(IfcColourRgb lightColour,IfcCartesianPoint position,IfcPositiveLengthMeasure radius,IfcReal constantAttenuation,IfcReal distanceAttenuation,IfcReal quadricAttenuation,IfcDirection orientation,IfcPositivePlaneAngleMeasure spreadAngle,IfcPositivePlaneAngleMeasure beamWidthAngle):base(lightColour,position,radius,constantAttenuation,distanceAttenuation,quadricAttenuation)
 		{
 			Orientation = orientation;
 			SpreadAngle = spreadAngle;
@@ -20047,7 +20047,7 @@ namespace IFC4
 		/// Construct a IfcLightSourceSpot with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcLightSourceSpot(IfcDirection orientation,IfcReal concentrationExponent,IfcPositivePlaneAngleMeasure spreadAngle,IfcPositivePlaneAngleMeasure beamWidthAngle,IfcCartesianPoint position,IfcPositiveLengthMeasure radius,IfcReal constantAttenuation,IfcReal distanceAttenuation,IfcReal quadricAttenuation,IfcLabel name,IfcColourRgb lightColour,IfcNormalisedRatioMeasure ambientIntensity,IfcNormalisedRatioMeasure intensity):base(position,radius,constantAttenuation,distanceAttenuation,quadricAttenuation,name,lightColour,ambientIntensity,intensity)
+		public IfcLightSourceSpot(IfcLabel name,IfcColourRgb lightColour,IfcNormalisedRatioMeasure ambientIntensity,IfcNormalisedRatioMeasure intensity,IfcCartesianPoint position,IfcPositiveLengthMeasure radius,IfcReal constantAttenuation,IfcReal distanceAttenuation,IfcReal quadricAttenuation,IfcDirection orientation,IfcReal concentrationExponent,IfcPositivePlaneAngleMeasure spreadAngle,IfcPositivePlaneAngleMeasure beamWidthAngle):base(name,lightColour,ambientIntensity,intensity,position,radius,constantAttenuation,distanceAttenuation,quadricAttenuation)
 		{
 			Orientation = orientation;
 			ConcentrationExponent = concentrationExponent;
@@ -20478,7 +20478,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcMaterialDefinitionRepresentation with all required attributes.
 		/// </summary>
-		public IfcMaterialDefinitionRepresentation(IfcMaterial representedMaterial,List<IfcRepresentation> representations):base(representations)
+		public IfcMaterialDefinitionRepresentation(List<IfcRepresentation> representations,IfcMaterial representedMaterial):base(representations)
 		{
 			RepresentedMaterial = representedMaterial;
 
@@ -20487,7 +20487,7 @@ namespace IFC4
 		/// Construct a IfcMaterialDefinitionRepresentation with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcMaterialDefinitionRepresentation(IfcMaterial representedMaterial,IfcLabel name,IfcText description,List<IfcRepresentation> representations):base(name,description,representations)
+		public IfcMaterialDefinitionRepresentation(IfcLabel name,IfcText description,List<IfcRepresentation> representations,IfcMaterial representedMaterial):base(name,description,representations)
 		{
 			RepresentedMaterial = representedMaterial;
 
@@ -20545,7 +20545,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcMaterialLayerWithOffsets with all required attributes.
 		/// </summary>
-		public IfcMaterialLayerWithOffsets(IfcLayerSetDirectionEnum offsetDirection,List<IfcLengthMeasure> offsetValues,IfcNonNegativeLengthMeasure layerThickness):base(layerThickness)
+		public IfcMaterialLayerWithOffsets(IfcNonNegativeLengthMeasure layerThickness,IfcLayerSetDirectionEnum offsetDirection,List<IfcLengthMeasure> offsetValues):base(layerThickness)
 		{
 			OffsetDirection = offsetDirection;
 			OffsetValues = offsetValues;
@@ -20556,7 +20556,7 @@ namespace IFC4
 		/// Construct a IfcMaterialLayerWithOffsets with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcMaterialLayerWithOffsets(IfcLayerSetDirectionEnum offsetDirection,List<IfcLengthMeasure> offsetValues,IfcMaterial material,IfcNonNegativeLengthMeasure layerThickness,IfcLogical isVentilated,IfcLabel name,IfcText description,IfcLabel category,IfcNormalisedRatioMeasure priority):base(material,layerThickness,isVentilated,name,description,category,priority)
+		public IfcMaterialLayerWithOffsets(IfcMaterial material,IfcNonNegativeLengthMeasure layerThickness,IfcLogical isVentilated,IfcLabel name,IfcText description,IfcLabel category,IfcNormalisedRatioMeasure priority,IfcLayerSetDirectionEnum offsetDirection,List<IfcLengthMeasure> offsetValues):base(material,layerThickness,isVentilated,name,description,category,priority)
 		{
 			OffsetDirection = offsetDirection;
 			OffsetValues = offsetValues;
@@ -20662,7 +20662,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcMaterialProfileWithOffsets with all required attributes.
 		/// </summary>
-		public IfcMaterialProfileWithOffsets(List<IfcLengthMeasure> offsetValues,IfcProfileDef profile):base(profile)
+		public IfcMaterialProfileWithOffsets(IfcProfileDef profile,List<IfcLengthMeasure> offsetValues):base(profile)
 		{
 			OffsetValues = offsetValues;
 			OffsetValues = new List<IfcLengthMeasure>();
@@ -20672,7 +20672,7 @@ namespace IFC4
 		/// Construct a IfcMaterialProfileWithOffsets with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcMaterialProfileWithOffsets(List<IfcLengthMeasure> offsetValues,IfcLabel name,IfcText description,IfcMaterial material,IfcProfileDef profile,IfcNormalisedRatioMeasure priority,IfcLabel category):base(name,description,material,profile,priority,category)
+		public IfcMaterialProfileWithOffsets(IfcLabel name,IfcText description,IfcMaterial material,IfcProfileDef profile,IfcNormalisedRatioMeasure priority,IfcLabel category,List<IfcLengthMeasure> offsetValues):base(name,description,material,profile,priority,category)
 		{
 			OffsetValues = offsetValues;
 			OffsetValues = new List<IfcLengthMeasure>();
@@ -20729,7 +20729,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcMaterialProfileSetUsageTapering with all required attributes.
 		/// </summary>
-		public IfcMaterialProfileSetUsageTapering(IfcMaterialProfileSet forProfileEndSet,IfcMaterialProfileSet forProfileSet):base(forProfileSet)
+		public IfcMaterialProfileSetUsageTapering(IfcMaterialProfileSet forProfileSet,IfcMaterialProfileSet forProfileEndSet):base(forProfileSet)
 		{
 			ForProfileEndSet = forProfileEndSet;
 
@@ -20738,7 +20738,7 @@ namespace IFC4
 		/// Construct a IfcMaterialProfileSetUsageTapering with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcMaterialProfileSetUsageTapering(IfcMaterialProfileSet forProfileEndSet,IfcCardinalPointReference cardinalEndPoint,IfcMaterialProfileSet forProfileSet,IfcCardinalPointReference cardinalPoint,IfcPositiveLengthMeasure referenceExtent):base(forProfileSet,cardinalPoint,referenceExtent)
+		public IfcMaterialProfileSetUsageTapering(IfcMaterialProfileSet forProfileSet,IfcCardinalPointReference cardinalPoint,IfcPositiveLengthMeasure referenceExtent,IfcMaterialProfileSet forProfileEndSet,IfcCardinalPointReference cardinalEndPoint):base(forProfileSet,cardinalPoint,referenceExtent)
 		{
 			ForProfileEndSet = forProfileEndSet;
 			CardinalEndPoint = cardinalEndPoint;
@@ -20773,7 +20773,7 @@ namespace IFC4
 		/// Construct a IfcMaterialRelationship with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcMaterialRelationship(IfcMaterial relatingMaterial,List<IfcMaterial> relatedMaterials,IfcLabel expression,IfcLabel name,IfcText description):base(name,description)
+		public IfcMaterialRelationship(IfcLabel name,IfcText description,IfcMaterial relatingMaterial,List<IfcMaterial> relatedMaterials,IfcLabel expression):base(name,description)
 		{
 			RelatingMaterial = relatingMaterial;
 			RelatedMaterials = relatedMaterials;
@@ -20827,7 +20827,7 @@ namespace IFC4
 		/// Construct a IfcMemberStandardCase with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcMemberStandardCase(IfcMemberTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcMemberStandardCase(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcMemberTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag,predefinedType)
 		{
 
 		}
@@ -20870,7 +20870,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcSIUnit with all required attributes.
 		/// </summary>
-		public IfcSIUnit(IfcSIUnitName name,IfcDimensionalExponents dimensions,IfcUnitEnum unitType):base(dimensions,unitType)
+		public IfcSIUnit(IfcDimensionalExponents dimensions,IfcUnitEnum unitType,IfcSIUnitName name):base(dimensions,unitType)
 		{
 			Name = name;
 
@@ -20879,7 +20879,7 @@ namespace IFC4
 		/// Construct a IfcSIUnit with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSIUnit(IfcSIPrefix prefix,IfcSIUnitName name,IfcDimensionalExponents dimensions,IfcUnitEnum unitType):base(dimensions,unitType)
+		public IfcSIUnit(IfcDimensionalExponents dimensions,IfcUnitEnum unitType,IfcSIPrefix prefix,IfcSIUnitName name):base(dimensions,unitType)
 		{
 			Prefix = prefix;
 			Name = name;
@@ -20911,7 +20911,7 @@ namespace IFC4
 		/// Construct a IfcTypeObject with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTypeObject(IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcTypeObject(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets):base(globalId,ownerHistory,name,description)
 		{
 			ApplicableOccurrence = applicableOccurrence;
 			HasPropertySets = hasPropertySets;
@@ -20975,7 +20975,7 @@ namespace IFC4
 		/// Construct a IfcOpeningStandardCase with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcOpeningStandardCase(IfcOpeningElementTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcOpeningStandardCase(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcOpeningElementTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag,predefinedType)
 		{
 
 		}
@@ -21047,7 +21047,7 @@ namespace IFC4
 		/// Construct a IfcOrganizationRelationship with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcOrganizationRelationship(IfcOrganization relatingOrganization,List<IfcOrganization> relatedOrganizations,IfcLabel name,IfcText description):base(name,description)
+		public IfcOrganizationRelationship(IfcLabel name,IfcText description,IfcOrganization relatingOrganization,List<IfcOrganization> relatedOrganizations):base(name,description)
 		{
 			RelatingOrganization = relatingOrganization;
 			RelatedOrganizations = relatedOrganizations;
@@ -21117,7 +21117,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRectangleProfileDef with all required attributes.
 		/// </summary>
-		public IfcRectangleProfileDef(IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim,IfcProfileTypeEnum profileType):base(profileType)
+		public IfcRectangleProfileDef(IfcProfileTypeEnum profileType,IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim):base(profileType)
 		{
 			XDim = xDim;
 			YDim = yDim;
@@ -21127,7 +21127,7 @@ namespace IFC4
 		/// Construct a IfcRectangleProfileDef with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRectangleProfileDef(IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		public IfcRectangleProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName,IfcAxis2Placement2D position,IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim):base(profileType,profileName,position)
 		{
 			XDim = xDim;
 			YDim = yDim;
@@ -21157,7 +21157,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcTShapeProfileDef with all required attributes.
 		/// </summary>
-		public IfcTShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure flangeWidth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcProfileTypeEnum profileType):base(profileType)
+		public IfcTShapeProfileDef(IfcProfileTypeEnum profileType,IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure flangeWidth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness):base(profileType)
 		{
 			Depth = depth;
 			FlangeWidth = flangeWidth;
@@ -21169,7 +21169,7 @@ namespace IFC4
 		/// Construct a IfcTShapeProfileDef with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure flangeWidth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcNonNegativeLengthMeasure filletRadius,IfcNonNegativeLengthMeasure flangeEdgeRadius,IfcNonNegativeLengthMeasure webEdgeRadius,IfcPlaneAngleMeasure webSlope,IfcPlaneAngleMeasure flangeSlope,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		public IfcTShapeProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName,IfcAxis2Placement2D position,IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure flangeWidth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcNonNegativeLengthMeasure filletRadius,IfcNonNegativeLengthMeasure flangeEdgeRadius,IfcNonNegativeLengthMeasure webEdgeRadius,IfcPlaneAngleMeasure webSlope,IfcPlaneAngleMeasure flangeSlope):base(profileType,profileName,position)
 		{
 			Depth = depth;
 			FlangeWidth = flangeWidth;
@@ -21201,7 +21201,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcTrapeziumProfileDef with all required attributes.
 		/// </summary>
-		public IfcTrapeziumProfileDef(IfcPositiveLengthMeasure bottomXDim,IfcPositiveLengthMeasure topXDim,IfcPositiveLengthMeasure yDim,IfcLengthMeasure topXOffset,IfcProfileTypeEnum profileType):base(profileType)
+		public IfcTrapeziumProfileDef(IfcProfileTypeEnum profileType,IfcPositiveLengthMeasure bottomXDim,IfcPositiveLengthMeasure topXDim,IfcPositiveLengthMeasure yDim,IfcLengthMeasure topXOffset):base(profileType)
 		{
 			BottomXDim = bottomXDim;
 			TopXDim = topXDim;
@@ -21213,7 +21213,7 @@ namespace IFC4
 		/// Construct a IfcTrapeziumProfileDef with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTrapeziumProfileDef(IfcPositiveLengthMeasure bottomXDim,IfcPositiveLengthMeasure topXDim,IfcPositiveLengthMeasure yDim,IfcLengthMeasure topXOffset,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		public IfcTrapeziumProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName,IfcAxis2Placement2D position,IfcPositiveLengthMeasure bottomXDim,IfcPositiveLengthMeasure topXDim,IfcPositiveLengthMeasure yDim,IfcLengthMeasure topXOffset):base(profileType,profileName,position)
 		{
 			BottomXDim = bottomXDim;
 			TopXDim = topXDim;
@@ -21243,7 +21243,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcUShapeProfileDef with all required attributes.
 		/// </summary>
-		public IfcUShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure flangeWidth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcProfileTypeEnum profileType):base(profileType)
+		public IfcUShapeProfileDef(IfcProfileTypeEnum profileType,IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure flangeWidth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness):base(profileType)
 		{
 			Depth = depth;
 			FlangeWidth = flangeWidth;
@@ -21255,7 +21255,7 @@ namespace IFC4
 		/// Construct a IfcUShapeProfileDef with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcUShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure flangeWidth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcNonNegativeLengthMeasure filletRadius,IfcNonNegativeLengthMeasure edgeRadius,IfcPlaneAngleMeasure flangeSlope,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		public IfcUShapeProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName,IfcAxis2Placement2D position,IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure flangeWidth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcNonNegativeLengthMeasure filletRadius,IfcNonNegativeLengthMeasure edgeRadius,IfcPlaneAngleMeasure flangeSlope):base(profileType,profileName,position)
 		{
 			Depth = depth;
 			FlangeWidth = flangeWidth;
@@ -21287,7 +21287,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcZShapeProfileDef with all required attributes.
 		/// </summary>
-		public IfcZShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure flangeWidth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcProfileTypeEnum profileType):base(profileType)
+		public IfcZShapeProfileDef(IfcProfileTypeEnum profileType,IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure flangeWidth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness):base(profileType)
 		{
 			Depth = depth;
 			FlangeWidth = flangeWidth;
@@ -21299,7 +21299,7 @@ namespace IFC4
 		/// Construct a IfcZShapeProfileDef with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcZShapeProfileDef(IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure flangeWidth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcNonNegativeLengthMeasure filletRadius,IfcNonNegativeLengthMeasure edgeRadius,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(position,profileType,profileName)
+		public IfcZShapeProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName,IfcAxis2Placement2D position,IfcPositiveLengthMeasure depth,IfcPositiveLengthMeasure flangeWidth,IfcPositiveLengthMeasure webThickness,IfcPositiveLengthMeasure flangeThickness,IfcNonNegativeLengthMeasure filletRadius,IfcNonNegativeLengthMeasure edgeRadius):base(profileType,profileName,position)
 		{
 			Depth = depth;
 			FlangeWidth = flangeWidth;
@@ -21352,7 +21352,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcPermeableCoveringProperties with all required attributes.
 		/// </summary>
-		public IfcPermeableCoveringProperties(IfcPermeableCoveringOperationEnum operationType,IfcWindowPanelPositionEnum panelPosition,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcPermeableCoveringProperties(IfcGloballyUniqueId globalId,IfcPermeableCoveringOperationEnum operationType,IfcWindowPanelPositionEnum panelPosition):base(globalId)
 		{
 			OperationType = operationType;
 			PanelPosition = panelPosition;
@@ -21362,7 +21362,7 @@ namespace IFC4
 		/// Construct a IfcPermeableCoveringProperties with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPermeableCoveringProperties(IfcPermeableCoveringOperationEnum operationType,IfcWindowPanelPositionEnum panelPosition,IfcPositiveLengthMeasure frameDepth,IfcPositiveLengthMeasure frameThickness,IfcShapeAspect shapeAspectStyle,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcPermeableCoveringProperties(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcPermeableCoveringOperationEnum operationType,IfcWindowPanelPositionEnum panelPosition,IfcPositiveLengthMeasure frameDepth,IfcPositiveLengthMeasure frameThickness,IfcShapeAspect shapeAspectStyle):base(globalId,ownerHistory,name,description)
 		{
 			OperationType = operationType;
 			PanelPosition = panelPosition;
@@ -21474,7 +21474,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcPhysicalComplexQuantity with all required attributes.
 		/// </summary>
-		public IfcPhysicalComplexQuantity(List<IfcPhysicalQuantity> hasQuantities,IfcLabel discrimination,IfcLabel name):base(name)
+		public IfcPhysicalComplexQuantity(IfcLabel name,List<IfcPhysicalQuantity> hasQuantities,IfcLabel discrimination):base(name)
 		{
 			HasQuantities = hasQuantities;
 			Discrimination = discrimination;
@@ -21485,7 +21485,7 @@ namespace IFC4
 		/// Construct a IfcPhysicalComplexQuantity with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPhysicalComplexQuantity(List<IfcPhysicalQuantity> hasQuantities,IfcLabel discrimination,IfcLabel quality,IfcLabel usage,IfcLabel name,IfcText description):base(name,description)
+		public IfcPhysicalComplexQuantity(IfcLabel name,IfcText description,List<IfcPhysicalQuantity> hasQuantities,IfcLabel discrimination,IfcLabel quality,IfcLabel usage):base(name,description)
 		{
 			HasQuantities = hasQuantities;
 			Discrimination = discrimination;
@@ -21550,7 +21550,7 @@ namespace IFC4
 		/// Construct a IfcPhysicalSimpleQuantity with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPhysicalSimpleQuantity(IfcNamedUnit unit,IfcLabel name,IfcText description):base(name,description)
+		public IfcPhysicalSimpleQuantity(IfcLabel name,IfcText description,IfcNamedUnit unit):base(name,description)
 		{
 			Unit = unit;
 
@@ -21572,7 +21572,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcQuantityArea with all required attributes.
 		/// </summary>
-		public IfcQuantityArea(IfcAreaMeasure areaValue,IfcLabel name):base(name)
+		public IfcQuantityArea(IfcLabel name,IfcAreaMeasure areaValue):base(name)
 		{
 			AreaValue = areaValue;
 
@@ -21581,7 +21581,7 @@ namespace IFC4
 		/// Construct a IfcQuantityArea with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcQuantityArea(IfcAreaMeasure areaValue,IfcLabel formula,IfcNamedUnit unit,IfcLabel name,IfcText description):base(unit,name,description)
+		public IfcQuantityArea(IfcLabel name,IfcText description,IfcNamedUnit unit,IfcAreaMeasure areaValue,IfcLabel formula):base(name,description,unit)
 		{
 			AreaValue = areaValue;
 			Formula = formula;
@@ -21604,7 +21604,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcQuantityCount with all required attributes.
 		/// </summary>
-		public IfcQuantityCount(IfcCountMeasure countValue,IfcLabel name):base(name)
+		public IfcQuantityCount(IfcLabel name,IfcCountMeasure countValue):base(name)
 		{
 			CountValue = countValue;
 
@@ -21613,7 +21613,7 @@ namespace IFC4
 		/// Construct a IfcQuantityCount with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcQuantityCount(IfcCountMeasure countValue,IfcLabel formula,IfcNamedUnit unit,IfcLabel name,IfcText description):base(unit,name,description)
+		public IfcQuantityCount(IfcLabel name,IfcText description,IfcNamedUnit unit,IfcCountMeasure countValue,IfcLabel formula):base(name,description,unit)
 		{
 			CountValue = countValue;
 			Formula = formula;
@@ -21636,7 +21636,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcQuantityLength with all required attributes.
 		/// </summary>
-		public IfcQuantityLength(IfcLengthMeasure lengthValue,IfcLabel name):base(name)
+		public IfcQuantityLength(IfcLabel name,IfcLengthMeasure lengthValue):base(name)
 		{
 			LengthValue = lengthValue;
 
@@ -21645,7 +21645,7 @@ namespace IFC4
 		/// Construct a IfcQuantityLength with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcQuantityLength(IfcLengthMeasure lengthValue,IfcLabel formula,IfcNamedUnit unit,IfcLabel name,IfcText description):base(unit,name,description)
+		public IfcQuantityLength(IfcLabel name,IfcText description,IfcNamedUnit unit,IfcLengthMeasure lengthValue,IfcLabel formula):base(name,description,unit)
 		{
 			LengthValue = lengthValue;
 			Formula = formula;
@@ -21668,7 +21668,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcQuantityTime with all required attributes.
 		/// </summary>
-		public IfcQuantityTime(IfcTimeMeasure timeValue,IfcLabel name):base(name)
+		public IfcQuantityTime(IfcLabel name,IfcTimeMeasure timeValue):base(name)
 		{
 			TimeValue = timeValue;
 
@@ -21677,7 +21677,7 @@ namespace IFC4
 		/// Construct a IfcQuantityTime with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcQuantityTime(IfcTimeMeasure timeValue,IfcLabel formula,IfcNamedUnit unit,IfcLabel name,IfcText description):base(unit,name,description)
+		public IfcQuantityTime(IfcLabel name,IfcText description,IfcNamedUnit unit,IfcTimeMeasure timeValue,IfcLabel formula):base(name,description,unit)
 		{
 			TimeValue = timeValue;
 			Formula = formula;
@@ -21700,7 +21700,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcQuantityVolume with all required attributes.
 		/// </summary>
-		public IfcQuantityVolume(IfcVolumeMeasure volumeValue,IfcLabel name):base(name)
+		public IfcQuantityVolume(IfcLabel name,IfcVolumeMeasure volumeValue):base(name)
 		{
 			VolumeValue = volumeValue;
 
@@ -21709,7 +21709,7 @@ namespace IFC4
 		/// Construct a IfcQuantityVolume with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcQuantityVolume(IfcVolumeMeasure volumeValue,IfcLabel formula,IfcNamedUnit unit,IfcLabel name,IfcText description):base(unit,name,description)
+		public IfcQuantityVolume(IfcLabel name,IfcText description,IfcNamedUnit unit,IfcVolumeMeasure volumeValue,IfcLabel formula):base(name,description,unit)
 		{
 			VolumeValue = volumeValue;
 			Formula = formula;
@@ -21732,7 +21732,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcQuantityWeight with all required attributes.
 		/// </summary>
-		public IfcQuantityWeight(IfcMassMeasure weightValue,IfcLabel name):base(name)
+		public IfcQuantityWeight(IfcLabel name,IfcMassMeasure weightValue):base(name)
 		{
 			WeightValue = weightValue;
 
@@ -21741,7 +21741,7 @@ namespace IFC4
 		/// Construct a IfcQuantityWeight with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcQuantityWeight(IfcMassMeasure weightValue,IfcLabel formula,IfcNamedUnit unit,IfcLabel name,IfcText description):base(unit,name,description)
+		public IfcQuantityWeight(IfcLabel name,IfcText description,IfcNamedUnit unit,IfcMassMeasure weightValue,IfcLabel formula):base(name,description,unit)
 		{
 			WeightValue = weightValue;
 			Formula = formula;
@@ -21766,7 +21766,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcPixelTexture with all required attributes.
 		/// </summary>
-		public IfcPixelTexture(IfcInteger width,IfcInteger height,IfcInteger colourComponents,List<byte[]> pixel,bool repeatS,bool repeatT):base(repeatS,repeatT)
+		public IfcPixelTexture(bool repeatS,bool repeatT,IfcInteger width,IfcInteger height,IfcInteger colourComponents,List<byte[]> pixel):base(repeatS,repeatT)
 		{
 			Width = width;
 			Height = height;
@@ -21779,7 +21779,7 @@ namespace IFC4
 		/// Construct a IfcPixelTexture with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPixelTexture(IfcInteger width,IfcInteger height,IfcInteger colourComponents,List<byte[]> pixel,bool repeatS,bool repeatT,IfcIdentifier mode,IfcCartesianTransformationOperator2D textureTransform,List<IfcIdentifier> parameter):base(repeatS,repeatT,mode,textureTransform,parameter)
+		public IfcPixelTexture(bool repeatS,bool repeatT,IfcIdentifier mode,IfcCartesianTransformationOperator2D textureTransform,List<IfcIdentifier> parameter,IfcInteger width,IfcInteger height,IfcInteger colourComponents,List<byte[]> pixel):base(repeatS,repeatT,mode,textureTransform,parameter)
 		{
 			Width = width;
 			Height = height;
@@ -21805,7 +21805,7 @@ namespace IFC4
 		/// Construct a IfcPlanarBox with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPlanarBox(IfcAxis2Placement placement,IfcLengthMeasure sizeInX,IfcLengthMeasure sizeInY):base(sizeInX,sizeInY)
+		public IfcPlanarBox(IfcLengthMeasure sizeInX,IfcLengthMeasure sizeInY,IfcAxis2Placement placement):base(sizeInX,sizeInY)
 		{
 			Placement = placement;
 
@@ -21832,7 +21832,7 @@ namespace IFC4
 		/// Construct a IfcPlateStandardCase with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPlateStandardCase(IfcPlateTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcPlateStandardCase(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcPlateTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag,predefinedType)
 		{
 
 		}
@@ -22085,7 +22085,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcReinforcementDefinitionProperties with all required attributes.
 		/// </summary>
-		public IfcReinforcementDefinitionProperties(List<IfcSectionReinforcementProperties> reinforcementSectionDefinitions,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcReinforcementDefinitionProperties(IfcGloballyUniqueId globalId,List<IfcSectionReinforcementProperties> reinforcementSectionDefinitions):base(globalId)
 		{
 			ReinforcementSectionDefinitions = reinforcementSectionDefinitions;
 			ReinforcementSectionDefinitions = new List<IfcSectionReinforcementProperties>();
@@ -22095,7 +22095,7 @@ namespace IFC4
 		/// Construct a IfcReinforcementDefinitionProperties with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcReinforcementDefinitionProperties(IfcLabel definitionType,List<IfcSectionReinforcementProperties> reinforcementSectionDefinitions,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcReinforcementDefinitionProperties(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel definitionType,List<IfcSectionReinforcementProperties> reinforcementSectionDefinitions):base(globalId,ownerHistory,name,description)
 		{
 			DefinitionType = definitionType;
 			ReinforcementSectionDefinitions = reinforcementSectionDefinitions;
@@ -22137,7 +22137,7 @@ namespace IFC4
 		/// Construct a IfcWindowLiningProperties with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcWindowLiningProperties(IfcPositiveLengthMeasure liningDepth,IfcNonNegativeLengthMeasure liningThickness,IfcNonNegativeLengthMeasure transomThickness,IfcNonNegativeLengthMeasure mullionThickness,IfcNormalisedRatioMeasure firstTransomOffset,IfcNormalisedRatioMeasure secondTransomOffset,IfcNormalisedRatioMeasure firstMullionOffset,IfcNormalisedRatioMeasure secondMullionOffset,IfcShapeAspect shapeAspectStyle,IfcLengthMeasure liningOffset,IfcLengthMeasure liningToPanelOffsetX,IfcLengthMeasure liningToPanelOffsetY,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcWindowLiningProperties(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcPositiveLengthMeasure liningDepth,IfcNonNegativeLengthMeasure liningThickness,IfcNonNegativeLengthMeasure transomThickness,IfcNonNegativeLengthMeasure mullionThickness,IfcNormalisedRatioMeasure firstTransomOffset,IfcNormalisedRatioMeasure secondTransomOffset,IfcNormalisedRatioMeasure firstMullionOffset,IfcNormalisedRatioMeasure secondMullionOffset,IfcShapeAspect shapeAspectStyle,IfcLengthMeasure liningOffset,IfcLengthMeasure liningToPanelOffsetX,IfcLengthMeasure liningToPanelOffsetY):base(globalId,ownerHistory,name,description)
 		{
 			LiningDepth = liningDepth;
 			LiningThickness = liningThickness;
@@ -22173,7 +22173,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcWindowPanelProperties with all required attributes.
 		/// </summary>
-		public IfcWindowPanelProperties(IfcWindowPanelOperationEnum operationType,IfcWindowPanelPositionEnum panelPosition,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcWindowPanelProperties(IfcGloballyUniqueId globalId,IfcWindowPanelOperationEnum operationType,IfcWindowPanelPositionEnum panelPosition):base(globalId)
 		{
 			OperationType = operationType;
 			PanelPosition = panelPosition;
@@ -22183,7 +22183,7 @@ namespace IFC4
 		/// Construct a IfcWindowPanelProperties with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcWindowPanelProperties(IfcWindowPanelOperationEnum operationType,IfcWindowPanelPositionEnum panelPosition,IfcPositiveLengthMeasure frameDepth,IfcPositiveLengthMeasure frameThickness,IfcShapeAspect shapeAspectStyle,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcWindowPanelProperties(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcWindowPanelOperationEnum operationType,IfcWindowPanelPositionEnum panelPosition,IfcPositiveLengthMeasure frameDepth,IfcPositiveLengthMeasure frameThickness,IfcShapeAspect shapeAspectStyle):base(globalId,ownerHistory,name,description)
 		{
 			OperationType = operationType;
 			PanelPosition = panelPosition;
@@ -22238,7 +22238,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcTextStyleFontModel with all required attributes.
 		/// </summary>
-		public IfcTextStyleFontModel(List<IfcTextFontName> fontFamily,IfcSizeSelect fontSize,IfcLabel name):base(name)
+		public IfcTextStyleFontModel(IfcLabel name,List<IfcTextFontName> fontFamily,IfcSizeSelect fontSize):base(name)
 		{
 			FontFamily = fontFamily;
 			FontSize = fontSize;
@@ -22249,7 +22249,7 @@ namespace IFC4
 		/// Construct a IfcTextStyleFontModel with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTextStyleFontModel(List<IfcTextFontName> fontFamily,IfcFontStyle fontStyle,IfcFontVariant fontVariant,IfcFontWeight fontWeight,IfcSizeSelect fontSize,IfcLabel name):base(name)
+		public IfcTextStyleFontModel(IfcLabel name,List<IfcTextFontName> fontFamily,IfcFontStyle fontStyle,IfcFontVariant fontVariant,IfcFontWeight fontWeight,IfcSizeSelect fontSize):base(name)
 		{
 			FontFamily = fontFamily;
 			FontStyle = fontStyle;
@@ -22540,7 +22540,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcPresentationLayerWithStyle with all required attributes.
 		/// </summary>
-		public IfcPresentationLayerWithStyle(bool? layerOn,bool? layerFrozen,bool? layerBlocked,List<IfcPresentationStyle> layerStyles,IfcLabel name,List<IfcLayeredItem> assignedItems):base(name,assignedItems)
+		public IfcPresentationLayerWithStyle(IfcLabel name,List<IfcLayeredItem> assignedItems,bool? layerOn,bool? layerFrozen,bool? layerBlocked,List<IfcPresentationStyle> layerStyles):base(name,assignedItems)
 		{
 			LayerOn = layerOn;
 			LayerFrozen = layerFrozen;
@@ -22553,7 +22553,7 @@ namespace IFC4
 		/// Construct a IfcPresentationLayerWithStyle with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPresentationLayerWithStyle(bool? layerOn,bool? layerFrozen,bool? layerBlocked,List<IfcPresentationStyle> layerStyles,IfcLabel name,IfcText description,List<IfcLayeredItem> assignedItems,IfcIdentifier identifier):base(name,description,assignedItems,identifier)
+		public IfcPresentationLayerWithStyle(IfcLabel name,IfcText description,List<IfcLayeredItem> assignedItems,IfcIdentifier identifier,bool? layerOn,bool? layerFrozen,bool? layerBlocked,List<IfcPresentationStyle> layerStyles):base(name,description,assignedItems,identifier)
 		{
 			LayerOn = layerOn;
 			LayerFrozen = layerFrozen;
@@ -22590,7 +22590,7 @@ namespace IFC4
 		/// Construct a IfcSurfaceStyle with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSurfaceStyle(IfcSurfaceSide side,List<IfcSurfaceStyleElementSelect> styles,IfcLabel name):base(name)
+		public IfcSurfaceStyle(IfcLabel name,IfcSurfaceSide side,List<IfcSurfaceStyleElementSelect> styles):base(name)
 		{
 			Side = side;
 			Styles = styles;
@@ -22625,7 +22625,7 @@ namespace IFC4
 		/// Construct a IfcTextStyle with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTextStyle(IfcTextStyleForDefinedFont textCharacterAppearance,IfcTextStyleTextModel textStyle,IfcTextFontSelect textFontStyle,bool modelOrDraughting,IfcLabel name):base(name)
+		public IfcTextStyle(IfcLabel name,IfcTextStyleForDefinedFont textCharacterAppearance,IfcTextStyleTextModel textStyle,IfcTextFontSelect textFontStyle,bool modelOrDraughting):base(name)
 		{
 			TextCharacterAppearance = textCharacterAppearance;
 			TextStyle = textStyle;
@@ -22680,7 +22680,7 @@ namespace IFC4
 		/// Construct a IfcProcedure with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcProcedure(IfcProcedureTypeEnum predefinedType,IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,longDescription,objectType,globalId,ownerHistory,name,description)
+		public IfcProcedure(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcText longDescription,IfcProcedureTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,identification,longDescription)
 		{
 			PredefinedType = predefinedType;
 
@@ -22701,7 +22701,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcProcedureType with all required attributes.
 		/// </summary>
-		public IfcProcedureType(IfcProcedureTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcProcedureType(IfcGloballyUniqueId globalId,IfcProcedureTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -22710,7 +22710,7 @@ namespace IFC4
 		/// Construct a IfcProcedureType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcProcedureType(IfcProcedureTypeEnum predefinedType,IfcIdentifier identification,IfcText longDescription,IfcLabel processType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,longDescription,processType,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcProcedureType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcIdentifier identification,IfcText longDescription,IfcLabel processType,IfcProcedureTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,identification,longDescription,processType)
 		{
 			PredefinedType = predefinedType;
 
@@ -22736,7 +22736,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcTask with all required attributes.
 		/// </summary>
-		public IfcTask(bool isMilestone,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcTask(IfcGloballyUniqueId globalId,bool isMilestone):base(globalId)
 		{
 			IsMilestone = isMilestone;
 
@@ -22745,7 +22745,7 @@ namespace IFC4
 		/// Construct a IfcTask with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTask(IfcLabel status,IfcLabel workMethod,bool isMilestone,int priority,IfcTaskTime taskTime,IfcTaskTypeEnum predefinedType,IfcIdentifier identification,IfcText longDescription,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,longDescription,objectType,globalId,ownerHistory,name,description)
+		public IfcTask(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcText longDescription,IfcLabel status,IfcLabel workMethod,bool isMilestone,int priority,IfcTaskTime taskTime,IfcTaskTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,identification,longDescription)
 		{
 			Status = status;
 			WorkMethod = workMethod;
@@ -22772,7 +22772,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcProxy with all required attributes.
 		/// </summary>
-		public IfcProxy(IfcObjectTypeEnum proxyType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcProxy(IfcGloballyUniqueId globalId,IfcObjectTypeEnum proxyType):base(globalId)
 		{
 			ProxyType = proxyType;
 
@@ -22781,7 +22781,7 @@ namespace IFC4
 		/// Construct a IfcProxy with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcProxy(IfcObjectTypeEnum proxyType,IfcLabel tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcProxy(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcObjectTypeEnum proxyType,IfcLabel tag):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation)
 		{
 			ProxyType = proxyType;
 			Tag = tag;
@@ -22804,7 +22804,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStructuralActivity with all required attributes.
 		/// </summary>
-		public IfcStructuralActivity(IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcStructuralActivity(IfcGloballyUniqueId globalId,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal):base(globalId)
 		{
 			AppliedLoad = appliedLoad;
 			GlobalOrLocal = globalOrLocal;
@@ -22814,7 +22814,7 @@ namespace IFC4
 		/// Construct a IfcStructuralActivity with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralActivity(IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralActivity(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation)
 		{
 			AppliedLoad = appliedLoad;
 			GlobalOrLocal = globalOrLocal;
@@ -22842,7 +22842,7 @@ namespace IFC4
 		/// Construct a IfcStructuralItem with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralItem(IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralItem(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation)
 		{
 
 		}
@@ -22962,7 +22962,7 @@ namespace IFC4
 		/// Construct a IfcPropertyBoundedValue with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPropertyBoundedValue(IfcValue upperBoundValue,IfcValue lowerBoundValue,IfcUnit unit,IfcValue setPointValue,IfcIdentifier name,IfcText description):base(name,description)
+		public IfcPropertyBoundedValue(IfcIdentifier name,IfcText description,IfcValue upperBoundValue,IfcValue lowerBoundValue,IfcUnit unit,IfcValue setPointValue):base(name,description)
 		{
 			UpperBoundValue = upperBoundValue;
 			LowerBoundValue = lowerBoundValue;
@@ -23050,7 +23050,7 @@ namespace IFC4
 		/// Construct a IfcPropertyDependencyRelationship with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPropertyDependencyRelationship(IfcProperty dependingProperty,IfcProperty dependantProperty,IfcText expression,IfcLabel name,IfcText description):base(name,description)
+		public IfcPropertyDependencyRelationship(IfcLabel name,IfcText description,IfcProperty dependingProperty,IfcProperty dependantProperty,IfcText expression):base(name,description)
 		{
 			DependingProperty = dependingProperty;
 			DependantProperty = dependantProperty;
@@ -23083,7 +23083,7 @@ namespace IFC4
 		/// Construct a IfcPropertyEnumeratedValue with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPropertyEnumeratedValue(List<IfcValue> enumerationValues,IfcPropertyEnumeration enumerationReference,IfcIdentifier name,IfcText description):base(name,description)
+		public IfcPropertyEnumeratedValue(IfcIdentifier name,IfcText description,List<IfcValue> enumerationValues,IfcPropertyEnumeration enumerationReference):base(name,description)
 		{
 			EnumerationValues = enumerationValues;
 			EnumerationReference = enumerationReference;
@@ -23115,7 +23115,7 @@ namespace IFC4
 		/// Construct a IfcPropertyListValue with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPropertyListValue(List<IfcValue> listValues,IfcUnit unit,IfcIdentifier name,IfcText description):base(name,description)
+		public IfcPropertyListValue(IfcIdentifier name,IfcText description,List<IfcValue> listValues,IfcUnit unit):base(name,description)
 		{
 			ListValues = listValues;
 			Unit = unit;
@@ -23146,7 +23146,7 @@ namespace IFC4
 		/// Construct a IfcPropertyReferenceValue with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPropertyReferenceValue(IfcText usageName,IfcObjectReferenceSelect propertyReference,IfcIdentifier name,IfcText description):base(name,description)
+		public IfcPropertyReferenceValue(IfcIdentifier name,IfcText description,IfcText usageName,IfcObjectReferenceSelect propertyReference):base(name,description)
 		{
 			UsageName = usageName;
 			PropertyReference = propertyReference;
@@ -23168,7 +23168,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcPropertySet with all required attributes.
 		/// </summary>
-		public IfcPropertySet(List<IfcProperty> hasProperties,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcPropertySet(IfcGloballyUniqueId globalId,List<IfcProperty> hasProperties):base(globalId)
 		{
 			HasProperties = hasProperties;
 			HasProperties = new List<IfcProperty>();
@@ -23178,7 +23178,7 @@ namespace IFC4
 		/// Construct a IfcPropertySet with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPropertySet(List<IfcProperty> hasProperties,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcPropertySet(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcProperty> hasProperties):base(globalId,ownerHistory,name,description)
 		{
 			HasProperties = hasProperties;
 			HasProperties = new List<IfcProperty>();
@@ -23202,7 +23202,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcPropertySetTemplate with all required attributes.
 		/// </summary>
-		public IfcPropertySetTemplate(List<IfcPropertyTemplate> hasPropertyTemplates,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcPropertySetTemplate(IfcGloballyUniqueId globalId,List<IfcPropertyTemplate> hasPropertyTemplates):base(globalId)
 		{
 			HasPropertyTemplates = hasPropertyTemplates;
 			HasPropertyTemplates = new List<IfcPropertyTemplate>();
@@ -23212,7 +23212,7 @@ namespace IFC4
 		/// Construct a IfcPropertySetTemplate with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPropertySetTemplate(IfcPropertySetTemplateTypeEnum templateType,IfcIdentifier applicableEntity,List<IfcPropertyTemplate> hasPropertyTemplates,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcPropertySetTemplate(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcPropertySetTemplateTypeEnum templateType,IfcIdentifier applicableEntity,List<IfcPropertyTemplate> hasPropertyTemplates):base(globalId,ownerHistory,name,description)
 		{
 			TemplateType = templateType;
 			ApplicableEntity = applicableEntity;
@@ -23245,7 +23245,7 @@ namespace IFC4
 		/// Construct a IfcPropertySingleValue with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPropertySingleValue(IfcValue nominalValue,IfcUnit unit,IfcIdentifier name,IfcText description):base(name,description)
+		public IfcPropertySingleValue(IfcIdentifier name,IfcText description,IfcValue nominalValue,IfcUnit unit):base(name,description)
 		{
 			NominalValue = nominalValue;
 			Unit = unit;
@@ -23282,7 +23282,7 @@ namespace IFC4
 		/// Construct a IfcPropertyTableValue with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcPropertyTableValue(List<IfcValue> definingValues,List<IfcValue> definedValues,IfcText expression,IfcUnit definingUnit,IfcUnit definedUnit,IfcCurveInterpolationEnum curveInterpolation,IfcIdentifier name,IfcText description):base(name,description)
+		public IfcPropertyTableValue(IfcIdentifier name,IfcText description,List<IfcValue> definingValues,List<IfcValue> definedValues,IfcText expression,IfcUnit definingUnit,IfcUnit definedUnit,IfcCurveInterpolationEnum curveInterpolation):base(name,description)
 		{
 			DefiningValues = definingValues;
 			DefinedValues = definedValues;
@@ -23323,7 +23323,7 @@ namespace IFC4
 		/// Construct a IfcSimplePropertyTemplate with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSimplePropertyTemplate(IfcSimplePropertyTemplateTypeEnum templateType,IfcLabel primaryMeasureType,IfcLabel secondaryMeasureType,IfcPropertyEnumeration enumerators,IfcUnit primaryUnit,IfcUnit secondaryUnit,IfcLabel expression,IfcStateEnum accessState,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcSimplePropertyTemplate(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcSimplePropertyTemplateTypeEnum templateType,IfcLabel primaryMeasureType,IfcLabel secondaryMeasureType,IfcPropertyEnumeration enumerators,IfcUnit primaryUnit,IfcUnit secondaryUnit,IfcLabel expression,IfcStateEnum accessState):base(globalId,ownerHistory,name,description)
 		{
 			TemplateType = templateType;
 			PrimaryMeasureType = primaryMeasureType;
@@ -23353,7 +23353,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRectangleHollowProfileDef with all required attributes.
 		/// </summary>
-		public IfcRectangleHollowProfileDef(IfcPositiveLengthMeasure wallThickness,IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim,IfcProfileTypeEnum profileType):base(xDim,yDim,profileType)
+		public IfcRectangleHollowProfileDef(IfcProfileTypeEnum profileType,IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim,IfcPositiveLengthMeasure wallThickness):base(profileType,xDim,yDim)
 		{
 			WallThickness = wallThickness;
 
@@ -23362,7 +23362,7 @@ namespace IFC4
 		/// Construct a IfcRectangleHollowProfileDef with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRectangleHollowProfileDef(IfcPositiveLengthMeasure wallThickness,IfcNonNegativeLengthMeasure innerFilletRadius,IfcNonNegativeLengthMeasure outerFilletRadius,IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(xDim,yDim,position,profileType,profileName)
+		public IfcRectangleHollowProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName,IfcAxis2Placement2D position,IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim,IfcPositiveLengthMeasure wallThickness,IfcNonNegativeLengthMeasure innerFilletRadius,IfcNonNegativeLengthMeasure outerFilletRadius):base(profileType,profileName,position,xDim,yDim)
 		{
 			WallThickness = wallThickness;
 			InnerFilletRadius = innerFilletRadius;
@@ -23385,7 +23385,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRoundedRectangleProfileDef with all required attributes.
 		/// </summary>
-		public IfcRoundedRectangleProfileDef(IfcPositiveLengthMeasure roundingRadius,IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim,IfcProfileTypeEnum profileType):base(xDim,yDim,profileType)
+		public IfcRoundedRectangleProfileDef(IfcProfileTypeEnum profileType,IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim,IfcPositiveLengthMeasure roundingRadius):base(profileType,xDim,yDim)
 		{
 			RoundingRadius = roundingRadius;
 
@@ -23394,7 +23394,7 @@ namespace IFC4
 		/// Construct a IfcRoundedRectangleProfileDef with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRoundedRectangleProfileDef(IfcPositiveLengthMeasure roundingRadius,IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim,IfcAxis2Placement2D position,IfcProfileTypeEnum profileType,IfcLabel profileName):base(xDim,yDim,position,profileType,profileName)
+		public IfcRoundedRectangleProfileDef(IfcProfileTypeEnum profileType,IfcLabel profileName,IfcAxis2Placement2D position,IfcPositiveLengthMeasure xDim,IfcPositiveLengthMeasure yDim,IfcPositiveLengthMeasure roundingRadius):base(profileType,profileName,position,xDim,yDim)
 		{
 			RoundingRadius = roundingRadius;
 
@@ -23502,7 +23502,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRegularTimeSeries with all required attributes.
 		/// </summary>
-		public IfcRegularTimeSeries(IfcTimeMeasure timeStep,List<IfcTimeSeriesValue> values,IfcLabel name,IfcDateTime startTime,IfcDateTime endTime,IfcTimeSeriesDataTypeEnum timeSeriesDataType,IfcDataOriginEnum dataOrigin):base(name,startTime,endTime,timeSeriesDataType,dataOrigin)
+		public IfcRegularTimeSeries(IfcLabel name,IfcDateTime startTime,IfcDateTime endTime,IfcTimeSeriesDataTypeEnum timeSeriesDataType,IfcDataOriginEnum dataOrigin,IfcTimeMeasure timeStep,List<IfcTimeSeriesValue> values):base(name,startTime,endTime,timeSeriesDataType,dataOrigin)
 		{
 			TimeStep = timeStep;
 			Values = values;
@@ -23513,7 +23513,7 @@ namespace IFC4
 		/// Construct a IfcRegularTimeSeries with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRegularTimeSeries(IfcTimeMeasure timeStep,List<IfcTimeSeriesValue> values,IfcLabel name,IfcText description,IfcDateTime startTime,IfcDateTime endTime,IfcTimeSeriesDataTypeEnum timeSeriesDataType,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin,IfcUnit unit):base(name,description,startTime,endTime,timeSeriesDataType,dataOrigin,userDefinedDataOrigin,unit)
+		public IfcRegularTimeSeries(IfcLabel name,IfcText description,IfcDateTime startTime,IfcDateTime endTime,IfcTimeSeriesDataTypeEnum timeSeriesDataType,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin,IfcUnit unit,IfcTimeMeasure timeStep,List<IfcTimeSeriesValue> values):base(name,description,startTime,endTime,timeSeriesDataType,dataOrigin,userDefinedDataOrigin,unit)
 		{
 			TimeStep = timeStep;
 			Values = values;
@@ -23548,7 +23548,7 @@ namespace IFC4
 		/// Construct a IfcReinforcingBar with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcReinforcingBar(IfcPositiveLengthMeasure nominalDiameter,IfcAreaMeasure crossSectionArea,IfcPositiveLengthMeasure barLength,IfcReinforcingBarTypeEnum predefinedType,IfcReinforcingBarSurfaceEnum barSurface,IfcLabel steelGrade,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(steelGrade,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcReinforcingBar(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcLabel steelGrade,IfcPositiveLengthMeasure nominalDiameter,IfcAreaMeasure crossSectionArea,IfcPositiveLengthMeasure barLength,IfcReinforcingBarTypeEnum predefinedType,IfcReinforcingBarSurfaceEnum barSurface):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag,steelGrade)
 		{
 			NominalDiameter = nominalDiameter;
 			CrossSectionArea = crossSectionArea;
@@ -23579,7 +23579,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcReinforcingBarType with all required attributes.
 		/// </summary>
-		public IfcReinforcingBarType(IfcReinforcingBarTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcReinforcingBarType(IfcGloballyUniqueId globalId,IfcReinforcingBarTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 			BendingParameters = new List<IfcBendingParameterSelect>();
@@ -23589,7 +23589,7 @@ namespace IFC4
 		/// Construct a IfcReinforcingBarType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcReinforcingBarType(IfcReinforcingBarTypeEnum predefinedType,IfcPositiveLengthMeasure nominalDiameter,IfcAreaMeasure crossSectionArea,IfcPositiveLengthMeasure barLength,IfcReinforcingBarSurfaceEnum barSurface,IfcLabel bendingShapeCode,List<IfcBendingParameterSelect> bendingParameters,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcReinforcingBarType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcReinforcingBarTypeEnum predefinedType,IfcPositiveLengthMeasure nominalDiameter,IfcAreaMeasure crossSectionArea,IfcPositiveLengthMeasure barLength,IfcReinforcingBarSurfaceEnum barSurface,IfcLabel bendingShapeCode,List<IfcBendingParameterSelect> bendingParameters):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 			NominalDiameter = nominalDiameter;
@@ -23632,7 +23632,7 @@ namespace IFC4
 		/// Construct a IfcReinforcingMesh with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcReinforcingMesh(IfcPositiveLengthMeasure meshLength,IfcPositiveLengthMeasure meshWidth,IfcPositiveLengthMeasure longitudinalBarNominalDiameter,IfcPositiveLengthMeasure transverseBarNominalDiameter,IfcAreaMeasure longitudinalBarCrossSectionArea,IfcAreaMeasure transverseBarCrossSectionArea,IfcPositiveLengthMeasure longitudinalBarSpacing,IfcPositiveLengthMeasure transverseBarSpacing,IfcReinforcingMeshTypeEnum predefinedType,IfcLabel steelGrade,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(steelGrade,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcReinforcingMesh(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcLabel steelGrade,IfcPositiveLengthMeasure meshLength,IfcPositiveLengthMeasure meshWidth,IfcPositiveLengthMeasure longitudinalBarNominalDiameter,IfcPositiveLengthMeasure transverseBarNominalDiameter,IfcAreaMeasure longitudinalBarCrossSectionArea,IfcAreaMeasure transverseBarCrossSectionArea,IfcPositiveLengthMeasure longitudinalBarSpacing,IfcPositiveLengthMeasure transverseBarSpacing,IfcReinforcingMeshTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag,steelGrade)
 		{
 			MeshLength = meshLength;
 			MeshWidth = meshWidth;
@@ -23676,7 +23676,7 @@ namespace IFC4
 		/// Construct a IfcTendon with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTendon(IfcTendonTypeEnum predefinedType,IfcPositiveLengthMeasure nominalDiameter,IfcAreaMeasure crossSectionArea,IfcForceMeasure tensionForce,IfcPressureMeasure preStress,IfcNormalisedRatioMeasure frictionCoefficient,IfcPositiveLengthMeasure anchorageSlip,IfcPositiveLengthMeasure minCurvatureRadius,IfcLabel steelGrade,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(steelGrade,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcTendon(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcLabel steelGrade,IfcTendonTypeEnum predefinedType,IfcPositiveLengthMeasure nominalDiameter,IfcAreaMeasure crossSectionArea,IfcForceMeasure tensionForce,IfcPressureMeasure preStress,IfcNormalisedRatioMeasure frictionCoefficient,IfcPositiveLengthMeasure anchorageSlip,IfcPositiveLengthMeasure minCurvatureRadius):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag,steelGrade)
 		{
 			PredefinedType = predefinedType;
 			NominalDiameter = nominalDiameter;
@@ -23712,7 +23712,7 @@ namespace IFC4
 		/// Construct a IfcTendonAnchor with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTendonAnchor(IfcTendonAnchorTypeEnum predefinedType,IfcLabel steelGrade,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(steelGrade,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcTendonAnchor(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcLabel steelGrade,IfcTendonAnchorTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag,steelGrade)
 		{
 			PredefinedType = predefinedType;
 
@@ -23743,7 +23743,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcReinforcingMeshType with all required attributes.
 		/// </summary>
-		public IfcReinforcingMeshType(IfcReinforcingMeshTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcReinforcingMeshType(IfcGloballyUniqueId globalId,IfcReinforcingMeshTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 			BendingParameters = new List<IfcBendingParameterSelect>();
@@ -23753,7 +23753,7 @@ namespace IFC4
 		/// Construct a IfcReinforcingMeshType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcReinforcingMeshType(IfcReinforcingMeshTypeEnum predefinedType,IfcPositiveLengthMeasure meshLength,IfcPositiveLengthMeasure meshWidth,IfcPositiveLengthMeasure longitudinalBarNominalDiameter,IfcPositiveLengthMeasure transverseBarNominalDiameter,IfcAreaMeasure longitudinalBarCrossSectionArea,IfcAreaMeasure transverseBarCrossSectionArea,IfcPositiveLengthMeasure longitudinalBarSpacing,IfcPositiveLengthMeasure transverseBarSpacing,IfcLabel bendingShapeCode,List<IfcBendingParameterSelect> bendingParameters,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcReinforcingMeshType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcReinforcingMeshTypeEnum predefinedType,IfcPositiveLengthMeasure meshLength,IfcPositiveLengthMeasure meshWidth,IfcPositiveLengthMeasure longitudinalBarNominalDiameter,IfcPositiveLengthMeasure transverseBarNominalDiameter,IfcAreaMeasure longitudinalBarCrossSectionArea,IfcAreaMeasure transverseBarCrossSectionArea,IfcPositiveLengthMeasure longitudinalBarSpacing,IfcPositiveLengthMeasure transverseBarSpacing,IfcLabel bendingShapeCode,List<IfcBendingParameterSelect> bendingParameters):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 			MeshLength = meshLength;
@@ -23784,7 +23784,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcTendonAnchorType with all required attributes.
 		/// </summary>
-		public IfcTendonAnchorType(IfcTendonAnchorTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcTendonAnchorType(IfcGloballyUniqueId globalId,IfcTendonAnchorTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -23793,7 +23793,7 @@ namespace IFC4
 		/// Construct a IfcTendonAnchorType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTendonAnchorType(IfcTendonAnchorTypeEnum predefinedType,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcTendonAnchorType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcTendonAnchorTypeEnum predefinedType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 
@@ -23817,7 +23817,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcTendonType with all required attributes.
 		/// </summary>
-		public IfcTendonType(IfcTendonTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcTendonType(IfcGloballyUniqueId globalId,IfcTendonTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -23826,7 +23826,7 @@ namespace IFC4
 		/// Construct a IfcTendonType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTendonType(IfcTendonTypeEnum predefinedType,IfcPositiveLengthMeasure nominalDiameter,IfcAreaMeasure crossSectionArea,IfcPositiveLengthMeasure sheethDiameter,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcTendonType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcTendonTypeEnum predefinedType,IfcPositiveLengthMeasure nominalDiameter,IfcAreaMeasure crossSectionArea,IfcPositiveLengthMeasure sheethDiameter):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 			NominalDiameter = nominalDiameter;
@@ -23851,7 +23851,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelAggregates with all required attributes.
 		/// </summary>
-		public IfcRelAggregates(IfcObjectDefinition relatingObject,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelAggregates(IfcGloballyUniqueId globalId,IfcObjectDefinition relatingObject,List<IfcObjectDefinition> relatedObjects):base(globalId)
 		{
 			RelatingObject = relatingObject;
 			RelatedObjects = relatedObjects;
@@ -23862,7 +23862,7 @@ namespace IFC4
 		/// Construct a IfcRelAggregates with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelAggregates(IfcObjectDefinition relatingObject,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelAggregates(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcObjectDefinition relatingObject,List<IfcObjectDefinition> relatedObjects):base(globalId,ownerHistory,name,description)
 		{
 			RelatingObject = relatingObject;
 			RelatedObjects = relatedObjects;
@@ -23912,7 +23912,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelAssigns with all required attributes.
 		/// </summary>
-		public IfcRelAssigns(List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelAssigns(IfcGloballyUniqueId globalId,List<IfcObjectDefinition> relatedObjects):base(globalId)
 		{
 			RelatedObjects = relatedObjects;
 			RelatedObjects = new List<IfcObjectDefinition>();
@@ -23922,7 +23922,7 @@ namespace IFC4
 		/// Construct a IfcRelAssigns with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelAssigns(List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelAssigns(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType):base(globalId,ownerHistory,name,description)
 		{
 			RelatedObjects = relatedObjects;
 			RelatedObjectsType = relatedObjectsType;
@@ -23946,7 +23946,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelAssignsToActor with all required attributes.
 		/// </summary>
-		public IfcRelAssignsToActor(IfcActor relatingActor,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
+		public IfcRelAssignsToActor(IfcGloballyUniqueId globalId,List<IfcObjectDefinition> relatedObjects,IfcActor relatingActor):base(globalId,relatedObjects)
 		{
 			RelatingActor = relatingActor;
 
@@ -23955,7 +23955,7 @@ namespace IFC4
 		/// Construct a IfcRelAssignsToActor with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelAssignsToActor(IfcActor relatingActor,IfcActorRole actingRole,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,relatedObjectsType,globalId,ownerHistory,name,description)
+		public IfcRelAssignsToActor(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcActor relatingActor,IfcActorRole actingRole):base(globalId,ownerHistory,name,description,relatedObjects,relatedObjectsType)
 		{
 			RelatingActor = relatingActor;
 			ActingRole = actingRole;
@@ -23977,7 +23977,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelAssignsToControl with all required attributes.
 		/// </summary>
-		public IfcRelAssignsToControl(IfcControl relatingControl,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
+		public IfcRelAssignsToControl(IfcGloballyUniqueId globalId,List<IfcObjectDefinition> relatedObjects,IfcControl relatingControl):base(globalId,relatedObjects)
 		{
 			RelatingControl = relatingControl;
 
@@ -23986,7 +23986,7 @@ namespace IFC4
 		/// Construct a IfcRelAssignsToControl with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelAssignsToControl(IfcControl relatingControl,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,relatedObjectsType,globalId,ownerHistory,name,description)
+		public IfcRelAssignsToControl(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcControl relatingControl):base(globalId,ownerHistory,name,description,relatedObjects,relatedObjectsType)
 		{
 			RelatingControl = relatingControl;
 
@@ -24007,7 +24007,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelAssignsToGroup with all required attributes.
 		/// </summary>
-		public IfcRelAssignsToGroup(IfcGroup relatingGroup,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
+		public IfcRelAssignsToGroup(IfcGloballyUniqueId globalId,List<IfcObjectDefinition> relatedObjects,IfcGroup relatingGroup):base(globalId,relatedObjects)
 		{
 			RelatingGroup = relatingGroup;
 
@@ -24016,7 +24016,7 @@ namespace IFC4
 		/// Construct a IfcRelAssignsToGroup with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelAssignsToGroup(IfcGroup relatingGroup,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,relatedObjectsType,globalId,ownerHistory,name,description)
+		public IfcRelAssignsToGroup(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcGroup relatingGroup):base(globalId,ownerHistory,name,description,relatedObjects,relatedObjectsType)
 		{
 			RelatingGroup = relatingGroup;
 
@@ -24038,7 +24038,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelAssignsToProcess with all required attributes.
 		/// </summary>
-		public IfcRelAssignsToProcess(IfcProcessSelect relatingProcess,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
+		public IfcRelAssignsToProcess(IfcGloballyUniqueId globalId,List<IfcObjectDefinition> relatedObjects,IfcProcessSelect relatingProcess):base(globalId,relatedObjects)
 		{
 			RelatingProcess = relatingProcess;
 
@@ -24047,7 +24047,7 @@ namespace IFC4
 		/// Construct a IfcRelAssignsToProcess with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelAssignsToProcess(IfcProcessSelect relatingProcess,IfcMeasureWithUnit quantityInProcess,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,relatedObjectsType,globalId,ownerHistory,name,description)
+		public IfcRelAssignsToProcess(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcProcessSelect relatingProcess,IfcMeasureWithUnit quantityInProcess):base(globalId,ownerHistory,name,description,relatedObjects,relatedObjectsType)
 		{
 			RelatingProcess = relatingProcess;
 			QuantityInProcess = quantityInProcess;
@@ -24069,7 +24069,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelAssignsToProduct with all required attributes.
 		/// </summary>
-		public IfcRelAssignsToProduct(IfcProductSelect relatingProduct,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
+		public IfcRelAssignsToProduct(IfcGloballyUniqueId globalId,List<IfcObjectDefinition> relatedObjects,IfcProductSelect relatingProduct):base(globalId,relatedObjects)
 		{
 			RelatingProduct = relatingProduct;
 
@@ -24078,7 +24078,7 @@ namespace IFC4
 		/// Construct a IfcRelAssignsToProduct with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelAssignsToProduct(IfcProductSelect relatingProduct,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,relatedObjectsType,globalId,ownerHistory,name,description)
+		public IfcRelAssignsToProduct(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcProductSelect relatingProduct):base(globalId,ownerHistory,name,description,relatedObjects,relatedObjectsType)
 		{
 			RelatingProduct = relatingProduct;
 
@@ -24099,7 +24099,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelAssignsToResource with all required attributes.
 		/// </summary>
-		public IfcRelAssignsToResource(IfcResourceSelect relatingResource,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
+		public IfcRelAssignsToResource(IfcGloballyUniqueId globalId,List<IfcObjectDefinition> relatedObjects,IfcResourceSelect relatingResource):base(globalId,relatedObjects)
 		{
 			RelatingResource = relatingResource;
 
@@ -24108,7 +24108,7 @@ namespace IFC4
 		/// Construct a IfcRelAssignsToResource with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelAssignsToResource(IfcResourceSelect relatingResource,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,relatedObjectsType,globalId,ownerHistory,name,description)
+		public IfcRelAssignsToResource(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcResourceSelect relatingResource):base(globalId,ownerHistory,name,description,relatedObjects,relatedObjectsType)
 		{
 			RelatingResource = relatingResource;
 
@@ -24155,7 +24155,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelAssignsToGroupByFactor with all required attributes.
 		/// </summary>
-		public IfcRelAssignsToGroupByFactor(IfcRatioMeasure factor,IfcGroup relatingGroup,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(relatingGroup,relatedObjects,globalId)
+		public IfcRelAssignsToGroupByFactor(IfcGloballyUniqueId globalId,List<IfcObjectDefinition> relatedObjects,IfcGroup relatingGroup,IfcRatioMeasure factor):base(globalId,relatedObjects,relatingGroup)
 		{
 			Factor = factor;
 
@@ -24164,7 +24164,7 @@ namespace IFC4
 		/// Construct a IfcRelAssignsToGroupByFactor with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelAssignsToGroupByFactor(IfcRatioMeasure factor,IfcGroup relatingGroup,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatingGroup,relatedObjects,relatedObjectsType,globalId,ownerHistory,name,description)
+		public IfcRelAssignsToGroupByFactor(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcObjectDefinition> relatedObjects,IfcObjectTypeEnum relatedObjectsType,IfcGroup relatingGroup,IfcRatioMeasure factor):base(globalId,ownerHistory,name,description,relatedObjects,relatedObjectsType,relatingGroup)
 		{
 			Factor = factor;
 
@@ -24185,7 +24185,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelAssociates with all required attributes.
 		/// </summary>
-		public IfcRelAssociates(List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelAssociates(IfcGloballyUniqueId globalId,List<IfcDefinitionSelect> relatedObjects):base(globalId)
 		{
 			RelatedObjects = relatedObjects;
 			RelatedObjects = new List<IfcDefinitionSelect>();
@@ -24195,7 +24195,7 @@ namespace IFC4
 		/// Construct a IfcRelAssociates with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelAssociates(List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelAssociates(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcDefinitionSelect> relatedObjects):base(globalId,ownerHistory,name,description)
 		{
 			RelatedObjects = relatedObjects;
 			RelatedObjects = new List<IfcDefinitionSelect>();
@@ -24217,7 +24217,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelAssociatesApproval with all required attributes.
 		/// </summary>
-		public IfcRelAssociatesApproval(IfcApproval relatingApproval,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
+		public IfcRelAssociatesApproval(IfcGloballyUniqueId globalId,List<IfcDefinitionSelect> relatedObjects,IfcApproval relatingApproval):base(globalId,relatedObjects)
 		{
 			RelatingApproval = relatingApproval;
 
@@ -24226,7 +24226,7 @@ namespace IFC4
 		/// Construct a IfcRelAssociatesApproval with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelAssociatesApproval(IfcApproval relatingApproval,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,globalId,ownerHistory,name,description)
+		public IfcRelAssociatesApproval(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcDefinitionSelect> relatedObjects,IfcApproval relatingApproval):base(globalId,ownerHistory,name,description,relatedObjects)
 		{
 			RelatingApproval = relatingApproval;
 
@@ -24247,7 +24247,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelAssociatesClassification with all required attributes.
 		/// </summary>
-		public IfcRelAssociatesClassification(IfcClassificationSelect relatingClassification,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
+		public IfcRelAssociatesClassification(IfcGloballyUniqueId globalId,List<IfcDefinitionSelect> relatedObjects,IfcClassificationSelect relatingClassification):base(globalId,relatedObjects)
 		{
 			RelatingClassification = relatingClassification;
 
@@ -24256,7 +24256,7 @@ namespace IFC4
 		/// Construct a IfcRelAssociatesClassification with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelAssociatesClassification(IfcClassificationSelect relatingClassification,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,globalId,ownerHistory,name,description)
+		public IfcRelAssociatesClassification(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcDefinitionSelect> relatedObjects,IfcClassificationSelect relatingClassification):base(globalId,ownerHistory,name,description,relatedObjects)
 		{
 			RelatingClassification = relatingClassification;
 
@@ -24278,7 +24278,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelAssociatesConstraint with all required attributes.
 		/// </summary>
-		public IfcRelAssociatesConstraint(IfcConstraint relatingConstraint,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
+		public IfcRelAssociatesConstraint(IfcGloballyUniqueId globalId,List<IfcDefinitionSelect> relatedObjects,IfcConstraint relatingConstraint):base(globalId,relatedObjects)
 		{
 			RelatingConstraint = relatingConstraint;
 
@@ -24287,7 +24287,7 @@ namespace IFC4
 		/// Construct a IfcRelAssociatesConstraint with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelAssociatesConstraint(IfcLabel intent,IfcConstraint relatingConstraint,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,globalId,ownerHistory,name,description)
+		public IfcRelAssociatesConstraint(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcDefinitionSelect> relatedObjects,IfcLabel intent,IfcConstraint relatingConstraint):base(globalId,ownerHistory,name,description,relatedObjects)
 		{
 			Intent = intent;
 			RelatingConstraint = relatingConstraint;
@@ -24309,7 +24309,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelAssociatesDocument with all required attributes.
 		/// </summary>
-		public IfcRelAssociatesDocument(IfcDocumentSelect relatingDocument,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
+		public IfcRelAssociatesDocument(IfcGloballyUniqueId globalId,List<IfcDefinitionSelect> relatedObjects,IfcDocumentSelect relatingDocument):base(globalId,relatedObjects)
 		{
 			RelatingDocument = relatingDocument;
 
@@ -24318,7 +24318,7 @@ namespace IFC4
 		/// Construct a IfcRelAssociatesDocument with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelAssociatesDocument(IfcDocumentSelect relatingDocument,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,globalId,ownerHistory,name,description)
+		public IfcRelAssociatesDocument(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcDefinitionSelect> relatedObjects,IfcDocumentSelect relatingDocument):base(globalId,ownerHistory,name,description,relatedObjects)
 		{
 			RelatingDocument = relatingDocument;
 
@@ -24339,7 +24339,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelAssociatesLibrary with all required attributes.
 		/// </summary>
-		public IfcRelAssociatesLibrary(IfcLibrarySelect relatingLibrary,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
+		public IfcRelAssociatesLibrary(IfcGloballyUniqueId globalId,List<IfcDefinitionSelect> relatedObjects,IfcLibrarySelect relatingLibrary):base(globalId,relatedObjects)
 		{
 			RelatingLibrary = relatingLibrary;
 
@@ -24348,7 +24348,7 @@ namespace IFC4
 		/// Construct a IfcRelAssociatesLibrary with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelAssociatesLibrary(IfcLibrarySelect relatingLibrary,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,globalId,ownerHistory,name,description)
+		public IfcRelAssociatesLibrary(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcDefinitionSelect> relatedObjects,IfcLibrarySelect relatingLibrary):base(globalId,ownerHistory,name,description,relatedObjects)
 		{
 			RelatingLibrary = relatingLibrary;
 
@@ -24369,7 +24369,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelAssociatesMaterial with all required attributes.
 		/// </summary>
-		public IfcRelAssociatesMaterial(IfcMaterialSelect relatingMaterial,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId):base(relatedObjects,globalId)
+		public IfcRelAssociatesMaterial(IfcGloballyUniqueId globalId,List<IfcDefinitionSelect> relatedObjects,IfcMaterialSelect relatingMaterial):base(globalId,relatedObjects)
 		{
 			RelatingMaterial = relatingMaterial;
 
@@ -24378,7 +24378,7 @@ namespace IFC4
 		/// Construct a IfcRelAssociatesMaterial with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelAssociatesMaterial(IfcMaterialSelect relatingMaterial,List<IfcDefinitionSelect> relatedObjects,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatedObjects,globalId,ownerHistory,name,description)
+		public IfcRelAssociatesMaterial(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcDefinitionSelect> relatedObjects,IfcMaterialSelect relatingMaterial):base(globalId,ownerHistory,name,description,relatedObjects)
 		{
 			RelatingMaterial = relatingMaterial;
 
@@ -24427,7 +24427,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelConnectsElements with all required attributes.
 		/// </summary>
-		public IfcRelConnectsElements(IfcElement relatingElement,IfcElement relatedElement,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelConnectsElements(IfcGloballyUniqueId globalId,IfcElement relatingElement,IfcElement relatedElement):base(globalId)
 		{
 			RelatingElement = relatingElement;
 			RelatedElement = relatedElement;
@@ -24437,7 +24437,7 @@ namespace IFC4
 		/// Construct a IfcRelConnectsElements with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelConnectsElements(IfcConnectionGeometry connectionGeometry,IfcElement relatingElement,IfcElement relatedElement,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelConnectsElements(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcConnectionGeometry connectionGeometry,IfcElement relatingElement,IfcElement relatedElement):base(globalId,ownerHistory,name,description)
 		{
 			ConnectionGeometry = connectionGeometry;
 			RelatingElement = relatingElement;
@@ -24461,7 +24461,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelConnectsPortToElement with all required attributes.
 		/// </summary>
-		public IfcRelConnectsPortToElement(IfcPort relatingPort,IfcDistributionElement relatedElement,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelConnectsPortToElement(IfcGloballyUniqueId globalId,IfcPort relatingPort,IfcDistributionElement relatedElement):base(globalId)
 		{
 			RelatingPort = relatingPort;
 			RelatedElement = relatedElement;
@@ -24471,7 +24471,7 @@ namespace IFC4
 		/// Construct a IfcRelConnectsPortToElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelConnectsPortToElement(IfcPort relatingPort,IfcDistributionElement relatedElement,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelConnectsPortToElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcPort relatingPort,IfcDistributionElement relatedElement):base(globalId,ownerHistory,name,description)
 		{
 			RelatingPort = relatingPort;
 			RelatedElement = relatedElement;
@@ -24495,7 +24495,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelConnectsPorts with all required attributes.
 		/// </summary>
-		public IfcRelConnectsPorts(IfcPort relatingPort,IfcPort relatedPort,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelConnectsPorts(IfcGloballyUniqueId globalId,IfcPort relatingPort,IfcPort relatedPort):base(globalId)
 		{
 			RelatingPort = relatingPort;
 			RelatedPort = relatedPort;
@@ -24505,7 +24505,7 @@ namespace IFC4
 		/// Construct a IfcRelConnectsPorts with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelConnectsPorts(IfcPort relatingPort,IfcPort relatedPort,IfcElement realizingElement,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelConnectsPorts(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcPort relatingPort,IfcPort relatedPort,IfcElement realizingElement):base(globalId,ownerHistory,name,description)
 		{
 			RelatingPort = relatingPort;
 			RelatedPort = relatedPort;
@@ -24529,7 +24529,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelConnectsStructuralActivity with all required attributes.
 		/// </summary>
-		public IfcRelConnectsStructuralActivity(IfcStructuralActivityAssignmentSelect relatingElement,IfcStructuralActivity relatedStructuralActivity,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelConnectsStructuralActivity(IfcGloballyUniqueId globalId,IfcStructuralActivityAssignmentSelect relatingElement,IfcStructuralActivity relatedStructuralActivity):base(globalId)
 		{
 			RelatingElement = relatingElement;
 			RelatedStructuralActivity = relatedStructuralActivity;
@@ -24539,7 +24539,7 @@ namespace IFC4
 		/// Construct a IfcRelConnectsStructuralActivity with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelConnectsStructuralActivity(IfcStructuralActivityAssignmentSelect relatingElement,IfcStructuralActivity relatedStructuralActivity,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelConnectsStructuralActivity(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcStructuralActivityAssignmentSelect relatingElement,IfcStructuralActivity relatedStructuralActivity):base(globalId,ownerHistory,name,description)
 		{
 			RelatingElement = relatingElement;
 			RelatedStructuralActivity = relatedStructuralActivity;
@@ -24566,7 +24566,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelConnectsStructuralMember with all required attributes.
 		/// </summary>
-		public IfcRelConnectsStructuralMember(IfcStructuralMember relatingStructuralMember,IfcStructuralConnection relatedStructuralConnection,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelConnectsStructuralMember(IfcGloballyUniqueId globalId,IfcStructuralMember relatingStructuralMember,IfcStructuralConnection relatedStructuralConnection):base(globalId)
 		{
 			RelatingStructuralMember = relatingStructuralMember;
 			RelatedStructuralConnection = relatedStructuralConnection;
@@ -24576,7 +24576,7 @@ namespace IFC4
 		/// Construct a IfcRelConnectsStructuralMember with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelConnectsStructuralMember(IfcStructuralMember relatingStructuralMember,IfcStructuralConnection relatedStructuralConnection,IfcBoundaryCondition appliedCondition,IfcStructuralConnectionCondition additionalConditions,IfcLengthMeasure supportedLength,IfcAxis2Placement3D conditionCoordinateSystem,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelConnectsStructuralMember(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcStructuralMember relatingStructuralMember,IfcStructuralConnection relatedStructuralConnection,IfcBoundaryCondition appliedCondition,IfcStructuralConnectionCondition additionalConditions,IfcLengthMeasure supportedLength,IfcAxis2Placement3D conditionCoordinateSystem):base(globalId,ownerHistory,name,description)
 		{
 			RelatingStructuralMember = relatingStructuralMember;
 			RelatedStructuralConnection = relatedStructuralConnection;
@@ -24603,7 +24603,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelContainedInSpatialStructure with all required attributes.
 		/// </summary>
-		public IfcRelContainedInSpatialStructure(List<IfcProduct> relatedElements,IfcSpatialElement relatingStructure,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelContainedInSpatialStructure(IfcGloballyUniqueId globalId,List<IfcProduct> relatedElements,IfcSpatialElement relatingStructure):base(globalId)
 		{
 			RelatedElements = relatedElements;
 			RelatingStructure = relatingStructure;
@@ -24614,7 +24614,7 @@ namespace IFC4
 		/// Construct a IfcRelContainedInSpatialStructure with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelContainedInSpatialStructure(List<IfcProduct> relatedElements,IfcSpatialElement relatingStructure,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelContainedInSpatialStructure(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcProduct> relatedElements,IfcSpatialElement relatingStructure):base(globalId,ownerHistory,name,description)
 		{
 			RelatedElements = relatedElements;
 			RelatingStructure = relatingStructure;
@@ -24638,7 +24638,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelCoversBldgElements with all required attributes.
 		/// </summary>
-		public IfcRelCoversBldgElements(IfcElement relatingBuildingElement,List<IfcCovering> relatedCoverings,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelCoversBldgElements(IfcGloballyUniqueId globalId,IfcElement relatingBuildingElement,List<IfcCovering> relatedCoverings):base(globalId)
 		{
 			RelatingBuildingElement = relatingBuildingElement;
 			RelatedCoverings = relatedCoverings;
@@ -24649,7 +24649,7 @@ namespace IFC4
 		/// Construct a IfcRelCoversBldgElements with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelCoversBldgElements(IfcElement relatingBuildingElement,List<IfcCovering> relatedCoverings,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelCoversBldgElements(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcElement relatingBuildingElement,List<IfcCovering> relatedCoverings):base(globalId,ownerHistory,name,description)
 		{
 			RelatingBuildingElement = relatingBuildingElement;
 			RelatedCoverings = relatedCoverings;
@@ -24673,7 +24673,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelCoversSpaces with all required attributes.
 		/// </summary>
-		public IfcRelCoversSpaces(IfcSpace relatingSpace,List<IfcCovering> relatedCoverings,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelCoversSpaces(IfcGloballyUniqueId globalId,IfcSpace relatingSpace,List<IfcCovering> relatedCoverings):base(globalId)
 		{
 			RelatingSpace = relatingSpace;
 			RelatedCoverings = relatedCoverings;
@@ -24684,7 +24684,7 @@ namespace IFC4
 		/// Construct a IfcRelCoversSpaces with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelCoversSpaces(IfcSpace relatingSpace,List<IfcCovering> relatedCoverings,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelCoversSpaces(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcSpace relatingSpace,List<IfcCovering> relatedCoverings):base(globalId,ownerHistory,name,description)
 		{
 			RelatingSpace = relatingSpace;
 			RelatedCoverings = relatedCoverings;
@@ -24708,7 +24708,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelFillsElement with all required attributes.
 		/// </summary>
-		public IfcRelFillsElement(IfcOpeningElement relatingOpeningElement,IfcElement relatedBuildingElement,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelFillsElement(IfcGloballyUniqueId globalId,IfcOpeningElement relatingOpeningElement,IfcElement relatedBuildingElement):base(globalId)
 		{
 			RelatingOpeningElement = relatingOpeningElement;
 			RelatedBuildingElement = relatedBuildingElement;
@@ -24718,7 +24718,7 @@ namespace IFC4
 		/// Construct a IfcRelFillsElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelFillsElement(IfcOpeningElement relatingOpeningElement,IfcElement relatedBuildingElement,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelFillsElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcOpeningElement relatingOpeningElement,IfcElement relatedBuildingElement):base(globalId,ownerHistory,name,description)
 		{
 			RelatingOpeningElement = relatingOpeningElement;
 			RelatedBuildingElement = relatedBuildingElement;
@@ -24741,7 +24741,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelFlowControlElements with all required attributes.
 		/// </summary>
-		public IfcRelFlowControlElements(List<IfcDistributionControlElement> relatedControlElements,IfcDistributionFlowElement relatingFlowElement,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelFlowControlElements(IfcGloballyUniqueId globalId,List<IfcDistributionControlElement> relatedControlElements,IfcDistributionFlowElement relatingFlowElement):base(globalId)
 		{
 			RelatedControlElements = relatedControlElements;
 			RelatingFlowElement = relatingFlowElement;
@@ -24752,7 +24752,7 @@ namespace IFC4
 		/// Construct a IfcRelFlowControlElements with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelFlowControlElements(List<IfcDistributionControlElement> relatedControlElements,IfcDistributionFlowElement relatingFlowElement,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelFlowControlElements(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcDistributionControlElement> relatedControlElements,IfcDistributionFlowElement relatingFlowElement):base(globalId,ownerHistory,name,description)
 		{
 			RelatedControlElements = relatedControlElements;
 			RelatingFlowElement = relatingFlowElement;
@@ -24779,7 +24779,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelInterferesElements with all required attributes.
 		/// </summary>
-		public IfcRelInterferesElements(IfcElement relatingElement,IfcElement relatedElement,bool? impliedOrder,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelInterferesElements(IfcGloballyUniqueId globalId,IfcElement relatingElement,IfcElement relatedElement,bool? impliedOrder):base(globalId)
 		{
 			RelatingElement = relatingElement;
 			RelatedElement = relatedElement;
@@ -24790,7 +24790,7 @@ namespace IFC4
 		/// Construct a IfcRelInterferesElements with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelInterferesElements(IfcElement relatingElement,IfcElement relatedElement,IfcConnectionGeometry interferenceGeometry,IfcIdentifier interferenceType,bool? impliedOrder,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelInterferesElements(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcElement relatingElement,IfcElement relatedElement,IfcConnectionGeometry interferenceGeometry,IfcIdentifier interferenceType,bool? impliedOrder):base(globalId,ownerHistory,name,description)
 		{
 			RelatingElement = relatingElement;
 			RelatedElement = relatedElement;
@@ -24816,7 +24816,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelReferencedInSpatialStructure with all required attributes.
 		/// </summary>
-		public IfcRelReferencedInSpatialStructure(List<IfcProduct> relatedElements,IfcSpatialElement relatingStructure,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelReferencedInSpatialStructure(IfcGloballyUniqueId globalId,List<IfcProduct> relatedElements,IfcSpatialElement relatingStructure):base(globalId)
 		{
 			RelatedElements = relatedElements;
 			RelatingStructure = relatingStructure;
@@ -24827,7 +24827,7 @@ namespace IFC4
 		/// Construct a IfcRelReferencedInSpatialStructure with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelReferencedInSpatialStructure(List<IfcProduct> relatedElements,IfcSpatialElement relatingStructure,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelReferencedInSpatialStructure(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcProduct> relatedElements,IfcSpatialElement relatingStructure):base(globalId,ownerHistory,name,description)
 		{
 			RelatedElements = relatedElements;
 			RelatingStructure = relatingStructure;
@@ -24854,7 +24854,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelSequence with all required attributes.
 		/// </summary>
-		public IfcRelSequence(IfcProcess relatingProcess,IfcProcess relatedProcess,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelSequence(IfcGloballyUniqueId globalId,IfcProcess relatingProcess,IfcProcess relatedProcess):base(globalId)
 		{
 			RelatingProcess = relatingProcess;
 			RelatedProcess = relatedProcess;
@@ -24864,7 +24864,7 @@ namespace IFC4
 		/// Construct a IfcRelSequence with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelSequence(IfcProcess relatingProcess,IfcProcess relatedProcess,IfcLagTime timeLag,IfcSequenceEnum sequenceType,IfcLabel userDefinedSequenceType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelSequence(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcProcess relatingProcess,IfcProcess relatedProcess,IfcLagTime timeLag,IfcSequenceEnum sequenceType,IfcLabel userDefinedSequenceType):base(globalId,ownerHistory,name,description)
 		{
 			RelatingProcess = relatingProcess;
 			RelatedProcess = relatedProcess;
@@ -24890,7 +24890,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelServicesBuildings with all required attributes.
 		/// </summary>
-		public IfcRelServicesBuildings(IfcSystem relatingSystem,List<IfcSpatialElement> relatedBuildings,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelServicesBuildings(IfcGloballyUniqueId globalId,IfcSystem relatingSystem,List<IfcSpatialElement> relatedBuildings):base(globalId)
 		{
 			RelatingSystem = relatingSystem;
 			RelatedBuildings = relatedBuildings;
@@ -24901,7 +24901,7 @@ namespace IFC4
 		/// Construct a IfcRelServicesBuildings with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelServicesBuildings(IfcSystem relatingSystem,List<IfcSpatialElement> relatedBuildings,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelServicesBuildings(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcSystem relatingSystem,List<IfcSpatialElement> relatedBuildings):base(globalId,ownerHistory,name,description)
 		{
 			RelatingSystem = relatingSystem;
 			RelatedBuildings = relatedBuildings;
@@ -24928,7 +24928,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelSpaceBoundary with all required attributes.
 		/// </summary>
-		public IfcRelSpaceBoundary(IfcSpaceBoundarySelect relatingSpace,IfcElement relatedBuildingElement,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary,IfcInternalOrExternalEnum internalOrExternalBoundary,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelSpaceBoundary(IfcGloballyUniqueId globalId,IfcSpaceBoundarySelect relatingSpace,IfcElement relatedBuildingElement,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary,IfcInternalOrExternalEnum internalOrExternalBoundary):base(globalId)
 		{
 			RelatingSpace = relatingSpace;
 			RelatedBuildingElement = relatedBuildingElement;
@@ -24940,7 +24940,7 @@ namespace IFC4
 		/// Construct a IfcRelSpaceBoundary with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelSpaceBoundary(IfcSpaceBoundarySelect relatingSpace,IfcElement relatedBuildingElement,IfcConnectionGeometry connectionGeometry,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary,IfcInternalOrExternalEnum internalOrExternalBoundary,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelSpaceBoundary(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcSpaceBoundarySelect relatingSpace,IfcElement relatedBuildingElement,IfcConnectionGeometry connectionGeometry,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary,IfcInternalOrExternalEnum internalOrExternalBoundary):base(globalId,ownerHistory,name,description)
 		{
 			RelatingSpace = relatingSpace;
 			RelatedBuildingElement = relatedBuildingElement;
@@ -24968,7 +24968,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelConnectsPathElements with all required attributes.
 		/// </summary>
-		public IfcRelConnectsPathElements(List<double> relatingPriorities,List<double> relatedPriorities,IfcConnectionTypeEnum relatedConnectionType,IfcConnectionTypeEnum relatingConnectionType,IfcElement relatingElement,IfcElement relatedElement,IfcGloballyUniqueId globalId):base(relatingElement,relatedElement,globalId)
+		public IfcRelConnectsPathElements(IfcGloballyUniqueId globalId,IfcElement relatingElement,IfcElement relatedElement,List<double> relatingPriorities,List<double> relatedPriorities,IfcConnectionTypeEnum relatedConnectionType,IfcConnectionTypeEnum relatingConnectionType):base(globalId,relatingElement,relatedElement)
 		{
 			RelatingPriorities = relatingPriorities;
 			RelatedPriorities = relatedPriorities;
@@ -24982,7 +24982,7 @@ namespace IFC4
 		/// Construct a IfcRelConnectsPathElements with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelConnectsPathElements(List<double> relatingPriorities,List<double> relatedPriorities,IfcConnectionTypeEnum relatedConnectionType,IfcConnectionTypeEnum relatingConnectionType,IfcConnectionGeometry connectionGeometry,IfcElement relatingElement,IfcElement relatedElement,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(connectionGeometry,relatingElement,relatedElement,globalId,ownerHistory,name,description)
+		public IfcRelConnectsPathElements(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcConnectionGeometry connectionGeometry,IfcElement relatingElement,IfcElement relatedElement,List<double> relatingPriorities,List<double> relatedPriorities,IfcConnectionTypeEnum relatedConnectionType,IfcConnectionTypeEnum relatingConnectionType):base(globalId,ownerHistory,name,description,connectionGeometry,relatingElement,relatedElement)
 		{
 			RelatingPriorities = relatingPriorities;
 			RelatedPriorities = relatedPriorities;
@@ -25009,7 +25009,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelConnectsWithRealizingElements with all required attributes.
 		/// </summary>
-		public IfcRelConnectsWithRealizingElements(List<IfcElement> realizingElements,IfcElement relatingElement,IfcElement relatedElement,IfcGloballyUniqueId globalId):base(relatingElement,relatedElement,globalId)
+		public IfcRelConnectsWithRealizingElements(IfcGloballyUniqueId globalId,IfcElement relatingElement,IfcElement relatedElement,List<IfcElement> realizingElements):base(globalId,relatingElement,relatedElement)
 		{
 			RealizingElements = realizingElements;
 			RealizingElements = new List<IfcElement>();
@@ -25019,7 +25019,7 @@ namespace IFC4
 		/// Construct a IfcRelConnectsWithRealizingElements with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelConnectsWithRealizingElements(List<IfcElement> realizingElements,IfcLabel connectionType,IfcConnectionGeometry connectionGeometry,IfcElement relatingElement,IfcElement relatedElement,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(connectionGeometry,relatingElement,relatedElement,globalId,ownerHistory,name,description)
+		public IfcRelConnectsWithRealizingElements(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcConnectionGeometry connectionGeometry,IfcElement relatingElement,IfcElement relatedElement,List<IfcElement> realizingElements,IfcLabel connectionType):base(globalId,ownerHistory,name,description,connectionGeometry,relatingElement,relatedElement)
 		{
 			RealizingElements = realizingElements;
 			ConnectionType = connectionType;
@@ -25042,7 +25042,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelConnectsWithEccentricity with all required attributes.
 		/// </summary>
-		public IfcRelConnectsWithEccentricity(IfcConnectionGeometry connectionConstraint,IfcStructuralMember relatingStructuralMember,IfcStructuralConnection relatedStructuralConnection,IfcGloballyUniqueId globalId):base(relatingStructuralMember,relatedStructuralConnection,globalId)
+		public IfcRelConnectsWithEccentricity(IfcGloballyUniqueId globalId,IfcStructuralMember relatingStructuralMember,IfcStructuralConnection relatedStructuralConnection,IfcConnectionGeometry connectionConstraint):base(globalId,relatingStructuralMember,relatedStructuralConnection)
 		{
 			ConnectionConstraint = connectionConstraint;
 
@@ -25051,7 +25051,7 @@ namespace IFC4
 		/// Construct a IfcRelConnectsWithEccentricity with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelConnectsWithEccentricity(IfcConnectionGeometry connectionConstraint,IfcStructuralMember relatingStructuralMember,IfcStructuralConnection relatedStructuralConnection,IfcBoundaryCondition appliedCondition,IfcStructuralConnectionCondition additionalConditions,IfcLengthMeasure supportedLength,IfcAxis2Placement3D conditionCoordinateSystem,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatingStructuralMember,relatedStructuralConnection,appliedCondition,additionalConditions,supportedLength,conditionCoordinateSystem,globalId,ownerHistory,name,description)
+		public IfcRelConnectsWithEccentricity(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcStructuralMember relatingStructuralMember,IfcStructuralConnection relatedStructuralConnection,IfcBoundaryCondition appliedCondition,IfcStructuralConnectionCondition additionalConditions,IfcLengthMeasure supportedLength,IfcAxis2Placement3D conditionCoordinateSystem,IfcConnectionGeometry connectionConstraint):base(globalId,ownerHistory,name,description,relatingStructuralMember,relatedStructuralConnection,appliedCondition,additionalConditions,supportedLength,conditionCoordinateSystem)
 		{
 			ConnectionConstraint = connectionConstraint;
 
@@ -25073,7 +25073,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelDeclares with all required attributes.
 		/// </summary>
-		public IfcRelDeclares(IfcContext relatingContext,List<IfcDefinitionSelect> relatedDefinitions,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelDeclares(IfcGloballyUniqueId globalId,IfcContext relatingContext,List<IfcDefinitionSelect> relatedDefinitions):base(globalId)
 		{
 			RelatingContext = relatingContext;
 			RelatedDefinitions = relatedDefinitions;
@@ -25084,7 +25084,7 @@ namespace IFC4
 		/// Construct a IfcRelDeclares with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelDeclares(IfcContext relatingContext,List<IfcDefinitionSelect> relatedDefinitions,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelDeclares(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcContext relatingContext,List<IfcDefinitionSelect> relatedDefinitions):base(globalId,ownerHistory,name,description)
 		{
 			RelatingContext = relatingContext;
 			RelatedDefinitions = relatedDefinitions;
@@ -25108,7 +25108,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelNests with all required attributes.
 		/// </summary>
-		public IfcRelNests(IfcObjectDefinition relatingObject,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelNests(IfcGloballyUniqueId globalId,IfcObjectDefinition relatingObject,List<IfcObjectDefinition> relatedObjects):base(globalId)
 		{
 			RelatingObject = relatingObject;
 			RelatedObjects = relatedObjects;
@@ -25119,7 +25119,7 @@ namespace IFC4
 		/// Construct a IfcRelNests with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelNests(IfcObjectDefinition relatingObject,List<IfcObjectDefinition> relatedObjects,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelNests(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcObjectDefinition relatingObject,List<IfcObjectDefinition> relatedObjects):base(globalId,ownerHistory,name,description)
 		{
 			RelatingObject = relatingObject;
 			RelatedObjects = relatedObjects;
@@ -25143,7 +25143,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelProjectsElement with all required attributes.
 		/// </summary>
-		public IfcRelProjectsElement(IfcElement relatingElement,IfcFeatureElementAddition relatedFeatureElement,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelProjectsElement(IfcGloballyUniqueId globalId,IfcElement relatingElement,IfcFeatureElementAddition relatedFeatureElement):base(globalId)
 		{
 			RelatingElement = relatingElement;
 			RelatedFeatureElement = relatedFeatureElement;
@@ -25153,7 +25153,7 @@ namespace IFC4
 		/// Construct a IfcRelProjectsElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelProjectsElement(IfcElement relatingElement,IfcFeatureElementAddition relatedFeatureElement,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelProjectsElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcElement relatingElement,IfcFeatureElementAddition relatedFeatureElement):base(globalId,ownerHistory,name,description)
 		{
 			RelatingElement = relatingElement;
 			RelatedFeatureElement = relatedFeatureElement;
@@ -25176,7 +25176,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelVoidsElement with all required attributes.
 		/// </summary>
-		public IfcRelVoidsElement(IfcElement relatingBuildingElement,IfcFeatureElementSubtraction relatedOpeningElement,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelVoidsElement(IfcGloballyUniqueId globalId,IfcElement relatingBuildingElement,IfcFeatureElementSubtraction relatedOpeningElement):base(globalId)
 		{
 			RelatingBuildingElement = relatingBuildingElement;
 			RelatedOpeningElement = relatedOpeningElement;
@@ -25186,7 +25186,7 @@ namespace IFC4
 		/// Construct a IfcRelVoidsElement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelVoidsElement(IfcElement relatingBuildingElement,IfcFeatureElementSubtraction relatedOpeningElement,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelVoidsElement(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcElement relatingBuildingElement,IfcFeatureElementSubtraction relatedOpeningElement):base(globalId,ownerHistory,name,description)
 		{
 			RelatingBuildingElement = relatingBuildingElement;
 			RelatedOpeningElement = relatedOpeningElement;
@@ -25235,7 +25235,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelDefinesByObject with all required attributes.
 		/// </summary>
-		public IfcRelDefinesByObject(List<IfcObject> relatedObjects,IfcObject relatingObject,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelDefinesByObject(IfcGloballyUniqueId globalId,List<IfcObject> relatedObjects,IfcObject relatingObject):base(globalId)
 		{
 			RelatedObjects = relatedObjects;
 			RelatingObject = relatingObject;
@@ -25246,7 +25246,7 @@ namespace IFC4
 		/// Construct a IfcRelDefinesByObject with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelDefinesByObject(List<IfcObject> relatedObjects,IfcObject relatingObject,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelDefinesByObject(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcObject> relatedObjects,IfcObject relatingObject):base(globalId,ownerHistory,name,description)
 		{
 			RelatedObjects = relatedObjects;
 			RelatingObject = relatingObject;
@@ -25270,7 +25270,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelDefinesByProperties with all required attributes.
 		/// </summary>
-		public IfcRelDefinesByProperties(List<IfcObjectDefinition> relatedObjects,IfcPropertySetDefinitionSelect relatingPropertyDefinition,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelDefinesByProperties(IfcGloballyUniqueId globalId,List<IfcObjectDefinition> relatedObjects,IfcPropertySetDefinitionSelect relatingPropertyDefinition):base(globalId)
 		{
 			RelatedObjects = relatedObjects;
 			RelatingPropertyDefinition = relatingPropertyDefinition;
@@ -25281,7 +25281,7 @@ namespace IFC4
 		/// Construct a IfcRelDefinesByProperties with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelDefinesByProperties(List<IfcObjectDefinition> relatedObjects,IfcPropertySetDefinitionSelect relatingPropertyDefinition,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelDefinesByProperties(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcObjectDefinition> relatedObjects,IfcPropertySetDefinitionSelect relatingPropertyDefinition):base(globalId,ownerHistory,name,description)
 		{
 			RelatedObjects = relatedObjects;
 			RelatingPropertyDefinition = relatingPropertyDefinition;
@@ -25305,7 +25305,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelDefinesByTemplate with all required attributes.
 		/// </summary>
-		public IfcRelDefinesByTemplate(List<IfcPropertySetDefinition> relatedPropertySets,IfcPropertySetTemplate relatingTemplate,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelDefinesByTemplate(IfcGloballyUniqueId globalId,List<IfcPropertySetDefinition> relatedPropertySets,IfcPropertySetTemplate relatingTemplate):base(globalId)
 		{
 			RelatedPropertySets = relatedPropertySets;
 			RelatingTemplate = relatingTemplate;
@@ -25316,7 +25316,7 @@ namespace IFC4
 		/// Construct a IfcRelDefinesByTemplate with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelDefinesByTemplate(List<IfcPropertySetDefinition> relatedPropertySets,IfcPropertySetTemplate relatingTemplate,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelDefinesByTemplate(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcPropertySetDefinition> relatedPropertySets,IfcPropertySetTemplate relatingTemplate):base(globalId,ownerHistory,name,description)
 		{
 			RelatedPropertySets = relatedPropertySets;
 			RelatingTemplate = relatingTemplate;
@@ -25340,7 +25340,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelDefinesByType with all required attributes.
 		/// </summary>
-		public IfcRelDefinesByType(List<IfcObject> relatedObjects,IfcTypeObject relatingType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcRelDefinesByType(IfcGloballyUniqueId globalId,List<IfcObject> relatedObjects,IfcTypeObject relatingType):base(globalId)
 		{
 			RelatedObjects = relatedObjects;
 			RelatingType = relatingType;
@@ -25351,7 +25351,7 @@ namespace IFC4
 		/// Construct a IfcRelDefinesByType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelDefinesByType(List<IfcObject> relatedObjects,IfcTypeObject relatingType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(globalId,ownerHistory,name,description)
+		public IfcRelDefinesByType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,List<IfcObject> relatedObjects,IfcTypeObject relatingType):base(globalId,ownerHistory,name,description)
 		{
 			RelatedObjects = relatedObjects;
 			RelatingType = relatingType;
@@ -25374,7 +25374,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelSpaceBoundary1stLevel with all required attributes.
 		/// </summary>
-		public IfcRelSpaceBoundary1stLevel(IfcSpaceBoundarySelect relatingSpace,IfcElement relatedBuildingElement,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary,IfcInternalOrExternalEnum internalOrExternalBoundary,IfcGloballyUniqueId globalId):base(relatingSpace,relatedBuildingElement,physicalOrVirtualBoundary,internalOrExternalBoundary,globalId)
+		public IfcRelSpaceBoundary1stLevel(IfcGloballyUniqueId globalId,IfcSpaceBoundarySelect relatingSpace,IfcElement relatedBuildingElement,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary,IfcInternalOrExternalEnum internalOrExternalBoundary):base(globalId,relatingSpace,relatedBuildingElement,physicalOrVirtualBoundary,internalOrExternalBoundary)
 		{
 
 		}
@@ -25382,7 +25382,7 @@ namespace IFC4
 		/// Construct a IfcRelSpaceBoundary1stLevel with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelSpaceBoundary1stLevel(IfcRelSpaceBoundary1stLevel parentBoundary,IfcSpaceBoundarySelect relatingSpace,IfcElement relatedBuildingElement,IfcConnectionGeometry connectionGeometry,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary,IfcInternalOrExternalEnum internalOrExternalBoundary,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(relatingSpace,relatedBuildingElement,connectionGeometry,physicalOrVirtualBoundary,internalOrExternalBoundary,globalId,ownerHistory,name,description)
+		public IfcRelSpaceBoundary1stLevel(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcSpaceBoundarySelect relatingSpace,IfcElement relatedBuildingElement,IfcConnectionGeometry connectionGeometry,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary,IfcInternalOrExternalEnum internalOrExternalBoundary,IfcRelSpaceBoundary1stLevel parentBoundary):base(globalId,ownerHistory,name,description,relatingSpace,relatedBuildingElement,connectionGeometry,physicalOrVirtualBoundary,internalOrExternalBoundary)
 		{
 			ParentBoundary = parentBoundary;
 
@@ -25403,7 +25403,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRelSpaceBoundary2ndLevel with all required attributes.
 		/// </summary>
-		public IfcRelSpaceBoundary2ndLevel(IfcSpaceBoundarySelect relatingSpace,IfcElement relatedBuildingElement,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary,IfcInternalOrExternalEnum internalOrExternalBoundary,IfcGloballyUniqueId globalId):base(relatingSpace,relatedBuildingElement,physicalOrVirtualBoundary,internalOrExternalBoundary,globalId)
+		public IfcRelSpaceBoundary2ndLevel(IfcGloballyUniqueId globalId,IfcSpaceBoundarySelect relatingSpace,IfcElement relatedBuildingElement,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary,IfcInternalOrExternalEnum internalOrExternalBoundary):base(globalId,relatingSpace,relatedBuildingElement,physicalOrVirtualBoundary,internalOrExternalBoundary)
 		{
 
 		}
@@ -25411,7 +25411,7 @@ namespace IFC4
 		/// Construct a IfcRelSpaceBoundary2ndLevel with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRelSpaceBoundary2ndLevel(IfcRelSpaceBoundary2ndLevel correspondingBoundary,IfcRelSpaceBoundary1stLevel parentBoundary,IfcSpaceBoundarySelect relatingSpace,IfcElement relatedBuildingElement,IfcConnectionGeometry connectionGeometry,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary,IfcInternalOrExternalEnum internalOrExternalBoundary,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(parentBoundary,relatingSpace,relatedBuildingElement,connectionGeometry,physicalOrVirtualBoundary,internalOrExternalBoundary,globalId,ownerHistory,name,description)
+		public IfcRelSpaceBoundary2ndLevel(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcSpaceBoundarySelect relatingSpace,IfcElement relatedBuildingElement,IfcConnectionGeometry connectionGeometry,IfcPhysicalOrVirtualEnum physicalOrVirtualBoundary,IfcInternalOrExternalEnum internalOrExternalBoundary,IfcRelSpaceBoundary1stLevel parentBoundary,IfcRelSpaceBoundary2ndLevel correspondingBoundary):base(globalId,ownerHistory,name,description,relatingSpace,relatedBuildingElement,connectionGeometry,physicalOrVirtualBoundary,internalOrExternalBoundary,parentBoundary)
 		{
 			CorrespondingBoundary = correspondingBoundary;
 
@@ -25595,7 +25595,7 @@ namespace IFC4
 		/// Construct a IfcResourceApprovalRelationship with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcResourceApprovalRelationship(List<IfcResourceObjectSelect> relatedResourceObjects,IfcApproval relatingApproval,IfcLabel name,IfcText description):base(name,description)
+		public IfcResourceApprovalRelationship(IfcLabel name,IfcText description,List<IfcResourceObjectSelect> relatedResourceObjects,IfcApproval relatingApproval):base(name,description)
 		{
 			RelatedResourceObjects = relatedResourceObjects;
 			RelatingApproval = relatingApproval;
@@ -25630,7 +25630,7 @@ namespace IFC4
 		/// Construct a IfcResourceConstraintRelationship with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcResourceConstraintRelationship(IfcConstraint relatingConstraint,List<IfcResourceObjectSelect> relatedResourceObjects,IfcLabel name,IfcText description):base(name,description)
+		public IfcResourceConstraintRelationship(IfcLabel name,IfcText description,IfcConstraint relatingConstraint,List<IfcResourceObjectSelect> relatedResourceObjects):base(name,description)
 		{
 			RelatingConstraint = relatingConstraint;
 			RelatedResourceObjects = relatedResourceObjects;
@@ -25675,7 +25675,7 @@ namespace IFC4
 		/// Construct a IfcResourceTime with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcResourceTime(IfcDuration scheduleWork,IfcPositiveRatioMeasure scheduleUsage,IfcDateTime scheduleStart,IfcDateTime scheduleFinish,IfcLabel scheduleContour,IfcDuration levelingDelay,bool isOverAllocated,IfcDateTime statusTime,IfcDuration actualWork,IfcPositiveRatioMeasure actualUsage,IfcDateTime actualStart,IfcDateTime actualFinish,IfcDuration remainingWork,IfcPositiveRatioMeasure remainingUsage,IfcPositiveRatioMeasure completion,IfcLabel name,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin):base(name,dataOrigin,userDefinedDataOrigin)
+		public IfcResourceTime(IfcLabel name,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin,IfcDuration scheduleWork,IfcPositiveRatioMeasure scheduleUsage,IfcDateTime scheduleStart,IfcDateTime scheduleFinish,IfcLabel scheduleContour,IfcDuration levelingDelay,bool isOverAllocated,IfcDateTime statusTime,IfcDuration actualWork,IfcPositiveRatioMeasure actualUsage,IfcDateTime actualStart,IfcDateTime actualFinish,IfcDuration remainingWork,IfcPositiveRatioMeasure remainingUsage,IfcPositiveRatioMeasure completion):base(name,dataOrigin,userDefinedDataOrigin)
 		{
 			ScheduleWork = scheduleWork;
 			ScheduleUsage = scheduleUsage;
@@ -25711,7 +25711,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRevolvedAreaSolid with all required attributes.
 		/// </summary>
-		public IfcRevolvedAreaSolid(IfcAxis1Placement axis,IfcPlaneAngleMeasure angle,IfcProfileDef sweptArea):base(sweptArea)
+		public IfcRevolvedAreaSolid(IfcProfileDef sweptArea,IfcAxis1Placement axis,IfcPlaneAngleMeasure angle):base(sweptArea)
 		{
 			Axis = axis;
 			Angle = angle;
@@ -25721,7 +25721,7 @@ namespace IFC4
 		/// Construct a IfcRevolvedAreaSolid with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRevolvedAreaSolid(IfcAxis1Placement axis,IfcPlaneAngleMeasure angle,IfcProfileDef sweptArea,IfcAxis2Placement3D position):base(sweptArea,position)
+		public IfcRevolvedAreaSolid(IfcProfileDef sweptArea,IfcAxis2Placement3D position,IfcAxis1Placement axis,IfcPlaneAngleMeasure angle):base(sweptArea,position)
 		{
 			Axis = axis;
 			Angle = angle;
@@ -25743,7 +25743,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcRevolvedAreaSolidTapered with all required attributes.
 		/// </summary>
-		public IfcRevolvedAreaSolidTapered(IfcProfileDef endSweptArea,IfcAxis1Placement axis,IfcPlaneAngleMeasure angle,IfcProfileDef sweptArea):base(axis,angle,sweptArea)
+		public IfcRevolvedAreaSolidTapered(IfcProfileDef sweptArea,IfcAxis1Placement axis,IfcPlaneAngleMeasure angle,IfcProfileDef endSweptArea):base(sweptArea,axis,angle)
 		{
 			EndSweptArea = endSweptArea;
 
@@ -25752,7 +25752,7 @@ namespace IFC4
 		/// Construct a IfcRevolvedAreaSolidTapered with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcRevolvedAreaSolidTapered(IfcProfileDef endSweptArea,IfcAxis1Placement axis,IfcPlaneAngleMeasure angle,IfcProfileDef sweptArea,IfcAxis2Placement3D position):base(axis,angle,sweptArea,position)
+		public IfcRevolvedAreaSolidTapered(IfcProfileDef sweptArea,IfcAxis2Placement3D position,IfcAxis1Placement axis,IfcPlaneAngleMeasure angle,IfcProfileDef endSweptArea):base(sweptArea,position,axis,angle)
 		{
 			EndSweptArea = endSweptArea;
 
@@ -25797,7 +25797,7 @@ namespace IFC4
 		/// Construct a IfcTaskTime with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTaskTime(IfcTaskDurationEnum durationType,IfcDuration scheduleDuration,IfcDateTime scheduleStart,IfcDateTime scheduleFinish,IfcDateTime earlyStart,IfcDateTime earlyFinish,IfcDateTime lateStart,IfcDateTime lateFinish,IfcDuration freeFloat,IfcDuration totalFloat,bool isCritical,IfcDateTime statusTime,IfcDuration actualDuration,IfcDateTime actualStart,IfcDateTime actualFinish,IfcDuration remainingTime,IfcPositiveRatioMeasure completion,IfcLabel name,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin):base(name,dataOrigin,userDefinedDataOrigin)
+		public IfcTaskTime(IfcLabel name,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin,IfcTaskDurationEnum durationType,IfcDuration scheduleDuration,IfcDateTime scheduleStart,IfcDateTime scheduleFinish,IfcDateTime earlyStart,IfcDateTime earlyFinish,IfcDateTime lateStart,IfcDateTime lateFinish,IfcDuration freeFloat,IfcDuration totalFloat,bool isCritical,IfcDateTime statusTime,IfcDuration actualDuration,IfcDateTime actualStart,IfcDateTime actualFinish,IfcDuration remainingTime,IfcPositiveRatioMeasure completion):base(name,dataOrigin,userDefinedDataOrigin)
 		{
 			DurationType = durationType;
 			ScheduleDuration = scheduleDuration;
@@ -25844,7 +25844,7 @@ namespace IFC4
 		/// Construct a IfcWorkTime with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcWorkTime(IfcRecurrencePattern recurrencePattern,IfcDate start,IfcDate finish,IfcLabel name,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin):base(name,dataOrigin,userDefinedDataOrigin)
+		public IfcWorkTime(IfcLabel name,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin,IfcRecurrencePattern recurrencePattern,IfcDate start,IfcDate finish):base(name,dataOrigin,userDefinedDataOrigin)
 		{
 			RecurrencePattern = recurrencePattern;
 			Start = start;
@@ -25972,7 +25972,7 @@ namespace IFC4
 		/// Construct a IfcSite with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSite(IfcCompoundPlaneAngleMeasure refLatitude,IfcCompoundPlaneAngleMeasure refLongitude,IfcLengthMeasure refElevation,IfcLabel landTitleNumber,IfcPostalAddress siteAddress,IfcElementCompositionEnum compositionType,IfcLabel longName,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(compositionType,longName,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcSite(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel longName,IfcElementCompositionEnum compositionType,IfcCompoundPlaneAngleMeasure refLatitude,IfcCompoundPlaneAngleMeasure refLongitude,IfcLengthMeasure refElevation,IfcLabel landTitleNumber,IfcPostalAddress siteAddress):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,longName,compositionType)
 		{
 			RefLatitude = refLatitude;
 			RefLongitude = refLongitude;
@@ -26003,7 +26003,7 @@ namespace IFC4
 		/// Construct a IfcSlabElementedCase with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSlabElementedCase(IfcSlabTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcSlabElementedCase(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcSlabTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag,predefinedType)
 		{
 
 		}
@@ -26029,7 +26029,7 @@ namespace IFC4
 		/// Construct a IfcSlabStandardCase with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSlabStandardCase(IfcSlabTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcSlabStandardCase(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcSlabTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag,predefinedType)
 		{
 
 		}
@@ -26059,7 +26059,7 @@ namespace IFC4
 		/// Construct a IfcSlippageConnectionCondition with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSlippageConnectionCondition(IfcLengthMeasure slippageX,IfcLengthMeasure slippageY,IfcLengthMeasure slippageZ,IfcLabel name):base(name)
+		public IfcSlippageConnectionCondition(IfcLabel name,IfcLengthMeasure slippageX,IfcLengthMeasure slippageY,IfcLengthMeasure slippageZ):base(name)
 		{
 			SlippageX = slippageX;
 			SlippageY = slippageY;
@@ -26130,7 +26130,7 @@ namespace IFC4
 		/// Construct a IfcSpace with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSpace(IfcSpaceTypeEnum predefinedType,IfcLengthMeasure elevationWithFlooring,IfcElementCompositionEnum compositionType,IfcLabel longName,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(compositionType,longName,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcSpace(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel longName,IfcElementCompositionEnum compositionType,IfcSpaceTypeEnum predefinedType,IfcLengthMeasure elevationWithFlooring):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,longName,compositionType)
 		{
 			PredefinedType = predefinedType;
 			ElevationWithFlooring = elevationWithFlooring;
@@ -26153,7 +26153,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcSpaceType with all required attributes.
 		/// </summary>
-		public IfcSpaceType(IfcSpaceTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcSpaceType(IfcGloballyUniqueId globalId,IfcSpaceTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -26162,7 +26162,7 @@ namespace IFC4
 		/// Construct a IfcSpaceType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSpaceType(IfcSpaceTypeEnum predefinedType,IfcLabel longName,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcSpaceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcSpaceTypeEnum predefinedType,IfcLabel longName):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 			LongName = longName;
@@ -26190,7 +26190,7 @@ namespace IFC4
 		/// Construct a IfcSpatialStructureElementType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSpatialStructureElementType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcSpatialStructureElementType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 
 		}
@@ -26218,7 +26218,7 @@ namespace IFC4
 		/// Construct a IfcSpatialZone with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSpatialZone(IfcSpatialZoneTypeEnum predefinedType,IfcLabel longName,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(longName,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcSpatialZone(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel longName,IfcSpatialZoneTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,longName)
 		{
 			PredefinedType = predefinedType;
 
@@ -26247,7 +26247,7 @@ namespace IFC4
 		/// Construct a IfcSpatialElementType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSpatialElementType(IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcSpatialElementType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag)
 		{
 			ElementType = elementType;
 
@@ -26269,7 +26269,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcSpatialZoneType with all required attributes.
 		/// </summary>
-		public IfcSpatialZoneType(IfcSpatialZoneTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcSpatialZoneType(IfcGloballyUniqueId globalId,IfcSpatialZoneTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -26278,7 +26278,7 @@ namespace IFC4
 		/// Construct a IfcSpatialZoneType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSpatialZoneType(IfcSpatialZoneTypeEnum predefinedType,IfcLabel longName,IfcLabel elementType,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(elementType,representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcSpatialZoneType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcLabel elementType,IfcSpatialZoneTypeEnum predefinedType,IfcLabel longName):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag,elementType)
 		{
 			PredefinedType = predefinedType;
 			LongName = longName;
@@ -26300,7 +26300,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStructuralAction with all required attributes.
 		/// </summary>
-		public IfcStructuralAction(IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
+		public IfcStructuralAction(IfcGloballyUniqueId globalId,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal):base(globalId,appliedLoad,globalOrLocal)
 		{
 
 		}
@@ -26308,7 +26308,7 @@ namespace IFC4
 		/// Construct a IfcStructuralAction with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralAction(bool destabilizingLoad,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(appliedLoad,globalOrLocal,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralAction(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,bool destabilizingLoad):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,appliedLoad,globalOrLocal)
 		{
 			DestabilizingLoad = destabilizingLoad;
 
@@ -26330,7 +26330,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStructuralCurveAction with all required attributes.
 		/// </summary>
-		public IfcStructuralCurveAction(IfcStructuralCurveActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
+		public IfcStructuralCurveAction(IfcGloballyUniqueId globalId,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcStructuralCurveActivityTypeEnum predefinedType):base(globalId,appliedLoad,globalOrLocal)
 		{
 			PredefinedType = predefinedType;
 
@@ -26339,7 +26339,7 @@ namespace IFC4
 		/// Construct a IfcStructuralCurveAction with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralCurveAction(IfcProjectedOrTrueLengthEnum projectedOrTrue,IfcStructuralCurveActivityTypeEnum predefinedType,bool destabilizingLoad,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(destabilizingLoad,appliedLoad,globalOrLocal,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralCurveAction(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,bool destabilizingLoad,IfcProjectedOrTrueLengthEnum projectedOrTrue,IfcStructuralCurveActivityTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,appliedLoad,globalOrLocal,destabilizingLoad)
 		{
 			ProjectedOrTrue = projectedOrTrue;
 			PredefinedType = predefinedType;
@@ -26359,7 +26359,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStructuralPointAction with all required attributes.
 		/// </summary>
-		public IfcStructuralPointAction(IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
+		public IfcStructuralPointAction(IfcGloballyUniqueId globalId,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal):base(globalId,appliedLoad,globalOrLocal)
 		{
 
 		}
@@ -26367,7 +26367,7 @@ namespace IFC4
 		/// Construct a IfcStructuralPointAction with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralPointAction(bool destabilizingLoad,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(destabilizingLoad,appliedLoad,globalOrLocal,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralPointAction(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,bool destabilizingLoad):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,appliedLoad,globalOrLocal,destabilizingLoad)
 		{
 
 		}
@@ -26388,7 +26388,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStructuralSurfaceAction with all required attributes.
 		/// </summary>
-		public IfcStructuralSurfaceAction(IfcStructuralSurfaceActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
+		public IfcStructuralSurfaceAction(IfcGloballyUniqueId globalId,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcStructuralSurfaceActivityTypeEnum predefinedType):base(globalId,appliedLoad,globalOrLocal)
 		{
 			PredefinedType = predefinedType;
 
@@ -26397,7 +26397,7 @@ namespace IFC4
 		/// Construct a IfcStructuralSurfaceAction with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralSurfaceAction(IfcProjectedOrTrueLengthEnum projectedOrTrue,IfcStructuralSurfaceActivityTypeEnum predefinedType,bool destabilizingLoad,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(destabilizingLoad,appliedLoad,globalOrLocal,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralSurfaceAction(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,bool destabilizingLoad,IfcProjectedOrTrueLengthEnum projectedOrTrue,IfcStructuralSurfaceActivityTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,appliedLoad,globalOrLocal,destabilizingLoad)
 		{
 			ProjectedOrTrue = projectedOrTrue;
 			PredefinedType = predefinedType;
@@ -26417,7 +26417,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStructuralReaction with all required attributes.
 		/// </summary>
-		public IfcStructuralReaction(IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
+		public IfcStructuralReaction(IfcGloballyUniqueId globalId,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal):base(globalId,appliedLoad,globalOrLocal)
 		{
 
 		}
@@ -26425,7 +26425,7 @@ namespace IFC4
 		/// Construct a IfcStructuralReaction with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralReaction(IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(appliedLoad,globalOrLocal,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralReaction(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,appliedLoad,globalOrLocal)
 		{
 
 		}
@@ -26449,7 +26449,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStructuralAnalysisModel with all required attributes.
 		/// </summary>
-		public IfcStructuralAnalysisModel(IfcAnalysisModelTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcStructuralAnalysisModel(IfcGloballyUniqueId globalId,IfcAnalysisModelTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 			LoadedBy = new List<IfcStructuralLoadGroup>();
@@ -26460,7 +26460,7 @@ namespace IFC4
 		/// Construct a IfcStructuralAnalysisModel with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralAnalysisModel(IfcAnalysisModelTypeEnum predefinedType,IfcAxis2Placement3D orientationOf2DPlane,List<IfcStructuralLoadGroup> loadedBy,List<IfcStructuralResultGroup> hasResults,IfcObjectPlacement sharedPlacement,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralAnalysisModel(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcAnalysisModelTypeEnum predefinedType,IfcAxis2Placement3D orientationOf2DPlane,List<IfcStructuralLoadGroup> loadedBy,List<IfcStructuralResultGroup> hasResults,IfcObjectPlacement sharedPlacement):base(globalId,ownerHistory,name,description,objectType)
 		{
 			PredefinedType = predefinedType;
 			OrientationOf2DPlane = orientationOf2DPlane;
@@ -26493,7 +26493,7 @@ namespace IFC4
 		/// Construct a IfcStructuralConnection with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralConnection(IfcBoundaryCondition appliedCondition,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralConnection(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcBoundaryCondition appliedCondition):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation)
 		{
 			AppliedCondition = appliedCondition;
 
@@ -26514,7 +26514,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStructuralCurveConnection with all required attributes.
 		/// </summary>
-		public IfcStructuralCurveConnection(IfcDirection axis,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcStructuralCurveConnection(IfcGloballyUniqueId globalId,IfcDirection axis):base(globalId)
 		{
 			Axis = axis;
 
@@ -26523,7 +26523,7 @@ namespace IFC4
 		/// Construct a IfcStructuralCurveConnection with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralCurveConnection(IfcDirection axis,IfcBoundaryCondition appliedCondition,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(appliedCondition,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralCurveConnection(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcBoundaryCondition appliedCondition,IfcDirection axis):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,appliedCondition)
 		{
 			Axis = axis;
 
@@ -26552,7 +26552,7 @@ namespace IFC4
 		/// Construct a IfcStructuralPointConnection with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralPointConnection(IfcAxis2Placement3D conditionCoordinateSystem,IfcBoundaryCondition appliedCondition,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(appliedCondition,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralPointConnection(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcBoundaryCondition appliedCondition,IfcAxis2Placement3D conditionCoordinateSystem):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,appliedCondition)
 		{
 			ConditionCoordinateSystem = conditionCoordinateSystem;
 
@@ -26579,7 +26579,7 @@ namespace IFC4
 		/// Construct a IfcStructuralSurfaceConnection with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralSurfaceConnection(IfcBoundaryCondition appliedCondition,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(appliedCondition,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralSurfaceConnection(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcBoundaryCondition appliedCondition):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,appliedCondition)
 		{
 
 		}
@@ -26597,7 +26597,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStructuralLinearAction with all required attributes.
 		/// </summary>
-		public IfcStructuralLinearAction(IfcStructuralCurveActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(predefinedType,appliedLoad,globalOrLocal,globalId)
+		public IfcStructuralLinearAction(IfcGloballyUniqueId globalId,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcStructuralCurveActivityTypeEnum predefinedType):base(globalId,appliedLoad,globalOrLocal,predefinedType)
 		{
 
 		}
@@ -26605,7 +26605,7 @@ namespace IFC4
 		/// Construct a IfcStructuralLinearAction with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralLinearAction(IfcProjectedOrTrueLengthEnum projectedOrTrue,IfcStructuralCurveActivityTypeEnum predefinedType,bool destabilizingLoad,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(projectedOrTrue,predefinedType,destabilizingLoad,appliedLoad,globalOrLocal,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralLinearAction(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,bool destabilizingLoad,IfcProjectedOrTrueLengthEnum projectedOrTrue,IfcStructuralCurveActivityTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,appliedLoad,globalOrLocal,destabilizingLoad,projectedOrTrue,predefinedType)
 		{
 
 		}
@@ -26626,7 +26626,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStructuralCurveMember with all required attributes.
 		/// </summary>
-		public IfcStructuralCurveMember(IfcStructuralCurveMemberTypeEnum predefinedType,IfcDirection axis,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcStructuralCurveMember(IfcGloballyUniqueId globalId,IfcStructuralCurveMemberTypeEnum predefinedType,IfcDirection axis):base(globalId)
 		{
 			PredefinedType = predefinedType;
 			Axis = axis;
@@ -26636,7 +26636,7 @@ namespace IFC4
 		/// Construct a IfcStructuralCurveMember with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralCurveMember(IfcStructuralCurveMemberTypeEnum predefinedType,IfcDirection axis,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralCurveMember(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcStructuralCurveMemberTypeEnum predefinedType,IfcDirection axis):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation)
 		{
 			PredefinedType = predefinedType;
 			Axis = axis;
@@ -26656,7 +26656,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStructuralCurveMemberVarying with all required attributes.
 		/// </summary>
-		public IfcStructuralCurveMemberVarying(IfcStructuralCurveMemberTypeEnum predefinedType,IfcDirection axis,IfcGloballyUniqueId globalId):base(predefinedType,axis,globalId)
+		public IfcStructuralCurveMemberVarying(IfcGloballyUniqueId globalId,IfcStructuralCurveMemberTypeEnum predefinedType,IfcDirection axis):base(globalId,predefinedType,axis)
 		{
 
 		}
@@ -26664,7 +26664,7 @@ namespace IFC4
 		/// Construct a IfcStructuralCurveMemberVarying with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralCurveMemberVarying(IfcStructuralCurveMemberTypeEnum predefinedType,IfcDirection axis,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,axis,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralCurveMemberVarying(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcStructuralCurveMemberTypeEnum predefinedType,IfcDirection axis):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,predefinedType,axis)
 		{
 
 		}
@@ -26690,7 +26690,7 @@ namespace IFC4
 		/// Construct a IfcStructuralMember with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralMember(IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralMember(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation)
 		{
 
 		}
@@ -26710,7 +26710,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStructuralCurveReaction with all required attributes.
 		/// </summary>
-		public IfcStructuralCurveReaction(IfcStructuralCurveActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
+		public IfcStructuralCurveReaction(IfcGloballyUniqueId globalId,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcStructuralCurveActivityTypeEnum predefinedType):base(globalId,appliedLoad,globalOrLocal)
 		{
 			PredefinedType = predefinedType;
 
@@ -26719,7 +26719,7 @@ namespace IFC4
 		/// Construct a IfcStructuralCurveReaction with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralCurveReaction(IfcStructuralCurveActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(appliedLoad,globalOrLocal,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralCurveReaction(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcStructuralCurveActivityTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,appliedLoad,globalOrLocal)
 		{
 			PredefinedType = predefinedType;
 
@@ -26781,7 +26781,7 @@ namespace IFC4
 		/// Construct a IfcStructuralLoadConfiguration with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralLoadConfiguration(List<IfcStructuralLoadOrResult> values,List<List<IfcLengthMeasure>> locations,IfcLabel name):base(name)
+		public IfcStructuralLoadConfiguration(IfcLabel name,List<IfcStructuralLoadOrResult> values,List<List<IfcLengthMeasure>> locations):base(name)
 		{
 			Values = values;
 			Locations = locations;
@@ -26830,7 +26830,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStructuralLoadCase with all required attributes.
 		/// </summary>
-		public IfcStructuralLoadCase(IfcLoadGroupTypeEnum predefinedType,IfcActionTypeEnum actionType,IfcActionSourceTypeEnum actionSource,IfcGloballyUniqueId globalId):base(predefinedType,actionType,actionSource,globalId)
+		public IfcStructuralLoadCase(IfcGloballyUniqueId globalId,IfcLoadGroupTypeEnum predefinedType,IfcActionTypeEnum actionType,IfcActionSourceTypeEnum actionSource):base(globalId,predefinedType,actionType,actionSource)
 		{
 			SelfWeightCoefficients = new List<IfcRatioMeasure>();
 
@@ -26839,7 +26839,7 @@ namespace IFC4
 		/// Construct a IfcStructuralLoadCase with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralLoadCase(List<IfcRatioMeasure> selfWeightCoefficients,IfcLoadGroupTypeEnum predefinedType,IfcActionTypeEnum actionType,IfcActionSourceTypeEnum actionSource,IfcRatioMeasure coefficient,IfcLabel purpose,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,actionType,actionSource,coefficient,purpose,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralLoadCase(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcLoadGroupTypeEnum predefinedType,IfcActionTypeEnum actionType,IfcActionSourceTypeEnum actionSource,IfcRatioMeasure coefficient,IfcLabel purpose,List<IfcRatioMeasure> selfWeightCoefficients):base(globalId,ownerHistory,name,description,objectType,predefinedType,actionType,actionSource,coefficient,purpose)
 		{
 			SelfWeightCoefficients = selfWeightCoefficients;
 
@@ -26873,7 +26873,7 @@ namespace IFC4
 		/// Construct a IfcStructuralLoadLinearForce with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralLoadLinearForce(IfcLinearForceMeasure linearForceX,IfcLinearForceMeasure linearForceY,IfcLinearForceMeasure linearForceZ,IfcLinearMomentMeasure linearMomentX,IfcLinearMomentMeasure linearMomentY,IfcLinearMomentMeasure linearMomentZ,IfcLabel name):base(name)
+		public IfcStructuralLoadLinearForce(IfcLabel name,IfcLinearForceMeasure linearForceX,IfcLinearForceMeasure linearForceY,IfcLinearForceMeasure linearForceZ,IfcLinearMomentMeasure linearMomentX,IfcLinearMomentMeasure linearMomentY,IfcLinearMomentMeasure linearMomentZ):base(name)
 		{
 			LinearForceX = linearForceX;
 			LinearForceY = linearForceY;
@@ -26937,7 +26937,7 @@ namespace IFC4
 		/// Construct a IfcSurfaceReinforcementArea with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSurfaceReinforcementArea(List<IfcLengthMeasure> surfaceReinforcement1,List<IfcLengthMeasure> surfaceReinforcement2,IfcRatioMeasure shearReinforcement,IfcLabel name):base(name)
+		public IfcSurfaceReinforcementArea(IfcLabel name,List<IfcLengthMeasure> surfaceReinforcement1,List<IfcLengthMeasure> surfaceReinforcement2,IfcRatioMeasure shearReinforcement):base(name)
 		{
 			SurfaceReinforcement1 = surfaceReinforcement1;
 			SurfaceReinforcement2 = surfaceReinforcement2;
@@ -26970,7 +26970,7 @@ namespace IFC4
 		/// Construct a IfcStructuralLoadPlanarForce with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralLoadPlanarForce(IfcPlanarForceMeasure planarForceX,IfcPlanarForceMeasure planarForceY,IfcPlanarForceMeasure planarForceZ,IfcLabel name):base(name)
+		public IfcStructuralLoadPlanarForce(IfcLabel name,IfcPlanarForceMeasure planarForceX,IfcPlanarForceMeasure planarForceY,IfcPlanarForceMeasure planarForceZ):base(name)
 		{
 			PlanarForceX = planarForceX;
 			PlanarForceY = planarForceY;
@@ -27006,7 +27006,7 @@ namespace IFC4
 		/// Construct a IfcStructuralLoadSingleDisplacement with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralLoadSingleDisplacement(IfcLengthMeasure displacementX,IfcLengthMeasure displacementY,IfcLengthMeasure displacementZ,IfcPlaneAngleMeasure rotationalDisplacementRX,IfcPlaneAngleMeasure rotationalDisplacementRY,IfcPlaneAngleMeasure rotationalDisplacementRZ,IfcLabel name):base(name)
+		public IfcStructuralLoadSingleDisplacement(IfcLabel name,IfcLengthMeasure displacementX,IfcLengthMeasure displacementY,IfcLengthMeasure displacementZ,IfcPlaneAngleMeasure rotationalDisplacementRX,IfcPlaneAngleMeasure rotationalDisplacementRY,IfcPlaneAngleMeasure rotationalDisplacementRZ):base(name)
 		{
 			DisplacementX = displacementX;
 			DisplacementY = displacementY;
@@ -27040,7 +27040,7 @@ namespace IFC4
 		/// Construct a IfcStructuralLoadSingleDisplacementDistortion with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralLoadSingleDisplacementDistortion(IfcCurvatureMeasure distortion,IfcLengthMeasure displacementX,IfcLengthMeasure displacementY,IfcLengthMeasure displacementZ,IfcPlaneAngleMeasure rotationalDisplacementRX,IfcPlaneAngleMeasure rotationalDisplacementRY,IfcPlaneAngleMeasure rotationalDisplacementRZ,IfcLabel name):base(displacementX,displacementY,displacementZ,rotationalDisplacementRX,rotationalDisplacementRY,rotationalDisplacementRZ,name)
+		public IfcStructuralLoadSingleDisplacementDistortion(IfcLabel name,IfcLengthMeasure displacementX,IfcLengthMeasure displacementY,IfcLengthMeasure displacementZ,IfcPlaneAngleMeasure rotationalDisplacementRX,IfcPlaneAngleMeasure rotationalDisplacementRY,IfcPlaneAngleMeasure rotationalDisplacementRZ,IfcCurvatureMeasure distortion):base(name,displacementX,displacementY,displacementZ,rotationalDisplacementRX,rotationalDisplacementRY,rotationalDisplacementRZ)
 		{
 			Distortion = distortion;
 
@@ -27074,7 +27074,7 @@ namespace IFC4
 		/// Construct a IfcStructuralLoadSingleForce with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralLoadSingleForce(IfcForceMeasure forceX,IfcForceMeasure forceY,IfcForceMeasure forceZ,IfcTorqueMeasure momentX,IfcTorqueMeasure momentY,IfcTorqueMeasure momentZ,IfcLabel name):base(name)
+		public IfcStructuralLoadSingleForce(IfcLabel name,IfcForceMeasure forceX,IfcForceMeasure forceY,IfcForceMeasure forceZ,IfcTorqueMeasure momentX,IfcTorqueMeasure momentY,IfcTorqueMeasure momentZ):base(name)
 		{
 			ForceX = forceX;
 			ForceY = forceY;
@@ -27108,7 +27108,7 @@ namespace IFC4
 		/// Construct a IfcStructuralLoadSingleForceWarping with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralLoadSingleForceWarping(IfcWarpingMomentMeasure warpingMoment,IfcForceMeasure forceX,IfcForceMeasure forceY,IfcForceMeasure forceZ,IfcTorqueMeasure momentX,IfcTorqueMeasure momentY,IfcTorqueMeasure momentZ,IfcLabel name):base(forceX,forceY,forceZ,momentX,momentY,momentZ,name)
+		public IfcStructuralLoadSingleForceWarping(IfcLabel name,IfcForceMeasure forceX,IfcForceMeasure forceY,IfcForceMeasure forceZ,IfcTorqueMeasure momentX,IfcTorqueMeasure momentY,IfcTorqueMeasure momentZ,IfcWarpingMomentMeasure warpingMoment):base(name,forceX,forceY,forceZ,momentX,momentY,momentZ)
 		{
 			WarpingMoment = warpingMoment;
 
@@ -27139,7 +27139,7 @@ namespace IFC4
 		/// Construct a IfcStructuralLoadTemperature with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralLoadTemperature(IfcThermodynamicTemperatureMeasure deltaTConstant,IfcThermodynamicTemperatureMeasure deltaTY,IfcThermodynamicTemperatureMeasure deltaTZ,IfcLabel name):base(name)
+		public IfcStructuralLoadTemperature(IfcLabel name,IfcThermodynamicTemperatureMeasure deltaTConstant,IfcThermodynamicTemperatureMeasure deltaTY,IfcThermodynamicTemperatureMeasure deltaTZ):base(name)
 		{
 			DeltaTConstant = deltaTConstant;
 			DeltaTY = deltaTY;
@@ -27163,7 +27163,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStructuralSurfaceMember with all required attributes.
 		/// </summary>
-		public IfcStructuralSurfaceMember(IfcStructuralSurfaceMemberTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcStructuralSurfaceMember(IfcGloballyUniqueId globalId,IfcStructuralSurfaceMemberTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -27172,7 +27172,7 @@ namespace IFC4
 		/// Construct a IfcStructuralSurfaceMember with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralSurfaceMember(IfcStructuralSurfaceMemberTypeEnum predefinedType,IfcPositiveLengthMeasure thickness,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralSurfaceMember(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcStructuralSurfaceMemberTypeEnum predefinedType,IfcPositiveLengthMeasure thickness):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation)
 		{
 			PredefinedType = predefinedType;
 			Thickness = thickness;
@@ -27192,7 +27192,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStructuralPlanarAction with all required attributes.
 		/// </summary>
-		public IfcStructuralPlanarAction(IfcStructuralSurfaceActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(predefinedType,appliedLoad,globalOrLocal,globalId)
+		public IfcStructuralPlanarAction(IfcGloballyUniqueId globalId,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcStructuralSurfaceActivityTypeEnum predefinedType):base(globalId,appliedLoad,globalOrLocal,predefinedType)
 		{
 
 		}
@@ -27200,7 +27200,7 @@ namespace IFC4
 		/// Construct a IfcStructuralPlanarAction with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralPlanarAction(IfcProjectedOrTrueLengthEnum projectedOrTrue,IfcStructuralSurfaceActivityTypeEnum predefinedType,bool destabilizingLoad,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(projectedOrTrue,predefinedType,destabilizingLoad,appliedLoad,globalOrLocal,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralPlanarAction(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,bool destabilizingLoad,IfcProjectedOrTrueLengthEnum projectedOrTrue,IfcStructuralSurfaceActivityTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,appliedLoad,globalOrLocal,destabilizingLoad,projectedOrTrue,predefinedType)
 		{
 
 		}
@@ -27218,7 +27218,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStructuralPointReaction with all required attributes.
 		/// </summary>
-		public IfcStructuralPointReaction(IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
+		public IfcStructuralPointReaction(IfcGloballyUniqueId globalId,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal):base(globalId,appliedLoad,globalOrLocal)
 		{
 
 		}
@@ -27226,7 +27226,7 @@ namespace IFC4
 		/// Construct a IfcStructuralPointReaction with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralPointReaction(IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(appliedLoad,globalOrLocal,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralPointReaction(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,appliedLoad,globalOrLocal)
 		{
 
 		}
@@ -27246,7 +27246,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStructuralSurfaceReaction with all required attributes.
 		/// </summary>
-		public IfcStructuralSurfaceReaction(IfcStructuralSurfaceActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcGloballyUniqueId globalId):base(appliedLoad,globalOrLocal,globalId)
+		public IfcStructuralSurfaceReaction(IfcGloballyUniqueId globalId,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcStructuralSurfaceActivityTypeEnum predefinedType):base(globalId,appliedLoad,globalOrLocal)
 		{
 			PredefinedType = predefinedType;
 
@@ -27255,7 +27255,7 @@ namespace IFC4
 		/// Construct a IfcStructuralSurfaceReaction with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralSurfaceReaction(IfcStructuralSurfaceActivityTypeEnum predefinedType,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(appliedLoad,globalOrLocal,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralSurfaceReaction(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcStructuralLoad appliedLoad,IfcGlobalOrLocalEnum globalOrLocal,IfcStructuralSurfaceActivityTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,appliedLoad,globalOrLocal)
 		{
 			PredefinedType = predefinedType;
 
@@ -27274,7 +27274,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcStructuralSurfaceMemberVarying with all required attributes.
 		/// </summary>
-		public IfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMemberTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(predefinedType,globalId)
+		public IfcStructuralSurfaceMemberVarying(IfcGloballyUniqueId globalId,IfcStructuralSurfaceMemberTypeEnum predefinedType):base(globalId,predefinedType)
 		{
 
 		}
@@ -27282,7 +27282,7 @@ namespace IFC4
 		/// Construct a IfcStructuralSurfaceMemberVarying with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcStructuralSurfaceMemberVarying(IfcStructuralSurfaceMemberTypeEnum predefinedType,IfcPositiveLengthMeasure thickness,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,thickness,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcStructuralSurfaceMemberVarying(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcStructuralSurfaceMemberTypeEnum predefinedType,IfcPositiveLengthMeasure thickness):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,predefinedType,thickness)
 		{
 
 		}
@@ -27363,7 +27363,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcSurfaceCurveSweptAreaSolid with all required attributes.
 		/// </summary>
-		public IfcSurfaceCurveSweptAreaSolid(IfcCurve directrix,IfcSurface referenceSurface,IfcProfileDef sweptArea):base(sweptArea)
+		public IfcSurfaceCurveSweptAreaSolid(IfcProfileDef sweptArea,IfcCurve directrix,IfcSurface referenceSurface):base(sweptArea)
 		{
 			Directrix = directrix;
 			ReferenceSurface = referenceSurface;
@@ -27373,7 +27373,7 @@ namespace IFC4
 		/// Construct a IfcSurfaceCurveSweptAreaSolid with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSurfaceCurveSweptAreaSolid(IfcCurve directrix,IfcParameterValue startParam,IfcParameterValue endParam,IfcSurface referenceSurface,IfcProfileDef sweptArea,IfcAxis2Placement3D position):base(sweptArea,position)
+		public IfcSurfaceCurveSweptAreaSolid(IfcProfileDef sweptArea,IfcAxis2Placement3D position,IfcCurve directrix,IfcParameterValue startParam,IfcParameterValue endParam,IfcSurface referenceSurface):base(sweptArea,position)
 		{
 			Directrix = directrix;
 			StartParam = startParam;
@@ -27398,7 +27398,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcSurfaceOfLinearExtrusion with all required attributes.
 		/// </summary>
-		public IfcSurfaceOfLinearExtrusion(IfcDirection extrudedDirection,IfcLengthMeasure depth,IfcProfileDef sweptCurve):base(sweptCurve)
+		public IfcSurfaceOfLinearExtrusion(IfcProfileDef sweptCurve,IfcDirection extrudedDirection,IfcLengthMeasure depth):base(sweptCurve)
 		{
 			ExtrudedDirection = extrudedDirection;
 			Depth = depth;
@@ -27408,7 +27408,7 @@ namespace IFC4
 		/// Construct a IfcSurfaceOfLinearExtrusion with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSurfaceOfLinearExtrusion(IfcDirection extrudedDirection,IfcLengthMeasure depth,IfcProfileDef sweptCurve,IfcAxis2Placement3D position):base(sweptCurve,position)
+		public IfcSurfaceOfLinearExtrusion(IfcProfileDef sweptCurve,IfcAxis2Placement3D position,IfcDirection extrudedDirection,IfcLengthMeasure depth):base(sweptCurve,position)
 		{
 			ExtrudedDirection = extrudedDirection;
 			Depth = depth;
@@ -27430,7 +27430,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcSurfaceOfRevolution with all required attributes.
 		/// </summary>
-		public IfcSurfaceOfRevolution(IfcAxis1Placement axisPosition,IfcProfileDef sweptCurve):base(sweptCurve)
+		public IfcSurfaceOfRevolution(IfcProfileDef sweptCurve,IfcAxis1Placement axisPosition):base(sweptCurve)
 		{
 			AxisPosition = axisPosition;
 
@@ -27439,7 +27439,7 @@ namespace IFC4
 		/// Construct a IfcSurfaceOfRevolution with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSurfaceOfRevolution(IfcAxis1Placement axisPosition,IfcProfileDef sweptCurve,IfcAxis2Placement3D position):base(sweptCurve,position)
+		public IfcSurfaceOfRevolution(IfcProfileDef sweptCurve,IfcAxis2Placement3D position,IfcAxis1Placement axisPosition):base(sweptCurve,position)
 		{
 			AxisPosition = axisPosition;
 
@@ -27467,7 +27467,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcSurfaceStyleRendering with all required attributes.
 		/// </summary>
-		public IfcSurfaceStyleRendering(IfcReflectanceMethodEnum reflectanceMethod,IfcColourRgb surfaceColour):base(surfaceColour)
+		public IfcSurfaceStyleRendering(IfcColourRgb surfaceColour,IfcReflectanceMethodEnum reflectanceMethod):base(surfaceColour)
 		{
 			ReflectanceMethod = reflectanceMethod;
 
@@ -27476,7 +27476,7 @@ namespace IFC4
 		/// Construct a IfcSurfaceStyleRendering with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSurfaceStyleRendering(IfcNormalisedRatioMeasure transparency,IfcColourOrFactor diffuseColour,IfcColourOrFactor transmissionColour,IfcColourOrFactor diffuseTransmissionColour,IfcColourOrFactor reflectionColour,IfcColourOrFactor specularColour,IfcSpecularHighlightSelect specularHighlight,IfcReflectanceMethodEnum reflectanceMethod,IfcColourRgb surfaceColour):base(surfaceColour)
+		public IfcSurfaceStyleRendering(IfcColourRgb surfaceColour,IfcNormalisedRatioMeasure transparency,IfcColourOrFactor diffuseColour,IfcColourOrFactor transmissionColour,IfcColourOrFactor diffuseTransmissionColour,IfcColourOrFactor reflectionColour,IfcColourOrFactor specularColour,IfcSpecularHighlightSelect specularHighlight,IfcReflectanceMethodEnum reflectanceMethod):base(surfaceColour)
 		{
 			Transparency = transparency;
 			DiffuseColour = diffuseColour;
@@ -27512,7 +27512,7 @@ namespace IFC4
 		/// Construct a IfcSweptDiskSolidPolygonal with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcSweptDiskSolidPolygonal(IfcPositiveLengthMeasure filletRadius,IfcCurve directrix,IfcPositiveLengthMeasure radius,IfcPositiveLengthMeasure innerRadius,IfcParameterValue startParam,IfcParameterValue endParam):base(directrix,radius,innerRadius,startParam,endParam)
+		public IfcSweptDiskSolidPolygonal(IfcCurve directrix,IfcPositiveLengthMeasure radius,IfcPositiveLengthMeasure innerRadius,IfcParameterValue startParam,IfcParameterValue endParam,IfcPositiveLengthMeasure filletRadius):base(directrix,radius,innerRadius,startParam,endParam)
 		{
 			FilletRadius = filletRadius;
 
@@ -27541,7 +27541,7 @@ namespace IFC4
 		/// Construct a IfcZone with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcZone(IfcLabel longName,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(objectType,globalId,ownerHistory,name,description)
+		public IfcZone(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcLabel longName):base(globalId,ownerHistory,name,description,objectType)
 		{
 			LongName = longName;
 
@@ -27675,7 +27675,7 @@ namespace IFC4
 		/// Construct a IfcTaskTimeRecurring with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTaskTimeRecurring(IfcRecurrencePattern recurrance,IfcTaskDurationEnum durationType,IfcDuration scheduleDuration,IfcDateTime scheduleStart,IfcDateTime scheduleFinish,IfcDateTime earlyStart,IfcDateTime earlyFinish,IfcDateTime lateStart,IfcDateTime lateFinish,IfcDuration freeFloat,IfcDuration totalFloat,bool isCritical,IfcDateTime statusTime,IfcDuration actualDuration,IfcDateTime actualStart,IfcDateTime actualFinish,IfcDuration remainingTime,IfcPositiveRatioMeasure completion,IfcLabel name,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin):base(durationType,scheduleDuration,scheduleStart,scheduleFinish,earlyStart,earlyFinish,lateStart,lateFinish,freeFloat,totalFloat,isCritical,statusTime,actualDuration,actualStart,actualFinish,remainingTime,completion,name,dataOrigin,userDefinedDataOrigin)
+		public IfcTaskTimeRecurring(IfcLabel name,IfcDataOriginEnum dataOrigin,IfcLabel userDefinedDataOrigin,IfcTaskDurationEnum durationType,IfcDuration scheduleDuration,IfcDateTime scheduleStart,IfcDateTime scheduleFinish,IfcDateTime earlyStart,IfcDateTime earlyFinish,IfcDateTime lateStart,IfcDateTime lateFinish,IfcDuration freeFloat,IfcDuration totalFloat,bool isCritical,IfcDateTime statusTime,IfcDuration actualDuration,IfcDateTime actualStart,IfcDateTime actualFinish,IfcDuration remainingTime,IfcPositiveRatioMeasure completion,IfcRecurrencePattern recurrance):base(name,dataOrigin,userDefinedDataOrigin,durationType,scheduleDuration,scheduleStart,scheduleFinish,earlyStart,earlyFinish,lateStart,lateFinish,freeFloat,totalFloat,isCritical,statusTime,actualDuration,actualStart,actualFinish,remainingTime,completion)
 		{
 			Recurrance = recurrance;
 
@@ -27697,7 +27697,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcTaskType with all required attributes.
 		/// </summary>
-		public IfcTaskType(IfcTaskTypeEnum predefinedType,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcTaskType(IfcGloballyUniqueId globalId,IfcTaskTypeEnum predefinedType):base(globalId)
 		{
 			PredefinedType = predefinedType;
 
@@ -27706,7 +27706,7 @@ namespace IFC4
 		/// Construct a IfcTaskType with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTaskType(IfcTaskTypeEnum predefinedType,IfcLabel workMethod,IfcIdentifier identification,IfcText longDescription,IfcLabel processType,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(identification,longDescription,processType,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcTaskType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcIdentifier identification,IfcText longDescription,IfcLabel processType,IfcTaskTypeEnum predefinedType,IfcLabel workMethod):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,identification,longDescription,processType)
 		{
 			PredefinedType = predefinedType;
 			WorkMethod = workMethod;
@@ -27764,7 +27764,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcTriangulatedFaceSet with all required attributes.
 		/// </summary>
-		public IfcTriangulatedFaceSet(List<List<int>> coordIndex,IfcCartesianPointList3D coordinates):base(coordinates)
+		public IfcTriangulatedFaceSet(IfcCartesianPointList3D coordinates,List<List<int>> coordIndex):base(coordinates)
 		{
 			CoordIndex = coordIndex;
 			CoordIndex = new List<List<int>>();
@@ -27775,7 +27775,7 @@ namespace IFC4
 		/// Construct a IfcTriangulatedFaceSet with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTriangulatedFaceSet(List<List<int>> coordIndex,List<List<int>> normalIndex,IfcCartesianPointList3D coordinates,List<List<IfcParameterValue>> normals,bool closed):base(coordinates,normals,closed)
+		public IfcTriangulatedFaceSet(IfcCartesianPointList3D coordinates,List<List<IfcParameterValue>> normals,bool closed,List<List<int>> coordIndex,List<List<int>> normalIndex):base(coordinates,normals,closed)
 		{
 			CoordIndex = coordIndex;
 			NormalIndex = normalIndex;
@@ -27800,7 +27800,7 @@ namespace IFC4
 		/// Construct a IfcTextLiteralWithExtent with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTextLiteralWithExtent(IfcPlanarExtent extent,IfcBoxAlignment boxAlignment,IfcPresentableText literal,IfcAxis2Placement placement,IfcTextPath path):base(literal,placement,path)
+		public IfcTextLiteralWithExtent(IfcPresentableText literal,IfcAxis2Placement placement,IfcTextPath path,IfcPlanarExtent extent,IfcBoxAlignment boxAlignment):base(literal,placement,path)
 		{
 			Extent = extent;
 			BoxAlignment = boxAlignment;
@@ -27823,7 +27823,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcTextureCoordinateGenerator with all required attributes.
 		/// </summary>
-		public IfcTextureCoordinateGenerator(IfcLabel mode,List<IfcSurfaceTexture> maps):base(maps)
+		public IfcTextureCoordinateGenerator(List<IfcSurfaceTexture> maps,IfcLabel mode):base(maps)
 		{
 			Mode = mode;
 			Parameter = new List<IfcReal>();
@@ -27833,7 +27833,7 @@ namespace IFC4
 		/// Construct a IfcTextureCoordinateGenerator with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTextureCoordinateGenerator(IfcLabel mode,List<IfcReal> parameter,List<IfcSurfaceTexture> maps):base(maps)
+		public IfcTextureCoordinateGenerator(List<IfcSurfaceTexture> maps,IfcLabel mode,List<IfcReal> parameter):base(maps)
 		{
 			Mode = mode;
 			Parameter = parameter;
@@ -27857,7 +27857,7 @@ namespace IFC4
 		/// Construct a IfcTextureMap with all required attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcTextureMap(List<IfcTextureVertex> vertices,IfcFace mappedTo,List<IfcSurfaceTexture> maps):base(maps)
+		public IfcTextureMap(List<IfcSurfaceTexture> maps,List<IfcTextureVertex> vertices,IfcFace mappedTo):base(maps)
 		{
 			Vertices = vertices;
 			MappedTo = mappedTo;
@@ -27949,7 +27949,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcWindowStyle with all required attributes.
 		/// </summary>
-		public IfcWindowStyle(IfcWindowStyleConstructionEnum constructionType,IfcWindowStyleOperationEnum operationType,bool parameterTakesPrecedence,bool sizeable,IfcGloballyUniqueId globalId):base(globalId)
+		public IfcWindowStyle(IfcGloballyUniqueId globalId,IfcWindowStyleConstructionEnum constructionType,IfcWindowStyleOperationEnum operationType,bool parameterTakesPrecedence,bool sizeable):base(globalId)
 		{
 			ConstructionType = constructionType;
 			OperationType = operationType;
@@ -27961,7 +27961,7 @@ namespace IFC4
 		/// Construct a IfcWindowStyle with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcWindowStyle(IfcWindowStyleConstructionEnum constructionType,IfcWindowStyleOperationEnum operationType,bool parameterTakesPrecedence,bool sizeable,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(representationMaps,tag,applicableOccurrence,hasPropertySets,globalId,ownerHistory,name,description)
+		public IfcWindowStyle(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag,IfcWindowStyleConstructionEnum constructionType,IfcWindowStyleOperationEnum operationType,bool parameterTakesPrecedence,bool sizeable):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,representationMaps,tag)
 		{
 			ConstructionType = constructionType;
 			OperationType = operationType;
@@ -28062,7 +28062,7 @@ namespace IFC4
 		/// Construct a IfcWallElementedCase with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcWallElementedCase(IfcWallTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcWallElementedCase(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcWallTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag,predefinedType)
 		{
 
 		}
@@ -28088,7 +28088,7 @@ namespace IFC4
 		/// Construct a IfcWallStandardCase with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcWallStandardCase(IfcWallTypeEnum predefinedType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(predefinedType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcWallStandardCase(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcWallTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag,predefinedType)
 		{
 
 		}
@@ -28114,7 +28114,7 @@ namespace IFC4
 		/// Construct a IfcWindowStandardCase with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcWindowStandardCase(IfcPositiveLengthMeasure overallHeight,IfcPositiveLengthMeasure overallWidth,IfcWindowTypeEnum predefinedType,IfcWindowTypePartitioningEnum partitioningType,IfcLabel userDefinedPartitioningType,IfcIdentifier tag,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(overallHeight,overallWidth,predefinedType,partitioningType,userDefinedPartitioningType,tag,objectPlacement,representation,objectType,globalId,ownerHistory,name,description)
+		public IfcWindowStandardCase(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcObjectPlacement objectPlacement,IfcProductRepresentation representation,IfcIdentifier tag,IfcPositiveLengthMeasure overallHeight,IfcPositiveLengthMeasure overallWidth,IfcWindowTypeEnum predefinedType,IfcWindowTypePartitioningEnum partitioningType,IfcLabel userDefinedPartitioningType):base(globalId,ownerHistory,name,description,objectType,objectPlacement,representation,tag,overallHeight,overallWidth,predefinedType,partitioningType,userDefinedPartitioningType)
 		{
 
 		}
@@ -28134,7 +28134,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcWorkPlan with all required attributes.
 		/// </summary>
-		public IfcWorkPlan(IfcDateTime creationDate,IfcDateTime startTime,IfcGloballyUniqueId globalId):base(creationDate,startTime,globalId)
+		public IfcWorkPlan(IfcGloballyUniqueId globalId,IfcDateTime creationDate,IfcDateTime startTime):base(globalId,creationDate,startTime)
 		{
 
 		}
@@ -28142,7 +28142,7 @@ namespace IFC4
 		/// Construct a IfcWorkPlan with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcWorkPlan(IfcWorkPlanTypeEnum predefinedType,IfcDateTime creationDate,List<IfcPerson> creators,IfcLabel purpose,IfcDuration duration,IfcDuration totalFloat,IfcDateTime startTime,IfcDateTime finishTime,IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(creationDate,creators,purpose,duration,totalFloat,startTime,finishTime,identification,objectType,globalId,ownerHistory,name,description)
+		public IfcWorkPlan(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcDateTime creationDate,List<IfcPerson> creators,IfcLabel purpose,IfcDuration duration,IfcDuration totalFloat,IfcDateTime startTime,IfcDateTime finishTime,IfcWorkPlanTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,identification,creationDate,creators,purpose,duration,totalFloat,startTime,finishTime)
 		{
 			PredefinedType = predefinedType;
 
@@ -28163,7 +28163,7 @@ namespace IFC4
 		/// <summary>
 		/// Construct a IfcWorkSchedule with all required attributes.
 		/// </summary>
-		public IfcWorkSchedule(IfcDateTime creationDate,IfcDateTime startTime,IfcGloballyUniqueId globalId):base(creationDate,startTime,globalId)
+		public IfcWorkSchedule(IfcGloballyUniqueId globalId,IfcDateTime creationDate,IfcDateTime startTime):base(globalId,creationDate,startTime)
 		{
 
 		}
@@ -28171,7 +28171,7 @@ namespace IFC4
 		/// Construct a IfcWorkSchedule with required and optional attributes.
 		/// </summary>
 		[JsonConstructor]
-		public IfcWorkSchedule(IfcWorkScheduleTypeEnum predefinedType,IfcDateTime creationDate,List<IfcPerson> creators,IfcLabel purpose,IfcDuration duration,IfcDuration totalFloat,IfcDateTime startTime,IfcDateTime finishTime,IfcIdentifier identification,IfcLabel objectType,IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description):base(creationDate,creators,purpose,duration,totalFloat,startTime,finishTime,identification,objectType,globalId,ownerHistory,name,description)
+		public IfcWorkSchedule(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcDateTime creationDate,List<IfcPerson> creators,IfcLabel purpose,IfcDuration duration,IfcDuration totalFloat,IfcDateTime startTime,IfcDateTime finishTime,IfcWorkScheduleTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,identification,creationDate,creators,purpose,duration,totalFloat,startTime,finishTime)
 		{
 			PredefinedType = predefinedType;
 
