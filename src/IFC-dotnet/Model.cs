@@ -10,11 +10,11 @@ namespace IFC4
 {
 	public class Model
 	{
-		Dictionary<Guid,IfcBase> Instances{get;set;}
+		Dictionary<Guid,BaseIfc> Instances{get;set;}
 
 		private Model()
 		{
-			Instances = new Dictionary<Guid,IfcBase>();
+			Instances = new Dictionary<Guid,BaseIfc>();
 		}
 
 		public static Model FromSTEP(string filePath)
@@ -56,7 +56,7 @@ namespace IFC4
 			return model;
 		}
 
-		private static IfcBase ConstructRecursive(STEP.InstanceData data, Dictionary<int,STEP.InstanceData> instanceData, Model model, int level)
+		private static BaseIfc ConstructRecursive(STEP.InstanceData data, Dictionary<int,STEP.InstanceData> instanceData, Model model, int level)
 		{
 			var indent = string.Join("",Enumerable.Repeat("\t", level));
 
@@ -95,7 +95,7 @@ namespace IFC4
 				var list = data.Parameters[i] as List<object>;
 				if(list != null)
 				{
-					var subInstances = new List<IfcBase>();
+					var subInstances = new List<BaseIfc>();
 					for(var j=list.Count-1; j>=0;j--)
 					{
 						var id = list[j] as STEP.STEPId;
@@ -113,7 +113,7 @@ namespace IFC4
 
 			// Construct the instance, assuming that all required sub-instances
 			// have already been constructed.
-			var instance = (IfcBase)data.Constructor.Invoke(data.Parameters.ToArray());
+			var instance = (BaseIfc)data.Constructor.Invoke(data.Parameters.ToArray());
 
 			if(instanceData.ContainsKey(data.Id))
 			{
