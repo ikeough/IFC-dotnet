@@ -1,6 +1,8 @@
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
 using System;
+using System.Collections;
+using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Transactions;
@@ -49,25 +51,23 @@ namespace IFC4
 						// of another construction.
 						continue;
 					}
-					ConstructRecursive(data, listener.InstanceData, model, 0);
+					ConstructRecursive(data, listener.InstanceData, model, 0, data.Id);
 				}
 			}
 
 			return model;
 		}
 
-		private static BaseIfc ConstructRecursive(STEP.InstanceData data, Dictionary<int,STEP.InstanceData> instanceData, Model model, int level)
+		private static BaseIfc ConstructRecursive(STEP.InstanceData data, Dictionary<int,STEP.InstanceData> instanceData, Model model, int level, int sid)
 		{
-			var indent = string.Join("",Enumerable.Repeat("\t", level));
-
-			Console.WriteLine($"{indent}Constructing type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
+			Console.WriteLine($"{sid} : Constructing type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
 			
 			for(var i=data.Parameters.Count()-1; i>=0; i--)
 			{
 				var instData = data.Parameters[i] as STEP.InstanceData;
 				if(instData != null)
 				{
-					var subInstance = ConstructRecursive(instData, instanceData, model, ++level);
+					var subInstance = ConstructRecursive(instData, instanceData, model, ++level, sid);
 					data.Parameters[i] = subInstance;
 					continue;
 				}
@@ -81,13 +81,13 @@ namespace IFC4
 					{
 						if(model.Instances.ContainsKey(guid))
 						{
-							Console.WriteLine($"{indent}Using existing instance with id, {id}, in {data.Id}");
+							Console.WriteLine($"Using existing instance with id, {id}, in {data.Id}");
 							data.Parameters[i] = model.Instances[guid];
 							continue;
 						}
 					}
 
-					var subInstance = ConstructRecursive(instanceData[id], instanceData, model, ++level);
+					var subInstance = ConstructRecursive(instanceData[id], instanceData, model, ++level, id);
 					data.Parameters[i] = subInstance;
 					continue;
 				}
@@ -95,16 +95,37 @@ namespace IFC4
 				var list = data.Parameters[i] as List<object>;
 				if(list != null)
 				{
-					var subInstances = new List<BaseIfc>();
-					for(var j=list.Count-1; j>=0;j--)
+					if(!list.Any())
 					{
-						var id = list[j] as STEP.STEPId;
-						if(id == null)
+						break;
+					}
+
+					// The parameters will have been stored in a List<object> during parsing.
+					// We need to create a List<T> where T is the type expected by the constructor
+					// in the STEP file.
+					var listType = typeof(List<>);
+					var instanceType = data.Constructor.GetParameters()[i].ParameterType.GetGenericArguments()[0];
+					var constructedListType = listType.MakeGenericType(instanceType);
+					var subInstances = (IList)Activator.CreateInstance(constructedListType);
+
+					foreach(var item in list)
+					{
+						var id = item as STEP.STEPId;
+						if(id != null)
 						{
-							throw new Exception($"Encountered a list containing a {list[j].GetType().Name}. Was expecting a STEPId.");
+							var subInstance = ConstructRecursive(instanceData[id.Value], instanceData, model, level, sid);
+
+							// The object must be converted to the type expected in the list
+							// for Select types, this will be a recursive build of the base select type.
+							var convert = Convert(instanceType, subInstance);
+							subInstances.Add(convert);
 						}
-						var subInstance = ConstructRecursive(instanceData[id.Value], instanceData, model, level);
-						subInstances.Add(subInstance);
+						else
+						{
+							var subInstance = item;
+							var convert = Convert(instanceType, subInstance);
+							subInstances.Add(convert);
+						}
 					}
 					// Replace the list of STEPId with a list of instance references.
 					data.Parameters[i] = subInstances;
@@ -113,8 +134,21 @@ namespace IFC4
 
 			// Construct the instance, assuming that all required sub-instances
 			// have already been constructed.
+			for(var i=data.Parameters.Count-1; i>=0; i--)
+			{
+				if(data.Parameters[i] == null)
+				{
+					continue;
+				}
+				
+				var pType = data.Parameters[i].GetType();
+				var expectedType = data.Constructor.GetParameters()[i].ParameterType;
+				
+				data.Parameters[i] = Convert(expectedType, data.Parameters[i]);
+			}
 			var instance = (BaseIfc)data.Constructor.Invoke(data.Parameters.ToArray());
-
+			
+			//var instance = (BaseIfc)Activator.CreateInstance(data.Type, BindingFlags. data.Parameters.ToArray());
 			if(instanceData.ContainsKey(data.Id))
 			{
 				// We'll only get here if the instance is not being constructed
@@ -125,6 +159,25 @@ namespace IFC4
 			model.Instances.Add(instance.Id, instance);
 
 			return instance;
+		}
+
+		private static object Convert(Type expectedType, object value)
+		{
+			if(expectedType.IsAssignableFrom(value.GetType()))
+			{
+				return value;
+			}
+
+			var converter = TypeDescriptor.GetConverter(expectedType);
+			if(converter != null && converter.CanConvertFrom(value.GetType()))
+			{
+				//Console.WriteLine($"Converting parameter of type, {value.GetType()}, to type, {expectedType}");
+				return converter.ConvertFrom(value);
+			}
+			else
+			{
+				throw new Exception($"There was no type converter available to convert from {value.GetType()} to {expectedType}.");
+			}
 		}
 	}
 }

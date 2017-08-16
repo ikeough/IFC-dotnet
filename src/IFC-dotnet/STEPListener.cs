@@ -81,7 +81,6 @@ namespace STEP
 			// Only cache an instance if it's an outer instance.
 			if(context.Parent is STEPParser.InstanceContext)
 			{
-				Console.WriteLine($"Caching instance data: {currId}");
 				instanceData.Add(currId, ParseConstructor(currId, context));
 			}
 		}
