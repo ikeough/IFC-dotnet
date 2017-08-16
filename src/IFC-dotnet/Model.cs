@@ -25,8 +25,6 @@ namespace IFC4
 			}
 			
 			Model model = new Model();
-			
-			var tmp = new Dictionary<string,IfcBase>();
 
 			using (FileStream fs = new FileStream(filePath, FileMode.Open))
 			{
@@ -43,27 +41,90 @@ namespace IFC4
 				var listener = new STEP.STEPListener();
 				walker.Walk(listener, tree);
 
-				var independentInstances = listener.InstanceData.Where(id=>!id.HasDependencies);
-				foreach(var id in independentInstances)
+				foreach(var data in listener.InstanceData.Values)
 				{
-					// Find the matching function in the IFC-dotnet assembly.
-					Console.WriteLine($"Constructing type {id.Type.Name} with parameters [{string.Join(",",id.Parameters)}]");
-					var instance = (IfcBase)Activator.CreateInstance(id.Type,id.Parameters);
-					tmp.Add(id.Id.Value, instance);
-
-					// First construct all instances which have no dependencies.
-					
-					// Then construct all types with only references to resolved types.
-
-					// Then construct remaining types.
-
-					
+					if(data.ConstructedGuid != null && model.Instances.ContainsKey(data.ConstructedGuid))
+					{
+						// Instance may have been previously constructed as the result
+						// of another construction.
+						continue;
+					}
+					ConstructRecursive(data, listener.InstanceData, model, 0);
 				}
-
-				// Store instances in the Instances dictionary.
 			}
 
 			return model;
+		}
+
+		private static IfcBase ConstructRecursive(STEP.InstanceData data, Dictionary<int,STEP.InstanceData> instanceData, Model model, int level)
+		{
+			var indent = string.Join("",Enumerable.Repeat("\t", level));
+
+			Console.WriteLine($"{indent}Constructing type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
+			
+			for(var i=data.Parameters.Count()-1; i>=0; i--)
+			{
+				var instData = data.Parameters[i] as STEP.InstanceData;
+				if(instData != null)
+				{
+					var subInstance = ConstructRecursive(instData, instanceData, model, ++level);
+					data.Parameters[i] = subInstance;
+					continue;
+				}
+
+				var stepId = data.Parameters[i] as STEP.STEPId;
+				if(stepId != null)
+				{
+					var id = stepId.Value;
+					var guid = instanceData[id].ConstructedGuid;
+					if(guid != null)
+					{
+						if(model.Instances.ContainsKey(guid))
+						{
+							Console.WriteLine($"{indent}Using existing instance with id, {id}, in {data.Id}");
+							data.Parameters[i] = model.Instances[guid];
+							continue;
+						}
+					}
+
+					var subInstance = ConstructRecursive(instanceData[id], instanceData, model, ++level);
+					data.Parameters[i] = subInstance;
+					continue;
+				}
+
+				var list = data.Parameters[i] as List<object>;
+				if(list != null)
+				{
+					var subInstances = new List<IfcBase>();
+					for(var j=list.Count-1; j>=0;j--)
+					{
+						var id = list[j] as STEP.STEPId;
+						if(id == null)
+						{
+							throw new Exception($"Encountered a list containing a {list[j].GetType().Name}. Was expecting a STEPId.");
+						}
+						var subInstance = ConstructRecursive(instanceData[id.Value], instanceData, model, level);
+						subInstances.Add(subInstance);
+					}
+					// Replace the list of STEPId with a list of instance references.
+					data.Parameters[i] = subInstances;
+				}
+			}
+
+			// Construct the instance, assuming that all required sub-instances
+			// have already been constructed.
+			var instance = (IfcBase)data.Constructor.Invoke(data.Parameters.ToArray());
+
+			if(instanceData.ContainsKey(data.Id))
+			{
+				// We'll only get here if the instance is not being constructed
+				// as a sub-instance.
+				instanceData[data.Id].ConstructedGuid = instance.Id;
+			}
+			
+			model.Instances.Add(instance.Id, instance);
+
+			return instance;
 		}
 	}
 }
