@@ -1,5 +1,6 @@
 using Antlr4.Runtime;
 using Antlr4.Runtime.Tree;
+using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.ComponentModel;
@@ -15,28 +16,29 @@ namespace IFC4
 	/// </summary>
 	public class Model
 	{
-		private Dictionary<Guid,BaseIfc> instances = new Dictionary<Guid,BaseIfc>();
+		private Dictionary<Guid,BaseIfc> instances;
 
-		public Model(){}
-
-		/// <summary>
-		/// Finds an instance in the model, given its unique identifier.
-		/// </summary>
-		/// <param name="id">The unique id of the instance to find.</param>
-		public BaseIfc GetInstanceById(Guid id)
+		[JsonProperty("instances")]
+		public Dictionary<Guid,BaseIfc> Instances
 		{
-			if(instances.ContainsKey(id))
-			{
-				return instances[id];
-			}
-			
-			return null;
+			get{ return instances;}
+		}
+
+		public Model()
+		{
+			instances = new Dictionary<Guid,BaseIfc>();
+		}
+
+		internal Model(Dictionary<Guid,BaseIfc> instances)
+		{
+			this.instances = instances;
 		}
 
 		/// <summary>
 		/// Add an instance to the model.
 		/// </summary>
 		/// <param name="instance">The instance to add to the Model.</param>
+		/// <exception cref="DuplicateInstanceException">Another instance already exists in the model with the same id.</exception>
 		public void AddInstance(BaseIfc instance)
 		{
 			if(instances.ContainsKey(instance.Id))
@@ -51,6 +53,7 @@ namespace IFC4
 		/// Remove an instance from the model.
 		/// </summary>
 		/// <param name="id"></param>
+		/// <exception cref="InstanceNotFoundException">The specified instance does not exist in the model.</exception>
 		public void RemoveInstance(Guid id)
 		{
 			if(!instances.ContainsKey(id))
@@ -62,10 +65,35 @@ namespace IFC4
 		}
 
 		/// <summary>
+		/// Finds an instance in the model, given its unique identifier.
+		/// </summary>
+		/// <param name="id">The unique id of the instance to find.</param>
+		/// <returns>An BaseIfc instance or null if no instance can be found with the provided id.</returns>
+		public BaseIfc InstanceById(Guid id)
+		{
+			if(instances.ContainsKey(id))
+			{
+				return instances[id];
+			}
+			
+			return null;
+		}
+
+		/// <summary>
+		/// Find all instances of type T in the model.
+		/// </summary>
+		/// <returns></returns>
+		public IEnumerable<T> AllInstancesOfType<T>()
+		{
+			return instances.Values.OfType<T>();
+		}
+
+		/// <summary>
 		/// Create a Model given a STEP file.
 		/// </summary>
 		/// <param name="filePath">The path to the STEP file.</param>
 		/// <returns>A Model.</returns>
+		/// <exception cref="FileNotFoundException">The specified file path does not exist.</exception>
 		public static Model FromSTEP(string filePath)
 		{
 			if(!File.Exists(filePath))
@@ -92,7 +120,7 @@ namespace IFC4
 
 				foreach(var data in listener.InstanceData.Values)
 				{
-					if(data.ConstructedGuid != null && model.GetInstanceById(data.ConstructedGuid) != null)
+					if(data.ConstructedGuid != null && model.InstanceById(data.ConstructedGuid) != null)
 					{
 						// Instance may have been previously constructed as the result
 						// of another construction.
@@ -118,7 +146,7 @@ namespace IFC4
 		/// <returns></returns>
 		private static BaseIfc ConstructRecursive(STEP.InstanceData data, Dictionary<int,STEP.InstanceData> instanceDataMap, Model model)
 		{		
-			Console.WriteLine($"{data.Id} : Constructing type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
+			//Console.WriteLine($"{data.Id} : Constructing type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
 	
 			for(var i=data.Parameters.Count()-1; i>=0; i--)
 			{
@@ -137,10 +165,10 @@ namespace IFC4
 					var guid = instanceDataMap[id].ConstructedGuid;
 					if(guid != null)
 					{
-						var existingInst = model.GetInstanceById(guid);
+						var existingInst = model.InstanceById(guid);
 						if(existingInst != null)
 						{
-							Console.WriteLine($"Using existing instance with id, {id}, in {data.Id}");
+							//Console.WriteLine($"Using existing instance with id, {id}, in {data.Id}");
 							data.Parameters[i] = existingInst;
 							continue;
 						}
@@ -219,7 +247,7 @@ namespace IFC4
 				instanceDataMap[data.Id].ConstructedGuid = instance.Id;
 			}
 			
-			Console.WriteLine($"{data.Id} : Constructed type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
+			//Console.WriteLine($"{data.Id} : Constructed type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
 
 			return instance;
 		}

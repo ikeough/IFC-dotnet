@@ -357,7 +357,7 @@ namespace STEP
 
 			if(ctor != null)
 			{
-				Console.WriteLine($"Found implicit constructor of type, {t}");
+				//Console.WriteLine($"Found implicit constructor of type, {t}");
 				return new InstanceData(-1, t, new List<object>(){result}, ctor);
 			}
 

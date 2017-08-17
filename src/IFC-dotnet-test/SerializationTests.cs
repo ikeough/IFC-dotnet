@@ -10,11 +10,11 @@ using Newtonsoft.Json;
 
 namespace test
 {
-	public class UnitTest1
+	public class SerializationTests
 	{
 		private readonly ITestOutputHelper output;
 
-		public UnitTest1(ITestOutputHelper output)
+		public SerializationTests(ITestOutputHelper output)
 		{
 			this.output = output;
 		}
@@ -36,12 +36,25 @@ namespace test
 		}
 
 		[Fact]
-		public void CanOpenSTEPFile()
+		public void SerializeModel()
+		{
+			var stepPath = "../../../example.ifc";
+			var model = Model.FromSTEP(stepPath);
+			var settings = new JsonSerializerSettings(){
+				Formatting = Formatting.Indented,
+				TypeNameHandling = TypeNameHandling.Objects
+			};
+			var json = JsonConvert.SerializeObject(model, settings);
+			Console.WriteLine(json);
+		}
+
+		[Fact]
+		public void FromSTEP()
 		{
 			var stepPath = "../../../example.ifc";
 			var model = Model.FromSTEP(stepPath);
 
-			var walls = model.Instances.Values.Where(v=>v is IfcWall);
+			var walls = model.AllInstancesOfType<IfcWall>();
 			Console.WriteLine($"There are {walls.Count()} walls in the model.");
 		}
 	}
