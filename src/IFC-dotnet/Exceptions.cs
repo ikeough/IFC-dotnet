@@ -58,4 +58,40 @@ namespace IFC4
 			this.expectedCount = expectedCount;
 		}
 	}
+
+	public class InstanceNotFoundException : Exception
+	{
+		private Guid id;
+		public override string Message
+		{
+			get
+			{
+				return $"An instance with Id, {id}, does not exist in the model.";
+			}
+		}
+
+		public InstanceNotFoundException(Guid id)
+		{
+			this.id = id;
+		}
+
+	}
+
+	public class DuplicateInstanceException : Exception
+	{
+		private Guid id;
+
+		public override string Message
+		{
+			get
+			{
+				return $"An instance with the specified Id, {id}, already exists in the Model.";
+			}
+		}
+
+		public DuplicateInstanceException(Guid id)
+		{
+			this.id = id;
+		}
+	}
 }

@@ -4,7 +4,13 @@ using System.Globalization;
 
 namespace IFC4
 {
-	public class SelectConverter <TSelect>: TypeConverter
+	/// <summary>
+	/// Convert a select to any one of the types along its selection path.
+	/// Ex: A select may have selects as its choices, which may have selects as 
+	/// their choices. This converter walls the selection tree to a valid leaf
+	/// and converts.
+	/// </summary>
+	internal class SelectConverter <TSelect>: TypeConverter
 	{
 		public override bool CanConvertFrom(ITypeDescriptorContext context, Type sourceType)
 		{

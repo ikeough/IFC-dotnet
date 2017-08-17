@@ -10,15 +10,62 @@ using System.Collections.Generic;
 
 namespace IFC4
 {
+	/// <summary>
+	/// Model provides a container for instances of BaseIfc.
+	/// </summary>
 	public class Model
 	{
-		public Dictionary<Guid,BaseIfc> Instances{get;set;}
+		private Dictionary<Guid,BaseIfc> instances = new Dictionary<Guid,BaseIfc>();
 
-		private Model()
+		public Model(){}
+
+		/// <summary>
+		/// Finds an instance in the model, given its unique identifier.
+		/// </summary>
+		/// <param name="id">The unique id of the instance to find.</param>
+		public BaseIfc GetInstanceById(Guid id)
 		{
-			Instances = new Dictionary<Guid,BaseIfc>();
+			if(instances.ContainsKey(id))
+			{
+				return instances[id];
+			}
+			
+			return null;
 		}
 
+		/// <summary>
+		/// Add an instance to the model.
+		/// </summary>
+		/// <param name="instance">The instance to add to the Model.</param>
+		public void AddInstance(BaseIfc instance)
+		{
+			if(instances.ContainsKey(instance.Id))
+			{
+				throw new DuplicateInstanceException(instance.Id);
+			}
+
+			instances.Add(instance.Id, instance);
+		}
+
+		/// <summary>
+		/// Remove an instance from the model.
+		/// </summary>
+		/// <param name="id"></param>
+		public void RemoveInstance(Guid id)
+		{
+			if(!instances.ContainsKey(id))
+			{
+				throw new InstanceNotFoundException(id);
+			}
+
+			instances.Remove(id);
+		}
+
+		/// <summary>
+		/// Create a Model given a STEP file.
+		/// </summary>
+		/// <param name="filePath">The path to the STEP file.</param>
+		/// <returns>A Model.</returns>
 		public static Model FromSTEP(string filePath)
 		{
 			if(!File.Exists(filePath))
@@ -45,30 +92,40 @@ namespace IFC4
 
 				foreach(var data in listener.InstanceData.Values)
 				{
-					if(data.ConstructedGuid != null && model.Instances.ContainsKey(data.ConstructedGuid))
+					if(data.ConstructedGuid != null && model.GetInstanceById(data.ConstructedGuid) != null)
 					{
 						// Instance may have been previously constructed as the result
 						// of another construction.
 						continue;
 					}
-					var instance = ConstructRecursive(data, listener.InstanceData, model, 0, data.Id);
-					model.Instances.Add(instance.Id, instance);
+					var instance = ConstructRecursive(data, listener.InstanceData, model);
+					model.AddInstance(instance);
 				}
 			}
 
 			return model;
 		}
 
-		private static BaseIfc ConstructRecursive(STEP.InstanceData data, Dictionary<int,STEP.InstanceData> instanceData, Model model, int level, int sid)
+		/// <summary>
+		/// Recursively construct instances provided instance data.
+		/// Construction is recursive because the instance data my include other
+		/// instance data or id references to instances which have not yet been
+		/// constructed.
+		/// </summary>
+		/// <param name="data">The instance data from which to construct the instance.</param>
+		/// <param name="instanceDataMap">The dictionary containing instance data gathered from the parser.</param>
+		/// <param name="model">The Model in which constructed instances will be stored.</param>
+		/// <returns></returns>
+		private static BaseIfc ConstructRecursive(STEP.InstanceData data, Dictionary<int,STEP.InstanceData> instanceDataMap, Model model)
 		{		
-			Console.WriteLine($"{sid} : Constructing type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
+			Console.WriteLine($"{data.Id} : Constructing type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
 	
 			for(var i=data.Parameters.Count()-1; i>=0; i--)
 			{
 				var instData = data.Parameters[i] as STEP.InstanceData;
 				if(instData != null)
 				{
-					var subInstance = ConstructRecursive(instData, instanceData, model, ++level, sid);
+					var subInstance = ConstructRecursive(instData, instanceDataMap, model);
 					data.Parameters[i] = subInstance;
 					continue;
 				}
@@ -77,18 +134,19 @@ namespace IFC4
 				if(stepId != null)
 				{
 					var id = stepId.Value;
-					var guid = instanceData[id].ConstructedGuid;
+					var guid = instanceDataMap[id].ConstructedGuid;
 					if(guid != null)
 					{
-						if(model.Instances.ContainsKey(guid))
+						var existingInst = model.GetInstanceById(guid);
+						if(existingInst != null)
 						{
 							Console.WriteLine($"Using existing instance with id, {id}, in {data.Id}");
-							data.Parameters[i] = model.Instances[guid];
+							data.Parameters[i] = existingInst;
 							continue;
 						}
 					}
 
-					var subInstance = ConstructRecursive(instanceData[id], instanceData, model, ++level, id);
+					var subInstance = ConstructRecursive(instanceDataMap[id], instanceDataMap, model);
 					data.Parameters[i] = subInstance;
 					continue;
 				}
@@ -116,7 +174,7 @@ namespace IFC4
 						var id = item as STEP.STEPId;
 						if(id != null)
 						{
-							var subInstance = ConstructRecursive(instanceData[id.Value], instanceData, model, level, sid);
+							var subInstance = ConstructRecursive(instanceDataMap[id.Value], instanceDataMap, model);
 
 							// The object must be converted to the type expected in the list
 							// for Select types, this will be a recursive build of the base select type.
@@ -135,8 +193,8 @@ namespace IFC4
 				}
 			}
 
-			// Construct the instance, assuming that all required sub-instances
-			// have already been constructed.
+			// Do one final pass on all parameters to ensure
+			// that they are of the correct type.
 			for(var i=data.Parameters.Count-1; i>=0; i--)
 			{
 				if(data.Parameters[i] == null)
@@ -149,23 +207,32 @@ namespace IFC4
 				
 				data.Parameters[i] = Convert(expectedType, data.Parameters[i]);
 			}
+
+			// Construct the instance, assuming that all required sub-instances
+			// have already been constructed.
 			var instance = (BaseIfc)data.Constructor.Invoke(data.Parameters.ToArray());
 			
-			//var instance = (BaseIfc)Activator.CreateInstance(data.Type, BindingFlags. data.Parameters.ToArray());
-			if(instanceData.ContainsKey(data.Id))
+			if(instanceDataMap.ContainsKey(data.Id))
 			{
 				// We'll only get here if the instance is not being constructed
 				// as a sub-instance.
-				instanceData[data.Id].ConstructedGuid = instance.Id;
+				instanceDataMap[data.Id].ConstructedGuid = instance.Id;
 			}
 			
-			Console.WriteLine($"{sid} : Constructed type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
+			Console.WriteLine($"{data.Id} : Constructed type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
 
 			return instance;
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="expectedType"></param>
+		/// <param name="value"></param>
+		/// <returns></returns>
 		private static object Convert(Type expectedType, object value)
 		{
+			// Bail out immediately if a direct cast is available.
 			if(expectedType.IsAssignableFrom(value.GetType()))
 			{
 				return value;
@@ -174,7 +241,6 @@ namespace IFC4
 			var converter = TypeDescriptor.GetConverter(expectedType);
 			if(converter != null && converter.CanConvertFrom(value.GetType()))
 			{
-				//Console.WriteLine($"Converting parameter of type, {value.GetType()}, to type, {expectedType}");
 				return converter.ConvertFrom(value);
 			}
 			else
