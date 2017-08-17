@@ -59,7 +59,9 @@ namespace IFC4
 		}
 
 		private static BaseIfc ConstructRecursive(STEP.InstanceData data, Dictionary<int,STEP.InstanceData> instanceData, Model model, int level, int sid)
-		{			
+		{		
+			Console.WriteLine($"{sid} : Constructing type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
+	
 			for(var i=data.Parameters.Count()-1; i>=0; i--)
 			{
 				var instData = data.Parameters[i] as STEP.InstanceData;
@@ -93,11 +95,6 @@ namespace IFC4
 				var list = data.Parameters[i] as List<object>;
 				if(list != null)
 				{
-					if(!list.Any())
-					{
-						break;
-					}
-
 					// The parameters will have been stored in a List<object> during parsing.
 					// We need to create a List<T> where T is the type expected by the constructor
 					// in the STEP file.
@@ -105,6 +102,13 @@ namespace IFC4
 					var instanceType = data.Constructor.GetParameters()[i].ParameterType.GetGenericArguments()[0];
 					var constructedListType = listType.MakeGenericType(instanceType);
 					var subInstances = (IList)Activator.CreateInstance(constructedListType);
+
+					if(!list.Any())
+					{
+						// Return our newly type empty list.
+						data.Parameters[i] = subInstances;
+						continue;
+					}
 
 					foreach(var item in list)
 					{
