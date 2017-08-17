@@ -12,7 +12,7 @@ namespace IFC4
 {
 	public class Model
 	{
-		Dictionary<Guid,BaseIfc> Instances{get;set;}
+		public Dictionary<Guid,BaseIfc> Instances{get;set;}
 
 		private Model()
 		{
@@ -51,7 +51,8 @@ namespace IFC4
 						// of another construction.
 						continue;
 					}
-					ConstructRecursive(data, listener.InstanceData, model, 0, data.Id);
+					var instance = ConstructRecursive(data, listener.InstanceData, model, 0, data.Id);
+					model.Instances.Add(instance.Id, instance);
 				}
 			}
 
@@ -158,8 +159,6 @@ namespace IFC4
 				instanceData[data.Id].ConstructedGuid = instance.Id;
 			}
 			
-			model.Instances.Add(instance.Id, instance);
-
 			Console.WriteLine($"{sid} : Constructed type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
 
 			return instance;

@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 using Xunit;
@@ -39,6 +40,9 @@ namespace test
 		{
 			var stepPath = "../../../example.ifc";
 			var model = Model.FromSTEP(stepPath);
+
+			var walls = model.Instances.Values.Where(v=>v is IfcWall);
+			Console.WriteLine($"There are {walls.Count()} walls in the model.");
 		}
 	}
 }
