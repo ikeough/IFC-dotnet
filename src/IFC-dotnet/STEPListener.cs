@@ -329,12 +329,6 @@ namespace STEP
 				collectionType = ctor.GetParameters()[0].ParameterType.GetGenericArguments()[0];
 			} 
 
-			// Construct a generic list whose type argument is the provided
-			// target parse type.
-			//var listType = typeof(List<>);
-			//var constructedListType = listType.MakeGenericType(collectionType);
-			//var result = (IList)Activator.CreateInstance(constructedListType);
-
 			var result = new List<object>();
 
 			foreach(var cv in value.collectionValue())
@@ -364,7 +358,7 @@ namespace STEP
 			if(ctor != null)
 			{
 				Console.WriteLine($"Found implicit constructor of type, {t}");
-				return new InstanceData(-1, t, result, ctor);
+				return new InstanceData(-1, t, new List<object>(){result}, ctor);
 			}
 
 			return result;
