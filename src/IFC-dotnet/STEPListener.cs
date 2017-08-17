@@ -137,7 +137,7 @@ namespace STEP
 				}
 				else if(p.Enum() != null)
 				{
-					constructorParams.Add(ParseEnum(p.Enum().GetText()));
+					constructorParams.Add(ParseEnum(pType, p.Enum().GetText()));
 				}
 				else if(p.BoolLogical() != null)
 				{
@@ -286,21 +286,22 @@ namespace STEP
 			return value.TrimStart('.').TrimEnd('.');
 		}
 
-		private dynamic ParseEnum(string value)
+		private dynamic ParseEnum(Type t, string value)
 		{
-			foreach(var e in enums)
+			var trimmedValue = TrimDots(value);
+			if(!t.IsEnum)
 			{
-				foreach(var ev in e.GetEnumValues())
-				{
-					var trimmedValue = TrimDots(value);
-					if(ev.ToString() == trimmedValue)
-					{
-						return Enum.Parse(e,trimmedValue);
-					}
-				}
+				throw new STEPParserException(t, value);
 			}
 
-			throw new STEPParserException(typeof(Enum), value);
+			try
+			{
+				return Enum.Parse(t, trimmedValue);
+			}
+			catch
+			{
+				throw new STEPParserException(typeof(Enum), trimmedValue);
+			}
 		}
 
 		private dynamic ParseCollection(Type t, STEPParser.CollectionContext value)
