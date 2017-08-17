@@ -59,9 +59,7 @@ namespace IFC4
 		}
 
 		private static BaseIfc ConstructRecursive(STEP.InstanceData data, Dictionary<int,STEP.InstanceData> instanceData, Model model, int level, int sid)
-		{
-			Console.WriteLine($"{sid} : Constructing type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
-			
+		{			
 			for(var i=data.Parameters.Count()-1; i>=0; i--)
 			{
 				var instData = data.Parameters[i] as STEP.InstanceData;
@@ -157,6 +155,8 @@ namespace IFC4
 			}
 			
 			model.Instances.Add(instance.Id, instance);
+
+			Console.WriteLine($"{sid} : Constructed type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
 
 			return instance;
 		}
