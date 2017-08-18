@@ -353,6 +353,10 @@ namespace STEP
 				{
 					result.Add(ParseReal(collectionType, cv.RealLiteral().GetText()));
 				}
+				else if(cv.constructor() != null)
+				{
+					result.Add(ParseConstructor(currId, cv.constructor()));
+				}
 			}
 
 			if(ctor != null)
