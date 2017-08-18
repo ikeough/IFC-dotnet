@@ -6,6 +6,7 @@ using System.Collections;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Transactions;
 using System.Collections.Generic;
 
@@ -82,10 +83,77 @@ namespace IFC4
 		/// <summary>
 		/// Find all instances of type T in the model.
 		/// </summary>
-		/// <returns></returns>
+		/// <returns>A collection of objects whose type is T.</returns>
 		public IEnumerable<T> AllInstancesOfType<T>()
 		{
 			return instances.Values.OfType<T>();
+		}
+
+		/// <summary>
+		/// Find all instances derived from type T in the model.
+		/// </summary>
+		/// <returns>A collection of objects whose types are derived from T.</returns>
+		public IEnumerable<BaseIfc> AllInstancesDerivedFromType<T>()
+		{
+			return instances.Where(i=>typeof(T).IsAssignableFrom(i.Value.GetType())).Select(e=>e.Value);
+		}
+
+		/// <summary>
+		/// Serialize the model to JSON.
+		/// </summary>
+		/// <returns>A string representing the model serialized to JSON. The string will be indented and include type references.</returns>
+		public string ToJSON()
+		{
+			var settings = new JsonSerializerSettings(){
+				Formatting = Formatting.Indented,
+				TypeNameHandling = TypeNameHandling.Objects
+			};
+			var json = JsonConvert.SerializeObject(this, settings);
+			return json;
+		}
+
+		/// <summary>
+		/// Serialize the model to a DOT graph notation.
+		/// </summary>
+		/// <returns>A string representing the model serialized in DOT notation.</returns>
+		public string ToDOT()
+		{
+			var relationships = AllInstancesDerivedFromType<IfcRelationship>();
+			var visited = new List<Guid>();	 // Ids of visited nodes;
+			
+			var relations = new StringBuilder();
+			foreach(var r in relationships)
+			{
+				var rType = r.GetType();
+				foreach(var p in r.GetType().GetProperties().Where(p=>p.DeclaringType == r.GetType()))
+				{
+					var pVal = p.GetValue(r);
+					if(pVal is IList && pVal.GetType().IsGenericType)
+					{
+						var vs = (IList)pVal;
+						foreach(BaseIfc v in vs)
+						{	
+							relations.AppendLine($"\t\"{r.Id} : {rType.Name}\" -- \"{v.Id} : {v.GetType().Name}\"");
+						}
+					}
+					else if(pVal is BaseIfc)
+					{
+						var v = (BaseIfc)pVal;
+						relations.AppendLine($"\t\"{r.Id} : {rType.Name}\" -- \"{v.Id} : {v.GetType().Name}\"");
+					}
+					else if(pVal == null)
+					{
+						relations.AppendLine($"\t\"{r.Id} : {rType.Name}\" -- \"null\"");
+					}
+				}
+			}
+			string graph =
+$@"graph model{{
+	rankdir=LR
+	node [shape=box];
+{relations.ToString()}
+}}";
+			return graph;
 		}
 
 		/// <summary>

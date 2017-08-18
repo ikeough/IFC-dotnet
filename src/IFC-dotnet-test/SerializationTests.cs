@@ -36,26 +36,46 @@ namespace test
 		}
 
 		[Fact]
-		public void SerializeModel()
+		public void ExampleModel_Serialize_JSON()
 		{
 			var stepPath = "../../../example.ifc";
 			var model = Model.FromSTEP(stepPath);
-			var settings = new JsonSerializerSettings(){
-				Formatting = Formatting.Indented,
-				TypeNameHandling = TypeNameHandling.Objects
-			};
-			var json = JsonConvert.SerializeObject(model, settings);
-			Console.WriteLine(json);
+			var json = model.ToJSON();
 		}
 
 		[Fact]
-		public void FromSTEP()
+		public void ExampleModel_Serialize_DOT()
 		{
 			var stepPath = "../../../example.ifc";
 			var model = Model.FromSTEP(stepPath);
+			var dot = model.ToDOT();
+			Console.WriteLine(dot);
+		}
+
+		[Fact]
+		public void ExampleModel_Deserialize_STEP()
+		{
+			var sw = new System.Diagnostics.Stopwatch();
+			sw.Start();
+			var stepPath = "../../../example.ifc";
+			var model = Model.FromSTEP(stepPath);
+			sw.Stop();
+			Console.WriteLine($"{sw.Elapsed.ToString()} elapsed for reading the model.");
 
 			var walls = model.AllInstancesOfType<IfcWall>();
 			Console.WriteLine($"There are {walls.Count()} walls in the model.");
+
+			var windows = model.AllInstancesOfType<IfcWindow>();
+			Console.WriteLine($"There are {windows.Count()} windows in the model.");
+
+			var doors = model.AllInstancesOfType<IfcDoor>();
+			Console.WriteLine($"There are {doors.Count()} doors in the model.");
+
+			var boundaries = model.AllInstancesOfType<IfcRelSpaceBoundary>();
+			foreach(var b in boundaries)
+			{
+				Console.WriteLine($"The related building element is {b.RelatedBuildingElement.Name}:{b.RelatedBuildingElement.GlobalId.Value.ToString()}");
+			}
 		}
 	}
 }
