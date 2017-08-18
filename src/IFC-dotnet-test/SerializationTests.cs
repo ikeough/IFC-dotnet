@@ -38,7 +38,7 @@ namespace test
 		[Fact]
 		public void ExampleModel_Serialize_JSON()
 		{
-			var stepPath = "../../../example.ifc";
+			var stepPath = "../../../models/example.ifc";
 			var model = Model.FromSTEP(stepPath);
 			var json = model.ToJSON();
 		}
@@ -46,7 +46,7 @@ namespace test
 		[Fact]
 		public void ExampleModel_Serialize_DOT()
 		{
-			var stepPath = "../../../example.ifc";
+			var stepPath = "../../../models/example.ifc";
 			var model = Model.FromSTEP(stepPath);
 			var dot = model.ToDOT();
 			Console.WriteLine(dot);
@@ -57,7 +57,7 @@ namespace test
 		{
 			var sw = new System.Diagnostics.Stopwatch();
 			sw.Start();
-			var stepPath = "../../../example.ifc";
+			var stepPath = "../../../models/example.ifc";
 			var model = Model.FromSTEP(stepPath);
 			sw.Stop();
 			Console.WriteLine($"{sw.Elapsed.ToString()} elapsed for reading the model.");
@@ -76,6 +76,17 @@ namespace test
 			{
 				Console.WriteLine($"The related building element is {b.RelatedBuildingElement.Name}:{b.RelatedBuildingElement.GlobalId.Value.ToString()}");
 			}
+		}
+
+		[Fact]
+		public void OfficeBuilding_Deserialize_STEP()
+		{
+			var sw = new System.Diagnostics.Stopwatch();
+			sw.Start();
+			var stepPath = "../../../models/AC-20-Smiley-West-10-Bldg.ifc";
+			var model = Model.FromSTEP(stepPath);
+			sw.Stop();
+			Console.WriteLine($"{sw.Elapsed.ToString()} elapsed for reading the model.");
 		}
 	}
 }
