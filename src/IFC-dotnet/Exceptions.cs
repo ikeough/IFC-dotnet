@@ -3,6 +3,9 @@ using System;
 namespace IFC4
 {
 
+	/// <summary>
+	/// Exception thrown when an unknown type is encountered.
+	/// </summary>
 	public class STEPUnknownTypeException : Exception
 	{
 		private string desiredType;
@@ -21,6 +24,9 @@ namespace IFC4
 		}
 	}
 
+	/// <summary>
+	/// Exception thrown when a type cannot be coerced into a target type.
+	/// </summary>
 	public class STEPParserException : Exception
 	{
 		private string parseValue;
@@ -37,6 +43,9 @@ namespace IFC4
 		}
 	}
 
+	/// <summary>
+	/// Exception thrown when there is a mismatch in parameters between the type and what is provided in the STEP file.
+	/// </summary>
 	public class STEPParameterMismatchException : Exception
 	{
 		Type type;
@@ -59,6 +68,9 @@ namespace IFC4
 		}
 	}
 
+	/// <summary>
+	/// Exception thrown when an identifier is found for which there is not construction.
+	/// </summary>
 	public class STEPIdentifierNotFoundException : Exception
 	{
 		private int id;
@@ -79,6 +91,9 @@ namespace IFC4
 		}
 	}
 
+	/// <summary>
+	/// Exception thrown when the specified id does not correspond to an instance in the Model.
+	/// </summary>
 	public class InstanceNotFoundException : Exception
 	{
 		private Guid id;
@@ -97,6 +112,9 @@ namespace IFC4
 
 	}
 
+	/// <summary>
+	/// Exception thrown when an instance with the same id already exists in the model.
+	/// </summary>
 	public class DuplicateInstanceException : Exception
 	{
 		private Guid id;
