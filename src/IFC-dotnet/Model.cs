@@ -214,7 +214,7 @@ $@"graph model{{
 		/// <returns></returns>
 		private static BaseIfc ConstructRecursive(STEP.InstanceData data, Dictionary<int,STEP.InstanceData> instanceDataMap, Model model)
 		{		
-			//Console.WriteLine($"{data.Id} : Constructing type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
+			Console.WriteLine($"{data.Id} : Constructing type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
 	
 			for(var i=data.Parameters.Count()-1; i>=0; i--)
 			{
@@ -267,13 +267,19 @@ $@"graph model{{
 
 					foreach(var item in list)
 					{
-						var id = item as STEP.STEPId;
-						if(id != null)
+						if(item is STEP.STEPId)
 						{
+							var id = item as STEP.STEPId;
 							var subInstance = ConstructRecursive(instanceDataMap[id.Value], instanceDataMap, model);
 
 							// The object must be converted to the type expected in the list
 							// for Select types, this will be a recursive build of the base select type.
+							var convert = Convert(instanceType, subInstance);
+							subInstances.Add(convert);
+						}
+						else if(item is STEP.InstanceData)
+						{
+							var subInstance = ConstructRecursive((STEP.InstanceData)item, instanceDataMap, model);
 							var convert = Convert(instanceType, subInstance);
 							subInstances.Add(convert);
 						}
@@ -315,7 +321,7 @@ $@"graph model{{
 				instanceDataMap[data.Id].ConstructedGuid = instance.Id;
 			}
 			
-			//Console.WriteLine($"{data.Id} : Constructed type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
+			Console.WriteLine($"{data.Id} : Constructed type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
 
 			return instance;
 		}
