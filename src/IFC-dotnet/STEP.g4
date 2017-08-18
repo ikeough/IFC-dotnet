@@ -19,6 +19,8 @@ collectionValue
 	| StringLiteral
 	| AnyString
 	| Id
+	| constructor
+	| Undefined
 	;
 
 constructor
@@ -114,7 +116,7 @@ Digits
 	;
 
 IntegerLiteral
-	: Digit Digit*
+	: '-'? Digits
 	;
 
 Letter
