@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace test
 			this.output = output;
 		}
 
-		[Fact]
+		/*[Fact]
 		public void SerializeProject()
 		{
 			var id = new IfcGloballyUniqueId("12345");
@@ -86,6 +87,20 @@ namespace test
 			var stepPath = "../../../models/AC-20-Smiley-West-10-Bldg.ifc";
 			var model = Model.FromSTEP(stepPath);
 			sw.Stop();
+			Console.WriteLine($"{sw.Elapsed.ToString()} elapsed for reading the model.");
+		}*/
+
+		[Fact]
+		public void Hospital_Deserialize_STEP()
+		{
+			var sw = new System.Diagnostics.Stopwatch();
+			sw.Start();
+			var stepPath = "../../../models/20160125WestRiverSide Hospital - IFC4-Autodesk_Hospital_Sprinkle.ifc";
+			IList<STEPError> errors;
+			var model = Model.FromSTEP(stepPath, out errors);
+			sw.Stop();
+
+			Assert.False(errors.Any());
 			Console.WriteLine($"{sw.Elapsed.ToString()} elapsed for reading the model.");
 		}
 	}

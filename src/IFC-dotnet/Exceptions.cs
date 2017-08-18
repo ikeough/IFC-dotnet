@@ -59,6 +59,26 @@ namespace IFC4
 		}
 	}
 
+	public class STEPIdentifierNotFoundException : Exception
+	{
+		private int id;
+		private int currLine;
+
+		public override string Message
+		{
+			get
+			{
+				return $"The id, {id}, found at line, {currLine}, could not be found in the STEP file being opened.";
+			}
+		}
+
+		public STEPIdentifierNotFoundException(int id, int currLine)
+		{
+			this.id = id;
+			this.currLine = currLine;
+		}
+	}
+
 	public class InstanceNotFoundException : Exception
 	{
 		private Guid id;

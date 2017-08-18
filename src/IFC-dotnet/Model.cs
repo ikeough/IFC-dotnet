@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Collections;
 using System.ComponentModel;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -12,6 +13,35 @@ using System.Collections.Generic;
 
 namespace IFC4
 {
+	public abstract class STEPError
+	{
+		protected int currId;
+
+		public virtual string Message
+		{
+			get{return $"There was an error reading the STEP file at Id, {currId}.";}
+		}
+
+		public STEPError(int currId)
+		{
+			this.currId = currId;
+		}
+	}
+
+	public class MissingIdError : STEPError
+	{
+		private int missingId;
+		public override string Message
+		{
+			get{return $"The Id, {missingId}, referenced in constructor, {currId}, could not be found in the file.";}
+		}
+
+		public MissingIdError(int id, int missingId):base(id)
+		{
+			this.missingId = missingId;
+		}
+	}
+
 	/// <summary>
 	/// Model provides a container for instances of BaseIfc.
 	/// </summary>
@@ -162,7 +192,7 @@ $@"graph model{{
 		/// <param name="filePath">The path to the STEP file.</param>
 		/// <returns>A Model.</returns>
 		/// <exception cref="FileNotFoundException">The specified file path does not exist.</exception>
-		public static Model FromSTEP(string filePath)
+		public static Model FromSTEP(string filePath, out IList<STEPError> errors)
 		{
 			if(!File.Exists(filePath))
 			{
@@ -186,19 +216,21 @@ $@"graph model{{
 				var listener = new STEP.STEPListener();
 				walker.Walk(listener, tree);
 
-				foreach(var data in listener.InstanceData.Values)
+				var err = new List<STEPError>();
+				foreach(var data in listener.InstanceData)
 				{
-					if(data.ConstructedGuid != null && model.InstanceById(data.ConstructedGuid) != null)
+					if(data.Value.ConstructedGuid != null && model.InstanceById(data.Value.ConstructedGuid) != null)
 					{
 						// Instance may have been previously constructed as the result
 						// of another construction.
 						continue;
 					}
-					var instance = ConstructRecursive(data, listener.InstanceData, model);
+					
+					var instance = ConstructRecursive(data.Value, listener.InstanceData, model, data.Key, err);
 					model.AddInstance(instance);
 				}
+				errors = err;
 			}
-
 			return model;
 		}
 
@@ -212,16 +244,16 @@ $@"graph model{{
 		/// <param name="instanceDataMap">The dictionary containing instance data gathered from the parser.</param>
 		/// <param name="model">The Model in which constructed instances will be stored.</param>
 		/// <returns></returns>
-		private static BaseIfc ConstructRecursive(STEP.InstanceData data, Dictionary<int,STEP.InstanceData> instanceDataMap, Model model)
+		private static BaseIfc ConstructRecursive(STEP.InstanceData data, Dictionary<int,STEP.InstanceData> instanceDataMap, Model model, int currLine, IList<STEPError> errors)
 		{		
-			//Console.WriteLine($"{data.Id} : Constructing type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
+			Debug.WriteLine($"{currLine},{data.Id} : Constructing type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
 	
 			for(var i=data.Parameters.Count()-1; i>=0; i--)
 			{
 				var instData = data.Parameters[i] as STEP.InstanceData;
 				if(instData != null)
 				{
-					var subInstance = ConstructRecursive(instData, instanceDataMap, model);
+					var subInstance = ConstructRecursive(instData, instanceDataMap, model, currLine, errors);
 					data.Parameters[i] = subInstance;
 					continue;
 				}
@@ -229,20 +261,26 @@ $@"graph model{{
 				var stepId = data.Parameters[i] as STEP.STEPId;
 				if(stepId != null)
 				{
-					var id = stepId.Value;
-					var guid = instanceDataMap[id].ConstructedGuid;
-					if(guid != null)
+					if(instanceDataMap.ContainsKey(stepId.Value))
 					{
+						var guid = instanceDataMap[stepId.Value].ConstructedGuid;
 						var existingInst = model.InstanceById(guid);
 						if(existingInst != null)
 						{
-							//Console.WriteLine($"Using existing instance with id, {id}, in {data.Id}");
 							data.Parameters[i] = existingInst;
 							continue;
 						}
 					}
+					else
+					{
+						// A missing identifier results in an error.
+						// set the data to null;
+						errors.Add(new MissingIdError(currLine, stepId.Value));
+						data.Parameters[i] = null;
+						continue;
+					}
 
-					var subInstance = ConstructRecursive(instanceDataMap[id], instanceDataMap, model);
+					var subInstance = ConstructRecursive(instanceDataMap[stepId.Value], instanceDataMap, model, currLine, errors);
 					data.Parameters[i] = subInstance;
 					continue;
 				}
@@ -270,7 +308,7 @@ $@"graph model{{
 						if(item is STEP.STEPId)
 						{
 							var id = item as STEP.STEPId;
-							var subInstance = ConstructRecursive(instanceDataMap[id.Value], instanceDataMap, model);
+							var subInstance = ConstructRecursive(instanceDataMap[id.Value], instanceDataMap, model, currLine, errors);
 
 							// The object must be converted to the type expected in the list
 							// for Select types, this will be a recursive build of the base select type.
@@ -279,7 +317,7 @@ $@"graph model{{
 						}
 						else if(item is STEP.InstanceData)
 						{
-							var subInstance = ConstructRecursive((STEP.InstanceData)item, instanceDataMap, model);
+							var subInstance = ConstructRecursive((STEP.InstanceData)item, instanceDataMap, model, currLine, errors);
 							var convert = Convert(instanceType, subInstance);
 							subInstances.Add(convert);
 						}
@@ -321,7 +359,7 @@ $@"graph model{{
 				instanceDataMap[data.Id].ConstructedGuid = instance.Id;
 			}
 			
-			//Console.WriteLine($"{data.Id} : Constructed type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
+			Debug.WriteLine($"{currLine},{data.Id} : Constructed type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
 
 			return instance;
 		}
