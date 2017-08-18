@@ -4,7 +4,7 @@ mono: none
 dotnet: 2.0.0-preview1-005977
 dist: trusty
 script:
- - cd src
  - dotnet restore
  - dotnet build
- - dotnet test ./IFC-dotnet-test/IFC-dotnet-test.csproj
+ - cd tests/IFC-dotnet-test
+ - dotnet xunit
