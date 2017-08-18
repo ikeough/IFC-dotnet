@@ -33,7 +33,7 @@ namespace IFC4
 		private int missingId;
 		public override string Message
 		{
-			get{return $"The Id, {missingId}, referenced in constructor, {currId}, could not be found in the file.";}
+			get{return $"Id {missingId}, referenced in constructor, {currId}, could not be found in the file.";}
 		}
 
 		public MissingIdError(int id, int missingId):base(id)

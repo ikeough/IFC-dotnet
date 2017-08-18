@@ -5,6 +5,7 @@
     <authors>Ian Keough</authors>
     <AssemblyName>IFC-dotnet</AssemblyName>
     <PackageId>IFC-dotnet</PackageId>
+    <NoWarn>3021</NoWarn> 
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Antlr4.Runtime.Standard" Version="4.7.1" />
