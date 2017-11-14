@@ -351,8 +351,14 @@ $@"graph model{{
 			// Construct the instance, assuming that all required sub-instances
 			// have already been constructed.
 			var instance = (BaseIfc)data.Constructor.Invoke(data.Parameters.ToArray());
-			
-			if(instanceDataMap.ContainsKey(data.Id))
+
+            //if we already have a GUID, we set it instead of the newly created one 
+            if (data.ConstructedGuid != new Guid("00000000-0000-0000-0000-000000000000"))
+            {
+                instance.Id = data.ConstructedGuid;
+            }
+
+            if (instanceDataMap.ContainsKey(data.Id))
 			{
 				// We'll only get here if the instance is not being constructed
 				// as a sub-instance.
