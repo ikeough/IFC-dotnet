@@ -6,14 +6,14 @@ using System.ComponentModel;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.Linq;
-using System.Reflection;
-
+using STEPExtensions;
+	
 namespace IFC4
 {
 	public abstract class BaseIfc
 	{
 		[JsonProperty("id")]
-		public Guid Id{ get; set; }
+		public Guid Id{get;set;}
 
 		public BaseIfc()
 		{
@@ -37,7 +37,7 @@ namespace IFC4
 
         public virtual string ToSTEP(ref Dictionary<Guid, int> indexDictionnary)
         {
-            return string.Format("#{0} = {1}({2});\r\n",
+            return string.Format("{0} = {1}({2});\r\n",
                 STEPValue(ref indexDictionnary),
                 this.GetType().Name.ToUpper(),
                 this.STEPParameters(ref indexDictionnary));
@@ -54,7 +54,7 @@ namespace IFC4
                 if (indexDictionnary.Count == 0)
                 {
                     indexDictionnary.Add(Id, 1);
-                    return "1";
+                    return "#1";
                 }
                 int index = indexDictionnary.Values.Last() + 1;
                 indexDictionnary.Add(Id, index);
@@ -85,13 +85,7 @@ namespace IFC4
 		{
 			return new IfcType<T>(value);
 		}
-
-        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
-        {
-            return Value.ToString();
-        }
-
-    }
+	}
 	
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcabsorbeddosemeasure.htm
@@ -114,6 +108,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAbsorbedDoseMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -137,6 +137,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAccelerationMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -160,6 +166,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAmountOfSubstanceMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -183,6 +195,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAngularVelocityMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -206,6 +224,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAreaDensityMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -229,6 +253,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAreaMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -252,6 +282,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBoolean>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -275,6 +311,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBoxAlignment>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -298,6 +340,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCardinalPointReference>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -321,6 +369,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcComplexNumber>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > values = new List<string>();
+            foreach (double value in Value)
+            {
+                                    values.Add(value.STEPValue(ref indexDictionnary));
+            }
+            if (values.Count == 0) return "$";
+            return "(" + string.Join(", ", values.ToArray()) + ")";
+        }
+
 	}
 
 	/// <summary>
@@ -344,6 +404,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCompoundPlaneAngleMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > values = new List<string>();
+            foreach (int value in Value)
+            {
+                                    values.Add(value.STEPValue(ref indexDictionnary));
+            }
+            if (values.Count == 0) return "$";
+            return "(" + string.Join(", ", values.ToArray()) + ")";
+        }
+
 	}
 
 	/// <summary>
@@ -367,6 +439,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcContextDependentMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -390,6 +468,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCountMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -413,6 +497,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCurvatureMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -436,6 +526,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDate>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -459,6 +555,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDateTime>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -482,6 +584,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDayInMonthNumber>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -505,6 +613,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDayInWeekNumber>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -528,6 +642,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDescriptiveMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -551,6 +671,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDimensionCount>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -574,6 +700,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDoseEquivalentMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -597,6 +729,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDuration>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -620,6 +758,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDynamicViscosityMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -643,6 +787,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElectricCapacitanceMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -666,6 +816,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElectricChargeMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -689,6 +845,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElectricConductanceMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -712,6 +874,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElectricCurrentMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -735,6 +903,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElectricResistanceMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -758,6 +932,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElectricVoltageMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -781,6 +961,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcEnergyMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -804,6 +990,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFontStyle>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -827,6 +1019,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFontVariant>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -850,6 +1048,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFontWeight>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -873,6 +1077,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcForceMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -896,6 +1106,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFrequencyMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -919,6 +1135,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcGloballyUniqueId>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -942,6 +1164,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcHeatFluxDensityMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -965,6 +1193,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcHeatingValueMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -988,6 +1222,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcIdentifier>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1011,6 +1251,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcIlluminanceMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1034,6 +1280,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcInductanceMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1057,6 +1309,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcInteger>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1080,6 +1338,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcIntegerCountRateMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1103,6 +1367,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcIonConcentrationMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1126,6 +1396,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcIsothermalMoistureCapacityMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1149,6 +1425,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcKinematicViscosityMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1172,6 +1454,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLabel>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1195,6 +1483,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLanguageId>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1218,6 +1512,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLengthMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1241,6 +1541,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLinearForceMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1264,6 +1570,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLinearMomentMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1287,6 +1599,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLinearStiffnessMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1310,6 +1628,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLinearVelocityMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1333,6 +1657,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLogical>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1356,6 +1686,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLuminousFluxMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1379,6 +1715,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLuminousIntensityDistributionMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1402,6 +1744,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLuminousIntensityMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1425,6 +1773,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMagneticFluxDensityMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1448,6 +1802,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMagneticFluxMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1471,6 +1831,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMassDensityMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1494,6 +1860,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMassFlowRateMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1517,6 +1889,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMassMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1540,6 +1918,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMassPerLengthMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1563,6 +1947,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcModulusOfElasticityMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1586,6 +1976,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcModulusOfLinearSubgradeReactionMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1609,6 +2005,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcModulusOfRotationalSubgradeReactionMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1632,6 +2034,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcModulusOfSubgradeReactionMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1655,6 +2063,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMoistureDiffusivityMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1678,6 +2092,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMolecularWeightMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1701,6 +2121,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMomentOfInertiaMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1724,6 +2150,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMonetaryMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1747,6 +2179,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMonthInYearNumber>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1770,6 +2208,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcNonNegativeLengthMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1793,6 +2237,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcNormalisedRatioMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1816,6 +2266,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcNumericMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1839,6 +2295,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPHMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1862,6 +2324,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcParameterValue>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1885,6 +2353,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPlanarForceMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1908,6 +2382,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPlaneAngleMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1931,6 +2411,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPositiveLengthMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1954,6 +2440,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPositivePlaneAngleMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -1977,6 +2469,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPositiveRatioMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2000,6 +2498,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPowerMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2023,6 +2527,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPresentableText>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2046,6 +2556,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPressureMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2069,6 +2585,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPropertySetDefinitionSet>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > values = new List<string>();
+            foreach (IfcPropertySetDefinition value in Value)
+            {
+                                    values.Add(value.STEPValue(ref indexDictionnary));
+            }
+            if (values.Count == 0) return "$";
+            return "(" + string.Join(", ", values.ToArray()) + ")";
+        }
+
 	}
 
 	/// <summary>
@@ -2092,6 +2620,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRadioActivityMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2115,6 +2649,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRatioMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2138,6 +2678,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcReal>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2161,6 +2707,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRotationalFrequencyMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2184,6 +2736,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRotationalMassMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2207,6 +2765,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRotationalStiffnessMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2230,6 +2794,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSectionModulusMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2253,6 +2823,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSectionalAreaIntegralMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2276,6 +2852,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcShearModulusMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2299,6 +2881,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSolidAngleMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2322,6 +2910,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSoundPowerLevelMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2345,6 +2939,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSoundPowerMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2368,6 +2968,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSoundPressureLevelMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2391,6 +2997,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSoundPressureMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2414,6 +3026,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSpecificHeatCapacityMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2437,6 +3055,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSpecularExponent>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2460,6 +3084,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSpecularRoughness>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2483,6 +3113,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTemperatureGradientMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2506,6 +3142,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTemperatureRateOfChangeMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2529,6 +3171,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcText>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2552,6 +3200,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTextAlignment>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2575,6 +3229,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTextDecoration>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2598,6 +3258,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTextFontName>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2621,6 +3287,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTextTransformation>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2644,6 +3316,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcThermalAdmittanceMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2667,6 +3345,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcThermalConductivityMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2690,6 +3374,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcThermalExpansionCoefficientMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2713,6 +3403,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcThermalResistanceMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2736,6 +3432,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcThermalTransmittanceMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2759,6 +3461,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcThermodynamicTemperatureMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2782,6 +3490,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTime>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2805,6 +3519,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTimeMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2828,6 +3548,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTimeStamp>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2851,6 +3577,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTorqueMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2874,6 +3606,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcURIReference>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2897,6 +3635,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcVaporPermeabilityMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2920,6 +3664,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcVolumeMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2943,6 +3693,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcVolumetricFlowRateMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2966,6 +3722,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcWarpingConstantMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -2989,6 +3751,12 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcWarpingMomentMeasure>(json);
 		}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.STEPValue(ref indexDictionnary);
+        }
+
 	}
 
 	/// <summary>
@@ -5084,6 +5852,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcActionRequest>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(Status != null ? Status.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LongDescription != null ? LongDescription.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5113,6 +5895,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcControl>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Identification != null ? Identification.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5143,6 +5937,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcActor>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(TheActor != null ? TheActor.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5172,6 +5978,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcOccupant>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5201,6 +6019,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcObject>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ObjectType != null ? ObjectType.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5235,6 +6065,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcActorRole>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Role.STEPValue(ref indexDictionnary));
+			parameters.Add(UserDefinedRole != null ? UserDefinedRole.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5264,6 +6108,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcActuator>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5290,6 +6146,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionControlElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5320,6 +6186,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcActuatorType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5346,6 +6224,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionControlElementType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5379,6 +6267,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAddress>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Purpose.STEPValue(ref indexDictionnary));
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(UserDefinedPurpose != null ? UserDefinedPurpose.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5408,7 +6310,15 @@ namespace IFC4
 		public IfcPostalAddress(IfcAddressTypeEnum purpose,IfcText description,IfcLabel userDefinedPurpose,IfcLabel internalLocation,List<IfcLabel> addressLines,IfcLabel postalBox,IfcLabel town,IfcLabel region,IfcLabel postalCode,IfcLabel country):base(purpose,description,userDefinedPurpose)
 		{
 			InternalLocation = internalLocation;
-			AddressLines = new List<IfcLabel>();
+
+            if (addressLines != null)
+            {
+                AddressLines = addressLines;
+            }
+            else
+            {
+                AddressLines = new List<IfcLabel>();
+            }
 			PostalBox = postalBox;
 			Town = town;
 			Region = region;
@@ -5420,6 +6330,24 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPostalAddress>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(InternalLocation != null ? InternalLocation.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(AddressLines != null ? AddressLines.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PostalBox != null ? PostalBox.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Town != null ? Town.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Region != null ? Region.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PostalCode != null ? PostalCode.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Country != null ? Country.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5447,18 +6375,67 @@ namespace IFC4
 		[JsonConstructor]
 		public IfcTelecomAddress(IfcAddressTypeEnum purpose,IfcText description,IfcLabel userDefinedPurpose,List<IfcLabel> telephoneNumbers,List<IfcLabel> facsimileNumbers,IfcLabel pagerNumber,List<IfcLabel> electronicMailAddresses,IfcURIReference wWWHomePageURL,List<IfcURIReference> messagingIDs):base(purpose,description,userDefinedPurpose)
 		{
-			TelephoneNumbers = new List<IfcLabel>();
-			FacsimileNumbers = new List<IfcLabel>();
+
+            if (telephoneNumbers != null)
+            {
+                TelephoneNumbers = telephoneNumbers;
+            }
+            else
+            {
+                TelephoneNumbers = new List<IfcLabel>();
+            }
+
+            if (facsimileNumbers != null)
+            {
+                FacsimileNumbers = facsimileNumbers;
+            }
+            else
+            {
+                FacsimileNumbers = new List<IfcLabel>();
+            }
 			PagerNumber = pagerNumber;
-			ElectronicMailAddresses = new List<IfcLabel>();
+
+            if (electronicMailAddresses != null)
+            {
+                ElectronicMailAddresses = electronicMailAddresses;
+            }
+            else
+            {
+                ElectronicMailAddresses = new List<IfcLabel>();
+            }
 			WWWHomePageURL = wWWHomePageURL;
-			MessagingIDs = new List<IfcURIReference>();
+
+            if (messagingIDs != null)
+            {
+                MessagingIDs = messagingIDs;
+            }
+            else
+            {
+                MessagingIDs = new List<IfcURIReference>();
+            }
 
 		}
 		public static new IfcTelecomAddress FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTelecomAddress>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(TelephoneNumbers != null ? TelephoneNumbers.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FacsimileNumbers != null ? FacsimileNumbers.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PagerNumber != null ? PagerNumber.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ElectronicMailAddresses != null ? ElectronicMailAddresses.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(WWWHomePageURL != null ? WWWHomePageURL.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(MessagingIDs != null ? MessagingIDs.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5478,6 +6455,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAdvancedBrep>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5500,6 +6487,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAdvancedBrepWithVoids>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Voids != null ? Voids.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5522,6 +6521,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcManifoldSolidBrep>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Outer != null ? Outer.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5541,6 +6552,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAdvancedFace>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5565,6 +6586,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFaceSurface>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(FaceSurface != null ? FaceSurface.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SameSense.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5594,6 +6628,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAirTerminal>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5620,6 +6666,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFlowTerminal>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5649,6 +6705,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAirTerminalBox>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5675,6 +6743,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFlowController>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5705,6 +6783,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAirTerminalBoxType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5731,6 +6821,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFlowControllerType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5761,6 +6861,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAirTerminalType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5787,6 +6899,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFlowTerminalType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5816,6 +6938,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAirToAirHeatRecovery>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5842,6 +6976,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcEnergyConversionDevice>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5872,6 +7016,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAirToAirHeatRecoveryType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5898,6 +7054,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcEnergyConversionDeviceType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5927,6 +7093,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAlarm>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5957,6 +7135,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAlarmType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -5983,6 +7173,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAnnotation>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6014,6 +7214,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcProduct>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ObjectPlacement != null ? ObjectPlacement.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Representation != null ? Representation.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6039,13 +7252,34 @@ namespace IFC4
 		public IfcAnnotationFillArea(IfcCurve outerBoundary,List<IfcCurve> innerBoundaries):base()
 		{
 			OuterBoundary = outerBoundary;
-			InnerBoundaries = new List<IfcCurve>();
+
+            if (innerBoundaries != null)
+            {
+                InnerBoundaries = innerBoundaries;
+            }
+            else
+            {
+                InnerBoundaries = new List<IfcCurve>();
+            }
 
 		}
 		public static new IfcAnnotationFillArea FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAnnotationFillArea>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(OuterBoundary != null ? OuterBoundary.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(InnerBoundaries != null ? InnerBoundaries.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6065,6 +7299,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcGeometricRepresentationItem>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6093,6 +7337,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcApplication>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ApplicationDeveloper != null ? ApplicationDeveloper.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Version != null ? Version.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ApplicationFullName != null ? ApplicationFullName.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ApplicationIdentifier != null ? ApplicationIdentifier.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6133,13 +7392,42 @@ namespace IFC4
 			Category = category;
 			Condition = condition;
 			ArithmeticOperator = arithmeticOperator;
-			Components = new List<IfcAppliedValue>();
+
+            if (components != null)
+            {
+                Components = components;
+            }
+            else
+            {
+                Components = new List<IfcAppliedValue>();
+            }
 
 		}
 		public static  IfcAppliedValue FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcAppliedValue>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(AppliedValue != null ? AppliedValue.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(UnitBasis != null ? UnitBasis.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ApplicableDate != null ? ApplicableDate.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FixedUntilDate != null ? FixedUntilDate.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Category != null ? Category.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Condition != null ? Condition.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ArithmeticOperator.STEPValue(ref indexDictionnary));
+			parameters.Add(Components != null ? Components.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6166,6 +7454,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCostValue>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6211,6 +7509,26 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcApproval>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Identifier != null ? Identifier.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TimeOfApproval != null ? TimeOfApproval.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Status != null ? Status.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Level != null ? Level.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Qualifier != null ? Qualifier.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RequestingApproval != null ? RequestingApproval.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(GivingApproval != null ? GivingApproval.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6244,6 +7562,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcApprovalRelationship>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingApproval != null ? RelatingApproval.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedApprovals != null ? RelatedApprovals.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6275,6 +7606,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcResourceLevelRelationship>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6305,6 +7649,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcArbitraryClosedProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(OuterCurve != null ? OuterCurve.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6335,6 +7691,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcArbitraryProfileDefWithVoids>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(InnerCurves != null ? InnerCurves.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6367,6 +7735,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ProfileType.STEPValue(ref indexDictionnary));
+			parameters.Add(ProfileName != null ? ProfileName.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6397,6 +7778,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcArbitraryOpenProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Curve != null ? Curve.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6427,6 +7820,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCenterLineProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Thickness != null ? Thickness.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6472,6 +7877,26 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAsset>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Identification != null ? Identification.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(OriginalValue != null ? OriginalValue.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CurrentValue != null ? CurrentValue.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TotalReplacementCost != null ? TotalReplacementCost.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Owner != null ? Owner.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(User != null ? User.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ResponsiblePerson != null ? ResponsiblePerson.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(IncorporationDate != null ? IncorporationDate.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(DepreciatedValue != null ? DepreciatedValue.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6498,6 +7923,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcGroup>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6554,6 +7989,29 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAsymmetricIShapeProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(BottomFlangeWidth != null ? BottomFlangeWidth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(OverallDepth != null ? OverallDepth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(WebThickness != null ? WebThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(BottomFlangeThickness != null ? BottomFlangeThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(BottomFlangeFilletRadius != null ? BottomFlangeFilletRadius.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TopFlangeWidth != null ? TopFlangeWidth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TopFlangeThickness != null ? TopFlangeThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TopFlangeFilletRadius != null ? TopFlangeFilletRadius.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(BottomFlangeEdgeRadius != null ? BottomFlangeEdgeRadius.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(BottomFlangeSlope != null ? BottomFlangeSlope.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TopFlangeEdgeRadius != null ? TopFlangeEdgeRadius.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TopFlangeSlope != null ? TopFlangeSlope.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6583,6 +8041,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcParameterizedProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Position != null ? Position.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6612,6 +8082,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAudioVisualAppliance>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6642,6 +8124,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAudioVisualApplianceType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6671,6 +8165,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAxis1Placement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Axis != null ? Axis.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6693,6 +8199,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPlacement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Location != null ? Location.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6722,6 +8240,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAxis2Placement2D>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RefDirection != null ? RefDirection.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6753,6 +8283,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcAxis2Placement3D>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Axis != null ? Axis.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RefDirection != null ? RefDirection.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6783,6 +8326,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBSplineCurve>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Degree.STEPValue(ref indexDictionnary));
+			parameters.Add(ControlPointsList != null ? ControlPointsList.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CurveForm != null ? CurveForm.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ClosedCurve != null ? ClosedCurve.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SelfIntersect != null ? SelfIntersect.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6809,6 +8368,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBSplineCurveWithKnots>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(KnotMultiplicities != null ? KnotMultiplicities.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Knots != null ? Knots.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(KnotSpec != null ? KnotSpec.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6828,6 +8401,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBoundedCurve>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6850,6 +8433,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRationalBSplineCurveWithKnots>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(WeightsData != null ? WeightsData.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6884,6 +8479,24 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBSplineSurface>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(UDegree.STEPValue(ref indexDictionnary));
+			parameters.Add(VDegree.STEPValue(ref indexDictionnary));
+			parameters.Add(ControlPointsList != null ? ControlPointsList.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SurfaceForm != null ? SurfaceForm.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(UClosed != null ? UClosed.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(VClosed != null ? VClosed.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SelfIntersect != null ? SelfIntersect.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6914,6 +8527,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBSplineSurfaceWithKnots>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(UMultiplicities != null ? UMultiplicities.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(VMultiplicities != null ? VMultiplicities.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(UKnots != null ? UKnots.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(VKnots != null ? VKnots.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(KnotSpec != null ? KnotSpec.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6933,6 +8562,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBoundedSurface>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6955,6 +8594,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRationalBSplineSurfaceWithKnots>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(WeightsData != null ? WeightsData.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -6984,6 +8635,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBeam>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7010,6 +8673,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBeamStandardCase>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7036,6 +8709,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBuildingElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7066,6 +8749,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBeamType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7092,6 +8787,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBuildingElementType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7125,6 +8830,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBlobTexture>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RasterFormat != null ? RasterFormat.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RasterCode != null ? RasterCode.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7157,13 +8875,37 @@ namespace IFC4
 			RepeatT = repeatT;
 			Mode = mode;
 			TextureTransform = textureTransform;
-			Parameter = new List<IfcIdentifier>();
+
+            if (parameter != null)
+            {
+                Parameter = parameter;
+            }
+            else
+            {
+                Parameter = new List<IfcIdentifier>();
+            }
 
 		}
 		public static new IfcSurfaceTexture FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceTexture>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RepeatS.STEPValue(ref indexDictionnary));
+			parameters.Add(RepeatT.STEPValue(ref indexDictionnary));
+			parameters.Add(Mode != null ? Mode.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TextureTransform != null ? TextureTransform.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Parameter != null ? Parameter.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7190,6 +8932,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBlock>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(XLength != null ? XLength.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(YLength != null ? YLength.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ZLength != null ? ZLength.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7212,6 +8968,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCsgPrimitive3D>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Position != null ? Position.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7241,6 +9009,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBoiler>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7271,6 +9051,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBoilerType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7290,6 +9082,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBooleanClippingResult>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7316,6 +9118,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBooleanResult>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Operator != null ? Operator.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FirstOperand != null ? FirstOperand.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SecondOperand != null ? SecondOperand.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7345,6 +9161,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBoundaryCondition>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7384,6 +9212,23 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBoundaryEdgeCondition>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(TranslationalStiffnessByLengthX != null ? TranslationalStiffnessByLengthX.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TranslationalStiffnessByLengthY != null ? TranslationalStiffnessByLengthY.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TranslationalStiffnessByLengthZ != null ? TranslationalStiffnessByLengthZ.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RotationalStiffnessByLengthX != null ? RotationalStiffnessByLengthX.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RotationalStiffnessByLengthY != null ? RotationalStiffnessByLengthY.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RotationalStiffnessByLengthZ != null ? RotationalStiffnessByLengthZ.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7417,6 +9262,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBoundaryFaceCondition>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(TranslationalStiffnessByAreaX != null ? TranslationalStiffnessByAreaX.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TranslationalStiffnessByAreaY != null ? TranslationalStiffnessByAreaY.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TranslationalStiffnessByAreaZ != null ? TranslationalStiffnessByAreaZ.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7456,6 +9315,23 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBoundaryNodeCondition>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(TranslationalStiffnessX != null ? TranslationalStiffnessX.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TranslationalStiffnessY != null ? TranslationalStiffnessY.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TranslationalStiffnessZ != null ? TranslationalStiffnessZ.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RotationalStiffnessX != null ? RotationalStiffnessX.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RotationalStiffnessY != null ? RotationalStiffnessY.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RotationalStiffnessZ != null ? RotationalStiffnessZ.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7475,6 +9351,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBoundaryCurve>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7494,6 +9380,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcOuterBoundaryCurve>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7513,6 +9409,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCompositeCurveOnSurface>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7542,6 +9448,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBoundaryNodeConditionWarping>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(WarpingStiffness != null ? WarpingStiffness.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7566,6 +9484,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCompositeCurve>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Segments != null ? Segments.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SelfIntersect != null ? SelfIntersect.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7588,7 +9519,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPolyline>(json);
 		}
-    }
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Points != null ? Points.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
+	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctrimmedcurve.htm"/>
@@ -7618,6 +9561,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTrimmedCurve>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(BasisCurve != null ? BasisCurve.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Trim1 != null ? Trim1.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Trim2 != null ? Trim2.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SenseAgreement.STEPValue(ref indexDictionnary));
+			parameters.Add(MasterRepresentation != null ? MasterRepresentation.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7637,6 +9596,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCurve>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7663,6 +9632,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCurveBoundedPlane>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(BasisSurface != null ? BasisSurface.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(OuterBoundary != null ? OuterBoundary.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(InnerBoundaries != null ? InnerBoundaries.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7689,6 +9672,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCurveBoundedSurface>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(BasisSurface != null ? BasisSurface.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Boundaries != null ? Boundaries.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ImplicitOuter.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7723,6 +9720,24 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRectangularTrimmedSurface>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(BasisSurface != null ? BasisSurface.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(U1 != null ? U1.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(V1 != null ? V1.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(U2 != null ? U2.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(V2 != null ? V2.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Usense.STEPValue(ref indexDictionnary));
+			parameters.Add(Vsense.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7742,6 +9757,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSurface>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7770,6 +9795,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBoundingBox>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Corner != null ? Corner.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(XDim != null ? XDim.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(YDim != null ? YDim.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ZDim != null ? ZDim.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7792,6 +9832,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBoxedHalfSpace>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Enclosure != null ? Enclosure.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7816,6 +9868,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcHalfSpaceSolid>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(BaseSurface != null ? BaseSurface.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(AgreementFlag.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7849,6 +9914,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBuilding>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ElevationOfRefHeight != null ? ElevationOfRefHeight.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ElevationOfTerrain != null ? ElevationOfTerrain.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(BuildingAddress != null ? BuildingAddress.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7878,6 +9957,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSpatialStructureElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(CompositionType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7907,6 +9998,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBuildingElementProxy>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7936,6 +10039,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcChimney>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7965,6 +10080,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcColumn>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -7994,6 +10121,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCovering>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8023,6 +10162,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCurtainWall>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8060,6 +10211,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDoor>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(OverallHeight != null ? OverallHeight.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(OverallWidth != null ? OverallWidth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(OperationType.STEPValue(ref indexDictionnary));
+			parameters.Add(UserDefinedOperationType != null ? UserDefinedOperationType.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8089,6 +10256,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFooting>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8118,6 +10297,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMember>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8149,6 +10340,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPile>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(ConstructionType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8178,6 +10382,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPlate>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8207,6 +10423,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRailing>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8236,6 +10464,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRamp>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8265,6 +10505,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRampFlight>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8294,6 +10546,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRoof>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8323,6 +10587,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcShadingDevice>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8352,6 +10628,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSlab>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8381,6 +10669,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStair>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8418,6 +10718,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStairFlight>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(NumberOfRiser.STEPValue(ref indexDictionnary));
+			parameters.Add(NumberOfTreads.STEPValue(ref indexDictionnary));
+			parameters.Add(RiserHeight != null ? RiserHeight.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TreadLength != null ? TreadLength.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8447,6 +10763,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcWall>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8484,6 +10812,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcWindow>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(OverallHeight != null ? OverallHeight.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(OverallWidth != null ? OverallWidth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(PartitioningType.STEPValue(ref indexDictionnary));
+			parameters.Add(UserDefinedPartitioningType != null ? UserDefinedPartitioningType.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8513,6 +10857,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Tag != null ? Tag.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8542,6 +10898,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBuildingElementPart>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8568,6 +10936,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElementComponent>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8598,6 +10976,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBuildingElementPartType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8624,6 +11014,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElementComponentType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8654,6 +11054,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBuildingElementProxyType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8684,6 +11096,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcChimneyType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8714,6 +11138,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcColumnType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8744,6 +11180,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCoveringType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8774,6 +11222,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCurtainWallType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8811,6 +11271,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDoorType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(OperationType.STEPValue(ref indexDictionnary));
+			parameters.Add(ParameterTakesPrecedence.STEPValue(ref indexDictionnary));
+			parameters.Add(UserDefinedOperationType != null ? UserDefinedOperationType.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8841,6 +11316,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFootingType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8871,6 +11358,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMemberType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8901,6 +11400,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPileType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8931,6 +11442,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPlateType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8961,6 +11484,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRailingType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -8991,6 +11526,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRampFlightType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9021,6 +11568,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRampType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9051,6 +11610,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRoofType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9081,6 +11652,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcShadingDeviceType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9111,6 +11694,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSlabType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9141,6 +11736,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStairFlightType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9171,6 +11778,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStairType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9201,6 +11820,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcWallType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9238,6 +11869,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcWindowType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(PartitioningType.STEPValue(ref indexDictionnary));
+			parameters.Add(ParameterTakesPrecedence.STEPValue(ref indexDictionnary));
+			parameters.Add(UserDefinedPartitioningType != null ? UserDefinedPartitioningType.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9267,6 +11913,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElementType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ElementType != null ? ElementType.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9296,6 +11954,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBuildingStorey>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Elevation != null ? Elevation.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9325,6 +11995,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBuildingSystem>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9351,6 +12033,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSystem>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9380,6 +12072,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBurner>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9410,6 +12114,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcBurnerType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9451,6 +12167,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCShapeProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Depth != null ? Depth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Width != null ? Width.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(WallThickness != null ? WallThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Girth != null ? Girth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(InternalFilletRadius != null ? InternalFilletRadius.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9480,6 +12212,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCableCarrierFitting>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9506,6 +12250,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFlowFitting>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9536,6 +12290,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCableCarrierFittingType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9562,6 +12328,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFlowFittingType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9591,6 +12367,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCableCarrierSegment>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9617,6 +12405,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFlowSegment>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9647,6 +12445,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCableCarrierSegmentType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9673,6 +12483,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFlowSegmentType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9702,6 +12522,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCableFitting>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9732,6 +12564,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCableFittingType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9761,6 +12605,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCableSegment>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9791,6 +12647,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCableSegmentType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9813,6 +12681,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCartesianPoint>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Coordinates != null ? Coordinates.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9832,6 +12712,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPoint>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9851,6 +12741,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCartesianPointList>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9873,6 +12773,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCartesianPointList3D>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(CoordList != null ? CoordList.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9909,6 +12821,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCartesianTransformationOperator>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Axis1 != null ? Axis1.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Axis2 != null ? Axis2.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LocalOrigin != null ? LocalOrigin.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Scale.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9935,6 +12862,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCartesianTransformationOperator2D>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9964,6 +12901,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCartesianTransformationOperator3D>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Axis3 != null ? Axis3.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -9993,6 +12942,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCartesianTransformationOperator2DnonUniform>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Scale2.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10024,6 +12985,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCartesianTransformationOperator3DnonUniform>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Scale2.STEPValue(ref indexDictionnary));
+			parameters.Add(Scale3.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10053,6 +13027,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcChiller>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10083,6 +13069,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcChillerType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10105,6 +13103,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCircle>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Radius != null ? Radius.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10127,6 +13137,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcConic>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Position != null ? Position.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10157,6 +13179,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCircleHollowProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(WallThickness != null ? WallThickness.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10187,6 +13221,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCircleProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Radius != null ? Radius.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10213,6 +13259,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCivilElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10239,6 +13295,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCivilElementType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10274,13 +13340,39 @@ namespace IFC4
 			Name = name;
 			Description = description;
 			Location = location;
-			ReferenceTokens = new List<IfcIdentifier>();
+
+            if (referenceTokens != null)
+            {
+                ReferenceTokens = referenceTokens;
+            }
+            else
+            {
+                ReferenceTokens = new List<IfcIdentifier>();
+            }
 
 		}
 		public static new IfcClassification FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcClassification>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Source != null ? Source.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Edition != null ? Edition.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(EditionDate != null ? EditionDate.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Location != null ? Location.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ReferenceTokens != null ? ReferenceTokens.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10300,6 +13392,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcExternalInformation>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10333,6 +13435,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcClassificationReference>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ReferencedSource != null ? ReferencedSource.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Sort != null ? Sort.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10366,6 +13482,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcExternalReference>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Location != null ? Location.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Identification != null ? Identification.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10385,6 +13515,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcClosedShell>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10407,6 +13547,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcConnectedFaceSet>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(CfsFaces != null ? CfsFaces.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10436,6 +13588,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCoil>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10466,6 +13630,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCoilType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10502,6 +13678,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcColourRgb>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Red != null ? Red.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Green != null ? Green.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Blue != null ? Blue.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10531,6 +13721,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcColourSpecification>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10553,6 +13755,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcColourRgbList>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ColourList != null ? ColourList.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10572,6 +13786,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPresentationItem>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10598,6 +13822,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcColumnStandardCase>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10627,6 +13861,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCommunicationsAppliance>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10657,6 +13903,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCommunicationsApplianceType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10690,6 +13948,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcComplexProperty>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(UsageName != null ? UsageName.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(HasProperties != null ? HasProperties.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10722,6 +13993,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcProperty>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10748,13 +14032,35 @@ namespace IFC4
 		{
 			UsageName = usageName;
 			TemplateType = templateType;
-			HasPropertyTemplates = new List<IfcPropertyTemplate>();
+
+            if (hasPropertyTemplates != null)
+            {
+                HasPropertyTemplates = hasPropertyTemplates;
+            }
+            else
+            {
+                HasPropertyTemplates = new List<IfcPropertyTemplate>();
+            }
 
 		}
 		public static new IfcComplexPropertyTemplate FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcComplexPropertyTemplate>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(UsageName != null ? UsageName.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TemplateType.STEPValue(ref indexDictionnary));
+			parameters.Add(HasPropertyTemplates != null ? HasPropertyTemplates.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10781,6 +14087,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyTemplate>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10807,6 +14123,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCompositeCurveSegment>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Transition != null ? Transition.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SameSense.STEPValue(ref indexDictionnary));
+			parameters.Add(ParentCurve != null ? ParentCurve.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10829,6 +14159,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcReparametrisedCompositeCurveSegment>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ParamLength != null ? ParamLength.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10861,6 +14203,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCompositeProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Profiles != null ? Profiles.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Label != null ? Label.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10890,6 +14245,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCompressor>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10916,6 +14283,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFlowMovingDevice>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10946,6 +14323,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCompressorType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -10972,6 +14361,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFlowMovingDeviceType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11001,6 +14400,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCondenser>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11031,6 +14442,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCondenserType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11055,6 +14478,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcEllipse>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(SemiAxis1 != null ? SemiAxis1.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SemiAxis2 != null ? SemiAxis2.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11074,6 +14510,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcOpenShell>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11093,6 +14539,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTopologicalRepresentationItem>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11125,6 +14581,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcConnectionCurveGeometry>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(CurveOnRelatingElement != null ? CurveOnRelatingElement.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CurveOnRelatedElement != null ? CurveOnRelatedElement.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11144,6 +14613,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcConnectionGeometry>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11176,6 +14655,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcConnectionPointGeometry>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PointOnRelatingElement != null ? PointOnRelatingElement.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PointOnRelatedElement != null ? PointOnRelatedElement.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11208,6 +14700,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcConnectionSurfaceGeometry>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(SurfaceOnRelatingElement != null ? SurfaceOnRelatingElement.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SurfaceOnRelatedElement != null ? SurfaceOnRelatedElement.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11240,6 +14745,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcConnectionVolumeGeometry>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(VolumeOnRelatingElement != null ? VolumeOnRelatingElement.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(VolumeOnRelatedElement != null ? VolumeOnRelatedElement.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11273,6 +14791,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcConnectionPointEccentricity>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(EccentricityInX != null ? EccentricityInX.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(EccentricityInY != null ? EccentricityInY.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(EccentricityInZ != null ? EccentricityInZ.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11316,6 +14848,24 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcConstraint>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ConstraintGrade.STEPValue(ref indexDictionnary));
+			parameters.Add(ConstraintSource != null ? ConstraintSource.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CreatingActor != null ? CreatingActor.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CreationTime != null ? CreationTime.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(UserDefinedGrade != null ? UserDefinedGrade.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11353,6 +14903,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMetric>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Benchmark.STEPValue(ref indexDictionnary));
+			parameters.Add(ValueSource != null ? ValueSource.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(DataValue != null ? DataValue.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ReferencePath != null ? ReferencePath.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11379,7 +14944,15 @@ namespace IFC4
 		[JsonConstructor]
 		public IfcObjective(IfcLabel name,IfcText description,IfcConstraintEnum constraintGrade,IfcLabel constraintSource,IfcActorSelect creatingActor,IfcDateTime creationTime,IfcLabel userDefinedGrade,List<IfcConstraint> benchmarkValues,IfcLogicalOperatorEnum logicalAggregator,IfcObjectiveEnum objectiveQualifier,IfcLabel userDefinedQualifier):base(name,description,constraintGrade,constraintSource,creatingActor,creationTime,userDefinedGrade)
 		{
-			BenchmarkValues = new List<IfcConstraint>();
+
+            if (benchmarkValues != null)
+            {
+                BenchmarkValues = benchmarkValues;
+            }
+            else
+            {
+                BenchmarkValues = new List<IfcConstraint>();
+            }
 			LogicalAggregator = logicalAggregator;
 			ObjectiveQualifier = objectiveQualifier;
 			UserDefinedQualifier = userDefinedQualifier;
@@ -11389,6 +14962,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcObjective>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(BenchmarkValues != null ? BenchmarkValues.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LogicalAggregator.STEPValue(ref indexDictionnary));
+			parameters.Add(ObjectiveQualifier.STEPValue(ref indexDictionnary));
+			parameters.Add(UserDefinedQualifier != null ? UserDefinedQualifier.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11418,6 +15006,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcConstructionEquipmentResource>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11443,7 +15043,15 @@ namespace IFC4
 		public IfcConstructionResource(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcText longDescription,IfcResourceTime usage,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity):base(globalId,ownerHistory,name,description,objectType,identification,longDescription)
 		{
 			Usage = usage;
-			BaseCosts = new List<IfcAppliedValue>();
+
+            if (baseCosts != null)
+            {
+                BaseCosts = baseCosts;
+            }
+            else
+            {
+                BaseCosts = new List<IfcAppliedValue>();
+            }
 			BaseQuantity = baseQuantity;
 
 		}
@@ -11451,6 +15059,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcConstructionResource>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Usage != null ? Usage.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(BaseCosts != null ? BaseCosts.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(BaseQuantity != null ? BaseQuantity.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11481,6 +15103,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcConstructionEquipmentResourceType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11504,7 +15138,15 @@ namespace IFC4
 		[JsonConstructor]
 		public IfcConstructionResourceType(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,IfcIdentifier identification,IfcText longDescription,IfcLabel resourceType,List<IfcAppliedValue> baseCosts,IfcPhysicalQuantity baseQuantity):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets,identification,longDescription,resourceType)
 		{
-			BaseCosts = new List<IfcAppliedValue>();
+
+            if (baseCosts != null)
+            {
+                BaseCosts = baseCosts;
+            }
+            else
+            {
+                BaseCosts = new List<IfcAppliedValue>();
+            }
 			BaseQuantity = baseQuantity;
 
 		}
@@ -11512,6 +15154,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcConstructionResourceType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(BaseCosts != null ? BaseCosts.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(BaseQuantity != null ? BaseQuantity.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11541,6 +15196,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcConstructionMaterialResource>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11571,6 +15238,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcConstructionMaterialResourceType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11600,6 +15279,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcConstructionProductResource>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11630,6 +15321,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcConstructionProductResourceType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11659,6 +15362,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCrewResource>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11688,6 +15403,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLaborResource>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11717,6 +15444,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSubContractResource>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11748,6 +15487,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcResource>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Identification != null ? Identification.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LongDescription != null ? LongDescription.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11778,6 +15530,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCrewResourceType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11808,6 +15572,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLaborResourceType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11838,6 +15614,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSubContractResourceType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11871,6 +15659,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTypeResource>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Identification != null ? Identification.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LongDescription != null ? LongDescription.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ResourceType != null ? ResourceType.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11900,7 +15702,15 @@ namespace IFC4
 			ObjectType = objectType;
 			LongName = longName;
 			Phase = phase;
-			RepresentationContexts = new List<IfcRepresentationContext>();
+
+            if (representationContexts != null)
+            {
+                RepresentationContexts = representationContexts;
+            }
+            else
+            {
+                RepresentationContexts = new List<IfcRepresentationContext>();
+            }
 			UnitsInContext = unitsInContext;
 
 		}
@@ -11908,6 +15718,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcContext>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ObjectType != null ? ObjectType.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LongName != null ? LongName.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Phase != null ? Phase.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RepresentationContexts != null ? RepresentationContexts.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(UnitsInContext != null ? UnitsInContext.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11934,6 +15760,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcProject>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11960,6 +15796,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcProjectLibrary>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -11986,6 +15832,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcObjectDefinition>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12008,6 +15864,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcContextDependentUnit>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12032,6 +15900,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcNamedUnit>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Dimensions != null ? Dimensions.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(UnitType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12057,14 +15938,44 @@ namespace IFC4
 		public IfcCostItem(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcCostItemTypeEnum predefinedType,List<IfcCostValue> costValues,List<IfcPhysicalQuantity> costQuantities):base(globalId,ownerHistory,name,description,objectType,identification)
 		{
 			PredefinedType = predefinedType;
-			CostValues = new List<IfcCostValue>();
-			CostQuantities = new List<IfcPhysicalQuantity>();
+
+            if (costValues != null)
+            {
+                CostValues = costValues;
+            }
+            else
+            {
+                CostValues = new List<IfcCostValue>();
+            }
+
+            if (costQuantities != null)
+            {
+                CostQuantities = costQuantities;
+            }
+            else
+            {
+                CostQuantities = new List<IfcPhysicalQuantity>();
+            }
 
 		}
 		public static new IfcCostItem FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcCostItem>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(CostValues != null ? CostValues.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CostQuantities != null ? CostQuantities.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12100,6 +16011,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCostSchedule>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(Status != null ? Status.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SubmittedOn != null ? SubmittedOn.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(UpdateDate != null ? UpdateDate.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12132,6 +16058,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPerformanceHistory>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(LifeCyclePhase != null ? LifeCyclePhase.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12165,6 +16104,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPermit>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(Status != null ? Status.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LongDescription != null ? LongDescription.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12198,6 +16151,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcProjectOrder>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(Status != null ? Status.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LongDescription != null ? LongDescription.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12222,8 +16189,24 @@ namespace IFC4
 		[JsonConstructor]
 		public IfcWorkCalendar(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,List<IfcWorkTime> workingTimes,List<IfcWorkTime> exceptionTimes,IfcWorkCalendarTypeEnum predefinedType):base(globalId,ownerHistory,name,description,objectType,identification)
 		{
-			WorkingTimes = new List<IfcWorkTime>();
-			ExceptionTimes = new List<IfcWorkTime>();
+
+            if (workingTimes != null)
+            {
+                WorkingTimes = workingTimes;
+            }
+            else
+            {
+                WorkingTimes = new List<IfcWorkTime>();
+            }
+
+            if (exceptionTimes != null)
+            {
+                ExceptionTimes = exceptionTimes;
+            }
+            else
+            {
+                ExceptionTimes = new List<IfcWorkTime>();
+            }
 			PredefinedType = predefinedType;
 
 		}
@@ -12231,6 +16214,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcWorkCalendar>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(WorkingTimes != null ? WorkingTimes.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ExceptionTimes != null ? ExceptionTimes.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12262,7 +16259,15 @@ namespace IFC4
 		public IfcWorkControl(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcIdentifier identification,IfcDateTime creationDate,List<IfcPerson> creators,IfcLabel purpose,IfcDuration duration,IfcDuration totalFloat,IfcDateTime startTime,IfcDateTime finishTime):base(globalId,ownerHistory,name,description,objectType,identification)
 		{
 			CreationDate = creationDate;
-			Creators = new List<IfcPerson>();
+
+            if (creators != null)
+            {
+                Creators = creators;
+            }
+            else
+            {
+                Creators = new List<IfcPerson>();
+            }
 			Purpose = purpose;
 			Duration = duration;
 			TotalFloat = totalFloat;
@@ -12274,6 +16279,24 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcWorkControl>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(CreationDate != null ? CreationDate.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Creators != null ? Creators.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Purpose != null ? Purpose.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Duration != null ? Duration.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TotalFloat != null ? TotalFloat.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(StartTime != null ? StartTime.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FinishTime != null ? FinishTime.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12303,6 +16326,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcController>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12333,6 +16368,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcControllerType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12357,6 +16404,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcConversionBasedUnit>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ConversionFactor != null ? ConversionFactor.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12379,6 +16439,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcConversionBasedUnitWithOffset>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ConversionOffset != null ? ConversionOffset.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12408,6 +16480,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCooledBeam>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12438,6 +16522,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCooledBeamType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12467,6 +16563,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCoolingTower>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12497,6 +16605,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCoolingTowerType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12521,6 +16641,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCoordinateOperation>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(SourceCRS != null ? SourceCRS.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TargetCRS != null ? TargetCRS.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12563,6 +16696,23 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMapConversion>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Eastings != null ? Eastings.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Northings != null ? Northings.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(OrthogonalHeight != null ? OrthogonalHeight.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(XAxisAbscissa != null ? XAxisAbscissa.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(XAxisOrdinate != null ? XAxisOrdinate.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Scale != null ? Scale.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12599,6 +16749,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCoordinateReferenceSystem>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(GeodeticDatum != null ? GeodeticDatum.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(VerticalDatum != null ? VerticalDatum.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12632,6 +16797,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcProjectedCRS>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(MapProjection != null ? MapProjection.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(MapZone != null ? MapZone.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(MapUnit != null ? MapUnit.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12658,6 +16837,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRectangularPyramid>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(XLength != null ? XLength.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(YLength != null ? YLength.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Height != null ? Height.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12682,6 +16875,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRightCircularCone>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Height != null ? Height.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(BottomRadius != null ? BottomRadius.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12706,6 +16912,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRightCircularCylinder>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Height != null ? Height.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Radius != null ? Radius.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12728,6 +16947,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSphere>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Radius != null ? Radius.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12750,6 +16981,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCsgSolid>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(TreeRootExpression != null ? TreeRootExpression.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12769,6 +17012,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSolidModel>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12809,6 +17062,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCurrencyRelationship>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingMonetaryUnit != null ? RelatingMonetaryUnit.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedMonetaryUnit != null ? RelatedMonetaryUnit.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ExchangeRate != null ? ExchangeRate.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RateDateTime != null ? RateDateTime.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RateSource != null ? RateSource.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12833,6 +17102,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLine>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Pnt != null ? Pnt.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Dir != null ? Dir.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12859,6 +17141,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcOffsetCurve2D>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(BasisCurve != null ? BasisCurve.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Distance != null ? Distance.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SelfIntersect != null ? SelfIntersect.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12887,6 +17183,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcOffsetCurve3D>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(BasisCurve != null ? BasisCurve.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Distance != null ? Distance.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SelfIntersect != null ? SelfIntersect.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RefDirection != null ? RefDirection.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12911,6 +17222,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPcurve>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(BasisSurface != null ? BasisSurface.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ReferenceCurve != null ? ReferenceCurve.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12946,6 +17270,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCurveStyle>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(CurveFont != null ? CurveFont.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CurveWidth != null ? CurveWidth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CurveColour != null ? CurveColour.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ModelOrDraughting.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -12975,6 +17314,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPresentationStyle>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13007,6 +17358,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCurveStyleFont>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PatternList != null ? PatternList.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13042,6 +17406,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCurveStyleFontAndScaling>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CurveFont != null ? CurveFont.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CurveFontScaling != null ? CurveFontScaling.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13066,6 +17444,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCurveStyleFontPattern>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(VisibleSegmentLength != null ? VisibleSegmentLength.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(InvisibleSegmentLength != null ? InvisibleSegmentLength.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13088,6 +17479,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcCylindricalSurface>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Radius != null ? Radius.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13110,6 +17513,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElementarySurface>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Position != null ? Position.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13139,6 +17554,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDamper>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13169,6 +17596,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDamperType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13204,6 +17643,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDerivedProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ParentProfile != null ? ParentProfile.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Operator != null ? Operator.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Label != null ? Label.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13230,6 +17683,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMirroredProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13265,6 +17728,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDerivedUnit>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Elements != null ? Elements.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(UnitType.STEPValue(ref indexDictionnary));
+			parameters.Add(UserDefinedType != null ? UserDefinedType.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13289,6 +17766,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDerivedUnitElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Unit != null ? Unit.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Exponent.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13323,6 +17813,24 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDimensionalExponents>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(LengthExponent.STEPValue(ref indexDictionnary));
+			parameters.Add(MassExponent.STEPValue(ref indexDictionnary));
+			parameters.Add(TimeExponent.STEPValue(ref indexDictionnary));
+			parameters.Add(ElectricCurrentExponent.STEPValue(ref indexDictionnary));
+			parameters.Add(ThermodynamicTemperatureExponent.STEPValue(ref indexDictionnary));
+			parameters.Add(AmountOfSubstanceExponent.STEPValue(ref indexDictionnary));
+			parameters.Add(LuminousIntensityExponent.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13345,6 +17853,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDirection>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(DirectionRatios != null ? DirectionRatios.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13374,6 +17894,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDiscreteAccessory>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13404,6 +17936,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDiscreteAccessoryType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13433,6 +17977,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionChamberElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13459,6 +18015,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionFlowElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13489,6 +18055,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionChamberElementType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13515,6 +18093,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionFlowElementType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13541,6 +18129,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionCircuit>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13572,6 +18170,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionSystem>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(LongName != null ? LongName.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13601,6 +18212,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFlowInstrument>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13630,6 +18253,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcProtectiveDeviceTrippingUnit>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13659,6 +18294,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSensor>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13688,6 +18335,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcUnitaryControlElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13714,6 +18373,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13744,6 +18413,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFlowInstrumentType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13774,6 +18455,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcProtectiveDeviceTrippingUnitType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13804,6 +18497,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSensorType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13834,6 +18539,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcUnitaryControlElementType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13860,6 +18577,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionElementType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13886,6 +18613,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFlowStorageDevice>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13912,6 +18649,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFlowTreatmentDevice>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13938,6 +18685,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFlowStorageDeviceType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13964,6 +18721,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFlowTreatmentDeviceType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -13997,6 +18764,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDistributionPort>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(FlowDirection.STEPValue(ref indexDictionnary));
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(SystemType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14023,6 +18804,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPort>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14072,7 +18863,15 @@ namespace IFC4
 			Scope = scope;
 			Revision = revision;
 			DocumentOwner = documentOwner;
-			Editors = new List<IfcActorSelect>();
+
+            if (editors != null)
+            {
+                Editors = editors;
+            }
+            else
+            {
+                Editors = new List<IfcActorSelect>();
+            }
 			CreationTime = creationTime;
 			LastRevisionTime = lastRevisionTime;
 			ElectronicFormat = electronicFormat;
@@ -14086,6 +18885,34 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDocumentInformation>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Identification != null ? Identification.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Location != null ? Location.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Purpose != null ? Purpose.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(IntendedUse != null ? IntendedUse.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Scope != null ? Scope.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Revision != null ? Revision.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(DocumentOwner != null ? DocumentOwner.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Editors != null ? Editors.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CreationTime != null ? CreationTime.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LastRevisionTime != null ? LastRevisionTime.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ElectronicFormat != null ? ElectronicFormat.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ValidFrom != null ? ValidFrom.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ValidUntil != null ? ValidUntil.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Confidentiality.STEPValue(ref indexDictionnary));
+			parameters.Add(Status.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14121,6 +18948,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDocumentInformationRelationship>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingDocument != null ? RelatingDocument.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedDocuments != null ? RelatedDocuments.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelationshipType != null ? RelationshipType.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14152,6 +18993,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDocumentReference>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ReferencedDocument != null ? ReferencedDocument.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14178,6 +19032,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDoorStandardCase>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14231,6 +19095,30 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDoorLiningProperties>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(LiningDepth != null ? LiningDepth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LiningThickness != null ? LiningThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ThresholdDepth != null ? ThresholdDepth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ThresholdThickness != null ? ThresholdThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TransomThickness != null ? TransomThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TransomOffset != null ? TransomOffset.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LiningOffset != null ? LiningOffset.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ThresholdOffset != null ? ThresholdOffset.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CasingThickness != null ? CasingThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CasingDepth != null ? CasingDepth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ShapeAspectStyle != null ? ShapeAspectStyle.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LiningToPanelOffsetX != null ? LiningToPanelOffsetX.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LiningToPanelOffsetY != null ? LiningToPanelOffsetY.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14257,6 +19145,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPreDefinedPropertySet>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14296,6 +19194,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDoorPanelProperties>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PanelDepth != null ? PanelDepth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PanelOperation.STEPValue(ref indexDictionnary));
+			parameters.Add(PanelWidth != null ? PanelWidth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PanelPosition.STEPValue(ref indexDictionnary));
+			parameters.Add(ShapeAspectStyle != null ? ShapeAspectStyle.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14335,6 +19249,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDoorStyle>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(OperationType.STEPValue(ref indexDictionnary));
+			parameters.Add(ConstructionType.STEPValue(ref indexDictionnary));
+			parameters.Add(ParameterTakesPrecedence.STEPValue(ref indexDictionnary));
+			parameters.Add(Sizeable.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14358,7 +19287,15 @@ namespace IFC4
 		[JsonConstructor]
 		public IfcTypeProduct(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets,List<IfcRepresentationMap> representationMaps,IfcLabel tag):base(globalId,ownerHistory,name,description,applicableOccurrence,hasPropertySets)
 		{
-			RepresentationMaps = new List<IfcRepresentationMap>();
+
+            if (representationMaps != null)
+            {
+                RepresentationMaps = representationMaps;
+            }
+            else
+            {
+                RepresentationMaps = new List<IfcRepresentationMap>();
+            }
 			Tag = tag;
 
 		}
@@ -14366,6 +19303,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTypeProduct>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RepresentationMaps != null ? RepresentationMaps.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Tag != null ? Tag.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14385,6 +19335,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDraughtingPreDefinedColour>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14404,6 +19364,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPreDefinedColour>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14423,6 +19393,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDraughtingPreDefinedCurveFont>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14442,6 +19422,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPreDefinedCurveFont>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14471,6 +19461,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDuctFitting>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14501,6 +19503,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDuctFittingType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14530,6 +19544,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDuctSegment>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14560,6 +19586,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDuctSegmentType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14589,6 +19627,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDuctSilencer>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14619,6 +19669,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcDuctSilencerType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14643,6 +19705,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcEdge>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(EdgeStart != null ? EdgeStart.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(EdgeEnd != null ? EdgeEnd.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14667,6 +19742,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcEdgeCurve>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(EdgeGeometry != null ? EdgeGeometry.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SameSense.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14691,6 +19779,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcOrientedEdge>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(EdgeElement != null ? EdgeElement.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Orientation.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14713,6 +19814,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSubedge>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ParentEdge != null ? ParentEdge.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14735,6 +19848,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcEdgeLoop>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(EdgeList != null ? EdgeList.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14754,6 +19879,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLoop>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14783,6 +19918,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElectricAppliance>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14813,6 +19960,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElectricApplianceType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14842,6 +20001,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElectricDistributionBoard>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14872,6 +20043,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElectricDistributionBoardType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14901,6 +20084,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElectricFlowStorageDevice>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14931,6 +20126,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElectricFlowStorageDeviceType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14960,6 +20167,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElectricGenerator>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -14990,6 +20209,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElectricGeneratorType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15019,6 +20250,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElectricMotor>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15049,6 +20292,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElectricMotorType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15078,6 +20333,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElectricTimeControl>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15108,6 +20375,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElectricTimeControlType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15139,6 +20418,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElementAssembly>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(AssemblyPlace.STEPValue(ref indexDictionnary));
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15165,6 +20457,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFeatureElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15191,6 +20493,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFurnishingElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15220,6 +20532,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcGeographicElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15249,6 +20573,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTransportElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15275,6 +20611,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcVirtualElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15305,6 +20651,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElementAssemblyType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15334,6 +20692,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFastener>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15367,6 +20737,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMechanicalFastener>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(NominalDiameter != null ? NominalDiameter.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(NominalLength != null ? NominalLength.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15396,6 +20780,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcReinforcingElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(SteelGrade != null ? SteelGrade.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15425,6 +20821,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcVibrationIsolator>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15455,6 +20863,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFastenerType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15489,6 +20909,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMechanicalFastenerType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(NominalDiameter != null ? NominalDiameter.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(NominalLength != null ? NominalLength.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15515,6 +20949,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcReinforcingElementType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15545,6 +20989,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcVibrationIsolatorType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15577,6 +21033,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcElementQuantity>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(MethodOfMeasurement != null ? MethodOfMeasurement.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Quantities != null ? Quantities.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15603,6 +21072,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcQuantitySet>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15629,6 +21108,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFurnishingElementType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15659,6 +21148,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcGeographicElementType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15689,6 +21190,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTransportElementType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15708,6 +21221,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPlane>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15741,6 +21264,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcEllipseProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(SemiAxis1 != null ? SemiAxis1.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SemiAxis2 != null ? SemiAxis2.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15770,6 +21306,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcEngine>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15799,6 +21347,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcEvaporativeCooler>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15828,6 +21388,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcEvaporator>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15857,6 +21429,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcHeatExchanger>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15886,6 +21470,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcHumidifier>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15915,6 +21511,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMotorConnection>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15944,6 +21552,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSolarDevice>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -15973,6 +21593,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTransformer>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16002,6 +21634,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTubeBundle>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16031,6 +21675,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcUnitaryEquipment>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16061,6 +21717,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcEngineType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16091,6 +21759,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcEvaporativeCoolerType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16121,6 +21801,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcEvaporatorType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16151,6 +21843,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcHeatExchangerType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16181,6 +21885,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcHumidifierType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16211,6 +21927,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMotorConnectionType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16241,6 +21969,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSolarDeviceType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16271,6 +22011,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTransformerType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16301,6 +22053,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTubeBundleType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16331,6 +22095,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcUnitaryEquipmentType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16366,6 +22142,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcEvent>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(EventTriggerType.STEPValue(ref indexDictionnary));
+			parameters.Add(UserDefinedEventTriggerType != null ? UserDefinedEventTriggerType.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(EventOccurenceTime != null ? EventOccurenceTime.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16397,6 +22188,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcProcess>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Identification != null ? Identification.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LongDescription != null ? LongDescription.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16432,6 +22236,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcEventTime>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ActualDate != null ? ActualDate.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(EarlyDate != null ? EarlyDate.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LateDate != null ? LateDate.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ScheduleDate != null ? ScheduleDate.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16465,6 +22284,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSchedulingTime>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(DataOrigin.STEPValue(ref indexDictionnary));
+			parameters.Add(UserDefinedDataOrigin != null ? UserDefinedDataOrigin.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16500,6 +22333,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcEventType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(EventTriggerType.STEPValue(ref indexDictionnary));
+			parameters.Add(UserDefinedEventTriggerType != null ? UserDefinedEventTriggerType.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16533,6 +22380,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTypeProcess>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Identification != null ? Identification.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LongDescription != null ? LongDescription.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ProcessType != null ? ProcessType.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16567,6 +22428,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcExtendedProperties>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Properties != null ? Properties.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16597,6 +22472,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialProperties>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Material != null ? Material.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16627,6 +22514,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcProfileProperties>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ProfileDefinition != null ? ProfileDefinition.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16646,6 +22545,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyAbstraction>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16686,6 +22595,23 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLibraryInformation>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Version != null ? Version.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Publisher != null ? Publisher.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(VersionDate != null ? VersionDate.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Location != null ? Location.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16712,6 +22638,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcExternallyDefinedHatchStyle>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16738,6 +22674,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcExternallyDefinedSurfaceStyle>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16764,6 +22710,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcExternallyDefinedTextFont>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16797,6 +22753,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLibraryReference>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Language != null ? Language.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ReferencedLibrary != null ? ReferencedLibrary.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16830,6 +22800,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcExternalReferenceRelationship>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingReference != null ? RelatingReference.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedResourceObjects != null ? RelatedResourceObjects.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16859,6 +22842,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcExternalSpatialElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16885,6 +22880,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcExternalSpatialStructureElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16914,6 +22919,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSpatialElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(LongName != null ? LongName.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16947,6 +22964,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcExtrudedAreaSolid>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ExtrudedDirection != null ? ExtrudedDirection.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Depth != null ? Depth.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -16977,6 +23007,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcExtrudedAreaSolidTapered>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(EndSweptArea != null ? EndSweptArea.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17009,6 +23051,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSweptAreaSolid>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(SweptArea != null ? SweptArea.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Position != null ? Position.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17031,6 +23086,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFace>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Bounds != null ? Bounds.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17053,6 +23120,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFaceBasedSurfaceModel>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(FbsmFaces != null ? FbsmFaces.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17077,6 +23156,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFaceBound>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Bound != null ? Bound.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Orientation.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17096,6 +23188,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFaceOuterBound>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17115,6 +23217,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFacetedBrep>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17137,6 +23249,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFacetedBrepWithVoids>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Voids != null ? Voids.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17176,6 +23300,23 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFailureConnectionCondition>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(TensionFailureX != null ? TensionFailureX.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TensionFailureY != null ? TensionFailureY.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TensionFailureZ != null ? TensionFailureZ.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CompressionFailureX != null ? CompressionFailureX.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CompressionFailureY != null ? CompressionFailureY.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CompressionFailureZ != null ? CompressionFailureZ.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17205,6 +23346,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralConnectionCondition>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17234,6 +23387,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFan>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17264,6 +23429,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFanType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17290,6 +23467,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFeatureElementAddition>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17316,6 +23503,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFeatureElementSubtraction>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17345,6 +23542,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceFeature>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17374,6 +23583,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcProjectionElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17403,6 +23624,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcOpeningElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17432,6 +23665,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcVoidingFeature>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17464,6 +23709,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFillAreaStyle>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(FillStyles != null ? FillStyles.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ModelorDraughting.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17504,6 +23762,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFillAreaStyleHatching>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(HatchLineAppearance != null ? HatchLineAppearance.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(StartOfNextHatchLine != null ? StartOfNextHatchLine.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PointOfReferenceHatchLine != null ? PointOfReferenceHatchLine.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PatternStart != null ? PatternStart.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(HatchLineAngle != null ? HatchLineAngle.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17530,6 +23804,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFillAreaStyleTiles>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(TilingPattern != null ? TilingPattern.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Tiles != null ? Tiles.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TilingScale != null ? TilingScale.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17559,6 +23847,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFilter>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17589,6 +23889,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFilterType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17618,6 +23930,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFireSuppressionTerminal>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17648,6 +23972,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFireSuppressionTerminalType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17685,6 +24021,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFixedReferenceSweptAreaSolid>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Directrix != null ? Directrix.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(StartParam != null ? StartParam.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(EndParam != null ? EndParam.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FixedReference != null ? FixedReference.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17714,6 +24065,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFlowMeter>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17743,6 +24106,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcProtectiveDevice>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17772,6 +24147,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSwitchingDevice>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17801,6 +24188,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcValve>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17831,6 +24230,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFlowMeterType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17861,6 +24272,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcProtectiveDeviceType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17891,6 +24314,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSwitchingDeviceType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17921,6 +24356,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcValveType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17950,6 +24397,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcJunctionBox>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -17979,6 +24438,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPipeFitting>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18009,6 +24480,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcJunctionBoxType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18039,6 +24522,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPipeFittingType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18068,6 +24563,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPump>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18098,6 +24605,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPumpType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18127,6 +24646,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPipeSegment>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18157,6 +24688,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPipeSegmentType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18186,6 +24729,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTank>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18216,6 +24771,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTankType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18245,6 +24812,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLamp>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18274,6 +24853,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLightFixture>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18303,6 +24894,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMedicalDevice>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18332,6 +24935,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcOutlet>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18361,6 +24976,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSanitaryTerminal>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18390,6 +25017,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSpaceHeater>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18419,6 +25058,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStackTerminal>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18448,6 +25099,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcWasteTerminal>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18478,6 +25141,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLampType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18508,6 +25183,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLightFixtureType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18538,6 +25225,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMedicalDeviceType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18568,6 +25267,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcOutletType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18598,6 +25309,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSanitaryTerminalType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18628,6 +25351,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSpaceHeaterType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18658,6 +25393,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStackTerminalType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18688,6 +25435,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcWasteTerminalType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18717,6 +25476,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcInterceptor>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18747,6 +25518,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcInterceptorType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18776,6 +25559,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFurniture>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18805,6 +25600,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSystemFurnitureElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18837,6 +25644,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcFurnitureType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(AssemblyPlace.STEPValue(ref indexDictionnary));
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18866,6 +25686,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSystemFurnitureElementType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18885,6 +25717,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcGeometricCurveSet>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18907,6 +25749,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcGeometricSet>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Elements != null ? Elements.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18944,6 +25798,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcGeometricRepresentationContext>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(CoordinateSpaceDimension != null ? CoordinateSpaceDimension.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Precision.STEPValue(ref indexDictionnary));
+			parameters.Add(WorldCoordinateSystem != null ? WorldCoordinateSystem.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TrueNorth != null ? TrueNorth.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -18981,6 +25850,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcGeometricRepresentationSubContext>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ParentContext != null ? ParentContext.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TargetScale != null ? TargetScale.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TargetView.STEPValue(ref indexDictionnary));
+			parameters.Add(UserDefinedTargetView != null ? UserDefinedTargetView.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19012,6 +25896,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRepresentationContext>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ContextIdentifier != null ? ContextIdentifier.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ContextType != null ? ContextType.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19048,6 +25945,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLightSource>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LightColour != null ? LightColour.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(AmbientIntensity != null ? AmbientIntensity.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Intensity != null ? Intensity.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19072,6 +25984,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPlanarExtent>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(SizeInX != null ? SizeInX.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SizeInY != null ? SizeInY.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19098,6 +26023,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSectionedSpine>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(SpineCurve != null ? SpineCurve.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CrossSections != null ? CrossSections.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CrossSectionPositions != null ? CrossSectionPositions.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19120,6 +26059,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcShellBasedSurfaceModel>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(SbsmBoundary != null ? SbsmBoundary.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19139,6 +26090,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTessellatedItem>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19165,6 +26126,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTextLiteral>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Literal != null ? Literal.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Placement != null ? Placement.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Path != null ? Path.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19189,6 +26164,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcVector>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Orientation != null ? Orientation.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Magnitude != null ? Magnitude.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19208,6 +26196,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRepresentationItem>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19237,7 +26235,15 @@ namespace IFC4
 		{
 			UAxes = uAxes;
 			VAxes = vAxes;
-			WAxes = new List<IfcGridAxis>();
+
+            if (wAxes != null)
+            {
+                WAxes = wAxes;
+            }
+            else
+            {
+                WAxes = new List<IfcGridAxis>();
+            }
 			PredefinedType = predefinedType;
 
 		}
@@ -19245,6 +26251,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcGrid>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(UAxes != null ? UAxes.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(VAxes != null ? VAxes.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(WAxes != null ? WAxes.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19280,6 +26301,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcGridAxis>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(AxisTag != null ? AxisTag.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(AxisCurve != null ? AxisCurve.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SameSense != null ? SameSense.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19312,6 +26347,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcGridPlacement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PlacementLocation != null ? PlacementLocation.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PlacementRefDirection != null ? PlacementRefDirection.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19331,6 +26379,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcObjectPlacement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19360,7 +26418,15 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 			Jurisdiction = jurisdiction;
-			ResponsiblePersons = new List<IfcPerson>();
+
+            if (responsiblePersons != null)
+            {
+                ResponsiblePersons = responsiblePersons;
+            }
+            else
+            {
+                ResponsiblePersons = new List<IfcPerson>();
+            }
 			LastUpdateDate = lastUpdateDate;
 			CurrentValue = currentValue;
 			OriginalValue = originalValue;
@@ -19370,6 +26436,23 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcInventory>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(Jurisdiction != null ? Jurisdiction.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ResponsiblePersons != null ? ResponsiblePersons.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LastUpdateDate != null ? LastUpdateDate.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CurrentValue != null ? CurrentValue.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(OriginalValue != null ? OriginalValue.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19410,6 +26493,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadGroup>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(ActionType.STEPValue(ref indexDictionnary));
+			parameters.Add(ActionSource.STEPValue(ref indexDictionnary));
+			parameters.Add(Coefficient != null ? Coefficient.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Purpose != null ? Purpose.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19445,6 +26544,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralResultGroup>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(TheoryType.STEPValue(ref indexDictionnary));
+			parameters.Add(ResultForLoadGroup != null ? ResultForLoadGroup.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(IsLinear.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19469,6 +26582,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPolygonalBoundedHalfSpace>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Position != null ? Position.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PolygonalBoundary != null ? PolygonalBoundary.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19514,6 +26640,24 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcIShapeProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(OverallWidth != null ? OverallWidth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(OverallDepth != null ? OverallDepth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(WebThickness != null ? WebThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FlangeThickness != null ? FlangeThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FilletRadius != null ? FilletRadius.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FlangeEdgeRadius != null ? FlangeEdgeRadius.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FlangeSlope != null ? FlangeSlope.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19544,6 +26688,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcImageTexture>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(URLReference != null ? URLReference.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19582,6 +26738,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcIndexedColourMap>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(MappedTo != null ? MappedTo.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Overrides != null ? Overrides.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Colours != null ? Colours.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ColourIndex != null ? ColourIndex.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19606,6 +26777,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcIndexedTextureMap>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(MappedTo != null ? MappedTo.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TexCoords != null ? TexCoords.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19628,13 +26812,33 @@ namespace IFC4
 		[JsonConstructor]
 		public IfcIndexedTriangleTextureMap(List<IfcSurfaceTexture> maps,IfcTessellatedFaceSet mappedTo,IfcTextureVertexList texCoords,List<List<int>> texCoordIndex):base(maps,mappedTo,texCoords)
 		{
-			TexCoordIndex = new List<List<int>>();
+
+            if (texCoordIndex != null)
+            {
+                TexCoordIndex = texCoordIndex;
+            }
+            else
+            {
+                TexCoordIndex = new List<List<int>>();
+            }
 
 		}
 		public static new IfcIndexedTriangleTextureMap FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcIndexedTriangleTextureMap>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(TexCoordIndex != null ? TexCoordIndex.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19657,6 +26861,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTextureCoordinate>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Maps != null ? Maps.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19687,6 +26903,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcIrregularTimeSeries>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Values != null ? Values.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19735,6 +26963,25 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTimeSeries>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(StartTime != null ? StartTime.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(EndTime != null ? EndTime.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TimeSeriesDataType.STEPValue(ref indexDictionnary));
+			parameters.Add(DataOrigin.STEPValue(ref indexDictionnary));
+			parameters.Add(UserDefinedDataOrigin != null ? UserDefinedDataOrigin.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Unit != null ? Unit.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19759,6 +27006,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcIrregularTimeSeriesValue>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(TimeStamp != null ? TimeStamp.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ListValues != null ? ListValues.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19800,6 +27060,23 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLShapeProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Depth != null ? Depth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Width != null ? Width.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Thickness != null ? Thickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FilletRadius != null ? FilletRadius.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(EdgeRadius != null ? EdgeRadius.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LegSlope != null ? LegSlope.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19833,6 +27110,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLagTime>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(LagValue != null ? LagValue.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(DurationType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19859,6 +27149,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLightDistributionData>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(MainPlaneAngle != null ? MainPlaneAngle.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SecondaryPlaneAngle != null ? SecondaryPlaneAngle.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LuminousIntensity != null ? LuminousIntensity.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19883,6 +27187,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLightIntensityDistribution>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(LightDistributionCurve.STEPValue(ref indexDictionnary));
+			parameters.Add(DistributionData != null ? DistributionData.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19909,6 +27226,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLightSourceAmbient>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19939,6 +27266,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLightSourceDirectional>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Orientation != null ? Orientation.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -19983,6 +27322,23 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLightSourceGoniometric>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Position != null ? Position.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ColourAppearance != null ? ColourAppearance.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ColourTemperature != null ? ColourTemperature.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LuminousFlux != null ? LuminousFlux.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LightEmissionSource.STEPValue(ref indexDictionnary));
+			parameters.Add(LightDistributionDataSource != null ? LightDistributionDataSource.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20025,6 +27381,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLightSourcePositional>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Position != null ? Position.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Radius != null ? Radius.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ConstantAttenuation != null ? ConstantAttenuation.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(DistanceAttenuation != null ? DistanceAttenuation.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(QuadricAttenuation != null ? QuadricAttenuation.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20063,6 +27435,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLightSourceSpot>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Orientation != null ? Orientation.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ConcentrationExponent != null ? ConcentrationExponent.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SpreadAngle != null ? SpreadAngle.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(BeamWidthAngle != null ? BeamWidthAngle.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20095,6 +27482,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcLocalPlacement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PlacementRelTo != null ? PlacementRelTo.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelativePlacement != null ? RelativePlacement.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20117,6 +27517,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPolyLoop>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Polygon != null ? Polygon.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20139,6 +27551,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcVertexLoop>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(LoopVertex != null ? LoopVertex.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20163,6 +27587,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMappedItem>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(MappingSource != null ? MappingSource.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(MappingTarget != null ? MappingTarget.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20197,6 +27634,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMaterial>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Category != null ? Category.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20216,6 +27667,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialDefinition>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20240,6 +27701,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialClassificationRelationship>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(MaterialClassifications != null ? MaterialClassifications.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ClassifiedMaterial != null ? ClassifiedMaterial.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20278,6 +27752,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialConstituent>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Material != null ? Material.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Fraction != null ? Fraction.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Category != null ? Category.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20304,13 +27794,35 @@ namespace IFC4
 		{
 			Name = name;
 			Description = description;
-			MaterialConstituents = new List<IfcMaterialConstituent>();
+
+            if (materialConstituents != null)
+            {
+                MaterialConstituents = materialConstituents;
+            }
+            else
+            {
+                MaterialConstituents = new List<IfcMaterialConstituent>();
+            }
 
 		}
 		public static new IfcMaterialConstituentSet FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialConstituentSet>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(MaterialConstituents != null ? MaterialConstituents.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20353,6 +27865,24 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialLayer>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Material != null ? Material.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LayerThickness != null ? LayerThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(IsVentilated != null ? IsVentilated.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Category != null ? Category.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Priority != null ? Priority.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20387,6 +27917,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialLayerSet>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(MaterialLayers != null ? MaterialLayers.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LayerSetName != null ? LayerSetName.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20427,6 +27971,23 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialProfile>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Material != null ? Material.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Profile != null ? Profile.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Priority != null ? Priority.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Category != null ? Category.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20463,6 +28024,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialProfileSet>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(MaterialProfiles != null ? MaterialProfiles.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CompositeProfile != null ? CompositeProfile.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20493,6 +28069,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialDefinitionRepresentation>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RepresentedMaterial != null ? RepresentedMaterial.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20527,6 +28115,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcProductRepresentation>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Representations != null ? Representations.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20560,6 +28162,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialLayerWithOffsets>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(OffsetDirection.STEPValue(ref indexDictionnary));
+			parameters.Add(OffsetValues != null ? OffsetValues.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20601,6 +28216,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialLayerSetUsage>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ForLayerSet != null ? ForLayerSet.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LayerSetDirection.STEPValue(ref indexDictionnary));
+			parameters.Add(DirectionSense.STEPValue(ref indexDictionnary));
+			parameters.Add(OffsetFromReferenceLine != null ? OffsetFromReferenceLine.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ReferenceExtent != null ? ReferenceExtent.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20620,6 +28251,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialUsageDefinition>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20642,6 +28283,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialList>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Materials != null ? Materials.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20672,6 +28325,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialProfileWithOffsets>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(OffsetValues != null ? OffsetValues.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20706,6 +28371,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialProfileSetUsage>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ForProfileSet != null ? ForProfileSet.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CardinalPoint != null ? CardinalPoint.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ReferenceExtent != null ? ReferenceExtent.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20738,6 +28417,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialProfileSetUsageTapering>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ForProfileEndSet != null ? ForProfileEndSet.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CardinalEndPoint != null ? CardinalEndPoint.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20773,6 +28465,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMaterialRelationship>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingMaterial != null ? RelatingMaterial.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedMaterials != null ? RelatedMaterials.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Expression != null ? Expression.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20797,6 +28503,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMeasureWithUnit>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ValueComponent != null ? ValueComponent.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(UnitComponent != null ? UnitComponent.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20823,6 +28542,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMemberStandardCase>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20845,6 +28574,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcMonetaryUnit>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Currency != null ? Currency.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20877,6 +28618,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSIUnit>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Prefix != null ? Prefix.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20901,13 +28655,34 @@ namespace IFC4
 		public IfcTypeObject(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcIdentifier applicableOccurrence,List<IfcPropertySetDefinition> hasPropertySets):base(globalId,ownerHistory,name,description)
 		{
 			ApplicableOccurrence = applicableOccurrence;
-			HasPropertySets = new List<IfcPropertySetDefinition>();
+
+            if (hasPropertySets != null)
+            {
+                HasPropertySets = hasPropertySets;
+            }
+            else
+            {
+                HasPropertySets = new List<IfcPropertySetDefinition>();
+            }
 
 		}
 		public static new IfcTypeObject FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTypeObject>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ApplicableOccurrence != null ? ApplicableOccurrence.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(HasPropertySets != null ? HasPropertySets.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -20947,17 +28722,19 @@ namespace IFC4
 
         public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
         {
-            List<string> parameters = new List<string>();
+            List < string > parameters = new List<string>();
             string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
-            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);} 
-            parameters.Add(GlobalId != null ? GlobalId.STEPValue(ref indexDictionnary) : "$");
-            parameters.Add(OwnerHistory != null ? OwnerHistory.STEPValue(ref indexDictionnary) : "$");
-            parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
-            parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(GlobalId != null ? GlobalId.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(OwnerHistory != null ? OwnerHistory.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
 
-            return string.Join(",", parameters.ToArray());
+
+            return string.Join(", ", parameters.ToArray());
         }
-    }
+	}
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcopeningstandardcase.htm"/>
@@ -20983,6 +28760,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcOpeningStandardCase>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21013,14 +28800,46 @@ namespace IFC4
 			Identification = identification;
 			Name = name;
 			Description = description;
-			Roles = new List<IfcActorRole>();
-			Addresses = new List<IfcAddress>();
+
+            if (roles != null)
+            {
+                Roles = roles;
+            }
+            else
+            {
+                Roles = new List<IfcActorRole>();
+            }
+
+            if (addresses != null)
+            {
+                Addresses = addresses;
+            }
+            else
+            {
+                Addresses = new List<IfcAddress>();
+            }
 
 		}
 		public static  IfcOrganization FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcOrganization>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Identification != null ? Identification.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Roles != null ? Roles.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Addresses != null ? Addresses.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21054,6 +28873,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcOrganizationRelationship>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingOrganization != null ? RelatingOrganization.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedOrganizations != null ? RelatedOrganizations.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21100,6 +28932,25 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcOwnerHistory>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(OwningUser != null ? OwningUser.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(OwningApplication != null ? OwningApplication.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(State.STEPValue(ref indexDictionnary));
+			parameters.Add(ChangeAction.STEPValue(ref indexDictionnary));
+			parameters.Add(LastModifiedDate != null ? LastModifiedDate.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LastModifyingUser != null ? LastModifyingUser.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LastModifyingApplication != null ? LastModifyingApplication.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CreationDate != null ? CreationDate.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21133,6 +28984,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRectangleProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(XDim != null ? XDim.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(YDim != null ? YDim.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21182,6 +29046,26 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTShapeProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Depth != null ? Depth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FlangeWidth != null ? FlangeWidth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(WebThickness != null ? WebThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FlangeThickness != null ? FlangeThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FilletRadius != null ? FilletRadius.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FlangeEdgeRadius != null ? FlangeEdgeRadius.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(WebEdgeRadius != null ? WebEdgeRadius.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(WebSlope != null ? WebSlope.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FlangeSlope != null ? FlangeSlope.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21221,6 +29105,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTrapeziumProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(BottomXDim != null ? BottomXDim.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TopXDim != null ? TopXDim.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(YDim != null ? YDim.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TopXOffset != null ? TopXOffset.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21266,6 +29165,24 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcUShapeProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Depth != null ? Depth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FlangeWidth != null ? FlangeWidth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(WebThickness != null ? WebThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FlangeThickness != null ? FlangeThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FilletRadius != null ? FilletRadius.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(EdgeRadius != null ? EdgeRadius.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FlangeSlope != null ? FlangeSlope.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21309,6 +29226,23 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcZShapeProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Depth != null ? Depth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FlangeWidth != null ? FlangeWidth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(WebThickness != null ? WebThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FlangeThickness != null ? FlangeThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FilletRadius != null ? FilletRadius.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(EdgeRadius != null ? EdgeRadius.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21331,6 +29265,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPath>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(EdgeList != null ? EdgeList.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21370,6 +29316,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPermeableCoveringProperties>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(OperationType.STEPValue(ref indexDictionnary));
+			parameters.Add(PanelPosition.STEPValue(ref indexDictionnary));
+			parameters.Add(FrameDepth != null ? FrameDepth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FrameThickness != null ? FrameThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ShapeAspectStyle != null ? ShapeAspectStyle.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21402,17 +29364,76 @@ namespace IFC4
 			Identification = identification;
 			FamilyName = familyName;
 			GivenName = givenName;
-			MiddleNames = new List<IfcLabel>();
-			PrefixTitles = new List<IfcLabel>();
-			SuffixTitles = new List<IfcLabel>();
-			Roles = new List<IfcActorRole>();
-			Addresses = new List<IfcAddress>();
+
+            if (middleNames != null)
+            {
+                MiddleNames = middleNames;
+            }
+            else
+            {
+                MiddleNames = new List<IfcLabel>();
+            }
+
+            if (prefixTitles != null)
+            {
+                PrefixTitles = prefixTitles;
+            }
+            else
+            {
+                PrefixTitles = new List<IfcLabel>();
+            }
+
+            if (suffixTitles != null)
+            {
+                SuffixTitles = suffixTitles;
+            }
+            else
+            {
+                SuffixTitles = new List<IfcLabel>();
+            }
+
+            if (roles != null)
+            {
+                Roles = roles;
+            }
+            else
+            {
+                Roles = new List<IfcActorRole>();
+            }
+
+            if (addresses != null)
+            {
+                Addresses = addresses;
+            }
+            else
+            {
+                Addresses = new List<IfcAddress>();
+            }
 
 		}
 		public static  IfcPerson FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPerson>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Identification != null ? Identification.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FamilyName != null ? FamilyName.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(GivenName != null ? GivenName.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(MiddleNames != null ? MiddleNames.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PrefixTitles != null ? PrefixTitles.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SuffixTitles != null ? SuffixTitles.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Roles != null ? Roles.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Addresses != null ? Addresses.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21441,13 +29462,35 @@ namespace IFC4
 		{
 			ThePerson = thePerson;
 			TheOrganization = theOrganization;
-			Roles = new List<IfcActorRole>();
+
+            if (roles != null)
+            {
+                Roles = roles;
+            }
+            else
+            {
+                Roles = new List<IfcActorRole>();
+            }
 
 		}
 		public static  IfcPersonAndOrganization FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcPersonAndOrganization>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ThePerson != null ? ThePerson.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TheOrganization != null ? TheOrganization.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Roles != null ? Roles.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21485,6 +29528,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPhysicalComplexQuantity>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(HasQuantities != null ? HasQuantities.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Discrimination != null ? Discrimination.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Quality != null ? Quality.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Usage != null ? Usage.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21517,6 +29575,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPhysicalQuantity>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21546,6 +29617,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPhysicalSimpleQuantity>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Unit != null ? Unit.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21578,6 +29661,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcQuantityArea>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(AreaValue != null ? AreaValue.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Formula != null ? Formula.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21610,6 +29706,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcQuantityCount>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(CountValue != null ? CountValue.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Formula != null ? Formula.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21642,6 +29751,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcQuantityLength>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(LengthValue != null ? LengthValue.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Formula != null ? Formula.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21674,6 +29796,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcQuantityTime>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(TimeValue != null ? TimeValue.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Formula != null ? Formula.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21706,6 +29841,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcQuantityVolume>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(VolumeValue != null ? VolumeValue.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Formula != null ? Formula.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21738,6 +29886,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcQuantityWeight>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(WeightValue != null ? WeightValue.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Formula != null ? Formula.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21777,6 +29938,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPixelTexture>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Width != null ? Width.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Height != null ? Height.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ColourComponents != null ? ColourComponents.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Pixel != null ? Pixel.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21799,6 +29975,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPlanarBox>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Placement != null ? Placement.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21825,6 +30013,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPlateStandardCase>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21849,6 +30047,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPointOnCurve>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(BasisCurve != null ? BasisCurve.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PointParameter != null ? PointParameter.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21875,6 +30086,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPointOnSurface>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(BasisSurface != null ? BasisSurface.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PointParameterU != null ? PointParameterU.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PointParameterV != null ? PointParameterV.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21897,6 +30122,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPreDefinedItem>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21916,6 +30153,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPreDefinedTextFont>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21935,6 +30182,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPreDefinedProperties>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -21976,6 +30233,23 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcReinforcementBarProperties>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(TotalCrossSectionArea != null ? TotalCrossSectionArea.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SteelGrade != null ? SteelGrade.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(BarSurface.STEPValue(ref indexDictionnary));
+			parameters.Add(EffectiveDepth != null ? EffectiveDepth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(NominalBarDiameter != null ? NominalBarDiameter.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(BarCount != null ? BarCount.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22011,6 +30285,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSectionProperties>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(SectionType.STEPValue(ref indexDictionnary));
+			parameters.Add(StartProfile != null ? StartProfile.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(EndProfile != null ? EndProfile.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22055,6 +30343,23 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSectionReinforcementProperties>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(LongitudinalStartPosition != null ? LongitudinalStartPosition.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LongitudinalEndPosition != null ? LongitudinalEndPosition.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TransversePosition != null ? TransversePosition.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ReinforcementRole.STEPValue(ref indexDictionnary));
+			parameters.Add(SectionDefinition != null ? SectionDefinition.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CrossSectionReinforcementDefinitions != null ? CrossSectionReinforcementDefinitions.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22087,6 +30392,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcReinforcementDefinitionProperties>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(DefinitionType != null ? DefinitionType.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ReinforcementSectionDefinitions != null ? ReinforcementSectionDefinitions.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22138,6 +30456,29 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcWindowLiningProperties>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(LiningDepth != null ? LiningDepth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LiningThickness != null ? LiningThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TransomThickness != null ? TransomThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(MullionThickness != null ? MullionThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FirstTransomOffset != null ? FirstTransomOffset.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SecondTransomOffset != null ? SecondTransomOffset.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FirstMullionOffset != null ? FirstMullionOffset.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SecondMullionOffset != null ? SecondMullionOffset.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ShapeAspectStyle != null ? ShapeAspectStyle.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LiningOffset != null ? LiningOffset.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LiningToPanelOffsetX != null ? LiningToPanelOffsetX.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LiningToPanelOffsetY != null ? LiningToPanelOffsetY.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22177,6 +30518,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcWindowPanelProperties>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(OperationType.STEPValue(ref indexDictionnary));
+			parameters.Add(PanelPosition.STEPValue(ref indexDictionnary));
+			parameters.Add(FrameDepth != null ? FrameDepth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FrameThickness != null ? FrameThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ShapeAspectStyle != null ? ShapeAspectStyle.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22203,6 +30560,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPropertySetDefinition>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22242,6 +30609,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTextStyleFontModel>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(FontFamily != null ? FontFamily.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FontStyle != null ? FontStyle.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FontVariant != null ? FontVariant.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FontWeight != null ? FontWeight.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FontSize != null ? FontSize.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22270,6 +30653,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceStyleLighting>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(DiffuseTransmissionColour != null ? DiffuseTransmissionColour.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(DiffuseReflectionColour != null ? DiffuseReflectionColour.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TransmissionColour != null ? TransmissionColour.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ReflectanceColour != null ? ReflectanceColour.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22301,6 +30699,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceStyleRefraction>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RefractionIndex != null ? RefractionIndex.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(DispersionFactor != null ? DispersionFactor.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22323,6 +30734,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceStyleShading>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(SurfaceColour != null ? SurfaceColour.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22345,6 +30768,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceStyleWithTextures>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Textures != null ? Textures.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22377,6 +30812,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTextStyleForDefinedFont>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Colour != null ? Colour.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(BackgroundColour != null ? BackgroundColour.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22418,6 +30866,24 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTextStyleTextModel>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(TextIndent != null ? TextIndent.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TextAlign != null ? TextAlign.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TextDecoration != null ? TextDecoration.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LetterSpacing != null ? LetterSpacing.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(WordSpacing != null ? WordSpacing.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TextTransform != null ? TextTransform.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LineHeight != null ? LineHeight.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22440,6 +30906,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTextureVertex>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Coordinates != null ? Coordinates.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22462,6 +30940,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTextureVertexList>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(TexCoordsList != null ? TexCoordsList.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22499,6 +30989,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPresentationLayerAssignment>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(AssignedItems != null ? AssignedItems.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Identifier != null ? Identifier.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22538,6 +31043,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPresentationLayerWithStyle>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(LayerOn != null ? LayerOn.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LayerFrozen != null ? LayerFrozen.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LayerBlocked != null ? LayerBlocked.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LayerStyles != null ? LayerStyles.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22571,6 +31091,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceStyle>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Side != null ? Side.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Styles != null ? Styles.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22607,6 +31140,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTextStyle>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(TextCharacterAppearance != null ? TextCharacterAppearance.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TextStyle != null ? TextStyle.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TextFontStyle != null ? TextFontStyle.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ModelOrDraughting.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22629,6 +31177,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPresentationStyleAssignment>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Styles != null ? Styles.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22658,6 +31218,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcProcedure>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22688,6 +31260,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcProcedureType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22728,6 +31312,23 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTask>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Status != null ? Status.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(WorkMethod != null ? WorkMethod.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(IsMilestone.STEPValue(ref indexDictionnary));
+			parameters.Add(Priority.STEPValue(ref indexDictionnary));
+			parameters.Add(TaskTime != null ? TaskTime.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22760,6 +31361,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcProxy>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ProxyType.STEPValue(ref indexDictionnary));
+			parameters.Add(Tag != null ? Tag.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22793,6 +31407,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralActivity>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(AppliedLoad != null ? AppliedLoad.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(GlobalOrLocal.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22819,6 +31446,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralItem>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22845,6 +31482,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcProductDefinitionShape>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22871,6 +31518,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSimpleProperty>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22906,6 +31563,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyEnumeration>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(EnumerationValues != null ? EnumerationValues.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Unit != null ? Unit.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22941,6 +31612,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyBoundedValue>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(UpperBoundValue != null ? UpperBoundValue.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LowerBoundValue != null ? LowerBoundValue.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Unit != null ? Unit.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SetPointValue != null ? SetPointValue.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22967,6 +31653,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyDefinition>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -22993,6 +31689,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyTemplateDefinition>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23028,6 +31734,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyDependencyRelationship>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(DependingProperty != null ? DependingProperty.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(DependantProperty != null ? DependantProperty.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Expression != null ? Expression.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23051,7 +31771,15 @@ namespace IFC4
 		[JsonConstructor]
 		public IfcPropertyEnumeratedValue(IfcIdentifier name,IfcText description,List<IfcValue> enumerationValues,IfcPropertyEnumeration enumerationReference):base(name,description)
 		{
-			EnumerationValues = new List<IfcValue>();
+
+            if (enumerationValues != null)
+            {
+                EnumerationValues = enumerationValues;
+            }
+            else
+            {
+                EnumerationValues = new List<IfcValue>();
+            }
 			EnumerationReference = enumerationReference;
 
 		}
@@ -23059,6 +31787,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyEnumeratedValue>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(EnumerationValues != null ? EnumerationValues.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(EnumerationReference != null ? EnumerationReference.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23082,7 +31823,15 @@ namespace IFC4
 		[JsonConstructor]
 		public IfcPropertyListValue(IfcIdentifier name,IfcText description,List<IfcValue> listValues,IfcUnit unit):base(name,description)
 		{
-			ListValues = new List<IfcValue>();
+
+            if (listValues != null)
+            {
+                ListValues = listValues;
+            }
+            else
+            {
+                ListValues = new List<IfcValue>();
+            }
 			Unit = unit;
 
 		}
@@ -23090,6 +31839,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyListValue>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ListValues != null ? ListValues.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Unit != null ? Unit.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23121,6 +31883,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyReferenceValue>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(UsageName != null ? UsageName.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PropertyReference != null ? PropertyReference.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23151,6 +31926,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPropertySet>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(HasProperties != null ? HasProperties.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23185,6 +31972,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPropertySetTemplate>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(TemplateType.STEPValue(ref indexDictionnary));
+			parameters.Add(ApplicableEntity != null ? ApplicableEntity.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(HasPropertyTemplates != null ? HasPropertyTemplates.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23216,6 +32017,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPropertySingleValue>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(NominalValue != null ? NominalValue.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Unit != null ? Unit.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23243,8 +32057,24 @@ namespace IFC4
 		[JsonConstructor]
 		public IfcPropertyTableValue(IfcIdentifier name,IfcText description,List<IfcValue> definingValues,List<IfcValue> definedValues,IfcText expression,IfcUnit definingUnit,IfcUnit definedUnit,IfcCurveInterpolationEnum curveInterpolation):base(name,description)
 		{
-			DefiningValues = new List<IfcValue>();
-			DefinedValues = new List<IfcValue>();
+
+            if (definingValues != null)
+            {
+                DefiningValues = definingValues;
+            }
+            else
+            {
+                DefiningValues = new List<IfcValue>();
+            }
+
+            if (definedValues != null)
+            {
+                DefinedValues = definedValues;
+            }
+            else
+            {
+                DefinedValues = new List<IfcValue>();
+            }
 			Expression = expression;
 			DefiningUnit = definingUnit;
 			DefinedUnit = definedUnit;
@@ -23255,6 +32085,23 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPropertyTableValue>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(DefiningValues != null ? DefiningValues.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(DefinedValues != null ? DefinedValues.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Expression != null ? Expression.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(DefiningUnit != null ? DefiningUnit.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(DefinedUnit != null ? DefinedUnit.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CurveInterpolation.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23298,6 +32145,25 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSimplePropertyTemplate>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(TemplateType.STEPValue(ref indexDictionnary));
+			parameters.Add(PrimaryMeasureType != null ? PrimaryMeasureType.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SecondaryMeasureType != null ? SecondaryMeasureType.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Enumerators != null ? Enumerators.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PrimaryUnit != null ? PrimaryUnit.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SecondaryUnit != null ? SecondaryUnit.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Expression != null ? Expression.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(AccessState.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23332,6 +32198,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRectangleHollowProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(WallThickness != null ? WallThickness.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(InnerFilletRadius != null ? InnerFilletRadius.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(OuterFilletRadius != null ? OuterFilletRadius.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23362,6 +32242,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRoundedRectangleProfileDef>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RoundingRadius != null ? RoundingRadius.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23393,19 +32285,70 @@ namespace IFC4
 		public IfcRecurrencePattern(IfcRecurrenceTypeEnum recurrenceType,List<IfcDayInMonthNumber> dayComponent,List<IfcDayInWeekNumber> weekdayComponent,List<IfcMonthInYearNumber> monthComponent,IfcInteger position,IfcInteger interval,IfcInteger occurrences,List<IfcTimePeriod> timePeriods):base()
 		{
 			RecurrenceType = recurrenceType;
-			DayComponent = new List<IfcDayInMonthNumber>();
-			WeekdayComponent = new List<IfcDayInWeekNumber>();
-			MonthComponent = new List<IfcMonthInYearNumber>();
+
+            if (dayComponent != null)
+            {
+                DayComponent = dayComponent;
+            }
+            else
+            {
+                DayComponent = new List<IfcDayInMonthNumber>();
+            }
+
+            if (weekdayComponent != null)
+            {
+                WeekdayComponent = weekdayComponent;
+            }
+            else
+            {
+                WeekdayComponent = new List<IfcDayInWeekNumber>();
+            }
+
+            if (monthComponent != null)
+            {
+                MonthComponent = monthComponent;
+            }
+            else
+            {
+                MonthComponent = new List<IfcMonthInYearNumber>();
+            }
 			Position = position;
 			Interval = interval;
 			Occurrences = occurrences;
-			TimePeriods = new List<IfcTimePeriod>();
+
+            if (timePeriods != null)
+            {
+                TimePeriods = timePeriods;
+            }
+            else
+            {
+                TimePeriods = new List<IfcTimePeriod>();
+            }
 
 		}
 		public static  IfcRecurrencePattern FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcRecurrencePattern>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RecurrenceType.STEPValue(ref indexDictionnary));
+			parameters.Add(DayComponent != null ? DayComponent.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(WeekdayComponent != null ? WeekdayComponent.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(MonthComponent != null ? MonthComponent.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Position != null ? Position.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Interval != null ? Interval.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Occurrences != null ? Occurrences.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TimePeriods != null ? TimePeriods.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23435,7 +32378,15 @@ namespace IFC4
 			TypeIdentifier = typeIdentifier;
 			AttributeIdentifier = attributeIdentifier;
 			InstanceName = instanceName;
-			ListPositions = new List<int>();
+
+            if (listPositions != null)
+            {
+                ListPositions = listPositions;
+            }
+            else
+            {
+                ListPositions = new List<int>();
+            }
 			InnerReference = innerReference;
 
 		}
@@ -23443,6 +32394,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcReference>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(TypeIdentifier != null ? TypeIdentifier.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(AttributeIdentifier != null ? AttributeIdentifier.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(InstanceName != null ? InstanceName.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ListPositions != null ? ListPositions.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(InnerReference != null ? InnerReference.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23476,6 +32443,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRegularTimeSeries>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(TimeStep != null ? TimeStep.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Values != null ? Values.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23513,6 +32493,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcReinforcingBar>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(NominalDiameter != null ? NominalDiameter.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CrossSectionArea != null ? CrossSectionArea.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(BarLength != null ? BarLength.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(BarSurface.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23548,13 +32544,39 @@ namespace IFC4
 			BarLength = barLength;
 			BarSurface = barSurface;
 			BendingShapeCode = bendingShapeCode;
-			BendingParameters = new List<IfcBendingParameterSelect>();
+
+            if (bendingParameters != null)
+            {
+                BendingParameters = bendingParameters;
+            }
+            else
+            {
+                BendingParameters = new List<IfcBendingParameterSelect>();
+            }
 
 		}
 		public static new IfcReinforcingBarType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcReinforcingBarType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(NominalDiameter != null ? NominalDiameter.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CrossSectionArea != null ? CrossSectionArea.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(BarLength != null ? BarLength.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(BarSurface.STEPValue(ref indexDictionnary));
+			parameters.Add(BendingShapeCode != null ? BendingShapeCode.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(BendingParameters != null ? BendingParameters.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23600,6 +32622,26 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcReinforcingMesh>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(MeshLength != null ? MeshLength.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(MeshWidth != null ? MeshWidth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LongitudinalBarNominalDiameter != null ? LongitudinalBarNominalDiameter.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TransverseBarNominalDiameter != null ? TransverseBarNominalDiameter.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LongitudinalBarCrossSectionArea != null ? LongitudinalBarCrossSectionArea.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TransverseBarCrossSectionArea != null ? TransverseBarCrossSectionArea.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LongitudinalBarSpacing != null ? LongitudinalBarSpacing.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TransverseBarSpacing != null ? TransverseBarSpacing.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23643,6 +32685,25 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTendon>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(NominalDiameter != null ? NominalDiameter.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CrossSectionArea != null ? CrossSectionArea.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TensionForce != null ? TensionForce.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PreStress != null ? PreStress.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FrictionCoefficient != null ? FrictionCoefficient.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(AnchorageSlip != null ? AnchorageSlip.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(MinCurvatureRadius != null ? MinCurvatureRadius.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23672,6 +32733,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTendonAnchor>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23715,13 +32788,43 @@ namespace IFC4
 			LongitudinalBarSpacing = longitudinalBarSpacing;
 			TransverseBarSpacing = transverseBarSpacing;
 			BendingShapeCode = bendingShapeCode;
-			BendingParameters = new List<IfcBendingParameterSelect>();
+
+            if (bendingParameters != null)
+            {
+                BendingParameters = bendingParameters;
+            }
+            else
+            {
+                BendingParameters = new List<IfcBendingParameterSelect>();
+            }
 
 		}
 		public static new IfcReinforcingMeshType FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcReinforcingMeshType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(MeshLength != null ? MeshLength.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(MeshWidth != null ? MeshWidth.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LongitudinalBarNominalDiameter != null ? LongitudinalBarNominalDiameter.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TransverseBarNominalDiameter != null ? TransverseBarNominalDiameter.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LongitudinalBarCrossSectionArea != null ? LongitudinalBarCrossSectionArea.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TransverseBarCrossSectionArea != null ? TransverseBarCrossSectionArea.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LongitudinalBarSpacing != null ? LongitudinalBarSpacing.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TransverseBarSpacing != null ? TransverseBarSpacing.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(BendingShapeCode != null ? BendingShapeCode.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(BendingParameters != null ? BendingParameters.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23752,6 +32855,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTendonAnchorType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23788,6 +32903,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTendonType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(NominalDiameter != null ? NominalDiameter.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(CrossSectionArea != null ? CrossSectionArea.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SheethDiameter != null ? SheethDiameter.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23821,6 +32951,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelAggregates>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingObject != null ? RelatingObject.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedObjects != null ? RelatedObjects.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23847,6 +32990,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelDecomposes>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23879,6 +33032,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssigns>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatedObjects != null ? RelatedObjects.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedObjectsType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23911,6 +33077,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssignsToActor>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingActor != null ? RelatingActor.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ActingRole != null ? ActingRole.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23941,6 +33120,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssignsToControl>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingControl != null ? RelatingControl.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -23971,6 +33162,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssignsToGroup>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingGroup != null ? RelatingGroup.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24003,6 +33206,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssignsToProcess>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingProcess != null ? RelatingProcess.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(QuantityInProcess != null ? QuantityInProcess.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24033,6 +33249,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssignsToProduct>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingProduct != null ? RelatingProduct.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24063,6 +33291,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssignsToResource>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingResource != null ? RelatingResource.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24089,6 +33329,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelationship>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24119,6 +33369,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssignsToGroupByFactor>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Factor != null ? Factor.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24149,6 +33411,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssociates>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatedObjects != null ? RelatedObjects.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24179,6 +33453,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssociatesApproval>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingApproval != null ? RelatingApproval.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24209,6 +33495,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssociatesClassification>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingClassification != null ? RelatingClassification.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24241,6 +33539,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssociatesConstraint>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Intent != null ? Intent.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatingConstraint != null ? RelatingConstraint.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24271,6 +33582,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssociatesDocument>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingDocument != null ? RelatingDocument.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24301,6 +33624,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssociatesLibrary>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingLibrary != null ? RelatingLibrary.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24331,6 +33666,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelAssociatesMaterial>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingMaterial != null ? RelatingMaterial.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24357,6 +33704,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelConnects>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24392,6 +33749,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelConnectsElements>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ConnectionGeometry != null ? ConnectionGeometry.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatingElement != null ? RelatingElement.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedElement != null ? RelatedElement.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24425,6 +33796,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelConnectsPortToElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingPort != null ? RelatingPort.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedElement != null ? RelatedElement.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24460,6 +33844,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelConnectsPorts>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingPort != null ? RelatingPort.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedPort != null ? RelatedPort.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RealizingElement != null ? RealizingElement.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24493,6 +33891,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelConnectsStructuralActivity>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingElement != null ? RelatingElement.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedStructuralActivity != null ? RelatedStructuralActivity.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24534,6 +33945,23 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelConnectsStructuralMember>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingStructuralMember != null ? RelatingStructuralMember.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedStructuralConnection != null ? RelatedStructuralConnection.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(AppliedCondition != null ? AppliedCondition.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(AdditionalConditions != null ? AdditionalConditions.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SupportedLength != null ? SupportedLength.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ConditionCoordinateSystem != null ? ConditionCoordinateSystem.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24567,6 +33995,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelContainedInSpatialStructure>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatedElements != null ? RelatedElements.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatingStructure != null ? RelatingStructure.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24600,6 +34041,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelCoversBldgElements>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingBuildingElement != null ? RelatingBuildingElement.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedCoverings != null ? RelatedCoverings.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24633,6 +34087,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelCoversSpaces>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingSpace != null ? RelatingSpace.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedCoverings != null ? RelatedCoverings.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24666,6 +34133,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelFillsElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingOpeningElement != null ? RelatingOpeningElement.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedBuildingElement != null ? RelatedBuildingElement.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24699,6 +34179,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelFlowControlElements>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatedControlElements != null ? RelatedControlElements.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatingFlowElement != null ? RelatingFlowElement.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24739,6 +34232,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelInterferesElements>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingElement != null ? RelatingElement.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedElement != null ? RelatedElement.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(InterferenceGeometry != null ? InterferenceGeometry.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(InterferenceType != null ? InterferenceType.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ImpliedOrder != null ? ImpliedOrder.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24772,6 +34281,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelReferencedInSpatialStructure>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatedElements != null ? RelatedElements.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatingStructure != null ? RelatingStructure.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24811,6 +34333,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelSequence>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingProcess != null ? RelatingProcess.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedProcess != null ? RelatedProcess.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TimeLag != null ? TimeLag.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SequenceType.STEPValue(ref indexDictionnary));
+			parameters.Add(UserDefinedSequenceType != null ? UserDefinedSequenceType.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24844,6 +34382,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelServicesBuildings>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingSystem != null ? RelatingSystem.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedBuildings != null ? RelatedBuildings.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24885,6 +34436,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelSpaceBoundary>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingSpace != null ? RelatingSpace.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedBuildingElement != null ? RelatedBuildingElement.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ConnectionGeometry != null ? ConnectionGeometry.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PhysicalOrVirtualBoundary.STEPValue(ref indexDictionnary));
+			parameters.Add(InternalOrExternalBoundary.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24924,6 +34491,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelConnectsPathElements>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingPriorities != null ? RelatingPriorities.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedPriorities != null ? RelatedPriorities.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedConnectionType.STEPValue(ref indexDictionnary));
+			parameters.Add(RelatingConnectionType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24956,6 +34538,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelConnectsWithRealizingElements>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RealizingElements != null ? RealizingElements.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ConnectionType != null ? ConnectionType.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -24986,6 +34581,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelConnectsWithEccentricity>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ConnectionConstraint != null ? ConnectionConstraint.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25019,6 +34626,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelDeclares>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingContext != null ? RelatingContext.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedDefinitions != null ? RelatedDefinitions.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25052,6 +34672,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelNests>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingObject != null ? RelatingObject.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedObjects != null ? RelatedObjects.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25085,6 +34718,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelProjectsElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingElement != null ? RelatingElement.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedFeatureElement != null ? RelatedFeatureElement.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25118,6 +34764,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelVoidsElement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingBuildingElement != null ? RelatingBuildingElement.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedOpeningElement != null ? RelatedOpeningElement.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25144,6 +34803,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelDefines>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25177,6 +34846,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelDefinesByObject>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatedObjects != null ? RelatedObjects.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatingObject != null ? RelatingObject.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25210,6 +34892,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelDefinesByProperties>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatedObjects != null ? RelatedObjects.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatingPropertyDefinition != null ? RelatingPropertyDefinition.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25243,6 +34938,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelDefinesByTemplate>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatedPropertySets != null ? RelatedPropertySets.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatingTemplate != null ? RelatingTemplate.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25276,6 +34984,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelDefinesByType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatedObjects != null ? RelatedObjects.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatingType != null ? RelatingType.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25305,6 +35026,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelSpaceBoundary1stLevel>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ParentBoundary != null ? ParentBoundary.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25334,6 +35067,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRelSpaceBoundary2ndLevel>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(CorrespondingBoundary != null ? CorrespondingBoundary.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25371,6 +35116,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRepresentation>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ContextOfItems != null ? ContextOfItems.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RepresentationIdentifier != null ? RepresentationIdentifier.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RepresentationType != null ? RepresentationType.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Items != null ? Items.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25397,6 +35157,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcShapeModel>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25423,6 +35193,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStyleModel>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25457,6 +35237,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStyledItem>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Item != null ? Item.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Styles != null ? Styles.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25481,6 +35275,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRepresentationMap>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(MappingOrigin != null ? MappingOrigin.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(MappedRepresentation != null ? MappedRepresentation.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25514,6 +35321,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcResourceApprovalRelationship>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatedResourceObjects != null ? RelatedResourceObjects.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatingApproval != null ? RelatingApproval.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25547,6 +35367,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcResourceConstraintRelationship>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RelatingConstraint != null ? RelatingConstraint.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RelatedResourceObjects != null ? RelatedResourceObjects.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25604,6 +35437,32 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcResourceTime>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ScheduleWork != null ? ScheduleWork.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ScheduleUsage != null ? ScheduleUsage.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ScheduleStart != null ? ScheduleStart.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ScheduleFinish != null ? ScheduleFinish.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ScheduleContour != null ? ScheduleContour.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LevelingDelay != null ? LevelingDelay.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(IsOverAllocated.STEPValue(ref indexDictionnary));
+			parameters.Add(StatusTime != null ? StatusTime.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ActualWork != null ? ActualWork.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ActualUsage != null ? ActualUsage.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ActualStart != null ? ActualStart.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ActualFinish != null ? ActualFinish.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RemainingWork != null ? RemainingWork.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RemainingUsage != null ? RemainingUsage.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Completion != null ? Completion.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25637,6 +35496,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRevolvedAreaSolid>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Axis != null ? Axis.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Angle != null ? Angle.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25667,6 +35539,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRevolvedAreaSolidTapered>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(EndSweptArea != null ? EndSweptArea.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25728,6 +35612,34 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTaskTime>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(DurationType.STEPValue(ref indexDictionnary));
+			parameters.Add(ScheduleDuration != null ? ScheduleDuration.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ScheduleStart != null ? ScheduleStart.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ScheduleFinish != null ? ScheduleFinish.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(EarlyStart != null ? EarlyStart.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(EarlyFinish != null ? EarlyFinish.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LateStart != null ? LateStart.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LateFinish != null ? LateFinish.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(FreeFloat != null ? FreeFloat.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TotalFloat != null ? TotalFloat.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(IsCritical.STEPValue(ref indexDictionnary));
+			parameters.Add(StatusTime != null ? StatusTime.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ActualDuration != null ? ActualDuration.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ActualStart != null ? ActualStart.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ActualFinish != null ? ActualFinish.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RemainingTime != null ? RemainingTime.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Completion != null ? Completion.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25761,6 +35673,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcWorkTime>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RecurrencePattern != null ? RecurrencePattern.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Start != null ? Start.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Finish != null ? Finish.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25800,6 +35726,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcShapeAspect>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ShapeRepresentations != null ? ShapeRepresentations.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ProductDefinitional != null ? ProductDefinitional.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PartOfProductDefinitionShape != null ? PartOfProductDefinitionShape.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25826,6 +35768,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcShapeRepresentation>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25852,6 +35804,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTopologyRepresentation>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25889,6 +35851,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSite>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RefLatitude != null ? RefLatitude.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RefLongitude != null ? RefLongitude.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RefElevation != null ? RefElevation.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LandTitleNumber != null ? LandTitleNumber.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SiteAddress != null ? SiteAddress.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25915,6 +35893,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSlabElementedCase>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25941,6 +35929,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSlabStandardCase>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -25974,6 +35972,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSlippageConnectionCondition>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(SlippageX != null ? SlippageX.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SlippageY != null ? SlippageY.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SlippageZ != null ? SlippageZ.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26013,6 +36025,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSweptDiskSolid>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Directrix != null ? Directrix.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Radius != null ? Radius.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(InnerRadius != null ? InnerRadius.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(StartParam != null ? StartParam.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(EndParam != null ? EndParam.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26044,6 +36072,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSpace>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(ElevationWithFlooring != null ? ElevationWithFlooring.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26076,6 +36117,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSpaceType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(LongName != null ? LongName.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26102,6 +36156,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSpatialStructureElementType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26131,6 +36195,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSpatialZone>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26160,6 +36236,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSpatialElementType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ElementType != null ? ElementType.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26192,6 +36280,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSpatialZoneType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(LongName != null ? LongName.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26221,6 +36322,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralAction>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(DestabilizingLoad.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26253,6 +36366,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralCurveAction>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ProjectedOrTrue.STEPValue(ref indexDictionnary));
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26279,6 +36405,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralPointAction>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26311,6 +36447,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralSurfaceAction>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ProjectedOrTrue.STEPValue(ref indexDictionnary));
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26337,6 +36486,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralReaction>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26366,8 +36525,24 @@ namespace IFC4
 		{
 			PredefinedType = predefinedType;
 			OrientationOf2DPlane = orientationOf2DPlane;
-			LoadedBy = new List<IfcStructuralLoadGroup>();
-			HasResults = new List<IfcStructuralResultGroup>();
+
+            if (loadedBy != null)
+            {
+                LoadedBy = loadedBy;
+            }
+            else
+            {
+                LoadedBy = new List<IfcStructuralLoadGroup>();
+            }
+
+            if (hasResults != null)
+            {
+                HasResults = hasResults;
+            }
+            else
+            {
+                HasResults = new List<IfcStructuralResultGroup>();
+            }
 			SharedPlacement = sharedPlacement;
 
 		}
@@ -26375,6 +36550,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralAnalysisModel>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(OrientationOf2DPlane != null ? OrientationOf2DPlane.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LoadedBy != null ? LoadedBy.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(HasResults != null ? HasResults.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SharedPlacement != null ? SharedPlacement.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26404,6 +36595,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralConnection>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(AppliedCondition != null ? AppliedCondition.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26434,6 +36637,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralCurveConnection>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Axis != null ? Axis.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26463,6 +36678,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralPointConnection>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ConditionCoordinateSystem != null ? ConditionCoordinateSystem.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26489,6 +36716,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralSurfaceConnection>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26515,6 +36752,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLinearAction>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26548,6 +36795,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralCurveMember>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(Axis != null ? Axis.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26574,6 +36834,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralCurveMemberVarying>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26600,6 +36870,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralMember>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26630,6 +36910,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralCurveReaction>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26659,6 +36951,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoad>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26684,13 +36988,34 @@ namespace IFC4
 		public IfcStructuralLoadConfiguration(IfcLabel name,List<IfcStructuralLoadOrResult> values,List<List<IfcLengthMeasure>> locations):base(name)
 		{
 			Values = values;
-			Locations = new List<List<IfcLengthMeasure>>();
+
+            if (locations != null)
+            {
+                Locations = locations;
+            }
+            else
+            {
+                Locations = new List<List<IfcLengthMeasure>>();
+            }
 
 		}
 		public static new IfcStructuralLoadConfiguration FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadConfiguration>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Values != null ? Values.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Locations != null ? Locations.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26717,6 +37042,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadOrResult>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26739,13 +37074,33 @@ namespace IFC4
 		[JsonConstructor]
 		public IfcStructuralLoadCase(IfcGloballyUniqueId globalId,IfcOwnerHistory ownerHistory,IfcLabel name,IfcText description,IfcLabel objectType,IfcLoadGroupTypeEnum predefinedType,IfcActionTypeEnum actionType,IfcActionSourceTypeEnum actionSource,IfcRatioMeasure coefficient,IfcLabel purpose,List<IfcRatioMeasure> selfWeightCoefficients):base(globalId,ownerHistory,name,description,objectType,predefinedType,actionType,actionSource,coefficient,purpose)
 		{
-			SelfWeightCoefficients = new List<IfcRatioMeasure>();
+
+            if (selfWeightCoefficients != null)
+            {
+                SelfWeightCoefficients = selfWeightCoefficients;
+            }
+            else
+            {
+                SelfWeightCoefficients = new List<IfcRatioMeasure>();
+            }
 
 		}
 		public static new IfcStructuralLoadCase FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadCase>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(SelfWeightCoefficients != null ? SelfWeightCoefficients.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26785,6 +37140,23 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadLinearForce>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(LinearForceX != null ? LinearForceX.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LinearForceY != null ? LinearForceY.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LinearForceZ != null ? LinearForceZ.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LinearMomentX != null ? LinearMomentX.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LinearMomentY != null ? LinearMomentY.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(LinearMomentZ != null ? LinearMomentZ.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26811,6 +37183,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadStatic>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26835,8 +37217,24 @@ namespace IFC4
 		[JsonConstructor]
 		public IfcSurfaceReinforcementArea(IfcLabel name,List<IfcLengthMeasure> surfaceReinforcement1,List<IfcLengthMeasure> surfaceReinforcement2,IfcRatioMeasure shearReinforcement):base(name)
 		{
-			SurfaceReinforcement1 = new List<IfcLengthMeasure>();
-			SurfaceReinforcement2 = new List<IfcLengthMeasure>();
+
+            if (surfaceReinforcement1 != null)
+            {
+                SurfaceReinforcement1 = surfaceReinforcement1;
+            }
+            else
+            {
+                SurfaceReinforcement1 = new List<IfcLengthMeasure>();
+            }
+
+            if (surfaceReinforcement2 != null)
+            {
+                SurfaceReinforcement2 = surfaceReinforcement2;
+            }
+            else
+            {
+                SurfaceReinforcement2 = new List<IfcLengthMeasure>();
+            }
 			ShearReinforcement = shearReinforcement;
 
 		}
@@ -26844,6 +37242,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceReinforcementArea>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(SurfaceReinforcement1 != null ? SurfaceReinforcement1.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SurfaceReinforcement2 != null ? SurfaceReinforcement2.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ShearReinforcement != null ? ShearReinforcement.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26877,6 +37289,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadPlanarForce>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PlanarForceX != null ? PlanarForceX.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PlanarForceY != null ? PlanarForceY.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(PlanarForceZ != null ? PlanarForceZ.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26916,6 +37342,23 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadSingleDisplacement>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(DisplacementX != null ? DisplacementX.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(DisplacementY != null ? DisplacementY.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(DisplacementZ != null ? DisplacementZ.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RotationalDisplacementRX != null ? RotationalDisplacementRX.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RotationalDisplacementRY != null ? RotationalDisplacementRY.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(RotationalDisplacementRZ != null ? RotationalDisplacementRZ.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26945,6 +37388,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadSingleDisplacementDistortion>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Distortion != null ? Distortion.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -26984,6 +37439,23 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadSingleForce>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ForceX != null ? ForceX.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ForceY != null ? ForceY.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ForceZ != null ? ForceZ.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(MomentX != null ? MomentX.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(MomentY != null ? MomentY.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(MomentZ != null ? MomentZ.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27013,6 +37485,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadSingleForceWarping>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(WarpingMoment != null ? WarpingMoment.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27046,6 +37530,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralLoadTemperature>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(DeltaTConstant != null ? DeltaTConstant.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(DeltaTY != null ? DeltaTY.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(DeltaTZ != null ? DeltaTZ.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27078,6 +37576,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralSurfaceMember>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(Thickness != null ? Thickness.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27104,6 +37615,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralPlanarAction>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27130,6 +37651,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralPointReaction>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27160,6 +37691,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralSurfaceReaction>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27186,6 +37729,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStructuralSurfaceMemberVarying>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27212,6 +37765,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcStyledRepresentation>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27244,6 +37807,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSweptSurface>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(SweptCurve != null ? SweptCurve.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Position != null ? Position.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27281,6 +37857,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceCurveSweptAreaSolid>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Directrix != null ? Directrix.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(StartParam != null ? StartParam.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(EndParam != null ? EndParam.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ReferenceSurface != null ? ReferenceSurface.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27314,6 +37905,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceOfLinearExtrusion>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ExtrudedDirection != null ? ExtrudedDirection.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Depth != null ? Depth.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27344,6 +37948,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceOfRevolution>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(AxisPosition != null ? AxisPosition.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27388,6 +38004,25 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSurfaceStyleRendering>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Transparency != null ? Transparency.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(DiffuseColour != null ? DiffuseColour.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(TransmissionColour != null ? TransmissionColour.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(DiffuseTransmissionColour != null ? DiffuseTransmissionColour.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ReflectionColour != null ? ReflectionColour.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SpecularColour != null ? SpecularColour.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(SpecularHighlight != null ? SpecularHighlight.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ReflectanceMethod.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27417,6 +38052,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcSweptDiskSolidPolygonal>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(FilletRadius != null ? FilletRadius.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27446,6 +38093,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcZone>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(LongName != null ? LongName.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27471,14 +38130,44 @@ namespace IFC4
 		public IfcTable(IfcLabel name,List<IfcTableRow> rows,List<IfcTableColumn> columns):base()
 		{
 			Name = name;
-			Rows = new List<IfcTableRow>();
-			Columns = new List<IfcTableColumn>();
+
+            if (rows != null)
+            {
+                Rows = rows;
+            }
+            else
+            {
+                Rows = new List<IfcTableRow>();
+            }
+
+            if (columns != null)
+            {
+                Columns = columns;
+            }
+            else
+            {
+                Columns = new List<IfcTableColumn>();
+            }
 
 		}
 		public static  IfcTable FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTable>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Rows != null ? Rows.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Columns != null ? Columns.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27516,6 +38205,22 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTableColumn>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Identifier != null ? Identifier.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Unit != null ? Unit.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(ReferencePath != null ? ReferencePath.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27539,7 +38244,15 @@ namespace IFC4
 		[JsonConstructor]
 		public IfcTableRow(List<IfcValue> rowCells,bool isHeading):base()
 		{
-			RowCells = new List<IfcValue>();
+
+            if (rowCells != null)
+            {
+                RowCells = rowCells;
+            }
+            else
+            {
+                RowCells = new List<IfcValue>();
+            }
 			IsHeading = isHeading;
 
 		}
@@ -27547,6 +38260,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTableRow>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(RowCells != null ? RowCells.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(IsHeading.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27577,6 +38303,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTaskTimeRecurring>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Recurrance != null ? Recurrance.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27609,6 +38347,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTaskType>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+			parameters.Add(WorkMethod != null ? WorkMethod.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27635,7 +38386,15 @@ namespace IFC4
 		public IfcTessellatedFaceSet(IfcCartesianPointList3D coordinates,List<List<IfcParameterValue>> normals,bool closed):base()
 		{
 			Coordinates = coordinates;
-			Normals = new List<List<IfcParameterValue>>();
+
+            if (normals != null)
+            {
+                Normals = normals;
+            }
+            else
+            {
+                Normals = new List<List<IfcParameterValue>>();
+            }
 			Closed = closed;
 
 		}
@@ -27643,6 +38402,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTessellatedFaceSet>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Coordinates != null ? Coordinates.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Normals != null ? Normals.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Closed.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27668,13 +38441,34 @@ namespace IFC4
 		public IfcTriangulatedFaceSet(IfcCartesianPointList3D coordinates,List<List<IfcParameterValue>> normals,bool closed,List<List<int>> coordIndex,List<List<int>> normalIndex):base(coordinates,normals,closed)
 		{
 			CoordIndex = coordIndex;
-			NormalIndex = new List<List<int>>();
+
+            if (normalIndex != null)
+            {
+                NormalIndex = normalIndex;
+            }
+            else
+            {
+                NormalIndex = new List<List<int>>();
+            }
 
 		}
 		public static new IfcTriangulatedFaceSet FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTriangulatedFaceSet>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(CoordIndex != null ? CoordIndex.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(NormalIndex != null ? NormalIndex.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27699,6 +38493,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTextLiteralWithExtent>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Extent != null ? Extent.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(BoxAlignment != null ? BoxAlignment.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27724,13 +38531,34 @@ namespace IFC4
 		public IfcTextureCoordinateGenerator(List<IfcSurfaceTexture> maps,IfcLabel mode,List<IfcReal> parameter):base(maps)
 		{
 			Mode = mode;
-			Parameter = new List<IfcReal>();
+
+            if (parameter != null)
+            {
+                Parameter = parameter;
+            }
+            else
+            {
+                Parameter = new List<IfcReal>();
+            }
 
 		}
 		public static new IfcTextureCoordinateGenerator FromJSON(string json)
 		{
 			return JsonConvert.DeserializeObject<IfcTextureCoordinateGenerator>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Mode != null ? Mode.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(Parameter != null ? Parameter.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27755,6 +38583,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTextureMap>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Vertices != null ? Vertices.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(MappedTo != null ? MappedTo.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27779,6 +38620,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTimePeriod>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(StartTime != null ? StartTime.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(EndTime != null ? EndTime.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27801,6 +38655,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcTimeSeriesValue>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ListValues != null ? ListValues.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27820,6 +38686,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcVertex>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27859,6 +38735,21 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcWindowStyle>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(ConstructionType.STEPValue(ref indexDictionnary));
+			parameters.Add(OperationType.STEPValue(ref indexDictionnary));
+			parameters.Add(ParameterTakesPrecedence.STEPValue(ref indexDictionnary));
+			parameters.Add(Sizeable.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27881,6 +38772,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcUnitAssignment>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(Units != null ? Units.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27903,6 +38806,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcVertexPoint>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(VertexGeometry != null ? VertexGeometry.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27927,6 +38842,19 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcVirtualGridIntersection>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(IntersectingAxes != null ? IntersectingAxes.STEPValue(ref indexDictionnary) : "$");
+			parameters.Add(OffsetDistances != null ? OffsetDistances.STEPValue(ref indexDictionnary) : "$");
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27953,6 +38881,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcWallElementedCase>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -27979,6 +38917,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcWallStandardCase>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -28005,6 +38953,16 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcWindowStandardCase>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -28034,6 +38992,18 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcWorkPlan>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 
 	/// <summary>
@@ -28063,5 +39033,17 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcWorkSchedule>(json);
 		}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List < string > parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);}
+            
+			parameters.Add(PredefinedType.STEPValue(ref indexDictionnary));
+
+
+            return string.Join(", ", parameters.ToArray());
+        }
 	}
 }

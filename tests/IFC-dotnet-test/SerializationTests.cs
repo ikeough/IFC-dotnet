@@ -43,9 +43,23 @@ namespace test
 			IList<STEPError> errors;
 			var model = Model.FromSTEP(stepPath, out errors);
 			var json = model.ToJSON();
-		}
+			var jsonpath = "../../../models/example.json";
+			File.WriteAllText(jsonpath,json);
+        }
 
-		[Fact]
+        [Fact]
+        public void ExampleModel_Serialize_STEP()
+        {
+            var stepPath = "../../../models/example.ifc";
+            IList<STEPError> errors;
+            var model = Model.FromSTEP(stepPath, out errors);
+            string ifcPath = "../../../models/exampleWritten.ifc";
+            string step = model.ToSTEP(ifcPath);
+            File.WriteAllText(ifcPath, step);
+
+        }
+
+        [Fact]
 		public void ExampleModel_Serialize_DOT()
 		{
 			var stepPath = "../../../models/example.ifc";
