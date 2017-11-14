@@ -5,7 +5,9 @@ using System;
 using System.ComponentModel;
 using System.Collections.Generic;
 using Newtonsoft.Json;
-	
+using System.Linq;
+using System.Reflection;
+
 namespace IFC4
 {
 	public abstract class BaseIfc
@@ -28,11 +30,38 @@ namespace IFC4
 			return JsonConvert.SerializeObject(this);
 		}
 
-		public virtual string ToSTEP()
-		{
-			throw new NotImplementedException();
-		}
-	}
+        public virtual string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return "";
+        }
+
+        public virtual string ToSTEP(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return string.Format("#{0} = {1}({2});\r\n",
+                STEPValue(ref indexDictionnary),
+                this.GetType().Name.ToUpper(),
+                this.STEPParameters(ref indexDictionnary));
+        }
+
+        public virtual string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            if (indexDictionnary.ContainsKey(Id))
+            {
+                return "#" + indexDictionnary[Id].ToString();
+            }
+            else
+            {
+                if (indexDictionnary.Count == 0)
+                {
+                    indexDictionnary.Add(Id, 1);
+                    return "1";
+                }
+                int index = indexDictionnary.Values.Last() + 1;
+                indexDictionnary.Add(Id, index);
+                return "#" + index.ToString();
+            }
+        }
+    }
 
 	public abstract class Select : BaseIfc
 	{
@@ -56,7 +85,13 @@ namespace IFC4
 		{
 			return new IfcType<T>(value);
 		}
-	}
+
+        public override string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            return Value.ToString();
+        }
+
+    }
 	
 	/// <summary>
 	/// http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcabsorbeddosemeasure.htm
@@ -7553,7 +7588,7 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcPolyline>(json);
 		}
-	}
+    }
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifctrimmedcurve.htm"/>
@@ -20909,7 +20944,20 @@ namespace IFC4
 		{
 			return JsonConvert.DeserializeObject<IfcRoot>(json);
 		}
-	}
+
+        public override string STEPParameters(ref Dictionary<Guid, int> indexDictionnary)
+        {
+            List<string> parameters = new List<string>();
+            string baseSTEPParameters = base.STEPParameters(ref indexDictionnary);
+            if (!string.IsNullOrEmpty(baseSTEPParameters)) { parameters.Add(baseSTEPParameters);} 
+            parameters.Add(GlobalId != null ? GlobalId.STEPValue(ref indexDictionnary) : "$");
+            parameters.Add(OwnerHistory != null ? OwnerHistory.STEPValue(ref indexDictionnary) : "$");
+            parameters.Add(Name != null ? Name.STEPValue(ref indexDictionnary) : "$");
+            parameters.Add(Description != null ? Description.STEPValue(ref indexDictionnary) : "$");
+
+            return string.Join(",", parameters.ToArray());
+        }
+    }
 
 	/// <summary>
 	/// <see href="http://www.buildingsmart-tech.org/ifc/IFC4/final/html/link/ifcopeningstandardcase.htm"/>
