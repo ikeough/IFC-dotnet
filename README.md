@@ -18,8 +18,9 @@ dotnet build
 
 # To Test
 ```
-cd src
-dotnet test
+cd tests
+cd IFC-dotnet-test
+dotnet xunit
 ```
 
 # Design Considerations
