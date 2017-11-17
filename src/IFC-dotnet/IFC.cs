@@ -6901,7 +6901,6 @@ namespace IFC4
 		/// </summary>
 		public IfcAxis2Placement2D(List<IfcPresentationLayerAssignment> layerAssignment,List<IfcStyledItem> styledByItem,IfcCartesianPoint location):base(layerAssignment,styledByItem,location)
 		{
-			P = new List<IfcBuild2Axes>();
 
 
 		}
@@ -6911,7 +6910,6 @@ namespace IFC4
 		[JsonConstructor]
 		public IfcAxis2Placement2D(List<IfcPresentationLayerAssignment> layerAssignment,List<IfcStyledItem> styledByItem,IfcCartesianPoint location,IfcDirection refDirection):base(layerAssignment,styledByItem,location)
 		{
-			P = new List<IfcBuild2Axes>();
 
 			RefDirection = refDirection;
 
@@ -6935,7 +6933,6 @@ namespace IFC4
 		/// </summary>
 		public IfcAxis2Placement3D(List<IfcPresentationLayerAssignment> layerAssignment,List<IfcStyledItem> styledByItem,IfcCartesianPoint location):base(layerAssignment,styledByItem,location)
 		{
-			P = new List<IfcBuildAxes>();
 
 
 		}
@@ -6945,7 +6942,6 @@ namespace IFC4
 		[JsonConstructor]
 		public IfcAxis2Placement3D(List<IfcPresentationLayerAssignment> layerAssignment,List<IfcStyledItem> styledByItem,IfcCartesianPoint location,IfcDirection axis,IfcDirection refDirection):base(layerAssignment,styledByItem,location)
 		{
-			P = new List<IfcBuildAxes>();
 
 			Axis = axis;
 			RefDirection = refDirection;
@@ -6975,7 +6971,6 @@ namespace IFC4
 		public IfcBSplineCurve(List<IfcPresentationLayerAssignment> layerAssignment,List<IfcStyledItem> styledByItem,int degree,List<IfcCartesianPoint> controlPointsList,IfcBSplineCurveForm curveForm,bool? closedCurve,bool? selfIntersect):base(layerAssignment,styledByItem)
 		{
 			ControlPointsList = new List<IfcCartesianPoint>();
-			ControlPoints = new List<IfcListToArray>();
 
 			Degree = degree;
 			ControlPointsList = controlPointsList;
@@ -7053,7 +7048,6 @@ namespace IFC4
 		public IfcRationalBSplineCurveWithKnots(List<IfcPresentationLayerAssignment> layerAssignment,List<IfcStyledItem> styledByItem,int degree,List<IfcCartesianPoint> controlPointsList,IfcBSplineCurveForm curveForm,bool? closedCurve,bool? selfIntersect,List<int> knotMultiplicities,List<IfcParameterValue> knots,IfcKnotType knotSpec,List<double> weightsData):base(layerAssignment,styledByItem,degree,controlPointsList,curveForm,closedCurve,selfIntersect,knotMultiplicities,knots,knotSpec)
 		{
 			WeightsData = new List<double>();
-			Weights = new List<IfcListToArray>();
 
 			WeightsData = weightsData;
 
@@ -7084,7 +7078,6 @@ namespace IFC4
 		public IfcBSplineSurface(List<IfcPresentationLayerAssignment> layerAssignment,List<IfcStyledItem> styledByItem,int uDegree,int vDegree,List<List<IfcCartesianPoint>> controlPointsList,IfcBSplineSurfaceForm surfaceForm,bool? uClosed,bool? vClosed,bool? selfIntersect):base(layerAssignment,styledByItem)
 		{
 			ControlPointsList = new List<List<IfcCartesianPoint>>();
-			ControlPoints = new List<List<IfcMakeArrayOfArray>>();
 
 			UDegree = uDegree;
 			VDegree = vDegree;
@@ -7170,7 +7163,6 @@ namespace IFC4
 		public IfcRationalBSplineSurfaceWithKnots(List<IfcPresentationLayerAssignment> layerAssignment,List<IfcStyledItem> styledByItem,int uDegree,int vDegree,List<List<IfcCartesianPoint>> controlPointsList,IfcBSplineSurfaceForm surfaceForm,bool? uClosed,bool? vClosed,bool? selfIntersect,List<int> uMultiplicities,List<int> vMultiplicities,List<IfcParameterValue> uKnots,List<IfcParameterValue> vKnots,IfcKnotType knotSpec,List<List<double>> weightsData):base(layerAssignment,styledByItem,uDegree,vDegree,controlPointsList,surfaceForm,uClosed,vClosed,selfIntersect,uMultiplicities,vMultiplicities,uKnots,vKnots,knotSpec)
 		{
 			WeightsData = new List<List<double>>();
-			Weights = new List<List<IfcMakeArrayOfArray>>();
 
 			WeightsData = weightsData;
 
@@ -7781,7 +7773,6 @@ namespace IFC4
 		[JsonConstructor]
 		public IfcCompositeCurveOnSurface(List<IfcPresentationLayerAssignment> layerAssignment,List<IfcStyledItem> styledByItem,List<IfcCompositeCurveSegment> segments,bool? selfIntersect):base(layerAssignment,styledByItem,segments,selfIntersect)
 		{
-			BasisSurface = new List<IfcGetBasisSurface>();
 
 
 		}
@@ -10427,7 +10418,6 @@ namespace IFC4
 		/// </summary>
 		public IfcCartesianTransformationOperator2D(List<IfcPresentationLayerAssignment> layerAssignment,List<IfcStyledItem> styledByItem,IfcCartesianPoint localOrigin):base(layerAssignment,styledByItem,localOrigin)
 		{
-			U = new List<IfcBaseAxis>();
 
 
 		}
@@ -10437,7 +10427,6 @@ namespace IFC4
 		[JsonConstructor]
 		public IfcCartesianTransformationOperator2D(List<IfcPresentationLayerAssignment> layerAssignment,List<IfcStyledItem> styledByItem,IfcDirection axis1,IfcDirection axis2,IfcCartesianPoint localOrigin,double scale):base(layerAssignment,styledByItem,axis1,axis2,localOrigin,scale)
 		{
-			U = new List<IfcBaseAxis>();
 
 
 		}
@@ -10459,7 +10448,6 @@ namespace IFC4
 		/// </summary>
 		public IfcCartesianTransformationOperator3D(List<IfcPresentationLayerAssignment> layerAssignment,List<IfcStyledItem> styledByItem,IfcCartesianPoint localOrigin):base(layerAssignment,styledByItem,localOrigin)
 		{
-			U = new List<IfcBaseAxis>();
 
 
 		}
@@ -10469,7 +10457,6 @@ namespace IFC4
 		[JsonConstructor]
 		public IfcCartesianTransformationOperator3D(List<IfcPresentationLayerAssignment> layerAssignment,List<IfcStyledItem> styledByItem,IfcDirection axis1,IfcDirection axis2,IfcCartesianPoint localOrigin,double scale,IfcDirection axis3):base(layerAssignment,styledByItem,axis1,axis2,localOrigin,scale)
 		{
-			U = new List<IfcBaseAxis>();
 
 			Axis3 = axis3;
 
