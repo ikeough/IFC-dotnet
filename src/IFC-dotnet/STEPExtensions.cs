@@ -47,7 +47,7 @@ namespace STEPExtensions
         public static string STEPValue(this IEnumerable<double> baseIfcs, ref Dictionary<Guid, int> indexDictionnary)
         {
             List<string> values = new List<string>();
-            foreach (int baseIfc in baseIfcs)
+            foreach (double baseIfc in baseIfcs)
             {
                 values.Add(baseIfc.STEPValue(ref indexDictionnary));
             }
@@ -222,7 +222,7 @@ namespace STEPExtensions
     {
         public static string STEPValue(this double value, ref Dictionary<Guid, int> indexDictionnary)
         {
-            return value.ToString();
+            return value.ToString("G", new System.Globalization.CultureInfo("en-US"));
         }
     }
 

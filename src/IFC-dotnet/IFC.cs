@@ -13,7 +13,7 @@ namespace IFC4
 	public abstract class BaseIfc
 	{
 		[JsonProperty("id")]
-		public Guid Id{get;set;}
+		public Guid Id{ get; set; }
 
 		public BaseIfc()
 		{
@@ -45,21 +45,22 @@ namespace IFC4
 
         public virtual string STEPValue(ref Dictionary<Guid, int> indexDictionnary)
         {
-            if (indexDictionnary.ContainsKey(Id))
-            {
-                return "#" + indexDictionnary[Id].ToString();
-            }
-            else
-            {
-                if (indexDictionnary.Count == 0)
-                {
-                    indexDictionnary.Add(Id, 1);
-                    return "#1";
-                }
-                int index = indexDictionnary.Values.Last() + 1;
-                indexDictionnary.Add(Id, index);
-                return "#" + index.ToString();
-            }
+            return "#" + indexDictionnary[Id].ToString();
+            //if (indexDictionnary.ContainsKey(Id))
+            //{
+            //    return "#" + indexDictionnary[Id].ToString();
+            //}
+            //else
+            //{
+            //    if (indexDictionnary.Count == 0)
+            //    {
+            //        indexDictionnary.Add(Id, 1);
+            //        return "#1";
+            //    }
+            //    int index = indexDictionnary.Values.Last() + 1;
+            //    indexDictionnary.Add(Id, index);
+            //    return "#" + index.ToString();
+            //}
         }
     }
 

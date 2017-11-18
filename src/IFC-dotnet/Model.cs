@@ -196,9 +196,19 @@ $@"graph model{{
         {
             string result = GetHeaderString(filePath) + "\r\n";
             Dictionary<Guid, int> indexDictionnary = new Dictionary<Guid, int>();
+            int stepIndex = 1;
             foreach (KeyValuePair<Guid, BaseIfc> instance in this.Instances)
             {
-                result = result + instance.Value.ToSTEP(ref indexDictionnary);
+                indexDictionnary.Add(instance.Value.Id, stepIndex);
+                stepIndex++;
+                //Debug.WriteLine(DateTime.Now.ToString("hh:mm:ss.fff") + ";" + " Writing line " + instanceValue.Remove(instanceValue.Length - 2));
+            }
+
+            foreach (KeyValuePair<Guid, BaseIfc> instance in this.Instances)
+            {
+                string instanceValue = instance.Value.ToSTEP(ref indexDictionnary);
+                result = result + instanceValue;
+                Debug.WriteLine(DateTime.Now.ToString("hh:mm:ss.fff") + ";" + " Writing line " + instanceValue.Remove(instanceValue.Length-2));
             }
 
             return result + GetFooterString();
@@ -322,7 +332,7 @@ $@"graph model{{
 		/// <returns></returns>
 		private static BaseIfc ConstructRecursive(STEP.InstanceData data, Dictionary<int,STEP.InstanceData> instanceDataMap, Model model, int currLine, IList<STEPError> errors)
 		{		
-			Debug.WriteLine($"{currLine},{data.Id} : Constructing type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
+			Debug.WriteLine(DateTime.Now.ToString("hh:mm:ss.fff") + ";" + $"{currLine},{data.Id} : Constructing type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
 	
 			for(var i=data.Parameters.Count()-1; i>=0; i--)
 			{
@@ -388,14 +398,16 @@ $@"graph model{{
 
 							// The object must be converted to the type expected in the list
 							// for Select types, this will be a recursive build of the base select type.
-							var convert = Convert(instanceType, subInstance);
+							BaseIfc convert = (BaseIfc)Convert(instanceType, subInstance);
+                            convert.Id = subInstance.Id;
 							subInstances.Add(convert);
 						}
 						else if(item is STEP.InstanceData)
 						{
-							var subInstance = ConstructRecursive((STEP.InstanceData)item, instanceDataMap, model, currLine, errors);
-							var convert = Convert(instanceType, subInstance);
-							subInstances.Add(convert);
+                            BaseIfc subInstance = ConstructRecursive((STEP.InstanceData)item, instanceDataMap, model, currLine, errors);
+                            BaseIfc convert = (BaseIfc)Convert(instanceType, subInstance);
+                            convert.Id = subInstance.Id;
+                            subInstances.Add(convert);
 						}
 						else
 						{
@@ -419,10 +431,28 @@ $@"graph model{{
 				}
 				
 				var pType = data.Parameters[i].GetType();
-				var expectedType = data.Constructor.GetParameters()[i].ParameterType;
-				
-				data.Parameters[i] = Convert(expectedType, data.Parameters[i]);
-			}
+				Type expectedType = data.Constructor.GetParameters()[i].ParameterType;
+                if (typeof(BaseIfc).IsAssignableFrom(expectedType))
+                {
+                    BaseIfc convert = (BaseIfc)Convert(expectedType, data.Parameters[i]);
+                    if (convert != null)
+                    {
+                        BaseIfc paramIfc = (BaseIfc)data.Parameters[i];
+                        convert.Id = paramIfc.Id;
+                        data.Parameters[i] = convert;
+                    }
+                    else
+                    {
+                        data.Parameters[i] = Convert(expectedType, data.Parameters[i]);
+                    }
+
+                }
+                else
+                {
+                    data.Parameters[i] = Convert(expectedType, data.Parameters[i]);
+                }
+                
+            }
 
 			// Construct the instance, assuming that all required sub-instances
 			// have already been constructed.
@@ -441,7 +471,7 @@ $@"graph model{{
 				instanceDataMap[data.Id].ConstructedGuid = instance.Id;
 			}
 			
-			Debug.WriteLine($"{currLine},{data.Id} : Constructed type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
+			Debug.WriteLine(DateTime.Now.ToString("hh:mm:ss.fff") + ";" + $"{currLine},{data.Id} : Constructed type {data.Type.Name} with parameters [{string.Join(",",data.Parameters)}]");
 
 			return instance;
 		}
@@ -460,7 +490,7 @@ $@"graph model{{
 				return value;
 			}
 
-			var converter = TypeDescriptor.GetConverter(expectedType);
+			TypeConverter converter = TypeDescriptor.GetConverter(expectedType);
 			if(converter != null && converter.CanConvertFrom(value.GetType()))
 			{
 				return converter.ConvertFrom(value);
