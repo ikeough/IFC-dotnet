@@ -1,3 +1,5 @@
+# THIS PROJECT HAS BEEN MERGED INTO [IFC-gen](https://github.com/ikeough/IFC-gen/blob/master/README.md) AND IS NO LONGER IN DEVELOPMENT HERE.
+
 # IFC-dotnet
 
 An [Industry Foundation Classes](http://www.buildingsmart-tech.org/specifications/ifc-overview/ifc-overview-summary) (IFC) library for .NET Core.
